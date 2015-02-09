@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Event &amp; Exhibition Summary"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <exhibitionsummary
+            jcr:primaryType="cq:Widget"
+            title="Carousel Options"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <icon
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="dates"
+                    fieldLabel="Icon"
+                    name="./icon"
+                    type="select"
+                    xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <alarmclock
+                                jcr:primaryType="nt:unstructured"
+                                text="Alarm Clock"
+                                value="timed-entry"/>
+                            <audioguide
+                                jcr:primaryType="nt:unstructured"
+                                text="Audio Guide"
+                                value="audio"/>
+                            <author
+                                jcr:primaryType="nt:unstructured"
+                                text="Author"
+                                value="author"/>
+                            <branding
+                                jcr:primaryType="nt:unstructured"
+                                text="Branding"
+                                value="branding"/>
+                            <calender
+                                jcr:primaryType="nt:unstructured"
+                                text="Calendar"
+                                value="dates"/>
+                            <clock
+                                jcr:primaryType="nt:unstructured"
+                                text="Clock"
+                                value="times"/>
+                            <gallery
+                                jcr:primaryType="nt:unstructured"
+                                text="Gallery"
+                                value="gallery"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                text="Location"
+                                value="location"/>
+                            <membership
+                                jcr:primaryType="nt:unstructured"
+                                text="Membership"
+                                value="membership"/>
+                            <noflashphotography
+                                jcr:primaryType="nt:unstructured"
+                                text="No Flash Photography"
+                                value="noflashphotography"/>
+                            <nophotography
+                                jcr:primaryType="nt:unstructured"
+                                text="No Photography"
+                                value="nophotography"/>
+                            <subscription
+                                jcr:primaryType="nt:unstructured"
+                                text="Subscription"
+                                value="subscription"/>
+                            <sunset
+                                jcr:primaryType="nt:unstructured"
+                                text="Sunset"
+                                value="after-hours"/>
+                            <ticket
+                                jcr:primaryType="nt:unstructured"
+                                text="Ticket"
+                                value="tickets"/>
+                        </options>
+                </icon>
+                <text
+                    jcr:primaryType="cq:Widget"
+                    editElementQuery="div.text"
+                    hideLabel="{Boolean}true"
+                    name="./text"
+                    xtype="richtext">
+                    <rtePlugins
+                        jcr:primaryType="cq:Widget"
+                        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                        xtype="cqinclude"/>
+                </text>
+                <richFlag
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="{Boolean}true"
+                    name="./textIsRich"
+                    value="true"
+                    xtype="hidden"/>
+            </items>
+        </exhibitionsummary>
+    </items>
+</jcr:root>

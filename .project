@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>nhm-www</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+	<filteredResources>
+		<filter>
+			<id>1412764260229</id>
+			<name></name>
+			<type>14</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.svn</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1412764260233</id>
+			<name></name>
+			<type>14</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.settings</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+</projectDescription>

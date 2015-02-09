@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Twitter Timeline"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <exhibitionsummary
+            jcr:primaryType="cq:Widget"
+            title="Twitter Timeline Options"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <widgetid
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="london"
+                    fieldLabel="Twitter Feed"
+                    name="./widgetid"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <o1
+                            jcr:primaryType="nt:unstructured"
+                            text="Homepage"
+                            value="homepage"/>
+                        <o2
+                            jcr:primaryType="nt:unstructured"
+                            text="Visit Us"
+                            value="visit-us"/>
+                        <o3
+                            jcr:primaryType="nt:unstructured"
+                            text="Our Science"
+                            value="our-science"/>
+                        <o4
+                            jcr:primaryType="nt:unstructured"
+                            text="The Museum on Twitter"
+                            value="museum"/>
+                        <o6
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_London"
+                            value="london"/>
+                        <o7
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_Visiting"
+                            value="visiting"/>
+                        <o8
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_Events"
+                            value="events"/>
+                        <o9
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_Library"
+                            value="library"/>
+                        <o10
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_ID"
+                            value="nhm-id"/>
+                    </options>
+                </widgetid>
+                <height
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="300"
+                    fieldLabel="Widget Height"
+                    name="./height"
+                    width="20"
+                    xtype="textfield"/>
+            </items>
+        </exhibitionsummary>
+    </items>
+</jcr:root>

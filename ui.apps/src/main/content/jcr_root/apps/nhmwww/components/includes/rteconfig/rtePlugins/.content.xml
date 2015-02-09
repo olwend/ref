@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <misctools
+        jcr:primaryType="nt:unstructured"
+        features="*"/>
+    <paraformat
+        jcr:primaryType="nt:unstructured"
+        features="*">
+        <formats jcr:primaryType="cq:WidgetCollection">
+            <nhmh2
+                jcr:primaryType="nt:unstructured"
+                description="Heading 2"
+                tag="h2"/>
+            <nhmh3
+                jcr:primaryType="nt:unstructured"
+                description="Heading 3"
+                tag="h3"/>
+            <nhmh4
+                jcr:primaryType="nt:unstructured"
+                description="Heading 4"
+                tag="h4"/>
+            <nhmh5
+                jcr:primaryType="nt:unstructured"
+                description="Heading 5"
+                tag="h5"/>
+            <p
+                jcr:primaryType="nt:unstructured"
+                description="Paragraph"
+                tag="p"/>
+        </formats>
+    </paraformat>
+    <styles 
+    	jcr:primaryType="nt:unstructured"
+        features="*">
+        <styles jcr:primaryType="cq:WidgetCollection">
+            <headingBox
+                jcr:primaryType="nt:unstructured"
+                cssName="heading-box"
+                text="Heading box"/>
+			<introText
+                jcr:primaryType="nt:unstructured"
+                cssName="intro-text"
+                text="Intro text"/>
+        </styles>
+    </styles>
+</jcr:root>

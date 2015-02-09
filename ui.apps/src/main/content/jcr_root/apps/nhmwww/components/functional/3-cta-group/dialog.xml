@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Call to action button"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <callToAction1
+                jcr:primaryType="cq:Panel"
+                title="Call to action 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calltoactionType
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="tickets"
+                        fieldLabel="Call To Action Type"
+                        name="./calltoaction1-type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <o1
+                                jcr:primaryType="nt:unstructured"
+                                text="Book Tickets"
+                                value="tickets"/>
+                            <o2
+                                jcr:primaryType="nt:unstructured"
+                                text="Membership"
+                                value="membership"/>
+                            <o3
+                                jcr:primaryType="nt:unstructured"
+                                text="Join Now"
+                                value="joinnow"/>
+                        </options>
+                    </calltoactionType>
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Only displayed when image is added to the component"
+                        fieldLabel="Component Title"
+                        name="./callToAction1-title"
+                        xtype="textfield"/>
+                    <ctaPath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Path"
+                        name="./callToAction1-cta-path"
+                        rootPath="/content/nhmwww/en/nhm-home"
+                        width="155"
+                        xtype="pathfield"/>
+                    <heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="CTA Label"
+                        name="./callToAction1-heading"
+                        xtype="textfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        editElementQuery="div.text"
+                        hideLabel="{Boolean}true"
+                        name="./callToAction1-text"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </text>
+                    <richFlag
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./callToAction1-textIsRich"
+                        value="true"
+                        xtype="hidden"/>
+                </items>
+            </callToAction1>
+            <callToAction2
+                jcr:primaryType="cq:Panel"
+                title="Call to action 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calltoactionType
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="tickets"
+                        fieldLabel="Call To Action Type"
+                        name="./callToAction2-type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <o1
+                                jcr:primaryType="nt:unstructured"
+                                text="Book Tickets"
+                                value="tickets"/>
+                            <o2
+                                jcr:primaryType="nt:unstructured"
+                                text="Membership"
+                                value="membership"/>
+                            <o3
+                                jcr:primaryType="nt:unstructured"
+                                text="Join Now"
+                                value="joinnow"/>
+                        </options>
+                    </calltoactionType>
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Only displayed when image is added to the component"
+                        fieldLabel="Component Title"
+                        name="./callToAction2-title"
+                        xtype="textfield"/>
+                    <ctaPath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Path"
+                        name="./callToAction2-cta-path"
+                        rootPath="/content/nhmwww/en/nhm-home"
+                        width="155"
+                        xtype="pathfield"/>
+                    <heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="CTA Label"
+                        name="./callToAction2-heading"
+                        xtype="textfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        editElementQuery="div.text"
+                        hideLabel="{Boolean}true"
+                        name="./callToAction2-text"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </text>
+                    <richFlag
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./callToAction2-textIsRich"
+                        value="true"
+                        xtype="hidden"/>
+                </items>
+            </callToAction2>
+            <callToAction3
+                jcr:primaryType="cq:Panel"
+                title="Call to action 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calltoactionType
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="tickets"
+                        fieldLabel="Call To Action Type"
+                        name="./callToAction3-type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <o1
+                                jcr:primaryType="nt:unstructured"
+                                text="Book Tickets"
+                                value="tickets"/>
+                            <o2
+                                jcr:primaryType="nt:unstructured"
+                                text="Membership"
+                                value="membership"/>
+                            <o3
+                                jcr:primaryType="nt:unstructured"
+                                text="Join Now"
+                                value="joinnow"/>
+                        </options>
+                    </calltoactionType>
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Only displayed when image is added to the component"
+                        fieldLabel="Component Title"
+                        name="./callToAction3-title"
+                        xtype="textfield"/>
+                    <ctaPath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Path"
+                        name="./callToAction3-cta-path"
+                        rootPath="/content/nhmwww/en/nhm-home"
+                        width="155"
+                        xtype="pathfield"/>
+                    <heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="CTA Label"
+                        name="./callToAction3-heading"
+                        xtype="textfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        editElementQuery="div.text"
+                        hideLabel="{Boolean}true"
+                        name="./callToAction3-text"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </text>
+                    <richFlag
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./callToAction3-textIsRich"
+                        value="true"
+                        xtype="hidden"/>
+                </items>
+            </callToAction3>
+            
+		</items>
+    </items>
+</jcr:root>

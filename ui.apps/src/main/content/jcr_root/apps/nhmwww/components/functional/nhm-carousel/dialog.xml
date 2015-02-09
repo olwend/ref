@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="{Long}400"
+    title="Carousel"
+    width="1000"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <carousel
+                jcr:primaryType="cq:Widget"
+                title="Carousel Options"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Component title"
+                        name="./title"
+                        width="155"
+                        xtype="textfield"/>
+                    <hyperlink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hyperlink"
+                        name="./hyperlink"
+                        width="155"
+                        xtype="pathfield"
+                        itemId="hyperlink"
+                        />
+                    <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <grouping
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="1"
+                        fieldLabel="Grouping"
+                        name="./grouping"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <o1
+                                jcr:primaryType="nt:unstructured"
+                                text="1"
+                                value="1"/>
+                            <o2
+                                jcr:primaryType="nt:unstructured"
+                                text="2"
+                                value="2"/>
+                            <o3
+                                jcr:primaryType="nt:unstructured"
+                                text="3"
+                                value="3"/>
+                        </options>
+                    </grouping>
+                    <thumbnails
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Thumbnails"
+                        name="./thumbnails"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                        	jcr:primaryType="nt:unstructured"
+                        	loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"
+                        	selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"
+                        />
+					</thumbnails>
+                    <autoscroll
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Autoscroll"
+                        name="./autoscroll"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <autoscrollduration
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Long}4"
+                        fieldDescription="Time in seconds until the next slide is shown."
+                        fieldLabel="Autoscroll Duration"
+                        name="./autoscrollduration"
+                        xtype="numberfield"/>
+                </items>
+            </carousel>
+            <carouselItems
+                jcr:primaryType="cq:Panel"
+                title="Items">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <carouselItems
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Links"
+                        hideLabel="{Boolean}true"
+                        name="./carouselItems"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="carouselmultifield"/>
+                    </carouselItems>
+                </items>
+            </carouselItems>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+	<filter root="/apps/nhmwww">
+		<exclude pattern="/apps/nhmwww/install" />
+	</filter>
+	<filter root="/apps/sidekick-customization"/>
+	<filter root="/apps/cq" />
+	<filter root="/apps/sling" />
+	<filter root="/apps/wcm/extensions/contentfinder"/>
+	<filter root="/etc/clientlibs/nhmwww"/>
+	<filter root="/etc/workflow/models/dam/update_asset"/>
+    <filter root="/etc/designs/nhmwww"/>
+</workspaceFilter>

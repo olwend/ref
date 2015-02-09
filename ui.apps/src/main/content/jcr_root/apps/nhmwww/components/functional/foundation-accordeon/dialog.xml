@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    height="{Long}400"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    width="600"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+           <behaviour
+                jcr:primaryType="cq:Widget"
+                title="Advanced"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <defaultOpen
+                        jcr:primaryType="cq:Widget"
+	                    defaultValue="{Boolean}false"
+	                    fieldDescription="Is the accordeon open by default"
+	                    fieldLabel="Open"
+	                    name="./isOpen"
+	                    type="checkbox"
+	                    xtype="selection"/>
+	                <panelTitle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Panel title"
+	                    name="./panelTitle"
+	                    xtype="textfield"/>
+	                <headingStyle
+                        jcr:primaryType="cq:Widget"
+                        defaultValue=""
+                        fieldLabel="Heading"
+                        name="./heading-style"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <none
+                                jcr:primaryType="nt:unstructured"
+                                text="None"
+                                value=""/>
+                            <h2
+                                jcr:primaryType="nt:unstructured"
+                                text="H2"
+                                value="h2"/>
+                            <h3
+                                jcr:primaryType="nt:unstructured"
+                                text="H3"
+                                value="h3"/>
+                            <h4
+                                jcr:primaryType="nt:unstructured"
+                                text="H4"
+                                value="h4"/>
+                            <h5
+                                jcr:primaryType="nt:unstructured"
+                                text="H5"
+                                value="h5"/>
+                        </options>
+                    </headingStyle>
+                </items>
+            </behaviour>
+        </items>
+    </items>
+</jcr:root>

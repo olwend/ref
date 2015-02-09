@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Social Media Sharing"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Social Network Settings">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <email
+                        jcr:primaryType="cq:Widget"
+                        text="Email"
+                        xtype="label"/>
+                    <emailshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./email/url"
+                        xtype="textfield"/>
+                    <facebook
+                        jcr:primaryType="cq:Widget"
+                        text="Facebook"
+                        xtype="label"/>
+                    <facebookshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./facebook/url"
+                        xtype="textfield"/>
+                    <google
+                        jcr:primaryType="cq:Widget"
+                        text="Google"
+                        xtype="label"/>
+                    <googleshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./google/url"
+                        xtype="textfield"/>
+                    <pinterest
+                        jcr:primaryType="cq:Widget"
+                        text="Pinterest"
+                        xtype="label"/>
+                    <pinterestshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./pinterest/url"
+                        xtype="textfield"/>
+                    <twitter
+                        jcr:primaryType="cq:Widget"
+                        text="Twitter"
+                        xtype="label"/>
+                    <twittershareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./twitter/url"
+                        xtype="textfield"/>
+                    <baidu
+                        jcr:primaryType="cq:Widget"
+                        text="Baidu"
+                        xtype="label"/>
+                    <baidushareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./baidu/url"
+                        xtype="textfield"/>
+                    <linkedin
+                        jcr:primaryType="cq:Widget"
+                        text="LinkedIn"
+                        xtype="label"/>
+                    <linkedinshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./linkedin/url"
+                        xtype="textfield"/>
+                    <delicious
+                        jcr:primaryType="cq:Widget"
+                        text="Delicious"
+                        xtype="label"/>
+                    <deliciousshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./delicious/url"
+                        xtype="textfield"/>
+                    <digg
+                        jcr:primaryType="cq:Widget"
+                        text="Digg"
+                        xtype="label"/>
+                    <diggshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./digg/url"
+                        xtype="textfield"/>
+                    <reddit
+                        jcr:primaryType="cq:Widget"
+                        text="Reddit"
+                        xtype="label"/>
+                    <redditshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./reddit/url"
+                        xtype="textfield"/>
+                    <stumbleupon
+                        jcr:primaryType="cq:Widget"
+                        text="StumbleUpon"
+                        xtype="label"/>
+                    <stumbleuponshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./stumbleupon/url"
+                        xtype="textfield"/>
+                    <tumblr
+                        jcr:primaryType="cq:Widget"
+                        text="Tumblr"
+                        xtype="label"/>
+                    <tumblrshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./tumblr/url"
+                        xtype="textfield"/>
+                    <wordpress
+                        jcr:primaryType="cq:Widget"
+                        text="Wordpress"
+                        xtype="label"/>
+                    <wordpressshareurl
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Share Url"
+                        name="./wordpress/url"
+                        xtype="textfield"/>
+                </items>
+            </tab1>
+        </items>
+    </items>
+</jcr:root>

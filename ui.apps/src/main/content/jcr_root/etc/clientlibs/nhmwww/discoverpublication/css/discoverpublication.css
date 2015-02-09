@@ -1,0 +1,79 @@
+.discoverpublication .leftarrow > div,
+.discoverpublication .rightarrow > div {
+	/*display: table;
+	width: 100%;*/
+}
+
+.discover .discoverpublication .foundation5image img {
+	width:100%;
+}
+.discover .discoverpublication h1 {
+	color:#565656 !important;
+}
+
+.discoverpublication .leftarrow a,
+.discoverpublication .rightarrow a {
+	display: table-cell;
+   	text-align: center;
+   	vertical-align: middle;	
+}
+
+.discover-image-caption-icon {
+	position: absolute;
+	bottom: 15px;
+	left: 1%;
+}
+
+.discover-image-caption-icon i.ico {
+	height: 50px;
+	width: 50px;
+	background-color: #808080;
+	border-radius: 25px; 
+	-webkit-border-radius: 25px; 
+	-moz-border-radius: 25px;
+}
+
+.discover-image-caption .close-icon i.ico svg {
+	height: 20px;
+	width: 20px;
+	padding-top: 5px;
+} 
+
+.discover-image-caption {
+	background-color: black;
+	bottom: 0px;
+	color: white;
+	position: absolute;
+	width: 100%;
+}
+
+.discover-image-caption > p {
+	color: white;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+
+.discover-image-caption a,
+.discover-image-caption a:hover {
+	color: #5fa796;
+}
+
+.discover-image-caption .close-icon {
+	float: right;
+	margin-right: 4px;
+}
+
+
+
+.discoverrelated {
+	background-color: #EEEEEE;
+}
+
+.discover-publication-footer .discover-age {
+	background: url('/etc/designs/nhmwww/img/icons/clock.png') no-repeat left;
+	color: gray;
+	font-size: 90%;
+	padding-left: 25px;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Panel"
+    title="Configuration">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <xmlPath
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Path to XML Files Folder"
+            fieldLabel="XML Path"
+            name="./metaData/xmlPath"
+            xtype="textfield"/>
+        <contentPath
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Path to Content Scientific Profiles"
+            fieldLabel="Scientific Profiles Path"
+            name="./metaData/contentPath"
+            rootPath="/content"
+            xtype="pathfield"/>
+        <damLocalDisk
+        	jcr:primaryType="cq:Widget"
+        	fieldDescription="Path to Image Files Folder"
+        	fieldLabel="Images Path"
+        	name="./metaData/imagesPath"
+        	xtype="textfield"/>
+        <damPath
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Path to AEM Assets"
+            fieldLabel="AEM Assets Path"
+            name="./metaData/damPath"
+            rootPath="/content/dam"
+            xtype="pathfield"/>
+    </items>
+</jcr:root>

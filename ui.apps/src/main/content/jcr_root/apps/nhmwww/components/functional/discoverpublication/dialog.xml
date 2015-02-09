@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Discover Publication Configuration"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        manageTabs="function(tab){var tabs=['configuration','image','video'];var index=tabs.indexOf(tab);if(index==-1) return;for(var i=1;i&lt;tabs.length;i++){if(index==i){this.unhideTabStripItem(i);}else{this.hideTabStripItem(i);}}this.doLayout();}"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <configuration
+                jcr:primaryType="cq:Panel"
+                title="Configuration">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        name="./jcr:title"
+                        xtype="textfield"/>
+                    <snippet
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Snippet"
+                        name="./snippet"
+                        xtype="richtext">
+                       <rtePlugins jcr:primaryType="nt:unstructured">
+                            <misctools
+						        jcr:primaryType="nt:unstructured"
+						        features="*"/>
+						    <paraformat
+						        jcr:primaryType="nt:unstructured"
+						        features="*">
+						        <formats jcr:primaryType="cq:WidgetCollection">
+						            <nhmh2
+						                jcr:primaryType="nt:unstructured"
+						                description="Heading 2"
+						                tag="h2"/>
+						            <nhmh3
+						                jcr:primaryType="nt:unstructured"
+						                description="Heading 3"
+						                tag="h3"/>
+						            <nhmh4
+						                jcr:primaryType="nt:unstructured"
+						                description="Heading 4"
+						                tag="h4"/>
+						            <p
+						                jcr:primaryType="nt:unstructured"
+						                description="Paragraph"
+						                tag="p"/>
+						        </formats>
+						    </paraformat>
+						    <styles 
+						    	jcr:primaryType="nt:unstructured"
+						        features="*">
+						        <styles jcr:primaryType="cq:WidgetCollection">
+						            <headingBox
+						                jcr:primaryType="nt:unstructured"
+						                cssName="heading-box"
+						                text="Heading box"/>
+									<introText
+						                jcr:primaryType="nt:unstructured"
+						                cssName="intro-text"
+						                text="Intro text"/>
+						        </styles>
+						    </styles>
+						    <links jcr:primaryType="nt:unstructured"
+						        features=""/>
+						</rtePlugins>
+                    </snippet>
+                    <pinned
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Pinned"
+                        name="./pinned"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(value, isChecked){                              var dateWidget = this.nextSibling();                              if (this.getValue() == 'true') {                               dateWidget.setValue(new Date($.now()));                              } else {                               dateWidget.setValue('');                              }                             }"/>
+                    </pinned>
+                    <pinneddate
+                        jcr:primaryType="cq:Widget"
+                        hidden="{Boolean}true"
+                        name="./pinnedDate"
+                        xtype="datetime"/>
+                    <introduction
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Introduction"
+                        name="./introduction"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </introduction>
+                    <itemtype
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="Image"
+                        fieldLabel="Item type"
+                        name="./type"
+                        type="select"
+                        value="Image"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <feature
+                                jcr:primaryType="nt:unstructured"
+                                text="Feature"
+                                value="feature"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                text="Image"
+                                value="image"/>
+                            <video
+                                jcr:primaryType="nt:unstructured"
+                                text="Video"
+                                value="video"/>
+                            <slideshow
+                                jcr:primaryType="nt:unstructured"
+                                text="Slideshow"
+                                value="slideshow"/>
+                            <news
+                                jcr:primaryType="nt:unstructured"
+                                text="News"
+                                value="news"/>
+                            <blog
+                                jcr:primaryType="nt:unstructured"
+                                text="Blog"
+                                value="blog"/>
+                            <podcast
+                                jcr:primaryType="nt:unstructured"
+                                text="Podcast"
+                                value="podcast"/>
+                            <scientist
+                                jcr:primaryType="nt:unstructured"
+                                text="Scientist"
+                                value="scientist"/>
+                        </options>
+                    </itemtype>
+                    <tags
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Tags"
+                        name="./cq:tags"
+                        xtype="tags"/>
+                    <imagealt 
+                    	jcr:primaryType="cq:Widget"
+                    	fieldLabel="Image Alt Text"
+                    	name="./image/alt"
+                    	xtype="textfield"/>
+                    <imagecaption
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Image Caption"
+                        name="./imageCaption"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </imagecaption>
+                    <headtype
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="image"
+                        fieldLabel="Image or Video"
+                        name="./headType"
+                        type="radio"
+                        value="image"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                text="Image"
+                                value="image"/>
+                            <video
+                                jcr:primaryType="nt:unstructured"
+                                text="Video"
+                                value="video"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(){this.findParentByType('tabpanel').manageTabs(this.getValue());}"
+                            selectionchanged="function(box,value){box.findParentByType('tabpanel').manageTabs(value);}"/>
+                    </headtype>
+                </items>
+            </configuration>
+            <image
+                jcr:primaryType="cq:Widget"
+                cropParameter="./image/imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./image/fileName"
+                fileReferenceParameter="./image/fileReference"
+                mapParameter="./image/imageMap"
+                name="./image/file"
+                requestSuffix="/image.img.png"
+                rotateParameter="./image/imageRotate"
+                title="Image"
+                xtype="html5smartimage">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <resType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./image/sling:resourceType"
+                        value="nhmwww/components/functional/foundation5image"
+                        xtype="hidden"/>
+                </items>
+            </image>
+            <video
+                jcr:primaryType="cq:Panel"
+                hidden="{Boolean}true"
+                title="Video">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <youtube
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Optional: Drag and drop a video from the YouTube tab of the Content Finder"
+                        fieldLabel="Video"
+                        name="./video/youtube"
+                        width="155"
+                        xtype="youtubevideofield"/>
+                </items>
+            </video>
+        </items>
+    </items>
+</jcr:root>

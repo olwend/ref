@@ -1,0 +1,21 @@
+.discoverrelated .foundation5image {
+	margin-bottom: 0px;
+}
+
+.discoverrelated .row, .full-width {
+	margin-bottom: 0px;
+}
+
+.discoverrelated .discover-element-wrapper > a {
+	display: block;
+	overflow: visible;
+}
+
+.discoverrelated .discover a {
+	font-weight: bold !important;
+}
+
+.discoverrelated .discover h3 { 
+	padding-left: 5px;
+	padding-top: 5px;
+}

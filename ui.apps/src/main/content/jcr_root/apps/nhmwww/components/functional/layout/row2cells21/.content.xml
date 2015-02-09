@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="This component add a single row with two cells one of 66% followed by 33%"
+    jcr:primaryType="cq:Component"
+    jcr:title="Row 2 Cells 2 col then 1 col"
+    allowedParents="[*/*parsys]"
+    componentGroup="NHM - Stacked"/>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Template"
+    jcr:title="Natural History Museum Exhibition Details Page"
+    allowedParents="[/apps/nhmwww/templates/homepage,/apps/nhmwww/templates/landingpage,/apps/nhmwww/templates/sublandingpage,/apps/nhmwww/templates/contentpage]"
+    allowedPaths="[/content/nhmwww/(.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="nhmwww/components/page/exhibitiondetailspage">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <hero
+               jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/hero"/>
+            <row2cells12
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/row2cells12">
+                <par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys"/>
+            </row2cells12>
+            <rowfullwidth
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/rowfullwidth"/>
+            <row2cells21
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
+        </par>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Logo Configuration"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <basic
+                jcr:primaryType="cq:Panel"
+                title="Basic">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <level
+                        jcr:primaryType="cq:Widget"
+                        allowNegative="(Boolean)false"
+                        fieldDescription="Path level for landing pages. 0 is /content, 1 is /content/nhmwww, etc"
+                        fieldLabel="Path Level"
+                        name="./level"
+                        xtype="numberfield"/>
+                </items>
+            </basic>
+            <image
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/logo/design_dialog/items/img.infinity.json"
+                xtype="cqinclude"/>
+        </items>
+    </items>
+</jcr:root>

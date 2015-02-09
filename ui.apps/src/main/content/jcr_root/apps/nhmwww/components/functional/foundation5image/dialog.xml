@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    height="{Long}400"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    width="600"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <image
+                jcr:primaryType="cq:Widget"
+                cropParameter="./imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./fileName"
+                fileReferenceParameter="./fileReference"
+                mapParameter="./imageMap"
+                name="./file"
+                requestSuffix=".img.png"
+                rotateParameter="./imageRotate"
+                title="Image"
+                xtype="html5smartimage"/>
+            <advanced
+                jcr:primaryType="cq:Widget"
+                title="Advanced"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        name="./jcr:title"
+                        xtype="textfield"/>
+                    <alt
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="(leave empty to use the title defined above)"
+                        fieldLabel="Alt Text"
+                        name="./alt"
+                        xtype="textfield"/>
+                    <description
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Description"
+                        name="./jcr:description"
+                        xtype="textarea"/>
+                    <caption
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Caption"
+                        name="./caption"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </caption>
+                    <imagePath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Image link"
+                        name="./image-path"
+                        width="155"
+                        xtype="pathfield"/>
+                    <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
+            </advanced>
+        </items>
+    </items>
+</jcr:root>

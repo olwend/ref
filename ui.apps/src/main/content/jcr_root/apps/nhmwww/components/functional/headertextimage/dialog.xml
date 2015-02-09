@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <image
+            jcr:primaryType="cq:Widget"
+            cropParameter="./imageCrop"
+            ddGroups="[media]"
+            fileNameParameter="./fileName"
+            fileReferenceParameter="./fileReference"
+            mapParameter="./imageMap"
+            name="./file"
+            requestSuffix=".img.png"
+            rotateParameter="./imageRotate"
+            title="Image"
+            xtype="html5smartimage"/>
+        <advanced
+            jcr:primaryType="cq:Widget"
+            title="Advanced"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <title
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Title"
+                    name="./jcr:title"
+                    xtype="textfield"/>
+                <alt
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="(leave empty to use the title defined above)"
+                    fieldLabel="Alt Text"
+                    name="./alt"
+                    xtype="textfield"/>
+                <description
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Description"
+                    name="./jcr:description"
+                    xtype="textarea"/>
+                <imageSize
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="4"
+                    fieldLabel="Image Size"
+                    name="./imageSize"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <o1
+                            jcr:primaryType="nt:unstructured"
+                            text="One Column"
+                            value="4"/>
+                        <o2
+                            jcr:primaryType="nt:unstructured"
+                            text="Two columns"
+                            value="8"/>
+                    </options>
+                </imageSize>
+                <imagePath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Image link"
+                        name="./image-path"
+                        width="155"
+                        xtype="pathfield"/>
+                <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                <imagePosition
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="right"
+                    fieldLabel="Image Position"
+                    name="./imagePosition"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <o1
+                            jcr:primaryType="nt:unstructured"
+                            text="Right"
+                            value="right"/>
+                        <o2
+                            jcr:primaryType="nt:unstructured"
+                            text="Left"
+                            value="left"/>
+                    </options>
+                </imagePosition>
+            </items>
+        </advanced>
+        <tab1
+            jcr:primaryType="cq:Widget"
+            anchor="100%"
+            title="Text"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <heading
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Heading"
+                    name="./text-heading"
+                    xtype="textfield"/>
+                <linkURL
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Drop files or pages from the Content Finder"
+                    fieldLabel="Link to"
+                    name="./linkURL"
+                    xtype="pathfield"/>
+                   <newwindowheading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindowheading"
+                        type="checkbox"
+                        xtype="selection"/>
+                <addCallToAction
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}true"
+                    fieldDescription="Display a Call to action Button"
+                    fieldLabel="Call to action Button"
+                    name="./addCallToAction"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function() {                           if(this.getValue() == 'true' ) {          this.findParentByType('tabpanel').unhideTabStripItem(3);         } else {          this.findParentByType('tabpanel').hideTabStripItem(3);         }        }"
+                        selectionchanged="function() {                           if(this.getValue() == 'true' ) {          this.findParentByType('tabpanel').unhideTabStripItem(3);         } else {          this.findParentByType('tabpanel').hideTabStripItem(3);         }        }"/>
+                </addCallToAction>
+                <type
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Component type"
+                    name="./component-type"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <o1
+                            jcr:primaryType="nt:unstructured"
+                            text="Standard"
+                            value=""/>
+                        <o2
+                            jcr:primaryType="nt:unstructured"
+                            text="Feature Box"
+                            value="feature-box"/>
+                        <o3
+                            jcr:primaryType="nt:unstructured"
+                            text="Aside box"
+                            value="aside-box"/>
+                    </options>
+                </type>
+                <text
+                    jcr:primaryType="cq:Widget"
+                    editElementQuery="div.text"
+                    hideLabel="{Boolean}true"
+                    name="./text"
+                    xtype="richtext">
+                    <rtePlugins
+                        jcr:primaryType="cq:Widget"
+                        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                        xtype="cqinclude"/>
+                </text>
+                <richFlag
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="{Boolean}true"
+                    name="./textIsRich"
+                    value="true"
+                    xtype="hidden"/>
+            </items>
+        </tab1>
+        <callToAction
+            jcr:primaryType="cq:Widget"
+            anchor="100%"
+            title="Call To Action"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <callToActionTitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Title "
+                    name="./callToActionTitle"
+                    xtype="textfield"/>
+                <callToActionLink
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please enter the link of the call to action button"
+                    fieldLabel="Link to"
+                    name="./callToActionLink"
+                    xtype="pathfield"/>
+               <callToActionNewWindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./callToActionNewWindow"
+                        type="checkbox"
+                        xtype="selection"/>
+            </items>
+        </callToAction>
+    </items>
+</jcr:root>

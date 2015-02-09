@@ -1,0 +1,10 @@
+#CQ .carouselmultifield table td.x-table-layout-cell:nth-child(4) div,#CQ .carouselmultifield table td.x-table-layout-cell:nth-child(6) div {
+	width:167px !important; 
+}
+#CQ .carouselmultifield-itempathfield {
+	width:150px;
+}
+
+#CQ .carouselmultifield-itemURL {
+	width:150px;
+}
