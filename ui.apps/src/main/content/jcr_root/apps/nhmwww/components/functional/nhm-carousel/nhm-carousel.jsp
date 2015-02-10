@@ -9,6 +9,7 @@
 <cq:defineObjects/>
 <sling:defineObjects/>
 <cq:includeClientLib categories="wwwnhm.carousel"/>
+<h2>TEST - remove!</h2>
 <%
 	CarouselHelper helper = new CarouselHelper(resource, pageManager, resourceResolver);
 	if (isOnEditMode) {
