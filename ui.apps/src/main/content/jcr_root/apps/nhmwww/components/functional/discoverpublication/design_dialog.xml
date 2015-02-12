@@ -11,12 +11,12 @@
                 jcr:primaryType="cq:Panel"
                 title="Configuration">
                 <items jcr:primaryType="cq:WidgetCollection">
-					<tags 
-						jcr:primaryType="cq:Widget"
-						fieldDescription="Tag used to mark the element as a Discover Publication"
-						fieldLabel="Discover Tag"
-						name="./cq:tags"
-						xtype="tags"/>
+                    <tags
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Tag used to mark the element as a Discover Publication"
+                        fieldLabel="Discover Tag"
+                        name="./cq:tags"
+                        xtype="tags"/>
                 </items>
             </configuration>
         </items>

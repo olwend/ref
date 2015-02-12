@@ -23,11 +23,10 @@
                     <hyperlink
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Hyperlink"
+                        itemId="hyperlink"
                         name="./hyperlink"
                         width="155"
-                        xtype="pathfield"
-                        itemId="hyperlink"
-                        />
+                        xtype="pathfield"/>
                     <newwindow
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Open in New Window"
@@ -63,11 +62,10 @@
                         type="checkbox"
                         xtype="selection">
                         <listeners
-                        	jcr:primaryType="nt:unstructured"
-                        	loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"
-                        	selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"
-                        />
-					</thumbnails>
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"
+                            selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"/>
+                    </thumbnails>
                     <autoscroll
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Autoscroll"

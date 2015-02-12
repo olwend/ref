@@ -16,64 +16,64 @@
                     name="./icon"
                     type="select"
                     xtype="selection">
-                        <options jcr:primaryType="cq:WidgetCollection">
-                            <alarmclock
-                                jcr:primaryType="nt:unstructured"
-                                text="Alarm Clock"
-                                value="timed-entry"/>
-                            <audioguide
-                                jcr:primaryType="nt:unstructured"
-                                text="Audio Guide"
-                                value="audio"/>
-                            <author
-                                jcr:primaryType="nt:unstructured"
-                                text="Author"
-                                value="author"/>
-                            <branding
-                                jcr:primaryType="nt:unstructured"
-                                text="Branding"
-                                value="branding"/>
-                            <calender
-                                jcr:primaryType="nt:unstructured"
-                                text="Calendar"
-                                value="dates"/>
-                            <clock
-                                jcr:primaryType="nt:unstructured"
-                                text="Clock"
-                                value="times"/>
-                            <gallery
-                                jcr:primaryType="nt:unstructured"
-                                text="Gallery"
-                                value="gallery"/>
-                            <location
-                                jcr:primaryType="nt:unstructured"
-                                text="Location"
-                                value="location"/>
-                            <membership
-                                jcr:primaryType="nt:unstructured"
-                                text="Membership"
-                                value="membership"/>
-                            <noflashphotography
-                                jcr:primaryType="nt:unstructured"
-                                text="No Flash Photography"
-                                value="noflashphotography"/>
-                            <nophotography
-                                jcr:primaryType="nt:unstructured"
-                                text="No Photography"
-                                value="nophotography"/>
-                            <subscription
-                                jcr:primaryType="nt:unstructured"
-                                text="Subscription"
-                                value="subscription"/>
-                            <sunset
-                                jcr:primaryType="nt:unstructured"
-                                text="Sunset"
-                                value="after-hours"/>
-                            <ticket
-                                jcr:primaryType="nt:unstructured"
-                                text="Ticket"
-                                value="tickets"/>
-                        </options>
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <alarmclock
+                            jcr:primaryType="nt:unstructured"
+                            text="Alarm Clock"
+                            value="timed-entry"/>
+                        <audioguide
+                            jcr:primaryType="nt:unstructured"
+                            text="Audio Guide"
+                            value="audio"/>
+                        <author
+                            jcr:primaryType="nt:unstructured"
+                            text="Author"
+                            value="author"/>
+                        <branding
+                            jcr:primaryType="nt:unstructured"
+                            text="Branding"
+                            value="branding"/>
+                        <calender
+                            jcr:primaryType="nt:unstructured"
+                            text="Calendar"
+                            value="dates"/>
+                        <clock
+                            jcr:primaryType="nt:unstructured"
+                            text="Clock"
+                            value="times"/>
+                        <gallery
+                            jcr:primaryType="nt:unstructured"
+                            text="Gallery"
+                            value="gallery"/>
+                        <location
+                            jcr:primaryType="nt:unstructured"
+                            text="Location"
+                            value="location"/>
+                        <membership
+                            jcr:primaryType="nt:unstructured"
+                            text="Membership"
+                            value="membership"/>
+                        <noflashphotography
+                            jcr:primaryType="nt:unstructured"
+                            text="No Flash Photography"
+                            value="noflashphotography"/>
+                        <nophotography
+                            jcr:primaryType="nt:unstructured"
+                            text="No Photography"
+                            value="nophotography"/>
+                        <subscription
+                            jcr:primaryType="nt:unstructured"
+                            text="Subscription"
+                            value="subscription"/>
+                        <sunset
+                            jcr:primaryType="nt:unstructured"
+                            text="Sunset"
+                            value="after-hours"/>
+                        <ticket
+                            jcr:primaryType="nt:unstructured"
+                            text="Ticket"
+                            value="tickets"/>
+                    </options>
                 </icon>
                 <text
                     jcr:primaryType="cq:Widget"

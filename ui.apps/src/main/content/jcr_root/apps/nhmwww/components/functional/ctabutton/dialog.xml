@@ -78,7 +78,7 @@
                         </options>
                     </calltoactionType>
                     <colourSectionOverride
-                    	jcr:primaryType="cq:Widget"
+                        jcr:primaryType="cq:Widget"
                         defaultValue=""
                         fieldLabel="Colour theme"
                         name="./section-override"
@@ -125,7 +125,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="Visit"
                                 value="visit"/>
-                    	</options>
+                        </options>
                     </colourSectionOverride>
                     <title
                         jcr:primaryType="cq:Widget"
@@ -139,7 +139,7 @@
                         name="./cta-path"
                         width="155"
                         xtype="pathfield"/>
-                   <newwindow
+                    <newwindow
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Open in New Window"
                         name="./newwindow"

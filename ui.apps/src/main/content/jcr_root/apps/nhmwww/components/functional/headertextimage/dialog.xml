@@ -57,17 +57,17 @@
                     </options>
                 </imageSize>
                 <imagePath
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Image link"
-                        name="./image-path"
-                        width="155"
-                        xtype="pathfield"/>
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Image link"
+                    name="./image-path"
+                    width="155"
+                    xtype="pathfield"/>
                 <newwindow
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Open in New Window"
-                        name="./newwindow"
-                        type="checkbox"
-                        xtype="selection"/>
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./newwindow"
+                    type="checkbox"
+                    xtype="selection"/>
                 <imagePosition
                     jcr:primaryType="cq:Widget"
                     defaultValue="right"
@@ -105,12 +105,12 @@
                     fieldLabel="Link to"
                     name="./linkURL"
                     xtype="pathfield"/>
-                   <newwindowheading
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Open in New Window"
-                        name="./newwindowheading"
-                        type="checkbox"
-                        xtype="selection"/>
+                <newwindowheading
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./newwindowheading"
+                    type="checkbox"
+                    xtype="selection"/>
                 <addCallToAction
                     jcr:primaryType="cq:Widget"
                     defaultValue="{Boolean}true"
@@ -182,12 +182,12 @@
                     fieldLabel="Link to"
                     name="./callToActionLink"
                     xtype="pathfield"/>
-               <callToActionNewWindow
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Open in New Window"
-                        name="./callToActionNewWindow"
-                        type="checkbox"
-                        xtype="selection"/>
+                <callToActionNewWindow
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./callToActionNewWindow"
+                    type="checkbox"
+                    xtype="selection"/>
             </items>
         </callToAction>
     </items>

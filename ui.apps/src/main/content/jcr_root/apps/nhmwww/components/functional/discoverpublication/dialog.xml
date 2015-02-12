@@ -22,49 +22,50 @@
                         fieldLabel="Snippet"
                         name="./snippet"
                         xtype="richtext">
-                       <rtePlugins jcr:primaryType="nt:unstructured">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
                             <misctools
-						        jcr:primaryType="nt:unstructured"
-						        features="*"/>
-						    <paraformat
-						        jcr:primaryType="nt:unstructured"
-						        features="*">
-						        <formats jcr:primaryType="cq:WidgetCollection">
-						            <nhmh2
-						                jcr:primaryType="nt:unstructured"
-						                description="Heading 2"
-						                tag="h2"/>
-						            <nhmh3
-						                jcr:primaryType="nt:unstructured"
-						                description="Heading 3"
-						                tag="h3"/>
-						            <nhmh4
-						                jcr:primaryType="nt:unstructured"
-						                description="Heading 4"
-						                tag="h4"/>
-						            <p
-						                jcr:primaryType="nt:unstructured"
-						                description="Paragraph"
-						                tag="p"/>
-						        </formats>
-						    </paraformat>
-						    <styles 
-						    	jcr:primaryType="nt:unstructured"
-						        features="*">
-						        <styles jcr:primaryType="cq:WidgetCollection">
-						            <headingBox
-						                jcr:primaryType="nt:unstructured"
-						                cssName="heading-box"
-						                text="Heading box"/>
-									<introText
-						                jcr:primaryType="nt:unstructured"
-						                cssName="intro-text"
-						                text="Intro text"/>
-						        </styles>
-						    </styles>
-						    <links jcr:primaryType="nt:unstructured"
-						        features=""/>
-						</rtePlugins>
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <formats jcr:primaryType="cq:WidgetCollection">
+                                    <nhmh2
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 2"
+                                        tag="h2"/>
+                                    <nhmh3
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 3"
+                                        tag="h3"/>
+                                    <nhmh4
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 4"
+                                        tag="h4"/>
+                                    <p
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Paragraph"
+                                        tag="p"/>
+                                </formats>
+                            </paraformat>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <styles jcr:primaryType="cq:WidgetCollection">
+                                    <headingBox
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="heading-box"
+                                        text="Heading box"/>
+                                    <introText
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="intro-text"
+                                        text="Intro text"/>
+                                </styles>
+                            </styles>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features=""/>
+                        </rtePlugins>
                     </snippet>
                     <pinned
                         jcr:primaryType="cq:Widget"
@@ -139,11 +140,11 @@
                         fieldLabel="Tags"
                         name="./cq:tags"
                         xtype="tags"/>
-                    <imagealt 
-                    	jcr:primaryType="cq:Widget"
-                    	fieldLabel="Image Alt Text"
-                    	name="./image/alt"
-                    	xtype="textfield"/>
+                    <imagealt
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Image Alt Text"
+                        name="./image/alt"
+                        xtype="textfield"/>
                     <imagecaption
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Image Caption"
