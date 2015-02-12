@@ -17,6 +17,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -28,6 +30,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.foundation.Image;
 
@@ -41,6 +44,10 @@ public class FeedListHelperTest {
 	ResourceResolver mockResourceResolver;
 	@Mock
 	Resource mockResource;
+	@Mock
+	Page mockPage;
+	@Mock
+	HttpServletRequest mockRequest;
 
 	private ValueMap properties;
 	private PressReleaseFeedListHelper helper;
@@ -58,16 +65,16 @@ public class FeedListHelperTest {
 		properties.put("numberToDisplay", 6);
 		properties.put("title", "Test Title");
 		properties.put("feedRoot", "/content/nhmwww/en/home/press/press-releases/");
-		helper = new PressReleaseFeedListHelper(properties);
+		helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
 		
-		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(mockPageManager, mockResourceResolver);
+		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(mockResourceResolver, mockPage);
 		listElement1.setTitle("A frenchman is born");
 		listElement1.setIntro("Is this realy newsworthy?");
 		listElement1.setImagePath("/dam/image/mock");
 		Calendar cal = new GregorianCalendar(1982,4,1);
         Date date =  cal.getTime();
 		listElement1.setPressReleaseDate(date);
-		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(mockPageManager, mockResourceResolver);
+		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(mockResourceResolver, mockPage);
 		listElement2.setTitle("Something else happened");
 		listElement2.setIntro("just watch the news");
 		listElement2.setImagePath("/dam/image/mock");

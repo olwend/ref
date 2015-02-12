@@ -109,4 +109,8 @@ public class PageUtils {
 		return imageToReturn;
 	
 	}
+
+	public static String getPageDescription(Page page) {
+		return page.getDescription();
+	}
 }
