@@ -34,6 +34,7 @@ public class FeedListHelper extends HelperBase {
 		this.properties = properties;
 		this.pageManager = pageManager;
 		this.currentPage = currentPage;
+		
 		this.request = request;
 		this.resourceResolver = resourceResolver;
 		init();
@@ -45,6 +46,9 @@ public class FeedListHelper extends HelperBase {
 		}
 		if (this.properties.get("hyperlink", String.class) != null) {
 			this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
+		}
+		if (this.properties.get("numberToDisplay", Integer.class) != null) {
+			this.numberOfItems = this.properties.get("numberToDisplay",6);
 		}
 		this.rootPagePath = this.properties.get("rootPagePath",currentPage.getPath());
 		this.rootPage = pageManager.getPage(rootPagePath);
