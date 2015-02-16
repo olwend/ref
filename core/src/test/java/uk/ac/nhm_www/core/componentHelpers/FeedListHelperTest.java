@@ -81,10 +81,8 @@ public class FeedListHelperTest {
 		this.mockPageManager = aemContext.pageManager();
 		
 		this.mockPage = this.mockResource.adaptTo(Page.class);
-		//String title = this.mockPage.getTitle();
-		System.out.println("TOTO: " + this.mockResourceResolver.toString());
 		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
-		
+		helper.setComponentTitle("alpha");
 		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(this.mockResourceResolver, mockPage);
 		listElement1.setTitle("A frenchman is born");
 		listElement1.setIntro("Is this realy newsworthy?");
@@ -92,6 +90,7 @@ public class FeedListHelperTest {
 		Calendar cal = new GregorianCalendar(1982,4,1);
         Date date =  cal.getTime();
 		listElement1.setPressReleaseDate(date);
+		this.helper.addListElement(listElement1);
 		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(this.mockResourceResolver, mockPage);
 		listElement2.setTitle("Something else happened");
 		listElement2.setIntro("just watch the news");
@@ -99,15 +98,14 @@ public class FeedListHelperTest {
 		Calendar cal2 = new GregorianCalendar(2015,02,11);
         Date date2 =  cal2.getTime();
 		listElement2.setPressReleaseDate(date2);
-		//helper.addListElement(listElement1);
-		helper.addListElement(listElement2);
+		this.helper.addListElement(listElement2);
 		
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		helper = null;
 		aemContext.pageManager().delete(this.mockPage, false);
+		helper = null;
 	}
 	
 	
@@ -115,8 +113,6 @@ public class FeedListHelperTest {
 	@Test
 	public void ComponentTitleTest() {
 		//Requirement: Component title – text.
-
-		helper.setComponentTitle("alpha");
 		assertEquals(String.class, helper.getComponentTitle().getClass());
 		assertEquals(helper.getComponentTitle(), "alpha");
 	}
@@ -124,7 +120,7 @@ public class FeedListHelperTest {
 	@Test
 	public void ComponentTitleHyperlinkTest() {
 		//Requirement: entry field. Validation on it being a hyperlink. Button to select the page if within Adobe.
-		helper.setHyperlink("alpha");
+		this.helper.setHyperlink("alpha");
 		assertEquals(helper.getHyperlink(), "alpha");
 		assertFalse(helper.validateHyperlink());
 		helper.setHyperlink("http://www.example.com/");
@@ -134,7 +130,7 @@ public class FeedListHelperTest {
 	
 	@Test
 	public void getChildrenElementsTest() {
-		List<Object> elements =helper.getChildrenElements(); 
+		List<Object> elements = this.helper.getChildrenElements(); 
 		assertTrue(elements.size() == 2);
 		PressReleaseFeedListElement element = (PressReleaseFeedListElement) elements.get(0);
 		assertNotNull(element.getPressReleaseDate());

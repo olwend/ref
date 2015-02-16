@@ -1,5 +1,6 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class FeedListHelper extends HelperBase {
 		
 		this.request = request;
 		this.resourceResolver = resourceResolver;
+		this.feedListElements = new ArrayList<Object>();
 		init();
 	}
 
@@ -113,8 +115,8 @@ public class FeedListHelper extends HelperBase {
 	}
 	
 
-	public void addListElement(FeedListElement element) {
-		// TODO Auto-generated method stub
+	public void addListElement(Object element) {
+		this.feedListElements.add(element);
 		
 	}
 	
