@@ -137,5 +137,11 @@
         	<artifactId>slf4j-log4j12</artifactId>
         	<version>1.5.2</version>
     	</dependency>
+    	<dependency>
+			<groupId>io.wcm</groupId>
+			<artifactId>io.wcm.testing.aem-mock</artifactId>
+			<version>1.2.4</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

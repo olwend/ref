@@ -18,7 +18,8 @@ public class FeedListElement {
 	public FeedListElement(ResourceResolver resourceResolver, Page page) {
 		this.title = PageUtils.getPageTitle(page);
 		this.intro = PageUtils.getPageDescription(page);
-		this.imageResourcePath = this.resourceResolver.getResource(page.getPath()).getChild("image").getPath();
+		Resource resource = page.adaptTo(Resource.class);
+		this.imageResourcePath = resource.getPath()+"/jcr:content/image";
 	}
 
 

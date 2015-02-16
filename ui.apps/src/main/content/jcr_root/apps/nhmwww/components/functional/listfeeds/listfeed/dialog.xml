@@ -1,59 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Dialog"
-    activeTab="{Long}0"
-    helpPath="en/cq/current/wcm/default_components.html#Image"
-    xtype="tabpanel">
-    <items jcr:primaryType="cq:WidgetCollection">
-        <image
-            jcr:primaryType="cq:Widget"
-            cropParameter="./imageCrop"
-            ddGroups="[media]"
-            fileNameParameter="./fileName"
-            fileReferenceParameter="./fileReference"
-            mapParameter="./imageMap"
-            name="./file"
-            requestSuffix=".img.png"
-            rotateParameter="./imageRotate"
-            title="Image"
-            xtype="html5smartimage"/>
-        <advanced
-            jcr:primaryType="cq:Widget"
-            title="Advanced"
-            xtype="panel">
-            <items jcr:primaryType="cq:WidgetCollection">
-                <title
-                    jcr:primaryType="cq:Widget"
-                    fieldDescription="Please enter the title of the page, if blank the page title will be used"
-                    fieldLabel="Title"
-                    name="./title"
-                    xtype="textfield"/>
-                <summary
-                    jcr:primaryType="cq:Widget"
-                    fieldDescription="Tag line text to appear over image"
-                    fieldLabel="Summary"
-                    name="./summary"
-                    removeSingle_x0020_ParagraphContainer="{Boolean}true"
-                    xtype="richtext">
-                    <rtePlugins
+    height="{Long}400"
+    title="Carousel"
+    width="1000"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <basic
+                jcr:primaryType="cq:Widget"
+                title="Basic"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
                         jcr:primaryType="cq:Widget"
-                        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
-                        xtype="cqinclude"/>
-                </summary>
-                <promoLinkText
-                    jcr:primaryType="cq:Widget"
-                    fieldDescription="Promo text to appear on mobile"
-                    fieldLabel="Promo Text"
-                    name="./promoLinkText"
-                    xtype="textfield"/>
-                <video
-                    jcr:primaryType="cq:Widget"
-                    fieldDescription="Optional: Drag and drop a video from the YouTube tab of the Content Finder"
-                    fieldLabel="Video"
-                    name="./youtube"
-                    width="155"
-                    xtype="youtubevideofield"/>
-            </items>
-        </advanced>
+                        fieldLabel="Component title"
+                        name="./title"
+                        width="155"
+                        xtype="textfield"/>
+                    <hyperlink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hyperlink"
+                        itemId="hyperlink"
+                        name="./hyperlink"
+                        width="155"
+                        xtype="pathfield"/>
+                    <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <numberOfItemsToDisplay
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Number of items"
+                        name="./numberToDisplay"
+                        width="155"
+                        xtype="numberfield"/>
+                </items>
+            </basic>
+        </items>
     </items>
 </jcr:root>

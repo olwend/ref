@@ -23,10 +23,12 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 	}
 	
 	protected void processChildren(Iterator<Page> children) {
-		while (children.hasNext()) {
+		int i =0;
+		while (children.hasNext() && i< this.numberOfItems) {
 			Page child = children.next();
-			PressReleaseFeedListElement prFeedListElement = new PressReleaseFeedListElement(resourceResolver, child);
+			PressReleaseFeedListElement prFeedListElement = new PressReleaseFeedListElement(this.resourceResolver, child);
 			this.feedListElements.add(prFeedListElement);
+			i++;
 		}
 		
 	}
