@@ -36,7 +36,7 @@
                         <introduction
                             jcr:primaryType="cq:Widget"
                             hideLabel="{Boolean}true"
-                            name="./introduction"
+                            name="./summary"
                             xtype="richtext">
                             <rtePlugins
                                 jcr:primaryType="cq:Widget"

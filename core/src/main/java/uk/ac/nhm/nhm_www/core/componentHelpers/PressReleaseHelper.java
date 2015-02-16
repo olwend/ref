@@ -5,9 +5,6 @@ import java.util.Date;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
-
 public class PressReleaseHelper {
 
 	private Resource resource;
@@ -15,9 +12,12 @@ public class PressReleaseHelper {
 	private Boolean pinned;
 	private String summary;
 	private Date publishDate;
+	private Boolean isComponentInitialised;
+	private String image;
 	
 	public PressReleaseHelper(Resource resource,ValueMap properties)
 	{
+//		this.image = getProperties().get("image", String.class);
 		setResource(resource);
 		setProperties(properties);
 		setSummary(getProperties().get("summary", String.class));
@@ -32,6 +32,19 @@ public class PressReleaseHelper {
 
 	public void setProperties(ValueMap properties) {
 		this.properties = properties;
+	}
+
+	public Boolean getIsComponentInitialised() {
+		if (getSummary() != null && getSummary().length() > 0)
+		{
+			isComponentInitialised = true;
+		}
+		else
+		{
+			isComponentInitialised = false;
+		}
+		
+		return isComponentInitialised;
 	}
 
 	public Boolean getPinned() {

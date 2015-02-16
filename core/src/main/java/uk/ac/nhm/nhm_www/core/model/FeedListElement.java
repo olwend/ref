@@ -3,7 +3,7 @@ package uk.ac.nhm.nhm_www.core.model;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 
-import uk.ac.nhm.nhm_www.core.utils.PageUtils;
+import uk.ac.nhm.nhm_www.core.utils.*;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
