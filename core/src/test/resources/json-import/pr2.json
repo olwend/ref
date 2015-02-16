@@ -1,0 +1,25 @@
+{
+	"jcr:primaryType":"cq:Page",
+	"jcr:createdBy":"admin",
+	"jcr:created":"Mon Feb 16 2015 10:54:11 GMT+0000",
+	"jcr:content":{
+		"jcr:primaryType":"cq:PageContent",
+		"jcr:createdBy":"admin",
+		"jcr:title":"Something else happened",
+		"cq:template":"/apps/nhmwww/templates/pressreleasepage",
+		"pinned":"true",
+		"publishdate":"Mon Feb 16 2015 11:03:00 GMT+0000",
+		"jcr:created":"Mon Feb 16 2015 10:54:11 GMT+0000",
+		"cq:lastModified":"Mon Feb 16 2015 11:23:16 GMT+0000",
+		"sling:resourceType":"nhmwww/components/page/pressrelease",
+		"introduction":"<p style=\"font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;\">just watch the news<\/p>\n",
+		"cq:lastModifiedBy":"admin",
+		"image":{
+			"jcr:primaryType":"nt:unstructured",
+			"fileReference":"/content/dam/nhm-www/Staff pics/userphoto_rmh.jpeg",
+			"jcr:lastModifiedBy":"admin",
+			"jcr:lastModified":"Mon Feb 16 2015 11:23:16 GMT+0000",
+			"imageRotate":"0"
+		}
+	}
+}

@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.jcr.Session;
@@ -83,18 +84,19 @@ public class FeedListHelperTest {
 		this.mockPage = this.mockResource.adaptTo(Page.class);
 		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
 		helper.setComponentTitle("alpha");
-		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(this.mockResourceResolver, mockPage);
-		listElement1.setTitle("A frenchman is born");
-		listElement1.setIntro("Is this realy newsworthy?");
-		listElement1.setImagePath("/dam/image/mock");
+		
+		this.aemContext.load().json("/json-import/pr1.json", "/content/nhmwww/en/home/testpage/pr1");
+		this.aemContext.load().json("/json-import/pr2.json", "/content/nhmwww/en/home/testpage/pr2");
+		
+		Page pr1 = this.mockResourceResolver.getResource("/content/nhmwww/en/home/testpage/pr1").adaptTo(Page.class);
+		Page pr2 = this.mockResourceResolver.getResource("/content/nhmwww/en/home/testpage/pr2").adaptTo(Page.class);
+		
+		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(this.mockResourceResolver, pr1);
 		Calendar cal = new GregorianCalendar(1982,4,1);
         Date date =  cal.getTime();
 		listElement1.setPressReleaseDate(date);
 		this.helper.addListElement(listElement1);
-		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(this.mockResourceResolver, mockPage);
-		listElement2.setTitle("Something else happened");
-		listElement2.setIntro("just watch the news");
-		listElement2.setImagePath("/dam/image/mock");
+		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(this.mockResourceResolver, pr2);
 		Calendar cal2 = new GregorianCalendar(2015,02,11);
         Date date2 =  cal2.getTime();
 		listElement2.setPressReleaseDate(date2);
