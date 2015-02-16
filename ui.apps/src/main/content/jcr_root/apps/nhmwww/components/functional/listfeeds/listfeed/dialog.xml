@@ -39,6 +39,12 @@
                         name="./numberToDisplay"
                         width="155"
                         xtype="numberfield"/>
+                    <rootPagePath
+                    	jcr:primaryType="cq:Widget"
+                    	name="./rootPagePath"
+                    	width="155"
+                    	xtype="pathfield"/>
+                    
                 </items>
             </basic>
         </items>

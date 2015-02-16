@@ -13,11 +13,13 @@ public class FeedListElement {
 	protected String imageResourcePath;
 	protected String intro;
 	protected String title;
+	protected Boolean pinned;
 	protected ResourceResolver resourceResolver;
 	
 	public FeedListElement(ResourceResolver resourceResolver, Page page) {
 		this.title = PageUtils.getPageTitle(page);
 		this.intro = PageUtils.getPageDescription(page);
+		this.pinned = page.getProperties().get("pinned", false);  
 		Resource resource = page.adaptTo(Resource.class);
 		this.imageResourcePath = resource.getPath()+"/jcr:content/image";
 	}
@@ -51,6 +53,18 @@ public class FeedListElement {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+
+	public Boolean isPinned() {
+		return pinned;
+	}
+
+
+	public void setPinned(Boolean pinned) {
+		this.pinned = pinned;
+	}
+	
+	
 
 	
 	

@@ -8,7 +8,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
-public class PressReleaseFeedListElement extends FeedListElement {
+public class PressReleaseFeedListElement extends FeedListElement implements Comparable<PressReleaseFeedListElement> {
 	private Date pressReleaseDate;
 	
 	public PressReleaseFeedListElement(ResourceResolver resourceResolver, Page page) {
@@ -22,6 +22,11 @@ public class PressReleaseFeedListElement extends FeedListElement {
 
 	public Date getPressReleaseDate() {
 		return pressReleaseDate;
+	}
+
+	@Override
+	public int compareTo(PressReleaseFeedListElement o) {
+		return getPressReleaseDate().compareTo(o.getPressReleaseDate());
 	}
 
 	

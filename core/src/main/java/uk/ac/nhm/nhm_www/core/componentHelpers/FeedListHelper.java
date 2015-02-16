@@ -67,11 +67,28 @@ public class FeedListHelper extends HelperBase {
 	}
 
 	protected void processChildren(Iterator<Page> children) {
-		int i =0;
-		while (children.hasNext() && i< this.numberOfItems) {
+		
+		List<FeedListElement> pinnedElements = new ArrayList<FeedListElement>();
+		List<FeedListElement> unpinnedElements = new ArrayList<FeedListElement>();
+		while (children.hasNext()) {
 			Page child = children.next();
 			FeedListElement feedListElement = new FeedListElement(this.resourceResolver, child);
-			feedListElements.add(feedListElement);
+			if(feedListElement.isPinned()) {
+				pinnedElements.add(feedListElement);
+			} else {
+				unpinnedElements.add(feedListElement);
+			}
+			
+		}
+		int i =0;
+		Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
+		Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
+		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
+			feedListElements.add(itrPinnedElements.next());
+			i++;
+		}
+		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
+			feedListElements.add(itrUnpinnedElements.next());
 			i++;
 		}
 		
