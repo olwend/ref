@@ -26,6 +26,7 @@ public class FeedListHelper extends HelperBase {
 	protected String hyperLink;
 	protected String rootPagePath;
 	protected Integer numberOfItems;
+	protected Boolean newwindow;
 	protected Boolean initialised;
 	protected List<Object> feedListElements;
 	
@@ -50,6 +51,9 @@ public class FeedListHelper extends HelperBase {
 		if (this.properties.get("numberToDisplay", Integer.class) != null) {
 			this.numberOfItems = this.properties.get("numberToDisplay",6);
 		}
+		if (this.properties.get("newwindow") != null) {
+			this.newwindow = this.properties.get("newwindow",false);
+		}
 		this.rootPagePath = this.properties.get("rootPagePath",currentPage.getPath());
 		this.rootPage = pageManager.getPage(rootPagePath);
 		if(rootPage != null) {
@@ -61,10 +65,12 @@ public class FeedListHelper extends HelperBase {
 	}
 
 	protected void processChildren(Iterator<Page> children) {
-		while (children.hasNext()) {
+		int i =0;
+		while (children.hasNext() && i< this.numberOfItems) {
 			Page child = children.next();
 			FeedListElement feedListElement = new FeedListElement(this.resourceResolver, child);
 			feedListElements.add(feedListElement);
+			i++;
 		}
 		
 	}

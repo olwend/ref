@@ -1,14 +1,16 @@
 package uk.ac.nhm_www.core.componentHelpers;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
-import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
+import org.apache.sling.jcr.resource.JcrResourceResolverFactory;
+
+import io.wcm.testing.mock.aem.junit.AemContext;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,6 +19,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.jcr.Session;
 import javax.servlet.http.HttpServletRequest;
 
 import static org.junit.Assert.*;
@@ -25,11 +28,13 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.day.cq.workflow.WorkflowSession;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.foundation.Image;
@@ -38,50 +43,63 @@ import com.day.cq.wcm.foundation.Image;
 @RunWith(MockitoJUnitRunner.class)
 public class FeedListHelperTest {
 
-	@Mock
 	PageManager mockPageManager;
-	@Mock
 	ResourceResolver mockResourceResolver;
-	@Mock
 	Resource mockResource;
-	@Mock
 	Page mockPage;
-	@Mock
 	HttpServletRequest mockRequest;
-
+	
+	
 	private ValueMap properties;
 	private PressReleaseFeedListHelper helper;
 	public Image image;
 	
 
+	 @Rule
+     public final AemContext aemContext = new AemContext();
+
+	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-
+	
 	@Before
 	public void setUp() throws Exception {
 		properties = new ValueMapDecorator(new HashMap<String, Object>());
 		properties.put("numberToDisplay", 6);
 		properties.put("title", "Test Title");
 		properties.put("feedRoot", "/content/nhmwww/en/home/press/press-releases/");
-		helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
+
+		this.mockResourceResolver = aemContext.resourceResolver();
+		this.mockRequest = aemContext.request();
 		
-		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(mockResourceResolver, mockPage);
+		aemContext.create().page("/content/nhmwww/en/home/testpage", "test1");
+
+		
+		this.mockResource = aemContext.resourceResolver().getResource("/content/nhmwww/en/home/testpage");
+		this.mockPageManager = aemContext.pageManager();
+		
+		this.mockPage = this.mockResource.adaptTo(Page.class);
+		//String title = this.mockPage.getTitle();
+		System.out.println("TOTO: " + this.mockResourceResolver.toString());
+		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
+		
+		PressReleaseFeedListElement listElement1 = new PressReleaseFeedListElement(this.mockResourceResolver, mockPage);
 		listElement1.setTitle("A frenchman is born");
 		listElement1.setIntro("Is this realy newsworthy?");
 		listElement1.setImagePath("/dam/image/mock");
 		Calendar cal = new GregorianCalendar(1982,4,1);
         Date date =  cal.getTime();
 		listElement1.setPressReleaseDate(date);
-		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(mockResourceResolver, mockPage);
+		PressReleaseFeedListElement listElement2 = new PressReleaseFeedListElement(this.mockResourceResolver, mockPage);
 		listElement2.setTitle("Something else happened");
 		listElement2.setIntro("just watch the news");
 		listElement2.setImagePath("/dam/image/mock");
 		Calendar cal2 = new GregorianCalendar(2015,02,11);
         Date date2 =  cal2.getTime();
 		listElement2.setPressReleaseDate(date2);
-		helper.addListElement(listElement1);
+		//helper.addListElement(listElement1);
 		helper.addListElement(listElement2);
 		
 	}
@@ -89,6 +107,7 @@ public class FeedListHelperTest {
 	@After
 	public void tearDown() throws Exception {
 		helper = null;
+		aemContext.pageManager().delete(this.mockPage, false);
 	}
 	
 	
