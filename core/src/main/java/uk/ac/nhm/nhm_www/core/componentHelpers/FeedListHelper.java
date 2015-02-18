@@ -16,34 +16,20 @@ import com.day.cq.wcm.api.PageManager;
 import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
-public class FeedListHelper extends HelperBase {
-	protected ValueMap properties;
-	protected PageManager pageManager;
-	protected Page currentPage;
-	protected Page rootPage;
-	protected HttpServletRequest request;
-	protected ResourceResolver resourceResolver;
-	protected String componentTitle;
+public class FeedListHelper extends ListHelper {
 	protected String hyperLink;
 	protected String rootPagePath;
 	protected Integer numberOfItems;
 	protected Boolean newwindow;
 	protected Boolean initialised;
-	protected List<Object> feedListElements;
-	
 	
 	public FeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
-		this.properties = properties;
-		this.pageManager = pageManager;
-		this.currentPage = currentPage;
-		
-		this.request = request;
-		this.resourceResolver = resourceResolver;
-		this.feedListElements = new ArrayList<Object>();
+		super(properties, pageManager, currentPage, request, resourceResolver);
 		init();
 	}
 
 	protected void init() {
+		
 		if (this.properties.get("title", String.class) != null) {
 			this.componentTitle = this.properties.get("title",String.class);
 		}
@@ -58,6 +44,7 @@ public class FeedListHelper extends HelperBase {
 		}
 		this.rootPagePath = this.properties.get("rootPagePath",currentPage.getPath());
 		this.rootPage = pageManager.getPage(rootPagePath);
+		this.listElements = new ArrayList<Object>();
 		if(rootPage != null) {
 			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
 			processChildren(children);
@@ -85,11 +72,11 @@ public class FeedListHelper extends HelperBase {
 		Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
 		Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
 		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
-			feedListElements.add(itrPinnedElements.next());
+			listElements.add(itrPinnedElements.next());
 			i++;
 		}
 		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
-			feedListElements.add(itrUnpinnedElements.next());
+			listElements.add(itrUnpinnedElements.next());
 			i++;
 		}
 		
@@ -134,12 +121,12 @@ public class FeedListHelper extends HelperBase {
 	
 
 	public void addListElement(Object element) {
-		this.feedListElements.add(element);
+		this.listElements.add(element);
 		
 	}
 	
 	public List<Object> getChildrenElements() {
-		return  this.feedListElements;
+		return  this.listElements;
 	}
 
 	public Boolean getNewwindow() {

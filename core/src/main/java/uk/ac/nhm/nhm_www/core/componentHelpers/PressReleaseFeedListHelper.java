@@ -49,11 +49,11 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 		Iterator<PressReleaseFeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
 		
 		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
-			feedListElements.add(itrPinnedElements.next());
+			listElements.add(itrPinnedElements.next());
 			i++;
 		}
 		while(itrUnpinnedElements.hasNext() && i< this.numberOfItems) {
-			feedListElements.add(itrUnpinnedElements.next());
+			listElements.add(itrUnpinnedElements.next());
 			i++;
 		}
 	}	

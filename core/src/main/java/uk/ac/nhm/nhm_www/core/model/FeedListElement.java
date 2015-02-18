@@ -9,14 +9,15 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
 
-public class FeedListElement {
+public class FeedListElement extends ListElement {
 	protected String imageResourcePath;
 	protected String intro;
-	protected String title;
+	
 	protected Boolean pinned;
 	protected ResourceResolver resourceResolver;
 	
 	public FeedListElement(ResourceResolver resourceResolver, Page page) {
+		super(page);
 		this.title = PageUtils.getPageTitle(page);
 		this.intro = page.getProperties().get("summary", ""); 
 		this.pinned = page.getProperties().get("pinned", false);  
@@ -42,16 +43,6 @@ public class FeedListElement {
 
 	public void setIntro(String intro) {
 		this.intro = intro;
-	}
-
-
-	public String getTitle() {
-		return title;
-	}
-
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 
