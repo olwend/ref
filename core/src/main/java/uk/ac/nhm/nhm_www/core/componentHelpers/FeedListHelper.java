@@ -62,6 +62,7 @@ public class FeedListHelper extends HelperBase {
 			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
+		this.initialised = true;
 
 		
 	}
@@ -141,6 +142,15 @@ public class FeedListHelper extends HelperBase {
 		return  this.feedListElements;
 	}
 
+	public Boolean getNewwindow() {
+		return newwindow;
+	}
+
+	public void setNewwindow(Boolean newwindow) {
+		this.newwindow = newwindow;
+	}
+
+	
 	
 	
 
