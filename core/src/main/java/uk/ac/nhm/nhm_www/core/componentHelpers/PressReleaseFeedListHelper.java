@@ -28,12 +28,6 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 	}
 	
 	protected void processChildren(Iterator<Page> children) {
-		String test = "";
-		if(children.hasNext()){
-			test = "TOTO";
-		}
-		
-		
 		
 		List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
 		List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
@@ -59,7 +53,6 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 			i++;
 		}
 		while(itrUnpinnedElements.hasNext() && i< this.numberOfItems) {
-			logger.error("AAAAAH: " );
 			feedListElements.add(itrUnpinnedElements.next());
 			i++;
 		}
