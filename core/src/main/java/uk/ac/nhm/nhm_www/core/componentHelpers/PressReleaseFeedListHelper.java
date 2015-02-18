@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -19,13 +21,17 @@ import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
 
 public class PressReleaseFeedListHelper extends FeedListHelper {
 	
+	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListHelper.class);
+	
 	public PressReleaseFeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 	}
 	
 	protected void processChildren(Iterator<Page> children) {
+		
 		List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
 		List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
+		
 		while (children.hasNext()) {
 			Page child = children.next();
 			PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(this.resourceResolver, child);
@@ -41,11 +47,12 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 		Collections.sort(unpinnedElements);
 		Iterator<PressReleaseFeedListElement> itrPinnedElements = pinnedElements.iterator();
 		Iterator<PressReleaseFeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
+		
 		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
 			feedListElements.add(itrPinnedElements.next());
 			i++;
 		}
-		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
+		while(itrUnpinnedElements.hasNext() && i< this.numberOfItems) {
 			feedListElements.add(itrUnpinnedElements.next());
 			i++;
 		}

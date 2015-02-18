@@ -69,6 +69,7 @@ public class PressReleaseHelper {
 		return publishDate;
 	}
 	
+	@Deprecated
 	public String getFormattedPublishDate()
 	{
 		String dateStr;
