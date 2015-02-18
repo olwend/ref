@@ -31,6 +31,7 @@ public class FeedListHelper extends HelperBase {
     protected Boolean initialised;
     protected List<Object> feedListElements;
 
+		this.initialised = true;
 
     public FeedListHelper(final ValueMap properties, final PageManager pageManager, final Page currentPage, final HttpServletRequest request, final ResourceResolver resourceResolver) {
 	this.properties = properties;
@@ -94,7 +95,17 @@ public class FeedListHelper extends HelperBase {
 	    i++;
 	}
 
-    }
+	public Boolean getNewwindow() {
+		return newwindow;
+	}
+
+	public void setNewwindow(Boolean newwindow) {
+		this.newwindow = newwindow;
+	}
+
+	
+	
+	
 
     public void setComponentTitle(final String title) {
 	this.componentTitle = title;

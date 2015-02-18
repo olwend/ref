@@ -1,103 +1,75 @@
 <%@page session="false"
-          import="com.day.cq.wcm.api.Page"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseHelper" %>
-<%@page import="java.text.SimpleDateFormat" %>
+        import="org.apache.commons.lang3.StringEscapeUtils,
+        com.day.cq.commons.Doctype,
+        com.day.cq.commons.DiffInfo,
+        com.day.cq.commons.DiffService,
+        org.apache.sling.api.resource.ResourceUtil,
+        uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseHelper" %>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<cq:defineObjects />
+<div class="main-section"> 
 <%
 	PressReleaseHelper helper = new PressReleaseHelper(resource,properties);
 
-%>
-<div class="main-section">
-<% if ( !helper.getIsComponentInitialised()) {%>
-<h1>Page not initialised</h1>
-<em>Please set the required page properties.</em>
-<% } else { %>
-			<div class="title">
-				<div class="row title-bar">
-					<div class="small-12 columns">
-						<h1><cq:include path="title" resourceType="nhmwww/components/functional/title"/></h1>
-						<p><%=helper.getFormattedPublishDate() %></p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="par parsys"><div class="rowfullwidth section">
-				<div class="row " data-equalizer >
-					<div class="large-12 columns">
-						<div class="parsys par2"><div class="adaptiveimage parbase foundation5image image section">
-							<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="section row2cells21">
-	<div class="row" data-equalizer >
-		<div class="large-8 medium-8 columns" data-equalizer-watch>
+    // first calculate the correct title - look for our sources if not set in paragraph
+    String title = properties.get(NameConstants.PN_TITLE, String.class);
+    if (title == null || title.equals("")) {
+        title = resourcePage.getPageTitle();
+    }
+    if (title == null || title.equals("")) {
+        title = resourcePage.getTitle();
+    }
+    if (title == null || title.equals("")) {
+        title = resourcePage.getName();
+    }
 
-			
-				<cq:include path="summary" resourceType="nhmwww/components/functional/text"/>
-				<cq:include path="par" resourceType="foundation/components/parsys"/>
-
-	<div>
-
-			
-			</div>
-
-			<!-- START SPONSORS BLOCK GRID -->
-			<div class="sponsors-grid">	
-				<ul class="small-block-grid-2 medium-block-grid-4">
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY2014/DONG-energy-logo.jpg" /></li>
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Coral-reefs-exhibition/catlin-100-percent.jpg" /></li>
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY2014/DONG-energy-logo.jpg" /></li>
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Coral-reefs-exhibition/catlin-100-percent.jpg" /></li>
-				</ul>
-			</div>
-			<!-- END SPONSORS BLOCK GRID -->
-		</div>
-
-		<div class="large-4 medium-4 columns" data-equalizer-watch>
-			<div class="parsys par2">
-				<div class="parbase headertextimage section">
-					<link rel="stylesheet" href="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/headertextimage.min.css" type="text/css">
-					<script type="text/javascript" src="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/headertextimage.min.js"></script>
-					 <!-- START PRESS ROOM CONTACT BOX -->
-					 <div class="GreyBox text left-box feature-box press-room--contact-us large-12 columns">
-						<h3>Contact us</h3>
-						<p><strong>Weekdays:</strong> +44 (0)20 7942 5854</p>
-						<p><strong>Evenings and weekends:</strong> +44 (0) 7799 690 151</p>
-						<p><strong>Email:</strong> <a href="mailto:">press@nhm.ac.uk</a></p> 
-					</div>
-					<!-- END PRESS ROOM CONTACT BOX -->
-				</div>
-
-				<!-- START SIDE NAV -->
-				<div class="parbase headertextimage section">
-					<div class="press-room--side-nav">
-						<ul class="side-nav">
-							<li class="selected"><a href="#">Link 1</a></li>
-							<li><a href="#">Link 2</a></li>
-							<li><a href="#">Link 3</a></li>
-							<li><a href="#">Link 4</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- END SIDE NAV -->
-
-				<div class="parbase headertextimage section">
-					<link rel="stylesheet" href="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/headertextimage.min.css" type="text/css">
-					<script type="text/javascript" src="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/headertextimage.min.js"></script>
-					<div class="GreyBox text left-box aside-box large-12 columns">
-						<h3>Press passes</h3>
-						<p>Press passes: If you are reviewing and exhibition or event we can put aside a press ticket for you in advance.</p>
-						<p>Gallery staff cannot accept generic media passes, staff passes or business cards.</p>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-	</div>
+    // escape title
+    title = xssAPI.filterHTML(title);
+    
+    // check if we need to compute a diff
+    String diffOutput = null;
+    DiffInfo diffInfo = resource.adaptTo(DiffInfo.class);
+    if (diffInfo != null) {
+        DiffService diffService = sling.getService(DiffService.class);
+        ValueMap map = ResourceUtil.getValueMap(diffInfo.getContent());
+        String diffText = map.get(NameConstants.PN_TITLE, "");
+        // if the paragraph has no own title, we use the current page title(!)
+        if (diffText == null || diffText.equals("")) {
+            diffText = title;
+        } else {
+            diffText = xssAPI.filterHTML(diffText);
+        }
+        diffOutput = diffInfo.getDiffOutput(diffService, title, diffText, false);
+        if (title.equals(diffOutput)) {
+            diffOutput = null;
+        }
+    }
+    String defType = currentStyle.get("defaultType", "large");
+	%>
+	<div class="title">
+    <div class="row title-bar">
+	    <div class="small-12 columns">
+	    <%
+	    // use image title if type is "small" but not if diff should be displayed
+	    if (properties.get("type", defType).equals("small") && diffOutput == null) {
+	        String suffix = currentDesign.equals(resourceDesign) ? "" : "/" + currentDesign.getId();
+	        // add mod timestamp to avoid client-side caching of updated images
+	        long tstamp = properties.get("jcr:lastModified", properties.get("jcr:created", System.currentTimeMillis()));
+	        suffix += "/" + tstamp + ".png";
+	        String xs = Doctype.isXHTML(request) ? "/" : "";
+	        %><img src="<%= xssAPI.getValidHref(resource.getPath()+".title.png"+suffix) %>" alt="<%= xssAPI.encodeForHTMLAttr(title) %>"<%=xs%>><%
+	
+	    // large title
+	    } else if (diffOutput == null) {
+	        %><h1><%= title %></h1><%
+	
+	    // we need to display the diff output
+	    } else {
+	        // don't escape diff output
+	        %><h1><%= diffOutput %></h1><%
+	
+	    } %><p><%=helper.getFormattedPublishDate() %></p>
+	    </div>
+    </div>
+    </div>
+	<cq:include path="par" resourceType="foundation/components/parsys" />
 </div>
-<% } %>

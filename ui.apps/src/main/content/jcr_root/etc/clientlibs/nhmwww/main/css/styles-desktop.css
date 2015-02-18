@@ -15,8 +15,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .support-us h2,
 .discover h1,
 .discover h2,
-.news-press h1,
-.news-press h2,
+.press-office h1,
+.press-office h2,
 .working h1,
 .working h2,
 .business-services h1,
@@ -34,7 +34,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us h4,
 .support-us h4,
 .discover h4,
-.news-press h4,
+.press-office h4,
 .working h4,
 .business-services h4,
 .contact-us h4,
@@ -49,7 +49,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .GreyBox,
 .support-us .GreyBox,
 .discover .GreyBox,
-.news-press .GreyBox,
+.press-office .GreyBox,
 .working .GreyBox,
 .business-services .GreyBox,
 .contact-us .GreyBox,
@@ -65,7 +65,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .GreyBox p,
 .support-us .GreyBox p,
 .discover .GreyBox p,
-.news-press .GreyBox p,
+.press-office .GreyBox p,
 .working .GreyBox p,
 .business-services .GreyBox p,
 .contact-us .GreyBox p,
@@ -79,7 +79,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .GreyBox p,
 .support-us .GreyBox p,
 .discover .GreyBox p,
-.news-press .GreyBox p,
+.press-office .GreyBox p,
 .working .GreyBox p,
 .business-services .GreyBox p,
 .contact-us .GreyBox p,
@@ -93,7 +93,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .BlackBox,
 .support-us .BlackBox,
 .discover .BlackBox,
-.news-press .BlackBox,
+.press-office .BlackBox,
 .working .BlackBox,
 .business-services .BlackBox,
 .contact-us .BlackBox,
@@ -110,7 +110,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .BlackBox a,
 .support-us .BlackBox a,
 .discover .BlackBox a,
-.news-press .BlackBox a,
+.press-office .BlackBox a,
 .working .BlackBox a,
 .business-services .BlackBox a,
 .contact-us .BlackBox a,
@@ -124,7 +124,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .BlackBox p,
 .support-us .BlackBox p,
 .discover .BlackBox p,
-.news-press .BlackBox p,
+.press-office .BlackBox p,
 .working .BlackBox p,
 .business-services .BlackBox p,
 .contact-us .BlackBox p,
@@ -138,7 +138,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .feature-box,
 .support-us .feature-box,
 .discover .feature-box,
-.news-press .feature-box,
+.press-office .feature-box,
 .working .feature-box,
 .business-services .feature-box,
 .contact-us .feature-box,
@@ -176,11 +176,11 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .discover .feature-box a,
 .discover .feature-box p,
 .discover .feature-box li,
-.news-press .feature-box h2,
-.news-press .feature-box h3,
-.news-press .feature-box a,
-.news-press .feature-box p,
-.news-press .feature-box li,
+.press-office .feature-box h2,
+.press-office .feature-box h3,
+.press-office .feature-box a,
+.press-office .feature-box p,
+.press-office .feature-box li,
 .working .feature-box h2,
 .working .feature-box h3,
 .working .feature-box a,
@@ -210,7 +210,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .aside-box,
 .support-us .aside-box,
 .discover .aside-box,
-.news-press .aside-box,
+.press-office .aside-box,
 .working .aside-box,
 .business-services .aside-box,
 .contact-us .aside-box,
@@ -250,11 +250,11 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .discover .aside-box a,
 .discover .aside-box p,
 .discover .aside-box li,
-.news-press .aside-box h2,
-.news-press .aside-box h3,
-.news-press .aside-box a,
-.news-press .aside-box p,
-.news-press .aside-box li,
+.press-office .aside-box h2,
+.press-office .aside-box h3,
+.press-office .aside-box a,
+.press-office .aside-box p,
+.press-office .aside-box li,
 .working .aside-box h2,
 .working .aside-box h3,
 .working .aside-box a,
@@ -284,7 +284,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .bottom-banner,
 .support-us .bottom-banner,
 .discover .bottom-banner,
-.news-press .bottom-banner,
+.press-office .bottom-banner,
 .working .bottom-banner,
 .business-services .bottom-banner,
 .contact-us .bottom-banner,
@@ -298,7 +298,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .bottom-banner h2,
 .support-us .bottom-banner h2,
 .discover .bottom-banner h2,
-.news-press .bottom-banner h2,
+.press-office .bottom-banner h2,
 .working .bottom-banner h2,
 .business-services .bottom-banner h2,
 .contact-us .bottom-banner h2,
@@ -313,7 +313,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .bottom-banner > div.large-4,
 .support-us .bottom-banner > div.large-4,
 .discover .bottom-banner > div.large-4,
-.news-press .bottom-banner > div.large-4,
+.press-office .bottom-banner > div.large-4,
 .working .bottom-banner > div.large-4,
 .business-services .bottom-banner > div.large-4,
 .contact-us .bottom-banner > div.large-4,
@@ -328,7 +328,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .bottom-banner > div.large-4 .info-tout__action,
 .support-us .bottom-banner > div.large-4 .info-tout__action,
 .discover .bottom-banner > div.large-4 .info-tout__action,
-.news-press .bottom-banner > div.large-4 .info-tout__action,
+.press-office .bottom-banner > div.large-4 .info-tout__action,
 .working .bottom-banner > div.large-4 .info-tout__action,
 .business-services .bottom-banner > div.large-4 .info-tout__action,
 .contact-us .bottom-banner > div.large-4 .info-tout__action,
@@ -342,7 +342,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .bottom-banner > div.large-4,
 .support-us .bottom-banner > div.large-4,
 .discover .bottom-banner > div.large-4,
-.news-press .bottom-banner > div.large-4,
+.press-office .bottom-banner > div.large-4,
 .working .bottom-banner > div.large-4,
 .business-services .bottom-banner > div.large-4,
 .contact-us .bottom-banner > div.large-4,
@@ -1238,100 +1238,100 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
-.news-press h1, .news-press a, .news-press a:hover {
+.press-office h1, .press-office a, .press-office a:hover {
   color: #107E5E;
 }
-.news-press.thumb-caption,
-.news-press .thumb-caption {
+.press-office.thumb-caption,
+.press-office .thumb-caption {
   background-color: #107E5E;
   background-color: rgba(16, 126, 94, 0.95);
 }
-.news-press .intro-text {
+.press-office .intro-text {
   color: #107E5E;
 }
-.news-press .nav-list__item.news-press a {
+.press-office .nav-list__item.press-office a {
   color: #107E5E;
 }
-.news-press .info-tout__action {
+.press-office .info-tout__action {
   border: 5px solid #107E5E !important;
 }
-.news-press .info-tout__action h3, .news-press .info-tout__action a {
+.press-office .info-tout__action h3, .press-office .info-tout__action a {
   color: #107E5E;
 }
-.news-press .info-tout__action p {
+.press-office .info-tout__action p {
   color: #107E5E;
 }
-.news-press .info-tout__action:hover {
+.press-office .info-tout__action:hover {
   background-color: #E7F2EF;
 }
-.news-press .info-tout__share h3 {
+.press-office .info-tout__share h3 {
   color: #107E5E;
 }
-.news-press .info-tout__share a {
+.press-office .info-tout__share a {
   color: #107E5E;
   background-color: #f4f4f4;
   border: 5px solid #107E5E !important;
 }
-.news-press .info-tout__share p {
+.press-office .info-tout__share p {
   color: #107E5E;
 }
-.news-press .info-tout__share a:hover {
+.press-office .info-tout__share a:hover {
   background-color: #107E5E;
 }
-.news-press .info-tout__share a:hover h3, .news-press .info-tout__share a:hover p {
+.press-office .info-tout__share a:hover h3, .press-office .info-tout__share a:hover p {
   color: #ffffff;
 }
-.news-press .hero .caption {
+.press-office .hero .caption {
   background-color: #107E5E;
   background-color: rgba(16, 126, 94, 0.9);
 }
-.news-press .hero .caption .dates {
+.press-office .hero .caption .dates {
   background-color: #107E5E;
 }
-.news-press .bottom-banner {
+.press-office .bottom-banner {
   background-color: #107E5E;
 }
-.news-press .lSPrev:hover, .news-press .lSNext:hover {
+.press-office .lSPrev:hover, .press-office .lSNext:hover {
   background-color: #107E5E;
 }
-.news-press .lSSlideOuter .lSPager.lSpg > li.active a {
+.press-office .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #107E5E;
 }
-.news-press .lSAction a:hover {
+.press-office .lSAction a:hover {
   background-color: rgba(16, 126, 94, 0.7);
 }
-.news-press .event-slide-content {
+.press-office .event-slide-content {
   background-color: #f4f4f4;
 }
-.news-press .event-slide-content a {
+.press-office .event-slide-content a {
   color: #107E5E;
 }
-.news-press .GreyBox a {
+.press-office .GreyBox a {
   color: #107E5E;
 }
-.news-press .feature-box {
+.press-office .feature-box {
   background-color: #107E5E;
 }
-.news-press .feature-box h2, .news-press .feature-box h3, .news-press .feature-box p, .news-press .feature-box a {
+.press-office .feature-box h2, .press-office .feature-box h3, .press-office .feature-box p, .press-office .feature-box a {
   color: #ffffff;
 }
-.news-press .feature-box.our-science {
+.press-office .feature-box.our-science {
   background-color: #eeeeee;
 }
-.news-press .accordion .accordion-navigation > a,
-.news-press .accordion dd > a {
+.press-office .accordion .accordion-navigation > a,
+.press-office .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-news-press.png");
 }
-.news-press .accordion .accordion-navigation > a:hover,
-.news-press .accordion dd > a:hover {
+.press-office .accordion .accordion-navigation > a:hover,
+.press-office .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
-.news-press .accordion .accordion-navigation.active > a,
-.news-press .accordion dd.active > a {
+.press-office .accordion .accordion-navigation.active > a,
+.press-office .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-news-press.png");
 }
-.news-press .accordion .accordion-navigation.active > a:hover,
-.news-press .accordion dd.active > a:hover {
+.press-office .accordion .accordion-navigation.active > a:hover,
+.press-office .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
@@ -8847,7 +8847,7 @@ span.st_googleplus_large {
   &.schools{color:$schools-color;}
   &.our-science{color:$our-science-color;}
   &.about-us{color:$about-us-color;}
-  &.news-press{color:$news-press-color;}
+  &.press-office{color:$news-press-color;}
   &.working-with-us{color:$working-with-us-color;}
   &.business-services{color:$business-services-color;}
   &.contact-us{color:$contact-us-color;}
@@ -9563,43 +9563,43 @@ body {
   color: #565656;
 }
 
-.visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .news-press .title-bar {
+.visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .press-office .title-bar {
   padding: 0.5em 0.75em;
   margin-top: 0;
   margin-bottom: 0;
 }
-.visit .title-bar h1, .take-part .title-bar h1, .support-us .title-bar h1, .schools .title-bar h1, .our-science .title-bar h1, .discover .title-bar h1, .about-us .title-bar h1, .contact-us .title-bar h1, .business-services .title-bar h1, .news-press .title-bar h1 {
+.visit .title-bar h1, .take-part .title-bar h1, .support-us .title-bar h1, .schools .title-bar h1, .our-science .title-bar h1, .discover .title-bar h1, .about-us .title-bar h1, .contact-us .title-bar h1, .business-services .title-bar h1, .press-office .title-bar h1 {
   padding: 0;
   color: #ffffff !important;
 }
-.visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .news-press .title-bar p {
+.visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .press-office .title-bar p {
   color: #ffffff;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .news-press .title-bar {
+  .visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .press-office .title-bar {
     padding: 1em 1.5em;
   }
-  .visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .news-press .title-bar p {
+  .visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .press-office .title-bar p {
     font-size: 1.25em;
   }
 }
 
-.visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .news-press .GreyBox {
+.visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .press-office .GreyBox {
   padding: 0.5em 0.75em;
 }
 @media screen and (min-width: 768px) {
-  .visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .news-press .GreyBox {
+  .visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .press-office .GreyBox {
     padding: 1em 1.5em;
   }
 }
-.visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .news-press .GreyBox p {
+.visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .press-office .GreyBox p {
   font-size: 0.95em;
 }
 @media screen and (min-width: 1024px) {
-  .visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .news-press .GreyBox p {
+  .visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .press-office .GreyBox p {
     font-size: 1em;
   }
 }
@@ -9928,17 +9928,17 @@ h3 {
 }
 
 /***** PRESS ROOM *****/
-.news-press h3 {
+.press-office h3 {
   padding-bottom: 10px;
   color: #107E5E;
 }
-.news-press .title-bar {
+.press-office .title-bar {
   background-color: #107E5E;
 }
-.news-press .feature-box a {
+.press-office .feature-box a {
   color: #ffffff;
 }
-.news-press .event-slider-wrapper h4 {
+.press-office .event-slider-wrapper h4 {
   color: #107E5E;
 }
 

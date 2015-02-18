@@ -69,6 +69,7 @@ public class PressReleaseHelper {
 		return publishDate;
 	}
 	
+	@Deprecated
 	public String getFormattedPublishDate()
 	{
 		String dateStr;
@@ -87,7 +88,7 @@ public class PressReleaseHelper {
 		 SimpleDateFormat formatDayOfMonth  = new SimpleDateFormat("d");
 		 int day = Integer.parseInt(formatDayOfMonth.format(date));
 		 String dayStr = day + suffixes[day];
-		 dateStr = dayStr + new SimpleDateFormat(" MMMM yyyy").format(this.getPublishDate());
+		 dateStr = new SimpleDateFormat("MMMM ").format(this.getPublishDate()) + dayStr + new SimpleDateFormat(" yyyy").format(this.getPublishDate());
 		 return dateStr;
 	}
 
