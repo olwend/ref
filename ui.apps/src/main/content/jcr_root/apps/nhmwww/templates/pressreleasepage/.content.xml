@@ -38,6 +38,13 @@
                 <par
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/parsys">
+                    <pagesummarytext_0
+                        jcr:created="{Date}2015-02-18T15:42:29.480Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-02-18T15:42:29.480Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="nhmwww/components/functional/pagesummarytext"/>
                     <text
                         jcr:createdBy="lisah"
                         jcr:primaryType="nt:unstructured"
@@ -48,6 +55,26 @@
                 <par2
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/parsys">
+                    <Copy_x0020_of_x0020_headertextimage
+                        jcr:lastModified="{Date}2015-02-18T16:55:36.813Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="nhmwww/components/functional/headertextimage"
+                        addCallToAction="true"
+                        component-type="feature-box"
+                        imagePosition="right"
+                        imageRotate="0"
+                        imageSize="4"
+                        text="&lt;p>&lt;b>Weekdays: &lt;/b>+44 (0)20 7942 5654&lt;/p>&#xa;&lt;p>&lt;b>Evenings and weekends:&lt;/b>&lt;/p>&#xa;&lt;p>+44 (0) 7799 690 151&lt;/p>&#xa;&lt;p>&lt;b>Email: &lt;/b>&lt;a href=&quot;mailto:press@nhm.ac.uk&quot;>press@nhm.ac.uk&lt;/a>&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                        text-heading="Contact Us"
+                        textIsRich="true"/>
+                    <listfeed
+                        jcr:created="{Date}2015-02-18T15:46:22.979Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-02-18T15:46:22.979Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="nhmwww/components/functional/listfeeds/listfeed"/>
                     <headertextimage
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="nhmwww/components/functional/headertextimage"
