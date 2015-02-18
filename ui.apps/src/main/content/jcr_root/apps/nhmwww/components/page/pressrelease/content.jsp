@@ -45,7 +45,8 @@
     }
     String defType = currentStyle.get("defaultType", "large");
 	%>
-    <div class="row title">
+	<div class="title">
+    <div class="row title-bar">
 	    <div class="small-12 columns">
 	    <%
 	    // use image title if type is "small" but not if diff should be displayed
@@ -68,6 +69,7 @@
 	
 	    } %><p><%=helper.getFormattedPublishDate() %></p>
 	    </div>
+    </div>
     </div>
 	<cq:include path="par" resourceType="foundation/components/parsys" />
 </div>
