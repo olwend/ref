@@ -16,7 +16,7 @@
 			<div class="title">
 				<div class="row title-bar">
 					<div class="small-12 columns">
-						<h1><cq:include path="title" resourceType="nhmwww/components/functional/title"/></h1>
+						<h1>yada yada</h1>
 						<p><%=helper.getFormattedPublishDate() %></p>
 					</div>
 				</div>
@@ -35,9 +35,7 @@
 		<div class="section row2cells21">
 	<div class="row" data-equalizer >
 		<div class="large-8 medium-8 columns" data-equalizer-watch>
-
-			
-				<cq:include path="summary" resourceType="nhmwww/components/functional/text"/>
+		
 				<cq:include path="par" resourceType="foundation/components/parsys"/>
 
 	<div>
