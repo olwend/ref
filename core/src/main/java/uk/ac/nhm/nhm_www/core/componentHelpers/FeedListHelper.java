@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
@@ -21,7 +23,7 @@ public class FeedListHelper extends ListHelper {
 	protected String rootPagePath;
 	protected Integer numberOfItems;
 	
-	
+	protected static final Logger logger = LoggerFactory.getLogger(FeedListHelper.class);
 	
 	public FeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
@@ -45,10 +47,15 @@ public class FeedListHelper extends ListHelper {
 		}
 		this.rootPagePath = this.properties.get("rootPagePath",this.currentPage.getPath());
 		this.rootPage = this.pageManager.getPage(this.rootPagePath);
+		final Iterator<Page> children;
 		if(this.rootPage != null) {
-		    final Iterator<Page> children = this.rootPage.listChildren(new PageFilter(this.request));
-		    processChildren(children);
+		    children = this.rootPage.listChildren(new PageFilter(this.request));
+		    
+		} else {
+			children = currentPage.listChildren(new PageFilter(this.request));
 		}
+		processChildren(children);
+		
 		this.initialised=true;
 
 
@@ -68,6 +75,7 @@ public class FeedListHelper extends ListHelper {
 				}
 				
 			}
+			
 			int i =0;
 			Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
 			Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
@@ -82,7 +90,17 @@ public class FeedListHelper extends ListHelper {
 		}
 
 
-    public String getRootPagePath() {
+	
+	
+    public Integer getNumberOfItems() {
+		return numberOfItems;
+	}
+
+	public void setNumberOfItems(Integer numberOfItems) {
+		this.numberOfItems = numberOfItems;
+	}
+
+	public String getRootPagePath() {
 	return this.rootPagePath;
     }
 

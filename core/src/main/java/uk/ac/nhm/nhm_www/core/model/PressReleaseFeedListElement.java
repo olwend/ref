@@ -4,12 +4,17 @@ import java.util.Date;
 import java.util.Iterator;
 
 import org.apache.sling.api.resource.ResourceResolver;
+import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PressReleaseFeedListElement extends FeedListElement implements Comparable<PressReleaseFeedListElement> {
 	private Date pressReleaseDate;
+	
+	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListElement.class);
 	
 	public PressReleaseFeedListElement(ResourceResolver resourceResolver, Page page) {
 		super(resourceResolver, page);

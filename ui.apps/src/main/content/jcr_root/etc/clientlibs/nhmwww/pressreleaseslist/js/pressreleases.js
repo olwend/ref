@@ -123,7 +123,7 @@ function showItems(pageJson) {
 	setTimeout(function(){
 		$(document).foundation('reflow');
 		$(document).foundation('equalizer','reflow');
-	}, 1000);
+	}, 500);
 	
 }
 

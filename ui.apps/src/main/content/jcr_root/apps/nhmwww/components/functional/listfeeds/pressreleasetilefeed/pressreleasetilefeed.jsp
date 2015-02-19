@@ -6,7 +6,7 @@
 
 --%><%@page import="uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper,
-				uk.ac.nhm.nhm_www.core.utils.PageUtils"%>
+				uk.ac.nhm.nhm_www.core.utils.*"%>
 <%
 %>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
@@ -30,12 +30,14 @@
 					<div class="press-room--list-item" data-equalizer>
 						<div class="small-12 columns press-room--list-item--content-wrapper">
 							<div class="small-12 columns" data-equalizer-watch>
-								<cq:include path="<%= prElement.getImagePath() %>" resourceType="nhmwww/components/functional/foundation5image" />
+								<a href="<%= LinkUtils.getFormattedLink(prElement.getElementLink()) %> ">
+									<cq:include path="<%= prElement.getImagePath() %>" resourceType="nhmwww/components/functional/foundation5image" />
+								</a>
 								<div class="small-12 columns press-room--list-item--caption"><%= PageUtils.getFormattedPublishDate(prElement.getPressReleaseDate()) %></div>
 							</div>
 							<div class="small-12 columns">
 								<div class="press-room--list-item--content">
-									<h4 class="press-room--list-item--title"><a href="/education/microverse/index.html"><%= prElement.getTitle() %></a></h4>
+									<h4 class="press-room--list-item--title"><a href="<%= LinkUtils.getFormattedLink(prElement.getElementLink()) %>"><%= prElement.getTitle() %></a></h4>
 									<p class="press-room--list-item--tagline"><%= prElement.getIntro() %></p>
 								</div>
 							</div>

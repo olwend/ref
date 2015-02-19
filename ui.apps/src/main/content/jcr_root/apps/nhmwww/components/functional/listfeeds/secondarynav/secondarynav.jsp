@@ -7,7 +7,7 @@
 --%><%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.SecondaryNavHelper"%>
 <%@page import="uk.ac.nhm.nhm_www.core.model.ListElement"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.ListHelper,
-				uk.ac.nhm.nhm_www.core.utils.PageUtils"%>
+				uk.ac.nhm.nhm_www.core.utils.*"%>
 <%
 %>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
@@ -20,22 +20,22 @@
 
 <% if(helper.isInitialised()) {%>
 <!-- START SIDE NAV -->
-				<div class="parbase headertextimage section">
+				<div class="parbase section">
 					<div class="press-room--side-nav">
 						<% if(helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) { %>
 							<p><%= helper.getComponentTitle() %></p>
 						<% } %>
 						<ul class="side-nav">
-							<li><a href="<%= helper.getSectionLandingPage().getPath() %>"><%= helper.getSectionLandingPage().getTitle() %> home</a></li>
+							<li><a href="<%= LinkUtils.getFormattedLink(helper.getSectionLandingPage().getPath()) %>"><%= helper.getSectionLandingPage().getTitle() %> home</a></li>
 							<%for (Object navElement: helper.getChildrenElements()) { 
 								ListElement processingElement = (ListElement) navElement;
 								String currentPageCssClass = "";
 								if(currentPage.getPath().equals(processingElement.getElementLink())){
-									currentPageCssClass = "class=\"current\" ";
+									currentPageCssClass = "class=\"selected\" ";
 								}
 							%>
 							
-								<li><a <%= currentPageCssClass %>href="<%= processingElement.getElementLink()%>"><%= processingElement.getTitle() %></a></li>								
+								<li><a <%= currentPageCssClass %>href="<%= LinkUtils.getFormattedLink(processingElement.getElementLink())%>"><%= processingElement.getTitle() %></a></li>								
 							<% } %>
 						</ul>
 					</div>

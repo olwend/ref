@@ -41,6 +41,7 @@
                         xtype="numberfield"/>
                     <rootPagePath
                         jcr:primaryType="cq:Widget"
+                        fieldLabel="List root"
                         name="./rootPagePath"
                         width="155"
                         xtype="pathfield"/>
