@@ -26,15 +26,21 @@
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Sponsor 2"
                         name="./sponsor2"
+                        rootPath="/content/dam/nhmwww"
+                        precidate="nosystem"
                         xtype="pathfield"/>
                     <sponsor3
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Sponsor 3"
+                        rootPath="/content/dam/nhmwww"
+                        precidate="nosystem"
                         name="./sponsor3"
                         xtype="pathfield"/>
                     <sponsor4
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Sponsor 4"
+                        rootPath="/content/dam/nhmwww"
+                        precidate="nosystem"
                         name="./sponsor4"
                         xtype="pathfield"/>
                 </items>
