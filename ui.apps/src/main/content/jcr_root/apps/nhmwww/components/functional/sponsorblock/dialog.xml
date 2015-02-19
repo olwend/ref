@@ -1,3 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="cq:Dialog"/>
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    height="{Long}400"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    width="600"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <sponsorimages
+                jcr:primaryType="cq:Widget"
+                title="Sponsor Images"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <sponsor1
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Sponsor 1"
+                        name="./sponsor1"
+                        rootPath="/content/dam/nhmwww"
+                        precidate="nosystem"
+                        xtype="pathfield"/>
+                    <sponsor2
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Sponsor 2"
+                        name="./sponsor2"
+                        xtype="pathfield"/>
+                    <sponsor3
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Sponsor 3"
+                        name="./sponsor3"
+                        xtype="pathfield"/>
+                    <sponsor4
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Sponsor 4"
+                        name="./sponsor4"
+                        xtype="pathfield"/>
+                </items>
+            </sponsorimages>
+        </items>
+    </items>
+</jcr:root>
