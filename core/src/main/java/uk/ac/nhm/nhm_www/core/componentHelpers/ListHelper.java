@@ -10,6 +10,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import uk.ac.nhm.nhm_www.core.model.ListElement;
+import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
@@ -24,6 +25,8 @@ public class ListHelper extends HelperBase {
 	protected ResourceResolver resourceResolver;
 	protected String componentTitle;
 	protected List<Object> listElements;
+	protected String hyperLink;
+	protected Boolean newwindow;
 	protected Boolean initialised;
 	
 	
@@ -39,9 +42,14 @@ public class ListHelper extends HelperBase {
 
 	protected void init() {
 		Page landingPage = currentPage.getAbsoluteParent(4);
+		
 		if (this.properties.get("title", String.class) != null) {
-			this.componentTitle = this.properties.get("title",String.class);
+		    this.componentTitle = this.properties.get("title",String.class);
 		}
+		if (this.properties.get("hyperlink", String.class) != null) {
+		    this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
+		}
+
 		if(landingPage != null) {
 			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
 			processChildren(children);
@@ -69,9 +77,53 @@ public class ListHelper extends HelperBase {
 	public void setInitialised(Boolean initialised) {
 		this.initialised = initialised;
 	}
+
+
+	public String getComponentTitle() {
+		return componentTitle;
+	}
+
+
+	public void setComponentTitle(String componentTitle) {
+		this.componentTitle = componentTitle;
+	}
+
+
+	public String getHyperLink() {
+		return hyperLink;
+	}
+
+
+	public void setHyperLink(String hyperLink) {
+		this.hyperLink = hyperLink;
+	}
 	
 	
 	
+	
+    public Boolean getNewwindow() {
+		return newwindow;
+	}
+
+
+	public void setNewwindow(Boolean newwindow) {
+		this.newwindow = newwindow;
+	}
+
+
+	public boolean validateHyperlink() {
+    	return LinkUtils.validateUrl(this.hyperLink);
+    }
+    
+    public List<Object> getChildrenElements() {
+    	return  this.listElements;
+    }
+    public void addListElement(final Object element) {
+    	this.listElements.add(element);
+
+    }
+
+
 	
 	
 }

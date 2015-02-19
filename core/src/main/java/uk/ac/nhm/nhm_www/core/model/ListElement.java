@@ -8,9 +8,12 @@ import com.day.cq.wcm.api.Page;
 
 public class ListElement {
 	protected String title;
+	protected String elementLink;
+	
 
 	public ListElement(Page page) {
 		this.title = PageUtils.getPageTitle(page);
+		this.elementLink = page.getPath();
 	}
 	
 	public String getTitle() {
@@ -20,6 +23,16 @@ public class ListElement {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public String getElementLink() {
+		return elementLink;
+	}
+
+	public void setElementLink(String elementLink) {
+		this.elementLink = elementLink;
+	}
+	
+	
 	
 	
 	

@@ -18,7 +18,7 @@
 %>
 <% if(helper.isInitialised()) { %>
 
-	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperlink() != null) {%><a href="<%=helper.getHyperlink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperlink() != null) {%></a><%}%></h3> <%}%>
+	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
 	<div>
 	<!-- START FEED BLOCK GRID -->
 	<ul class="small-block-grid-1 medium-block-grid-2 press-room--feed">

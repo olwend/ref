@@ -17,10 +17,10 @@ import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 public class FeedListHelper extends ListHelper {
-	protected String hyperLink;
+	
 	protected String rootPagePath;
 	protected Integer numberOfItems;
-	protected Boolean newwindow;
+	
 	
 	
 	public FeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
@@ -28,9 +28,6 @@ public class FeedListHelper extends ListHelper {
 		init();
 	}
 
-	
-	
-	
     protected void init() {
 		if (this.properties.get("title", String.class) != null) {
 		    this.componentTitle = this.properties.get("title",String.class);
@@ -85,37 +82,6 @@ public class FeedListHelper extends ListHelper {
 		}
 
 
-		
-
-	public Boolean getNewwindow() {
-		return newwindow;
-	}
-
-	public void setNewwindow(Boolean newwindow) {
-		this.newwindow = newwindow;
-	}
-
-	public void setComponentTitle(final String title) {
-	this.componentTitle = title;
-
-    }
-
-    public Object getComponentTitle() {
-	return this.componentTitle;
-    }
-
-    public void setHyperlink(final String string) {
-	this.hyperLink = string;
-    }
-
-    public String getHyperlink() {
-	return this.hyperLink;
-    }
-
-    public boolean validateHyperlink() {
-	return LinkUtils.validateUrl(this.hyperLink);
-    }
-
     public String getRootPagePath() {
 	return this.rootPagePath;
     }
@@ -123,17 +89,6 @@ public class FeedListHelper extends ListHelper {
     public void setRootPagePath(final String rootPagePath) {
     	this.rootPagePath = rootPagePath;
     }
-
-    public void addListElement(final Object element) {
-    	this.listElements.add(element);
-
-    }
-
-    public List<Object> getChildrenElements() {
-    	return  this.listElements;
-    }
-
-
 
 
 }
