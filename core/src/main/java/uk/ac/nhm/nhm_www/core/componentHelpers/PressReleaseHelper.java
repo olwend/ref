@@ -32,7 +32,7 @@ public class PressReleaseHelper {
 		return properties;
 	}
 
-	public void setProperties(ValueMap properties) {
+	private void setProperties(ValueMap properties) {
 		this.properties = properties;
 	}
 
@@ -53,7 +53,7 @@ public class PressReleaseHelper {
 		return pinned;
 	}
 
-	public void setPinned(Boolean pinned) {
+	private void setPinned(Boolean pinned) {
 		this.pinned = pinned;
 	}
 
@@ -61,7 +61,7 @@ public class PressReleaseHelper {
 		return summary;
 	}
 
-	public void setSummary(String summary) {
+	private void setSummary(String summary) {
 		this.summary = summary;
 	}
 
@@ -77,7 +77,7 @@ public class PressReleaseHelper {
 		 return dateStr;
 	}
 
-	public void setPublishDate(Date publishDate) {
+	private void setPublishDate(Date publishDate) {
 		this.publishDate = publishDate;
 	}
 
@@ -85,7 +85,7 @@ public class PressReleaseHelper {
 		return resource;
 	}
 
-	public void setResource(Resource resource) {
+	private void setResource(Resource resource) {
 		this.resource = resource;
 	}
 }
