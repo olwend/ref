@@ -71,14 +71,15 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	final int indexFrom = (pageSize*pageNumber) - (pageSize - 1);
 	final int indexTo;
 	if (objects.size() - indexFrom < pageSize - 1) {
-	    indexTo = indexFrom + (objects.size() - indexFrom) - 1;
+	    indexTo = indexFrom + (objects.size() - indexFrom);
 	} else {
 	    indexTo = indexFrom + pageSize - 1;
 	}
 
 	final JSONArray jsonArray = new JSONArray();
 	try {
-	    final int pages = objects.size() / pageSize + 1;
+	    final int pages = objects.size() / pageSize
+		    + (objects.size() % pageSize == 0 ? 0 : 1);
 	    jsonObject.put("pages", pages);
 	    for(int i=indexFrom-1; i < indexTo; i++) {
 		if (objects.get(i) instanceof PressReleaseFeedListElement) {

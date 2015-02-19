@@ -11,7 +11,6 @@ $(document).ready(function() {
 	
 
 function showPressReleases(rootPath, pageNumber, pageSize) {
-	console.log('r: ' + rootPath + ', ' + pageNumber + ', ' + pageSize);
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -21,7 +20,6 @@ function showPressReleases(rootPath, pageNumber, pageSize) {
 			pageSize: pageSize
 		},
 		success: function(data){
-			console.log(data);
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson);
@@ -87,12 +85,9 @@ function buildNavigators(pageNumber, numberOfPages) {
 			$(this).append(pagination);
 			
 			$('.pressreleaselistfeed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
-				console.log('clicked!!!');
-				
 				var to = $(this).data('index');
 				
 				if ($(this).parent().hasClass('unavailable')) {
-					console.log('do not move');
 					return false;
 				}
 				
@@ -124,6 +119,12 @@ function showItems(pageJson) {
 		var element = createPressRelease(title, intro, date, imagePath, link);
 		$('.press-room--list').append(element);
 	});
+	
+	setTimeout(function(){
+		$(document).foundation('reflow');
+		$(document).foundation('equalizer','reflow');
+	}, 1000);
+	
 }
 
 function createPressRelease(title, intro, date, imagePath, url) {
