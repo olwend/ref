@@ -46,19 +46,19 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 
     @Override
     public List<Object> getJCRItems( final HttpServletRequest request, final String path, final Integer pageNumber) throws LoginException {
-	final Map<String, Object> param = new HashMap<String, Object>();
-	final List<Object> objectsFound = new ArrayList<Object>();
-	param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
-	final ResourceResolver resolver = this.resourceResolverFactory.getServiceResourceResolver(param);
-	final Resource res = resolver.getResource(path);
-	final Page rootPage = res.adaptTo(Page.class);
-	final Iterator<Page> itrChildren = rootPage.listChildren(new PageFilter(request));
-	while (itrChildren.hasNext()) {
-	    objectsFound.add(itrChildren.next());
-	}
-
-
-	return objectsFound;
+		final Map<String, Object> param = new HashMap<String, Object>();
+		final List<Object> objectsFound = new ArrayList<Object>();
+		param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
+		final ResourceResolver resolver = this.resourceResolverFactory.getServiceResourceResolver(param);
+		final Resource res = resolver.getResource(path);
+		final Page rootPage = res.adaptTo(Page.class);
+		final Iterator<Page> itrChildren = rootPage.listChildren(new PageFilter(request));
+		while (itrChildren.hasNext()) {
+		    objectsFound.add(itrChildren.next());
+		}
+	
+	
+		return objectsFound;
     }
 
     @Override

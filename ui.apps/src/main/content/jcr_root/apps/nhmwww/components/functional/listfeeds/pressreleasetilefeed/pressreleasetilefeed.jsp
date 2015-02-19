@@ -22,7 +22,7 @@
 	<div>
 	<!-- START FEED BLOCK GRID -->
 	<ul class="small-block-grid-1 medium-block-grid-2 press-room--feed">
-		<% for(Object element: helper.getChildrenElements()) { 
+		<% for(Object element: helper.getTilesElements()) { 
 				PressReleaseFeedListElement prElement = (PressReleaseFeedListElement) element;
 		
 		%>

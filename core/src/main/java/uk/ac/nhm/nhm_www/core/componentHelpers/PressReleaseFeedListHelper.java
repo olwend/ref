@@ -27,35 +27,62 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 
     @Override
     protected void processChildren(final Iterator<Page> children) {
-	this.listElements = new ArrayList<Object>();
-	final List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
-	final List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
-
-	int j = 0;
-	while (children.hasNext()) {
-	    j++;
-	    System.out.println("j " + j);
-	    final Page child = children.next();
-	    final PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(this.resourceResolver, child);
-	    if(feedListElement.isPinned()) {
-		System.out.println("in is pinned");
-		pinnedElements.add(feedListElement);
-	    } else {
-		unpinnedElements.add(feedListElement);
-	    }
-
-	}
-	Collections.sort(pinnedElements);
-	Collections.sort(unpinnedElements);
-	final Iterator<PressReleaseFeedListElement> itrPinnedElements = pinnedElements.iterator();
-	final Iterator<PressReleaseFeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
-
-	while (itrPinnedElements.hasNext()/* && i < this.numberOfItems */) {
-	    this.listElements.add(itrPinnedElements.next());
-	}
-	while (itrUnpinnedElements.hasNext()/* && i < this.numberOfItems */) {
-	    this.listElements.add(itrUnpinnedElements.next());
-	}
-
+		this.listElements = new ArrayList<Object>();
+		final List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
+		final List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
+	
+		
+		while (children.hasNext()) {
+		    final Page child = children.next();
+		    final PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(this.resourceResolver, child);
+		    this.listElements.add(feedListElement);
+		}
+    }
+    
+    public List<Object> getChildrenElements() {
+    	List<PressReleaseFeedListElement> sortableObjects = new ArrayList<PressReleaseFeedListElement>();
+    	for(Object object: this.listElements) {
+    		sortableObjects.add((PressReleaseFeedListElement) object);
+    	}
+    	Collections.reverse(sortableObjects);
+    	List<Object> sortedObjects = new ArrayList<Object>();
+    	sortedObjects.addAll(sortableObjects);
+    	return sortedObjects;
+    }
+    
+    public List<PressReleaseFeedListElement> getTilesElements() {
+		
+    	final List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
+		final List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
+		final List<PressReleaseFeedListElement> sortedListToReturn = new ArrayList<PressReleaseFeedListElement>();
+		
+		//while (children.hasNext()) {
+		for(Object object:this.listElements){
+		    PressReleaseFeedListElement prElement = (PressReleaseFeedListElement) object;
+		    if(prElement.isPinned()) {
+			pinnedElements.add(prElement);
+		    } else {
+			unpinnedElements.add(prElement);
+		    }
+	
+		}
+		Collections.reverse(pinnedElements);
+		Collections.reverse(unpinnedElements);
+		final Iterator<PressReleaseFeedListElement> itrPinnedElements = pinnedElements.iterator();
+		final Iterator<PressReleaseFeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
+		int i = 0;
+		while (itrPinnedElements.hasNext() && i < this.numberOfItems ) {
+			i++;
+			sortedListToReturn.add(itrPinnedElements.next());
+		}
+		while (itrUnpinnedElements.hasNext() && i < this.numberOfItems ) {
+			i++;
+			sortedListToReturn.add(itrUnpinnedElements.next());
+		}
+    	
+    	
+    	
+    	return sortedListToReturn;
+    	
     }
 }

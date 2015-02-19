@@ -128,7 +128,7 @@ public class FeedListHelperTest {
 		List<Object> elements = this.helper.getChildrenElements(); 
 		System.out.println("Size:" + elements.size());
 		assertTrue(elements.size() == 2);
-		PressReleaseFeedListElement element = (PressReleaseFeedListElement) elements.get(0);
+		PressReleaseFeedListElement element = (PressReleaseFeedListElement) elements.get(1);
 		assertNotNull(element.getPressReleaseDate());
 		assertNotNull(element.getTitle());
 		assertTrue(element.getTitle().equals("A frenchman is born"));
