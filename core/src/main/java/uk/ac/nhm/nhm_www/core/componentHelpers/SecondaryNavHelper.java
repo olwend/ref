@@ -47,14 +47,12 @@ public class SecondaryNavHelper extends ListHelper{
 	
 	protected void processChildren(Iterator<Page> children) {
 		listElements = new ArrayList<Object>();
-		List<ListElement> elements = new ArrayList<ListElement>();
+		//List<ListElement> elements = new ArrayList<ListElement>();
 		while (children.hasNext()) {
 		
 			Page childPage = children.next();
-			elements.add(new ListElement(childPage));
+			listElements.add(new ListElement(childPage));
 		}
-		
-		
 	}
 
 	public Page getSectionLandingPage() {
@@ -64,12 +62,5 @@ public class SecondaryNavHelper extends ListHelper{
 	public void setSectionLandingPage(Page sectionLandingPage) {
 		this.sectionLandingPage = sectionLandingPage;
 	}
-	
-	public List<Object> getChildrenElements() {
-    	return  this.listElements;
-    }
-	
-	
-	
 
 }
