@@ -115,12 +115,12 @@ public class FeedListHelperTest {
 	
 	@Test
 	public void ComponentTitleHyperlinkTest() {
-		helper.setHyperlink("alpha");
-		assertEquals(helper.getHyperlink(), "alpha");
+		helper.setHyperLink("alpha");
+		assertEquals(helper.getHyperLink(), "alpha");
 		assertFalse(helper.validateHyperlink());
-		helper.setHyperlink("http://www.example.com/");
+		helper.setHyperLink("http://www.example.com/");
 		assertTrue(helper.validateHyperlink());
-		assertEquals(String.class, helper.getHyperlink().getClass());
+		assertEquals(String.class, helper.getHyperLink().getClass());
 	}
 	
 	@Test
