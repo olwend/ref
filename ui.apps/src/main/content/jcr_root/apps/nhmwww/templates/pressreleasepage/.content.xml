@@ -88,5 +88,9 @@
                 </par2>
             </row2cells21>
         </par>
+    
+        <image
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="nhmwww/components/functional/foundation5image"/>
     </jcr:content>
 </jcr:root>

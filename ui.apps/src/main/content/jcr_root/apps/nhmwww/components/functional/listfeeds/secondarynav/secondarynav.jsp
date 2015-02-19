@@ -22,11 +22,11 @@
 <!-- START SIDE NAV -->
 				<div class="parbase headertextimage section">
 					<div class="press-room--side-nav">
+						<% if(helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) { %>
+							<p><%= helper.getComponentTitle() %></p>
+						<% } %>
 						<ul class="side-nav">
 							<li><a href="<%= helper.getSectionLandingPage().getPath() %>"><%= helper.getSectionLandingPage().getTitle() %> home</a></li>
-							<%= helper.getChildrenElements().size() %>
-							
-							
 							<%for (Object navElement: helper.getChildrenElements()) { 
 								ListElement processingElement = (ListElement) navElement;
 								String currentPageCssClass = "";

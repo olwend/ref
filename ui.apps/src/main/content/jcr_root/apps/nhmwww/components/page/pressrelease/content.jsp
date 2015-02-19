@@ -71,5 +71,6 @@
 	    </div>
     </div>
     </div>
+    <cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
 	<cq:include path="par" resourceType="foundation/components/parsys" />
 </div>
