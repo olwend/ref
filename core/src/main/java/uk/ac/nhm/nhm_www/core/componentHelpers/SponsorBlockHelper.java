@@ -18,7 +18,6 @@ public class SponsorBlockHelper {
 	
 	public SponsorBlockHelper(Resource resource,ValueMap properties)
 	{
-//		this.image = getProperties().get("image", String.class);
 		setResource(resource);
 		setProperties(properties);
 		setSponsor1image(getProperties().get("sponsor1", String.class));
