@@ -1,10 +1,22 @@
+<%@page session="false"
+        import="uk.ac.nhm.nhm_www.core.componentHelpers.SponsorBlockHelper" %>
+<%@include file="/apps/nhmwww/components/global.jsp"%>
+<%SponsorBlockHelper helper = new SponsorBlockHelper(resource,properties); %>
 			<!-- START SPONSORS BLOCK GRID -->
 			<div class="sponsors-grid">	
 				<ul class="small-block-grid-2 medium-block-grid-4">
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY2014/DONG-energy-logo.jpg" /></li>
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Coral-reefs-exhibition/catlin-100-percent.jpg" /></li>
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY2014/DONG-energy-logo.jpg" /></li>
-					<li><img src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Coral-reefs-exhibition/catlin-100-percent.jpg" /></li>
+				<%if (helper.getSponsor1image() != null && helper.getSponsor1image().length() > 0) { %>
+					<li><img src="<%=helper.getSponsor1image() %>" /></li>
+				<%}%>
+				<%if (helper.getSponsor2image() != null && helper.getSponsor2image().length() > 0) { %>
+					<li><img src="<%=helper.getSponsor2image() %>" /></li>
+				<%}%>
+				<%if (helper.getSponsor3image() != null && helper.getSponsor3image().length() > 0) { %>
+					<li><img src="<%=helper.getSponsor3image() %>" /></li>
+				<%}%>
+				<%if (helper.getSponsor4image() != null && helper.getSponsor4image().length() > 0) { %>
+					<li><img src="<%=helper.getSponsor4image() %>" /></li>
+				<%}%>
 				</ul>
 			</div>
 			<!-- END SPONSORS BLOCK GRID -->
