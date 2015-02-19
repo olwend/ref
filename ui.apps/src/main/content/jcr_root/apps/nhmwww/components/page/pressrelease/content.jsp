@@ -71,6 +71,9 @@
 	    </div>
     </div>
     </div>
+    <div class="row " data-equalizer >
+	<div class="large-12 columns">
     <cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
+    </div></div>
 	<cq:include path="par" resourceType="foundation/components/parsys" />
 </div>
