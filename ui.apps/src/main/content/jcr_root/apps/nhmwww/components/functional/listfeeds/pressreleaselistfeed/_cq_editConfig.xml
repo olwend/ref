@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<<<<<<< HEAD
     cq:actions="[text:Press Release feed,-,edit,delete,insert,copymove]"
+=======
+    cq:actions="[text:Press Releases List,-,edit,delete,insert,copymove]"
+>>>>>>> a27bf0d6402289f32ffbbe2ac70c52a53fbed46a
     cq:dialogMode="floating"
     cq:disableTargeting="true"
     cq:layout="editbar"

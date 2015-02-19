@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
-import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
 
 public class PressReleaseFeedListHelper extends FeedListHelper {
@@ -28,14 +27,18 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 	}
 	
 	protected void processChildren(Iterator<Page> children) {
-		
+		this.listElements = new ArrayList<Object>();
 		List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
 		List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
 		
+		int j = 0;
 		while (children.hasNext()) {
+			j++;
+			System.out.println("j " + j);
 			Page child = children.next();
 			PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(this.resourceResolver, child);
 			if(feedListElement.isPinned()) {
+				System.out.println("in is pinned");
 				pinnedElements.add(feedListElement);
 			} else {
 				unpinnedElements.add(feedListElement);
@@ -56,5 +59,6 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 			listElements.add(itrUnpinnedElements.next());
 			i++;
 		}
+		
 	}	
 }

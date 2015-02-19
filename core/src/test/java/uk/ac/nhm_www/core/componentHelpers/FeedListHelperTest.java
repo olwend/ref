@@ -86,7 +86,10 @@ public class FeedListHelperTest {
 		this.aemContext.load().json("/json-import/pr1.json", "/content/nhmwww/en/home/testpage/pr1");
 		this.aemContext.load().json("/json-import/pr2.json", "/content/nhmwww/en/home/testpage/pr2");
 		
+		
+		
 		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
+		
 		helper.setComponentTitle("alpha");
 		
 	}
@@ -123,6 +126,7 @@ public class FeedListHelperTest {
 	@Test
 	public void getChildrenElementsTest() {
 		List<Object> elements = this.helper.getChildrenElements(); 
+		System.out.println("Size:" + elements.size());
 		assertTrue(elements.size() == 2);
 		PressReleaseFeedListElement element = (PressReleaseFeedListElement) elements.get(0);
 		assertNotNull(element.getPressReleaseDate());

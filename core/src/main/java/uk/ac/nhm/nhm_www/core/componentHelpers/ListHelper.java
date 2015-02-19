@@ -24,6 +24,7 @@ public class ListHelper extends HelperBase {
 	protected ResourceResolver resourceResolver;
 	protected String componentTitle;
 	protected List<Object> listElements;
+	protected Boolean initialised;
 	
 	
 	public ListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
@@ -50,6 +51,7 @@ public class ListHelper extends HelperBase {
 
 
 	protected void processChildren(Iterator<Page> children) {
+		listElements = new ArrayList<Object>();
 		List<ListElement> elements = new ArrayList<ListElement>();
 		while (children.hasNext()) {
 			Page childPage = children.next();
@@ -57,6 +59,18 @@ public class ListHelper extends HelperBase {
 		}
 		
 	}
+
+
+	public Boolean isInitialised() {
+		return initialised;
+	}
+
+
+	public void setInitialised(Boolean initialised) {
+		this.initialised = initialised;
+	}
+	
+	
 	
 	
 	

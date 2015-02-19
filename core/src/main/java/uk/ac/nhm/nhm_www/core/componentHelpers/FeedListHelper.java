@@ -1,5 +1,9 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageFilter;
+import com.day.cq.wcm.api.PageManager;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,10 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageFilter;
-import com.day.cq.wcm.api.PageManager;
-
 import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
@@ -21,113 +21,71 @@ public class FeedListHelper extends ListHelper {
 	protected String rootPagePath;
 	protected Integer numberOfItems;
 	protected Boolean newwindow;
-	protected Boolean initialised;
+	
 	
 	public FeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 		init();
 	}
 
-	protected void init() {
-		
+	
+	
+	
+    protected void init() {
 		if (this.properties.get("title", String.class) != null) {
-			this.componentTitle = this.properties.get("title",String.class);
+		    this.componentTitle = this.properties.get("title",String.class);
 		}
 		if (this.properties.get("hyperlink", String.class) != null) {
-			this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
+		    this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
 		}
 		if (this.properties.get("numberToDisplay", Integer.class) != null) {
-			this.numberOfItems = this.properties.get("numberToDisplay",6);
+		    this.numberOfItems = this.properties.get("numberToDisplay",6);
+		} else {
+		    this.numberOfItems = new Integer(6);
 		}
 		if (this.properties.get("newwindow") != null) {
-			this.newwindow = this.properties.get("newwindow",false);
+		    this.newwindow = this.properties.get("newwindow",false);
 		}
-		this.rootPagePath = this.properties.get("rootPagePath",currentPage.getPath());
-		this.rootPage = pageManager.getPage(rootPagePath);
-		this.listElements = new ArrayList<Object>();
-		if(rootPage != null) {
-			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
-			processChildren(children);
+		this.rootPagePath = this.properties.get("rootPagePath",this.currentPage.getPath());
+		this.rootPage = this.pageManager.getPage(this.rootPagePath);
+		if(this.rootPage != null) {
+		    final Iterator<Page> children = this.rootPage.listChildren(new PageFilter(this.request));
+		    processChildren(children);
 		}
-		this.initialised = true;
+		this.initialised=true;
 
-		
-	}
 
+    }
+    
 	protected void processChildren(Iterator<Page> children) {
-		
-		List<FeedListElement> pinnedElements = new ArrayList<FeedListElement>();
-		List<FeedListElement> unpinnedElements = new ArrayList<FeedListElement>();
-		while (children.hasNext()) {
-			Page child = children.next();
-			FeedListElement feedListElement = new FeedListElement(this.resourceResolver, child);
-			if(feedListElement.isPinned()) {
-				pinnedElements.add(feedListElement);
-			} else {
-				unpinnedElements.add(feedListElement);
-			}
 			
+			List<FeedListElement> pinnedElements = new ArrayList<FeedListElement>();
+			List<FeedListElement> unpinnedElements = new ArrayList<FeedListElement>();
+			while (children.hasNext()) {
+				Page child = children.next();
+				FeedListElement feedListElement = new FeedListElement(this.resourceResolver, child);
+				if(feedListElement.isPinned()) {
+					pinnedElements.add(feedListElement);
+				} else {
+					unpinnedElements.add(feedListElement);
+				}
+				
+			}
+			int i =0;
+			Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
+			Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
+			while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
+				listElements.add(itrPinnedElements.next());
+				i++;
+			}
+			while(itrUnpinnedElements.hasNext() && i< this.numberOfItems) {
+				listElements.add(itrUnpinnedElements.next());
+				i++;
+			}
 		}
-		int i =0;
-		Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
-		Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
-		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
-			listElements.add(itrPinnedElements.next());
-			i++;
-		}
-		while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
-			listElements.add(itrUnpinnedElements.next());
-			i++;
-		}
+
+
 		
-	}
-
-	public void setComponentTitle(String title) {
-		this.componentTitle = title; 
-		
-	}
-
-	public Object getComponentTitle() {
-		return this.componentTitle;
-	}
-
-	public void setHyperlink(String string) {
-		this.hyperLink = string;
-	}
-
-	public String getHyperlink() {
-		return this.hyperLink;
-	}
-
-	public boolean validateHyperlink() {
-		return LinkUtils.validateUrl(this.hyperLink);
-	}
-	
-	public String getRootPagePath() {
-		return rootPagePath;
-	}
-
-	public void setRootPagePath(String rootPagePath) {
-		this.rootPagePath = rootPagePath;
-	}
-	
-	public Boolean isInitialised() {
-		return initialised;
-	}
-
-	public void setInitialised(Boolean initialised) {
-		this.initialised = initialised;
-	}
-	
-
-	public void addListElement(Object element) {
-		this.listElements.add(element);
-		
-	}
-	
-	public List<Object> getChildrenElements() {
-		return  this.listElements;
-	}
 
 	public Boolean getNewwindow() {
 		return newwindow;
@@ -137,8 +95,45 @@ public class FeedListHelper extends ListHelper {
 		this.newwindow = newwindow;
 	}
 
-	
-	
-	
+	public void setComponentTitle(final String title) {
+	this.componentTitle = title;
+
+    }
+
+    public Object getComponentTitle() {
+	return this.componentTitle;
+    }
+
+    public void setHyperlink(final String string) {
+	this.hyperLink = string;
+    }
+
+    public String getHyperlink() {
+	return this.hyperLink;
+    }
+
+    public boolean validateHyperlink() {
+	return LinkUtils.validateUrl(this.hyperLink);
+    }
+
+    public String getRootPagePath() {
+	return this.rootPagePath;
+    }
+
+    public void setRootPagePath(final String rootPagePath) {
+    	this.rootPagePath = rootPagePath;
+    }
+
+    public void addListElement(final Object element) {
+    	this.listElements.add(element);
+
+    }
+
+    public List<Object> getChildrenElements() {
+    	return  this.listElements;
+    }
+
+
+
 
 }
