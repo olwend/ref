@@ -30,12 +30,12 @@
 							<%for (Object navElement: helper.getChildrenElements()) { 
 								ListElement processingElement = (ListElement) navElement;
 								String currentPageCssClass = "";
-								/*if(currentPage.getPath().equals(processingElement.getElementLink())){
-									currentPageCssClass = "class=\"current\"";
-								}*/
+								if(currentPage.getPath().equals(processingElement.getElementLink())){
+									currentPageCssClass = "class=\"current\" ";
+								}
 							%>
 							
-								<li><a <%= //currentPageCssClass %> href="<%= processingElement.getElementLink()%>"><%= processingElement.getTitle() %></a></li>								
+								<li><a <%= currentPageCssClass %>href="<%= processingElement.getElementLink()%>"><%= processingElement.getTitle() %></a></li>								
 							<% } %>
 						</ul>
 					</div>
