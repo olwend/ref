@@ -21,15 +21,15 @@
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
 	<div>
 	<!-- START FEED BLOCK GRID -->
-	<ul class="small-block-grid-1 medium-block-grid-2 press-room--feed">
+	<ul class="small-block-grid-1 medium-block-grid-2 press-room--feed" data-equalizer>
 		<% for(Object element: helper.getTilesElements()) { 
 				PressReleaseFeedListElement prElement = (PressReleaseFeedListElement) element;
 		
 		%>
 				<li>
-					<div class="press-room--list-item" data-equalizer>
-						<div class="small-12 columns press-room--list-item--content-wrapper">
-							<div class="small-12 columns" data-equalizer-watch>
+					<div class="press-room--list-item">
+						<div class="small-12 columns press-room--list-item--content-wrapper" data-equalizer-watch>
+							<div class="small-12 columns">
 								<a href="<%= LinkUtils.getFormattedLink(prElement.getElementLink()) %> ">
 									<cq:include path="<%= prElement.getImagePath() %>" resourceType="nhmwww/components/functional/foundation5image" />
 								</a>
