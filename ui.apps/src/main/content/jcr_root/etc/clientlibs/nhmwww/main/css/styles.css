@@ -10579,6 +10579,15 @@ h3 {
   border-top: 1px solid #CCCCCC;
 }
 
+.pagesummarytext {
+  padding: 0 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .pagesummarytext {
+    padding: 0 1.5em;
+  }
+}
+
 /***** PRESS ROOM *****/
 .press-office h3 {
   padding-bottom: 10px;
