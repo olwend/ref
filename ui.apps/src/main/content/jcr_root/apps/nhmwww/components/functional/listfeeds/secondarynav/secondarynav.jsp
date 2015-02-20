@@ -31,11 +31,11 @@
 								ListElement processingElement = (ListElement) navElement;
 								String currentPageCssClass = "";
 								if(currentPage.getPath().equals(processingElement.getElementLink())){
-									currentPageCssClass = "class=\"selected\" ";
+									currentPageCssClass = " class=\"selected\" ";
 								}
 							%>
 							
-								<li><a <%= currentPageCssClass %>href="<%= LinkUtils.getFormattedLink(processingElement.getElementLink())%>"><%= processingElement.getTitle() %></a></li>								
+								<li<%= currentPageCssClass %>><a href="<%= LinkUtils.getFormattedLink(processingElement.getElementLink())%>"><%= processingElement.getTitle() %></a></li>								
 							<% } %>
 						</ul>
 					</div>
