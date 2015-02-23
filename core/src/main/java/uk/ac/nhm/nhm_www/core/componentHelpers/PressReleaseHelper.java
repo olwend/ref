@@ -37,13 +37,13 @@ public class PressReleaseHelper {
 	}
 
 	public Boolean getIsComponentInitialised() {
-		if (getSummary() != null && getSummary().length() > 0)
+		if (this.getSummary() != null && this.getSummary().length() > 0)
 		{
-			isComponentInitialised = true;
+			this.isComponentInitialised = true;
 		}
 		else
 		{
-			isComponentInitialised = false;
+			this.isComponentInitialised = false;
 		}
 		
 		return isComponentInitialised;
