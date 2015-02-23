@@ -1320,7 +1320,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .press-office .accordion .accordion-navigation > a,
 .press-office .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-news-press.png");
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-press-office.png");
 }
 .press-office .accordion .accordion-navigation > a:hover,
 .press-office .accordion dd > a:hover {
@@ -1328,7 +1328,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .press-office .accordion .accordion-navigation.active > a,
 .press-office .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-news-press.png");
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-press-office.png");
 }
 .press-office .accordion .accordion-navigation.active > a:hover,
 .press-office .accordion dd.active > a:hover {
@@ -9927,9 +9927,19 @@ h3 {
   border-top: 1px solid #CCCCCC;
 }
 
+.pagesummarytext {
+  padding: 0 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .pagesummarytext {
+    padding: 0 1.5em;
+  }
+}
+
 /***** PRESS ROOM *****/
 .press-office h3 {
   padding-bottom: 10px;
+  padding-left: 0.5em;
   color: #107E5E;
 }
 .press-office .title-bar {
@@ -9937,6 +9947,12 @@ h3 {
 }
 .press-office .feature-box a {
   color: #ffffff;
+}
+.press-office .feature-box h3 {
+  padding-left: 0;
+}
+.press-office .aside-box h3 {
+  padding-left: 0;
 }
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
@@ -10004,13 +10020,17 @@ h3 {
   }
 }
 
+.press-room--side-nav {
+  margin: 1.3em 0;
+  clear: both;
+}
 .press-room--side-nav .side-nav {
   padding: 0;
 }
 .press-room--side-nav .side-nav li {
   margin-bottom: 0.3em;
   border: none;
-  background-color: #e7f2ef;
+  background-color: rgba(16, 126, 94, 0.1);
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
 }
@@ -10021,14 +10041,14 @@ h3 {
 .press-room--side-nav .side-nav li a:hover {
   color: #107E5E;
   text-decoration: underline;
-  background-color: #c8e1da;
+  background-color: rgba(16, 126, 94, 0.25);
 }
 .press-room--side-nav .side-nav li a:focus {
-  background-color: #c8e1da;
+  background-color: rgba(16, 126, 94, 0.25);
   color: #107E5E;
 }
 .press-room--side-nav .side-nav li.selected {
-  background-color: #c8e1da;
+  background-color: rgba(16, 126, 94, 0.25);
 }
 .press-room--side-nav .side-nav li.selected a {
   color: #107E5E;
@@ -10046,10 +10066,14 @@ ul.pagination li a {
 }
 ul.pagination li a:hover {
   text-decoration: none;
+  background-color: rgba(16, 126, 94, 0.1);
 }
 ul.pagination li.current a {
-  background-color: #c8e1da;
+  background-color: rgba(16, 126, 94, 0.25);
   color: #107E5E;
+}
+ul.pagination li.current a:hover {
+  background-color: rgba(16, 126, 94, 0.25);
 }
 
 /* IE8-specific fixes */
