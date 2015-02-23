@@ -10623,13 +10623,14 @@ h3 {
 }
 
 .press-room--list-item--content {
-  padding: 0.5em 0.75em;
+  padding: 0.5em 1.25em;
 }
 
 .press-room--list-item--title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.1em;
+  line-height: 1.5em;
   padding: 0;
 }
 .press-room--list-item--title a {
@@ -10637,12 +10638,12 @@ h3 {
 }
 
 .press-room--list-item--tagline {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 
 .press-room--list-item--caption {
   background-color: #aaaaaa;
-  padding: 0.5em 0.75em;
+  padding: 0.5em 1.25em;
   color: #ffffff;
   font-size: 0.95em;
 }
@@ -10661,7 +10662,7 @@ h3 {
 }
 @media screen and (min-width: 768px) {
   .press-room--list .press-room--list-item--content-wrapper {
-    padding: 1em 0.75em;
+    padding: 1.25em;
   }
 }
 @media screen and (min-width: 768px) {
@@ -10691,7 +10692,12 @@ h3 {
   border: none;
   background-color: rgba(16, 126, 94, 0.1);
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 0.9em;
+  font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  .press-room--side-nav .side-nav li {
+    font-size: 1.2em;
+  }
 }
 .press-room--side-nav .side-nav li a {
   color: #107E5E;
