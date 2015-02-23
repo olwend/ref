@@ -24,12 +24,18 @@
 					<div class="press-room--side-nav">
 						<% if(helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) { %>
 							<p><%= helper.getComponentTitle() %></p>
-						<% } %>
+						<% }
+						
+						String currentPageCssClass = "";
+						if(currentPage.getPath().equals(helper.getSectionLandingPage().getPath())){
+							currentPageCssClass = " class=\"selected\" ";
+						}
+						%>
 						<ul class="side-nav">
-							<li><a href="<%= LinkUtils.getFormattedLink(helper.getSectionLandingPage().getPath()) %>"><%= helper.getSectionLandingPage().getTitle() %> home</a></li>
+							<li<%= currentPageCssClass %>><a href="<%= LinkUtils.getFormattedLink(helper.getSectionLandingPage().getPath()) %>"><%= helper.getSectionLandingPage().getTitle() %> home</a></li>
 							<%for (Object navElement: helper.getChildrenElements()) { 
 								ListElement processingElement = (ListElement) navElement;
-								String currentPageCssClass = "";
+								currentPageCssClass = "";
 								if(currentPage.getPath().equals(processingElement.getElementLink())){
 									currentPageCssClass = " class=\"selected\" ";
 								}

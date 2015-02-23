@@ -32,5 +32,22 @@
                     value="large"/>
             </options>
         </type>
+        <text
+	        jcr:primaryType="cq:Widget"
+	        fieldLabel="Tag line"
+	        fieldDescription="This will be displayed under the page title."
+	        name="./text"
+	        xtype="richtext">
+	        <rtePlugins
+	            jcr:primaryType="cq:Widget"
+	            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+	            xtype="cqinclude"/>
+	    </text>
+	    <isRichTextFlag
+	        jcr:primaryType="cq:Widget"
+	        ignoreData="{Boolean}true"
+	        name="./textIsRich"
+	        value="true"
+	        xtype="hidden"/>
     </items>
 </jcr:root>
