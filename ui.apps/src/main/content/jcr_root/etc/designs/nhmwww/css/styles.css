@@ -10292,6 +10292,10 @@ body {
   background-color: #253480;
 }
 
+.content-page .title-bar {
+  margin-bottom: 1.2em;
+}
+
 /** this makes the title bar flush with screen edge, keeps gutter for content. **/
 .title .row.title-bar {
   width: 100%;
@@ -10473,9 +10477,6 @@ h3 {
   }
 }
 
-.info-sidebar {
-  margin-top: 0.5em;
-}
 @media screen and (min-width: 768px) {
   .info-sidebar li {
     padding-left: 24%;
@@ -10588,6 +10589,12 @@ h3 {
   }
 }
 
+@media screen and (min-width: 320px) {
+  .carousel-wrapper a:hover {
+    text-decoration: none;
+  }
+}
+
 /***** PRESS ROOM *****/
 .press-office h3 {
   padding-bottom: 10px;
@@ -10692,7 +10699,7 @@ h3 {
 }
 .press-room--side-nav .side-nav li a:hover {
   color: #107E5E;
-  text-decoration: underline;
+  text-decoration: none;
   background-color: rgba(16, 126, 94, 0.25);
 }
 .press-room--side-nav .side-nav li a:focus {
