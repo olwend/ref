@@ -21,7 +21,7 @@
 <% if(helper.isInitialised()) {%>
 <!-- START SIDE NAV -->
 				<div class="parbase section">
-					<div class="press-room--side-nav">
+					<div class="press-office--side-nav">
 						<% if(helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) { %>
 							<p><%= helper.getComponentTitle() %></p>
 						<% }

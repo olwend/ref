@@ -23,24 +23,24 @@
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
 	<div>
 	<!-- START FEED BLOCK GRID -->
-	<ul class="small-block-grid-1 medium-block-grid-2 press-room--feed" data-equalizer>
+	<ul class="small-block-grid-1 medium-block-grid-2 press-office--feed" data-equalizer>
 		<% for(Object element: helper.getTilesElements()) { 
 				PressReleaseFeedListElement prElement = (PressReleaseFeedListElement) element;
 		
 		%>
 				<li>
-					<div class="press-room--list-item">
-						<div class="small-12 columns press-room--list-item--content-wrapper" data-equalizer-watch>
+					<div class="press-office--list-item">
+						<div class="small-12 columns press-office--list-item--content-wrapper" data-equalizer-watch>
 							<div class="small-12 columns">
 								<a href="<%= LinkUtils.getFormattedLink(prElement.getElementLink()) %> ">
 									<cq:include path="<%= prElement.getImagePath() %>" resourceType="nhmwww/components/functional/foundation5image" />
 								</a>
-								<div class="small-12 columns press-room--list-item--caption"><%= PageUtils.getFormattedPublishDate(prElement.getPressReleaseDate()) %></div>
+								<div class="small-12 columns press-office--list-item--caption"><%= PageUtils.getFormattedPublishDate(prElement.getPressReleaseDate()) %></div>
 							</div>
 							<div class="small-12 columns">
-								<div class="press-room--list-item--content">
-									<h4 class="press-room--list-item--title"><a href="<%= LinkUtils.getFormattedLink(prElement.getElementLink()) %>"><%= prElement.getTitle() %></a></h4>
-									<p class="press-room--list-item--tagline"><%= prElement.getIntro() %></p>
+								<div class="press-office--list-item--content">
+									<h4 class="press-office--list-item--title"><a href="<%= LinkUtils.getFormattedLink(prElement.getElementLink()) %>"><%= prElement.getTitle() %></a></h4>
+									<p class="press-office--list-item--tagline"><%= prElement.getIntro() %></p>
 								</div>
 							</div>
 						</div>

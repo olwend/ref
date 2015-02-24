@@ -32,7 +32,7 @@ function addMoreResultsButton() {
 		var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
 		var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
 		removeMoreResultsButton();
-		var elementsShowed = $('.press-room--list-item').length;
+		var elementsShowed = $('.press-office--list-item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
 		showPressReleases(rootPath, currentPage+1, pageSize);
@@ -162,7 +162,7 @@ function showItems(pageJson) {
 		var link = item.path + ".html";
 		
 		var element = createPressRelease(title, intro, date, imagePath, link);
-		$('.press-room--list').append(element);
+		$('.press-office--list').append(element);
 	});
 	
 	setTimeout(function(){
@@ -175,17 +175,17 @@ function showItems(pageJson) {
 
 function createPressRelease(title, intro, date, imagePath, url) {
 	var element = document.createElement("div");
-	element.className = 'press-room--list-item';
+	element.className = 'press-office--list-item';
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
 	var dateDiv = document.createElement("div");
-	dateDiv.className = 'small-12 columns press-room--list-item--caption';
+	dateDiv.className = 'small-12 columns press-office--list-item--caption';
 	dateDiv.innerHTML = date;
 	
 	element.appendChild(dateDiv);
 	
 	var wrapperDiv = document.createElement("div");
-	wrapperDiv.className = 'small-12 columns press-room--list-item--content-wrapper';
+	wrapperDiv.className = 'small-12 columns press-office--list-item--content-wrapper';
 	var firstColumnDiv = document.createElement("div");
 	firstColumnDiv.className = 'small-12 medium-6 columns';
 	firstColumnDiv.setAttributeNode(document.createAttribute('data-equalizer'));
@@ -222,10 +222,10 @@ function createPressRelease(title, intro, date, imagePath, url) {
 	secondColumnDiv.className = 'small-12 medium-6 columns';
 	
 	var contentDiv = document.createElement('div');
-	contentDiv.className = 'press-room--list-item--content';
+	contentDiv.className = 'press-office--list-item--content';
 	
 	var h4 = document.createElement('h4');
-	h4.className = 'press-room--list-item--title';
+	h4.className = 'press-office--list-item--title';
 	
 	var link2 = document.createElement('a');
 	link2.href = url;
@@ -237,7 +237,7 @@ function createPressRelease(title, intro, date, imagePath, url) {
 	
 	var p = document.createElement('p');
 	p.innerHTML = intro;
-	p.className = 'press-room--list-item--tagline';
+	p.className = 'press-office--list-item--tagline';
 	
 	contentDiv.appendChild(p);
 	secondColumnDiv.appendChild(contentDiv);

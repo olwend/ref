@@ -27,6 +27,6 @@
     <!-- START PAGINATION -->
     
     <!-- END PAGINATION -->
-    <div class="press-room--list">
+    <div class="press-office--list">
     </div>
 </div>
