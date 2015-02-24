@@ -10616,6 +10616,10 @@ h3 {
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
 }
+.press-office .more-results {
+  clear: both;
+  text-align: center;
+}
 
 .press-room--list-item--content-wrapper {
   margin-bottom: 1.8em;
@@ -10723,7 +10727,7 @@ h3 {
   text-decoration: none;
 }
 
-/**** Pagination ****/
+/**** Pagination - will be removed ****/
 ul.pagination li a {
   border-radius: 0;
   border: 1px solid #107E5E;
