@@ -7,7 +7,46 @@ $(document).ready(function() {
 		showPressReleases(rootPath, 1, pageSize);
 	}
 	
+	
+	
+	
+	
+	
 });
+
+function addMoreResultsButton() {
+	var moreElementsDiv = document.createElement("div");
+	
+	moreElementsDiv.className = "row more-results";
+	moreElementsDiv.id = "more_results";
+	var aTag = document.createElement("a");
+	var h5Tag = document.createElement("h5");
+	h5Tag.id = "more_results_text";
+	h5Tag.className = "more-results-text";
+	h5Tag.innerHTML = "More results";
+	aTag.appendChild(h5Tag);
+	moreElementsDiv.appendChild(aTag);
+	document.getElementById("pressreleaselistfeed_wrapper").appendChild(moreElementsDiv);
+	
+	$('.pressreleaselistfeed .more-results').click(function(){
+		var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
+		var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
+		removeMoreResultsButton();
+		var elementsShowed = $('.press-room--list-item').length;
+		var elementsToAdd = pageSize;
+		currentPage = elementsShowed / pageSize;
+		showPressReleases(rootPath, currentPage+1, pageSize);
+		
+	});
+}
+
+function removeMoreResultsButton() {
+	 var wrapperDiv = document.getElementById('pressreleaselistfeed_wrapper');
+	 var divToDelete = document.getElementById("more_results");
+	 wrapperDiv.removeChild(divToDelete);
+
+	
+}
 	
 
 function showPressReleases(rootPath, pageNumber, pageSize) {
@@ -24,7 +63,10 @@ function showPressReleases(rootPath, pageNumber, pageSize) {
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson);
 			
+			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
+			
+			
 		},
 		error: function (){
 		}
@@ -33,17 +75,20 @@ function showPressReleases(rootPath, pageNumber, pageSize) {
 
 function buildNavigators(pageNumber, numberOfPages) {
 	
-	if (numberOfPages > 1) {
+	/*if (numberOfPages > 1) {
 		$.each($('.pressreleaselistfeed-wrapper .pagination-centered'), function(index, item) { 
-			var pagination = document.createElement('ul');
-			pagination.className = 'pagination';
+			//var pagination = document.createElement('ul');
+			//pagination.className = 'pagination';
 			
-			var toFirst = document.createElement('li');
-			if (pageNumber == 1) {
+			///var toFirst = document.createElement('li');
+			//if (pageNumber == 1) {
 				toFirst.innerHTML = '<li class="arrow unavailable"><a href="#">«</a></li>';
-			} else {
-				toFirst.innerHTML = '<li class="arrow"><a data-index="1" href="#">«</a></li>';
-			}
+			//} else {
+			//	toFirst.innerHTML = '<li class="arrow"><a data-index="1" href="#">«</a></li>';
+			//}
+				
+			var showMore = document.createElement('a');
+			showMore.appendChild('h5');
 			pagination.appendChild(toFirst);
 			
 			var toPrev = document.createElement('li');
@@ -104,7 +149,7 @@ function buildNavigators(pageNumber, numberOfPages) {
 				return false;
 			}); 
 		});
-	} 
+	} */
 }
 
 function showItems(pageJson) {
@@ -123,6 +168,7 @@ function showItems(pageJson) {
 	setTimeout(function(){
 		$(document).foundation('reflow');
 		$(document).foundation('equalizer','reflow');
+		addMoreResultsButton();
 	}, 1000);
 	
 }

@@ -22,11 +22,10 @@
 		path = currentPage.getPath(); 
 	}
 %>
-<div class="pressreleaselistfeed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=helper.getNumberOfItems()%>" >
+<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=helper.getNumberOfItems()%>" >
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
     <!-- START PAGINATION -->
-    <div class="pagination-centered">
-    </div>
+    
     <!-- END PAGINATION -->
     <div class="press-room--list">
     </div>

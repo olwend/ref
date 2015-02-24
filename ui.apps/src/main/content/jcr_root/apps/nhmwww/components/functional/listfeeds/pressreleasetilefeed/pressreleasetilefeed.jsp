@@ -12,6 +12,8 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%@page session="false" %>
 <cq:defineObjects />
+<cq:includeClientLib categories="nhm-www.foundationreflow"/>
+
 <%
 %><%
 	PressReleaseFeedListHelper helper = new PressReleaseFeedListHelper(properties, pageManager, currentPage, request, resourceResolver);
