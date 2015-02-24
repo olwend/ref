@@ -43,7 +43,7 @@
                             value="visiting"/>
                         <o8
                             jcr:primaryType="nt:unstructured"
-                            text="@NHM_Events"
+                            text="@NHM_Venuehire"
                             value="events"/>
                         <o9
                             jcr:primaryType="nt:unstructured"
@@ -53,6 +53,10 @@
                             jcr:primaryType="nt:unstructured"
                             text="@NHM_ID"
                             value="nhm-id"/>
+                        <o11
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_WPY"
+                            value="nhm-wpy"/>
                     </options>
                 </widgetid>
                 <height
