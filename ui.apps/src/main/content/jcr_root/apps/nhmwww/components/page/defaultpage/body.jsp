@@ -14,7 +14,7 @@
 	})(window,document,'script','dataLayer','GTM-5TDGNT');</script>
 	<!-- End Google Tag Manager -->
 	<cq:include script="header.jsp"/>
-	<div class="main-section <%=cssClassSection.toLowerCase() %>">
+	<div class="main-section <%= templateType.toLowerCase() %> <%=cssClassSection.toLowerCase() %>">
 		<%if(currentPage != null && currentPage.getDepth() > 5) { %>
 		<div class="breadcrumb tablet desktop">  
 		   	<div class="row">	

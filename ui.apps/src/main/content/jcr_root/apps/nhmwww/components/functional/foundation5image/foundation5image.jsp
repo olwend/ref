@@ -15,21 +15,21 @@
 <cq:includeClientLib categories="uk.ac.nhm.foundation5image"/>
 
 <%
-	Foundation5ImageHelper helper = new Foundation5ImageHelper(properties, resource, request, xssAPI);
+	Foundation5ImageHelper helper = new Foundation5ImageHelper(properties, resource, resourceResolver, request, xssAPI);
 %>
 <% if(helper.isActivated())  { %>
 	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 	<% } %>
 	<img alt='<%= helper.getAlt() %>' data-interchange="
-	    [<%= helper.getPath() + ".img.full.medium." + helper.getExtension() + helper.getSuffix() %>, (default)], 
-	    [<%= helper.getPath() + ".img.full.low." + helper.getExtension() + helper.getSuffix() %>, (small)],  
-	    [<%= helper.getOrigianlImagePath() %>, (retina)],
-	    [<%= helper.getPath() + ".img.full.medium." + helper.getExtension() + helper.getSuffix() %>, (medium)], 
-	    [<%= helper.getOrigianlImagePath() %>, (large)]">
-	<%-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --%>
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (small)],  
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.RETINA) %>, (retina)],
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (medium)], 
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (large)]">
+	<%-- Fallback content for non-JS browsers. --%>
 	<noscript>
-	    <img src='<%= helper.getPath() + ".img.full.medium." + helper.getExtension() + helper.getSuffix() %>' alt='<%= helper.getAlt() %>'>
+	    <img src='<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>
 	</noscript>
 	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 		</a>
