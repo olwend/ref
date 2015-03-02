@@ -45,6 +45,9 @@ public class TwitterHelper extends HelperBase {
 
 			else if (this.widgetId.equals("nhm-id"))
 			{return "535099551150256128";}
+			
+			else if (this.widgetId.equals("nhm-wpy"))
+			{return "535468768726876160";}
 		}
 		return null;
 	}
