@@ -1,4 +1,2 @@
 #base=js
-jquery.imagesloaded.js
-masonry.pkgd.min.js
-discoverservice.js
+pressreleasetilefeed.js
