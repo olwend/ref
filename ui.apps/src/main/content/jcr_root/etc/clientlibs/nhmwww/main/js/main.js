@@ -205,7 +205,7 @@ jQuery(document).ready(function() {
 
     $(document).foundation({
     	equalizer: {
-        equalize_on_stack: true
+        //equalize_on_stack: true
     	}
 		});
 	
