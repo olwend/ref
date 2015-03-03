@@ -41,14 +41,13 @@
             title = trail.getName();
         }
         %><%= xssAPI.filterHTML(delim) %><%
-        %><a href="<%= xssAPI.getValidHref(trail.getPath()+".html") %>"
-             onclick="CQ_Analytics.record({event:'followBreadcrumb',values: { breadcrumbPath: '<%= xssAPI.getValidHref(trail.getPath()) %>' },collect: false,options: { obj: this },componentPath: '<%=resource.getResourceType()%>'})"><%
-        %><%= xssAPI.encodeForHTML(title) %><%
-        %></a><%
-
-        delim = delimStr;
-        level++;
-    } %><%= xssAPI.filterHTML(trailStr)%><strong><%= currentPage.getTitle() %></strong> 
+        String path = "";
+        if(level == 3){
+        	path = "/";
+        } else {
+        	path = xssAPI.getValidHref(trail.getPath()+".html");
+        }
+        %><a href="<%= path %>" onclick="CQ_Analytics.record({event:'followBreadcrumb',values: { breadcrumbPath: '<%= xssAPI.getValidHref(trail.getPath()) %>' },collect: false,options: { obj: this },componentPath: '<%=resource.getResourceType()%>'})"><%= xssAPI.encodeForHTML(title) %></a><% delim = delimStr; level++;} %><%= xssAPI.filterHTML(trailStr)%><strong><%= currentPage.getTitle() %></strong>
     
 
 

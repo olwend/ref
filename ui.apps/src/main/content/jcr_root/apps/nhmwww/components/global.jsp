@@ -78,6 +78,10 @@
 	} else if(currentPage != null && (currentPage.getDepth() == 5 || currentPage.getDepth() == 4)) {
 		cssClassSection = currentPage.getName();
 	}
+	String templateType = "";
+	if(currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/contentpage") ){
+		templateType = "content-page";
+	}
 	
 	Calendar calendar = Calendar.getInstance(); 
 	SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
