@@ -203,11 +203,7 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
-    $(document).foundation({
-    	equalizer: {
-        //equalize_on_stack: true
-    	}
-		});
+    
 	
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){

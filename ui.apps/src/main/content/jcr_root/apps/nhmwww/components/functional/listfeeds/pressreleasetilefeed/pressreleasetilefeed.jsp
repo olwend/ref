@@ -13,6 +13,8 @@
 <%@page session="false" %>
 <cq:defineObjects />
 <cq:includeClientLib categories="nhm-www.foundationreflow"/>
+<cq:includeClientLib categories="uk.ac.nhm.pressreleasetilefeed"/>
+
 
 <%
 %><%
