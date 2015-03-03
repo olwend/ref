@@ -25,6 +25,7 @@ public class Foundation5ImageHelper {
 	private String alt;
 	private String caption;
 	private String imageLinkURL;
+	private boolean newwindow;
 	private Boolean activated;
 	private Resource rs;
 	private Node parentNode;
@@ -66,6 +67,9 @@ public class Foundation5ImageHelper {
 			this.imageLinkURL = properties.get("image-path","");
 			if(this.imageLinkURL != null && !this.imageLinkURL.equals("")){
 				this.imageLinkURL = LinkUtils.getFormattedLink(this.imageLinkURL);
+			}
+			if (properties.get("newwindow") != null) {
+				this.newwindow = properties.get("newwindow",false);
 			}
 			this.path= tempPath;
 			this.extension = tempExtension;
@@ -270,6 +274,17 @@ public class Foundation5ImageHelper {
 	public void setImageLinkURL(String imageLinkURL) {
 		this.imageLinkURL = imageLinkURL;
 	}	
+	
+	public String getNewWindowHtml() {
+		if (this.newwindow)
+		{	
+			return " target=\"_blank\"";
+		}
+		else
+		{
+			return "";
+		}
+	}
 	
 		
 }

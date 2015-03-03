@@ -62,7 +62,9 @@ function showPressReleases(rootPath, pageNumber, pageSize) {
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson);
-			
+			if(pageNumber != json.pages){
+				addMoreResultsButton();
+			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
 			
@@ -168,7 +170,6 @@ function showItems(pageJson) {
 	setTimeout(function(){
 		$(document).foundation('reflow');
 		$(document).foundation('equalizer','reflow');
-		addMoreResultsButton();
 	}, 1000);
 	
 }
