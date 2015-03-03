@@ -10130,7 +10130,7 @@ h5, h6 {
 }
 
 .press-office--side-nav {
-  margin: 1.3em 0;
+  margin: 0 0 1.3em 0;
   clear: both;
 }
 .press-office--side-nav .side-nav {
