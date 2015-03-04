@@ -3,6 +3,5 @@ $(document).ready(function() {
 		$(document).foundation('reflow');
 		$(document).foundation('equalizer','reflow');
 	}, 1000);
-	alert('WTF?!');
 });
 
