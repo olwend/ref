@@ -80,12 +80,21 @@ public class FeedListHelper extends ListHelper {
 			Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
 			Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
 			while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
-				listElements.add(itrPinnedElements.next());
-				i++;
+				FeedListElement element = itrPinnedElements.next();
+				if(element.isInitialised()) {
+					listElements.add(element);
+					i++;
+				}
+				
 			}
 			while(itrUnpinnedElements.hasNext() && i< this.numberOfItems) {
-				listElements.add(itrUnpinnedElements.next());
-				i++;
+				
+				FeedListElement element = itrUnpinnedElements.next();
+				if(element.isInitialised()) {
+					listElements.add(element);
+					i++;
+				}
+				
 			}
 		}
 

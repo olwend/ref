@@ -18,6 +18,7 @@ import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -62,7 +63,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
     }
 
     @Override
-    public JSONObject getJSON(final List<Object> objects, final Integer pageNumber, final Integer pageSize) {
+    public JSONObject getJSON(final List<Object> objects, final Integer pageNumber, final Integer pageSize, final ResourceResolver resolver, final SlingHttpServletRequest request) {
 	final JSONObject jsonObject = new JSONObject();
 
 	//final int listSize = objects.size();
@@ -84,7 +85,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	    for(int i=indexFrom-1; i < indexTo; i++) {
 		if (objects.get(i) instanceof PressReleaseFeedListElement) {
 		    final PressReleaseFeedListElement listElement = (PressReleaseFeedListElement) objects.get(i);
-		    jsonArray.put(addPressReleaseElement(listElement));
+		    jsonArray.put(addPressReleaseElement(listElement, resolver, request));
 		} else {
 		    final FeedListElement listElement = (FeedListElement) objects.get(i);
 		    jsonArray.put(addElement(listElement));
@@ -97,14 +98,14 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	return jsonObject;
     }
 
-    private JSONObject addPressReleaseElement(final PressReleaseFeedListElement listElement) throws JSONException {
+    private JSONObject addPressReleaseElement(final PressReleaseFeedListElement listElement, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 	final JSONObject itemToAdd = new JSONObject();
 	itemToAdd.put("title", listElement.getTitle());
 	itemToAdd.put("intro", listElement.getIntro());
 	itemToAdd.put("imagePath", listElement.getImagePath());
 	final DateFormat df = new SimpleDateFormat("MMMMM d, yyyy");
 	itemToAdd.put("date", df.format(listElement.getPressReleaseDate()));
-	itemToAdd.put("path", listElement.getPage().getPath());
+	itemToAdd.put("path",resolver.map(request, listElement.getPage().getPath()));
 	return itemToAdd;
     }
 

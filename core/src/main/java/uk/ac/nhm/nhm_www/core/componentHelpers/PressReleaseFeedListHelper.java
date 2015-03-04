@@ -42,7 +42,10 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
     public List<Object> getChildrenElements() {
     	List<PressReleaseFeedListElement> sortableObjects = new ArrayList<PressReleaseFeedListElement>();
     	for(Object object: this.listElements) {
-    		sortableObjects.add((PressReleaseFeedListElement) object);
+    		PressReleaseFeedListElement element = (PressReleaseFeedListElement) object;
+    		if(element.isInitialised()) {
+    			sortableObjects.add(element);
+    		}
     	}
     	Collections.sort(sortableObjects);
     	Collections.reverse(sortableObjects);

@@ -21,6 +21,14 @@ public class PressReleaseFeedListElement extends FeedListElement implements Comp
 		this.pressReleaseDate = page.getProperties().get("publishdate", Date.class);
 	}
 	
+	public boolean isInitialised() {
+		if(this.title != null && this.elementLink !=null && this.imageResourcePath !=null && this.pressReleaseDate != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public void setPressReleaseDate(Date pressReleaseDate) {
 		this.pressReleaseDate = pressReleaseDate;
 	}
@@ -33,6 +41,6 @@ public class PressReleaseFeedListElement extends FeedListElement implements Comp
 	public int compareTo(PressReleaseFeedListElement o) {
 		return getPressReleaseDate().compareTo(o.getPressReleaseDate());
 	}
-
+	
 	
 }

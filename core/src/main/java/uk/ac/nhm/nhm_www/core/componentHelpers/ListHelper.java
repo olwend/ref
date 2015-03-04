@@ -63,7 +63,10 @@ public class ListHelper extends HelperBase {
 		List<ListElement> elements = new ArrayList<ListElement>();
 		while (children.hasNext()) {
 			Page childPage = children.next();
-			elements.add(new ListElement(childPage));
+			ListElement element = new ListElement(childPage);
+			if(element.isInitialised()) {
+				elements.add(element);
+			}
 		}
 		
 	}

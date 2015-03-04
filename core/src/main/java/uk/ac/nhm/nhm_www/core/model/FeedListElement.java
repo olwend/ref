@@ -25,6 +25,14 @@ public class FeedListElement extends ListElement {
 	final Resource resource = page.adaptTo(Resource.class);
 	this.imageResourcePath = resource.getPath()+"/jcr:content/image";
     }
+    
+    public boolean isInitialised() {
+		if(this.title != null && this.elementLink !=null && this.imageResourcePath !=null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
     public Page getPage() {
         return this.page;
@@ -75,6 +83,8 @@ public class FeedListElement extends ListElement {
 	this.pinned = pinned;
     }
 
+    
+    
 
 
 

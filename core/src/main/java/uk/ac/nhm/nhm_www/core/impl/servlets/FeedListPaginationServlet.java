@@ -78,7 +78,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		}
 		objects = helper.getChildrenElements();
 		
-		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize);
+		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(jsonString.toString());
 	}

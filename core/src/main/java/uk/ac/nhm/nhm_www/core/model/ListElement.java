@@ -32,8 +32,12 @@ public class ListElement {
 		this.elementLink = elementLink;
 	}
 	
-	
-	
-	
+	public boolean isInitialised() {
+		if(this.title != null && this.elementLink !=null ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
