@@ -2,7 +2,7 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
 <cq:defineObjects/>
-<cq:includeClientLib />
+<cq:includeClientLib categories="nhm-www.foundationreflow"/>
 <%
 TwitterHelper helper = new TwitterHelper(slingRequest);
 %>

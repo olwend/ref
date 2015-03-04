@@ -1,4 +1,10 @@
 $(document).ready(function() {
-	$(document).foundation('interchange', 'reflow');
+	
+	
+	setTimeout(function(){
+		$(document).foundation('reflow');
+		$(document).foundation('equalizer','reflow');
+	}, 1000);
+	
 });
 
