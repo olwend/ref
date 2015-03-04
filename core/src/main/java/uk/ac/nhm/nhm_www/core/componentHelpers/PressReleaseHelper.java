@@ -73,7 +73,7 @@ public class PressReleaseHelper {
 	public String getFormattedPublishDate()
 	{
 		String dateStr;
-		 dateStr = new SimpleDateFormat("d MMMM, YYYY ").format(this.getPublishDate());
+		 dateStr = new SimpleDateFormat("d MMMM YYYY ").format(this.getPublishDate());
 		 return dateStr;
 	}
 

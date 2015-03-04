@@ -121,7 +121,7 @@ public class PageUtils {
 	
 	public static String getFormattedPublishDate(Date date)
 	{
-		return new SimpleDateFormat("d MMMM, YYYY ").format(date);
+		return new SimpleDateFormat("d MMMM YYYY ").format(date);
 	}
 	
 }
