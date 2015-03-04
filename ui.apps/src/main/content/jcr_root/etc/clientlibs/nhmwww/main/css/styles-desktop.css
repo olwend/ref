@@ -10130,8 +10130,13 @@ h5, h6 {
 }
 
 .press-office--side-nav {
-  margin: 0 0 1.3em 0;
+  margin: 1.3em 0;
   clear: both;
+}
+@media screen and (min-width: 768px) {
+  .press-office--side-nav {
+    margin: 0 0 1.3em 0;
+  }
 }
 .press-office--side-nav .side-nav {
   padding: 0;
