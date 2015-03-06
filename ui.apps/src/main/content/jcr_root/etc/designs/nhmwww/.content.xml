@@ -66,6 +66,23 @@
                 <section jcr:primaryType="nt:unstructured"/>
             </par>
         </contentpage>
+        <dynamicapppage jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]">
+                <row2cells21
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
+                <row2cells21_0
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
+                <row3cells
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
+                <section jcr:primaryType="nt:unstructured"/>
+            </par>
+        </contentpage>
         <landingpage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"

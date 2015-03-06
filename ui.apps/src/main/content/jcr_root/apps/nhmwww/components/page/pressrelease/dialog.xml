@@ -44,11 +44,11 @@
                                 xtype="cqinclude"/>
                         </introduction>
                         <imageResType
-		                    jcr:primaryType="cq:Widget"
-		                    ignoreData="{Boolean}true"
-		                    name="./image/sling:resourceType"
-		                    value="nhmwww/components/functional/foundation5image"
-		                    xtype="hidden"/>
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./image/sling:resourceType"
+                            value="nhmwww/components/functional/foundation5image"
+                            xtype="hidden"/>
                     </items>
                 </items>
             </Advanced>
@@ -56,10 +56,6 @@
                 jcr:primaryType="cq:Widget"
                 path="/libs/foundation/components/page/tab_image.infinity.json"
                 xtype="cqinclude"/>
-                
-             
-
-            	
         </items>
     </items>
 </jcr:root>
