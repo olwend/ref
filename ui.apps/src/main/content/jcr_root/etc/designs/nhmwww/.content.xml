@@ -82,7 +82,7 @@
                     sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
                 <section jcr:primaryType="nt:unstructured"/>
             </par>
-        </contentpage>
+        </dynamicapppage>
         <landingpage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
