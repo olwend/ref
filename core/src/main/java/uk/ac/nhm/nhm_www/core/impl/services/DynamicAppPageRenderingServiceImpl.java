@@ -100,10 +100,10 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	@Override
 	public Page getPage(SlingHttpServletRequest request, String itemID) {
 		final String itemQuery = getItemQuery(itemID);
-		
 		if (!cache.containsKey(itemQuery)) {
-			if (!updateCache(itemQuery))
+			if (!updateCache(itemQuery)) {
 				return null;
+			}
 			List<Page> pages = cache.get(itemQuery).getComplexObjectArray();
 			if(pages.size() > 0){
 				return pages.get(0);
@@ -186,6 +186,7 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 					final Node node = iterator.nextNode();
 					Page page = pmanager.getPage(node.getPath());
 					resourceComponentArray.addResource(page);
+					
 				}
 			} finally {
 				if (session.isLive()) {
