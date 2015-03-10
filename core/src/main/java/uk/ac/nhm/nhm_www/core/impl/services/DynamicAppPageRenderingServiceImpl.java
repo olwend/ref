@@ -46,7 +46,7 @@ import uk.ac.nhm.nhm_www.core.model.discover.Video;
 import uk.ac.nhm.nhm_www.core.services.DiscoverPublicationsSearchService;
 import uk.ac.nhm.nhm_www.core.services.DynamicAppPageRenderingService;
 
-@Component(label = "Natural History Museum Discover", description = "Natural History Museum Dynamic App Path Rendering Service", metatype = true, immediate = true)
+@Component(label = "Natural History Museum Dynamic App Page Rendering", description = "Natural History Museum Dynamic App Page Rendering Service", metatype = true, immediate = true)
 @Service(value = DynamicAppPageRenderingService.class)
 @Properties(value = {
 		@Property(name = "service.pid", value = "uk.ac.nhm.nhm_www.core.delivery.service.DynamicAppPathRenderingService", propertyPrivate = true),
