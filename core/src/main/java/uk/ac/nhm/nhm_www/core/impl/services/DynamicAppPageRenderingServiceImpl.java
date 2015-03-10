@@ -219,9 +219,9 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	}
 
 	@Override
-	public JSONObject getJSON(Page page) throws JSONException {
+	public JSONObject getJSON(Page page, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject object = new JSONObject();
-		object.put("path", page.getPath());
+		object.put("path", resolver.map(request, page.getPath()));
 		
 		return object;
 	}

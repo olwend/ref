@@ -12,6 +12,7 @@ import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
@@ -51,7 +52,8 @@ public class DynamicAppPathRenderingServlet extends SlingAllMethodsServlet {
 		String pageId = request.getParameter("pageId");
 		Page page = pageRenderingService.getPage(request, pageId);
 		try {
-			JSONObject jsonObject = pageRenderingService.getJSON(page);
+			ResourceResolver resourceResolver = request.getResourceResolver();
+			JSONObject jsonObject = pageRenderingService.getJSON(page, resourceResolver, request);
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(jsonObject.toString());
 		} catch (JSONException e) {
