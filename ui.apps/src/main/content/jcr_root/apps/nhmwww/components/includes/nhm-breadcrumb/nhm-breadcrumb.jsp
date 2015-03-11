@@ -49,7 +49,7 @@
         } else {
         	path = xssAPI.getValidHref(trail.getPath()+".html");
         }
-        %><a href="<%= path %>" onclick="CQ_Analytics.record({event:'followBreadcrumb',values: { breadcrumbPath: '<%= xssAPI.getValidHref(trail.getPath()) %>' },collect: false,options: { obj: this },componentPath: '<%=resource.getResourceType()%>'})"><%= xssAPI.encodeForHTML(title) %></a><% delim = delimStr; level++;} %><%= xssAPI.filterHTML(trailStr)%><strong><%= currentPage.getTitle() %></strong>
+        %><a href="<%= path %>" onclick="CQ_Analytics.record({event:'followBreadcrumb',values: { breadcrumbPath: '<%= xssAPI.getValidHref(trail.getPath()) %>' },collect: false,options: { obj: this },componentPath: '<%=resource.getResourceType()%>'})"><%= xssAPI.encodeForHTML(title) %></a><% delim = delimStr; level++;} %><%= trailStr%><strong><%= currentPage.getTitle() %></strong>
     
 
 
