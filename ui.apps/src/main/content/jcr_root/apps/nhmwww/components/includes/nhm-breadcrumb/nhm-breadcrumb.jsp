@@ -21,8 +21,10 @@
     // get starting point of trail
     long level = 3;
     long endLevel = 1;
-    String delimStr = currentStyle.get("delim", "&nbsp;/&nbsp;");
-    String trailStr = currentStyle.get("trail", "&nbsp;/&nbsp;");
+    /*String delimStr = currentStyle.get("delim", "&nbsp;/&nbsp;");
+    String trailStr = currentStyle.get("trail", "&nbsp;/&nbsp;");*/
+    String delimStr = "&nbsp;/&nbsp;";
+    String trailStr = "&nbsp;/&nbsp;";
     int currentLevel = currentPage.getDepth();
     String delim = "";
     while (level < currentLevel - endLevel) {
