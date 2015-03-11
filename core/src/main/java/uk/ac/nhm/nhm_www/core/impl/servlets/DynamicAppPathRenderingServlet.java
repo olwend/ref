@@ -50,6 +50,7 @@ public class DynamicAppPathRenderingServlet extends SlingAllMethodsServlet {
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException, NumberFormatException {
 		String pageId = request.getParameter("pageId");
+		LOG.error("page id: " + pageId);
 		Page page = pageRenderingService.getPage(request, pageId);
 		try {
 			ResourceResolver resourceResolver = request.getResourceResolver();
