@@ -21,10 +21,10 @@
     // get starting point of trail
     long level = 3;
     long endLevel = 1;
-    /*String delimStr = currentStyle.get("delim", "&nbsp;/&nbsp;");
-    String trailStr = currentStyle.get("trail", "&nbsp;/&nbsp;");*/
-    String delimStr = "&nbsp;/&nbsp;";
-    String trailStr = "&nbsp;/&nbsp;";
+    String delimStr = currentStyle.get("delim", "&nbsp;/&nbsp;");
+    String trailStr = currentStyle.get("trail", "&nbsp;/&nbsp;");
+    /*String delimStr = "/";
+    String trailStr = "/";*/
     int currentLevel = currentPage.getDepth();
     String delim = "";
     while (level < currentLevel - endLevel) {
@@ -42,7 +42,7 @@
         if (title == null || title.equals("")) {
             title = trail.getName();
         }
-        %><%= xssAPI.filterHTML(delim) %><%
+        %><%= delim %><%
         String path = "";
         if(level == 3){
         	path = "/";
