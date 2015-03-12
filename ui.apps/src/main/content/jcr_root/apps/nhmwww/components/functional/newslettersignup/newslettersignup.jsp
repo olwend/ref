@@ -11,7 +11,8 @@
                             <ul class="cf">
                                 <div class="columns large-6 medium-6 small-6">
                                     <li><a href="/content/nhmwww/en/home/about-us.html">About us</a></li>
-                                    <li><a href="/about-us/news/index.html">News and press</a></li>
+                                    <li><a href="/about-us/news/index.html">News</a></li>
+                                    <li><a href="/press-office.html">Press</a></li>
                                     <li><a href="/content/nhmwww/en/home/business-services.html">Business services</a></li>
                                     <li><a href="/about-us/jobs-volunteering-internships/index.html">Careers</a></li>
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>

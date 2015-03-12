@@ -11,7 +11,7 @@
 	               <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_ticket_small.svg" data-svg-title="icon__ticket" data-alt="Admission" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-ticket.png"></i> <span class="desktop">Admission</span> free<sup></sup>
 	            </p>
 	            <p class="global-header-info__item membership">
-	               <a href="https://www.nhm.ac.uk/support-us/membership/costs-how-to-join/direct-debit/index.html"><i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_membership_small.svg" data-svg-title="icon__membership" data-alt="Membership" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-id.png"></i> Become a Member</a>
+	               <a href="/support-us/membership.html"><i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_membership_small.svg" data-svg-title="icon__membership" data-alt="Membership" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-id.png"></i> Become a Member</a>
 	            </p>
 	        </div>
 	        <a href="#" id="mobile-navigation" class="mobile global-menu-trigger">
