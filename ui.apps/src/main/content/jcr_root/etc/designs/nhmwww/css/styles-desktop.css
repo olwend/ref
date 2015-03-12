@@ -9600,11 +9600,18 @@ body {
   margin-bottom: 1.2em;
 }
 
+.home h3, .home h4, .home h5 {
+  color: #565656;
+}
+
 .visit .title-bar {
   background-color: #A1164E;
 }
 .visit h4 {
   font-weight: normal;
+}
+.visit h3, .visit h4, .visit h5 {
+  color: #565656;
 }
 
 .take-part .title-bar {
@@ -9613,12 +9620,18 @@ body {
 .take-part h4 {
   font-weight: normal;
 }
+.take-part h3, .take-part h4, .take-part h5 {
+  color: #565656;
+}
 
 .support-us .title-bar {
   background-color: #7F206E;
 }
 .support-us h4 {
   font-weight: normal;
+}
+.support-us h3, .support-us h4, .support-us h5 {
+  color: #565656;
 }
 
 .schools .title-bar {
@@ -9627,12 +9640,18 @@ body {
 .schools h4 {
   font-weight: normal;
 }
+.schools h3, .schools h4, .schools h5 {
+  color: #565656;
+}
 
 .our-science .title-bar {
   background-color: #357900;
 }
 .our-science h4 {
   font-weight: normal;
+}
+.our-science h3, .our-science h4, .our-science h5 {
+  color: #565656;
 }
 
 .discover .title-bar {
@@ -9642,12 +9661,18 @@ body {
 .discover h4 {
   font-weight: normal;
 }
+.discover h3, .discover h4, .discover h5 {
+  color: #565656;
+}
 
 .about-us .title-bar {
   background-color: #0B5C7B;
 }
 .about-us h4 {
   font-weight: normal;
+}
+.about-us h3, .about-us h4, .about-us h5 {
+  color: #565656;
 }
 
 .contact-us .title-bar {
@@ -9656,12 +9681,18 @@ body {
 .contact-us h4 {
   font-weight: normal;
 }
+.contact-us h3, .contact-us h4, .contact-us h5 {
+  color: #565656;
+}
 
 .business-services .title-bar {
   background-color: #253480;
 }
 .business-services h4 {
   font-weight: normal;
+}
+.business-services h3, .business-services h4, .business-services h5 {
+  color: #565656;
 }
 
 .content-page .title-bar {
@@ -9749,11 +9780,6 @@ h2 {
     font-size: 2.4em;
   }
 }
-@media screen and (min-width: 1024px) {
-  h2 {
-    font-size: 2.6em;
-  }
-}
 
 h3, h4 {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
@@ -9773,8 +9799,14 @@ h3 {
   }
 }
 
-h5, h6 {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+h5 {
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+}
+
+h6 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.125em;
+  font-weight: bold;
 }
 
 .text {
