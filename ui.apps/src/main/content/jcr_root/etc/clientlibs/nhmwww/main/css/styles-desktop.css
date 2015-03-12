@@ -9800,11 +9800,13 @@ h3 {
 }
 
 h5 {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
 }
 
-h5 {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+h6 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.125em;
+  font-weight: bold;
 }
 
 .text {
