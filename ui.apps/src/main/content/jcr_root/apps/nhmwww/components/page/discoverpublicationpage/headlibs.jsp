@@ -12,9 +12,9 @@
         <!--<![endif]-->
         
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/twitter.css"%>" />
-        
-        <cq:includeClientLib js="nhmwww.main" />
         <cq:includeClientLib js="cq.jquery" />
+        <cq:includeClientLib js="nhmwww.main" />
+        
         <script src="<%= currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/plugins.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/main.js"%>"></script>
