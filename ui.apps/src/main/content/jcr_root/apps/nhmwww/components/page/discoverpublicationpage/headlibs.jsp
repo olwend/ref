@@ -8,11 +8,12 @@
 		<link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles-desktop.css"%>" />
         <![endif]-->
         <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles.css"%>" />
+                <cq:includeClientLib css="nhmwww.main" />
         <!--<![endif]-->
         
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/twitter.css"%>" />
         
+        <cq:includeClientLib js="nhmwww.main" />
         <cq:includeClientLib js="cq.jquery" />
         <script src="<%= currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/plugins.js"%>"></script>
