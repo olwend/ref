@@ -23,10 +23,13 @@
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
                                     <li class="icon-list">Follow us<br>
                                         <a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a>
-                                        <a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter" width="45"></a>
+                                        <a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter"></a>
+                                        <a href="http://www.pinterest.com/nhmlondon"><img src="<%= currentDesign.getPath() + "/img/icons/pinterest.png"%>" alt="Pinterest" /></a>
+                                        <br />
+                                        <a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts"><img src="<%= currentDesign.getPath() + "/img/icons/gplus.png"%>" alt="GooglePlus" /></a>
                                         <a href="https://www.youtube.com/user/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/youtube.png"%>" alt="YouTube"></a>
-                                        <a href="http://www.pinterest.com/nhmlondon"><img src="<%= currentDesign.getPath() + "/img/icons/pinterest.png"%>" alt="Pinterest" width="30" height="22" /></a>
-                                        <a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts"><img src="<%= currentDesign.getPath() + "/img/icons/gplus.png"%>" alt="GooglePlus" width="30" height="30" /></a>
+                                        <a href="https://instagram.com/natural_history_museum"><img src="<%= currentDesign.getPath() + "/img/icons/instagram.png"%>" alt="Instagram"></a>
+                                        
                                     </li>
                                 </div>
                             </ul>
