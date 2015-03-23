@@ -25,6 +25,7 @@ import com.day.cq.wcm.foundation.Image;
 public class CarouselElement {
 
 	private String filename;
+	private String mobileFilename;
 	private String hyperlink;
 	private String heading;
 	private String caption;
@@ -41,6 +42,7 @@ public class CarouselElement {
 	public CarouselElement(JSONObject item, PageManager pageManager, ResourceResolver resourceResolver) throws JSONException {
 		this.type = item.getString("type");
 		this.filename = item.getString("item");
+		this.mobileFilename = item.getString("itemMobile");
 		this.isVideo=false;
 		this.isContentSlide=false;
 		this.hyperlink =  item.getString("itemURL");
@@ -87,6 +89,14 @@ public class CarouselElement {
 	public String getFilename()
 	{
 		return this.filename;
+	}
+	
+	public String getMobileFilename() {
+		return mobileFilename;
+	}
+
+	public void setMobileFilename(String mobileFilename) {
+		this.mobileFilename = mobileFilename;
 	}
 
 	public void setHyperlink(String string) {

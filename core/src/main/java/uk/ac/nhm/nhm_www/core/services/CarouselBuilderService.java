@@ -43,6 +43,7 @@ public class CarouselBuilderService {
 	public  static final String FOUNDATION_5_IMAGE_RESOURCE_TYPE = "nhmwww/components/functional/foundation5image";
 	public  static final String IMAGE_NODE_NAME_PREFIX 			 = "image_";
 	private static final String FILEREFERENCE_ATTRIBUTE 		 = "fileReference";
+	private static final String MOBILEFILEREFERENCE_ATTRIBUTE 	 = "mobileFileReference";
 	private static final String ALT_ATTRIBUTE 				     = "alt";
 	
 	public void createStructure(final Resource carouselResource, final PageManager pageManager, final ResourceResolver resourceResolver) {
@@ -60,6 +61,8 @@ public class CarouselBuilderService {
 			{
 				if (element.getIsContentSlide() || (!element.getIsVideo() &&  !element.getIsContentSlide())) {
 					final String fileReference = element.getFilename();
+					final String mobileFileReference = element.getMobileFilename();
+					
 					final String alt = element.getAlt();
 					
 					// TODO: Check if exist the node image and number of image.
@@ -69,10 +72,12 @@ public class CarouselBuilderService {
 						final ValueMap imageProperties = imageResource.adaptTo(ValueMap.class);
 						final String resourceTypeProperty = imageProperties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class);
 						final String fileReferenceProperty = imageProperties.get(FILEREFERENCE_ATTRIBUTE, String.class);
+						final String mobileFileReferenceProperty = imageProperties.get(MOBILEFILEREFERENCE_ATTRIBUTE, String.class);
 						final String altProperty = imageProperties.get(ALT_ATTRIBUTE, String.class);
 						
 						if (FOUNDATION_5_IMAGE_RESOURCE_TYPE.equals(resourceTypeProperty) &&
 								fileReference.equals(fileReferenceProperty) &&
+								mobileFileReference.equals(mobileFileReferenceProperty) &&
 								alt.equals(altProperty)) {
 							imageNumber++;
 							currentNodeName = IMAGE_NODE_NAME_PREFIX + imageNumber;
@@ -80,7 +85,7 @@ public class CarouselBuilderService {
 						}
 					}
 					// TODO: Save the new information
-					this.saveNodeInformation(carouselNode, currentNodeName, fileReference, alt);
+					this.saveNodeInformation(carouselNode, currentNodeName, fileReference, mobileFileReference, alt);
 					
 					imageNumber++;
 					currentNodeName = IMAGE_NODE_NAME_PREFIX + imageNumber;
@@ -104,7 +109,7 @@ public class CarouselBuilderService {
 		}
 	}
 	
-	private void saveNodeInformation(final Node carouselNode, final String imageNodeName, final String fileReference, final String alt) throws RepositoryException {
+	private void saveNodeInformation(final Node carouselNode, final String imageNodeName, final String fileReference, final String mobileFileReference, final String alt) throws RepositoryException {
 		final Node imageNode;
 		if (carouselNode.hasNode(imageNodeName)) {
 			imageNode = carouselNode.getNode(imageNodeName);
@@ -114,6 +119,7 @@ public class CarouselBuilderService {
 		
 		imageNode.setProperty(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, FOUNDATION_5_IMAGE_RESOURCE_TYPE);
 		imageNode.setProperty(FILEREFERENCE_ATTRIBUTE, fileReference);
+		imageNode.setProperty(MOBILEFILEREFERENCE_ATTRIBUTE, mobileFileReference);
 		imageNode.setProperty(ALT_ATTRIBUTE, alt);
 	}
 	
