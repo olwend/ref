@@ -10661,6 +10661,20 @@ h6 {
   }
 }
 
+.st_email_large .stButton .stLarge {
+  width: 38px;
+}
+
+.st_twitter_large .stButton .stLarge {
+  width: 39px;
+}
+
+@media screen and (min-width: 1024px) {
+  li.nav-list__item .first.cf h4 {
+    padding-bottom: 4.5%;
+  }
+}
+
 .main-footer .footer-utility input[type="submit"] {
   border: 2px solid #fff;
   margin: 0.4em 0 0;
@@ -10701,6 +10715,35 @@ h6 {
   .accordion dd > a {
     padding: 1em 1.5em;
   }
+}
+
+.main-footer .footer-nav .icon-list li {
+  padding: 0.8em 0.8em 0 0;
+  width: 30%;
+}
+@media screen and (min-width: 480px) {
+  .main-footer .footer-nav .icon-list li {
+    width: 28%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-nav .icon-list li {
+    width: 21%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main-footer .footer-nav .icon-list li {
+    width: 17%;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .main-footer .footer-nav .icon-list li {
+    width: 18%;
+  }
+}
+.main-footer .footer-nav .icon-list a {
+  padding: 0;
+  display: inline;
 }
 
 .sponsors-grid {
