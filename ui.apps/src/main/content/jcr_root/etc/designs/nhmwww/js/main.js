@@ -203,7 +203,6 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
-    
 	
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
@@ -484,6 +483,11 @@ jQuery(document).ready(function() {
     $('.feedback-close').click(function() {
         $.cookie('feedbackBar-cookie', 'Feedback', { expires: 365, path: '/' });
         $('#feedback-bar').remove();
+    });
+    
+    
+    jQuery(document).on('after-height-change.fndtn.equalizer', function(){
+    	jQuery(document).foundation('equalizer','reflow'); 
     });
 
     onYouTubeIframeAPIReady();
