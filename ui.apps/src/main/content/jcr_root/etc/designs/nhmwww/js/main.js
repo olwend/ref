@@ -204,6 +204,15 @@ jQuery(document).ready(function() {
     jQuery(document).foundation();
 
 	
+    jQuery(document).foundation({
+    	  equalizer: {
+    	    after_height_change: function(){
+    	    	jQuery(document).foundation('reflow');
+    	    	jQuery(document).foundation('equalizer','reflow');
+    	    }
+    	  }
+    	});
+    
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
@@ -486,10 +495,6 @@ jQuery(document).ready(function() {
     });
     
     
-    jQuery(document).on('after-height-change.fndtn.equalizer', function(){
-    	jQuery(document).foundation('equalizer','reflow'); 
-    });
-
     onYouTubeIframeAPIReady();
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){
