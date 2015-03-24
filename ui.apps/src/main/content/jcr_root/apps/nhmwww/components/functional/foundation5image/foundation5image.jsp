@@ -21,14 +21,6 @@
 	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 	<% } %>
-	<%--<img alt='<%= helper.getAlt() %>' data-interchange="
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (small)],
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL_RETINA) %>, (small retina)],  
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.RETINA) %>, (retina)],
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (medium)], 
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (large)]">--%>
-	    
 	    <img alt='<%= helper.getAlt() %>' data-interchange="
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
