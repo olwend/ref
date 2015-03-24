@@ -21,7 +21,6 @@
 	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 	<% } %>
-	<%= helper.getMobileImagePath() %>
 	<%--<img alt='<%= helper.getAlt() %>' data-interchange="
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (small)],
