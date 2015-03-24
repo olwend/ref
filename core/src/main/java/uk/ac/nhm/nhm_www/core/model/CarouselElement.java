@@ -42,7 +42,11 @@ public class CarouselElement {
 	public CarouselElement(JSONObject item, PageManager pageManager, ResourceResolver resourceResolver) throws JSONException {
 		this.type = item.getString("type");
 		this.filename = item.getString("item");
-		this.mobileFilename = item.getString("itemMobile");
+		if(item.has("itemMobile")){
+			this.mobileFilename = item.getString("itemMobile");
+		} else {
+			this.mobileFilename = "";
+		}
 		this.isVideo=false;
 		this.isContentSlide=false;
 		this.hyperlink =  item.getString("itemURL");

@@ -22,13 +22,19 @@
 		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 	<% } %>
 	<%= helper.getMobileImagePath() %>
-	<img alt='<%= helper.getAlt() %>' data-interchange="
+	<%--<img alt='<%= helper.getAlt() %>' data-interchange="
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (small)],
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL_RETINA) %>, (small retina)],  
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.RETINA) %>, (retina)],
 	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (medium)], 
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (large)]">
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (large)]">--%>
+	    
+	    <img alt='<%= helper.getAlt() %>' data-interchange="
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 768px))],
+	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1160px))]">
 	<%-- Fallback content for non-JS browsers. --%>
 	<noscript>
 	    <img src='<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>

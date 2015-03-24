@@ -72,8 +72,12 @@ public class CarouselBuilderService {
 						final ValueMap imageProperties = imageResource.adaptTo(ValueMap.class);
 						final String resourceTypeProperty = imageProperties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class);
 						final String fileReferenceProperty = imageProperties.get(FILEREFERENCE_ATTRIBUTE, String.class);
-						final String mobileFileReferenceProperty = imageProperties.get(MOBILEFILEREFERENCE_ATTRIBUTE, String.class);
+						final String mobileFileReferenceProperty = imageProperties.get(MOBILEFILEREFERENCE_ATTRIBUTE, "");
 						final String altProperty = imageProperties.get(ALT_ATTRIBUTE, String.class);
+						
+						if(mobileFileReferenceProperty == null) {
+							LOG.error("ALEX, THIS IS THE ERROR!");
+						}
 						
 						if (FOUNDATION_5_IMAGE_RESOURCE_TYPE.equals(resourceTypeProperty) &&
 								fileReference.equals(fileReferenceProperty) &&

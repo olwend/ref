@@ -162,6 +162,9 @@ public class Foundation5ImageHelper {
             	}
                     
             case SMALL:
+            	if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
+        			return this.getMobileImagePath();
+            	}	
             	if (this.getImageWidth() > 768) {
             		return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
             	}
@@ -179,11 +182,7 @@ public class Foundation5ImageHelper {
             		return this.getOriginalImagePath();
             	}
             case SMALL_RETINA:
-            	if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
-        			return this.getMobileImagePath();
-            	}	else {
-            		return this.getOriginalImagePath();
-            	}
+            	return this.getOriginalImagePath();
             case LARGE: case RETINA:
             	return this.getOriginalImagePath();
                 
