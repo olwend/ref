@@ -10054,6 +10054,10 @@ h6 {
   font-size: 1em;
 }
 
+.accordion .accordion-navigation,
+.accordion dd {
+  clear: both;
+}
 .accordion .accordion-navigation > a,
 .accordion dd > a {
   padding: 1em 0.75em;
