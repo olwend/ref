@@ -203,29 +203,6 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
-	
-/*    jQuery(document).foundation({
-    	  equalizer: {
-    		  before_height_change: function(){
-    		      alert('tata');
-    		    },
-    	    after_height_change: function(){
-    	    	alert('toto');
-    	    	jQuery(document).foundation('reflow');
-    	    	jQuery(document).foundation('equalizer','reflow');
-    	    }
-    	  }
-    });
-    
-    
-    $(document).on('before-height-change.fndtn.equalizer', function(){
-    	alert('tyty')
-    });
-    
-    $(document).on('after-height-change.fndtn.equalizer', function(){
-    	alert('tutu');
-    });*/
-    
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
