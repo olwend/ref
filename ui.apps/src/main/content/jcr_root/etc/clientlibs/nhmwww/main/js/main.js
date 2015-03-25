@@ -203,8 +203,6 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
-    
-	
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
@@ -223,6 +221,7 @@ jQuery(document).ready(function() {
             slideMargin: 0,
 	        thumbMargin: 4,
 	        auto: autoscroll,
+	        adaptiveHeight: true,
 	        pause: autoscrollDuration,
 	        loop: true,
 	        currentPagerPosition: 'left',
@@ -485,7 +484,8 @@ jQuery(document).ready(function() {
         $.cookie('feedbackBar-cookie', 'Feedback', { expires: 365, path: '/' });
         $('#feedback-bar').remove();
     });
-
+    
+    
     onYouTubeIframeAPIReady();
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){
