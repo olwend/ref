@@ -485,6 +485,7 @@ jQuery(document).ready(function() {
         $.cookie('feedbackBar-cookie', 'Feedback', { expires: 365, path: '/' });
         $('#feedback-bar').remove();
     });
+
     onYouTubeIframeAPIReady();
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){

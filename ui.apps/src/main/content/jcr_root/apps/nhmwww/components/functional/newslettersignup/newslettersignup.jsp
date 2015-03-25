@@ -11,7 +11,8 @@
                             <ul class="cf">
                                 <div class="columns large-6 medium-6 small-6">
                                     <li><a href="/content/nhmwww/en/home/about-us.html">About us</a></li>
-                                    <li><a href="/about-us/news/index.html">News and press</a></li>
+                                    <li><a href="/about-us/news/index.html">News</a></li>
+                                    <li><a href="/content/nhmwww/en/home/press-office.html">Press office</a></li>
                                     <li><a href="/content/nhmwww/en/home/business-services.html">Business services</a></li>
                                     <li><a href="/about-us/jobs-volunteering-internships/index.html">Careers</a></li>
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>
@@ -20,12 +21,15 @@
                                 	<li><a href="/my-nhm/privacy-policy/index.html">Privacy policy</a></li>
                                 	<li><a href="/about-us/website-help/terms-of-use/index.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
-                                    <li class="icon-list">Follow us<br>
-                                        <a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a>
-                                        <a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter" width="45"></a>
-                                        <a href="https://www.youtube.com/user/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/youtube.png"%>" alt="YouTube"></a>
-                                        <a href="http://www.pinterest.com/nhmlondon"><img src="<%= currentDesign.getPath() + "/img/icons/pinterest.png"%>" alt="Pinterest" width="30" height="22" /></a>
-                                        <a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts"><img src="<%= currentDesign.getPath() + "/img/icons/gplus.png"%>" alt="GooglePlus" width="30" height="30" /></a>
+                                    <li>Follow us</li>
+										<ul class="small-block-grid-3 icon-list">
+											<li><a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a></li>
+	                                        <li><a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter"></a></li>
+	                                        <li><a href="https://www.youtube.com/user/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/youtube.png"%>" alt="YouTube"></a></li>
+	                                        <li><a href="https://instagram.com/natural_history_museum"><img src="<%= currentDesign.getPath() + "/img/icons/instagram.png"%>" alt="Instagram"></a></li>
+	                                        <li><a href="http://www.pinterest.com/nhmlondon"><img src="<%= currentDesign.getPath() + "/img/icons/pinterest.png"%>" alt="Pinterest" /></a></li>
+	                                        <li><a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts"><img src="<%= currentDesign.getPath() + "/img/icons/gplus.png"%>" alt="GooglePlus" /></a></li>
+	                                   	</ul>
                                     </li>
                                 </div>
                             </ul>
