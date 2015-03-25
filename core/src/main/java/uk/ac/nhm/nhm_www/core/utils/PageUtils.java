@@ -124,4 +124,17 @@ public class PageUtils {
 		return new SimpleDateFormat("d MMMM YYYY ").format(date);
 	}
 	
+	public static String getPageSection(Page page) {
+		String cssClassSection = "";
+		
+		if(page != null && page.getDepth() > 5) {
+			Page landingPage = page.getAbsoluteParent(4);
+			cssClassSection = landingPage.getName();
+		} else if(page != null && (page.getDepth() == 5 || page.getDepth() == 4)) {
+			cssClassSection = page.getName();
+		}
+		return cssClassSection;
+		
+	}
+	
 }

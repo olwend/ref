@@ -45,6 +45,7 @@ import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponentArray;
 import uk.ac.nhm.nhm_www.core.model.discover.Video;
 import uk.ac.nhm.nhm_www.core.services.DiscoverPublicationsSearchService;
 import uk.ac.nhm.nhm_www.core.services.DynamicAppPageRenderingService;
+import uk.ac.nhm.nhm_www.core.utils.PageUtils;
 
 @Component(label = "Natural History Museum Dynamic App Page Rendering", description = "Natural History Museum Dynamic App Page Rendering Service", metatype = true, immediate = true)
 @Service(value = DynamicAppPageRenderingService.class)
@@ -222,7 +223,8 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	public JSONObject getJSON(Page page, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject object = new JSONObject();
 		object.put("path", resolver.map(request, page.getPath()));
-		
+		object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
+		object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
 		return object;
 	}
 	
