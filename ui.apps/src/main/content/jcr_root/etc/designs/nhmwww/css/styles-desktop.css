@@ -10094,6 +10094,26 @@ h6 {
   display: inline;
 }
 
+div#feedback-bar p {
+  font-size: 0.95em;
+}
+@media screen and (min-width: 768px) {
+  div#feedback-bar p {
+    font-size: 1em;
+  }
+}
+div#feedback-bar .span11 {
+  margin-left: 0;
+}
+@media screen and (min-width: 768px) {
+  div#feedback-bar .span11 {
+    margin-left: 20px;
+  }
+}
+div#feedback-bar a {
+  text-decoration: underline;
+}
+
 .sponsors-grid {
   margin-top: 2.1em;
   padding: 1em 1.5em;
