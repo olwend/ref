@@ -9723,6 +9723,9 @@ body {
     font-size: 1.15em;
   }
 }
+.carousel .caption.carousel--two-col--caption {
+  max-width: 100%;
+}
 
 .hero {
   margin-bottom: 0;
@@ -10054,6 +10057,10 @@ h6 {
   font-size: 1em;
 }
 
+.accordion .accordion-navigation,
+.accordion dd {
+  clear: both;
+}
 .accordion .accordion-navigation > a,
 .accordion dd > a {
   padding: 1em 0.75em;
@@ -10092,6 +10099,36 @@ h6 {
 .main-footer .footer-nav .icon-list a {
   padding: 0;
   display: inline;
+}
+
+div#feedback-bar {
+  background-color: #000000;
+  opacity: 0.9;
+}
+div#feedback-bar p {
+  color: #ffffff;
+  font-size: 0.95em;
+}
+@media screen and (min-width: 768px) {
+  div#feedback-bar p {
+    font-size: 1em;
+  }
+}
+div#feedback-bar p a {
+  color: #D5D5D5;
+  border-bottom: 1px dotted #D5D5D5;
+}
+div#feedback-bar p a:hover {
+  border-bottom: 1px solid #D5D5D5;
+  text-decoration: none;
+}
+div#feedback-bar .span11 {
+  margin-left: 0;
+}
+@media screen and (min-width: 768px) {
+  div#feedback-bar .span11 {
+    margin-left: 20px;
+  }
 }
 
 .sponsors-grid {
