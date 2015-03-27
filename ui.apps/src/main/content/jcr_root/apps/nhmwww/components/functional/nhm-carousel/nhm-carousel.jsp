@@ -19,7 +19,7 @@
 
 %>
 <!--  START OF CAROUSEL -->
-<div class="<%= helper.getCarouselType() %>-wrapper">
+<div class="<%= helper.getCarouselType() %>-wrapper <%if (helper.getInheritsColors() == true) { %> hero <% } %>">
 
 	<%if (helper.getComponentTitle() != null) {%><h4><%if (helper.getHyperlink() != null) {%><a href="<%=helper.getHyperlink() %>"<%=helper.getNewWindowHtml()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperlink() != null) {%></a><%}%></h4> <%}%>
     <ul class="<%= helper.getCarouselType() %>"
@@ -90,7 +90,7 @@
 	            <% if(element.getCaption() != null && !element.getCaption().equals("")) { %>
 	            	<div class="caption-outer-wrapper">
 	                    <div class="caption-inner-wrapper">
-			            	<div class="caption">
+			            	<div class="caption <%if (helper.getInheritsColors() == true) { %> carousel--two-col--caption <% } %>">
 			                	<% if(element.getHeading() != null && !element.getHeading().equals("")) {  %>
 			                		<h2><%=element.getHeading()%></h2>
 			                	<% } %>
