@@ -67,7 +67,7 @@
             </par>
         </contentpage>
         <dynamicapppage jcr:primaryType="nt:unstructured">
-            <par
+            <!-- <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
                 components="[group:NHM - Stacked,group:nhmwww]">
@@ -81,7 +81,12 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
                 <section jcr:primaryType="nt:unstructured"/>
-            </par>
+            </par>-->
+            <content-panel
+            	jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]">
+            </content-panel>
         </dynamicapppage>
         <landingpage jcr:primaryType="nt:unstructured">
             <par
