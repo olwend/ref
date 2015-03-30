@@ -27,6 +27,13 @@
                         name="./hyperlink"
                         width="155"
                         xtype="pathfield"/>
+                    <inheritscolors
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Inherits Colors"
+                        name="./colors"
+                        type="checkbox"
+                        xtype="selection">
+                    </inheritscolors>
                     <newwindow
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Open in New Window"
