@@ -10362,6 +10362,7 @@ body {
 
 .carousel .caption {
   padding: 0.5em 0.75em;
+  height: 143px;
 }
 .carousel .caption p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
@@ -10370,9 +10371,15 @@ body {
 @media screen and (min-width: 768px) {
   .carousel .caption {
     padding: 1em 1.5em !important;
+    height: 125px;
   }
   .carousel .caption p {
     font-size: 1.15em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .carousel .caption {
+    height: 105px;
   }
 }
 
