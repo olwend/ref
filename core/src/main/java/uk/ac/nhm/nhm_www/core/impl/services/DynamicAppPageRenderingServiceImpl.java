@@ -193,6 +193,7 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 				if (session.isLive()) {
 					session.logout();
 				}
+				
 			}
 		} catch (Exception e) {
 			LOG.error("Exception ", e);
