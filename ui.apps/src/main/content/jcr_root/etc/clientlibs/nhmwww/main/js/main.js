@@ -399,7 +399,7 @@ jQuery(document).ready(function() {
 
     //Megamenu touch handling
     if(jQuery(window).width() < 768){
-        jQuery('.level-1 > .nav-list__item.has-children').on('touchstart touchend', function(e){ 
+        jQuery('.level-1 > .nav-list__item.has-children').bind('touchstart touchend', function(e){ 
             if(jQuery(e.target).closest('li').hasClass('has-children')){
                 // e.preventDefault(); // stop touch acting as a click on items with submenus
                 // e.stopPropagation(); // stop a click event from also firing
