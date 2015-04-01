@@ -23,7 +23,6 @@ public class CarouselHelper extends HelperBase {
 	private String hyperLink;
 	private boolean newwindow;
 	private int grouping = 1;
-	private boolean inheritsColors;
 	private boolean hasThumbnails;
 	private boolean hasAutoscroll;
 	private int autoScrollDuration = 4;
@@ -60,9 +59,6 @@ public class CarouselHelper extends HelperBase {
 		}
 		if (this.properties.get("hyperlink", String.class) != null) {
 			this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
-		}
-		if (this.properties.get("colors") != null) {
-			this.inheritsColors = this.properties.get("colors",false);
 		}
 		if (this.properties.get("newwindow") != null) {
 			this.newwindow = this.properties.get("newwindow",false);
@@ -157,14 +153,6 @@ public class CarouselHelper extends HelperBase {
 
 	public boolean validateHyperlink() {
 		return LinkUtils.validateUrl(this.hyperLink);
-	}
-	
-	public boolean getInheritsColors() {
-		return this.inheritsColors;
-	}
-
-	public void setInheritsColors(boolean b) {
-		this.inheritsColors = b;
 	}
 
 	public boolean getHasThumbnails() {
