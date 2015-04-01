@@ -10797,6 +10797,7 @@ h6 {
 .accordion .accordion-navigation,
 .accordion dd {
   clear: both;
+  margin-bottom: 1.2em !important;
 }
 .accordion .accordion-navigation > a,
 .accordion dd > a {
