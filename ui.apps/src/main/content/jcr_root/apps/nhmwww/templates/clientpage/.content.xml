@@ -9,4 +9,5 @@
         jcr:primaryType="cq:PageContent"
         sling:resourceType="foundation/components/redirect"
         redirectTarget="/content/nhmwww/en"/>
+		
 </jcr:root>
