@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="{Long}400"
+    title="Press Release List Feed"
+    width="1000"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <basic
+                jcr:primaryType="cq:Widget"
+                title="Basic"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Component title"
+                        name="./title"
+                        width="155"
+                        xtype="textfield"/>
+                    <hyperlink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hyperlink"
+                        itemId="hyperlink"
+                        name="./hyperlink"
+                        width="155"
+                        xtype="pathfield"/>
+                    <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <numberOfItemsToDisplay
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Number of items"
+                        name="./numberToDisplay"
+                        width="155"
+                        xtype="numberfield"/>
+                    <rootPagePath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Root page"
+                        name="./rootPagePath"
+                        width="155"
+                        xtype="pathfield"/>
+                </items>
+            </basic>
+        </items>
+    </items>
+</jcr:root>
