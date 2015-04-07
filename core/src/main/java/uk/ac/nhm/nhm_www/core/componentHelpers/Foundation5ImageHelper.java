@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
@@ -25,14 +27,16 @@ public class Foundation5ImageHelper {
 	private String alt;
 	private String caption;
 	private String imageLinkURL;
+	private String mobileImagePath;
 	private boolean newwindow;
 	private Boolean activated;
 	private Resource rs;
 	private Node parentNode;
 	private Asset asset;
 	private ResourceResolver resourceResolver;
-	public enum ImageInterchangeSize {DEFAULT, SMALL, MEDIUM, LARGE, RETINA}
+	public enum ImageInterchangeSize {DEFAULT, SMALL, MEDIUM, LARGE, RETINA, SMALL_RETINA}
 	
+	protected static final Logger logger = LoggerFactory.getLogger(Foundation5ImageHelper.class);
 
 	public Foundation5ImageHelper(ValueMap properties, Resource resource, ResourceResolver resourceResolver, HttpServletRequest request, XSSAPI xssAPI) {
 		
@@ -41,7 +45,11 @@ public class Foundation5ImageHelper {
 		this.resourceResolver = resourceResolver;
 		
 		String fileReference = properties.get("fileReference", "");
+		String mobileFileReference = properties.get("mobileFileReference", "");
+		
+		logger.error("mobile File Rdeference: " + mobileFileReference);
 		this.originalImagePath = fileReference;
+		this.mobileImagePath = mobileFileReference;
 		if (fileReference.length() != 0 || resource.getChild("file") != null) {
 			ImageResource image = new ImageResource(resource);
 			String tempPath = request.getContextPath() + resource.getPath();
@@ -62,6 +70,12 @@ public class Foundation5ImageHelper {
 					tempExtension = mimeType.substring(mimeType.lastIndexOf("/") + 1);
 				}
 			}
+			
+			/*if (mobileFileReference.length() != 0) {
+				tempExtension = mobileFileReference.substring(fileReference.lastIndexOf(".") + 1);
+				tempSuffix = image.getSuffix();
+				tempSuffix = tempSuffix.substring(0, tempSuffix.indexOf('.') + 1) + tempExtension;
+			} */
 			tempExtension = xssAPI.encodeForHTMLAttr(tempExtension);
 			this.caption = properties.get("caption","");
 			this.imageLinkURL = properties.get("image-path","");
@@ -148,6 +162,9 @@ public class Foundation5ImageHelper {
             	}
                     
             case SMALL:
+            	if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
+        			return this.getMobileImagePath();
+            	}	
             	if (this.getImageWidth() > 768) {
             		return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
             	}
@@ -164,9 +181,10 @@ public class Foundation5ImageHelper {
             	{
             		return this.getOriginalImagePath();
             	}
-            	
+            case SMALL_RETINA:
+            	return this.getOriginalImagePath();
             case LARGE: case RETINA:
-                return this.getOriginalImagePath();
+            	return this.getOriginalImagePath();
                 
             default:
             	throw new UnsupportedOperationException("Image Interchange size not supported");}
@@ -285,6 +303,26 @@ public class Foundation5ImageHelper {
 			return "";
 		}
 	}
+	
+	private boolean hasMobileImage(String path) {
+		
+		return false;
+	}
+
+
+	public String getMobileImagePath() {
+		/*String mobilePath = this.originalImagePath.substring(0, this.originalImagePath.lastIndexOf(".")) + "_mobile." + this.extension;
+		
+		return mobilePath;*/
+		return this.mobileImagePath;
+	}
+
+	public void setMobileImagePath(String mobileImagePath) {
+		this.mobileImagePath = mobileImagePath;
+	}
+	
+	
+	
 	
 		
 }
