@@ -90,7 +90,7 @@
 	            <% if(element.getCaption() != null && !element.getCaption().equals("")) { %>
 	            	<div class="caption-outer-wrapper">
 	                    <div class="caption-inner-wrapper">
-			            	<div class="caption">
+			            	<div class="caption<% if(!helper.hasHeading()) { %> no-heading <%}%>">
 			                	<% if(element.getHeading() != null && !element.getHeading().equals("")) {  %>
 			                		<h2><%=element.getHeading()%></h2>
 			                	<% } %>
