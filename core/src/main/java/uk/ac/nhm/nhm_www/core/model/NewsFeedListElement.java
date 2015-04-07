@@ -1,14 +1,15 @@
 package uk.ac.nhm.nhm_www.core.model;
 
 import org.apache.sling.api.resource.ResourceResolver;
+
 import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
 
-public class NewsFeedElement extends FeedListElement {
+public class NewsFeedListElement extends PressReleaseFeedListElement{
 	
-    protected Tag[] tags;				//Are these the tags I want? It looks like they are...
+    protected Tag[] tags;
 
-	public NewsFeedElement(ResourceResolver resourceResolver, Page page) {
+	public NewsFeedListElement(ResourceResolver resourceResolver, Page page) {
 		super(resourceResolver, page);
 		this.tags = page.getTags();
 		

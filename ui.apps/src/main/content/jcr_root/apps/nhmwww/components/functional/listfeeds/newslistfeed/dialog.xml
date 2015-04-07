@@ -2,7 +2,7 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
     height="{Long}400"
-    title="Press Release List Feed"
+    title="News List Feed"
     width="1000"
     xtype="dialog">
     <items

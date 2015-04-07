@@ -21,9 +21,12 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
+
 import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
+import uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
+
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
@@ -70,9 +73,13 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
 		List<Object> objects = null;
 		FeedListHelper helper = null;
-		if(childPages.hasNext() && childPages.next().getProperties().get("cq:template").equals("/apps/nhmwww/templates/pressreleasepage")) { 
-			helper = new PressReleaseFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
-			
+		if(childPages.hasNext()) {
+			if (childPages.next().getProperties().get("cq:template").equals("/apps/nhmwww/templates/pressreleasepage")) { 
+				helper = new PressReleaseFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
+			}
+			if (childPages.next().getProperties().get("cq:template").equals("/apps/nhmwww/templates/newscontentpage")) { 
+				helper = new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
+			}
 		} else {
 			helper = new FeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 		}
