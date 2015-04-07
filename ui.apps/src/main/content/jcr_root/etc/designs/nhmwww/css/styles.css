@@ -10477,6 +10477,42 @@ body {
 .hero {
   margin-bottom: 0;
 }
+.hero .caption {
+  height: 142px;
+}
+@media screen and (min-width: 480px) {
+  .hero .caption {
+    height: 100px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .hero .caption {
+    height: 85px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero .caption {
+    height: auto;
+  }
+}
+.hero .caption.no-heading {
+  height: 58px;
+}
+@media screen and (min-width: 640px) {
+  .hero .caption.no-heading {
+    height: 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero .caption.no-heading {
+    height: 84px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero .caption.no-heading {
+    height: 62px;
+  }
+}
 
 .thumb-caption {
   padding: 0.5em 0.75em;
