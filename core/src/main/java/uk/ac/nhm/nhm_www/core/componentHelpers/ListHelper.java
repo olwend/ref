@@ -51,7 +51,7 @@ public class ListHelper extends HelperBase {
 		}
 
 		if(landingPage != null) {
-			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
+			Iterator<Page> children = landingPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
 		
@@ -102,8 +102,6 @@ public class ListHelper extends HelperBase {
 	}
 	
 	
-	
-	
     public Boolean getNewwindow() {
 		return newwindow;
 	}
@@ -118,15 +116,15 @@ public class ListHelper extends HelperBase {
     	return LinkUtils.validateUrl(this.hyperLink);
     }
     
+	
     public List<Object> getChildrenElements() {
     	return  this.listElements;
     }
+    
+    
     public void addListElement(final Object element) {
     	this.listElements.add(element);
 
     }
-
-
-	
 	
 }
