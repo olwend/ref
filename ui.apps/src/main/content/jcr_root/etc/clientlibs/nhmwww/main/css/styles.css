@@ -10478,24 +10478,6 @@ body {
     height: auto;
   }
 }
-.hero .caption.no-heading {
-  height: 58px;
-}
-@media screen and (min-width: 640px) {
-  .hero .caption.no-heading {
-    height: 40px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .hero .caption.no-heading {
-    height: 84px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .hero .caption.no-heading {
-    height: 62px;
-  }
-}
 
 .thumb-caption {
   padding: 0.5em 0.75em;
