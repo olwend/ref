@@ -67,7 +67,7 @@ public class FeedListHelper extends ListHelper {
 			List<FeedListElement> unpinnedElements = new ArrayList<FeedListElement>();
 			while (children.hasNext()) {
 				Page child = children.next();
-				FeedListElement feedListElement = new FeedListElement(this.resourceResolver, child);
+				FeedListElement feedListElement = new FeedListElement(child);
 				if(feedListElement.isPinned()) {
 					pinnedElements.add(feedListElement);
 				} else {

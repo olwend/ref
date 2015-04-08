@@ -10,7 +10,7 @@ public class NewsFeedListElement extends PressReleaseFeedListElement{
     protected Tag[] tags;
 
 	public NewsFeedListElement(ResourceResolver resourceResolver, Page page) {
-		super(resourceResolver, page);
+		super(page);
 		this.tags = page.getTags();
 		
 	}

@@ -19,6 +19,8 @@ import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
 
 public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	
+	protected static final Logger logger = LoggerFactory.getLogger(DatedAndTaggedFeedListHelper.class);
+	
 	//Here Be Dragons, ToDo: Implement Tags[] handling here!, Dates are already being handled by the PressReleaseFeedListHelper
 
     public DatedAndTaggedFeedListHelper(ValueMap properties, PageManager pageManager,
@@ -28,6 +30,12 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 
 	}
 
-	protected static final Logger logger = LoggerFactory.getLogger(DatedAndTaggedFeedListHelper.class);
+	@Override
+	protected void processChildren (final Iterator<Page> children) {
+		//@ ListHelper.java a List<Object> listElements has been declared, we initialise it.
+		this.listElements = new ArrayList<Object>();
+		
+		
+	}
 
 }

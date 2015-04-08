@@ -34,7 +34,7 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 		
 		while (children.hasNext()) {
 		    final Page child = children.next();
-		    final PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(this.resourceResolver, child);
+		    final PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(child);
 		    this.listElements.add(feedListElement);
 		}
     }

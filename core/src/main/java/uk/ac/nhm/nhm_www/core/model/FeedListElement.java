@@ -16,14 +16,14 @@ public class FeedListElement extends ListElement {
     protected ResourceResolver resourceResolver;
     protected Page page;
 
-    public FeedListElement(final ResourceResolver resourceResolver, final Page page) {
-    super(page);
-	this.page = page;
-	this.title = PageUtils.getPageTitle(page);
-	this.intro = page.getProperties().get("summary", String.class);
-	this.pinned = page.getProperties().get("pinned", false);
-	final Resource resource = page.adaptTo(Resource.class);
-	this.imageResourcePath = resource.getPath()+"/jcr:content/image";
+    public FeedListElement(final Page page) {
+	    super(page);
+		this.page = page;
+		this.title = PageUtils.getPageTitle(page);
+		this.intro = page.getProperties().get("summary", String.class);
+		this.pinned = page.getProperties().get("pinned", false);
+		final Resource resource = page.adaptTo(Resource.class);
+		this.imageResourcePath = resource.getPath()+"/jcr:content/image";
     }
     
     public boolean isInitialised() {
@@ -82,12 +82,5 @@ public class FeedListElement extends ListElement {
     public void setPinned(final Boolean pinned) {
 	this.pinned = pinned;
     }
-
-    
-    
-
-
-
-
 
 }
