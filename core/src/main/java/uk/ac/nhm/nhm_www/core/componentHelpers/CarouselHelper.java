@@ -31,6 +31,7 @@ public class CarouselHelper extends HelperBase {
 	private Resource resource;
 	private ResourceResolver resourceResolver;
 	private String carouselType;
+	private boolean heading = false;
 
 	protected static final Logger logger = LoggerFactory.getLogger(CarouselHelper.class);
 	
@@ -99,6 +100,9 @@ public class CarouselHelper extends HelperBase {
 					this.carouselType = "event-slider";
 				} else {
 					this.carouselType = "carousel";
+				}
+				if(element.getHeading() !=null && !element.getHeading().equals("")) {
+					this.heading = true;
 				}
 				/*
 				 * Removing as this is the code for phase 2 implementation. Phase one will be built with images, link, heading and captions
@@ -180,6 +184,14 @@ public class CarouselHelper extends HelperBase {
 	public void setAutoScrollDuration(int i) {
 		this.autoScrollDuration = i;
 		
+	}
+
+	public boolean hasHeading() {
+		return heading;
+	}
+
+	public void setHeading(boolean hasHeading) {
+		this.heading = hasHeading;
 	}
 
 	public ArrayList<CarouselElement> getElements() {
