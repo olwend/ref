@@ -49,7 +49,7 @@
 	<div class="row " data-equalizer>
 		<div class="large-12 columns">
 			<h2>Page not initialised</h2>
-			<em>Please add an image and enter a page summary in the Page
+			<em>Please add a tag for this story along with an image and enter a page summary in the Page
 				properties.</em>
 		</div>
 	</div>

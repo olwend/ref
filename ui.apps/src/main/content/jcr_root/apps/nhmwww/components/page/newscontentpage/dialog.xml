@@ -35,7 +35,7 @@
                             xtype="datetime"/>
                         <introduction
                             jcr:primaryType="cq:Widget"
-                            hideLabel="{Boolean}true"
+                            fieldLabel="Introduction"
                             name="./summary"
                             xtype="richtext">
                             <rtePlugins
