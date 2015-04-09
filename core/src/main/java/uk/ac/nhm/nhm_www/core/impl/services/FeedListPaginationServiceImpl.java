@@ -64,38 +64,38 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 
     @Override
     public JSONObject getJSON(final List<Object> objects, final Integer pageNumber, final Integer pageSize, final ResourceResolver resolver, final SlingHttpServletRequest request) {
-	final JSONObject jsonObject = new JSONObject();
-
-	//final int listSize = objects.size();
-
-	//final int numberOfPages = listSize / pageSize;
-	final int indexFrom = (pageSize*pageNumber) - (pageSize - 1);
-	final int indexTo;
-	if (objects.size() - indexFrom < pageSize - 1) {
-	    indexTo = indexFrom + (objects.size() - indexFrom);
-	} else {
-	    indexTo = indexFrom + pageSize - 1;
-	}
-
-	final JSONArray jsonArray = new JSONArray();
-	try {
-	    final int pages = objects.size() / pageSize
-		    + (objects.size() % pageSize == 0 ? 0 : 1);
-	    jsonObject.put("pages", pages);
-	    for(int i=indexFrom-1; i < indexTo; i++) {
-		if (objects.get(i) instanceof PressReleaseFeedListElement) {
-		    final PressReleaseFeedListElement listElement = (PressReleaseFeedListElement) objects.get(i);
-		    jsonArray.put(addPressReleaseElement(listElement, resolver, request));
+		final JSONObject jsonObject = new JSONObject();
+	
+		//final int listSize = objects.size();
+	
+		//final int numberOfPages = listSize / pageSize;
+		final int indexFrom = (pageSize*pageNumber) - (pageSize - 1);
+		final int indexTo;
+		if (objects.size() - indexFrom < pageSize - 1) {
+		    indexTo = indexFrom + (objects.size() - indexFrom);
 		} else {
-		    final FeedListElement listElement = (FeedListElement) objects.get(i);
-		    jsonArray.put(addElement(listElement));
+		    indexTo = indexFrom + pageSize - 1;
 		}
-	    }
-	    jsonObject.put("pageJson", jsonArray);
-	} catch (final JSONException e) {
-	    e.printStackTrace();
-	}
-	return jsonObject;
+	
+		final JSONArray jsonArray = new JSONArray();
+		try {
+		    final int pages = objects.size() / pageSize
+			    + (objects.size() % pageSize == 0 ? 0 : 1);
+		    jsonObject.put("pages", pages);
+		    for(int i=indexFrom-1; i < indexTo; i++) {
+			if (objects.get(i) instanceof PressReleaseFeedListElement) {
+			    final PressReleaseFeedListElement listElement = (PressReleaseFeedListElement) objects.get(i);
+			    jsonArray.put(addPressReleaseElement(listElement, resolver, request));
+			} else {
+			    final FeedListElement listElement = (FeedListElement) objects.get(i);
+			    jsonArray.put(addElement(listElement));
+			}
+		    }
+		    jsonObject.put("pageJson", jsonArray);
+		} catch (final JSONException e) {
+		    e.printStackTrace();
+		}
+		return jsonObject;
     }
 
     private JSONObject addPressReleaseElement(final PressReleaseFeedListElement listElement, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
