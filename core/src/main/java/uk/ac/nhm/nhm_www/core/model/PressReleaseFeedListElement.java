@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PressReleaseFeedListElement extends FeedListElement implements Comparable<PressReleaseFeedListElement> {
-	private Date pressReleaseDate;
+	protected Date pressReleaseDate;
 	
 	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListElement.class);
 	
