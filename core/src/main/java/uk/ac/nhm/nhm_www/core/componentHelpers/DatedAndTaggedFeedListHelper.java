@@ -67,7 +67,7 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		// Tags
 		this.tags = this.properties.get("tags", this.currentPage.getTags());
 		
-		// Handle Children **WARNING** not handling Science children yet, TBImplemented
+		// Handle Children
 		Iterator<Page> children;
 		if(this.rootPage != null) {
 		    children = this.rootPage.listChildren(new PageFilter(this.request));
@@ -89,11 +89,6 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 			Page child = children.next();
 		    final DatedAndTaggedFeedListElement feedListElement = new DatedAndTaggedFeedListElement(child);
 		    this.listElements.add(feedListElement);
-			
-//			if (pageHasTags(child, this.tags)){
-//				DatedAndTaggedFeedListElement taggedElement = new DatedAndTaggedFeedListElement(child);
-//				this.listElements.add(taggedElement);
-//			}
 		}
 	}
 	
