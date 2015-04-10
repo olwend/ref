@@ -6,9 +6,13 @@ import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,8 +28,8 @@ import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	
 	protected static final Logger logger = LoggerFactory.getLogger(DatedAndTaggedFeedListHelper.class);
-	protected Integer noOfNewsItems;
-	protected Integer noOfScienceItems;
+	protected Integer noOfItems;
+	//protected Integer noOfScienceItems;
 	protected Tag[] tags;
 
 
@@ -53,24 +57,17 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		this.rootPagePath = this.properties.get("rootPagePath",this.currentPage.getPath());
 		this.rootPage = this.pageManager.getPage(this.rootPagePath);
 		
-		// Number of News Items to Display
-		if (this.properties.get("noOfNewsItems", Integer.class) != null) {
-		    this.noOfNewsItems = this.properties.get("noOfNewsItems", 3);
+		// Number of Items to Display
+		if (this.properties.get("noOfItems", Integer.class) != null) {
+		    this.noOfItems = this.properties.get("noOfItems", 3);
 		} else {
-		    this.noOfNewsItems = new Integer(3);
-		}
-		
-		// Number of Science Items to Display
-		if (this.properties.get("noOfScienceItems", Integer.class) != null) {
-		    this.noOfScienceItems = this.properties.get("noOfScienceItems", 3);
-		} else {
-		    this.noOfScienceItems = new Integer(3);
+		    this.noOfItems = new Integer(3);
 		}
 		
 		// Tags
 		this.tags = this.properties.get("tags", this.currentPage.getTags());
 		
-		// Handle Children
+		// Handle Children **WARNING** not handling Science children yet, TBImplemented
 		Iterator<Page> children;
 		if(this.rootPage != null) {
 		    children = this.rootPage.listChildren(new PageFilter(this.request));
@@ -90,8 +87,37 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		
 		while (children.hasNext()) {
 			Page child = children.next();
-			DatedAndTaggedFeedListElement taggedElement = new DatedAndTaggedFeedListElement(child);
-			this.listElements.add(taggedElement);
+		    final DatedAndTaggedFeedListElement feedListElement = new DatedAndTaggedFeedListElement(child);
+		    this.listElements.add(feedListElement);
+			
+//			if (pageHasTags(child, this.tags)){
+//				DatedAndTaggedFeedListElement taggedElement = new DatedAndTaggedFeedListElement(child);
+//				this.listElements.add(taggedElement);
+//			}
 		}
 	}
+	
+	protected boolean pageHasTags(Page page, Tag[] tags){
+		boolean found = false;
+		List<Tag> pageTags = Arrays.asList(page.getTags()); 
+		Iterator<Tag> filterIterator = Arrays.asList(tags).iterator();
+		
+		while(!found && filterIterator.hasNext()){
+			Tag tagFilter = filterIterator.next();
+			found = pageTags.contains(tagFilter); 
+		}
+		return found;
+		
+	}
+		
+	public Integer getNoOfItems() {
+		return noOfItems;
+	}
+
+	public void setNoOfItems(Integer noOfItems) {
+		this.noOfItems = noOfItems;
+	}
+	
+	
+	
 }
