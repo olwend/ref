@@ -1,17 +1,14 @@
 $(document).ready(function() {
-	//Use JQuery AJAX request to post data to a Sling Servlet
-	var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-	var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
 	
-	if (rootPath && pageSize) {
-		showPressReleases(rootPath, 1, pageSize);
-	}
-	
-	
-	
-	
-	
-	
+	$('.pressreleaselistfeed-wrapper').each(function (){
+		var $this = $(this);
+		var rootPath = $this.data('rootpath');
+		var pageSize = $this.data('pagesize');
+		
+		if (rootPath && pageSize) {
+			showPressReleases(rootPath, 1, pageSize, $this);
+		}
+	});
 });
 
 function addMoreResultsButton() {
@@ -49,7 +46,7 @@ function removeMoreResultsButton() {
 }
 	
 
-function showPressReleases(rootPath, pageNumber, pageSize) {
+function showPressReleases(rootPath, pageNumber, pageSize, that) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -61,7 +58,7 @@ function showPressReleases(rootPath, pageNumber, pageSize) {
 		success: function(data){
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
-			showItems(json.pageJson);
+			showItems(json.pageJson, that);
 			if(pageNumber != json.pages){
 				addMoreResultsButton();
 			}
@@ -154,8 +151,8 @@ function buildNavigators(pageNumber, numberOfPages) {
 	} */
 }
 
-function showItems(pageJson) {
-	$.each(pageJson, function(index, item) {
+function showItems(pageJson, that) {
+	$.each(pageJson, function(index, item, that) {
 		var title = item.title; 
 		var intro = item.intro; 
 		var imagePath = item.imagePath;
@@ -164,7 +161,7 @@ function showItems(pageJson) {
 		var link = item.path + ".html";
 		
 		var element = createPressRelease(title, intro, date, imagePath, link);
-		$('.press-office--list').append(element);
+		that('.press-office--list').append(element);
 	});
 	
 	setTimeout(function(){
