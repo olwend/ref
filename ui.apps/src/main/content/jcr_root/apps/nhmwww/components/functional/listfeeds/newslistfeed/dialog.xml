@@ -33,10 +33,10 @@
                         name="./newwindow"
                         type="checkbox"
                         xtype="selection"/>
-                    <numberOfItemsToDisplay
+                    <numberOfItems
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Number of items"
-                        name="./numberToDisplay"
+                        fieldLabel="Number of Items"
+                        name="./noOfItems"
                         width="155"
                         xtype="numberfield"/>
                     <rootPagePath
