@@ -113,6 +113,4 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		this.noOfItems = noOfItems;
 	}
 	
-	
-	
 }

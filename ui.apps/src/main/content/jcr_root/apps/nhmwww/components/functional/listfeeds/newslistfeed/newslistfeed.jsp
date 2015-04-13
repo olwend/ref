@@ -24,8 +24,20 @@
 	}
 %>
 <div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=helper.getNoOfItems()%>" >
-	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
-    <!-- START PAGINATION -->
+	<%if (helper.getComponentTitle() != null) {%>
+		<h3>
+			<%if (helper.getHyperLink() != null) {%>
+				<a href="<%=helper.getHyperLink() %>" <%=helper.getNewwindow()%>>
+			<%}%> 
+			
+			<%=helper.getComponentTitle() %> 
+			
+			<%if (helper.getHyperLink() != null) {%>
+				</a>
+			<%}%>
+		</h3>
+	<%}%>
+	<!-- START PAGINATION -->
     
     <!-- END PAGINATION -->
     <div class="press-office--list">
