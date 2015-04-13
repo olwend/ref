@@ -1,12 +1,18 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
-	var componentID = $('.pressreleaselistfeed-wrapper').data('componentid');
-	var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-	var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
 	
-	if (rootPath && pageSize) {
-		showPressReleases(rootPath, 1, pageSize, componentID);
-	}
+	$('.component-title').each(function (){
+		var componentID = $('.component-title').data('componentid');
+		var componentFilter = '.pressreleaselistfeed-wrapper-' + componentID;
+		var $this = $(componentFilter);
+		var rootPath = $this.data('rootpath');
+		var pageSize = $this.data('pagesize');
+		
+		if (rootPath && pageSize) {
+			showPressReleases(rootPath, 1, pageSize, componentID);
+		}
+	});
+
 
 });
 
@@ -160,7 +166,7 @@ function showItems(pageJson, componentID) {
 		var link = item.path + ".html";
 		
 		var element = createPressRelease(title, intro, date, imagePath, link, componentID);
-		var componentClass = '.press-office--list-' + componentID;
+		var componentClass = '.press-office--list' + componentID;
 		$(componentClass).append(element);
 	});
 	
@@ -173,7 +179,7 @@ function showItems(pageJson, componentID) {
 
 function createPressRelease(title, intro, date, imagePath, url, componentID) {
 	var element = document.createElement("div");
-	element.className = 'press-office--list-item-asdf' + componentID;
+	element.className = 'press-office--list-item-' + componentID;
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
 	var dateDiv = document.createElement("div");
