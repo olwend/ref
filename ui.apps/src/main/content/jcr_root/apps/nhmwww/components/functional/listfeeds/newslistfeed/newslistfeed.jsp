@@ -23,14 +23,14 @@
 		path = currentPage.getPath(); 
 	}
 %>
-<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=helper.getNoOfItems()%>" >
+<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=helper.getNoOfItems()%>" data-componentid="<%=new String(helper.getComponentTitle()).toLowerCase()%>" >
 	<%if (helper.getComponentTitle() != null) {%>
 		<h3>
 			<%if (helper.getHyperLink() != null) {%>
 				<a href="<%=helper.getHyperLink() %>" <%=helper.getNewwindow()%>>
 			<%}%> 
 			
-			<%=helper.getComponentTitle() %> 
+			<%=helper.getComponentTitle() %>
 			
 			<%if (helper.getHyperLink() != null) {%>
 				</a>
@@ -40,6 +40,6 @@
 	<!-- START PAGINATION -->
     
     <!-- END PAGINATION -->
-    <div class="press-office--list">
+    <div class="press-office--list-<%=new String(helper.getComponentTitle()).toLowerCase()%>">
     </div>
 </div>

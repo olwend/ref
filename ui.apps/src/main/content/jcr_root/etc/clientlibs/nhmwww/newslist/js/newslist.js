@@ -1,14 +1,13 @@
 $(document).ready(function() {
+	//Use JQuery AJAX request to post data to a Sling Servlet
+	var componentID = $('.pressreleaselistfeed-wrapper').data('componentid');
+	var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
+	var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
 	
-	$('.pressreleaselistfeed-wrapper').each(function (){
-		var $this = $(this);
-		var rootPath = $this.data('rootpath');
-		var pageSize = $this.data('pagesize');
-		
-		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, $this);
-		}
-	});
+	if (rootPath && pageSize) {
+		showPressReleases(rootPath, 1, pageSize, componentID);
+	}
+
 });
 
 function addMoreResultsButton() {
@@ -46,7 +45,7 @@ function removeMoreResultsButton() {
 }
 	
 
-function showPressReleases(rootPath, pageNumber, pageSize, that) {
+function showPressReleases(rootPath, pageNumber, pageSize, componentID) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -58,7 +57,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, that) {
 		success: function(data){
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
-			showItems(json.pageJson, that);
+			showItems(json.pageJson, componentID);
 			if(pageNumber != json.pages){
 				addMoreResultsButton();
 			}
@@ -151,8 +150,8 @@ function buildNavigators(pageNumber, numberOfPages) {
 	} */
 }
 
-function showItems(pageJson, that) {
-	$.each(pageJson, function(index, item, that) {
+function showItems(pageJson, componentID) {
+	$.each(pageJson, function(index, item) {
 		var title = item.title; 
 		var intro = item.intro; 
 		var imagePath = item.imagePath;
@@ -160,8 +159,9 @@ function showItems(pageJson, that) {
 		
 		var link = item.path + ".html";
 		
-		var element = createPressRelease(title, intro, date, imagePath, link);
-		that('.press-office--list').append(element);
+		var element = createPressRelease(title, intro, date, imagePath, link, componentID);
+		var componentClass = '.press-office--list-' + componentID;
+		$(componentClass).append(element);
 	});
 	
 	setTimeout(function(){
@@ -171,9 +171,9 @@ function showItems(pageJson, that) {
 	
 }
 
-function createPressRelease(title, intro, date, imagePath, url) {
+function createPressRelease(title, intro, date, imagePath, url, componentID) {
 	var element = document.createElement("div");
-	element.className = 'press-office--list-item';
+	element.className = 'press-office--list-item-asdf' + componentID;
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
 	var dateDiv = document.createElement("div");
