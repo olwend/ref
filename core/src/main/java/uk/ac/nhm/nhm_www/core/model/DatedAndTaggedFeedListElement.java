@@ -1,5 +1,9 @@
 package uk.ac.nhm.nhm_www.core.model;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.sling.api.resource.ResourceResolver;
 
 import com.day.cq.tagging.Tag;
@@ -24,6 +28,18 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement{
 	
 	public Tag[] getTags() {
 		return tags;
+	}
+	
+	public boolean hasTags(Tag[] tags){
+		boolean found = false;
+		List<Tag> pageTags = Arrays.asList(this.tags); 
+		Iterator<Tag> filterIterator = Arrays.asList(tags).iterator();
+		
+		while(!found && filterIterator.hasNext()){
+			Tag tagFilter = filterIterator.next();
+			found = pageTags.contains(tagFilter); 
+		}
+		return found;
 	}
 
 //	********************************
