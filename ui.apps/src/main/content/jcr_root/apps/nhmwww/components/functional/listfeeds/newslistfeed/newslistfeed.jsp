@@ -59,6 +59,9 @@
 <% if (currentPage.getPath().equals(helper.getRootPagePath())){ %>
 	
 	<%
+	
+	//^^^ Trick done @ line 59 won't work when stuff is placed in News and in Year folders instead. Needs FIXING
+	
 	Iterator<Page> children = currentPage.listChildren();
 	while (children.hasNext()) {
 		Page child = children.next(); 
