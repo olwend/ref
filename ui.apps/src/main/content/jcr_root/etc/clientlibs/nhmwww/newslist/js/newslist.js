@@ -1,18 +1,13 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
 	$('.pressreleaselistfeed-wrapper').each(function (){
-		
 		var componentID = $(this).data('componentid');
-		console.log("Inside the Wrapper" + componentID);
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
-		
 		if (rootPath && pageSize) {
 			showPressReleases(rootPath, 1, pageSize, componentID);
 		}
 	});
-
-
 });
 
 function addMoreResultsButton() {
@@ -37,7 +32,6 @@ function addMoreResultsButton() {
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
 		showPressReleases(rootPath, currentPage+1, pageSize);
-		
 	});
 }
 
@@ -45,8 +39,6 @@ function removeMoreResultsButton() {
 	 var wrapperDiv = document.getElementById('pressreleaselistfeed_wrapper');
 	 var divToDelete = document.getElementById("more_results");
 	 wrapperDiv.removeChild(divToDelete);
-
-	
 }
 	
 
@@ -60,7 +52,6 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID) {
 			pageSize: pageSize
 		},
 		success: function(data){
-			console.log("Inside Ajax " + componentID);
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID);
@@ -69,8 +60,6 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID) {
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
-			
-			
 		},
 		error: function (){
 		}
@@ -162,13 +151,9 @@ function showItems(pageJson, componentID) {
 		var intro = item.intro; 
 		var imagePath = item.imagePath;
 		var date = item.date;
-		
 		var link = item.path + ".html";
-		
 		var element = createPressRelease(title, intro, date, imagePath, link, componentID);
-		
 		var componentClass = '#press-office--list-' + componentID;
-		console.log("My comp class " + componentClass);
 		$(componentClass).append(element);
 	});
 	
@@ -181,7 +166,7 @@ function showItems(pageJson, componentID) {
 
 function createPressRelease(title, intro, date, imagePath, url, componentID) {
 	var element = document.createElement("div");
-	element.className = 'press-office--list-item' + componentID;
+	element.className = 'press-office--list-item-' + componentID;
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
 	var dateDiv = document.createElement("div");
