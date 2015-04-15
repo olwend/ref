@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
@@ -42,7 +43,8 @@ import com.day.cq.wcm.api.PageManagerFactory;
 		@Property(name = "sling.servlet.methods", value = { "GET" }, propertyPrivate = true),
 		@Property(name = "service.description", value = "Return Paginated list"),
 		@Property(name = "pageNumber", intValue = 0, description = "Default Start Page"),
-		@Property(name = "pageSize", intValue = 8, description = "Default page size")
+		@Property(name = "pageSize", intValue = 8, description = "Default page size"),
+		@Property(name = "isLanding", intValue = 8, description = "Default Landing")
 		
 })
 public class FeedListPaginationServlet extends SlingAllMethodsServlet {
@@ -65,6 +67,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		String rootPath = request.getParameter("rootPath");
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		boolean isLanding = Boolean.parseBoolean(request.getParameter("isLanding"));
 		final Resource resource = request.getResource();
 		
 		ResourceResolver resourceResolver = request.getResourceResolver();
@@ -73,12 +76,27 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		
 		ValueMap properties = new ValueMapDecorator(new HashMap());
 		
-		Page rootPage = pageManager.getPage(rootPath);
-
-		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
+		FeedListHelper helper;
 		
-		List<Object> objects = null;
+		if(isLanding) {
+			helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
+		} else {
+			helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
+		}
+		
+		List<Object> objects = helper.getChildrenElements();
+		
+		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(jsonString.toString());
+	}
+	
+	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver){
+	
 		FeedListHelper helper = null;
+		
+		Page rootPage = pageManager.getPage(rootPath);
+		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
 		
 		if(childPages.hasNext()) {
 			Page child = childPages.next();
@@ -88,16 +106,14 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/newscontentpage")) { 
 				helper = new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 			}
+			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/sublandingpage")) { 
+				helper = new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
+			}
 			
 		} else {
 			helper = new FeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 		}
-		
-		objects = helper.getChildrenElements();
-		
-		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(jsonString.toString());
+		return helper;
 	}
 	
 }

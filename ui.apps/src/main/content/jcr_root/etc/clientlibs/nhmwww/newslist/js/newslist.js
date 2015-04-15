@@ -4,8 +4,9 @@ $(document).ready(function() {
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
+		var hideMonths = $(this).data('hidemonths');
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID);
+			showPressReleases(rootPath, 1, pageSize, componentID, hideMonths);
 		}
 	});
 });
@@ -42,14 +43,15 @@ function removeMoreResultsButton() {
 }
 	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID) {
+function showPressReleases(rootPath, pageNumber, pageSize, componentID, hideMonths) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
 		data:{
 			rootPath: rootPath,
 			pageNumber: pageNumber,
-			pageSize: pageSize
+			pageSize: pageSize,
+			isLanding: hideMonths
 		},
 		success: function(data){
 			var json = jQuery.parseJSON(data);

@@ -25,6 +25,7 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	
 	protected static final Logger logger = LoggerFactory.getLogger(DatedAndTaggedFeedListHelper.class);
 	protected Integer noOfItems;
+	protected Boolean hideMonths;
 	//protected Integer noOfScienceItems;
 	protected Tag[] tags;
 
@@ -58,6 +59,11 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		    this.noOfItems = this.properties.get("noOfItems", 3);
 		} else {
 		    this.noOfItems = new Integer(3);
+		}
+		
+		// Hide Months
+		if (this.properties.get("hideMonths") != null) {
+		    this.hideMonths = this.properties.get("hideMonths",false);
 		}
 		
 		// Tags
@@ -98,6 +104,14 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 
 	public void setNoOfItems(Integer noOfItems) {
 		this.noOfItems = noOfItems;
+	}
+
+	public Boolean getHideMonths() {
+		return hideMonths;
+	}
+
+	public void setHideMonths(Boolean hideMonths) {
+		this.hideMonths = hideMonths;
 	}
 	
 }

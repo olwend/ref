@@ -12,10 +12,12 @@ import com.day.cq.wcm.api.Page;
 public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement{
 	
     protected Tag[] tags;
+    protected String path;
 
 	public DatedAndTaggedFeedListElement(Page page) {
 		super(page);
 		this.tags = page.getTags();
+		this.path = page.getPath();
 	}
 	
 	public boolean isInitialised() {
@@ -40,6 +42,14 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement{
 			found = pageTags.contains(tagFilter); 
 		}
 		return found;
+	}
+	
+	public String getPath() {
+		return this.path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 //	********************************

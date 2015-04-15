@@ -39,6 +39,12 @@
                         name="./noOfItems"
                         width="155"
                         xtype="numberfield"/>
+					<hideMonths
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hide month containing stories"
+                        name="./hideMonths"
+                        type="checkbox"
+                        xtype="selection"/>
                     <rootPagePath
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Root page"

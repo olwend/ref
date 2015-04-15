@@ -24,8 +24,10 @@
 		noOfItems = helper.getNoOfItems();
 	}
 	
-	Integer yearDepth = 7;
-	Integer depth = currentPage.getDepth() - yearDepth;
+	Boolean hideMonths = false;
+	if (helper.getHideMonths() != null){
+		hideMonths = helper.getHideMonths();
+	}
 	
 	String componentID = "";
 	if( helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")){
@@ -68,17 +70,16 @@
 			<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper"
 					data-rootpath="<%=child.getPath() %>"
 					data-pagesize="<%=noOfItems %>"  
-					data-componentid="<%=componentID %>">
+					data-componentid="<%=componentID %>"
+					data-hidemonths="<%=hideMonths %>">
 					
-				<% if (depth == 0) { %>
-					<h4>
-						<%if ( child.getTitle() != null ) {%>
-							<%=child.getTitle() %>
-						<% } else { %>
-							<%=child.getName() %>
-						<% } %>
-					</h4>
-				<% } %>
+				<h4>
+					<%if ( child.getTitle() != null ) {%>
+						<%=child.getTitle() %>
+					<% } else { %>
+						<%=child.getName() %>
+					<% } %>
+				</h4>
 				<div class="press-office--list" id="press-office--list-<%=componentID %>">
 
 		    	</div>
