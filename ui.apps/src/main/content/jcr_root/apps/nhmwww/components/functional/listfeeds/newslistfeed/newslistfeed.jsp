@@ -20,12 +20,12 @@
 
 <%
 	Integer noOfItems = 3;
-	if (helper.getNoOfItems() != null){
+	if (helper.getNoOfItems() != null && helper.getNoOfItems() >= 0){
 		noOfItems = helper.getNoOfItems();
 	}
 	
 	String componentID = "";
-	if (helper.getComponentTitle() != null) {
+	if (helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) {
 		componentID = new String(helper.getComponentTitle()).toLowerCase();
 	}
 	
@@ -37,35 +37,9 @@
 	}
 %>
 
-<%-- ###START### Component Logic for Development Testing in Month Page (Logic not needed, but basic functionality was here)--%>
-<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" data-componentid="<%=componentID %>" >
-	<%if (helper.getComponentTitle() != null) {%>
-		<h3>
-			<%if (helper.getHyperLink() != null) {%>
-				<a href="<%=helper.getHyperLink() %>" <%=helper.getNewwindow()%>>
-			<%}%> 
-			
-			<%=helper.getComponentTitle() %>
-			
-			<%if (helper.getHyperLink() != null) {%>
-				</a>
-			<%}%>
-		</h3>
-	<%}%>
-	<!-- START PAGINATION -->
-    
-    <!-- END PAGINATION -->
-    <div class="press-office--list" id="press-office--list-<%=componentID %>">
-    </div>
-</div>
-<%-- ####END#### Component Logic for Development Testing in Month Page (Logic not needed, but basic functionality was here) --%>
-
-
 <%-- ###START### Component Logic for YEAR Page --%>
 <%-- This is the logic that's meant to happen @ YEAR and NEWS. Needs further improvement --%>
-<%-- If Statement to separate functionality from basic Development Testing with Month pages, NEEDS FIXING--%>
-<% if (currentPage.getPath().equals(helper.getRootPagePath())){ %>
-	<%
+<%
 	Iterator<Page> children = currentPage.listChildren();
 	while (children.hasNext()) {
 		Page child = children.next(); 
@@ -84,13 +58,12 @@
 					data-rootpath="<%=child.getPath() %>"
 					data-pagesize="<%=noOfItems %>"  
 					data-componentid="<%=componentID %>">
-
+	
 				<div class="press-office--list" id="press-office--list-<%=componentID %>">
 		    	</div>
 			</div>
 			<%
 		}
 	}
-	%>
-<%}%>
+%>
 <%-- ####END#### Component Logic for YEAR Page --%>
