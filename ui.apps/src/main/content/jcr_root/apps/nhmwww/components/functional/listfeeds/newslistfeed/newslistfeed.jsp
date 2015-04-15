@@ -24,8 +24,11 @@
 		noOfItems = helper.getNoOfItems();
 	}
 	
+	Integer yearDepth = 7;
+	Integer depth = currentPage.getDepth() - yearDepth;
+	
 	String componentID = "";
-	if (helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) {
+	if( helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")){
 		componentID = new String(helper.getComponentTitle()).toLowerCase();
 	}
 	
@@ -35,31 +38,49 @@
 	} else {
 		path = currentPage.getPath(); 
 	}
+	Page rootPage = pageManager.getPage(path);
 %>
 
 <%-- ###START### Component Logic for YEAR Page --%>
 <%-- This is the logic that's meant to happen @ YEAR and NEWS. Needs further improvement --%>
+
+	ComponentID (aka ComponentTitle) : <%=componentID %>
+	Depth (aka Difference with Year): <%=depth %>
 <%
-	Iterator<Page> children = currentPage.listChildren();
+	Iterator<Page> children = rootPage.listChildren();
+	if (helper.getComponentTitle() != null) {%>
+		<h3>
+			<%if (helper.getHyperLink() != null) {%>
+				<a href="<%=helper.getHyperLink() %>" <%=helper.getNewwindow()%>>
+			<%}%> 
+			
+			<%=helper.getComponentTitle() %>
+			
+			<%if (helper.getHyperLink() != null) {%>
+				</a>
+			<%}%>
+		</h3>
+	<%}
 	while (children.hasNext()) {
 		Page child = children.next(); 
 		if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/contentpage")) { 
-			%>
-			<h4>
-				<%if ( child.getTitle() != null ) {%>
-					<%=child.getTitle() %>
-				<% } else { %>
-					<%=child.getName() %>
-				<% } %>
-			</h4>
-			<%
 			%>
 			<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper"
 					data-rootpath="<%=child.getPath() %>"
 					data-pagesize="<%=noOfItems %>"  
 					data-componentid="<%=componentID %>">
-	
+					
+				<% if (depth == 0) { %>
+					<h4>
+						<%if ( child.getTitle() != null ) {%>
+							<%=child.getTitle() %>
+						<% } else { %>
+							<%=child.getName() %>
+						<% } %>
+					</h4>
+				<% } %>
 				<div class="press-office--list" id="press-office--list-<%=componentID %>">
+
 		    	</div>
 			</div>
 			<%
