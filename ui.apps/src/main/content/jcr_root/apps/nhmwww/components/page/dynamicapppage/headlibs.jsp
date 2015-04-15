@@ -12,6 +12,7 @@
         <!--<![endif]-->
         
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/twitter.css"%>" />
+        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/nhm-legacy.css"%>" />
         
         <cq:includeClientLib js="cq.jquery" />
         <script src="<%= currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
