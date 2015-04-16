@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.sling.api.resource.ResourceResolver;
 
+import uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper;
+
 import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
 
@@ -18,7 +20,7 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 	public static final String TAGS_ATTRIBUTE_NAME 		 	= "cq:tags";
 	public static final String IMAGE_FILEREF_ATTRIBUTE_NAME	= "image/fileReference";
 	
-	protected Tag[] tags;
+	protected String[] tags;
 	protected String path;
 
 	public DatedAndTaggedFeedListElement() {
@@ -27,7 +29,7 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 	
 	public DatedAndTaggedFeedListElement(Page page) {
 		super(page);
-		this.tags = page.getTags();
+		this.tags = convertTagsToStrings(page.getTags());
 		this.path = page.getPath();
 	}
 
@@ -39,24 +41,33 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 		}
 	}
 
-	public Tag[] getTags() {
+	public String[] getTags() {
 		return tags;
 	}
-
-	public boolean hasTags(Tag[] tags) {
-		boolean found = false;
-		List<Tag> pageTags = Arrays.asList(this.tags);
-		Iterator<Tag> filterIterator = Arrays.asList(tags).iterator();
-
-		while (!found && filterIterator.hasNext()) {
-			Tag tagFilter = filterIterator.next();
-			found = pageTags.contains(tagFilter);
-		}
-		return found;
-	}
-
-	public void setTags(Tag[] tags) {
+	
+	public void setTags(String[] tags) {
 		this.tags = tags;
 	}
+	
+	private String[] convertTagsToStrings(Tag[] pageTags) {
+		String[] stringTags = new String[pageTags.length];
+
+		for (int i = 0; i < pageTags.length; i++) { 
+			stringTags[i] = pageTags[i].toString();
+		}
+		return stringTags;
+	}
+
+//	public boolean hasTags(Tag[] tags) {
+//		boolean found = false;
+//		List<Tag> pageTags = Arrays.asList(this.tags);
+//		Iterator<Tag> tagsToCheck = Arrays.asList(tags).iterator();
+//
+//		while (!found && tagsToCheck.hasNext()) {
+//			Tag tag = tagsToCheck.next();
+//			found = pageTags.contains(tag);
+//		}
+//		return found;
+//	}
 	
 }

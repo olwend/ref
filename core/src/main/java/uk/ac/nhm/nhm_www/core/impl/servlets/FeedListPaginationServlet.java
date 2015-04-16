@@ -1,6 +1,7 @@
 package uk.ac.nhm.nhm_www.core.impl.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -28,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
+import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
 
 import com.day.cq.wcm.api.Page;
@@ -77,14 +79,16 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		ValueMap properties = new ValueMapDecorator(new HashMap());
 		
 		FeedListHelper helper;
+		List<Object> objects;
 		
 		if(isLanding) {
-			helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
+			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
+			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request);
+			objects = new ArrayList<Object>(results);
 		} else {
 			helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
+			objects = helper.getChildrenElements();
 		}
-		
-		List<Object> objects = helper.getChildrenElements();
 		
 		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
 		response.setCharacterEncoding("UTF-8");

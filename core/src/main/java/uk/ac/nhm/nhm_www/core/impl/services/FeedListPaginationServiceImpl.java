@@ -34,7 +34,6 @@ import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
@@ -43,16 +42,10 @@ import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper;
-import uk.ac.nhm.nhm_www.core.impl.servlets.FeedListPaginationServlet;
 import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
 import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElementArray;
 import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
-import uk.ac.nhm.nhm_www.core.model.discover.Image;
-import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponent;
-import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponentArray;
-import uk.ac.nhm.nhm_www.core.model.discover.Video;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
 
 import com.day.cq.tagging.Tag;
@@ -84,7 +77,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	private ResourceResolverFactory resourceResolverFactory;
 	
 	private String jcrPath = "/content/nhmwww/%";
-	private String cqTags = "";
+	private String[] cqTags = null;
 	private long cacheExpired;
 	private int queryLimit;
 	private static final Logger LOG = LoggerFactory.getLogger(FeedListPaginationServiceImpl.class);
@@ -103,6 +96,29 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		this.cache = new ConcurrentHashMap<String, DatedAndTaggedFeedListElementArray>(INITIAL_CAPACITY, LOAD_FACTOR, concurrencyLevel);
 	}
 	
+	public String[] getCqTags() {
+		return cqTags;
+	}
+
+	public void setCqTags(String[] cqTags) {
+		this.cqTags = cqTags;
+	}
+	
+	private String returnTagString(String[] tags){
+		String ret = "(c.[cq:tags]='" + tags[0] ;
+		for (int i = 1; i < tags.length ; i++) {
+			ret += "' AND (c.[cq:tags]='" + tags[i];
+		}
+		return  ret;
+	}
+	
+	private String getKeyQuery() {
+		return "SELECT * FROM [nt:unstructured] as c WHERE ([jcr:path] like '" + jcrPath+ "') AND "
+				+ "(c.[sling:resourceType]='nhmwww/components/functional/listfeeds/newslistfeed') AND "
+				+ returnTagString(cqTags) + "') "
+				+ "ORDER BY [publishdate] DESC ";
+	}
+
 	private void loadProperties(final ComponentContext componentContext) {
 
 		try {
@@ -184,13 +200,12 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 					// Tags
 					TagManager tagManager = page.adaptTo(TagManager.class);
 					Value[] valueArray = node.getProperty(DatedAndTaggedFeedListElement.TAGS_ATTRIBUTE_NAME).getValues();
-					Tag[] tagArray = new Tag[valueArray.length];
+					String[] tagArray = new String[valueArray.length];
 					for (int i = 0; i < valueArray.length; i++) {
-						Tag tag = tagManager.resolve(valueArray[i].getString());
+						String tag = valueArray[i].getString();
 						tagArray[i] = tag;
 					}
 					element.setTags(tagArray);
-					
 					elementArray.addResource(element);
 				}
 			} finally {
@@ -212,12 +227,6 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		cache.put(keyQuery, elementArray);
 		return true;
 	}
-	
-	private String getKeyQuery() {
-		return "SELECT * FROM [nt:unstructured] as c WHERE ([jcr:path] like '" + jcrPath+ "') AND "
-				+ "(c.[sling:resourceType]='nhmwww/components/functional/discoverpublication') AND "
-				+ "(c.[cq:tags]='"+ cqTags + "') order by [publishdate] DESC ";
-	}
 
 	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request) {
 		final String keyQuery = getKeyQuery();
@@ -229,18 +238,15 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		}
 
 		if (cache.containsKey(keyQuery)) {
-			final DatedAndTaggedFeedListElementArray componentArray = cache
-					.get(keyQuery);
+			final DatedAndTaggedFeedListElementArray componentArray = cache.get(keyQuery);
 			final Date actualDate = new Date();
 
 			if ((actualDate.getTime() - componentArray.getCreatedAt().getTime()) > cacheExpired) {
 				if (!updateCache(keyQuery))
 					return null;
 			}
-
 			return cache.get(keyQuery).getComplexObjectArray();
 		}
-
 		return null;
 	}
 
@@ -278,18 +284,14 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 
 		final JSONArray jsonArray = new JSONArray();
 		try {
-			final int pages = objects.size() / pageSize
-					+ (objects.size() % pageSize == 0 ? 0 : 1);
+			final int pages = objects.size() / pageSize + (objects.size() % pageSize == 0 ? 0 : 1);
 			jsonObject.put("pages", pages);
 			for (int i = indexFrom - 1; i < indexTo; i++) {
 				if (objects.get(i) instanceof PressReleaseFeedListElement) {
-					final PressReleaseFeedListElement listElement = (PressReleaseFeedListElement) objects
-							.get(i);
-					jsonArray.put(addPressReleaseElement(listElement, resolver,
-							request));
+					final PressReleaseFeedListElement listElement = (PressReleaseFeedListElement) objects.get(i);
+					jsonArray.put(addPressReleaseElement(listElement, resolver, request));
 				} else {
-					final FeedListElement listElement = (FeedListElement) objects
-							.get(i);
+					final FeedListElement listElement = (FeedListElement) objects.get(i);
 					jsonArray.put(addElement(listElement));
 				}
 			}

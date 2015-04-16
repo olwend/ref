@@ -1,10 +1,12 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.jcr.Value;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.sling.api.resource.ResourceResolver;
@@ -17,6 +19,7 @@ import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
@@ -26,8 +29,7 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	protected static final Logger logger = LoggerFactory.getLogger(DatedAndTaggedFeedListHelper.class);
 	protected Integer noOfItems;
 	protected Boolean hideMonths;
-	//protected Integer noOfScienceItems;
-	protected Tag[] tags;
+	protected String[] tags;
 
 
     public DatedAndTaggedFeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request,	ResourceResolver resourceResolver) {
@@ -67,7 +69,8 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		}
 		
 		// Tags
-		this.tags = this.properties.get("tags", this.currentPage.getTags());
+		Tag[] pageTags = this.properties.get("tags", this.currentPage.getTags());
+		this.tags = convertTagsToStrings(pageTags);
 		
 		// Handle Children
 		Iterator<Page> children;
@@ -93,10 +96,6 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		    this.listElements.add(feedListElement);
 		}
 	}
-	
-	protected boolean pageHasTags(Page page, Tag[] tags){
-		return new DatedAndTaggedFeedListElement(page).hasTags(tags);
-	}
 		
 	public Integer getNoOfItems() {
 		return noOfItems;
@@ -113,5 +112,42 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	public void setHideMonths(Boolean hideMonths) {
 		this.hideMonths = hideMonths;
 	}
+	
+	public String[] getTags() {
+		return tags;
+	}
+
+	public void setTags(String[] tags) {
+		this.tags = tags;
+	}
+	
+	public boolean hasTags(){
+		return this.tags != null;
+	}
+	
+	private String[] convertTagsToStrings(Tag[] pageTags) {
+		String[] stringTags = new String[pageTags.length];
+
+		for (int i = 0; i < pageTags.length; i++) { 
+			stringTags[i] = pageTags[i].toString();
+		}
+		return stringTags;
+	}
+
+//	public boolean hasTags(Tag[] tags) {
+//		boolean found = false;
+//		List<Tag> pageTags = Arrays.asList(this.tags);
+//		Iterator<Tag> tagsToCheck = Arrays.asList(tags).iterator();
+//
+//		while (!found && tagsToCheck.hasNext()) {
+//			Tag tag = tagsToCheck.next();
+//			found = pageTags.contains(tag);
+//		}
+//		return found;
+//	}
+//	
+//	protected boolean pageHasTags(Page page, Tag[] tags){
+//		return new DatedAndTaggedFeedListElement(page).hasTags(tags);
+//	}
 	
 }
