@@ -144,7 +144,7 @@ NHM.CarouselItemForm =  CQ.Ext.extend(CQ.Ext.Panel, {
         this.itemHeading = new CQ.form.RichText({
             cls:"",
             width:"350px",
-            removeSingleParagraphContainer:true; 
+            removeSingleParagraphContainer:true,
              listeners: {
                  change: {
                      scope:this,
