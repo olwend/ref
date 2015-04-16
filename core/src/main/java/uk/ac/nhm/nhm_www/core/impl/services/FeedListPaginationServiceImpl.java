@@ -10,17 +10,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.Value;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
@@ -31,10 +34,12 @@ import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.jcr.api.SlingRepository;
+import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,6 +55,8 @@ import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponentArray;
 import uk.ac.nhm.nhm_www.core.model.discover.Video;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
 
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
@@ -83,12 +90,53 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	private static final Logger LOG = LoggerFactory.getLogger(FeedListPaginationServiceImpl.class);
 	
 	// HashMap to store the queries
+	private int concurrencyLevel;
+	private String mappedPath;
+	private final static int INITIAL_CAPACITY = 16;
+	private final static float LOAD_FACTOR = 0.75f;
 	private ConcurrentHashMap<String, DatedAndTaggedFeedListElementArray> cache = new ConcurrentHashMap<String, DatedAndTaggedFeedListElementArray>();
 	
+	@Activate
+	protected void activate(final ComponentContext componentContext) throws Exception {
+		this.loadProperties(componentContext);
+		
+		this.cache = new ConcurrentHashMap<String, DatedAndTaggedFeedListElementArray>(INITIAL_CAPACITY, LOAD_FACTOR, concurrencyLevel);
+	}
 	
+	private void loadProperties(final ComponentContext componentContext) {
+
+		try {
+			this.queryLimit = this.getInteger(componentContext.getProperties().get("queryLimit"), 200);
+			final int minutesCacheExpired = this.getInteger(componentContext.getProperties().get("cacheExpired"), 1);
+			this.cacheExpired = TimeUnit.MINUTES.toMillis(minutesCacheExpired);
+			this.concurrencyLevel = this.getInteger(componentContext.getProperties().get("concurrencyLevel"), 16);
+			this.mappedPath = componentContext.getProperties().get("mappedPath").toString();
+		} catch (NumberFormatException e) {
+			LOG.error("loadProperties NumberFormatException.", e);
+		} catch (Exception e) {
+			LOG.error("loadProperties Exception.", e);
+		}
+
+	}
+	
+	private int getInteger(final Object value, final int defaultValue) {
+		if (value instanceof Integer) {
+			return ((Integer)value).intValue();
+		}
+		
+		try {
+			if (value instanceof String) {
+				return Integer.parseInt((String)value);
+			}
+			
+			return Integer.parseInt(value.toString());
+		} catch (final NumberFormatException e) {
+			return defaultValue;
+		}
+	}
 	
 	private boolean updateCache(final String keyQuery) {
-		final DatedAndTaggedFeedListElementArray dntfleArray = new DatedAndTaggedFeedListElementArray();
+		final DatedAndTaggedFeedListElementArray elementArray = new DatedAndTaggedFeedListElementArray();
 
 		try {
 			/* Create an Administrative Session */
@@ -113,48 +161,37 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	
 					final Node node = iterator.nextNode();
 	
-					final DatedAndTaggedFeedListElement dntElement = new DatedAndTaggedFeedListElement();
-					if (!node.hasProperty("jcr:title") ||
-						!node.hasProperty("snippet") ||
-						!node.hasProperty("jcr:created") ||
-						!node.hasProperty("headType") ||
-						!node.hasProperty("type")) {
+					final DatedAndTaggedFeedListElement element = new DatedAndTaggedFeedListElement();
+					
+					if (!node.hasProperty(DatedAndTaggedFeedListElement.TITLE_ATTRIBUTE_NAME) ||
+						!node.hasProperty(DatedAndTaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME) ||
+						!node.hasProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME) ||
+						!node.hasProperty(DatedAndTaggedFeedListElement.TAGS_ATTRIBUTE_NAME) ||
+						!node.hasProperty(DatedAndTaggedFeedListElement.IMAGE_FILEREF_ATTRIBUTE_NAME)) {
 						continue;
 					}
 					
-					dntElement.setTitle(node.getProperty("jcr:title").getString());
-					dntElement.setText(node.getProperty("snippet").getString());
-	
-					final Calendar calendarDate = node.getProperty("jcr:created").getDate();
-					dntElement.setCreated(new Date(calendarDate.getTimeInMillis()));
-	
-					final String type = node.getProperty("jcr:title").getString(); 
-					dntElement.setTag(type);
-	
-					final String headType = node.getProperty("type").getString();
-					if (headType.equals("image")) {
-						if (!node.hasNode("image") || !node.hasProperty("image/fileReference")) {
-							continue;
-						}
-						final Node image = node.getNode("image");
-						dntElement.setImage(new Image(image.getProperty("fileReference").getString()));
-						dntElement.setVideo(null);
-					} else if (headType.equals("video")) {
-						if (!node.hasNode("video") || !node.hasProperty("video/youtube")) {
-							continue;
-						}
-						final Node video = node.getNode("video");
-						dntElement.setVideo(new Video(video.getProperty("youtube").getString()));
-						dntElement.setImage(null);
-					}
-	
-					/* Get page object using PageManager */
+					element.setTitle(node.getProperty(DatedAndTaggedFeedListElement.TITLE_ATTRIBUTE_NAME).getString());
+					element.setIntro(node.getProperty(DatedAndTaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME).getString());
+					element.setImagePath(node.getProperty(DatedAndTaggedFeedListElement.IMAGE_FILEREF_ATTRIBUTE_NAME).getString());
 					Page page = pmanager.getContainingPage(node.getPath());
-					dntElement.setHref(page.getPath() + ".html");
+					element.setElementLink(page.getPath());
+									
+					// Date
+					final Calendar calendarDate = node.getProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME).getDate();
+					element.setPressReleaseDate(new Date(calendarDate.getTimeInMillis()));
 	
-					dntElement.setPath(node.getPath());
-	
-					dntfleArray.addResource(dntElement);
+					// Tags
+					TagManager tagManager = page.adaptTo(TagManager.class);
+					Value[] valueArray = node.getProperty(DatedAndTaggedFeedListElement.TAGS_ATTRIBUTE_NAME).getValues();
+					Tag[] tagArray = new Tag[valueArray.length];
+					for (int i = 0; i < valueArray.length; i++) {
+						Tag tag = tagManager.resolve(valueArray[i].getString());
+						tagArray[i] = tag;
+					}
+					element.setTags(tagArray);
+					
+					elementArray.addResource(element);
 				}
 			} finally {
 				if (session.isLive()) {
@@ -172,16 +209,14 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 			return false;
 		}
 
-		cache.put(keyQuery, dntfleArray);
+		cache.put(keyQuery, elementArray);
 		return true;
 	}
 	
-	
-	
 	private String getKeyQuery() {
-		return "SELECT * FROM [nt:unstructured] as c WHERE  ([jcr:path] like '" + jcrPath+ "') AND "
+		return "SELECT * FROM [nt:unstructured] as c WHERE ([jcr:path] like '" + jcrPath+ "') AND "
 				+ "(c.[sling:resourceType]='nhmwww/components/functional/discoverpublication') AND "
-				+ "(c.[cq:tags]='"+ cqTags + "') order by [pinnedDate] DESC,[jcr:created]  DESC ";
+				+ "(c.[cq:tags]='"+ cqTags + "') order by [publishdate] DESC ";
 	}
 
 	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request) {
@@ -194,7 +229,8 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		}
 
 		if (cache.containsKey(keyQuery)) {
-			final DatedAndTaggedFeedListElementArray componentArray = cache.get(keyQuery);
+			final DatedAndTaggedFeedListElementArray componentArray = cache
+					.get(keyQuery);
 			final Date actualDate = new Date();
 
 			if ((actualDate.getTime() - componentArray.getCreatedAt().getTime()) > cacheExpired) {
@@ -214,12 +250,10 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		final Map<String, Object> param = new HashMap<String, Object>();
 		final List<Object> objectsFound = new ArrayList<Object>();
 		param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
-		final ResourceResolver resolver = this.resourceResolverFactory
-				.getServiceResourceResolver(param);
+		final ResourceResolver resolver = this.resourceResolverFactory.getServiceResourceResolver(param);
 		final Resource res = resolver.getResource(path);
 		final Page rootPage = res.adaptTo(Page.class);
-		final Iterator<Page> itrChildren = rootPage
-				.listChildren(new PageFilter(request));
+		final Iterator<Page> itrChildren = rootPage.listChildren(new PageFilter(request));
 		while (itrChildren.hasNext()) {
 			objectsFound.add(itrChildren.next());
 		}
@@ -265,8 +299,6 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		}
 		return jsonObject;
 	}
-	
-
 
 	private JSONObject addPressReleaseElement(final PressReleaseFeedListElement listElement, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject itemToAdd = new JSONObject();

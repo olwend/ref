@@ -33,7 +33,7 @@ public class DatedAndTaggedFeedListElementArray {
 
     public void addResource(DatedAndTaggedFeedListElement element) {
 		getComplexObjectArray().add(element);
-		indexMap.put(element.getPath(), complexObjectArray.size() -1);
+		indexMap.put(element.getElementLink(), complexObjectArray.size() -1);
     }
 
 }
