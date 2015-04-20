@@ -47,15 +47,6 @@
 		hideMonths = helper.getHideMonths();
 	}
 	
-	Resource resourceAux = currentPage.adaptTo(Resource.class);
-	TagManager tagManAux = resourceAux.adaptTo(TagManager.class);
-	for(String tag : helper.getTags()) {
-		
-		%>
-			<%= tagManAux.resolve(tag) %>
-		<%
-	}
-	
 %>
 <%= helper.getTags()%>
 <div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>">

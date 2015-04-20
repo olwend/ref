@@ -106,7 +106,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	private String returnTagString(String[] tags){
 		String ret = "(c.[cq:tags]='" + tags[0] ;
 		for (int i = 1; i < tags.length ; i++) {
-			ret += "' AND (c.[cq:tags]='" + tags[i];
+			ret += "' AND c.[cq:tags]='" + tags[i];
 		}
 		return  ret;
 	}
@@ -114,7 +114,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	private String getKeyQuery() {
 		LOG.error("Tags" +  returnTagString(cqTags));
 		return "SELECT * FROM [nt:unstructured] as c WHERE ([jcr:path] like '" + jcrPath + "') AND "
-				+ "(c.[sling:resourceType]='nhmwww/components/functional/listfeeds/newslistfeed') AND "
+				+ "(c.[sling:resourceType]='nhmwww/components/page/newscontentpage') AND "
 				+ returnTagString(cqTags) + "') "
 				+ "ORDER BY [publishdate] DESC ";
 	}
@@ -229,8 +229,8 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	}
 
 	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request) {
-		/*final String keyQuery = getKeyQuery();
-
+		final String keyQuery = getKeyQuery();
+		LOG.error("query built: " + keyQuery);
 		if (!cache.containsKey(keyQuery)) {
 			if (!updateCache(keyQuery))
 				return null;
@@ -247,8 +247,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 			}
 			return cache.get(keyQuery).getComplexObjectArray();
 		}
-		return null;*/
-		return new ArrayList<DatedAndTaggedFeedListElement>();
+		return null;
 	}
 
 	

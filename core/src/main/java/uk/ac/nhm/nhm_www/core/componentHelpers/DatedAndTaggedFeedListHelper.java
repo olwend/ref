@@ -69,15 +69,11 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		}
 		
 		// Tags
-		Tag[] pageTags = this.properties.get("cqTags", this.currentPage.getTags());
-		logger.error("pageTags length: " + pageTags.length);
+		this.tags = this.properties.get("cqTags", String[].class);
 		
-		for(Tag cqTag: pageTags) {
-			logger.error("cqTag name: " + cqTag.getName() + " nameSpace: " + cqTag.getNamespace());
-			
-		}
 		
-		this.tags = convertTagsToStrings(pageTags);
+		
+
 		
 		// Handle Children
 		Iterator<Page> children;
@@ -135,15 +131,6 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		return this.tags != null;
 	}
 	
-	private String[] convertTagsToStrings(Tag[] pageTags) {
-		String[] stringTags = new String[pageTags.length];
-
-		for (int i = 0; i < pageTags.length; i++) { 
-			stringTags[i] = pageTags[i].toString();
-		}
-		return stringTags;
-	}
-
 //	public boolean hasTags(Tag[] tags) {
 //		boolean found = false;
 //		List<Tag> pageTags = Arrays.asList(this.tags);
