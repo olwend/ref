@@ -9,7 +9,130 @@ $(document).ready(function() {
 			showPressReleases(rootPath, 1, pageSize, componentID, hideMonths);
 		}
 	});
-});
+});	
+
+function showPressReleases(rootPath, pageNumber, pageSize, componentID, hideMonths) {
+	$.ajax({
+		type: 'GET',    
+		url: '/bin/list/pagination.json',
+		data:{
+			rootPath: rootPath,
+			pageNumber: pageNumber,
+			pageSize: pageSize,
+			isLanding: hideMonths
+		},
+		success: function(data){
+			var json = jQuery.parseJSON(data);
+			buildNavigators(pageNumber, json.pages);
+			showItems(json.pageJson, componentID, hideMonths);
+			if(pageNumber != json.pages){
+				addMoreResultsButton();
+			}
+			$(document).foundation('reflow');
+			$(document).foundation('interchange', 'reflow');
+		},
+		error: function (){
+		}
+	});
+}
+
+function showItems(pageJson, componentID, hideMonths) {
+	$.each(pageJson, function(index, item) {
+		var group = item.group;
+		var title = item.title; 
+		var intro = item.intro; 
+		var imagePath = item.imagePath;
+		var date = item.date;
+		var link = item.path + ".html";
+		var element = createPressRelease(title, intro, date, imagePath, link, hideMonths, group);
+		var componentClass = '#press-office--list-' + componentID;
+		
+		$(componentClass).append(element);
+	});
+	
+	setTimeout(function(){
+		$(document).foundation('reflow');
+		$(document).foundation('equalizer','reflow');
+	}, 1000);
+	
+}
+
+function createPressRelease(title, intro, date, imagePath, url, hideMonths, group) {
+	var element = document.createElement("div");
+	element.className = 'press-office--list-item-' + group;
+	if (true) { //!hideMonths
+		element.innerHTML = group;
+	}
+	element.setAttributeNode(document.createAttribute('data-equalizer'));
+	
+	var dateDiv = document.createElement("div");
+	dateDiv.className = 'small-12 columns press-office--list-item--caption';
+	dateDiv.innerHTML = date;
+	
+	element.appendChild(dateDiv);
+	
+	var wrapperDiv = document.createElement("div");
+	wrapperDiv.className = 'small-12 columns press-office--list-item--content-wrapper';
+	var firstColumnDiv = document.createElement("div");
+	firstColumnDiv.className = 'small-12 medium-6 columns';
+	firstColumnDiv.setAttributeNode(document.createAttribute('data-equalizer'));
+	var imageDiv = document.createElement("div");
+	imageDiv.className = 'adaptiveimage parbase foundation5image image image_0';
+	
+	var link = document.createElement('a');
+	link.href = url;
+	
+	var image = document.createElement('img');
+	image.alt = title;
+	
+	var dataInterchangeAttribute = document.createAttribute('data-interchange');
+	dataInterchangeAttribute.value = "[" + imagePath + ".img.full.medium.jpg, (default)], " +
+									  "[" + imagePath + ".img.full.low.jpg, (small)], " +
+									  "[" + imagePath + ".img.620.high.jpg, (retina)], " +
+									  "[" + imagePath + ".img.full.medium.jpg, (medium)], " +
+									  "[" + imagePath + ".img.full.high.jpg, (large)]";
+	image.setAttributeNode(dataInterchangeAttribute);
+	link.appendChild(image);
+	
+	var noscript = document.createElement('noscript')
+	var image2 = document.createElement('img');
+	image2.src = imagePath + '.img.full.medium.jpg';
+	image2.alt = title;
+	noscript.appendChild(image2);
+	link.appendChild(noscript);
+	
+	imageDiv.appendChild(link);
+	firstColumnDiv.appendChild(imageDiv);
+	wrapperDiv.appendChild(firstColumnDiv);
+	
+	var secondColumnDiv = document.createElement('div');
+	secondColumnDiv.className = 'small-12 medium-6 columns';
+	
+	var contentDiv = document.createElement('div');
+	contentDiv.className = 'press-office--list-item--content';
+	
+	var h4 = document.createElement('h4');
+	h4.className = 'press-office--list-item--title';
+	
+	var link2 = document.createElement('a');
+	link2.href = url;
+	link2.innerHTML = title;
+	
+	h4.appendChild(link2);
+	
+	contentDiv.appendChild(h4);
+	
+	var p = document.createElement('p');
+	p.innerHTML = intro;
+	p.className = 'press-office--list-item--tagline';
+	
+	contentDiv.appendChild(p);
+	secondColumnDiv.appendChild(contentDiv);
+	wrapperDiv.appendChild(secondColumnDiv);
+	element.appendChild(wrapperDiv);
+	
+	return element;
+}
 
 function addMoreResultsButton() {
 	var moreElementsDiv = document.createElement("div");
@@ -40,32 +163,6 @@ function removeMoreResultsButton() {
 	 var wrapperDiv = document.getElementById('pressreleaselistfeed_wrapper');
 	 var divToDelete = document.getElementById("more_results");
 	 wrapperDiv.removeChild(divToDelete);
-}
-	
-
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, hideMonths) {
-	$.ajax({
-		type: 'GET',    
-		url: '/bin/list/pagination.json',
-		data:{
-			rootPath: rootPath,
-			pageNumber: pageNumber,
-			pageSize: pageSize,
-			isLanding: hideMonths
-		},
-		success: function(data){
-			var json = jQuery.parseJSON(data);
-			buildNavigators(pageNumber, json.pages);
-			showItems(json.pageJson, componentID);
-			if(pageNumber != json.pages){
-				addMoreResultsButton();
-			}
-			$(document).foundation('reflow');
-			$(document).foundation('interchange', 'reflow');
-		},
-		error: function (){
-		}
-	});
 }
 
 function buildNavigators(pageNumber, numberOfPages) {
@@ -145,97 +242,4 @@ function buildNavigators(pageNumber, numberOfPages) {
 			}); 
 		});
 	} */
-}
-
-function showItems(pageJson, componentID) {
-	$.each(pageJson, function(index, item) {
-		var title = item.title; 
-		var intro = item.intro; 
-		var imagePath = item.imagePath;
-		var date = item.date;
-		var link = item.path + ".html";
-		var element = createPressRelease(title, intro, date, imagePath, link, componentID);
-		var componentClass = '#press-office--list-' + componentID;
-		$(componentClass).append(element);
-	});
-	
-	setTimeout(function(){
-		$(document).foundation('reflow');
-		$(document).foundation('equalizer','reflow');
-	}, 1000);
-	
-}
-
-function createPressRelease(title, intro, date, imagePath, url, componentID) {
-	var element = document.createElement("div");
-	element.className = 'press-office--list-item-' + componentID;
-	element.setAttributeNode(document.createAttribute('data-equalizer'));
-	
-	var dateDiv = document.createElement("div");
-	dateDiv.className = 'small-12 columns press-office--list-item--caption';
-	dateDiv.innerHTML = date;
-	
-	element.appendChild(dateDiv);
-	
-	var wrapperDiv = document.createElement("div");
-	wrapperDiv.className = 'small-12 columns press-office--list-item--content-wrapper';
-	var firstColumnDiv = document.createElement("div");
-	firstColumnDiv.className = 'small-12 medium-6 columns';
-	firstColumnDiv.setAttributeNode(document.createAttribute('data-equalizer'));
-	var imageDiv = document.createElement("div");
-	imageDiv.className = 'adaptiveimage parbase foundation5image image image_0';
-	
-	var link = document.createElement('a');
-	link.href = url;
-	
-	var image = document.createElement('img');
-	image.alt = title;
-	
-	var dataInterchangeAttribute = document.createAttribute('data-interchange');
-	dataInterchangeAttribute.value = "[" + imagePath + ".img.full.medium.jpg, (default)], " +
-									  "[" + imagePath + ".img.full.low.jpg, (small)], " +
-									  "[" + imagePath + ".img.620.high.jpg, (retina)], " +
-									  "[" + imagePath + ".img.full.medium.jpg, (medium)], " +
-									  "[" + imagePath + ".img.full.high.jpg, (large)]";
-	image.setAttributeNode(dataInterchangeAttribute);
-	link.appendChild(image);
-	
-	var noscript = document.createElement('noscript')
-	var image2 = document.createElement('img');
-	image2.src = imagePath + '.img.full.medium.jpg';
-	image2.alt = title;
-	noscript.appendChild(image2);
-	link.appendChild(noscript);
-	
-	imageDiv.appendChild(link);
-	firstColumnDiv.appendChild(imageDiv);
-	wrapperDiv.appendChild(firstColumnDiv);
-	
-	var secondColumnDiv = document.createElement('div');
-	secondColumnDiv.className = 'small-12 medium-6 columns';
-	
-	var contentDiv = document.createElement('div');
-	contentDiv.className = 'press-office--list-item--content';
-	
-	var h4 = document.createElement('h4');
-	h4.className = 'press-office--list-item--title';
-	
-	var link2 = document.createElement('a');
-	link2.href = url;
-	link2.innerHTML = title;
-	
-	h4.appendChild(link2);
-	
-	contentDiv.appendChild(h4);
-	
-	var p = document.createElement('p');
-	p.innerHTML = intro;
-	p.className = 'press-office--list-item--tagline';
-	
-	contentDiv.appendChild(p);
-	secondColumnDiv.appendChild(contentDiv);
-	wrapperDiv.appendChild(secondColumnDiv);
-	element.appendChild(wrapperDiv);
-	
-	return element;
 }

@@ -83,7 +83,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		helper = processRequest(rootPath, request, pageManager, properties, resourceResolver, isLanding);
 		if(isLanding) {
 			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
-			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request);
+			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
 			LOG.error("results length: " + results.size());
