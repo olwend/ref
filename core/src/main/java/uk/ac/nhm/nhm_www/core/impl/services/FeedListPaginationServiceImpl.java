@@ -229,7 +229,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	}
 
 	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request) {
-		final String keyQuery = getKeyQuery();
+		/*final String keyQuery = getKeyQuery();
 
 		if (!cache.containsKey(keyQuery)) {
 			if (!updateCache(keyQuery))
@@ -247,7 +247,8 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 			}
 			return cache.get(keyQuery).getComplexObjectArray();
 		}
-		return null;
+		return null;*/
+		return new ArrayList<DatedAndTaggedFeedListElement>();
 	}
 
 	

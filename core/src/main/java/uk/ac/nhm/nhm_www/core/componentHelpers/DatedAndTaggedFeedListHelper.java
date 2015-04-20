@@ -69,7 +69,14 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		}
 		
 		// Tags
-		Tag[] pageTags = this.properties.get("tags", this.currentPage.getTags());
+		Tag[] pageTags = this.properties.get("cqTags", this.currentPage.getTags());
+		logger.error("pageTags length: " + pageTags.length);
+		
+		for(Tag cqTag: pageTags) {
+			logger.error("cqTag name: " + cqTag.getName() + " nameSpace: " + cqTag.getNamespace());
+			
+		}
+		
 		this.tags = convertTagsToStrings(pageTags);
 		
 		// Handle Children
@@ -114,6 +121,9 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	}
 	
 	public String[] getTags() {
+		for(String tag : tags ) {
+			logger.error("tag ffrom helper: " + tag);
+		}
 		return tags;
 	}
 
