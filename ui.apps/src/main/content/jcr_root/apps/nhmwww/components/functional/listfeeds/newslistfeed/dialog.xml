@@ -33,6 +33,12 @@
                         name="./newwindow"
                         type="checkbox"
                         xtype="selection"/>
+                    <componentID
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Component ID"
+                        name="./componentID"
+                        width="155"
+                        xtype="textfield"/>
                     <numberOfItems
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Number of Items"
@@ -51,6 +57,11 @@
                         name="./rootPagePath"
                         width="155"
                         xtype="pathfield"/>
+					<tags
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Tags"
+                        name="./cq:tags"
+                        xtype="tags"/>
                 </items>
             </basic>
         </items>

@@ -48,7 +48,6 @@ import uk.ac.nhm.nhm_www.core.model.FeedListElement;
 import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
 
-import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
@@ -113,7 +112,8 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	}
 	
 	private String getKeyQuery() {
-		return "SELECT * FROM [nt:unstructured] as c WHERE ([jcr:path] like '" + jcrPath+ "') AND "
+		LOG.error("Tags" +  returnTagString(cqTags));
+		return "SELECT * FROM [nt:unstructured] as c WHERE ([jcr:path] like '" + jcrPath + "') AND "
 				+ "(c.[sling:resourceType]='nhmwww/components/functional/listfeeds/newslistfeed') AND "
 				+ returnTagString(cqTags) + "') "
 				+ "ORDER BY [publishdate] DESC ";
