@@ -269,6 +269,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 
 	@Override
 	public JSONObject getJSON(final List<Object> objects, final Integer pageNumber, final Integer pageSize, final ResourceResolver resolver, final SlingHttpServletRequest request) {
+		LOG.error("# Objects: " + objects.size());
 		final JSONObject jsonObject = new JSONObject();
 
 		// final int listSize = objects.size();
@@ -286,8 +287,13 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		try {
 			final int pages = objects.size() / pageSize + (objects.size() % pageSize == 0 ? 0 : 1);
 			jsonObject.put("pages", pages);
+			
 			for (int i = indexFrom - 1; i < indexTo; i++) {
-				if (objects.get(i) instanceof PressReleaseFeedListElement) {
+				LOG.error("object class:" + objects.get(i).toString());
+				if(objects.get(i) instanceof DatedAndTaggedFeedListElement) {
+					final DatedAndTaggedFeedListElement listElement = (DatedAndTaggedFeedListElement) objects.get(i);
+					jsonArray.put(addElement(listElement));
+				} else if (objects.get(i) instanceof PressReleaseFeedListElement) {
 					final PressReleaseFeedListElement listElement = (PressReleaseFeedListElement) objects.get(i);
 					jsonArray.put(addPressReleaseElement(listElement, resolver, request));
 				} else {

@@ -80,28 +80,37 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		
 		FeedListHelper helper;
 		List<Object> objects;
-		
+		helper = processRequest(rootPath, request, pageManager, properties, resourceResolver, isLanding);
 		if(isLanding) {
 			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
 			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request);
-			//LOG.error("results length: " + results.size());
 			objects = new ArrayList<Object>(results);
-		} else {
-			helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
-			objects = helper.getChildrenElements();
-		}
+			helper.addAllListElements(objects);
+			LOG.error("results length: " + results.size());
+		}	
+		
+		objects = helper.getChildrenElements();
+		
 		
 		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(jsonString.toString());
 	}
 	
-	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver){
+	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver, boolean isLanding){
 	
 		FeedListHelper helper = null;
 		
+		
+		
 		Page rootPage = pageManager.getPage(rootPath);
+		
+		if(isLanding) {
+			return new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
+		}
+		
 		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
+		
 		
 		if(childPages.hasNext()) {
 			Page child = childPages.next();

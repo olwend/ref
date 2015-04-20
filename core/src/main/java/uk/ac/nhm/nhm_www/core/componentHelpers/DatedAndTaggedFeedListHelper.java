@@ -93,11 +93,16 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	protected void processChildren (final Iterator<Page> children) {
 		this.listElements = new ArrayList<Object>();
 		
-		while (children.hasNext()) {
+		/*while (children.hasNext()) {
 			Page child = children.next();
 		    final DatedAndTaggedFeedListElement feedListElement = new DatedAndTaggedFeedListElement(child);
 		    this.listElements.add(feedListElement);
-		}
+		}*/
+	}
+	
+	@Override
+	public List<Object> getChildrenElements() {
+		return this.listElements;
 	}
 		
 	public Integer getNoOfItems() {
@@ -130,6 +135,8 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	public boolean hasTags(){
 		return this.tags != null;
 	}
+	
+	
 	
 //	public boolean hasTags(Tag[] tags) {
 //		boolean found = false;
