@@ -88,17 +88,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
 			LOG.error("results length: " + results.size());
-		} else {
-			LOG.error("is not multilevel 1");
-		}
-		
-		if(isMultilevel == null) {
-			LOG.error("multilevel null");
-		}
-		if(isMultilevel.equals("")) {
-			LOG.error("multilevel  is empty");
-		}
-		
+		} 
 		objects = helper.getChildrenElements();
 		
 		
@@ -116,7 +106,6 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		Page rootPage = pageManager.getPage(rootPath);
 		
 		if(isMultilevel) {
-			LOG.error("is multilevel 2");
 			return new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 		}
 		
