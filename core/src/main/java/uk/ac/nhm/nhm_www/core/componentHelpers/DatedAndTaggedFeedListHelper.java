@@ -24,8 +24,9 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	protected Boolean hideMonths;
 	protected String[] tags;
 	protected String componentID;
+	protected String shortIntroduction;
 
-    public DatedAndTaggedFeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request,	ResourceResolver resourceResolver) {
+	public DatedAndTaggedFeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request,	ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 	}
 
@@ -61,6 +62,9 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		
 		// ComponentID
 		this.componentID = this.properties.get("componentID", "");
+		
+		// Short Introduction
+		this.shortIntroduction = this.properties.get("shortIntroduction", "");
 		
 		// Tags
 		this.tags = this.properties.get("cqTags", String[].class);
@@ -118,6 +122,15 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	public void setComponentID(String componentID) {
 		this.componentID = componentID;
 	}
+	
+    public String getIntroduction() {
+		return shortIntroduction;
+	}
+
+	public void setIntroduction(String shortIntroduction) {
+		this.shortIntroduction = shortIntroduction;
+	}
+
 
 	public String[] getTags() {
 		for(String tag : tags ) {
