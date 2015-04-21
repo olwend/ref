@@ -70,7 +70,7 @@ function showItems(pageJson, componentID, hideMonths) {
 function createPressRelease(title, intro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
 	element.className = 'press-office--list-item-' + group;
-	if (addGroup) { //!hideMonths
+	if (addGroup && !hideMonths) { //!hideMonths
 		var groupH3 = document.createElement("h3");
 		groupH3.innerHTML = group;
 		element.appendChild(groupH3);
