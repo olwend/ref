@@ -244,6 +244,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 
 	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath) {
 		setJcrPath(rootPath);
+		LOG.error("KeyQuery needs Tags: " + request.getAttribute("tags"));
 		final String keyQuery = getKeyQuery();
 		LOG.error("query built: " + keyQuery);
 		if (!cache.containsKey(keyQuery)) {
