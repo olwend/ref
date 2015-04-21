@@ -245,9 +245,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath, String tags) {
 		setJcrPath(rootPath);
 		this.cqTags = tags.split(",");
-		LOG.error("KeyQuery needs Tags: " + request.getAttribute("tags"));
 		final String keyQuery = getKeyQuery();
-		LOG.error("query built: " + keyQuery);
 		if (!cache.containsKey(keyQuery)) {
 			if (!updateCache(keyQuery))
 				return null;
@@ -286,11 +284,8 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 
 	@Override
 	public JSONObject getJSON(final List<Object> objects, final Integer pageNumber, final Integer pageSize, final ResourceResolver resolver, final SlingHttpServletRequest request) {
-		//LOG.error("# Objects: " + objects.size());
 		final JSONObject jsonObject = new JSONObject();
-
 		// final int listSize = objects.size();
-
 		// final int numberOfPages = listSize / pageSize;
 		final int indexFrom = (pageSize * pageNumber) - (pageSize - 1);
 		final int indexTo;
@@ -299,12 +294,10 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		} else {
 			indexTo = indexFrom + pageSize - 1;
 		}
-
 		final JSONArray jsonArray = new JSONArray();
 		try {
 			final int pages = objects.size() / pageSize + (objects.size() % pageSize == 0 ? 0 : 1);
 			jsonObject.put("pages", pages);
-			
 			for (int i = indexFrom - 1; i < indexTo; i++) {
 				//LOG.error("object class:" + objects.get(i).toString());
 				if(objects.get(i) instanceof DatedAndTaggedFeedListElement) {

@@ -87,12 +87,6 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 	@Override
 	protected void processChildren (final Iterator<Page> children) {
 		this.listElements = new ArrayList<Object>();
-		
-		/*while (children.hasNext()) {
-			Page child = children.next();
-		    final DatedAndTaggedFeedListElement feedListElement = new DatedAndTaggedFeedListElement(child);
-		    this.listElements.add(feedListElement);
-		}*/
 	}
 	
 	@Override
@@ -132,11 +126,7 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		this.shortIntroduction = shortIntroduction;
 	}
 
-
 	public String[] getTags() {
-		for(String tag : tags ) {
-			logger.error("tag ffrom helper: " + tag);
-		}
 		return tags;
 	}
 	
@@ -159,20 +149,5 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		return this.tags != null;
 	}
 	
-//	public boolean hasTags(Tag[] tags) {
-//		boolean found = false;
-//		List<Tag> pageTags = Arrays.asList(this.tags);
-//		Iterator<Tag> tagsToCheck = Arrays.asList(tags).iterator();
-//
-//		while (!found && tagsToCheck.hasNext()) {
-//			Tag tag = tagsToCheck.next();
-//			found = pageTags.contains(tag);
-//		}
-//		return found;
-//	}
-//	
-//	protected boolean pageHasTags(Page page, Tag[] tags){
-//		return new DatedAndTaggedFeedListElement(page).hasTags(tags);
-//	}
-	
+
 }

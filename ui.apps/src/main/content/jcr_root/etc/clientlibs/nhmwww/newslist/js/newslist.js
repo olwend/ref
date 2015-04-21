@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
-	$('.pressreleaselistfeed-wrapper').each(function (){
+	$('.newslistfeed-wrapper').each(function (){
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
@@ -8,12 +8,12 @@ $(document).ready(function() {
 		var isMultilevel = $(this).data('multilevel');
 		var tags = $(this).data('tags')
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
+			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
+function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -29,7 +29,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID, hideMonths);
 			if(pageNumber != json.pages){
-				addMoreResultsButton();
+				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel);
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
@@ -54,7 +54,7 @@ function showItems(pageJson, componentID, hideMonths) {
 		var imagePath = item.imagePath;
 		var date = item.date;
 		var link = item.path + ".html";
-		var element = createPressRelease(title, intro, date, imagePath, link, hideMonths, currentGroup, addGroup);
+		var element = createNews(title, intro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#press-office--list-' + componentID;
 		
 		$(componentClass).append(element);
@@ -67,9 +67,9 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createPressRelease(title, intro, date, imagePath, url, hideMonths, group, addGroup) {
+function createNews(title, intro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
-	element.className = 'press-office--list-item-' + group;
+	element.className = 'press-office--list-item';
 	if (addGroup && !hideMonths) { //!hideMonths
 		var groupH3 = document.createElement("h3");
 		groupH3.innerHTML = group;
@@ -146,11 +146,11 @@ function createPressRelease(title, intro, date, imagePath, url, hideMonths, grou
 	return element;
 }
 
-function addMoreResultsButton() {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
 	var moreElementsDiv = document.createElement("div");
 	
-	moreElementsDiv.className = "row more-results";
-	moreElementsDiv.id = "more_results";
+	moreElementsDiv.className = "row more_results more-results-" + componentID;
+	moreElementsDiv.id = "more_results_" + componentID;
 	var aTag = document.createElement("a");
 	var h5Tag = document.createElement("h5");
 	h5Tag.id = "more_results_text";
@@ -158,29 +158,33 @@ function addMoreResultsButton() {
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("pressreleaselistfeed_wrapper").appendChild(moreElementsDiv);
+	document.getElementById("newslistfeed_wrapper").appendChild(moreElementsDiv);
 	
-	$('.pressreleaselistfeed .more-results').click(function(){
-		var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-		var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
-		removeMoreResultsButton();
-		var elementsShowed = $('.press-office--list-item').length;
+	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+		var rootPath = event.data.rootPath;
+		var pageSize = event.data.pageSize;
+		var componentID = event.data.componentID;
+		var tags = event.data.tags;
+		var hideMonths = event.data.hideMonths;
+		var isMultilevel = event.data.isMultilevel;
+		removeMoreResultsButton(componentID);
+		var elementsShowed = $('.press-office--list-'+componentID+' .press-office--list-item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showPressReleases(rootPath, currentPage+1, pageSize);
+		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
 	});
 }
 
-function removeMoreResultsButton() {
-	 var wrapperDiv = document.getElementById('pressreleaselistfeed_wrapper');
-	 var divToDelete = document.getElementById("more_results");
+function removeMoreResultsButton(componentID) {
+	 var wrapperDiv = document.getElementById('newslistfeed_wrapper');
+	 var divToDelete = document.getElementById("more_results_" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
 
 function buildNavigators(pageNumber, numberOfPages) {
 	
 	/*if (numberOfPages > 1) {
-		$.each($('.pressreleaselistfeed-wrapper .pagination-centered'), function(index, item) { 
+		$.each($('.newslistfeed-wrapper .pagination-centered'), function(index, item) { 
 			//var pagination = document.createElement('ul');
 			//pagination.className = 'pagination';
 			
@@ -233,21 +237,21 @@ function buildNavigators(pageNumber, numberOfPages) {
 			
 			$(this).append(pagination);
 			
-			$('.pressreleaselistfeed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
+			$('.newslistfeed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
 				var to = $(this).data('index');
 				
 				if ($(this).parent().hasClass('unavailable')) {
 					return false;
 				}
 				
-				var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-				var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
+				var rootPath = $('.newslistfeed-wrapper').data('rootpath');
+				var pageSize = $('.newslistfeed-wrapper').data('pagesize');
 				
 				if (rootPath && pageSize) {
-					$('.pressreleaselistfeed-wrapper .pagination-centered').empty();
+					$('.newslistfeed-wrapper .pagination-centered').empty();
 					$('.press-room--list').empty();
 					
-					showPressReleases(rootPath, to, pageSize);
+					shownewss(rootPath, to, pageSize);
 				}
 				
 				return false;

@@ -73,27 +73,18 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		Boolean isMultilevel = Boolean.parseBoolean(request.getParameter("isMultilevel"));
 		final Resource resource = request.getResource();
-		
 		ResourceResolver resourceResolver = request.getResourceResolver();
-		
 		PageManager pageManager = pageManagerFactory.getPageManager(resourceResolver);
-		
 		ValueMap properties = new ValueMapDecorator(new HashMap());
-		
 		FeedListHelper helper;
 		List<Object> objects;
 		helper = processRequest(rootPath, request, pageManager, properties, resourceResolver, isMultilevel);
 		if(isMultilevel) {
-			LOG.error("is multilevel 1");
-			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
 			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
-			LOG.error("results length: " + results.size());
 		} 
 		objects = helper.getChildrenElements();
-		
-		
 		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(jsonString.toString());
@@ -102,18 +93,11 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver, boolean isMultilevel){
 	
 		FeedListHelper helper = null;
-		
-		
-		
 		Page rootPage = pageManager.getPage(rootPath);
-		
 		if(isMultilevel) {
 			return new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 		}
-		
 		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
-		
-		
 		if(childPages.hasNext()) {
 			Page child = childPages.next();
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/pressreleasepage")) { 
