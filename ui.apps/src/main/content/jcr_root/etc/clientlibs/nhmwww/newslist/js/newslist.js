@@ -38,15 +38,21 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, hideMont
 }
 
 function showItems(pageJson, componentID, hideMonths) {
+	var currentGroup = "";
 	$.each(pageJson, function(index, item) {
-		var group = item.group;
+		
+		var addGroup = false;
+		if(currentGroup != item.group){
+			addGroup = true;
+			currentGroup = item.group;
+		}
+		currentGroup = item.group;
 		var title = item.title; 
 		var intro = item.intro; 
-		var shortIntro= item.shortIntro;
 		var imagePath = item.imagePath;
 		var date = item.date;
 		var link = item.path + ".html";
-		var element = createPressRelease(title, intro, shortIntro, date, imagePath, link, hideMonths, group);
+		var element = createPressRelease(title, intro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#press-office--list-' + componentID;
 		
 		$(componentClass).append(element);
@@ -59,11 +65,13 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createPressRelease(title, intro, shortIntro, date, imagePath, url, hideMonths, group) {
+function createPressRelease(title, intro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
 	element.className = 'press-office--list-item-' + group;
-	if (true) { //!hideMonths
-		element.innerHTML = group;
+	if (addGroup) { //!hideMonths
+		var groupH3 = document.createElement("h3");
+		groupH3.innerHTML = group;
+		element.appendChild(groupH3);
 	}
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
@@ -125,7 +133,7 @@ function createPressRelease(title, intro, shortIntro, date, imagePath, url, hide
 	contentDiv.appendChild(h4);
 	
 	var p = document.createElement('p');
-	p.innerHTML = shortIntro;
+	p.innerHTML = intro;
 	p.className = 'press-office--list-item--tagline';
 	
 	contentDiv.appendChild(p);
