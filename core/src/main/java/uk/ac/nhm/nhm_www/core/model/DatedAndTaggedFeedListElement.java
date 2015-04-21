@@ -15,6 +15,7 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 
 	public static final String TITLE_ATTRIBUTE_NAME 		= "jcr:title";
 	public static final String SUMMARY_ATTRIBUTE_NAME  		= "summary";
+	public static final String SHORT_INTRO_ATTRIBUTE_NAME 	= "shortIntroduction";
 	public static final String PINNED_ATTRIBUTE_NAME 		= "pinned";
 	public static final String PUBLISH_DATE_ATTRIBUTE_NAME  = "publishdate";
 	public static final String TAGS_ATTRIBUTE_NAME 		 	= "cq:tags";
@@ -22,6 +23,15 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 	
 	protected String[] tags;
 	protected String path;
+	protected String shortIntroduction;
+
+	public String getShortIntroduction() {
+		return shortIntroduction;
+	}
+
+	public void setShortIntroduction(String shortIntroduction) {
+		this.shortIntroduction = shortIntroduction;
+	}
 
 	public DatedAndTaggedFeedListElement() {
 		super();
@@ -31,6 +41,9 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 		super(page);
 		this.tags = convertTagsToStrings(page.getTags());
 		this.path = page.getPath();
+		if (page.getProperties().get(SHORT_INTRO_ATTRIBUTE_NAME) != null){
+			this.shortIntroduction = page.getProperties().get(SHORT_INTRO_ATTRIBUTE_NAME).toString();
+		}
 	}
 
 	public boolean isInitialised() {
