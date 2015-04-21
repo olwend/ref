@@ -6,13 +6,14 @@ $(document).ready(function() {
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
+		var tags = $(this).data('tags')
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, hideMonths, isMultilevel);
+			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, hideMonths, isMultilevel ) {
+function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -20,7 +21,8 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, hideMont
 			rootPath: rootPath,
 			pageNumber: pageNumber,
 			pageSize: pageSize,
-			isMultilevel: isMultilevel
+			isMultilevel: isMultilevel,
+			tags: tags
 		},
 		success: function(data){
 			var json = jQuery.parseJSON(data);

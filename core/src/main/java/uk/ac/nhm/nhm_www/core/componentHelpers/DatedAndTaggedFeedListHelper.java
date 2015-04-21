@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
@@ -138,11 +139,22 @@ public class DatedAndTaggedFeedListHelper extends PressReleaseFeedListHelper {
 		}
 		return tags;
 	}
-
+	
 	public void setTags(String[] tags) {
 		this.tags = tags;
 	}
 	
+	public String getTagsString() {
+		String stringifiedTags = StringUtils.EMPTY;
+		
+		for(String tag : this.tags ) {
+			stringifiedTags += tag + ",";
+		}
+		if(!stringifiedTags.isEmpty()) {
+			stringifiedTags = stringifiedTags.substring(0, stringifiedTags.lastIndexOf(","));
+		}
+		return stringifiedTags;
+	}
 	public boolean hasTags(){
 		return this.tags != null;
 	}

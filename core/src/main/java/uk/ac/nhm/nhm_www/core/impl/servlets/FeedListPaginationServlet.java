@@ -46,7 +46,8 @@ import com.day.cq.wcm.api.PageManagerFactory;
 		@Property(name = "service.description", value = "Return Paginated list"),
 		@Property(name = "pageNumber", intValue = 0, description = "Default Start Page"),
 		@Property(name = "pageSize", intValue = 8, description = "Default page size"),
-		@Property(name = "isMultilevel", value = "false",  description = "Default Multilevel")
+		@Property(name = "isMultilevel", value = "false",  description = "Default Multilevel"),
+		@Property(name = "tags", value = "",  description = "Default Tags")
 		
 })
 public class FeedListPaginationServlet extends SlingAllMethodsServlet {
@@ -67,6 +68,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException, NumberFormatException {
 		String rootPath = request.getParameter("rootPath");
+		String tags = request.getParameter("tags");
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		Boolean isMultilevel = Boolean.parseBoolean(request.getParameter("isMultilevel"));
@@ -84,7 +86,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		if(isMultilevel) {
 			LOG.error("is multilevel 1");
 			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
-			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath);
+			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
 			LOG.error("results length: " + results.size());

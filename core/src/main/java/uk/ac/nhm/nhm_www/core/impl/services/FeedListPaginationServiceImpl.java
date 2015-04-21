@@ -242,8 +242,9 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		return true;
 	}
 
-	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath) {
+	public List<DatedAndTaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath, String tags) {
 		setJcrPath(rootPath);
+		this.cqTags = tags.split(",");
 		LOG.error("KeyQuery needs Tags: " + request.getAttribute("tags"));
 		final String keyQuery = getKeyQuery();
 		LOG.error("query built: " + keyQuery);
