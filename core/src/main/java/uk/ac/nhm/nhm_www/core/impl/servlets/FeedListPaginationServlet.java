@@ -46,7 +46,7 @@ import com.day.cq.wcm.api.PageManagerFactory;
 		@Property(name = "service.description", value = "Return Paginated list"),
 		@Property(name = "pageNumber", intValue = 0, description = "Default Start Page"),
 		@Property(name = "pageSize", intValue = 8, description = "Default page size"),
-		@Property(name = "isLanding", intValue = 8, description = "Default Landing")
+		@Property(name = "isMultilevel", value = "false",  description = "Default Multilevel")
 		
 })
 public class FeedListPaginationServlet extends SlingAllMethodsServlet {
@@ -69,7 +69,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		String rootPath = request.getParameter("rootPath");
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
-		boolean isLanding = Boolean.parseBoolean(request.getParameter("isLanding"));
+		Boolean isMultilevel = Boolean.parseBoolean(request.getParameter("isMultilevel"));
 		final Resource resource = request.getResource();
 		
 		ResourceResolver resourceResolver = request.getResourceResolver();
@@ -80,14 +80,24 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		
 		FeedListHelper helper;
 		List<Object> objects;
-		helper = processRequest(rootPath, request, pageManager, properties, resourceResolver, isLanding);
-		if(isLanding) {
+		helper = processRequest(rootPath, request, pageManager, properties, resourceResolver, isMultilevel);
+		if(isMultilevel) {
+			LOG.error("is multilevel 1");
 			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
 			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
 			LOG.error("results length: " + results.size());
-		}	
+		} else {
+			LOG.error("is not multilevel 1");
+		}
+		
+		if(isMultilevel == null) {
+			LOG.error("multilevel null");
+		}
+		if(isMultilevel.equals("")) {
+			LOG.error("multilevel  is empty");
+		}
 		
 		objects = helper.getChildrenElements();
 		
@@ -97,7 +107,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		response.getWriter().write(jsonString.toString());
 	}
 	
-	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver, boolean isLanding){
+	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver, boolean isMultilevel){
 	
 		FeedListHelper helper = null;
 		
@@ -105,7 +115,8 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		
 		Page rootPage = pageManager.getPage(rootPath);
 		
-		if(isLanding) {
+		if(isMultilevel) {
+			LOG.error("is multilevel 2");
 			return new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 		}
 		

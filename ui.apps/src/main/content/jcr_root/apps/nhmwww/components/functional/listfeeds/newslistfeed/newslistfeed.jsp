@@ -38,8 +38,8 @@
 		noOfItems = helper.getNoOfItems();
 	}
 	String componentID = "";
-	if (helper.getComponentTitle() != null) {
-		componentID = new String(helper.getComponentTitle()).toLowerCase();
+	if (helper.getComponentID() != null) {
+		componentID = new String(helper.getComponentID()).toLowerCase();
 	}
 	
 	boolean hideMonths = false;
@@ -49,7 +49,7 @@
 	
 %>
 
-<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>">
+<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true">
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
     <!-- START PAGINATION -->
     
