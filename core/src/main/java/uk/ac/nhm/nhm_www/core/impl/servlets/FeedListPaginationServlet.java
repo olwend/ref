@@ -119,6 +119,9 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/pressreleasepage")) { 
 				helper = new PressReleaseFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 			}
+			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/taggedcontentpage")) { 
+				helper = new PressReleaseFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
+			}
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/newscontentpage")) { 
 				helper = new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 			}
