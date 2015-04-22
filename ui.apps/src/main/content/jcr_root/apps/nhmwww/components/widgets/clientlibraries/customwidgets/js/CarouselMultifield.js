@@ -270,8 +270,11 @@ NHM.CarouselItemField = CQ.Ext.extend(CQ.form.PathField, {
     },
 
     getType: function() {
-    	
-    	return this.type;
+    	if(this.type == null){
+    		return "static";
+    	} else {
+    		return this.type;
+    	}
     },
     setType: function(value) {
     	this.type = value;
