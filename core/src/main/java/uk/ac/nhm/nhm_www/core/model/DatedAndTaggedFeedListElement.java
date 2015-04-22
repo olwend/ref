@@ -1,25 +1,25 @@
 package uk.ac.nhm.nhm_www.core.model;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
-import org.apache.sling.api.resource.ResourceResolver;
+import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
+import javax.jcr.Value;
+import javax.jcr.ValueFormatException;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 
-public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
+public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElementImpl implements TaggedFeedListElement {
 
-	public static final String TITLE_ATTRIBUTE_NAME 		= "jcr:title";
-	public static final String SUMMARY_ATTRIBUTE_NAME  		= "summary";
-	public static final String SHORT_INTRO_ATTRIBUTE_NAME 	= "shortIntroduction";
-	public static final String PINNED_ATTRIBUTE_NAME 		= "pinned";
 	public static final String PUBLISH_DATE_ATTRIBUTE_NAME  = "publishdate";
-	public static final String TAGS_ATTRIBUTE_NAME 		 	= "cq:tags";
-	public static final String IMAGE_FILEREF_ATTRIBUTE_NAME	= "image/fileReference";
+	protected static final Logger LOG = LoggerFactory.getLogger(DatedAndTaggedFeedListElement.class);
 	
 	protected String[] tags;
 	protected String path;
@@ -62,7 +62,7 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 		this.tags = tags;
 	}
 	
-	private String[] convertTagsToStrings(Tag[] pageTags) {
+	public String[] convertTagsToStrings(Tag[] pageTags) {
 		String[] stringTags = new String[pageTags.length];
 
 		for (int i = 0; i < pageTags.length; i++) { 
@@ -83,4 +83,41 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElement {
 //		return found;
 //	}
 	
+	@Override
+	
+	public TaggedFeedListElement bruteForceConstructor(final Node node, final Page page, TaggedFeedListElement element) throws ValueFormatException, RepositoryException, PathNotFoundException {
+		try {
+			element.setTitle(node.getProperty(DatedAndTaggedFeedListElement.TITLE_ATTRIBUTE_NAME).getString());
+			element.setIntro(node.getProperty(DatedAndTaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME).getString());
+			if (node.hasProperty(DatedAndTaggedFeedListElement.SHORT_INTRO_ATTRIBUTE_NAME)){
+				element.setShortIntroduction(node.getProperty(DatedAndTaggedFeedListElement.SHORT_INTRO_ATTRIBUTE_NAME).getString());
+			} else {
+				element.setShortIntroduction(node.getProperty(DatedAndTaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME).getString());
+			}
+			element.setImagePath(node.getProperty(DatedAndTaggedFeedListElement.IMAGE_FILEREF_ATTRIBUTE_NAME).getString());
+			element.setElementLink(page.getPath());
+			element.setPage(page);
+			
+			final Calendar calendarDate = node.getProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME).getDate();
+			((DatedAndTaggedFeedListElement) element).setPressReleaseDate(new Date(calendarDate.getTimeInMillis()));
+			
+			// Tags
+			Value[] valueArray = node.getProperty(DatedAndTaggedFeedListElement.TAGS_ATTRIBUTE_NAME).getValues();
+			String[] tagArray = new String[valueArray.length];
+			for (int i = 0; i < valueArray.length; i++) {
+				String tag = valueArray[i].getString();
+				tagArray[i] = tag;
+			}
+			element.setTags(tagArray);
+			
+		} catch (PathNotFoundException e) {
+			LOG.error("PathNotFoundException ", e);
+		} catch (RepositoryException e) {
+			LOG.error("RepositoryException ", e);
+		} catch (Exception e) {
+			LOG.error("Exception ", e);
+		}
+		return (DatedAndTaggedFeedListElement) element;
+	}
+
 }

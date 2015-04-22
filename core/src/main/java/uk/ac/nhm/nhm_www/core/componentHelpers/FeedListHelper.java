@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.model.FeedListElement;
+import uk.ac.nhm.nhm_www.core.model.FeedListElementImpl;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 public class FeedListHelper extends ListHelper {
@@ -63,11 +64,11 @@ public class FeedListHelper extends ListHelper {
     
 	protected void processChildren(Iterator<Page> children) {
 			
-			List<FeedListElement> pinnedElements = new ArrayList<FeedListElement>();
-			List<FeedListElement> unpinnedElements = new ArrayList<FeedListElement>();
+			List<FeedListElementImpl> pinnedElements = new ArrayList<FeedListElementImpl>();
+			List<FeedListElementImpl> unpinnedElements = new ArrayList<FeedListElementImpl>();
 			while (children.hasNext()) {
 				Page child = children.next();
-				FeedListElement feedListElement = new FeedListElement(child);
+				FeedListElementImpl feedListElement = new FeedListElementImpl(child);
 				if(feedListElement.isPinned()) {
 					pinnedElements.add(feedListElement);
 				} else {
@@ -77,8 +78,8 @@ public class FeedListHelper extends ListHelper {
 			}
 			
 			int i =0;
-			Iterator<FeedListElement> itrPinnedElements = pinnedElements.iterator();
-			Iterator<FeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
+			Iterator<FeedListElementImpl> itrPinnedElements = pinnedElements.iterator();
+			Iterator<FeedListElementImpl> itrUnpinnedElements = unpinnedElements.iterator();
 			while(itrPinnedElements.hasNext() && i< this.numberOfItems) {
 				FeedListElement element = itrPinnedElements.next();
 				if(element.isInitialised()) {

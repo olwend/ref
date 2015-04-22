@@ -15,7 +15,6 @@ import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -23,13 +22,14 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
+import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper;
+import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
-import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
+import uk.ac.nhm.nhm_www.core.model.TaggedFeedListElement;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
 
 import com.day.cq.wcm.api.Page;
@@ -86,7 +86,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		if(isMultilevel) {
 			LOG.error("is multilevel 1");
 			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
-			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags);
+			List<TaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
 			LOG.error("results length: " + results.size());

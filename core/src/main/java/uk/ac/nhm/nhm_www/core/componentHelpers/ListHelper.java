@@ -10,7 +10,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
-import uk.ac.nhm.nhm_www.core.model.ListElement;
+import uk.ac.nhm.nhm_www.core.model.ListElementImpl;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 import com.day.cq.wcm.api.Page;
@@ -61,10 +61,10 @@ public class ListHelper extends HelperBase {
 
 	protected void processChildren(Iterator<Page> children) {
 		listElements = new ArrayList<Object>();
-		List<ListElement> elements = new ArrayList<ListElement>();
+		List<ListElementImpl> elements = new ArrayList<ListElementImpl>();
 		while (children.hasNext()) {
 			Page childPage = children.next();
-			ListElement element = new ListElement(childPage);
+			ListElementImpl element = new ListElementImpl(childPage);
 			if(element.isInitialised()) {
 				elements.add(element);
 			}

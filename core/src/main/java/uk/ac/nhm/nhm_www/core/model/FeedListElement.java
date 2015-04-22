@@ -2,72 +2,24 @@ package uk.ac.nhm.nhm_www.core.model;
 
 import com.day.cq.wcm.api.Page;
 
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
+public interface FeedListElement extends ListElement {
 
-import uk.ac.nhm.nhm_www.core.utils.PageUtils;
+	public abstract boolean isInitialised();
 
-public class FeedListElement extends ListElement {
-	protected String imageResourcePath;
-	protected String intro;
-	protected String title;
-	protected Boolean pinned;
-	protected ResourceResolver resourceResolver;
-	protected Page page;
+	public abstract Page getPage();
 
-	public FeedListElement(final Page page) {
-		super(page);
-		this.page = page;
-		this.title = PageUtils.getPageTitle(page);
-		this.intro = page.getProperties().get("summary", String.class);
-		this.pinned = page.getProperties().get("pinned", false);
-		final Resource resource = page.adaptTo(Resource.class);
-		this.imageResourcePath = resource.getPath() + "/jcr:content/image";
-	}
+	public abstract void setPage(Page page);
 
-	public FeedListElement() {
-		super();
-	}
+	public abstract String getImagePath();
 
-	public boolean isInitialised() {
-		if (this.title != null && this.elementLink != null
-				&& this.imageResourcePath != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	public abstract void setImagePath(String imageResourcePath);
 
-	public Page getPage() {
-		return this.page;
-	}
+	public abstract String getIntro();
 
-	public void setPage(Page page) {
-		this.page = page;
-	}
+	public abstract void setIntro(String intro);
 
-	public String getImagePath() {
-		return this.imageResourcePath;
-	}
+	public abstract Boolean isPinned();
 
-	public void setImagePath(final String imageResourcePath) {
-		this.imageResourcePath = imageResourcePath;
-	}
-
-	public String getIntro() {
-		return this.intro;
-	}
-
-	public void setIntro(final String intro) {
-		this.intro = intro;
-	}
-
-	public Boolean isPinned() {
-		return this.pinned;
-	}
-
-	public void setPinned(final Boolean pinned) {
-		this.pinned = pinned;
-	}
+	public abstract void setPinned(Boolean pinned);
 
 }

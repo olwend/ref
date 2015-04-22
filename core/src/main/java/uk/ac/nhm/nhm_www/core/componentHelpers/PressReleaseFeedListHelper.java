@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
+import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElementImpl;
 
 public class PressReleaseFeedListHelper extends FeedListHelper {
 
@@ -28,21 +29,21 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
     @Override
     protected void processChildren(final Iterator<Page> children) {
 		this.listElements = new ArrayList<Object>();
-		final List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
-		final List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
+		final List<PressReleaseFeedListElementImpl> pinnedElements = new ArrayList<PressReleaseFeedListElementImpl>();
+		final List<PressReleaseFeedListElementImpl> unpinnedElements = new ArrayList<PressReleaseFeedListElementImpl>();
 	
 		
 		while (children.hasNext()) {
 		    final Page child = children.next();
-		    final PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElement(child);
+		    final PressReleaseFeedListElement feedListElement = new PressReleaseFeedListElementImpl(child);
 		    this.listElements.add(feedListElement);
 		}
     }
     
     public List<Object> getChildrenElements() {
-    	List<PressReleaseFeedListElement> sortableObjects = new ArrayList<PressReleaseFeedListElement>();
+    	List<PressReleaseFeedListElementImpl> sortableObjects = new ArrayList<PressReleaseFeedListElementImpl>();
     	for(Object object: this.listElements) {
-    		PressReleaseFeedListElement element = (PressReleaseFeedListElement) object;
+    		PressReleaseFeedListElementImpl element = (PressReleaseFeedListElementImpl) object;
     		if(element.isInitialised()) {
     			sortableObjects.add(element);
     		}
@@ -54,15 +55,15 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
     	return sortedObjects;
     }
     
-    public List<PressReleaseFeedListElement> getTilesElements() {
+    public List<PressReleaseFeedListElementImpl> getTilesElements() {
 		
-    	final List<PressReleaseFeedListElement> pinnedElements = new ArrayList<PressReleaseFeedListElement>();
-		final List<PressReleaseFeedListElement> unpinnedElements = new ArrayList<PressReleaseFeedListElement>();
-		final List<PressReleaseFeedListElement> sortedListToReturn = new ArrayList<PressReleaseFeedListElement>();
+    	final List<PressReleaseFeedListElementImpl> pinnedElements = new ArrayList<PressReleaseFeedListElementImpl>();
+		final List<PressReleaseFeedListElementImpl> unpinnedElements = new ArrayList<PressReleaseFeedListElementImpl>();
+		final List<PressReleaseFeedListElementImpl> sortedListToReturn = new ArrayList<PressReleaseFeedListElementImpl>();
 		
 		//while (children.hasNext()) {
 		for(Object object:this.listElements){
-		    PressReleaseFeedListElement prElement = (PressReleaseFeedListElement) object;
+		    PressReleaseFeedListElementImpl prElement = (PressReleaseFeedListElementImpl) object;
 		    if(prElement.isPinned()) {
 		    	pinnedElements.add(prElement);
 		    } else {
@@ -74,17 +75,17 @@ public class PressReleaseFeedListHelper extends FeedListHelper {
 		Collections.reverse(pinnedElements);
 		Collections.sort(unpinnedElements);
 		Collections.reverse(unpinnedElements);
-		final Iterator<PressReleaseFeedListElement> itrPinnedElements = pinnedElements.iterator();
-		final Iterator<PressReleaseFeedListElement> itrUnpinnedElements = unpinnedElements.iterator();
+		final Iterator<PressReleaseFeedListElementImpl> itrPinnedElements = pinnedElements.iterator();
+		final Iterator<PressReleaseFeedListElementImpl> itrUnpinnedElements = unpinnedElements.iterator();
 		int i = 0;
 		while (itrPinnedElements.hasNext() && i < this.numberOfItems ) {
 			i++;
-			PressReleaseFeedListElement element = itrPinnedElements.next();
+			PressReleaseFeedListElementImpl element = itrPinnedElements.next();
 			sortedListToReturn.add(element);
 		}
 		while (itrUnpinnedElements.hasNext() && i < this.numberOfItems) {
 			i++;
-			PressReleaseFeedListElement element = itrUnpinnedElements.next();
+			PressReleaseFeedListElementImpl element = itrUnpinnedElements.next();
 			sortedListToReturn.add(element);
 		}
     	
