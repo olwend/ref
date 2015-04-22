@@ -17,7 +17,8 @@ public interface TaggedFeedListElement extends FeedListElement {
 	public static final String PINNED_ATTRIBUTE_NAME = "pinned";
 	public static final String TAGS_ATTRIBUTE_NAME = "cq:tags";
 	public static final String IMAGE_FILEREF_ATTRIBUTE_NAME = "image/fileReference";
-
+	public static final String TEMPLATE_ATTRIBUTE_NAME = "cq:template";
+	
 	public abstract boolean isInitialised();
 
 	public abstract String getShortIntroduction();

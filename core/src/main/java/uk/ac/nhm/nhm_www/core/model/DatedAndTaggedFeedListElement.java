@@ -19,6 +19,8 @@ import com.day.cq.wcm.api.Page;
 public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElementImpl implements TaggedFeedListElement {
 
 	public static final String PUBLISH_DATE_ATTRIBUTE_NAME  = "publishdate";
+	public static final String TEMPLATE_ATTRIBUTE_VALUE = "/apps/nhmwww/templates/newscontentpage";
+	
 	protected static final Logger LOG = LoggerFactory.getLogger(DatedAndTaggedFeedListElement.class);
 	
 	protected String[] tags;

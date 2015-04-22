@@ -19,6 +19,8 @@ import com.day.cq.wcm.api.PageManager;
 
 public class TaggedFeedListElementImpl extends FeedListElementImpl implements TaggedFeedListElement {
 	
+	public static final String TEMPLATE_ATTRIBUTE_VALUE = "/apps/nhmwww/templates/taggedcontentpage";
+	
 	protected static final Logger LOG = LoggerFactory.getLogger(TaggedFeedListElementImpl.class);
 	
 	protected String path;
