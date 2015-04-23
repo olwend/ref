@@ -38,7 +38,7 @@
 	
 %>
 
-<div class="newslistfeed-wrapper" id="newslistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  data-tags="<%= helper.getTagsString()%>">
+<div class="newslistfeed-wrapper" id="newslistfeed_wrapper_<%=componentID%>" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  data-tags="<%= helper.getTagsString()%>">
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
     <!-- START PAGINATION -->
     
