@@ -9,13 +9,16 @@ import com.day.cq.wcm.api.Page;
 public class ListElement {
 	protected String title;
 	protected String elementLink;
-	
+
+	public ListElement() {
+
+	}
 
 	public ListElement(Page page) {
 		this.title = PageUtils.getPageTitle(page);
 		this.elementLink = page.getPath();
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -31,13 +34,13 @@ public class ListElement {
 	public void setElementLink(String elementLink) {
 		this.elementLink = elementLink;
 	}
-	
+
 	public boolean isInitialised() {
-		if(this.title != null && this.elementLink !=null ) {
+		if (this.title != null && this.elementLink != null) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 }
