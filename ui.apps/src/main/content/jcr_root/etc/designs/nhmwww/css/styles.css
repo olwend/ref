@@ -10932,10 +10932,6 @@ div#feedback-bar .span11 {
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
 }
-.press-office .more-results {
-  clear: both;
-  text-align: center;
-}
 
 .press-office--list-item--content-wrapper {
   margin-bottom: 1.8em;
@@ -10954,7 +10950,11 @@ div#feedback-bar .span11 {
   padding: 0;
 }
 .press-office--list-item--title a {
-  color: #107E5E;
+  color: #000000;
+  font-weight: bold;
+}
+.press-office--list-item--title a:hover {
+  color: #000000;
 }
 
 .press-office--list-item--tagline {
@@ -11053,8 +11053,15 @@ div#feedback-bar .span11 {
   text-decoration: none;
 }
 
-.more-results-text {
-  color: #107E5E;
+.more-results {
+  clear: both;
+  text-align: center;
+}
+.more-results a {
+  color: #565656;
+}
+.more-results a:hover {
+  color: #565656;
 }
 
 /*# sourceMappingURL=styles.css.map */
