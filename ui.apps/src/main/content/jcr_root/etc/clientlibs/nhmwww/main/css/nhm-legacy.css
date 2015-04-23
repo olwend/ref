@@ -1,14 +1,11 @@
-.legacy-css#page-body {
-  font-size: 76%;
+.legacy-css {
+  font-size: 0.75em;
 }
 .legacy-css ul {
   font-size: 1em;
 }
-
-/*body {
-	&.legacy {
-	font-size:76%;
-	}
-}*/
+.legacy-css .sidebar-first {
+  width: 170px;
+}
 
 /*# sourceMappingURL=nhm-legacy.css.map */
