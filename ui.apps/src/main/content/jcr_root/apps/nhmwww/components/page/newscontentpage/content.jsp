@@ -8,7 +8,7 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <div class="main-section">
 	<%
-	NewsHelper helper = new NewsHelper(resource,properties,resourcePage.getTags());
+	NewsHelper helper = new NewsHelper(resource, properties, resourcePage.getTags());
 
     // first calculate the correct title - look for our sources if not set in paragraph
     String title = properties.get(NameConstants.PN_TITLE, String.class);
