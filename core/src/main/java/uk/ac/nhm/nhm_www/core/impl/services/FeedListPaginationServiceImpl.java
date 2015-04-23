@@ -294,6 +294,9 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 				if(objects.get(i) instanceof DatedAndTaggedFeedListElement) {
 					final DatedAndTaggedFeedListElement listElement = (DatedAndTaggedFeedListElement) objects.get(i);
 					jsonArray.put(addDatedAndTaggedElement(listElement, resolver, request));
+				} else if (objects.get(i) instanceof TaggedFeedListElementImpl) {
+					final TaggedFeedListElementImpl listElement = (TaggedFeedListElementImpl) objects.get(i);
+					jsonArray.put(addTaggedElement(listElement, resolver, request));
 				} else if (objects.get(i) instanceof PressReleaseFeedListElementImpl) {
 					final PressReleaseFeedListElementImpl listElement = (PressReleaseFeedListElementImpl) objects.get(i);
 					jsonArray.put(addPressReleaseElement(listElement, resolver, request));
@@ -309,6 +312,25 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		return jsonObject;
 	}
 
+	private JSONObject addElement(final FeedListElementImpl listElement) throws JSONException {
+		final JSONObject itemToAdd = new JSONObject();
+		itemToAdd.put("title", listElement.getTitle());
+		itemToAdd.put("intro", listElement.getIntro());
+		itemToAdd.put("imagePath", listElement.getImagePath());
+		return itemToAdd;
+	}
+	
+	private JSONObject addTaggedElement(final TaggedFeedListElement listElement, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
+		final JSONObject itemToAdd = new JSONObject();
+		itemToAdd.put("title", listElement.getTitle());
+		itemToAdd.put("intro", listElement.getIntro());
+		itemToAdd.put("imagePath", listElement.getImagePath());
+		itemToAdd.put("path", resolver.map(request, listElement.getPage().getPath()));
+		itemToAdd.put("group", listElement.getPage().getParent().getTitle());
+		itemToAdd.put("shortIntro", listElement.getShortIntroduction());
+		return itemToAdd;
+	}
+	
 	private JSONObject addPressReleaseElement(final PressReleaseFeedListElementImpl listElement, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject itemToAdd = new JSONObject();
 		itemToAdd.put("title", listElement.getTitle());
@@ -317,14 +339,6 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		final DateFormat df = new SimpleDateFormat("MMMMM d yyyy");
 		itemToAdd.put("date", df.format(listElement.getPressReleaseDate()));
 		itemToAdd.put("path", resolver.map(request, listElement.getPage().getPath()));
-		return itemToAdd;
-	}
-
-	private JSONObject addElement(final FeedListElementImpl listElement) throws JSONException {
-		final JSONObject itemToAdd = new JSONObject();
-		itemToAdd.put("title", listElement.getTitle());
-		itemToAdd.put("intro", listElement.getIntro());
-		itemToAdd.put("imagePath", listElement.getImagePath());
 		return itemToAdd;
 	}
 	
@@ -340,5 +354,4 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		itemToAdd.put("shortIntro", listElement.getShortIntroduction());
 		return itemToAdd;
 	}
-
 }

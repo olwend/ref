@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
+	console.log("Dubi");
 	$('.pressreleaselistfeed-wrapper').each(function (){
+		console.log("Inside Parapa the wrapper");
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
@@ -52,7 +54,7 @@ function showItems(pageJson, componentID, hideMonths) {
 		var title = item.title; 
 		var intro = item.intro; 
 		var imagePath = item.imagePath;
-		var date = item.date;
+		var date = "The Date";//item.date;
 		var link = item.path + ".html";
 		var element = createPressRelease(title, intro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#press-office--list-' + componentID;

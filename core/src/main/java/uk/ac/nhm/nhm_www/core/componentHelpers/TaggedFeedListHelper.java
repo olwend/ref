@@ -130,7 +130,7 @@ public class TaggedFeedListHelper extends FeedListHelper {
 
 	public String[] getTags() {
 		for(String tag : tags ) {
-			logger.error("tag ffrom helper: " + tag);
+			logger.error("tags from helper: " + tag);
 		}
 		return tags;
 	}

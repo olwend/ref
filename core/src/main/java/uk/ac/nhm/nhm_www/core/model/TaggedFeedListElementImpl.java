@@ -109,10 +109,13 @@ public class TaggedFeedListElementImpl extends FeedListElementImpl implements Ta
 //	}
 
 	@Override
-	public TaggedFeedListElement bruteForceConstructor(final Node node, final Page page, TaggedFeedListElement element) throws ValueFormatException, RepositoryException, PathNotFoundException {
+	public TaggedFeedListElementImpl bruteForceConstructor(final Node node, final Page page, TaggedFeedListElement tElement) throws ValueFormatException, RepositoryException, PathNotFoundException {
+		LOG.error("Inside Tagged Brute Force Constructor");
+		TaggedFeedListElementImpl element = new TaggedFeedListElementImpl();
 		try {
 			element.setTitle(node.getProperty(TaggedFeedListElementImpl.TITLE_ATTRIBUTE_NAME).getString());
 			element.setIntro(node.getProperty(TaggedFeedListElementImpl.SUMMARY_ATTRIBUTE_NAME).getString());
+			LOG.error("Summary & Title are OK");
 			if (node.hasProperty(TaggedFeedListElementImpl.SHORT_INTRO_ATTRIBUTE_NAME)){
 				element.setShortIntroduction(node.getProperty(TaggedFeedListElementImpl.SHORT_INTRO_ATTRIBUTE_NAME).getString());
 			} else {
@@ -138,6 +141,6 @@ public class TaggedFeedListElementImpl extends FeedListElementImpl implements Ta
 		} catch (Exception e) {
 			LOG.error("Exception ", e);
 		}
-		return (TaggedFeedListElementImpl) element;
+		return element;
 	}
 }
