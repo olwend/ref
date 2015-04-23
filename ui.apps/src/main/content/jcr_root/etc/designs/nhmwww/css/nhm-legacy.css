@@ -1,4 +1,5 @@
-.legacy-css {
+.legacy-css#page-body {
+  font-family: Arial, sans-serif;
   font-size: 0.75em;
 }
 .legacy-css ul {
@@ -8,7 +9,6 @@
   width: 955px;
 }
 .legacy-css #site-name {
-  font-family: Arial, sans-serif;
   font-weight: bold;
   margin: 0;
   padding: 0;
