@@ -1,5 +1,13 @@
-.legacy-css #site-name, .legacy-css .front-page-pos h2, .legacy-css .block-nhmblocks h2 {
+.legacy-css #site-name, .legacy-css .view-Homepage .views-field-body, .legacy-css .front-page-pos h2, .legacy-css .block-nhmblocks h2 {
   font-family: Arial, sans-serif;
+}
+
+/** resets footer styles **/
+.main-footer legend {
+  color: #FFFFFF;
+}
+.main-footer label {
+  font-weight: normal;
 }
 
 .legacy-css {
@@ -18,6 +26,7 @@
 }
 .legacy-css .view-Homepage .views-field-body h2 {
   font-size: 1.4em;
+  font-weight: bold;
 }
 .legacy-css .view-Homepage .views-field-body p {
   font-size: 1em;
