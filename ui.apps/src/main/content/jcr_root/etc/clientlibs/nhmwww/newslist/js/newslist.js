@@ -158,7 +158,7 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("newslistfeed_wrapper").appendChild(moreElementsDiv);
+	document.getElementById("newslistfeed_wrapper_"+componentID).appendChild(moreElementsDiv);
 	
 	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
 		var rootPath = event.data.rootPath;
@@ -176,7 +176,7 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 }
 
 function removeMoreResultsButton(componentID) {
-	 var wrapperDiv = document.getElementById('newslistfeed_wrapper');
+	 var wrapperDiv = document.getElementById('newslistfeed_wrapper_'+componentID);
 	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
