@@ -1,6 +1,9 @@
 .legacy-css {
   font-size: 0.75em;
 }
+.legacy-css #page-content-wrapper {
+  width: 955px;
+}
 .legacy-css ul {
   font-size: 1em;
 }
