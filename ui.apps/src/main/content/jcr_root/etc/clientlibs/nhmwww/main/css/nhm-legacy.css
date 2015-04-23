@@ -8,9 +8,6 @@
 .legacy-css ul {
   font-size: 1em;
 }
-.legacy-css #page-content-wrapper {
-  width: 955px;
-}
 .legacy-css #site-name {
   font-weight: bold;
   margin: 0;
@@ -24,6 +21,26 @@
 }
 .legacy-css .view-Homepage .views-field-body p {
   font-size: 1em;
+}
+.legacy-css #views-exposed-form-nature-groups-home-search-block label {
+  display: none;
+}
+.legacy-css .front-page-pos h2 {
+  font-weight: bold;
+  padding: 0;
+}
+.legacy-css .front-page-pos p {
+  font-size: 1em;
+}
+.legacy-css .front-page-pos .view-events-listings a {
+  text-decoration: underline;
+}
+.legacy-css .front-page-pos #boxes-box-homepage_updatable a {
+  text-decoration: underline;
+}
+.legacy-css .block-nhmblocks h2 {
+  font-weight: bold;
+  padding: 0;
 }
 
 /*# sourceMappingURL=nhm-legacy.css.map */
