@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
+import javax.jcr.PropertyIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
@@ -180,41 +181,30 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 				final ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(param);
 				/* Get page manager object using page manager Factory */
 				final PageManager pmanager = pageManagerFactory.getPageManager(resolver);
-				
 				while (iterator.hasNext()) {
-	
+					
 					final Node node = iterator.nextNode();
 					TaggedFeedListElement element = new TaggedFeedListElementImpl();
 	
-					if (node instanceof TaggedFeedListElementImpl){
-						element = new TaggedFeedListElementImpl();
-					}
-					if (node instanceof DatedAndTaggedFeedListElement){
-						element = new DatedAndTaggedFeedListElement();
-					}
-					 
-					
 					if (!node.hasProperty(TaggedFeedListElement.TITLE_ATTRIBUTE_NAME) ||
 						!node.hasProperty(TaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME) ||
 						!node.hasProperty(TaggedFeedListElement.TAGS_ATTRIBUTE_NAME) ||
 						!node.hasProperty(TaggedFeedListElement.IMAGE_FILEREF_ATTRIBUTE_NAME)) {
 						
-						if (node instanceof DatedAndTaggedFeedListElement){
-							if(!node.hasProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME)){
-								continue;
-							}
-						} else {
+						if(!node.hasProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME)){
 							continue;
-						}
+						} 
 					}
 					
 					Page page = pmanager.getContainingPage(node.getPath());
-					if (node instanceof DatedAndTaggedFeedListElement){
-						elementArray.addResource((DatedAndTaggedFeedListElement) element.bruteForceConstructor(node, page, element));
+					if (node.getProperty(TaggedFeedListElement.TEMPLATE_ATTRIBUTE_NAME).getString().equals(DatedAndTaggedFeedListElement.TEMPLATE_ATTRIBUTE_VALUE)){
+						LOG.error("Is DatedAndTaggedFeedListElement");
+						DatedAndTaggedFeedListElement dntElement = new DatedAndTaggedFeedListElement(page);
+						elementArray.addResource(dntElement.bruteForceConstructor(node, page, element));
 					} else {
+						LOG.error("Its a TaggedFeedListElement");
 						elementArray.addResource(element.bruteForceConstructor(node, page, element));
 					}
-					
 				}
 			} finally {
 				if (session.isLive()) {
@@ -300,7 +290,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 			jsonObject.put("pages", pages);
 			
 			for (int i = indexFrom - 1; i < indexTo; i++) {
-				//LOG.error("object class:" + objects.get(i).toString());
+				LOG.error("object class:" + objects.get(i).toString());
 				if(objects.get(i) instanceof DatedAndTaggedFeedListElement) {
 					final DatedAndTaggedFeedListElement listElement = (DatedAndTaggedFeedListElement) objects.get(i);
 					jsonArray.put(addDatedAndTaggedElement(listElement, resolver, request));

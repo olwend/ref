@@ -48,6 +48,8 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElementIm
 		}
 	}
 
+
+
 	public boolean isInitialised() {
 		if (this.tags != null && this.title != null && this.elementLink != null && this.imageResourcePath != null && this.getPressReleaseDate() != null) {
 			return true;
@@ -87,21 +89,27 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElementIm
 	
 	@Override
 	
-	public TaggedFeedListElement bruteForceConstructor(final Node node, final Page page, TaggedFeedListElement element) throws ValueFormatException, RepositoryException, PathNotFoundException {
+	public DatedAndTaggedFeedListElement bruteForceConstructor(final Node node, final Page page, TaggedFeedListElement tElement) throws ValueFormatException, RepositoryException, PathNotFoundException {
+		LOG.error("Inside the Brute Force Constructor");
+		DatedAndTaggedFeedListElement element =  new DatedAndTaggedFeedListElement();
 		try {
 			element.setTitle(node.getProperty(DatedAndTaggedFeedListElement.TITLE_ATTRIBUTE_NAME).getString());
 			element.setIntro(node.getProperty(DatedAndTaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME).getString());
+			LOG.error("Summary & Title are OK");
 			if (node.hasProperty(DatedAndTaggedFeedListElement.SHORT_INTRO_ATTRIBUTE_NAME)){
 				element.setShortIntroduction(node.getProperty(DatedAndTaggedFeedListElement.SHORT_INTRO_ATTRIBUTE_NAME).getString());
 			} else {
 				element.setShortIntroduction(node.getProperty(DatedAndTaggedFeedListElement.SUMMARY_ATTRIBUTE_NAME).getString());
 			}
+			LOG.error("Short Intro OK");
 			element.setImagePath(node.getProperty(DatedAndTaggedFeedListElement.IMAGE_FILEREF_ATTRIBUTE_NAME).getString());
 			element.setElementLink(page.getPath());
 			element.setPage(page);
+			LOG.error("ImagePath, url and Page OK");
 			
 			final Calendar calendarDate = node.getProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME).getDate();
-			((DatedAndTaggedFeedListElement) element).setPressReleaseDate(new Date(calendarDate.getTimeInMillis()));
+			element.setPressReleaseDate(new Date(calendarDate.getTimeInMillis()));
+			LOG.error("PublishedDate OK");
 			
 			// Tags
 			Value[] valueArray = node.getProperty(DatedAndTaggedFeedListElement.TAGS_ATTRIBUTE_NAME).getValues();
@@ -111,15 +119,16 @@ public class DatedAndTaggedFeedListElement extends PressReleaseFeedListElementIm
 				tagArray[i] = tag;
 			}
 			element.setTags(tagArray);
+			LOG.error("Tags OK");
 			
 		} catch (PathNotFoundException e) {
 			LOG.error("PathNotFoundException ", e);
 		} catch (RepositoryException e) {
 			LOG.error("RepositoryException ", e);
 		} catch (Exception e) {
-			LOG.error("Exception ", e);
+			LOG.error("Exception Something went awfully wrong! ", e);
 		}
-		return (DatedAndTaggedFeedListElement) element;
+		return element;
 	}
 
 }
