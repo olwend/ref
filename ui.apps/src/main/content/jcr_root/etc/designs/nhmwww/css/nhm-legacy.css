@@ -25,6 +25,10 @@
 .legacy-css #views-exposed-form-nature-groups-home-search-block label {
   display: none;
 }
+.legacy-css #views-exposed-form-nature-groups-home-search-block input#edit-name-or-description {
+  height: 26px;
+  margin-top: 21px;
+}
 .legacy-css .front-page-pos h2 {
   font-weight: bold;
   padding: 0;
