@@ -1,5 +1,8 @@
-.legacy-css#page-body {
+.legacy-css #site-name, .legacy-css .front-page-pos h2, .legacy-css .block-nhmblocks h2 {
   font-family: Arial, sans-serif;
+}
+
+.legacy-css {
   font-size: 0.75em;
 }
 .legacy-css ul {
@@ -18,6 +21,9 @@
 }
 .legacy-css .view-Homepage .views-field-body h2 {
   font-size: 1.4em;
+}
+.legacy-css .view-Homepage .views-field-body p {
+  font-size: 1em;
 }
 
 /*# sourceMappingURL=nhm-legacy.css.map */
