@@ -1,11 +1,17 @@
 .legacy-css {
   font-size: 0.75em;
 }
+.legacy-css ul {
+  font-size: 1em;
+}
 .legacy-css #page-content-wrapper {
   width: 955px;
 }
-.legacy-css ul {
-  font-size: 1em;
+.legacy-css #site-name {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 .legacy-css .sidebar-first {
   width: 170px;
