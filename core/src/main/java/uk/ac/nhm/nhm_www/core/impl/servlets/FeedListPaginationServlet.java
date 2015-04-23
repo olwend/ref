@@ -67,6 +67,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+		LOG.error("We reached the FeedListPaginationServlet");
 		String rootPath = request.getParameter("rootPath");
 		String tags = request.getParameter("tags");
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
