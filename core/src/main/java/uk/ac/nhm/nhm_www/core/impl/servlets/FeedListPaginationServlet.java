@@ -67,7 +67,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException, NumberFormatException {
-		LOG.error("We reached the FeedListPaginationServlet");
+		LOG.error("Reached the FeedListPaginationServlet");
 		String rootPath = request.getParameter("rootPath");
 		String tags = request.getParameter("tags");
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
@@ -103,9 +103,6 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	private FeedListHelper processRequest(String rootPath, HttpServletRequest request, PageManager pageManager, ValueMap properties, ResourceResolver resourceResolver, boolean isMultilevel){
 	
 		FeedListHelper helper = null;
-		
-		
-		
 		Page rootPage = pageManager.getPage(rootPath);
 		
 		if(isMultilevel) {
@@ -113,8 +110,6 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		}
 		
 		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
-		
-		
 		if(childPages.hasNext()) {
 			Page child = childPages.next();
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/pressreleasepage")) { 
@@ -135,5 +130,4 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		}
 		return helper;
 	}
-	
 }

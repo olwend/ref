@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
-	console.log("Dubi");
 	$('.pressreleaselistfeed-wrapper').each(function (){
 		console.log("Inside Parapa the wrapper");
 		var componentID = $(this).data('componentid');
@@ -9,6 +8,7 @@ $(document).ready(function() {
 		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
 		var tags = $(this).data('tags')
+		console.log("ComponentID " + componentID + ", rootPath " + rootPath + ", pageSize "+ pageSize + ", hideMonths "+ hideMonths + ", isMultilevel "+ isMultilevel + ", tags "+ tags);
 		if (rootPath && pageSize) {
 			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
 		}
@@ -16,6 +16,7 @@ $(document).ready(function() {
 });	
 
 function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
+	console.log("Doing a doGet call");
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -27,6 +28,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 			tags: tags
 		},
 		success: function(data){
+			console.log("Success on doGet");
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID, hideMonths);
@@ -42,6 +44,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 }
 
 function showItems(pageJson, componentID, hideMonths) {
+	console.log("Inside showItems"); 
 	var currentGroup = "";
 	$.each(pageJson, function(index, item) {
 		

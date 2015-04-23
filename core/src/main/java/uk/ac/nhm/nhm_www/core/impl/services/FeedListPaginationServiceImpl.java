@@ -77,6 +77,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	private ResourceResolverFactory resourceResolverFactory;
 	
 	private String jcrPath = "/content/nhmwww/%";
+	private String slingResourceType = "nhmwww/components/page/newscontentpage";
 	private String[] cqTags = null;
 	private long cacheExpired;
 	private int queryLimit;
@@ -112,6 +113,14 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		this.cqTags = cqTags;
 	}
 	
+	public String getSlingResourceType() {
+		return slingResourceType;
+	}
+
+	public void setSlingResourceType(String slingSuperType) {
+		this.slingResourceType = slingSuperType;
+	}
+
 	private String returnTagString(String[] tags){
 		String ret = tags[0] ;
 		for (int i = 1; i < tags.length ; i++) {
@@ -123,7 +132,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	private String getKeyQuery() {
 		return "SELECT * FROM [nt:unstructured] as c "
 				+ "WHERE ([jcr:path] like '" + getJcrPath() + "') AND "
-				+ "(c.[sling:resourceType]='nhmwww/components/page/newscontentpage') AND " 
+				+ "(c.[sling:resourceType]='" + getSlingResourceType() + "') AND " 
 				+ "(c.[cq:tags]='" + returnTagString(cqTags) + "') "
 				+ "ORDER BY [publishdate] DESC ";
 	}
@@ -197,6 +206,9 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 					}
 					
 					Page page = pmanager.getContainingPage(node.getPath());
+					LOG.error("node slingResourceType " + node.getProperty(TaggedFeedListElement.RENDERING_COMPONENT_ATTRIBUTE_NAME).toString());
+					setSlingResourceType(node.getProperty(TaggedFeedListElement.RENDERING_COMPONENT_ATTRIBUTE_NAME).toString());
+					
 					if (node.getProperty(TaggedFeedListElement.TEMPLATE_ATTRIBUTE_NAME).getString().equals(DatedAndTaggedFeedListElement.TEMPLATE_ATTRIBUTE_VALUE)){
 						LOG.error("Is DatedAndTaggedFeedListElement");
 						DatedAndTaggedFeedListElement dntElement = new DatedAndTaggedFeedListElement(page);
@@ -229,7 +241,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	public List<TaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath, String tags) {
 		setJcrPath(rootPath);
 		this.cqTags = tags.split(",");
-		LOG.error("KeyQuery needs Tags: " + request.getAttribute("tags"));
+		LOG.error("KeyQuery needs Tags: " + this.cqTags);
 		final String keyQuery = getKeyQuery();
 		LOG.error("query built: " + keyQuery);
 		if (!cache.containsKey(keyQuery)) {

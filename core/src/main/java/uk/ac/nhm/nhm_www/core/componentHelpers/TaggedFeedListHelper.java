@@ -127,7 +127,6 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		this.shortIntroduction = shortIntroduction;
 	}
 
-
 	public String[] getTags() {
 		for(String tag : tags ) {
 			logger.error("tags from helper: " + tag);
