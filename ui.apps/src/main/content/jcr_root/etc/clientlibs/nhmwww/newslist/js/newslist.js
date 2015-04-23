@@ -149,11 +149,11 @@ function createNews(title, intro, date, imagePath, url, hideMonths, group, addGr
 function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
 	var moreElementsDiv = document.createElement("div");
 	
-	moreElementsDiv.className = "row more_results more-results-" + componentID;
-	moreElementsDiv.id = "more_results_" + componentID;
+	moreElementsDiv.className = "row more-results more-results-" + componentID;
+	moreElementsDiv.id = "more-results-" + componentID;
 	var aTag = document.createElement("a");
 	var h5Tag = document.createElement("h5");
-	h5Tag.id = "more_results_text";
+	h5Tag.id = "more-results-text";
 	h5Tag.className = "more-results-text";
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
@@ -177,7 +177,7 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 
 function removeMoreResultsButton(componentID) {
 	 var wrapperDiv = document.getElementById('newslistfeed_wrapper');
-	 var divToDelete = document.getElementById("more_results_" + componentID);
+	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
 
