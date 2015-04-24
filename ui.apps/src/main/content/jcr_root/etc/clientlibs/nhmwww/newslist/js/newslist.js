@@ -51,10 +51,11 @@ function showItems(pageJson, componentID, hideMonths) {
 		currentGroup = item.group;
 		var title = item.title; 
 		var intro = item.intro; 
+		var shortIntro = item.shortIntro;
 		var imagePath = item.imagePath;
 		var date = item.date;
 		var link = item.path + ".html";
-		var element = createNews(title, intro, date, imagePath, link, hideMonths, currentGroup, addGroup);
+		var element = createNews(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#press-office--list-' + componentID;
 		
 		$(componentClass).append(element);
@@ -67,7 +68,7 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createNews(title, intro, date, imagePath, url, hideMonths, group, addGroup) {
+function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
 	element.className = 'press-office--list-item';
 	if (addGroup && !hideMonths) { //!hideMonths
@@ -135,7 +136,7 @@ function createNews(title, intro, date, imagePath, url, hideMonths, group, addGr
 	contentDiv.appendChild(h4);
 	
 	var p = document.createElement('p');
-	p.innerHTML = intro;
+	p.innerHTML = shortIntro;
 	p.className = 'press-office--list-item--tagline';
 	
 	contentDiv.appendChild(p);
