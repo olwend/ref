@@ -9604,6 +9604,10 @@ body {
   color: #565656;
 }
 
+.feature-box a:hover {
+  color: #ffffff;
+}
+
 .visit .title-bar {
   background-color: #A1164E;
 }
