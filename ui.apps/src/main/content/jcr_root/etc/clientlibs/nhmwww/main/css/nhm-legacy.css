@@ -1,4 +1,4 @@
-.legacy-css #site-name, .legacy-css .view-Homepage .views-field-body h2, .legacy-css .front-page-pos h2, .legacy-css .block-nhmblocks h2 {
+.legacy-css#page-body, .legacy-css h2 {
   font-family: Arial, sans-serif;
 }
 
@@ -15,6 +15,13 @@
 }
 .legacy-css ul {
   font-size: 1em;
+}
+.legacy-css a {
+  color: #228900;
+  text-decoration: underline;
+}
+.legacy-css a:hover {
+  text-decoration: underline;
 }
 .legacy-css #site-name {
   font-weight: bold;
@@ -37,6 +44,9 @@
 .legacy-css #views-exposed-form-nature-groups-home-search-block input#edit-name-or-description {
   height: 26px;
   margin-top: 21px;
+}
+.legacy-css #views-exposed-form-nature-groups-search-page label {
+  color: #000000;
 }
 .legacy-css .front-page-pos h2 {
   font-weight: bold;
