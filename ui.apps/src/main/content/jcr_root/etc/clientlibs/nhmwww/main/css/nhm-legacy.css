@@ -1,4 +1,4 @@
-.legacy-css#page-body, .legacy-css h2 {
+.legacy-css h2, .legacy-css h3, .legacy-css #site-name {
   font-family: Arial, sans-serif;
 }
 
@@ -12,6 +12,7 @@
 
 .legacy-css {
   font-size: 0.75em;
+  /** is this working? **/
 }
 .legacy-css ul {
   font-size: 1em;
@@ -27,6 +28,9 @@
   font-weight: bold;
   margin: 0;
   padding: 0;
+}
+.legacy-css .page-header a:hover {
+  text-decoration: none;
 }
 .legacy-css .sidebar-first {
   width: 170px;
@@ -63,6 +67,11 @@
 }
 .legacy-css .block-nhmblocks h2 {
   font-weight: bold;
+  padding: 0;
+}
+.legacy-css .view-nature-groups h3 {
+  font-size: 1.4em;
+  margin: 0;
   padding: 0;
 }
 
