@@ -59,6 +59,12 @@
 .legacy-css #views-exposed-form-nature-groups-search-page #edit-moreoptions {
   width: 690px;
 }
+.legacy-css #views-exposed-form-nature-groups-search-page #edit-submit-nature-groups {
+  top: -319px;
+}
+.legacy-css #views-exposed-form-nature-groups-search-page #edit-reset {
+  top: -319px;
+}
 .legacy-css .front-page-pos h2 {
   font-weight: bold;
   padding: 0;
