@@ -49,23 +49,17 @@
 	
 %>
 
-Captain obvious to the rescue...
-
-<%= helper.getResourceType() %>
-
 <div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
-				data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true" 
-				data-resourceType="nhmwww/components/page/taggedcontentpage" data-tags="<%= helper.getTagsString()%>">
-				
+						data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  
+						data-resourcetype="nhmwww/components/page/newscontentpage" data-tags="<%= helper.getTagsString()%>">
+							
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
     <!-- START PAGINATION -->
-    ## Pagination be here ##
     <!-- END PAGINATION -->
-    <div class="press-office--list-<%=componentID%>" id="press-office--list-<%=componentID%>">
-    </div>
+	<div class="small-block-grid-1 medium-block-grid-2 press-office--feed-<%=componentID%>" id="press-office--feed-<%=componentID%>" data-equalizer>
+		
+	</div>
 </div>
-
-
 
 
 

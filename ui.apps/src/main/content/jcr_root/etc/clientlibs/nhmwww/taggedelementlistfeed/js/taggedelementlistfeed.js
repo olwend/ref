@@ -64,7 +64,7 @@ function showItems(pageJson, componentID, hideMonths) {
 		var date = "The Date";//item.date;
 		var link = item.path + ".html";
 		var element = createPressRelease(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
-		var componentClass = '#press-office--list-' + componentID;
+		var componentClass = '#press-office--feed-' + componentID;
 		
 		$(componentClass).append(element);
 	});
