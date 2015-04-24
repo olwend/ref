@@ -58,11 +58,12 @@ function showItems(pageJson, componentID, hideMonths) {
 		}
 		currentGroup = item.group;
 		var title = item.title; 
-		var intro = item.intro; 
+		var intro = item.intro;
+		var shortIntro = item.shortIntro;
 		var imagePath = item.imagePath;
 		var date = "The Date";//item.date;
 		var link = item.path + ".html";
-		var element = createPressRelease(title, intro, date, imagePath, link, hideMonths, currentGroup, addGroup);
+		var element = createPressRelease(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#press-office--list-' + componentID;
 		
 		$(componentClass).append(element);
@@ -75,7 +76,7 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createPressRelease(title, intro, date, imagePath, url, hideMonths, group, addGroup) {
+function createPressRelease(title, intro, shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
 	element.className = 'press-office--list-item-' + group;
 	if (addGroup) { //!hideMonths
@@ -143,7 +144,7 @@ function createPressRelease(title, intro, date, imagePath, url, hideMonths, grou
 	contentDiv.appendChild(h4);
 	
 	var p = document.createElement('p');
-	p.innerHTML = intro;
+	p.innerHTML = shortIntro;
 	p.className = 'press-office--list-item--tagline';
 	
 	contentDiv.appendChild(p);
