@@ -12,10 +12,14 @@
 
 .legacy-css {
   font-size: 0.75em;
-  /** is this working? **/
+  color: #000000;
 }
 .legacy-css ul {
   font-size: 1em;
+}
+.legacy-css p {
+  margin: 0;
+  padding: 0;
 }
 .legacy-css a {
   color: #228900;
@@ -52,6 +56,9 @@
 .legacy-css #views-exposed-form-nature-groups-search-page label {
   color: #000000;
 }
+.legacy-css #views-exposed-form-nature-groups-search-page #edit-moreoptions {
+  width: 690px;
+}
 .legacy-css .front-page-pos h2 {
   font-weight: bold;
   padding: 0;
@@ -71,8 +78,12 @@
 }
 .legacy-css .view-nature-groups h3 {
   font-size: 1.4em;
+  font-weight: bold;
   margin: 0;
   padding: 0;
+}
+.legacy-css .page-naturegroups #main-content {
+  width: 507px;
 }
 
 /*# sourceMappingURL=nhm-legacy.css.map */
