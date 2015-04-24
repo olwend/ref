@@ -7,15 +7,17 @@ $(document).ready(function() {
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
-		var tags = $(this).data('tags')
-		console.log("ComponentID " + componentID + ", rootPath " + rootPath + ", pageSize "+ pageSize + ", hideMonths "+ hideMonths + ", isMultilevel "+ isMultilevel + ", tags "+ tags);
+		var resourceType = $(this).data('resourcetype');
+		var tags = $(this).data('tags');
+		console.log("ComponentID " + componentID + ", rootPath " + rootPath + ", pageSize "+ pageSize +
+					", hideMonths "+ hideMonths + ", isMultilevel "+ isMultilevel + ", tags "+ tags + ", resourceType " + resourceType);
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
+			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
+function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType ) {
 	console.log("Doing a doGet call");
 	$.ajax({
 		type: 'GET',    
@@ -25,6 +27,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 			pageNumber: pageNumber,
 			pageSize: pageSize,
 			isMultilevel: isMultilevel,
+			resourceType: resourceType,
 			tags: tags
 		},
 		success: function(data){

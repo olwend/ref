@@ -16,7 +16,7 @@ public interface FeedListPaginationService {
 
 	public JSONObject getJSON(List<Object> objects, Integer pageNumber,Integer pageSize, final ResourceResolver resolver,final SlingHttpServletRequest request);
 
-	public List<TaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath, String tags);
+	public List<TaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath, String tags, String resourceType);
 	
 	public String[] getCqTags();
 

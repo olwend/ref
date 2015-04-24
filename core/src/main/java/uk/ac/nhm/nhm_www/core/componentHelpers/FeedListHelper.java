@@ -23,7 +23,8 @@ public class FeedListHelper extends ListHelper {
 	
 	protected String rootPagePath;
 	protected Integer numberOfItems;
-	
+	protected String resourceType;
+
 	protected static final Logger logger = LoggerFactory.getLogger(FeedListHelper.class);
 	
 	public FeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
@@ -45,6 +46,9 @@ public class FeedListHelper extends ListHelper {
 		}
 		if (this.properties.get("newwindow") != null) {
 		    this.newwindow = this.properties.get("newwindow",false);
+		}
+		if (this.properties.get("sling:resourceType") != null) {
+		    this.resourceType = this.properties.get("sling:resourceType", String.class);
 		}
 		this.rootPagePath = this.properties.get("rootPagePath",this.currentPage.getPath());
 		this.rootPage = this.pageManager.getPage(this.rootPagePath);
@@ -118,5 +122,12 @@ public class FeedListHelper extends ListHelper {
     	this.rootPagePath = rootPagePath;
     }
 
+	public String getResourceType() {
+		return resourceType;
+	}
+
+	public void setResourceType(String resourceType) {
+		this.resourceType = resourceType;
+	}
 
 }

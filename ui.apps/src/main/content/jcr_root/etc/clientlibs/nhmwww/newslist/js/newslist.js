@@ -6,14 +6,15 @@ $(document).ready(function() {
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
-		var tags = $(this).data('tags')
+		var resourceType = $(this).data('resourcetype');
+		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
+			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
+function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -22,6 +23,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 			pageNumber: pageNumber,
 			pageSize: pageSize,
 			isMultilevel: isMultilevel,
+			resourceType: resourceType,
 			tags: tags
 		},
 		success: function(data){

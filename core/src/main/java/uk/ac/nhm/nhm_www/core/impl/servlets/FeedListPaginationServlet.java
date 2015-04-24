@@ -73,6 +73,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		Boolean isMultilevel = Boolean.parseBoolean(request.getParameter("isMultilevel"));
+		String resourceType = request.getParameter("resourceType");
 		final Resource resource = request.getResource();
 		
 		ResourceResolver resourceResolver = request.getResourceResolver();
@@ -87,7 +88,7 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		if(isMultilevel) {
 			LOG.error("is multilevel 1");
 			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
-			List<TaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags);
+			List<TaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags, resourceType);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
 			LOG.error("results length: " + results.size());
