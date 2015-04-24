@@ -45,10 +45,10 @@
                         name="./noOfItems"
                         width="155"
                         xtype="numberfield"/>
-                    <hideMonths
+                    <fullWidth
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Hide page containing stories"
-                        name="./hideMonths"
+                        fieldLabel="Is the component placed in a fullwidth Parsys?"
+                        name="./fullWidth"
                         type="checkbox"
                         xtype="selection"/>
                     <rootPagePath

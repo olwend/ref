@@ -77,82 +77,84 @@ function showItems(pageJson, componentID, hideMonths) {
 }
 
 function createPressRelease(title, intro, shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
-	var element = document.createElement("div");
-	element.className = 'press-office--list-item-' + group;
-	if (addGroup) { //!hideMonths
-		var groupH3 = document.createElement("h3");
-		groupH3.innerHTML = group;
-		element.appendChild(groupH3);
-	}
-	element.setAttributeNode(document.createAttribute('data-equalizer'));
-	
-	var dateDiv = document.createElement("div");
-	dateDiv.className = 'small-12 columns press-office--list-item--caption';
-	dateDiv.innerHTML = date;
-	
-	element.appendChild(dateDiv);
-	
-	var wrapperDiv = document.createElement("div");
-	wrapperDiv.className = 'small-12 columns press-office--list-item--content-wrapper';
-	var firstColumnDiv = document.createElement("div");
-	firstColumnDiv.className = 'small-12 medium-6 columns';
-	firstColumnDiv.setAttributeNode(document.createAttribute('data-equalizer'));
-	var imageDiv = document.createElement("div");
-	imageDiv.className = 'adaptiveimage parbase foundation5image image image_0';
-	
-	var link = document.createElement('a');
-	link.href = url;
-	
-	var image = document.createElement('img');
-	image.alt = title;
-	
-	var dataInterchangeAttribute = document.createAttribute('data-interchange');
-	dataInterchangeAttribute.value = "[" + imagePath + ".img.full.medium.jpg, (default)], " +
-									  "[" + imagePath + ".img.full.low.jpg, (small)], " +
-									  "[" + imagePath + ".img.620.high.jpg, (retina)], " +
-									  "[" + imagePath + ".img.full.medium.jpg, (medium)], " +
-									  "[" + imagePath + ".img.full.high.jpg, (large)]";
-	image.setAttributeNode(dataInterchangeAttribute);
-	link.appendChild(image);
-	
-	var noscript = document.createElement('noscript')
-	var image2 = document.createElement('img');
-	image2.src = imagePath + '.img.full.medium.jpg';
-	image2.alt = title;
-	noscript.appendChild(image2);
-	link.appendChild(noscript);
-	
-	imageDiv.appendChild(link);
-	firstColumnDiv.appendChild(imageDiv);
-	wrapperDiv.appendChild(firstColumnDiv);
-	
-	var secondColumnDiv = document.createElement('div');
-	secondColumnDiv.className = 'small-12 medium-6 columns';
-	
-	var contentDiv = document.createElement('div');
-	contentDiv.className = 'press-office--list-item--content';
-	
-	var h4 = document.createElement('h4');
-	h4.className = 'press-office--list-item--title';
-	
-	var link2 = document.createElement('a');
-	link2.href = url;
-	link2.innerHTML = title;
-	
-	h4.appendChild(link2);
-	
-	contentDiv.appendChild(h4);
-	
-	var p = document.createElement('p');
-	p.innerHTML = shortIntro;
-	p.className = 'press-office--list-item--tagline';
-	
-	contentDiv.appendChild(p);
-	secondColumnDiv.appendChild(contentDiv);
-	wrapperDiv.appendChild(secondColumnDiv);
-	element.appendChild(wrapperDiv);
-	
-	return element;
+	//turn this function into function createPressRelease(title, intro, shortIntro, imagePath, url){, there is no need for anything else with tagged Elements
+		var element = document.createElement("li");
+		
+			var listItem = document.createElement("div");
+			listItem.className = 'press-office--list-item';
+
+				var contentWrapper = document.createElement("div");
+				contentWrapper.className = 'small-12 columns press-office--list-item--content-wrapper';
+				contentWrapper.setAttributeNode(document.createAttribute('data-equalizer-watch'));
+
+					var columnsDiv = document.createElement("div");
+					columnsDiv.className = 'small-12 columns';
+
+						var link = document.createElement('a');
+						link.href = url;
+						
+							var image = document.createElement('img');
+							image.alt = title;
+							
+							var dataInterchangeAttribute = document.createAttribute('data-interchange');
+							dataInterchangeAttribute.value =  "[" + imagePath + ".img.full.medium.jpg, (default)], " +
+															  "[" + imagePath + ".img.full.low.jpg, (small)], " +
+															  "[" + imagePath + ".img.620.high.jpg, (retina)], " +
+															  "[" + imagePath + ".img.full.medium.jpg, (medium)], " +
+															  "[" + imagePath + ".img.full.high.jpg, (large)]";
+							image.setAttributeNode(dataInterchangeAttribute);
+						link.appendChild(image);
+							
+							var noscript = document.createElement('noscript')
+							var image2 = document.createElement('img');
+							image2.src = imagePath + '.img.full.medium.jpg';
+							image2.alt = title;
+							noscript.appendChild(image2);
+
+						link.appendChild(noscript);
+							
+//						// Published Date Logic						
+//						var dateDiv = document.createElement("div");
+//						dateDiv.className = 'small-12 columns press-office--list-item--caption';
+//							dateDiv.innerHTML = date;
+
+					columnsDiv.appendChild(link);
+					//columnsDiv.appendChild(dateDiv);
+
+					var columnsDiv2 = document.createElement("div");
+					columnsDiv2.className = 'small-12 columns';
+
+						var itemContent = document.createElement("div");
+						itemContent.className = 'press-office--list-item--content';
+
+							var itemTitle = document.createElement("h4");
+							itemTitle.className = 'press-office--list-item--title';
+
+								var link2 = document.createElement("a");
+								link2.href = url;
+									
+									link2.innerHTML = title;
+
+							itemTitle.appendChild(link2);
+
+							var tagLine = document.createElement("p");
+							tagLine.className = 'press-office--list-item--tagline';
+
+								tagLine.innerHTML = shortIntro;
+							
+						itemContent.appendChild(itemTitle);
+						itemContent.appendChild(tagLine);
+
+					columnsDiv2.appendChild(itemContent);
+
+				contentWrapper.appendChild(columnsDiv);
+				contentWrapper.appendChild(columnsDiv2);
+
+			listItem.appendChild(contentWrapper);
+
+		element.appendChild(listItem);
+
+		return element;
 }
 
 function addMoreResultsButton() {

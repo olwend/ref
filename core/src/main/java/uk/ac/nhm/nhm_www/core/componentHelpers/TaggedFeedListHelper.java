@@ -23,7 +23,7 @@ public class TaggedFeedListHelper extends FeedListHelper {
 	protected static final Logger logger = LoggerFactory.getLogger(TaggedFeedListHelper.class);
 	
 	protected Integer noOfItems;
-	protected Boolean hideMonths;
+	protected Boolean fullWidth;
 	protected String[] tags;
 	protected String componentID;
 	protected String shortIntroduction;
@@ -60,7 +60,7 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		}
 		
 		// Hide Months
-		this.hideMonths = this.properties.get("hideMonths", false);
+		this.fullWidth = this.properties.get("fullWidth", false);
 		
 		// ComponentID
 		this.componentID = this.properties.get("componentID", "");
@@ -103,12 +103,20 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		this.noOfItems = noOfItems;
 	}
 
-	public Boolean getHideMonths() {
-		return hideMonths;
+	public String getFullWidthCommand() {
+		String res = StringUtils.EMPTY;
+		if (isFullWidth()){
+			res = "large-block-grid-3";
+		}
+		return res;
 	}
 
-	public void setHideMonths(Boolean hideMonths) {
-		this.hideMonths = hideMonths;
+	public void setFullWidth(Boolean fullWidth) {
+		this.fullWidth = fullWidth;
+	}
+	
+	public Boolean isFullWidth(){
+		return fullWidth;
 	}
 	
 	public String getComponentID() {

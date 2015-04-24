@@ -37,26 +37,23 @@
 	if (helper.getNoOfItems() != null){
 		noOfItems = helper.getNoOfItems();
 	}
+	
 	String componentID = "";
 	if (helper.getComponentID() != null) {
 		componentID = new String(helper.getComponentID()).toLowerCase();
 	}
-	
-	boolean hideMonths = false;
-	if (helper.getHideMonths() != null){
-		hideMonths = helper.getHideMonths();
-	}
+
 	
 %>
 
 <div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
-						data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  
-						data-resourcetype="nhmwww/components/page/newscontentpage" data-tags="<%= helper.getTagsString()%>">
+						data-componentid="<%=componentID %>" data-multilevel="true" data-tags="<%= helper.getTagsString()%>"
+						data-resourcetype="nhmwww/components/page/taggedcontentpage">
 							
 	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
     <!-- START PAGINATION -->
     <!-- END PAGINATION -->
-	<div class="small-block-grid-1 medium-block-grid-2 press-office--feed-<%=componentID%>" id="press-office--feed-<%=componentID%>" data-equalizer>
+	<div class="small-block-grid-1 medium-block-grid-2 <%=helper.getFullWidthCommand()%> press-office--feed-<%=componentID%>" id="press-office--feed-<%=componentID%>" data-equalizer>
 		
 	</div>
 </div>
