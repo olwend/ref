@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="{Long}400"
+    title="Link List Component"
+    width="1000"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <basic
+                jcr:primaryType="cq:Widget"
+                title="Basic"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Component title"
+                        name="./title"
+                        width="155"
+                        xtype="textfield"/>
+                    <hyperlink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hyperlink"
+                        itemId="hyperlink"
+                        name="./hyperlink"
+                        width="155"
+                        xtype="pathfield"/>
+                    <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+					<description
+					    jcr:primaryType="cq:Widget"
+                        fieldLabel="Description of the Links"
+					    name="./description"
+					    xtype="richtext">
+					    <rtePlugins
+					        jcr:primaryType="cq:Widget"
+					        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+					        xtype="cqinclude"/>
+					</description>
+					<numcolumns
+	                    jcr:primaryType="cq:Widget"
+	                    defaultValue="4"
+	                    fieldLabel="Number of Columns"
+	                    name="./columns"
+	                    type="select"
+	                    xtype="selection">
+	                    <options jcr:primaryType="cq:WidgetCollection">
+	                        <o1
+	                            jcr:primaryType="nt:unstructured"
+	                            text="One Column"
+	                            value="4"/>
+	                        <o2
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Two columns"
+	                            value="8"/>
+	                        <o2
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Three columns"
+	                            value="12"/>
+	                    </options>
+					</numcolumns>
+                </items>
+            </basic>
+            <firstcolumn
+                jcr:primaryType="cq:Widget"
+                title="First Column"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <columntitle
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="First Column Header"
+                        name="./firstHeader"
+                        width="155"
+                        xtype="textfield"/>
+		            <links
+		                jcr:primaryType="cq:Widget"
+		                border="false"
+		                height=""
+		                title="Link List"
+		                width=""
+		                xtype="panel">
+		                <items jcr:primaryType="cq:WidgetCollection">
+		                    <linkListItems
+		                        jcr:primaryType="cq:Widget"
+		                        fieldDescription="Click the '+' to add a new item"
+		                        fieldLabel="Link list items"
+		                        name="./linkListItems"
+		                        xtype="multifield">
+			                    <linkTitle
+			                        jcr:primaryType="cq:Widget"
+			                        fieldLabel="Link title"
+			                        name="./linkTitle"
+			                        width="155"
+			                        xtype="textfield"/>
+		                        <fieldConfig
+		                            jcr:primaryType="cq:Widget"
+									fieldLabel="Link url"
+		                            width="80"
+		                            xtype="linklistfield"/>
+		                    </linkListItems>
+		                </items>
+		            </links>
+                </items>
+            </firstcolumn>
+            <secondcolumn
+                jcr:primaryType="cq:Widget"
+                title="Second Column"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <columntitle
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Second Column Header"
+                        name="./secondHeader"
+                        width="155"
+                        xtype="textfield"/>
+		            <links
+		                jcr:primaryType="cq:Widget"
+		                border="false"
+		                height=""
+		                title="Link List"
+		                width=""
+		                xtype="panel">
+		                <items jcr:primaryType="cq:WidgetCollection">
+		                    <linkListItems
+		                        jcr:primaryType="cq:Widget"
+		                        fieldDescription="Click the '+' to add a new item"
+		                        fieldLabel="Link list items"
+		                        name="./linkListItems"
+		                        xtype="multifield">
+			                    <linkTitle
+			                        jcr:primaryType="cq:Widget"
+			                        fieldLabel="Link title"
+			                        name="./linkTitle"
+			                        width="155"
+			                        xtype="textfield"/>
+		                        <fieldConfig
+		                            jcr:primaryType="cq:Widget"
+									fieldLabel="Link url"
+		                            width="80"
+		                            xtype="linklistfield"/>
+		                    </linkListItems>
+		                </items>
+		            </links>
+                </items>
+            </secondcolumn>
+            <thirdcolumn
+                jcr:primaryType="cq:Widget"
+                title="Third Column"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <columntitle
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Third Column Header"
+                        name="./thirdHeader"
+                        width="155"
+                        xtype="textfield"/>
+		            <links
+		                jcr:primaryType="cq:Widget"
+		                border="false"
+		                height=""
+		                title="Link List"
+		                width=""
+		                xtype="panel">
+		                <items jcr:primaryType="cq:WidgetCollection">
+		                    <linkListItems
+		                        jcr:primaryType="cq:Widget"
+		                        fieldDescription="Click the '+' to add a new item"
+		                        fieldLabel="Link list items"
+		                        name="./linkListItems"
+		                        xtype="multifield">
+			                    <linkTitle
+			                        jcr:primaryType="cq:Widget"
+			                        fieldLabel="Link title"
+			                        name="./linkTitle"
+			                        width="155"
+			                        xtype="textfield"/>
+		                        <fieldConfig
+		                            jcr:primaryType="cq:Widget"
+									fieldLabel="Link url"
+		                            width="80"
+		                            xtype="linklistfield"/>
+		                    </linkListItems>
+		                </items>
+		            </links>
+                </items>
+            </thirdcolumn>
+        </items>
+    </items>
+</jcr:root>

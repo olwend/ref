@@ -51,7 +51,7 @@ public class ListHelper extends HelperBase {
 		}
 
 		if(landingPage != null) {
-			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
+			Iterator<Page> children = landingPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
 		
