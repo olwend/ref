@@ -5,19 +5,16 @@ $(document).ready(function() {
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
-		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
 		var resourceType = $(this).data('resourcetype');
 		var tags = $(this).data('tags');
-		console.log("ComponentID " + componentID + ", rootPath " + rootPath + ", pageSize "+ pageSize +
-					", hideMonths "+ hideMonths + ", isMultilevel "+ isMultilevel + ", tags "+ tags + ", resourceType " + resourceType);
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
+			showPressReleases(rootPath, 1, pageSize, componentID, tags, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType ) {
+function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel, resourceType ) {
 	console.log("Doing a doGet call");
 	$.ajax({
 		type: 'GET',    
@@ -34,7 +31,7 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 			console.log("Success on doGet");
 			var json = jQuery.parseJSON(data);
 			buildNavigators(pageNumber, json.pages);
-			showItems(json.pageJson, componentID, hideMonths);
+			showItems(json.pageJson, componentID);
 			if(pageNumber != json.pages){
 				addMoreResultsButton();
 			}
@@ -46,24 +43,15 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hi
 	});
 }
 
-function showItems(pageJson, componentID, hideMonths) {
+function showItems(pageJson, componentID) {
 	console.log("Inside showItems"); 
-	var currentGroup = "";
 	$.each(pageJson, function(index, item) {
-		
-		var addGroup = false;
-		if(currentGroup != item.group){
-			addGroup = true;
-			currentGroup = item.group;
-		}
-		currentGroup = item.group;
-		var title = item.title; 
-		var intro = item.intro;
+		var title = item.title;
 		var shortIntro = item.shortIntro;
 		var imagePath = item.imagePath;
-		var date = "The Date";//item.date;
+		//var date = item.date;
 		var link = item.path + ".html";
-		var element = createPressRelease(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
+		var element = createPressRelease(title, shortIntro, imagePath, link);
 		var componentClass = '#press-office--feed-' + componentID;
 		
 		$(componentClass).append(element);
@@ -76,8 +64,9 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createPressRelease(title, intro, shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
-	//turn this function into function createPressRelease(title, intro, shortIntro, imagePath, url){, there is no need for anything else with tagged Elements
+function createPressRelease(title, shortIntro, imagePath, url) {
+	// Turn this function into createPressRelease(title, shortIntro, imagePath, url){, there is no need for anything else with tagged Elements
+	// only thing that should be needed would possibly be date but you have News for that! 
 		var element = document.createElement("li");
 		
 			var listItem = document.createElement("div");
@@ -113,12 +102,13 @@ function createPressRelease(title, intro, shortIntro, date, imagePath, url, hide
 
 						link.appendChild(noscript);
 							
-//						// Published Date Logic						
-//						var dateDiv = document.createElement("div");
-//						dateDiv.className = 'small-12 columns press-office--list-item--caption';
-//							dateDiv.innerHTML = date;
+						//Published Date Logic
+						//var dateDiv = document.createElement("div");
+						//dateDiv.className = 'small-12 columns press-office--list-item--caption';
+							//dateDiv.innerHTML = date;
 
 					columnsDiv.appendChild(link);
+					//Published Date Logic
 					//columnsDiv.appendChild(dateDiv);
 
 					var columnsDiv2 = document.createElement("div");

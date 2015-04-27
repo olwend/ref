@@ -20,7 +20,9 @@ import com.day.cq.wcm.api.PageManager;
 
 public class TaggedFeedListHelper extends FeedListHelper {
 	
+	public static final String FULL_WIDTH_CSS = "large-block-grid-3";
 	protected static final Logger logger = LoggerFactory.getLogger(TaggedFeedListHelper.class);
+	
 	
 	protected Integer noOfItems;
 	protected Boolean fullWidth;
@@ -59,7 +61,7 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		    this.noOfItems = new Integer(3);
 		}
 		
-		// Hide Months
+		// Full Width
 		this.fullWidth = this.properties.get("fullWidth", false);
 		
 		// ComponentID
@@ -80,9 +82,8 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		}
 		
 		processChildren(children);
-		
 		this.initialised=true;
-
+		
     }
     
 	@Override
@@ -106,7 +107,7 @@ public class TaggedFeedListHelper extends FeedListHelper {
 	public String getFullWidthCommand() {
 		String res = StringUtils.EMPTY;
 		if (isFullWidth()){
-			res = "large-block-grid-3";
+			res = FULL_WIDTH_CSS;
 		}
 		return res;
 	}
