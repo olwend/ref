@@ -74,7 +74,6 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		Boolean isMultilevel = Boolean.parseBoolean(request.getParameter("isMultilevel"));
 		String resourceType = request.getParameter("resourceType");
-		final Resource resource = request.getResource();
 		
 		ResourceResolver resourceResolver = request.getResourceResolver();
 		

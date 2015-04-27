@@ -202,7 +202,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 						
 						if(!node.hasProperty(DatedAndTaggedFeedListElement.PUBLISH_DATE_ATTRIBUTE_NAME)){
 							continue;
-						} 
+						}
 					}
 					
 					Page page = pmanager.getContainingPage(node.getPath());
@@ -238,13 +238,10 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 	}
 
 	public List<TaggedFeedListElement> searchCQ(final SlingHttpServletRequest request, String rootPath, String tags, String resourceType) {
-		setJcrPath(rootPath);
+		this.setJcrPath(rootPath);
 		this.cqTags = tags.split(",");
-		LOG.error("KeyQuery needs Tags: " + this.cqTags);
-		LOG.error("Setting sling:resourceType to " + resourceType);
-		setResourceType(resourceType);
+		this.setResourceType(resourceType);
 		final String keyQuery = getKeyQuery();
-		LOG.error("query built: " + keyQuery);
 		if (!cache.containsKey(keyQuery)) {
 			if (!updateCache(keyQuery))
 				return null;
