@@ -40,7 +40,14 @@ function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths,
 }
 
 function showItems(pageJson, componentID, hideMonths) {
-	var currentGroup = "";
+	var monthsDisplayed = $(".news-month");
+	
+	if(monthsDisplayed.length > 0) {
+		var currentGroup = $(monthsDisplayed[monthsDisplayed.length - 1]).html();
+	} else {
+		var currentGroup ="";
+	}
+	
 	$.each(pageJson, function(index, item) {
 		
 		var addGroup = false;
@@ -73,6 +80,7 @@ function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, 
 	element.className = 'press-office--list-item';
 	if (addGroup && !hideMonths) { //!hideMonths
 		var groupH3 = document.createElement("h3");
+		groupH3.className = "news-month";
 		groupH3.innerHTML = group;
 		element.appendChild(groupH3);
 	}
