@@ -27,7 +27,6 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, is
 		},
 		success: function(data){
 			var json = jQuery.parseJSON(data);
-			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID);
 			if(pageNumber != json.pages){
 				addMoreResultsButton();
