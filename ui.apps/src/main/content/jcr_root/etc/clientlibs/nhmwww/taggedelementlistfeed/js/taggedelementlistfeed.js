@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
 	$('.pressreleaselistfeed-wrapper').each(function (){
-		console.log("Inside Parapa the wrapper");
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
@@ -42,7 +41,6 @@ function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, is
 }
 
 function showItems(pageJson, componentID) {
-	console.log("Inside showItems"); 
 	$.each(pageJson, function(index, item) {
 		var title = item.title;
 		var shortIntro = item.shortIntro;
@@ -143,7 +141,6 @@ function createPressRelease(title, shortIntro, imagePath, url) {
 
 function addMoreResultsButton() {
 	var moreElementsDiv = document.createElement("div");
-	
 	moreElementsDiv.className = "row more-results";
 	moreElementsDiv.id = "more_results";
 	var aTag = document.createElement("a");
@@ -172,81 +169,5 @@ function removeMoreResultsButton() {
 	 wrapperDiv.removeChild(divToDelete);
 }
 
-function buildNavigators(pageNumber, numberOfPages) {
-	
-	/*if (numberOfPages > 1) {
-		$.each($('.pressreleaselistfeed-wrapper .pagination-centered'), function(index, item) { 
-			//var pagination = document.createElement('ul');
-			//pagination.className = 'pagination';
-			
-			///var toFirst = document.createElement('li');
-			//if (pageNumber == 1) {
-				toFirst.innerHTML = '<li class="arrow unavailable"><a href="#">«</a></li>';
-			//} else {
-			//	toFirst.innerHTML = '<li class="arrow"><a data-index="1" href="#">«</a></li>';
-			//}
-				
-			var showMore = document.createElement('a');
-			showMore.appendChild('h5');
-			pagination.appendChild(toFirst);
-			
-			var toPrev = document.createElement('li');
-			if (pageNumber == 1) {
-				toPrev.innerHTML = '<li class="unavailable"><a data-index="' + (pageNumber - 1) + '" href="#">Prev</a></li>';
-			} else {
-				toPrev.innerHTML = '<li><a data-index="' + (pageNumber - 1) + '" href="#">Prev</a></li>';
-			}
-			pagination.appendChild(toPrev);
-			
-			for (i = 1; i <= numberOfPages; i++) {
-				var toI = document.createElement('li');
-				
-				if (i == pageNumber) {
-					toI.innerHTML = '<li class="current"><a data-index="' + i + '" href="#">' + i + '</a></li>'
-				} else {
-					toI.innerHTML = '<li><a data-index="' + i + '" href="#">' + i + '</a></li>'
-				}
-				
-				pagination.appendChild(toI);
-			}
-			
-			var toNext = document.createElement('li');
-			if (pageNumber == numberOfPages) {
-				toNext.innerHTML = '<li class="unavailable"><a data-index="' + (pageNumber + 1) + '" href="#">Next</a></li>';
-			} else {
-				toNext.innerHTML = '<li><a data-index="' + (pageNumber + 1) + '" href="#">Next</a></li>';
-			}
-			pagination.appendChild(toNext);
-			
-			var toLast = document.createElement('li');
-			if (pageNumber == numberOfPages) {
-				toLast.innerHTML = '<li class="arrow unavailable"><a data-index="' + numberOfPages + '" href="#">»</a></li>';
-			} else {
-				toLast.innerHTML = '<li class="arrow"><a data-index="' + numberOfPages + '" href="#">»</a></li>';
-			}
-			pagination.appendChild(toLast);
-			
-			$(this).append(pagination);
-			
-			$('.pressreleaselistfeed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
-				var to = $(this).data('index');
-				
-				if ($(this).parent().hasClass('unavailable')) {
-					return false;
-				}
-				
-				var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-				var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
-				
-				if (rootPath && pageSize) {
-					$('.pressreleaselistfeed-wrapper .pagination-centered').empty();
-					$('.press-room--list').empty();
-					
-					showPressReleases(rootPath, to, pageSize);
-				}
-				
-				return false;
-			}); 
-		});
-	} */
-}
+
+
