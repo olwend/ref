@@ -12,7 +12,7 @@
 
 <% 
 	//Fake vars
-	String url = "http://www.google.com";
+	String linkURL = "http://www.google.com";
 	String linkTitle = "This is a Link ";
 	Boolean isNewWindow = true; 
 	String windowTarget = "";
@@ -26,12 +26,12 @@
 %>
 
 <%-- Link List --%>
-<nav class="linklist ">
+<nav class="linklist small-block-grid-1 medium-block-grid-2 large-block-grid-3">
 
 	<%-- Column --%>
 	<ul class="first-column">
 		<%-- link,  --%>
-		<a href="<%=url %>" data-title="<%=linkTitle %>" target="<%=windowTarget %>">
+		<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
 			<li>
 				<h3><%=linkTitle%></h3>
 			</li>
@@ -40,7 +40,7 @@
 	
 	<%-- [Optional] Column --%>
 	<ul class="second-column">
-		<a href="<%=url %>" data-title="<%=linkTitle %>" target="<%=windowTarget %>">
+		<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
 			<li>
 				<h3><%=linkTitle%></h3>
 			</li>
@@ -49,7 +49,7 @@
 	
 	<%-- [Optional] Column --%>
 	<ul class="third-column">
-		<a href="<%=url %>" data-title="<%=linkTitle %>" target="<%=windowTarget %>">
+		<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
 			<li>
 				<h3><%=linkTitle%></h3>
 			</li>
