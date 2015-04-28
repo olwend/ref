@@ -10,79 +10,12 @@
 <%-- [Optional] Description --%>
 <%if (helper.hasDescription()) { %> <div> <%= helper.getDescription() %></div> <% } %>
 
+
 <% 
-	//Fake vars
-	String linkURL = "http://www.google.com";
-	String linkTitle = "This is a Link ";
-	Boolean isNewWindow = true; 
-	String windowTarget = "";
-	if (isNewWindow == true) {
-		windowTarget = "_blank";
-	}
-	else {
-		windowTarget = "_self";
-	}
+	StringBuffer strBuff= helper.displayColumns();
 %>
 
-<%= helper.printColumn("firstLinkListItems") %>
-
-
-
-Ahead, you can find all the fake columns
-
-<%-- Link List --%>
-<nav class="linklist small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-
-	<%-- Column --%>
-	<ul class="first-column">
-		<%-- link,  --%>
-		<li>
-			<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
-				<h3>First <%=linkTitle%></h3>
-			</a>
-		</li>
-	</ul>
-	
-	<%-- [Optional] Column --%>
-	<ul class="second-column">
-		<li>
-			<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
-				<h3>Second <%=linkTitle%></h3>
-			</a>
-		</li>
-	</ul>
-	
-	<%-- [Optional] Column --%>
-	<ul class="third-column">
-		<li>
-			<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
-				<h3>Third <%=linkTitle%></h3>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Getting it Done switftly 
 
 
 

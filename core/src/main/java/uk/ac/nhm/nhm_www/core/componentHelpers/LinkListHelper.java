@@ -120,14 +120,19 @@ public class LinkListHelper extends ListHelper {
 	
 	public StringBuffer createListItem(String title, String url, String target){
 		StringBuffer listItem = new StringBuffer();
-		listItem.append("<li><h3>");
-		listItem.append("<a href=\"" + url + "\" target=\"" + target + "\">" + title + "</a>");
-		listItem.append("</h3></li>");
+		listItem.append(""
+				+ "<li>"
+					+ "<h3>"
+						+ "<a href=\"" + url + "\" target=\"" + target + "\">"
+							+ title
+						+ "</a>"
+					+ "</h3>"
+				+ "</li>");
 		return listItem;
 	}
 	
 	public StringBuffer printColumn(String columnItems) throws JSONException {
-
+		LOG.error("Inside " + columnItems);
 		StringBuffer columnString = new StringBuffer();
 		columnString.append("<ul class=\"first-column\">");
 
@@ -160,19 +165,24 @@ public class LinkListHelper extends ListHelper {
 	    return columnString;
 	}
 	
-	public void displayColumns() throws JSONException {
+	public StringBuffer displayColumns() throws JSONException {
+		StringBuffer columns = new StringBuffer();
+		LOG.error("Inside Display Columns");
+		
 		
 		//Add variable to see if they want 1 2 or 3 columns
 		if (this.properties.get("firstLinkListItems") != null){
-			printColumn("firstLinkListItems");
+			LOG.error("About to Display first Column");
+			columns.append(printColumn("firstLinkListItems"));
 			
 			if (this.properties.get("secondLinkListItems") != null){
-				printColumn("secondLinkListItems");
+				columns.append(printColumn("secondLinkListItems"));
 				
 				if (this.properties.get("thirdLinkListItems") != null){
-					printColumn("thirdLinkListItems");
+					columns.append(printColumn("thirdLinkListItems"));
 				}	
 			}			
 		}
+		return columns;
 	}
 }
