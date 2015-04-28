@@ -323,7 +323,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		itemToAdd.put("title", listElement.getTitle());
 		itemToAdd.put("intro", listElement.getIntro());
 		itemToAdd.put("imagePath", listElement.getImagePath());
-		final DateFormat df = new SimpleDateFormat("MMMMM d yyyy");
+		final DateFormat df = new SimpleDateFormat("d MMMMM yyyy");
 		itemToAdd.put("date", df.format(listElement.getPressReleaseDate()));
 		itemToAdd.put("path", resolver.map(request, listElement.getPage().getPath()));
 		return itemToAdd;
@@ -342,7 +342,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 		itemToAdd.put("title", listElement.getTitle());
 		itemToAdd.put("intro", listElement.getIntro());
 		itemToAdd.put("imagePath", listElement.getImagePath());
-		final DateFormat df = new SimpleDateFormat("MMMMM d yyyy");
+		final DateFormat df = new SimpleDateFormat("d MMMMM yyyy");
 		itemToAdd.put("date", df.format(listElement.getPressReleaseDate()));
 		itemToAdd.put("path", resolver.map(request, listElement.getPage().getPath()));
 		itemToAdd.put("group", listElement.getPage().getParent().getTitle());
