@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
-    height="{Long}400"
+    height="{Long}600"
     title="Link List Component"
     width="1000"
     xtype="dialog">
@@ -88,17 +88,90 @@
 		                        jcr:primaryType="cq:Widget"
 		                        fieldDescription="Click the '+' to add a new item"
 		                        fieldLabel="Link list items"
-		                        name="./linkListItems"
+		                        name="./firstLinkListItems"
 		                        xtype="multifield">
 								<fieldConfig
 		                            jcr:primaryType="cq:Widget"
 		                            width="80"
-		                            xtype="linklistfield"/>
+		                            xtype="textfield"/>
+		                        <fieldConfig 
+		                        	jcr:primaryType="cq:Widget" 
+		                        	xtype="mypathfield"/>
 		                    </linkListItems>
 		                </items>
 		            </items>
                 </items>
             </firstcolumn>
+            <secondcolumn
+                jcr:primaryType="cq:Widget"
+                title="Second Column"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <columntitle
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Second Column Header"
+                        name="./secondHeader"
+                        width="155"
+                        xtype="textfield"/>
+                    <items
+                        jcr:primaryType="cq:Widget"
+                        border="false"
+                        title="Link List"
+                        xtype="panel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <linkListItems
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Click the '+' to add a new item"
+                                fieldLabel="Link list items"
+                                name="./secondLinkListItems"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="cq:Widget"
+                                    width="80"
+                                    xtype="textfield"/>
+                                <fieldConfig 
+                                    jcr:primaryType="cq:Widget" 
+                                    xtype="mypathfield"/>
+                            </linkListItems>
+                        </items>
+                    </items>
+                </items>
+            </secondcolumn>
+            <thirdcolumn
+                jcr:primaryType="cq:Widget"
+                title="Third Column"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <columntitle
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Third Column Header"
+                        name="./thirdHeader"
+                        width="155"
+                        xtype="textfield"/>
+                    <items
+                        jcr:primaryType="cq:Widget"
+                        border="false"
+                        title="Link List"
+                        xtype="panel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <linkListItems
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Click the '+' to add a new item"
+                                fieldLabel="Link list items"
+                                name="./thirdLinkListItems"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="cq:Widget"
+                                    width="80"
+                                    xtype="textfield"/>
+                                <fieldConfig 
+                                    jcr:primaryType="cq:Widget" 
+                                    xtype="mypathfield"/>
+                            </linkListItems>
+                        </items>
+                    </items>
+                </items>
+            </thirdcolumn>
         </items>
     </items>
 </jcr:root>
