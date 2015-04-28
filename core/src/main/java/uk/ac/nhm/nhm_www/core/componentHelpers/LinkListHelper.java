@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.commons.json.JSONException;
+import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +37,7 @@ public class LinkListHelper extends ListHelper {
 	private String[] firstColumnItems;
 	private String[] secondColumnItems;
 	private String[] thirdColumnItems;
-	public boolean isFullWidth = false;
+	private boolean isFullWidth = false;
 	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
@@ -116,4 +118,61 @@ public class LinkListHelper extends ListHelper {
 		}
 	}
 	
+	public StringBuffer createListItem(String title, String url, String target){
+		StringBuffer listItem = new StringBuffer();
+		listItem.append("<li><h3>");
+		listItem.append("<a href=\"" + url + "\" target=\"" + target + "\">" + title + "</a>");
+		listItem.append("</h3></li>");
+		return listItem;
+	}
+	
+	public StringBuffer printColumn(String columnItems) throws JSONException {
+
+		StringBuffer columnString = new StringBuffer();
+		columnString.append("<ul class=\"first-column\">");
+
+		String[] linkListItems = this.properties.get(columnItems, String[].class);
+		
+	    if (linkListItems != null)
+	    {
+	        for (String linkItem : linkListItems) {
+	            JSONObject json = new JSONObject(linkItem);
+	            
+				String linkTitle = json.getString("text");
+				
+	            String linkURL = json.getString("url");
+	            
+				Boolean isNewWindow = json.getBoolean("openInNewWindow"); 
+				String windowTarget = "";
+				if (isNewWindow == true) {
+					windowTarget = "_blank";
+				}
+				else {
+					windowTarget = "_self";
+				}
+				
+				columnString.append(createListItem(linkTitle, linkURL, windowTarget));
+	            
+	        }
+	    }
+	    columnString.append("</ul>");
+	    
+	    return columnString;
+	}
+	
+	public void displayColumns() throws JSONException {
+		
+		//Add variable to see if they want 1 2 or 3 columns
+		if (this.properties.get("firstLinkListItems") != null){
+			printColumn("firstLinkListItems");
+			
+			if (this.properties.get("secondLinkListItems") != null){
+				printColumn("secondLinkListItems");
+				
+				if (this.properties.get("thirdLinkListItems") != null){
+					printColumn("thirdLinkListItems");
+				}	
+			}			
+		}
+	}
 }

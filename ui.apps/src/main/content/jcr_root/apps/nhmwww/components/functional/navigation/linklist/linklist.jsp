@@ -22,8 +22,13 @@
 	else {
 		windowTarget = "_self";
 	}
-
 %>
+
+<%= helper.printColumn("firstLinkListItems") %>
+
+
+
+Ahead, you can find all the fake columns
 
 <%-- Link List --%>
 <nav class="linklist small-block-grid-1 medium-block-grid-2 large-block-grid-3">
@@ -31,29 +36,29 @@
 	<%-- Column --%>
 	<ul class="first-column">
 		<%-- link,  --%>
-		<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
-			<li>
-				<h3><%=linkTitle%></h3>
-			</li>
-		</a>
+		<li>
+			<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
+				<h3>First <%=linkTitle%></h3>
+			</a>
+		</li>
 	</ul>
 	
 	<%-- [Optional] Column --%>
 	<ul class="second-column">
-		<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
-			<li>
-				<h3><%=linkTitle%></h3>
-			</li>
-		</a>
+		<li>
+			<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
+				<h3>Second <%=linkTitle%></h3>
+			</a>
+		</li>
 	</ul>
 	
 	<%-- [Optional] Column --%>
 	<ul class="third-column">
-		<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
-			<li>
-				<h3><%=linkTitle%></h3>
-			</li>
-		</a>
+		<li>
+			<a href="<%=linkURL %>" data-title="<%=linkTitle %>">
+				<h3>Third <%=linkTitle%></h3>
+			</a>
+		</li>
 	</ul>
 </nav>
 
