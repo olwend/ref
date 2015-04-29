@@ -49,7 +49,7 @@
 	
 %>
 
-<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
+<div class="feed-wrapper" id="feed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
 						data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  
 						data-resourcetype="nhmwww/components/page/newscontentpage" data-tags="<%= helper.getTagsString()%>">
 							
@@ -57,7 +57,7 @@
     <!-- START PAGINATION -->
     
     <!-- END PAGINATION -->
-    <div class="press-office--list-<%=componentID%>" id="press-office--list-<%=componentID%>">
+    <div class="feed--list-<%=componentID%>" id="feed--list-<%=componentID%>">
     </div>
 </div>
 
