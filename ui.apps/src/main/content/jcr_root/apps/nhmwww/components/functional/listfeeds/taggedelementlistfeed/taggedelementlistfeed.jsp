@@ -45,18 +45,21 @@
 
 	
 %>
-
-<div class="pressreleaselistfeed-wrapper" id="pressreleaselistfeed_wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
-						data-componentid="<%=componentID %>" data-multilevel="true" data-tags="<%= helper.getTagsString()%>"
-						data-resourcetype="nhmwww/components/page/taggedcontentpage">
-							
-	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
-    <!-- START PAGINATION -->
-    <!-- END PAGINATION -->
-	<div class="small-block-grid-1 medium-block-grid-2 <%=helper.getFullWidthCommand()%> press-office--feed-<%=componentID%>" id="press-office--feed-<%=componentID%>" data-equalizer>
-		
+<% if(helper.isInitialised()) { %>
+	<div class="js-feed-wrapper" id="js-feed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
+							data-componentid="<%=componentID %>" data-multilevel="true" data-tags="<%= helper.getTagsString()%>"
+							data-resourcetype="nhmwww/components/page/taggedcontentpage">
+								
+		<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
+	    <!-- START PAGINATION -->
+	    <!-- END PAGINATION -->
+		<div class="small-block-grid-1 medium-block-grid-2 <%=helper.getFullWidthCommand()%> feed--tiles-<%=componentID%>" id="feed--tiles-<%=componentID%>" data-equalizer>
+			
+		</div>
 	</div>
-</div>
+<% } else { %>
+	<p> The component has not been initialised</p>
+<% } %>	
 
 
 

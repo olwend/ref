@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
-	$('.pressreleaselistfeed-wrapper').each(function (){
+	$('.js-feed-wrapper').each(function (){
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
@@ -47,7 +47,7 @@ function showItems(pageJson, componentID) {
 		//var date = item.date;
 		var link = item.path + ".html";
 		var element = createPressRelease(title, shortIntro, imagePath, link);
-		var componentClass = '#press-office--feed-' + componentID;
+		var componentClass = '#feed--tiles-' + componentID;
 		
 		$(componentClass).append(element);
 	});
@@ -65,10 +65,10 @@ function createPressRelease(title, shortIntro, imagePath, url) {
 		var element = document.createElement("li");
 		
 			var listItem = document.createElement("div");
-			listItem.className = 'press-office--list-item';
+			listItem.className = 'feed--item';
 
 				var contentWrapper = document.createElement("div");
-				contentWrapper.className = 'small-12 columns press-office--list-item--content-wrapper';
+				contentWrapper.className = 'small-12 columns feed--item--content-wrapper';
 				contentWrapper.setAttributeNode(document.createAttribute('data-equalizer-watch'));
 
 					var columnsDiv = document.createElement("div");
@@ -96,20 +96,17 @@ function createPressRelease(title, shortIntro, imagePath, url) {
 							noscript.appendChild(image2);
 
 						link.appendChild(noscript);
-							
 
 					columnsDiv.appendChild(link);
-					//Published Date Logic
-					//columnsDiv.appendChild(dateDiv);
 
 					var columnsDiv2 = document.createElement("div");
 					columnsDiv2.className = 'small-12 columns';
 
 						var itemContent = document.createElement("div");
-						itemContent.className = 'press-office--list-item--content';
+						itemContent.className = 'feed--item--content';
 
 							var itemTitle = document.createElement("h4");
-							itemTitle.className = 'press-office--list-item--title';
+							itemTitle.className = 'feed--item--title';
 
 								var link2 = document.createElement("a");
 								link2.href = url;
@@ -119,7 +116,7 @@ function createPressRelease(title, shortIntro, imagePath, url) {
 							itemTitle.appendChild(link2);
 
 							var tagLine = document.createElement("p");
-							tagLine.className = 'press-office--list-item--tagline';
+							tagLine.className = 'feed--item--tagline';
 
 								tagLine.innerHTML = shortIntro;
 							
@@ -149,13 +146,13 @@ function addMoreResultsButton() {
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("pressreleaselistfeed_wrapper").appendChild(moreElementsDiv);
+	document.getElementById("js-feed-wrapper").appendChild(moreElementsDiv);
 	
-	$('.pressreleaselistfeed .more-results').click(function(){
-		var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-		var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
+	$('.feed .more-results').click(function(){
+		var rootPath = $('.js-feed-wrapper').data('rootpath');
+		var pageSize = $('.js-feed-wrapper').data('pagesize');
 		removeMoreResultsButton();
-		var elementsShowed = $('.press-office--list-item').length;
+		var elementsShowed = $('.feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
 		showPressReleases(rootPath, currentPage+1, pageSize);
@@ -163,7 +160,7 @@ function addMoreResultsButton() {
 }
 
 function removeMoreResultsButton() {
-	 var wrapperDiv = document.getElementById('pressreleaselistfeed_wrapper');
+	 var wrapperDiv = document.getElementById('js-feed-wrapper');
 	 var divToDelete = document.getElementById("more_results");
 	 wrapperDiv.removeChild(divToDelete);
 }
