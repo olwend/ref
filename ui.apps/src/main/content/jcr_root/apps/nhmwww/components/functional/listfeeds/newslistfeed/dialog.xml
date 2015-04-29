@@ -36,6 +36,7 @@
                     <componentID
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Component ID"
+                        fieldDescription="Use numbers, must not be used by other components on this page."
                         name="./componentID"
                         width="155"
                         xtype="textfield"/>
@@ -47,13 +48,14 @@
                         xtype="numberfield"/>
 					<hideMonths
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Hide month containing stories"
+                        fieldLabel="Hide months headinbg"
                         name="./hideMonths"
                         type="checkbox"
                         xtype="selection"/>
                     <rootPagePath
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Root page"
+                        fieldDescription="The page used to start rhe search retrieving news stories"
                         name="./rootPagePath"
                         width="155"
                         xtype="pathfield"/>
