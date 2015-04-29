@@ -8,15 +8,9 @@
 <%if (helper.getComponentTitle() != null) {%><h2><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
 
 <%-- [Optional] Description --%>
-<%if (helper.hasDescription()) { %> <div> <%= helper.getDescription() %></div> <% } %>
+<% if (helper.hasDescription()) { %> <div> <%= helper.getDescription() %></div> <% } %>
 
-
-<% 
-	StringBuffer strBuff= helper.displayColumns();
-%>
-
-Getting it Done switftly 
-
-
-
+<%-- [Mandatory] Link Lists --%>
+<% StringBuffer strBuff= helper.displayColumns(); %>
+<%= strBuff %>
 <% %>

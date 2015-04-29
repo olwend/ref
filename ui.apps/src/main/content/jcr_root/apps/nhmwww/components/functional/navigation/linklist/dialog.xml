@@ -1,177 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Dialog"
-    height="{Long}600"
+    height="{Long}1500"
+	manageTabs="function(tab,noSwitch){var tabs=['basic', 'firstcolumn', 'secondcolumn', 'thirdcolumn'];var index=tabs.indexOf(tab);if(index==-1) return;for(var i=1;i&lt;tabs.length;i++){if(i&lt;=index){this.unhideTabStripItem(i);}else{this.hideTabStripItem(i);}}this.doLayout();}"
     title="Link List Component"
     width="1000"
-    xtype="dialog">
-    <items
-        jcr:primaryType="cq:Widget"
-        xtype="tabpanel">
-        <items jcr:primaryType="cq:WidgetCollection">
-            <basic
-                jcr:primaryType="cq:Widget"
-                title="Basic"
-                xtype="panel">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <title
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Component title"
-                        name="./title"
-                        width="155"
-                        xtype="textfield"/>
-                    <hyperlink
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Hyperlink"
-                        itemId="hyperlink"
-                        name="./hyperlink"
-                        width="155"
-                        xtype="pathfield"/>
-                    <newwindow
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Open in New Window"
-                        name="./newwindow"
-                        type="checkbox"
-                        xtype="selection"/>
-					<numcolumns
-	                    jcr:primaryType="cq:Widget"
-	                    defaultValue="4"
-	                    fieldLabel="Number of Columns"
-	                    name="./numColumns"
-	                    type="select"
-	                    xtype="selection">
-	                    <options jcr:primaryType="cq:WidgetCollection">
-	                        <o1
-	                            jcr:primaryType="nt:unstructured"
-	                            text="One Column"
-	                            value="4"/>
-	                        <o2
-	                            jcr:primaryType="nt:unstructured"
-	                            text="Two columns"
-	                            value="8"/>
-	                        <o3
-	                            jcr:primaryType="nt:unstructured"
-	                            text="Three columns"
-	                            value="12"/>
-	                    </options>
-					</numcolumns>
-					<description
-					    jcr:primaryType="cq:Widget"
-                        fieldLabel="Description of the Links"
-					    name="./description"
-					    xtype="richtext">
-					    <rtePlugins
-					        jcr:primaryType="cq:Widget"
-					        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
-					        xtype="cqinclude"/>
-					</description>
-                </items>
-            </basic>
-            <firstcolumn
-                jcr:primaryType="cq:Widget"
-                title="First Column"
-                xtype="panel">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <columntitle
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="First Column Header"
-                        name="./firstHeader"
-                        width="155"
-                        xtype="textfield"/>
-		            <items
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+		<basic
+		    jcr:primaryType="cq:Widget"
+		    title="Basic"
+		    xtype="panel">
+		    <items jcr:primaryType="cq:WidgetCollection">
+                <numcolumns
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Number of Columns"
+                    name="./numColumns"
+                    type="select"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(){this.findParentByType('tabpanel').manageTabs(this.getValue(),true);}"
+                        selectionchanged="function(box,value){box.findParentByType('tabpanel').manageTabs(value);}"/>
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <children
+                            jcr:primaryType="nt:unstructured"
+                            text="One Column"
+                            value="firstcolumn"/>
+                        <descendants
+                            jcr:primaryType="nt:unstructured"
+                            text="Two Columns"
+                            value="secondcolumn"/>
+                        <static
+                            jcr:primaryType="nt:unstructured"
+                            text="Three Columns"
+                            value="thirdcolumn"/>
+                    </options>
+                </numcolumns>
+		        <title
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="Component title"
+		            name="./title"
+		            width="155"
+		            xtype="textfield"/>
+		        <hyperlink
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="Hyperlink"
+		            itemId="hyperlink"
+		            name="./hyperlink"
+		            width="155"
+		            xtype="pathfield"/>
+		        <newwindow
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="Open in New Window"
+		            name="./newwindow"
+		            type="checkbox"
+		            xtype="selection"/>
+
+		        <description
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="Description of the Links"
+		            name="./description"
+		            xtype="richtext">
+		            <rtePlugins
 		                jcr:primaryType="cq:Widget"
-		                border="false"
-		                title="Link List"
-		                xtype="panel">
-		                <items jcr:primaryType="cq:WidgetCollection">
-		                    <linkListItems
+		                path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+		                xtype="cqinclude"/>
+		        </description>
+		    </items>
+		</basic>
+		<firstcolumn
+		    jcr:primaryType="cq:Widget"
+		    title="First Column"
+		    xtype="panel">
+		    <listeners
+                jcr:primaryType="nt:unstructured"
+                render="function() { this.findParentByType('tabpanel').hideTabStripItem(1); }"/>
+		    <items jcr:primaryType="cq:WidgetCollection">
+		        <columntitle
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="First Column Header"
+		            name="./firstHeader"
+		            width="155"
+		            xtype="textfield"/>
+		        <items
+		            jcr:primaryType="cq:Widget"
+		            border="false"
+		            title="Link List"
+		            xtype="panel">
+		            <items jcr:primaryType="cq:WidgetCollection">
+		                <linkListItems
+		                    jcr:primaryType="cq:Widget"
+		                    fieldDescription="Click the '+' to add a new item"
+		                    fieldLabel="Link list items"
+		                    name="./firstLinkListItems"
+		                    xtype="multifield">
+		                    <fieldConfig
 		                        jcr:primaryType="cq:Widget"
-		                        fieldDescription="Click the '+' to add a new item"
-		                        fieldLabel="Link list items"
-		                        name="./firstLinkListItems"
-		                        xtype="multifield">
-								<fieldConfig
-		                            jcr:primaryType="cq:Widget"
-		                            width="80"
-		                            xtype="textfield"/>
-		                        <fieldConfig 
-		                        	jcr:primaryType="cq:Widget" 
-		                        	xtype="mypathfield"/>
-		                    </linkListItems>
-		                </items>
+		                        xtype="mypathfield"/>
+		                </linkListItems>
 		            </items>
-                </items>
-            </firstcolumn>
-            <secondcolumn
-                jcr:primaryType="cq:Widget"
-                title="Second Column"
-                xtype="panel">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <columntitle
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Second Column Header"
-                        name="./secondHeader"
-                        width="155"
-                        xtype="textfield"/>
-                    <items
-                        jcr:primaryType="cq:Widget"
-                        border="false"
-                        title="Link List"
-                        xtype="panel">
-                        <items jcr:primaryType="cq:WidgetCollection">
-                            <linkListItems
-                                jcr:primaryType="cq:Widget"
-                                fieldDescription="Click the '+' to add a new item"
-                                fieldLabel="Link list items"
-                                name="./secondLinkListItems"
-                                xtype="multifield">
-                                <fieldConfig
-                                    jcr:primaryType="cq:Widget"
-                                    width="80"
-                                    xtype="textfield"/>
-                                <fieldConfig 
-                                    jcr:primaryType="cq:Widget" 
-                                    xtype="mypathfield"/>
-                            </linkListItems>
-                        </items>
-                    </items>
-                </items>
-            </secondcolumn>
-            <thirdcolumn
-                jcr:primaryType="cq:Widget"
-                title="Third Column"
-                xtype="panel">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <columntitle
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Third Column Header"
-                        name="./thirdHeader"
-                        width="155"
-                        xtype="textfield"/>
-                    <items
-                        jcr:primaryType="cq:Widget"
-                        border="false"
-                        title="Link List"
-                        xtype="panel">
-                        <items jcr:primaryType="cq:WidgetCollection">
-                            <linkListItems
-                                jcr:primaryType="cq:Widget"
-                                fieldDescription="Click the '+' to add a new item"
-                                fieldLabel="Link list items"
-                                name="./thirdLinkListItems"
-                                xtype="multifield">
-                                <fieldConfig
-                                    jcr:primaryType="cq:Widget"
-                                    width="80"
-                                    xtype="textfield"/>
-                                <fieldConfig 
-                                    jcr:primaryType="cq:Widget" 
-                                    xtype="mypathfield"/>
-                            </linkListItems>
-                        </items>
-                    </items>
-                </items>
-            </thirdcolumn>
-        </items>
+		        </items>
+		    </items>
+		</firstcolumn>
+		<secondcolumn
+		    jcr:primaryType="cq:Widget"
+		    title="Second Column"
+		    xtype="panel">
+		    <listeners
+                jcr:primaryType="nt:unstructured"
+                render="function() { this.findParentByType('tabpanel').hideTabStripItem(2); }"/>
+		    <items jcr:primaryType="cq:WidgetCollection">
+		        <columntitle
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="Second Column Header"
+		            name="./secondHeader"
+		            width="155"
+		            xtype="textfield"/>
+		        <items
+		            jcr:primaryType="cq:Widget"
+		            border="false"
+		            title="Link List"
+		            xtype="panel">
+		            <items jcr:primaryType="cq:WidgetCollection">
+		                <linkListItems
+		                    jcr:primaryType="cq:Widget"
+		                    fieldDescription="Click the '+' to add a new item"
+		                    fieldLabel="Link list items"
+		                    name="./secondLinkListItems"
+		                    xtype="multifield">
+		                    <fieldConfig
+		                        jcr:primaryType="cq:Widget"
+		                        xtype="mypathfield"/>
+		                </linkListItems>
+		            </items>
+		        </items>
+		    </items>
+		</secondcolumn>
+		<thirdcolumn
+		    jcr:primaryType="cq:Widget"
+		    title="Third Column"
+		    xtype="panel">
+		    <listeners
+                jcr:primaryType="nt:unstructured"
+                render="function() { this.findParentByType('tabpanel').hideTabStripItem(3); }"/>
+		    <items jcr:primaryType="cq:WidgetCollection">
+		        <columntitle
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="Third Column Header"
+		            name="./thirdHeader"
+		            width="155"
+		            xtype="textfield"/>
+		        <items
+		            jcr:primaryType="cq:Widget"
+		            border="false"
+		            title="Link List"
+		            xtype="panel">
+		            <items jcr:primaryType="cq:WidgetCollection">
+		                <linkListItems
+		                    jcr:primaryType="cq:Widget"
+		                    fieldDescription="Click the '+' to add a new item"
+		                    fieldLabel="Link list items"
+		                    name="./thirdLinkListItems"
+		                    xtype="multifield">
+		                    <fieldConfig
+		                        jcr:primaryType="cq:Widget"
+		                        xtype="mypathfield"/>
+		                </linkListItems>
+		            </items>
+		        </items>
+		    </items>
+		</thirdcolumn>
     </items>
 </jcr:root>
