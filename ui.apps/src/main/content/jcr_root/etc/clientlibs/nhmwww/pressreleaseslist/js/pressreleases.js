@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var pageSize = $('.js-feed-wrapper').data('pagesize');
 	
 	if (rootPath && pageSize) {
-		showPressReleases(rootPath, 1, pageSize);
+		showFeeds(rootPath, 1, pageSize);
 	}
 	
 	
@@ -35,7 +35,7 @@ function addMoreResultsButton() {
 		var elementsShowed = $('.feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showPressReleases(rootPath, currentPage+1, pageSize);
+		showFeeds(rootPath, currentPage+1, pageSize);
 		
 	});
 }
@@ -49,7 +49,7 @@ function removeMoreResultsButton() {
 }
 	
 
-function showPressReleases(rootPath, pageNumber, pageSize) {
+function showFeeds(rootPath, pageNumber, pageSize) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -145,7 +145,7 @@ function buildNavigators(pageNumber, numberOfPages) {
 					$('.js-feed-wrapper .pagination-centered').empty();
 					$('.press-room--list').empty();
 					
-					showPressReleases(rootPath, to, pageSize);
+					showFeeds(rootPath, to, pageSize);
 				}
 				
 				return false;
@@ -163,7 +163,7 @@ function showItems(pageJson) {
 		
 		var link = item.path + ".html";
 		
-		var element = createPressRelease(title, intro, date, imagePath, link);
+		var element = createFeed(title, intro, date, imagePath, link);
 		$('.feed--list').append(element);
 	});
 	
@@ -174,7 +174,7 @@ function showItems(pageJson) {
 	
 }
 
-function createPressRelease(title, intro, date, imagePath, url) {
+function createFeed(title, intro, date, imagePath, url) {
 	var element = document.createElement("div");
 	element.className = 'feed--item';
 	element.setAttributeNode(document.createAttribute('data-equalizer'));

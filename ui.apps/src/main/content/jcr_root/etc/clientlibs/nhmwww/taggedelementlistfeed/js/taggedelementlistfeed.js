@@ -8,12 +8,12 @@ $(document).ready(function() {
 		var resourceType = $(this).data('resourcetype');
 		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, tags, isMultilevel, resourceType);
+			showFeeds(rootPath, 1, pageSize, componentID, tags, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel, resourceType ) {
+function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel, resourceType ) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -46,7 +46,7 @@ function showItems(pageJson, componentID) {
 		var imagePath = item.imagePath;
 		//var date = item.date;
 		var link = item.path + ".html";
-		var element = createPressRelease(title, shortIntro, imagePath, link);
+		var element = createFeed(title, shortIntro, imagePath, link);
 		var componentClass = '#feed--tiles-' + componentID;
 		
 		$(componentClass).append(element);
@@ -59,8 +59,8 @@ function showItems(pageJson, componentID) {
 	
 }
 
-function createPressRelease(title, shortIntro, imagePath, url) {
-	// Turn this function into createPressRelease(title, shortIntro, imagePath, url){, there is no need for anything else with tagged Elements
+function createFeed(title, shortIntro, imagePath, url) {
+	// Turn this function into createFeed(title, shortIntro, imagePath, url){, there is no need for anything else with tagged Elements
 	// only thing that should be needed would possibly be date but you have News for that! 
 		var element = document.createElement("li");
 		
@@ -155,7 +155,7 @@ function addMoreResultsButton() {
 		var elementsShowed = $('.feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showPressReleases(rootPath, currentPage+1, pageSize);
+		showFeeds(rootPath, currentPage+1, pageSize);
 	});
 }
 

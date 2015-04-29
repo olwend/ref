@@ -9,12 +9,12 @@ $(document).ready(function() {
 		var resourceType = $(this).data('resourcetype');
 		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
-			showPressReleases(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
+			showFeeds(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showPressReleases(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
+function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -57,7 +57,7 @@ function showItems(pageJson, componentID, hideMonths) {
 		var imagePath = item.imagePath;
 		var date = item.date;
 		var link = item.path + ".html";
-		var element = createPressRelease(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
+		var element = createFeed(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#feed--list-' + componentID;
 		
 		$(componentClass).append(element);
@@ -70,7 +70,7 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createPressRelease(title, intro,shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
+function createFeed(title, intro,shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
 	element.className = 'feed--item-' + group;
 	if (addGroup) { //!hideMonths
@@ -170,7 +170,7 @@ function addMoreResultsButton() {
 		var elementsShowed = $('.feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showPressReleases(rootPath, currentPage+1, pageSize);
+		showFeeds(rootPath, currentPage+1, pageSize);
 	});
 }
 
@@ -250,7 +250,7 @@ function buildNavigators(pageNumber, numberOfPages) {
 					$('.js-feed-wrapper .pagination-centered').empty();
 					$('.press-room--list').empty();
 					
-					showPressReleases(rootPath, to, pageSize);
+					showFeeds(rootPath, to, pageSize);
 				}
 				
 				return false;
