@@ -10256,6 +10256,10 @@ body {
   color: #565656;
 }
 
+.feature-box a:hover {
+  color: #ffffff;
+}
+
 .visit .title-bar {
   background-color: #A1164E;
 }
@@ -10932,70 +10936,70 @@ div#feedback-bar .span11 {
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
 }
-.press-office .more-results {
-  clear: both;
-  text-align: center;
-}
 
-.press-office--list-item--content-wrapper {
+.feed--item--content-wrapper {
   margin-bottom: 1.8em;
   background-color: #eeeeee;
 }
 
-.press-office--list-item--content {
+.feed--item--content {
   padding: 0.5em 1.25em;
 }
 
-.press-office--list-item--title {
+.feed--item--title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.1em;
   line-height: 1.5em;
   padding: 0;
 }
-.press-office--list-item--title a {
-  color: #107E5E;
+.feed--item--title a {
+  color: #000000;
+  font-weight: bold;
+}
+.feed--item--title a:hover {
+  color: #000000;
 }
 
-.press-office--list-item--tagline {
+.feed--item--tagline {
   font-size: 0.875em;
 }
 
-.press-office--list-item--caption {
+.feed--item--caption {
   background-color: #aaaaaa;
   padding: 0.5em 1.25em;
   color: #ffffff;
   font-size: 0.95em;
 }
 @media screen and (min-width: 768px) {
-  .press-office--list-item--caption {
+  .feed--item--caption {
     font-size: 1em;
   }
 }
 
-.press-office--feed .press-office--list-item--content-wrapper {
+.feed--tiles .feed--item--content-wrapper {
   margin-bottom: 0;
 }
 
-.press-office--list .press-office--list-item--content-wrapper {
+.feed---list .feed--item--content-wrapper {
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .press-office--list .press-office--list-item--content-wrapper {
+  .feed---list .feed--item--content-wrapper {
     padding: 1.25em;
   }
 }
 @media screen and (min-width: 768px) {
-  .press-office--list .press-office--list-item--content {
+  .feed---list .feed--item--content {
     padding-top: 0;
     padding-right: 0;
   }
 }
-.press-office--list .press-office--list-item--title {
+.feed---list .feed--item--title {
   margin-top: 0.5em;
 }
 @media screen and (min-width: 768px) {
-  .press-office--list .press-office--list-item--title {
+  .feed---list .feed--item--title {
     margin-top: 0;
   }
 }
@@ -11053,8 +11057,15 @@ div#feedback-bar .span11 {
   text-decoration: none;
 }
 
-.more-results-text {
-  color: #107E5E;
+.more-results {
+  clear: both;
+  text-align: center;
+}
+.more-results a {
+  color: #565656;
+}
+.more-results a:hover {
+  color: #565656;
 }
 
 /*# sourceMappingURL=styles.css.map */
