@@ -48,7 +48,7 @@
                         xtype="numberfield"/>
 					<hideMonths
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Hide months headinbg"
+                        fieldLabel="Hide months heading"
                         name="./hideMonths"
                         type="checkbox"
                         xtype="selection"/>
