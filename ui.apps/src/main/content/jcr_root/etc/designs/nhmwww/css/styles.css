@@ -10256,6 +10256,10 @@ body {
   color: #565656;
 }
 
+.feature-box a:hover {
+  color: #ffffff;
+}
+
 .visit .title-bar {
   background-color: #A1164E;
 }
@@ -10932,10 +10936,6 @@ div#feedback-bar .span11 {
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
 }
-.press-office .more-results {
-  clear: both;
-  text-align: center;
-}
 
 .press-office--list-item--content-wrapper {
   margin-bottom: 1.8em;
@@ -10954,7 +10954,11 @@ div#feedback-bar .span11 {
   padding: 0;
 }
 .press-office--list-item--title a {
-  color: #107E5E;
+  color: #000000;
+  font-weight: bold;
+}
+.press-office--list-item--title a:hover {
+  color: #000000;
 }
 
 .press-office--list-item--tagline {
@@ -11000,60 +11004,271 @@ div#feedback-bar .span11 {
   }
 }
 
-.press-office--side-nav {
+.more-results {
+  clear: both;
+  text-align: center;
+}
+.more-results a {
+  color: #565656;
+}
+.more-results a:hover {
+  color: #565656;
+}
+
+/**** SECONDARY NAV ****/
+.secondary-nav-wrapper {
   margin: 1.3em 0;
   clear: both;
 }
 @media screen and (min-width: 768px) {
-  .press-office--side-nav {
+  .secondary-nav-wrapper {
     margin: 0 0 1.3em 0;
   }
 }
-.press-office--side-nav .side-nav {
+.secondary-nav-wrapper .side-nav {
   padding: 0;
 }
-.press-office--side-nav .side-nav li {
+.secondary-nav-wrapper .side-nav li {
   margin-bottom: 0.3em;
   border: none;
-  background-color: rgba(16, 126, 94, 0.1);
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1em;
 }
 @media screen and (min-width: 768px) {
-  .press-office--side-nav .side-nav li {
+  .secondary-nav-wrapper .side-nav li {
     font-size: 1.2em;
   }
 }
 @media screen and (min-width: 1024px) {
-  .press-office--side-nav .side-nav li {
+  .secondary-nav-wrapper .side-nav li {
     font-size: 1.4em;
   }
 }
-.press-office--side-nav .side-nav li a {
+.secondary-nav-wrapper .side-nav li a {
   color: #107E5E;
   padding: 1em 1.5em;
 }
-.press-office--side-nav .side-nav li a:hover {
+.secondary-nav-wrapper .side-nav li a:hover {
   color: #107E5E;
   text-decoration: none;
-  background-color: rgba(16, 126, 94, 0.25);
 }
-.press-office--side-nav .side-nav li a:focus {
-  background-color: rgba(16, 126, 94, 0.25);
-  color: #107E5E;
-}
-.press-office--side-nav .side-nav li.selected {
-  background-color: rgba(16, 126, 94, 0.25);
-}
-.press-office--side-nav .side-nav li.selected a {
-  color: #107E5E;
-}
-.press-office--side-nav .side-nav li.selected a:hover {
-  color: #107E5E;
+.secondary-nav-wrapper .side-nav li.selected a:hover {
   text-decoration: none;
 }
 
-.more-results-text {
+.visit .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(161, 22, 78, 0.1);
+}
+.visit .secondary-nav-wrapper .side-nav li a {
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li a:hover {
+  color: #A1164E;
+  background-color: rgba(161, 22, 78, 0.25);
+}
+.visit .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(161, 22, 78, 0.25);
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(161, 22, 78, 0.25);
+}
+.visit .secondary-nav-wrapper .side-nav li.selected a {
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #A1164E;
+}
+
+.take-part .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(191, 73, 31, 0.1);
+}
+.take-part .secondary-nav-wrapper .side-nav li a {
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li a:hover {
+  color: #BF491F;
+  background-color: rgba(191, 73, 31, 0.25);
+}
+.take-part .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(191, 73, 31, 0.25);
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(191, 73, 31, 0.25);
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected a {
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #BF491F;
+}
+
+.support-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(127, 32, 110, 0.1);
+}
+.support-us .secondary-nav-wrapper .side-nav li a {
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #7F206E;
+  background-color: rgba(127, 32, 110, 0.25);
+}
+.support-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(127, 32, 110, 0.25);
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(127, 32, 110, 0.25);
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #7F206E;
+}
+
+.about-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(11, 92, 123, 0.1);
+}
+.about-us .secondary-nav-wrapper .side-nav li a {
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #0B5C7B;
+  background-color: rgba(11, 92, 123, 0.25);
+}
+.about-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(11, 92, 123, 0.25);
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(11, 92, 123, 0.25);
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #0B5C7B;
+}
+
+.our-science .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(53, 121, 0, 0.1);
+}
+.our-science .secondary-nav-wrapper .side-nav li a {
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li a:hover {
+  color: #357900;
+  background-color: rgba(53, 121, 0, 0.25);
+}
+.our-science .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(53, 121, 0, 0.25);
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(53, 121, 0, 0.25);
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected a {
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #357900;
+}
+
+.schools .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(9, 131, 187, 0.1);
+}
+.schools .secondary-nav-wrapper .side-nav li a {
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li a:hover {
+  color: #0983BB;
+  background-color: rgba(9, 131, 187, 0.25);
+}
+.schools .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(9, 131, 187, 0.25);
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(9, 131, 187, 0.25);
+}
+.schools .secondary-nav-wrapper .side-nav li.selected a {
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #0983BB;
+}
+
+.contact-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.contact-us .secondary-nav-wrapper .side-nav li a {
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #808080;
+  background-color: rgba(128, 128, 128, 0.25);
+}
+.contact-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(128, 128, 128, 0.25);
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(128, 128, 128, 0.25);
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #808080;
+}
+
+.business-services .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(37, 52, 128, 0.1);
+}
+.business-services .secondary-nav-wrapper .side-nav li a {
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li a:hover {
+  color: #253480;
+  background-color: rgba(37, 52, 128, 0.25);
+}
+.business-services .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(37, 52, 128, 0.25);
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(37, 52, 128, 0.25);
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected a {
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #253480;
+}
+
+.press-office .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(16, 126, 94, 0.1);
+}
+.press-office .secondary-nav-wrapper .side-nav li a {
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li a:hover {
+  color: #107E5E;
+  background-color: rgba(16, 126, 94, 0.25);
+}
+.press-office .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(16, 126, 94, 0.25);
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(16, 126, 94, 0.25);
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected a {
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #107E5E;
 }
 
