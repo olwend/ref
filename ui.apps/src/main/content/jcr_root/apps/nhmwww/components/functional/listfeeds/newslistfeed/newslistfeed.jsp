@@ -49,18 +49,21 @@
 	
 %>
 
-<div class="feed-wrapper" id="feed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
-						data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  
-						data-resourcetype="nhmwww/components/page/newscontentpage" data-tags="<%= helper.getTagsString()%>">
-							
-	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
-    <!-- START PAGINATION -->
-    
-    <!-- END PAGINATION -->
-    <div class="feed--list-<%=componentID%>" id="feed--list-<%=componentID%>">
-    </div>
-</div>
-
+<% if(helper.isInitialised()) { %>
+	<div class="js-feed-wrapper" id="js-feed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
+							data-componentid="<%=componentID %>" data-hidemonths="<%=hideMonths %>" data-multilevel="true"  
+							data-resourcetype="nhmwww/components/page/newscontentpage" data-tags="<%= helper.getTagsString()%>">
+								
+		<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
+	    <!-- START PAGINATION -->
+	    
+	    <!-- END PAGINATION -->
+	    <div class="feed--list-<%=componentID%>" id="feed--list-<%=componentID%>">
+	    </div>
+	</div>
+<% } else { %>
+	<p> The component has not been initialised</p>
+<% } %>	
 
 
 
