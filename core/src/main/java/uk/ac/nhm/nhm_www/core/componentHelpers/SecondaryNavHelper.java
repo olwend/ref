@@ -11,7 +11,7 @@ import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.model.ListElement;
+import uk.ac.nhm.nhm_www.core.model.ListElementImpl;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 import com.day.cq.wcm.api.Page;
@@ -51,7 +51,7 @@ public class SecondaryNavHelper extends ListHelper{
 		while (children.hasNext()) {
 		
 			Page childPage = children.next();
-			listElements.add(new ListElement(childPage));
+			listElements.add(new ListElementImpl(childPage));
 		}
 	}
 

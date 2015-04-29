@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
-import uk.ac.nhm.nhm_www.core.model.ListElement;
+import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
+import uk.ac.nhm.nhm_www.core.model.ListElementImpl;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 import com.day.cq.wcm.api.Page;
@@ -51,7 +52,7 @@ public class ListHelper extends HelperBase {
 		}
 
 		if(landingPage != null) {
-			Iterator<Page> children = rootPage.listChildren(new PageFilter(request));
+			Iterator<Page> children = landingPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
 		
@@ -60,10 +61,10 @@ public class ListHelper extends HelperBase {
 
 	protected void processChildren(Iterator<Page> children) {
 		listElements = new ArrayList<Object>();
-		List<ListElement> elements = new ArrayList<ListElement>();
+		List<ListElementImpl> elements = new ArrayList<ListElementImpl>();
 		while (children.hasNext()) {
 			Page childPage = children.next();
-			ListElement element = new ListElement(childPage);
+			ListElementImpl element = new ListElementImpl(childPage);
 			if(element.isInitialised()) {
 				elements.add(element);
 			}
@@ -102,8 +103,6 @@ public class ListHelper extends HelperBase {
 	}
 	
 	
-	
-	
     public Boolean getNewwindow() {
 		return newwindow;
 	}
@@ -118,13 +117,21 @@ public class ListHelper extends HelperBase {
     	return LinkUtils.validateUrl(this.hyperLink);
     }
     
+	
     public List<Object> getChildrenElements() {
     	return  this.listElements;
     }
+    
+    
     public void addListElement(final Object element) {
     	this.listElements.add(element);
 
     }
+    
+    public void addAllListElements(final List<Object> elements) {
+    	this.listElements.addAll(elements);
+    }
+
 
 
 	
