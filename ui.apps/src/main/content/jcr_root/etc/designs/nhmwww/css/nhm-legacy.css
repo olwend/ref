@@ -92,5 +92,14 @@
 .page-naturegroups .legacy-css #main-content {
   width: 507px;
 }
+.page-naturegroups .legacy-css #sidebar-second #block-block-6 h2 {
+  margin-bottom: 1em;
+}
+.page-naturegroups .legacy-css #sidebar-second h2 {
+  color: #228900;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
 
 /*# sourceMappingURL=nhm-legacy.css.map */
