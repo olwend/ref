@@ -182,6 +182,15 @@
   font-weight: bold;
   font-size: 1.4em;
 }
+.legacy-css #block-boxes-naturegoups-form-help p {
+  font-size: 1em;
+}
+
+#crm-container .label {
+  background: none;
+  color: #000000;
+  padding: 0;
+}
 
 .page-naturegroups .legacy-css #main-content {
   width: 507px;
