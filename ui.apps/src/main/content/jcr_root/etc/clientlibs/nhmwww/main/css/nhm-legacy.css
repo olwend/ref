@@ -110,6 +110,12 @@
 .legacy-css #block-boxes-home-page-faq a:hover {
   text-decoration: underline;
 }
+.legacy-css #block-boxes-home-page-faq .more-link a {
+  text-decoration: none;
+}
+.legacy-css #block-boxes-home-page-faq .more-link a:hover {
+  text-decoration: underline;
+}
 .legacy-css #block-nhmblocks-events-by-group h2 {
   color: #228900;
 }
