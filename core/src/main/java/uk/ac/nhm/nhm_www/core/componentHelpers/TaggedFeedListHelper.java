@@ -4,15 +4,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.jcr.AccessDeniedException;
+import javax.jcr.ItemNotFoundException;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
+import uk.ac.nhm.nhm_www.core.utils.NodeUtils;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
@@ -21,14 +27,12 @@ import com.day.cq.wcm.api.PageManager;
 public class TaggedFeedListHelper extends FeedListHelper {
 	
 	public static final String FULL_WIDTH_CSS = "large-block-grid-3";
-	protected static final Logger logger = LoggerFactory.getLogger(TaggedFeedListHelper.class);
-	
-	
+	protected static final Logger LOG = LoggerFactory.getLogger(TaggedFeedListHelper.class);
 	protected Integer noOfItems;
-	protected Boolean fullWidth;
 	protected String[] tags;
 	protected String componentID;
 	protected String shortIntroduction;
+	private boolean isFullWidth;
 
 	public TaggedFeedListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request,	ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
@@ -61,9 +65,6 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		    this.noOfItems = new Integer(3);
 		}
 		
-		// Full Width
-		this.fullWidth = this.properties.get("fullWidth", false);
-		
 		// ComponentID
 		this.componentID = this.properties.get("componentID", "");
 		
@@ -95,6 +96,16 @@ public class TaggedFeedListHelper extends FeedListHelper {
 	public List<Object> getChildrenElements() {
 		return this.listElements;
 	}
+	
+	public void setIsFullWidth(Resource resource) throws AccessDeniedException, ItemNotFoundException, RepositoryException {
+		Node parentNode = resource.getParent().adaptTo(Node.class);
+		LOG.error("parent Node is " + parentNode.getName() + " depth(" + parentNode.getDepth() + ")");
+		if (NodeUtils.getRowType(parentNode) == NodeUtils.RowType.ROWFULLWIDTH) {
+			this.isFullWidth = true;
+		} else {
+			this.isFullWidth = false;
+		}
+	}
 		
 	public Integer getNoOfItems() {
 		return noOfItems;
@@ -104,22 +115,22 @@ public class TaggedFeedListHelper extends FeedListHelper {
 		this.noOfItems = noOfItems;
 	}
 
-	public String getFullWidthCommand() {
+	public String getWidthStyle() {
 		String res = StringUtils.EMPTY;
 		if (isFullWidth()){
 			res = FULL_WIDTH_CSS;
 		}
 		return res;
 	}
+	
+	public boolean isFullWidth() {
+		return isFullWidth;
+	}
 
-	public void setFullWidth(Boolean fullWidth) {
-		this.fullWidth = fullWidth;
+	public void setFullWidth(boolean isFullWidth) {
+		this.isFullWidth = isFullWidth;
 	}
-	
-	public Boolean isFullWidth(){
-		return fullWidth;
-	}
-	
+
 	public String getComponentID() {
 		return componentID;
 	}

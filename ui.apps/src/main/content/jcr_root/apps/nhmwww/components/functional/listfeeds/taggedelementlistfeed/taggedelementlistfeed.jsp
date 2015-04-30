@@ -20,6 +20,9 @@
 <cq:includeClientLib categories="nhm-www.taggedelementlistfeed"/>
 
 <%	TaggedFeedListHelper helper = new  TaggedFeedListHelper(properties, pageManager, currentPage, request, resourceResolver);
+	
+	helper.setIsFullWidth(resource);
+	
 	if (helper.hasTags()) {
 		final FeedListPaginationService searchService = sling.getService(FeedListPaginationService.class);
 		final String[] tags = helper.getTags();
@@ -43,8 +46,8 @@
 		componentID = new String(helper.getComponentID()).toLowerCase();
 	}
 
-	
 %>
+
 <% if(helper.isInitialised()) { %>
 	<div class="js-feed-wrapper" id="js-feed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
 							data-componentid="<%=componentID %>" data-multilevel="true" data-tags="<%= helper.getTagsString()%>"
@@ -53,7 +56,7 @@
 		<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h3> <%}%>
 	    <!-- START PAGINATION -->
 	    <!-- END PAGINATION -->
-		<div class="small-block-grid-1 medium-block-grid-2 <%=helper.getFullWidthCommand()%> feed--tiles-<%=componentID%>" id="feed--tiles-<%=componentID%>" data-equalizer>
+		<div class="small-block-grid-1 medium-block-grid-2 <%=helper.getWidthStyle()%> feed--tiles-<%=componentID%>" id="feed--tiles-<%=componentID%>" data-equalizer>
 			
 		</div>
 	</div>

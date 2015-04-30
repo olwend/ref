@@ -45,12 +45,6 @@
                         name="./noOfItems"
                         width="155"
                         xtype="numberfield"/>
-                    <fullWidth
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Is the component placed in a fullwidth Parsys?"
-                        name="./fullWidth"
-                        type="checkbox"
-                        xtype="selection"/>
                     <rootPagePath
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Root page"

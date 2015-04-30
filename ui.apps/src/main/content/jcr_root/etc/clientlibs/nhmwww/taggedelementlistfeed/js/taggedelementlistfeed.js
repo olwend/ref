@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
+	$(document).foundation({
+	    equalizer: {
+	        equalize_on_stack: true
+		}
+	});
 	$('.js-feed-wrapper').each(function (){
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
