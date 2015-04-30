@@ -4,13 +4,20 @@
 <cq:defineObjects />
 
 <% LinkListHelper helper = new LinkListHelper(properties, pageManager, currentPage, request, resourceResolver); %>
-<%-- [Optional] Title & HyperLink --%>
-<%if (helper.getComponentTitle() != null) {%><h2><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
 
-<%-- [Optional] Description --%>
-<% if (helper.hasDescription()) { %> <div> <%= helper.getDescription() %></div> <% } %>
+<%-- [Mandatory] Background Color --%>
+<div class="linklist--container <%=helper.getBackgroundColor() %>">
+	
+	<%-- [Optional] Title & HyperLink --%>
+	<%if (helper.getComponentTitle() != null) {%><h2><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
+	
+	<%-- [Optional] Description --%>
+	<% if (helper.hasDescription()) { %> <div> <%= helper.getDescription() %></div> <% } %>
+	
+	<%-- [Mandatory] Link Lists Generation --%>
+	<% helper.setIsFullWidth(resource); %>
+	<% StringBuffer strBuff= helper.displayColumns(); %>
+	<%= strBuff %>
 
-<%-- [Mandatory] Link Lists --%>
-<% StringBuffer strBuff= helper.displayColumns(); %>
-<%= strBuff %>
+</div>
 <% %>

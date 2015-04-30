@@ -24,15 +24,15 @@
                         loadcontent="function(){this.findParentByType('tabpanel').manageTabs(this.getValue(),true);}"
                         selectionchanged="function(box,value){box.findParentByType('tabpanel').manageTabs(value);}"/>
                     <options jcr:primaryType="cq:WidgetCollection">
-                        <children
+                        <onecolumn
                             jcr:primaryType="nt:unstructured"
                             text="One Column"
                             value="firstcolumn"/>
-                        <descendants
+                        <twocolumns
                             jcr:primaryType="nt:unstructured"
                             text="Two Columns"
                             value="secondcolumn"/>
-                        <static
+                        <threecolumns
                             jcr:primaryType="nt:unstructured"
                             text="Three Columns"
                             value="thirdcolumn"/>
@@ -57,7 +57,24 @@
 		            name="./newwindow"
 		            type="checkbox"
 		            xtype="selection"/>
-
+                <backgroundcolor
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Background Color"
+                    name="./backgroundcolor"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <white
+                            jcr:primaryType="nt:unstructured"
+                            text="White Background"
+                            value="white"/>
+                        <grey
+                            jcr:primaryType="nt:unstructured"
+                            text="Grey Background"
+                            value="grey"/>
+                    </options>
+                </numcolumns>
 		        <description
 		            jcr:primaryType="cq:Widget"
 		            fieldLabel="Description of the Links"

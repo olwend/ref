@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.NodeUtils;
 
+import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
@@ -29,6 +30,7 @@ public class LinkListHelper extends ListHelper {
 	
 	private String description = StringUtils.EMPTY;
 	private String numColumns = StringUtils.EMPTY;
+	private String backgroundColor;
 	private String firstHeader;
 	private String secondHeader;
 	private String thirdHeader;
@@ -36,6 +38,7 @@ public class LinkListHelper extends ListHelper {
 	private String[] secondLinkListItems;
 	private String[] thirdLinkListItems;
 	private boolean isFullWidth = false;
+
 	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
@@ -52,6 +55,11 @@ public class LinkListHelper extends ListHelper {
 		// Number of Columns being used, probably will be removed
 		if(this.properties.get("numColumns", String.class) != null){
 			this.numColumns = this.properties.get("numColumns", String.class);
+		}
+		
+		// Choose between white and grey background
+		if(this.properties.get("backgroundcolor", String.class) != null){
+			this.backgroundColor = this.properties.get("backgroundcolor", String.class);
 		}
 		
 		// First Column Links	
@@ -80,7 +88,7 @@ public class LinkListHelper extends ListHelper {
 		if(this.properties.get("thirdLinkListItems", String.class) != null){
 			this.thirdLinkListItems = this.properties.get("thirdLinkListItems", String[].class);
 		}
-		
+				
 		super.init();
 		
 	}
@@ -93,6 +101,15 @@ public class LinkListHelper extends ListHelper {
 		this.description = description;
 	}
 	
+	public String getBackgroundColor() {
+		return backgroundColor;
+	}
+
+	public void setBackgroundColor(String backgroundColor) {
+		this.backgroundColor = backgroundColor;
+	}
+
+	
 	public boolean hasDescription() {
 		boolean res = false;
 		if (!getDescription().isEmpty()){
@@ -101,14 +118,11 @@ public class LinkListHelper extends ListHelper {
 		return res;
 	}
 	
-	public void getFullWidth(Node node, Resource resource) throws AccessDeniedException, ItemNotFoundException, RepositoryException {
-		node = resource.getParent().adaptTo(Node.class);
-		if (NodeUtils.getRowType(node) == NodeUtils.RowType.ROWFULLWIDTH)
-		{
+	public void setIsFullWidth(Resource resource) throws AccessDeniedException, ItemNotFoundException, RepositoryException {
+		Node parentNode = resource.getParent().adaptTo(Node.class);
+		if (NodeUtils.getRowType(parentNode) == NodeUtils.RowType.ROWFULLWIDTH) {
 			this.isFullWidth = true;
-		}
-		else
-		{
+		} else {
 			this.isFullWidth = false;
 		}
 	}
@@ -116,6 +130,7 @@ public class LinkListHelper extends ListHelper {
 	public StringBuffer displayColumns() throws JSONException {
 		init();
 		StringBuffer columns = new StringBuffer();
+		columns.append("<div class=\"linklist--" + getWidthStyle());
 		
 		if (firstLinkListItems != null){
 			columns.append(addHeader(firstHeader));
@@ -136,6 +151,16 @@ public class LinkListHelper extends ListHelper {
 			}
 		}
 		return columns;
+	}
+
+	private String getWidthStyle() {
+		String ret = StringUtils.EMPTY;
+		if (this.isFullWidth) {
+			ret = "";
+		} else {
+			ret = "";
+		}
+		return ret;
 	}
 
 	private Object addHeader(String header) {
