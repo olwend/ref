@@ -1,4 +1,4 @@
-.legacy-css h2, .legacy-css h3, .legacy-css #site-name, .legacy-css .nature-group h4, .legacy-css .profile h4, .legacy-css .profile h5 {
+.legacy-css h2, .legacy-css h3, .legacy-css #site-name, .legacy-css .nature-group h4, .legacy-css .profile h4, .legacy-css .profile h5, .legacy-css .field-type-text-with-summary h2 {
   font-family: Arial, sans-serif;
 }
 
@@ -123,6 +123,16 @@
 }
 .legacy-css .profile .account-deletion a:hover {
   text-decoration: underline;
+}
+.legacy-css .field-type-text-with-summary {
+  font-size: 1em;
+}
+.legacy-css .field-type-text-with-summary h2 {
+  color: #228900;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
 }
 .legacy-css #sidebar-second #block-block-6 h2 {
   margin-bottom: 1em;
