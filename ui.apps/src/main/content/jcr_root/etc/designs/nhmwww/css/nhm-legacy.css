@@ -78,8 +78,12 @@
 .legacy-css .front-page-pos #boxes-box-homepage_updatable a {
   text-decoration: underline;
 }
+.legacy-css .front-page-pos #boxes-box-homepage_updatable p {
+  margin-bottom: 1em;
+}
 .legacy-css .block-nhmblocks h2 {
   font-weight: bold;
+  font-size: 1.4em;
   padding: 0;
 }
 .legacy-css .view-nature-groups h3 {
@@ -107,12 +111,19 @@
   text-decoration: underline;
 }
 
+#block-boxes-home-page-faq a {
+  text-decoration: underline;
+}
+#block-boxes-home-page-faq a:hover {
+  text-decoration: underline;
+}
+
 .page-naturegroups .legacy-css #main-content {
   width: 507px;
 }
 
 .two-sidebars .legacy-css #main-content {
-  width: 507px;
+  width: 519px;
 }
 
 /*# sourceMappingURL=nhm-legacy.css.map */
