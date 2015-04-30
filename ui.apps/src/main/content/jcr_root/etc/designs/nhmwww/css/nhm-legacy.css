@@ -134,6 +134,16 @@
   margin: 0;
   padding: 0;
 }
+.legacy-css #block-user-login label {
+  float: none;
+}
+.legacy-css #block-user-login h2 {
+  color: #228900;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+}
 .legacy-css #sidebar-second #block-block-6 h2 {
   margin-bottom: 1em;
 }
