@@ -124,7 +124,7 @@
 .legacy-css .profile .account-deletion a:hover {
   text-decoration: underline;
 }
-.legacy-css .field-type-text-with-summary {
+.legacy-css .field-type-text-with-summary p {
   font-size: 1em;
 }
 .legacy-css .field-type-text-with-summary h2 {
