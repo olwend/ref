@@ -28,6 +28,9 @@
 .legacy-css a:hover {
   text-decoration: underline;
 }
+.legacy-css select {
+  width: auto;
+}
 .legacy-css #site-name {
   font-weight: bold;
   margin: 0;
