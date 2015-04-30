@@ -54,7 +54,7 @@ public class LinkListHelper extends ListHelper {
 			this.numColumns = this.properties.get("numColumns", String.class);
 		}
 		
-		// First Column Links
+		// First Column Links	
 		if(this.properties.get("firstHeader", String.class) != null){
 			this.firstHeader = this.properties.get("firstHeader", String.class);
 		}
@@ -114,24 +114,25 @@ public class LinkListHelper extends ListHelper {
 	}
 	
 	public StringBuffer displayColumns() throws JSONException {
+		init();
 		StringBuffer columns = new StringBuffer();
 		
 		if (firstLinkListItems != null){
 			columns.append(addHeader(firstHeader));
 			columns.append(addList(firstLinkListItems));	
 			
-			if (numColumns != "firstcolumn"){
+			if (!numColumns.equals("firstcolumn")){
 				if (secondLinkListItems != null){
 					columns.append(addHeader(secondHeader));
 					columns.append(addList(secondLinkListItems));
 					
-					if (numColumns != "secondcolumn"){
+					if (!numColumns.equals("secondcolumn")){
 						if (thirdLinkListItems != null){
 							columns.append(addHeader(thirdHeader));
 							columns.append(addList(thirdLinkListItems));
 						}
 					}
-				}	
+				}
 			}
 		}
 		return columns;
