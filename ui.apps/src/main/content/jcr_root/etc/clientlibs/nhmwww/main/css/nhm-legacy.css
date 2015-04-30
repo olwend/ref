@@ -107,5 +107,8 @@
 .page-naturegroups .legacy-css #sidebar-second a {
   text-decoration: none;
 }
+.page-naturegroups .legacy-css #sidebar-second a:hover {
+  text-decoration: underline;
+}
 
 /*# sourceMappingURL=nhm-legacy.css.map */
