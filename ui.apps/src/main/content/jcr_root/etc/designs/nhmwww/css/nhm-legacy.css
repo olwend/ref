@@ -118,6 +118,12 @@
 .legacy-css .profile .user-greeting {
   font-size: 1em;
 }
+.legacy-css .profile .account-deletion {
+  font-size: 1em;
+}
+.legacy-css .profile .account-deletion a:hover {
+  text-decoration: underline;
+}
 .legacy-css #sidebar-second #block-block-6 h2 {
   margin-bottom: 1em;
 }
