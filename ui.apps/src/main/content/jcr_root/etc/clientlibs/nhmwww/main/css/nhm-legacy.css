@@ -192,6 +192,10 @@
   padding: 0;
 }
 
+#event-node-form label {
+  float: none;
+}
+
 .page-naturegroups .legacy-css #main-content {
   width: 507px;
 }
