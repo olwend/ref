@@ -185,14 +185,15 @@
 .legacy-css #block-boxes-naturegoups-form-help p {
   font-size: 1em;
 }
-
-#crm-container .label {
+.legacy-css #block-boxes-node-add-event-help p {
+  font-size: 1em;
+}
+.legacy-css #crm-container .label {
   background: none;
   color: #000000;
   padding: 0;
 }
-
-#event-node-form label {
+.legacy-css #event-node-form label {
   float: none;
 }
 
