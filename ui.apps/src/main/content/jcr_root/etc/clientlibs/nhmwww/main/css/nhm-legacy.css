@@ -110,12 +110,15 @@
 .legacy-css #sidebar-second a:hover {
   text-decoration: underline;
 }
-
-#block-boxes-home-page-faq a {
+.legacy-css #block-boxes-home-page-faq a {
   text-decoration: underline;
 }
-#block-boxes-home-page-faq a:hover {
+.legacy-css #block-boxes-home-page-faq a:hover {
   text-decoration: underline;
+}
+.legacy-css #block-nhmblocks-events-by-group {
+  margin: 0;
+  color: #228900;
 }
 
 .page-naturegroups .legacy-css #main-content {
