@@ -2,6 +2,7 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
@@ -11,6 +12,7 @@ import com.day.cq.commons.ImageResource;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 public class HeaderTextImageHelper {
+	private Boolean isDarkGreyBackground = false;
 	private String path;
 	private String extension;
 	private String suffix;
@@ -30,6 +32,7 @@ public class HeaderTextImageHelper {
 	private Boolean hasImage;
 	private Boolean hasCTA;
 	private Boolean activated;
+	private String backgroundColor;
 	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
@@ -79,7 +82,11 @@ public class HeaderTextImageHelper {
 		if (properties.get("newwindowheading") != null) {
 			this.linkNewWindow = properties.get("newwindowheading",false);
 		}
-
+		if (properties.get("darkgrey") != null) {
+			this.isDarkGreyBackground = properties.get("darkgrey",false);
+		}
+		this.backgroundColor = setBackgroundColor();
+		
 		this.componentType = properties.get("component-type", "");
 		this.text = properties.get("text", "");
 		this.imageSize = properties.get("imageSize", "4");
@@ -174,6 +181,26 @@ public class HeaderTextImageHelper {
 
 	public void setHeading(String heading) {
 		this.heading = heading;
+	}
+
+	public Boolean isDarkGreyBackground() {
+		return isDarkGreyBackground;
+	}
+	
+	public void setIsDarkGreyBackground(Boolean isDarkGreyBackground) {
+		this.isDarkGreyBackground = isDarkGreyBackground;
+	}
+	
+	public String setBackgroundColor(){
+		if (this.isDarkGreyBackground){
+			return "DarkGrey";
+		} else {
+			return "GreyBox";
+		}
+	}
+	
+	public String getBackgroundColor(){
+		return this.backgroundColor;
 	}
 
 	public String getCallToActionTitle() {

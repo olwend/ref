@@ -111,6 +111,12 @@
                     name="./newwindowheading"
                     type="checkbox"
                     xtype="selection"/>
+                <darkgrey
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Dark Grey Background"
+                    name="./darkgrey"
+                    type="checkbox"
+                    xtype="selection"/>
                 <addCallToAction
                     jcr:primaryType="cq:Widget"
                     defaultValue="{Boolean}true"
