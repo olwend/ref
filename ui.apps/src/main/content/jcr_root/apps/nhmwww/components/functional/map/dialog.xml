@@ -1,3 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="cq:Dialog"/>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Twitter Timeline"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <exhibitionsummary
+            jcr:primaryType="cq:Widget"
+            title="Google maps Options"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <mapLocation
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="london"
+                    fieldLabel="Twitter Feed"
+                    name="./mapLocation"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <o1
+                            jcr:primaryType="nt:unstructured"
+                            text="South Kensington"
+                            value="southken"/>
+                        <o2
+                            jcr:primaryType="nt:unstructured"
+                            text="Tring"
+                            value="tring"/>
+                    </options>
+                </mapLocation>
+            </items>
+        </exhibitionsummary>
+    </items>
+</jcr:root>
