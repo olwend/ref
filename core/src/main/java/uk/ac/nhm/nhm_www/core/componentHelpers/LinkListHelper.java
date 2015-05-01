@@ -130,7 +130,7 @@ public class LinkListHelper extends ListHelper {
 	public StringBuffer displayColumns() throws JSONException {
 		init();
 		StringBuffer columns = new StringBuffer();
-		columns.append("<div class=\"linklist--" + getWidthStyle());
+		columns.append("<div class=\"linklist--" + getWidthStyle() +"\">");
 		
 		if (firstLinkListItems != null){
 			columns.append(addHeader(firstHeader));
