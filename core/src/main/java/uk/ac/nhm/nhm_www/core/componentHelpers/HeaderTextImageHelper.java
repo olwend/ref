@@ -33,9 +33,11 @@ public class HeaderTextImageHelper {
 	private Boolean hasCTA;
 	private Boolean activated;
 	private String backgroundColor;
+	private Object textPosition;
 	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
+		this.textPosition = "left";
 		this.isDarkGreyBackground = false;
 		this.hasImage = false;
 		this.activated = false;
@@ -92,6 +94,7 @@ public class HeaderTextImageHelper {
 		this.text = properties.get("text", "");
 		this.imageSize = properties.get("imageSize", "4");
 		this.imagePosition = properties.get("imagePosition", "right");
+		this.textPosition = setTextPosition(imagePosition);
 		
 		this.callToActionTitle = properties.get("callToActionTitle", "");
 		this.callToActionLink = properties.get("callToActionLink", "");
@@ -111,6 +114,29 @@ public class HeaderTextImageHelper {
 		}
 
 	}	
+	
+	public Object getTextPosition() {
+		return textPosition;
+	}
+
+	private String setTextPosition(String imagePosition) {
+		String ret = StringUtils.EMPTY;
+		switch (imagePosition) {
+		case "right":
+			ret = "left";
+			break;
+		case "left":
+			ret = "right";
+			break;
+		case "top":
+			ret = "bottom";
+			break;
+		default:
+			ret = "left";
+			break;
+		}
+		return ret;
+	}
 
 	public String getPath() {
 		return path;
