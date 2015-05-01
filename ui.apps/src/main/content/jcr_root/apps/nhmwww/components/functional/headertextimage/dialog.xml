@@ -194,6 +194,17 @@
                     name="./callToActionNewWindow"
                     type="checkbox"
                     xtype="selection"/>
+                <ctaicon
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="CTA Icon"
+                    name="./ctaicon"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"
+                        selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('hyperlink').hide()} else {this.findParentByType('panel').getComponent('hyperlink').show()}}"/>
+                </ctaicon>
             </items>
         </callToAction>
     </items>

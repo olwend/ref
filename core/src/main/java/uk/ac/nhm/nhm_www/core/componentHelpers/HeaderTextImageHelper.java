@@ -12,7 +12,7 @@ import com.day.cq.commons.ImageResource;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 public class HeaderTextImageHelper {
-	private Boolean isDarkGreyBackground = false;
+	private Boolean isDarkGreyBackground;
 	private String path;
 	private String extension;
 	private String suffix;
@@ -36,6 +36,7 @@ public class HeaderTextImageHelper {
 	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
+		this.isDarkGreyBackground = false;
 		this.hasImage = false;
 		this.activated = false;
 		String fileReference = properties.get("fileReference", "");
