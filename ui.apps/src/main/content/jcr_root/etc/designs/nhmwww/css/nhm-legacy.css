@@ -134,6 +134,12 @@
   margin: 0;
   padding: 0;
 }
+.legacy-css .field-type-text-with-summary a {
+  text-decoration: none;
+}
+.legacy-css .field-type-text-with-summary a:hover {
+  text-decoration: underline;
+}
 .legacy-css #block-user-login label {
   float: none;
 }
