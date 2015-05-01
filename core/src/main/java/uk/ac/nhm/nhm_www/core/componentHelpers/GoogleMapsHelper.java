@@ -30,8 +30,8 @@ public class GoogleMapsHelper extends HelperBase {
 				this.place = "Natural+History+Museum,+Cromwell+Road,+London,+United+Kingdom";
 				this.key = "AIzaSyDQx5EO6WcwsOCDuozXsZbaY65NuFZ4mRg";
 			} else if(mapLocation.equals("tring")) {
-				this.place = "Natural+History+Museum,+Tring,+Hertfordshire,+United+Kingdom";
-				this.key = "AIzaSyDQx5EO6WcwsOCDuozXsZbaY65NuFZ4mRg";
+				this.place = "Natural%20History%20Museum%20at%20Tring";
+				this.key = "AIzaSyC09eunz5fyve_HGt3DQGRQzEpQT1A1HbA";
 			}
 		}
 		
