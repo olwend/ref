@@ -15,7 +15,7 @@
   from Adobe Systems Incorporated.
 --%><%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper"%>
 <%
-%><%@include file="/libs/foundation/global.jsp"%><%
+%><%@include file="/apps/nhmwww/components/global.jsp"%><%
 %><%@page session="false"
           import="com.day.cq.commons.ImageResource,
                   com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
