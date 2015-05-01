@@ -6,10 +6,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
+import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
+
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
-
-import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 public class HeaderTextImageHelper {
 	private Boolean isDarkGreyBackground;
@@ -21,6 +21,7 @@ public class HeaderTextImageHelper {
 	private boolean linkNewWindow;
 	private String text;
 	private String heading;
+	private String sectionOverride;
 	private String callToActionTitle;
 	private String callToActionLink;
 	private boolean callToActionLinkNewWindow;
@@ -34,6 +35,7 @@ public class HeaderTextImageHelper {
 	private Boolean activated;
 	private String backgroundColor;
 	private Object textPosition;
+	private String iconClass;
 	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
@@ -96,25 +98,44 @@ public class HeaderTextImageHelper {
 		this.imagePosition = properties.get("imagePosition", "right");
 		this.textPosition = setTextPosition(imagePosition);
 		
-		this.callToActionTitle = properties.get("callToActionTitle", "");
-		this.callToActionLink = properties.get("callToActionLink", "");
-		if (properties.get("callToActionNewWindow") != null) {
-			this.imageLinkNewWindow = properties.get("callToActionNewWindow",false);
-		}
-		
-		if(!this.callToActionTitle.equals("") && !this.callToActionLink.equals("")) {
-			this.hasCTA = true;
-			this.callToActionLink= LinkUtils.getFormattedLink(this.callToActionLink);
+		this.hasCTA = properties.get("addCallToAction", false);
+		if(this.hasCTA){
+			// CTA Title, Link & New Window
+			this.callToActionTitle = properties.get("callToActionTitle", "");
+			this.callToActionLink = properties.get("callToActionLink", "");
+			if(!this.callToActionTitle.equals("") && !this.callToActionLink.equals("")) {
+				this.callToActionLink= LinkUtils.getFormattedLink(this.callToActionLink);
+			}
+			if (properties.get("callToActionNewWindow") != null) {
+				this.callToActionLinkNewWindow = properties.get("callToActionNewWindow",false);
+			}
+			
+			// Icon Type
+			this.iconClass = properties.get("iconClass", "");
+			
+			// Section Override
+			this.sectionOverride = properties.get("section-override", "");
+			
 		}
 		
 		if(!this.heading.equals("") && !this.text.equals("")) {
-			 	
-			
 			this.activated = true;
 		}
 
-	}	
+	}
 	
+	public void setCallToActionLinkNewWindow(boolean callToActionLinkNewWindow) {
+		this.callToActionLinkNewWindow = callToActionLinkNewWindow;
+	}
+	
+	public String getCallToActionLinkNewWindow() {
+		if (this.callToActionLinkNewWindow) {	
+			return " target=\"_blank\"";
+		} else {
+			return "";
+		}
+	}
+
 	public Object getTextPosition() {
 		return textPosition;
 	}
@@ -136,6 +157,22 @@ public class HeaderTextImageHelper {
 			break;
 		}
 		return ret;
+	}
+
+	public String getIconClass() {
+		return iconClass;
+	}
+
+	public void setIconClass(String iconClass) {
+		this.iconClass = iconClass;
+	}
+
+	public String getSectionOverride() {
+		return sectionOverride;
+	}
+
+	public void setSectionOverride(String sectionOverride) {
+		this.sectionOverride = sectionOverride;
 	}
 
 	public String getPath() {
@@ -246,7 +283,7 @@ public class HeaderTextImageHelper {
 		this.callToActionLink = callToActionLink;
 	}
 
-	public Boolean getHasCTA() {
+	public Boolean hasCTA() {
 		return hasCTA;
 	}
 
@@ -301,12 +338,7 @@ public class HeaderTextImageHelper {
 		return linkNewWindow;
 	}
 
-	public boolean isCallToActionLinkNewWindow() {
-		return callToActionLinkNewWindow;
-	}
-
 	public boolean isImageLinkNewWindow() {
 		return imageLinkNewWindow;
 	}
-	
 }
