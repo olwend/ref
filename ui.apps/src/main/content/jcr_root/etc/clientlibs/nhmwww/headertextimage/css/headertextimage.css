@@ -29,6 +29,11 @@ a.button-cta {
 	margin-top: 30px;
 }
 
+.hti-padding {
+	display: table;
+ 		margin-bottom: 1.2em;
+}	
+
 @media only screen and (min-width: 48em) {
 	.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns
 		{
@@ -47,8 +52,8 @@ a.button-cta {
 	}
 	.row2cells12 .large-8.medium-8.columns .headertextimage {
 		margin-top: 0px;
-	}	
-
+	}
+	
 }
  
 @media only screen and (min-width: 64.063em) {
