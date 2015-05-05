@@ -26,7 +26,16 @@
 <cq:includeClientLib categories="uk.ac.nhm.headertextimage"/>
 
 <% 	HeaderTextImageHelper helper = new HeaderTextImageHelper(properties, resource, request, xssAPI); %>
-<%	CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase()); %>
+<%	String svgIcon = ""; %>
+<%	String svgBaseColor = ""; %>
+
+<% if(helper.hasCTAIcon()){
+	CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
+	SVGImage svg = ctahelper.getSVGImage(); 
+	svgIcon = svg.toHtml(currentDesign.getPath() + "/");
+	svgBaseColor = svg.getBaseColour();
+} %>
+
 
 <%	if(helper.isActivated()) {	%>
 	<div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.getHasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
@@ -62,13 +71,12 @@
 		</div>
 	<% } %>
 	<% if(helper.hasCTA()){ %>
-		<% SVGImage svg = ctahelper.getSVGImage(); %>
 		<div class="<%= helper.getSectionOverride() %>">
 			<div class="info-tout info-tout__action tickets">
 				<a class="arrow--large burgandy" href="<%= helper.getCallToActionLink()%>" <%=helper.getCallToActionLinkNewWindow()%> data-gtm="CTA">
-					<%=svg.toHtml(currentDesign.getPath()+ "/") %>
-						<h3 class="paddingTB"><%=helper.getCallToActionTitle() %></h3>
-					<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getIconClass() %>" data-stroke-width="4" data-base-color="<%= svg.getBaseColour() %>"></i>
+					<%=svgIcon %> 
+					<h3 class="paddingTB"><%=helper.getCallToActionTitle() %></h3>
+					<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
 				</a>
 			</div>
 		</div>

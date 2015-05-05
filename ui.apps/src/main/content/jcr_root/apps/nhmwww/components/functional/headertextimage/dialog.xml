@@ -177,14 +177,13 @@
         </tab1>
         <callToAction
             jcr:primaryType="cq:Widget"
-            anchor="100%"
-            title="Call To Action"
-            xtype="panel">
+            xtype="panel"
+            title="Call To Action">
             <items jcr:primaryType="cq:WidgetCollection">
 				<colourSectionOverride
 	                jcr:primaryType="cq:Widget"
-	                defaultValue=""
-	                fieldLabel="Colour theme"
+	                defaultValue="tickets"
+	                fieldLabel="Call To Action Type"
 	                name="./section-override"
 	                type="select"
 	                xtype="selection">
@@ -234,24 +233,24 @@
                 <callToActionTitle
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Title "
-                    name="./callToActionTitle"
+                    name="./cta-title"
                     xtype="textfield"/>
                 <callToActionLink
                     jcr:primaryType="cq:Widget"
                     fieldDescription="Please enter the link of the call to action button"
                     fieldLabel="Link to"
-                    name="./callToActionLink"
+                    name="./cta-path"
                     xtype="pathfield"/>
                 <callToActionNewWindow
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Open in New Window"
-                    name="./callToActionNewWindow"
+                    name="./cta-newwindow"
                     type="checkbox"
                     xtype="selection"/>
                 <ctaicon
                     jcr:primaryType="cq:Widget"
                     fieldLabel="CTA Icon"
-                    name="./ctaicon"
+                    name="./cta-icon"
                     type="checkbox"
                     xtype="selection">
                     <listeners
@@ -261,9 +260,9 @@
                 </ctaicon>
 	            <calltoactionType
 		            jcr:primaryType="cq:Widget"
-		            defaultValue="tickets"
+		            defaultValue=""
 		            fieldLabel="Call To Action Type"
-		            name="./iconClass"
+		            name="./calltoaction-type"
 		            type="select"
 		            xtype="selection">
 		            <options jcr:primaryType="cq:WidgetCollection">

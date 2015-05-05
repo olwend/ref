@@ -36,6 +36,7 @@ public class HeaderTextImageHelper {
 	private String backgroundColor;
 	private Object textPosition;
 	private String iconClass;
+	private Boolean hasCTAIcon;
 	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
@@ -101,17 +102,19 @@ public class HeaderTextImageHelper {
 		this.hasCTA = properties.get("addCallToAction", false);
 		if(this.hasCTA){
 			// CTA Title, Link & New Window
-			this.callToActionTitle = properties.get("callToActionTitle", "");
-			this.callToActionLink = properties.get("callToActionLink", "");
+			this.callToActionTitle = properties.get("cta-title", "");
+			this.callToActionLink = properties.get("cta-path", "");
 			if(!this.callToActionTitle.equals("") && !this.callToActionLink.equals("")) {
 				this.callToActionLink= LinkUtils.getFormattedLink(this.callToActionLink);
 			}
 			if (properties.get("callToActionNewWindow") != null) {
-				this.callToActionLinkNewWindow = properties.get("callToActionNewWindow",false);
+				this.callToActionLinkNewWindow = properties.get("cta-newwindow",false);
 			}
+			// Do we want the icon?
+			this.hasCTAIcon = properties.get("cta-icon", false);
 			
 			// Icon Type
-			this.iconClass = properties.get("iconClass", "");
+			this.iconClass = properties.get("calltoaction-type", "");
 			
 			// Section Override
 			this.sectionOverride = properties.get("section-override", "");
@@ -124,6 +127,10 @@ public class HeaderTextImageHelper {
 
 	}
 	
+	public Boolean hasCTAIcon() {
+		return this.hasCTAIcon;
+	}
+
 	public void setCallToActionLinkNewWindow(boolean callToActionLinkNewWindow) {
 		this.callToActionLinkNewWindow = callToActionLinkNewWindow;
 	}
