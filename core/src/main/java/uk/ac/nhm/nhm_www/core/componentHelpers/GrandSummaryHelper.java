@@ -82,10 +82,6 @@ public class GrandSummaryHelper {
 			// Section Override
 			this.sectionOverride = properties.get("section-override", "");
 		}
-		
-		if(this.title!=null && this.summary!=null){ 
-			this.activated = true;
-		}
 	}
 
 	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties) {

@@ -83,156 +83,167 @@
                 </description>
             </items>
         </tab1>
-		<callToAction
-            jcr:primaryType="cq:Widget"
-            xtype="panel"
-            title="Call To Action">
-            <items jcr:primaryType="cq:WidgetCollection">
-				<colourSectionOverride
-	                jcr:primaryType="cq:Widget"
-	                defaultValue="tickets"
-	                fieldLabel="Call To Action Type"
-	                name="./section-override"
-	                type="select"
-	                xtype="selection">
-	                <options jcr:primaryType="cq:WidgetCollection">
-	                    <inherit
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Inherit from section"
-	                        value=""/>
-	                    <aboutUs
-	                        jcr:primaryType="nt:unstructured"
-	                        text="About us"
-	                        value="about-us"/>
-	                    <businessServices
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Business services"
-	                        value="business-services"/>
-	                    <contactUs
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Contact us"
-	                        value="contact-us"/>
-	                    <discover
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Discover"
-	                        value="discover"/>
-	                    <ourScience
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Our Science"
-	                        value="our-science"/>
-	                    <schools
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Schools"
-	                        value="schools"/>
-	                    <supportUs
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Support Us"
-	                        value="support-us"/>
-	                    <takePart
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Take part"
-	                        value="take-part"/>
-	                    <visit
-	                        jcr:primaryType="nt:unstructured"
-	                        text="Visit"
-	                        value="visit"/>
-	                </options>
-	            </colourSectionOverride>
-                <callToActionTitle
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="Title "
-                    name="./cta-title"
-                    xtype="textfield"/>
-                <callToActionLink
-                    jcr:primaryType="cq:Widget"
-                    fieldDescription="Please enter the link of the call to action button"
-                    fieldLabel="Link to"
-                    name="./cta-path"
-                    xtype="pathfield"/>
-                <callToActionNewWindow
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="Open in New Window"
-                    name="./cta-newwindow"
-                    type="checkbox"
-                    xtype="selection"/>
-                <ctaicon
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="CTA Icon"
-                    name="./cta-icon"
-                    type="checkbox"
-                    xtype="selection">
-                    <listeners
-                        jcr:primaryType="nt:unstructured"
-                        loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').hide()} else {this.findParentByType('panel').getComponent('calltoactionType').show()}}"
-                        selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').hide()} else {this.findParentByType('panel').getComponent('calltoactionType').show()}}"/>
-                </ctaicon>
-	            <calltoactionType
-		            jcr:primaryType="cq:Widget"
-		            defaultValue=""
-		            fieldLabel="Call To Action Type"
-		            name="./calltoaction-type"
-		            type="select"
-		            xtype="selection">
-		            <options jcr:primaryType="cq:WidgetCollection">
-		                <alarmclock
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Alarm Clock"
-		                    value="timed-entry"/>
-		                <audioguide
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Audio Guide"
-		                    value="audio"/>
-		                <author
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Author"
-		                    value="author"/>
-		                <branding
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Branding"
-		                    value="branding"/>
-		                <calender
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Calendar"
-		                    value="dates"/>
-		                <clock
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Clock"
-		                    value="times"/>
-		                <gallery
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Gallery"
-		                    value="gallery"/>
-		                <location
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Location"
-		                    value="location"/>
-		                <membership
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Membership"
-		                    value="membership"/>
-		                <noflashphotography
-		                    jcr:primaryType="nt:unstructured"
-		                    text="No Flash Photography"
-		                    value="noflashphotography"/>
-		                <nophotography
-		                    jcr:primaryType="nt:unstructured"
-		                    text="No Photography"
-		                    value="nophotography"/>
-		                <subscription
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Subscription"
-		                    value="subscription"/>
-		                <sunset
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Sunset"
-		                    value="after-hours"/>
-		                <ticket
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Ticket"
-		                    value="tickets"/>
-		            </options>
-		        </calltoactionType>
-            </items>
-        </callToAction>
+            <callToAction
+                jcr:primaryType="cq:Panel"
+                title="Call to action">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calltoactionType
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="tickets"
+                        fieldLabel="Call To Action Type"
+                        name="./calltoaction-type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <alarmclock
+                                jcr:primaryType="nt:unstructured"
+                                text="Alarm Clock"
+                                value="timed-entry"/>
+                            <audioguide
+                                jcr:primaryType="nt:unstructured"
+                                text="Audio Guide"
+                                value="audio"/>
+                            <author
+                                jcr:primaryType="nt:unstructured"
+                                text="Author"
+                                value="author"/>
+                            <branding
+                                jcr:primaryType="nt:unstructured"
+                                text="Branding"
+                                value="branding"/>
+                            <calender
+                                jcr:primaryType="nt:unstructured"
+                                text="Calendar"
+                                value="dates"/>
+                            <clock
+                                jcr:primaryType="nt:unstructured"
+                                text="Clock"
+                                value="times"/>
+                            <gallery
+                                jcr:primaryType="nt:unstructured"
+                                text="Gallery"
+                                value="gallery"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                text="Location"
+                                value="location"/>
+                            <membership
+                                jcr:primaryType="nt:unstructured"
+                                text="Membership"
+                                value="membership"/>
+                            <noflashphotography
+                                jcr:primaryType="nt:unstructured"
+                                text="No Flash Photography"
+                                value="noflashphotography"/>
+                            <nophotography
+                                jcr:primaryType="nt:unstructured"
+                                text="No Photography"
+                                value="nophotography"/>
+                            <subscription
+                                jcr:primaryType="nt:unstructured"
+                                text="Subscription"
+                                value="subscription"/>
+                            <sunset
+                                jcr:primaryType="nt:unstructured"
+                                text="Sunset"
+                                value="after-hours"/>
+                            <ticket
+                                jcr:primaryType="nt:unstructured"
+                                text="Ticket"
+                                value="tickets"/>
+                        </options>
+                    </calltoactionType>
+                    <colourSectionOverride
+                        jcr:primaryType="cq:Widget"
+                        defaultValue=""
+                        fieldLabel="Colour theme"
+                        name="./section-override"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <inherit
+                                jcr:primaryType="nt:unstructured"
+                                text="Inherit from section"
+                                value=""/>
+                            <aboutUs
+                                jcr:primaryType="nt:unstructured"
+                                text="About us"
+                                value="about-us"/>
+                            <businessServices
+                                jcr:primaryType="nt:unstructured"
+                                text="Business services"
+                                value="business-services"/>
+                            <contactUs
+                                jcr:primaryType="nt:unstructured"
+                                text="Contact us"
+                                value="contact-us"/>
+                            <discover
+                                jcr:primaryType="nt:unstructured"
+                                text="Discover"
+                                value="discover"/>
+                            <ourScience
+                                jcr:primaryType="nt:unstructured"
+                                text="Our Science"
+                                value="our-science"/>
+                            <schools
+                                jcr:primaryType="nt:unstructured"
+                                text="Schools"
+                                value="schools"/>
+                            <supportUs
+                                jcr:primaryType="nt:unstructured"
+                                text="Support Us"
+                                value="support-us"/>
+                            <takePart
+                                jcr:primaryType="nt:unstructured"
+                                text="Take part"
+                                value="take-part"/>
+                            <visit
+                                jcr:primaryType="nt:unstructured"
+                                text="Visit"
+                                value="visit"/>
+                        </options>
+                    </colourSectionOverride>
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Only displayed when image is added to the component"
+                        fieldLabel="Component Title"
+                        name="./title"
+                        xtype="textfield"/>
+                    <ctaPath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Path"
+                        name="./cta-path"
+                        width="155"
+                        xtype="pathfield"/>
+                    <newwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in New Window"
+                        name="./newwindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="CTA Label"
+                        name="./heading"
+                        xtype="textfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        editElementQuery="div.text"
+                        hideLabel="{Boolean}true"
+                        name="./text"
+                        xtype="richtext">
+                        <rtePlugins
+                            jcr:primaryType="cq:Widget"
+                            path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                            xtype="cqinclude"/>
+                    </text>
+                    <richFlag
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./textIsRich"
+                        value="true"
+                        xtype="hidden"/>
+                </items>
+            </callToAction>
     </items>
 </jcr:root>

@@ -16,7 +16,6 @@
 		svgBaseColor = svg.getBaseColour();
 }	%>
 
-<%	if(helper.isActivated()) { %>
 	<div class="video-wrapper" >
 		<% helper.getMobileImage().draw(out); %>
 		<% helper.getImage().draw(out); %>
@@ -42,7 +41,4 @@
 			</div>
 		</div>
 	<% } %>
-<% } else { %>
-	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
-<% } %>
 <% %>
