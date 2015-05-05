@@ -20,7 +20,7 @@
         <tab1
             jcr:primaryType="cq:Widget"
             anchor="100%"
-            title="Text"
+            title="Advanced"
             xtype="panel">
             <items jcr:primaryType="cq:WidgetCollection">
 				<type
@@ -67,7 +67,7 @@
                         jcr:primaryType="cq:Widget"
                         path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
                         xtype="cqinclude"/>
-                </text>
+                </description>
             </items>
         </tab1>
     </items>
