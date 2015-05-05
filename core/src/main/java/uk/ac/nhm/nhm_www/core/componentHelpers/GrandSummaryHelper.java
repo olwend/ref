@@ -30,6 +30,8 @@ public class GrandSummaryHelper {
 	private boolean activated;
 
 	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties, Image image) {
+		this.activated = false;
+		
 		// Title, Link and New Window
 		this.title = properties.get("title", String.class);
 		

@@ -1,20 +1,20 @@
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
 <%@page import="uk.ac.nhm.nhm_www.core.model.SVGImage" %>
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.GrandSummaryHelper"%>
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper"%>
 <cq:defineObjects />
 <cq:includeClientLib />
 <%	GrandSummaryHelper helper = new GrandSummaryHelper(slingRequest, currentPage, properties); %>
-<% 
-	String svgIcon = "";
-	String svgBaseColor = "";
-	if(helper.hasCTAIcon()){
+<%	String svgIcon = ""; %>
+<%	String svgBaseColor = ""; %>
+
+<%	if(helper.hasCTAIcon()){
 		CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 		SVGImage svg = ctahelper.getSVGImage(); 
 		svgIcon = svg.toHtml(currentDesign.getPath() + "/");
 		svgBaseColor = svg.getBaseColour();
-	} 
-%>
+}	%>
 
 <%	if(helper.isActivated()) { %>
 	<div class="video-wrapper" >
