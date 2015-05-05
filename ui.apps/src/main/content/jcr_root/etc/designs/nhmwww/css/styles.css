@@ -10981,25 +10981,25 @@ div#feedback-bar .span11 {
   margin-bottom: 0;
 }
 
-.feed---list .feed--item--content-wrapper {
+.feed--list .feed--item--content-wrapper {
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .feed---list .feed--item--content-wrapper {
+  .feed--list .feed--item--content-wrapper {
     padding: 1.25em;
   }
 }
 @media screen and (min-width: 768px) {
-  .feed---list .feed--item--content {
+  .feed--list .feed--item--content {
     padding-top: 0;
     padding-right: 0;
   }
 }
-.feed---list .feed--item--title {
+.feed--list .feed--item--title {
   margin-top: 0.5em;
 }
 @media screen and (min-width: 768px) {
-  .feed---list .feed--item--title {
+  .feed--list .feed--item--title {
     margin-top: 0;
   }
 }
