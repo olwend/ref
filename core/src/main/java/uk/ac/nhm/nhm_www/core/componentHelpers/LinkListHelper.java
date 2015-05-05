@@ -28,8 +28,8 @@ public class LinkListHelper extends ListHelper {
 	
 	protected static final Logger LOG = LoggerFactory.getLogger(LinkListHelper.class);	
 	
-	private String description = StringUtils.EMPTY;
-	private String numColumns = StringUtils.EMPTY;
+	private String numColumns;
+	private String description;
 	private String backgroundColor;
 	private String firstHeader;
 	private String secondHeader;
@@ -49,7 +49,9 @@ public class LinkListHelper extends ListHelper {
 		
 		// Links Description 
 		if(this.properties.get("description", String.class) != null){
+			LOG.error("Getting Properties > Description is empty" );
 			this.description = this.properties.get("description", String.class);
+			LOG.error("Getting Properties > Description should not be empty now and is : " + this.description);
 		}
 		
 		// Number of Columns being used, probably will be removed
@@ -94,6 +96,7 @@ public class LinkListHelper extends ListHelper {
 	}
 
 	public String getDescription() {
+		LOG.error("Getter: " + this.description );
 		return description;
 	}
 
@@ -107,15 +110,6 @@ public class LinkListHelper extends ListHelper {
 
 	public void setBackgroundColor(String backgroundColor) {
 		this.backgroundColor = backgroundColor;
-	}
-
-	
-	public boolean hasDescription() {
-		boolean res = false;
-		if (!getDescription().isEmpty()){
-			res = true; 
-		}
-		return res;
 	}
 	
 	public void setIsFullWidth(Resource resource) throws AccessDeniedException, ItemNotFoundException, RepositoryException {

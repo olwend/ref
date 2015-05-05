@@ -12,7 +12,9 @@
 	<%if (helper.getComponentTitle() != null) {%><h2><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
 	
 	<%-- [Optional] Description --%>
-	<% if (helper.hasDescription()) { %> <div> <%= helper.getDescription() %></div> <% } %>
+	ABOUT TO TEST DESCRIPTION
+	<% if (helper.getDescription() != null) { %> <div> <%= helper.getDescription() %></div> <% } %>
+	END OF DESCRIPTION
 	
 	<%-- [Mandatory] Link Lists Generation --%>
 	<% helper.setIsFullWidth(resource); %>
