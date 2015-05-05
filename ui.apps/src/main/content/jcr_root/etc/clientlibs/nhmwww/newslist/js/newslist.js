@@ -177,7 +177,7 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 		var hideMonths = event.data.hideMonths;
 		var isMultilevel = event.data.isMultilevel;
 		removeMoreResultsButton(componentID);
-		var elementsShowed = $('.press-office--list-'+componentID+' .press-office--list-item').length;
+		var elementsShowed = $('#press-office--list-' + componentID + ' .press-office--list-item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
 		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
