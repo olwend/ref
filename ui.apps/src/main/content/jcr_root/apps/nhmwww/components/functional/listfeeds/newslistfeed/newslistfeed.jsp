@@ -58,7 +58,7 @@
 	    <!-- START PAGINATION -->
 	    
 	    <!-- END PAGINATION -->
-	    <div class="feed--list-<%=componentID%>" id="feed--list-<%=componentID%>">
+	    <div class="feed--list" id="feed--list-<%=componentID%>">
 	    </div>
 	</div>
 <% } else { %>
