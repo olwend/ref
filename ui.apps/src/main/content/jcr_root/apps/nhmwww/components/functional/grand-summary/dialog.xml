@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <image
+            jcr:primaryType="cq:Widget"
+            cropParameter="./imageCrop"
+            ddGroups="[media]"
+            fileNameParameter="./fileName"
+            fileReferenceParameter="./fileReference"
+            mapParameter="./imageMap"
+            name="./file"
+            requestSuffix=".img.png"
+            rotateParameter="./imageRotate"
+            title="Image"
+            xtype="html5smartimage"/>
+        <tab1
+            jcr:primaryType="cq:Widget"
+            anchor="100%"
+            title="Text"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+				<type
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Component type"
+                    name="./component-type"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <normal
+                            jcr:primaryType="nt:unstructured"
+                            text="Normal"
+                            value=""/>
+                        <exhibition
+                            jcr:primaryType="nt:unstructured"
+                            text="Exhibition"
+                            value="exhibition"/>
+                    </options>
+                </type>
+                <title
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Title"
+                    name="./title"
+                    xtype="textfield"/>
+                <path
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Links to"
+                    name="./path"
+                    xtype="pathfield"/>
+                <newwindow
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./newwindow"
+                    type="checkbox"
+                    xtype="selection"/>
+                <description
+                    jcr:primaryType="cq:Widget"
+                    editElementQuery="div.text"
+                    hideLabel="{Boolean}true"
+                    name="summary"
+                    xtype="richtext">
+                    <rtePlugins
+                        jcr:primaryType="cq:Widget"
+                        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                        xtype="cqinclude"/>
+                </text>
+            </items>
+        </tab1>
+    </items>
+</jcr:root>
