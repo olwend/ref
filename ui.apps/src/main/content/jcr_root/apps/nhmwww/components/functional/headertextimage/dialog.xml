@@ -260,7 +260,7 @@
                 </ctaicon>
 	            <calltoactionType
 		            jcr:primaryType="cq:Widget"
-		            defaultValue=""
+		            defaultValue="tickets"
 		            fieldLabel="Call To Action Type"
 		            name="./calltoaction-type"
 		            type="select"
