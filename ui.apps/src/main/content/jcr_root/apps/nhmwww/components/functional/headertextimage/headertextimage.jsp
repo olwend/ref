@@ -35,7 +35,10 @@
 			textPosition = "left";
 		}
 %>
-<div <% if(helper.getAddPadding()) { %>class="hti-padding" data-equalizer<%}%>>
+<% if(helper.getAddPadding()) { %>
+<cq:includeClientLib categories="uk.ac.nhm.pressreleasetilefeed"/>
+<div class="hti-padding" data-equalizer>
+<%}%>
 	<div class="GreyBox text <%=textPosition%>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.getHasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
 		<h3>
 			<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
@@ -72,7 +75,10 @@
 <%
 	}  
 %>
+<% if(helper.getAddPadding()) { %>
 </div>
+<%}%>
+
 
 
 <%

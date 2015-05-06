@@ -31,8 +31,12 @@ a.button-cta {
 
 .hti-padding {
 	display: table;
- 		margin-bottom: 1.2em;
+ 	margin-bottom: 1.2em;
 }	
+
+.hti-padding:last-child {
+    margin-bottom: 0em;
+}
 
 @media only screen and (min-width: 48em) {
 	.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns
