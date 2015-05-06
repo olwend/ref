@@ -7,5 +7,6 @@
     ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
+	status="New"
         sling:resourceType="nhmwww/components/page/discoverpublicationpage"/>
 </jcr:root>
