@@ -30,11 +30,13 @@ public class HeaderTextImageHelper {
 	private Boolean hasImage;
 	private Boolean hasCTA;
 	private Boolean activated;
+	private Boolean addPadding;
 	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
 		this.hasImage = false;
 		this.activated = false;
+		this.addPadding = false;
 		String fileReference = properties.get("fileReference", "");
 		if (fileReference.length() != 0 || resource.getChild("file") != null) {
 			String tempPath = request.getContextPath() + resource.getPath();
@@ -71,6 +73,7 @@ public class HeaderTextImageHelper {
 		if (properties.get("newwindow") != null) {
 			this.imageLinkNewWindow = properties.get("newwindow",false);
 		}
+		this.addPadding = properties.get("addPadding",false);
 		this.heading = properties.get("text-heading", "");
 		this.linkURL = properties.get("linkURL","");
 		if(this.linkURL != null && !this.linkURL.equals("")){
@@ -254,5 +257,15 @@ public class HeaderTextImageHelper {
 	public boolean isImageLinkNewWindow() {
 		return imageLinkNewWindow;
 	}
+
+	public Boolean getAddPadding() {
+		return addPadding;
+	}
+
+	public void setAddPadding(Boolean addPadding) {
+		this.addPadding = addPadding;
+	}
+	
+	
 	
 }
