@@ -34,8 +34,8 @@ a.button-cta {
  	margin-bottom: 1.2em;
 }	
 
-.hti-padding:last-child {
-    margin-bottom: 0em;
+.headertextimage:last-child .hti-padding {
+  margin-bottom: 0px;
 }
 
 @media only screen and (min-width: 48em) {
