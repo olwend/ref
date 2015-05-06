@@ -123,7 +123,7 @@
                     xtype="selection"/>
                 <addCallToAction
                     jcr:primaryType="cq:Widget"
-                    defaultValue="{Boolean}true"
+                    defaultValue="{Boolean}false"
                     fieldDescription="Display a Call to action Button"
                     fieldLabel="Call to action Button"
                     name="./addCallToAction"

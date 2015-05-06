@@ -12,39 +12,53 @@ import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
 
 public class HeaderTextImageHelper {
-	private Boolean isDarkGreyBackground;
+	
+	private Boolean activated;
+
+	// Image Tab
 	private String path;
 	private String extension;
 	private String suffix;
+	private Boolean hasImage;
+	
+	// Advanced Tab
 	private String alt;
-	private String linkURL;
-	private boolean linkNewWindow;
-	private String text;
-	private String heading;
-	private String sectionOverride;
-	private String callToActionTitle;
-	private String callToActionLink;
-	private boolean callToActionLinkNewWindow;
 	private String imageSize;
-	private String imagePosition;
-	private String componentType;
 	private String imageLinkURL;
 	private boolean imageLinkNewWindow;
-	private Boolean hasImage;
-	private Boolean hasCTA;
-	private Boolean activated;
-	private String backgroundColor;
+	private String imagePosition;
 	private Object textPosition;
-	private String iconClass;
-	private Boolean hasCTAIcon;
 	
+	// Text Tab
+	private String heading;
+	private String linkURL;
+	private boolean linkNewWindow;
+	private Boolean hasCTA;
+	private String backgroundColor;
+	private Boolean isDarkGreyBackground;
+	private String componentType;
+	private String text;
+	
+	// CTA Tab
+	private String ctaSectionOverride;
+	private String ctaTitle;
+	private String ctaLink;
+	private boolean ctaLinkNewWindow;
+	private String ctaIconClass;
+	private Boolean hasCTAIcon;	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
+		this.activated = false;
+		
+		// **********************************
+		// ** Image & Advanced Tab Section **
+		// **********************************
 		this.textPosition = "left";
 		this.isDarkGreyBackground = false;
 		this.hasImage = false;
-		this.activated = false;
+		
 		String fileReference = properties.get("fileReference", "");
+		
 		if (fileReference.length() != 0 || resource.getChild("file") != null) {
 			String tempPath = request.getContextPath() + resource.getPath();
 			ImageResource image = new ImageResource(resource);
@@ -52,6 +66,7 @@ public class HeaderTextImageHelper {
 			// Handle extensions on both fileReference and file type images
 			String tempExtension = "jpg";
 			String tempSuffix = "";
+			
 			if (fileReference.length() != 0) {
 				tempExtension = fileReference.substring(fileReference.lastIndexOf(".") + 1);
 				tempSuffix = image.getSuffix();
@@ -64,6 +79,7 @@ public class HeaderTextImageHelper {
 					tempExtension = mimeType.substring(mimeType.lastIndexOf("/") + 1);
 				}
 			}
+			
 			tempExtension = xssAPI.encodeForHTMLAttr(tempExtension);
 			this.path= tempPath;
 			this.extension = tempExtension;
@@ -72,81 +88,138 @@ public class HeaderTextImageHelper {
 			this.hasImage = true;
 		}
 		
-		
 		this.imageLinkURL = properties.get("image-path","");
-		if(this.imageLinkURL != null && !this.imageLinkURL.equals("")){
+		
+		if(this.imageLinkURL != null && !this.imageLinkURL.equals("")) {
 			this.imageLinkURL = LinkUtils.getFormattedLink(this.imageLinkURL);
 		}
+		
 		if (properties.get("newwindow") != null) {
 			this.imageLinkNewWindow = properties.get("newwindow",false);
 		}
-		this.heading = properties.get("text-heading", "");
-		this.linkURL = properties.get("linkURL","");
-		if(this.linkURL != null && !this.linkURL.equals("")){
-			this.linkURL = LinkUtils.getFormattedLink(this.linkURL);
-		}
-		if (properties.get("newwindowheading") != null) {
-			this.linkNewWindow = properties.get("newwindowheading",false);
-		}
-		if (properties.get("darkgrey") != null) {
-			this.isDarkGreyBackground = properties.get("darkgrey",false);
-		}
-		this.backgroundColor = setBackgroundColor();
 		
-		this.componentType = properties.get("component-type", "");
-		this.text = properties.get("text", "");
 		this.imageSize = properties.get("imageSize", "4");
 		this.imagePosition = properties.get("imagePosition", "right");
 		this.textPosition = setTextPosition(imagePosition);
 		
-		this.hasCTA = properties.get("addCallToAction", false);
+		// **********************
+		// ** Text Tab Section **
+		// **********************
+		this.hasCTA = false;
+		this.heading = properties.get("text-heading", "");
+		this.linkURL = properties.get("linkURL","");
+		if(this.linkURL != null && !this.linkURL.equals("")) {
+			this.linkURL = LinkUtils.getFormattedLink(this.linkURL);
+		}
+		
+		if (properties.get("newwindowheading") != null) {
+			this.linkNewWindow = properties.get("newwindowheading",false);
+		}
+		
+		if (properties.get("darkgrey") != null) {
+			this.isDarkGreyBackground = properties.get("darkgrey",false);
+		}
+		
+		this.backgroundColor = setBackgroundColor();
+		this.componentType = properties.get("component-type", "");
+		this.text = properties.get("text", "");
+		
+		
+		// *********************
+		// ** CTA Tab Section **
+		// *********************
+		
+		this.hasCTAIcon = false;
+		if(properties.get("addCallToAction") != null){
+			this.hasCTA = properties.get("addCallToAction", false);
+		}
+		
 		if(this.hasCTA){
-			// CTA Title, Link & New Window
-			this.callToActionTitle = properties.get("cta-title", "");
-			this.callToActionLink = properties.get("cta-path", "");
-			if(!this.callToActionTitle.equals("") && !this.callToActionLink.equals("")) {
-				this.callToActionLink= LinkUtils.getFormattedLink(this.callToActionLink);
+			this.ctaSectionOverride = properties.get("section-override", "");
+			this.ctaTitle = properties.get("cta-title", "");
+			this.ctaLink = properties.get("cta-path", "");
+			
+			if(!this.ctaTitle.equals("") && !this.ctaLink.equals("")) {
+				this.ctaLink= LinkUtils.getFormattedLink(this.ctaLink);
 			}
+			
 			if (properties.get("callToActionNewWindow") != null) {
-				this.callToActionLinkNewWindow = properties.get("cta-newwindow",false);
+				this.ctaLinkNewWindow = properties.get("cta-newwindow",false);
 			}
-			// Do we want the icon?
-			this.hasCTAIcon = properties.get("cta-icon", false);
 			
-			// Icon Type
-			this.iconClass = properties.get("calltoaction-type", "");
-			
-			// Section Override
-			this.sectionOverride = properties.get("section-override", "");
-			
+			if(properties.get("cta-icon") != null) {
+				this.hasCTAIcon = properties.get("cta-icon", false);
+				this.ctaIconClass = properties.get("calltoaction-type", "");
+			}
 		}
 		
 		if(!this.heading.equals("") && !this.text.equals("")) {
 			this.activated = true;
 		}
-
 	}
 	
-	public Boolean hasCTAIcon() {
-		return this.hasCTAIcon;
-	}
+	
+	/***************
+	 ** Image Tab **
+	 ***************/
 
-	public void setCallToActionLinkNewWindow(boolean callToActionLinkNewWindow) {
-		this.callToActionLinkNewWindow = callToActionLinkNewWindow;
+	public String getPath() {
+		return path;
 	}
 	
-	public String getCallToActionLinkNewWindow() {
-		if (this.callToActionLinkNewWindow) {	
-			return " target=\"_blank\"";
-		} else {
-			return "";
-		}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	public String getExtension() {
+		return extension;
+	}
+	
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+	
+	public String getSuffix() {
+		return suffix;
+	}
+	
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
+	}
+	
+	public Boolean hasImage() {
+		return hasImage;
+	}
+	
+	public void setHasImage(Boolean hasImage) {
+		this.hasImage = hasImage;
+	}
+	
+	public Boolean isActivated() {
+		return activated;
+	}
+	
+	public void setActivated(Boolean activated) {
+		this.activated = activated;
 	}
 
+	
+	/****************
+	 **Advanced Tab**
+	 ****************/
+	
+	public String getAlt() {
+		return alt;
+	}
+	
+	public void setAlt(String alt) {
+		this.alt = alt;
+	}
+	
 	public Object getTextPosition() {
 		return textPosition;
 	}
-
+	
 	private String setTextPosition(String imagePosition) {
 		String ret = StringUtils.EMPTY;
 		switch (imagePosition) {
@@ -165,104 +238,85 @@ public class HeaderTextImageHelper {
 		}
 		return ret;
 	}
-
-	public String getIconClass() {
-		return iconClass;
+	
+	public String getImageSize() {
+		return imageSize;
 	}
-
-	public void setIconClass(String iconClass) {
-		this.iconClass = iconClass;
+	
+	public void setImageSize(String imageSize) {
+		this.imageSize = imageSize;
 	}
-
-	public String getSectionOverride() {
-		return sectionOverride;
+	
+	public String getImagePosition() {
+		return imagePosition;
 	}
-
-	public void setSectionOverride(String sectionOverride) {
-		this.sectionOverride = sectionOverride;
+	
+	public void setImagePosition(String imagePosition) {
+		this.imagePosition = imagePosition;
 	}
-
-	public String getPath() {
-		return path;
+	
+	public String getImageLinkURL() {
+		return imageLinkURL;
 	}
-
-	public void setPath(String path) {
-		this.path = path;
+	
+	public void setImageLinkURL(String imageLinkURL) {
+		this.imageLinkURL = imageLinkURL;
 	}
-
-	public String getExtension() {
-		return extension;
+	
+	public boolean isImageLinkNewWindow() {
+		return imageLinkNewWindow;
 	}
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
-
-	public String getSuffix() {
-		return suffix;
-	}
-
-	public void setSuffix(String suffix) {
-		this.suffix = suffix;
-	}
-
-	public String getAlt() {
-		return alt;
-	}
-
-	public void setAlt(String alt) {
-		this.alt = alt;
-	}
-
-	public Boolean getHasImage() {
-		return hasImage;
-	}
-
-	public void setHasImage(Boolean hasImage) {
-		this.hasImage = hasImage;
-	}
-
-	public Boolean isActivated() {
-		return activated;
-	}
-
-	public void setActivated(Boolean activated) {
-		this.activated = activated;
-	}
-
-	public String getLinkURL() {
-		return linkURL;
-	}
-
-	public void setLinkURL(String linkURL) {
-		this.linkURL = linkURL;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
+	
+	
+	/**************
+	 ** Text Tab **
+	 **************/
+	
 	public String getHeading() {
 		return heading;
 	}
-
+	
 	public void setHeading(String heading) {
 		this.heading = heading;
 	}
-
-	public Boolean isDarkGreyBackground() {
-		return isDarkGreyBackground;
+	
+	public String getLinkURL() {
+		return linkURL;
 	}
 	
-	public void setIsDarkGreyBackground(Boolean isDarkGreyBackground) {
-		this.isDarkGreyBackground = isDarkGreyBackground;
+	public void setLinkURL(String linkURL) {
+		this.linkURL = linkURL;
 	}
 	
-	public String setBackgroundColor(){
+	public boolean isLinkNewWindow() {
+		return linkNewWindow;
+	}
+	
+	public String getNewWindowHtml(boolean opensInNewWindow) {
+		if (opensInNewWindow){	
+			return " target=\"_blank\"";
+		} else {
+			return "";
+		}
+	}
+	
+	public String getText() {
+		return text;
+	}
+	
+	public void setText(String text) {
+		this.text = text;
+	}
+	
+	public String getComponentType() {
+		return componentType;
+	}
+	
+	public void setComponentType(String componentType) {
+		this.componentType = componentType;
+	}
+	
+	public String setBackgroundColor() {
 		if (this.isDarkGreyBackground){
 			return "DarkGrey";
 		} else {
@@ -270,25 +324,6 @@ public class HeaderTextImageHelper {
 		}
 	}
 	
-	public String getBackgroundColor(){
-		return this.backgroundColor;
-	}
-
-	public String getCallToActionTitle() {
-		return callToActionTitle;
-	}
-
-	public void setCallToActionTitle(String callToActionTitle) {
-		this.callToActionTitle = callToActionTitle;
-	}
-
-	public String getCallToActionLink() {
-		return callToActionLink;
-	}
-
-	public void setCallToActionLink(String callToActionLink) {
-		this.callToActionLink = callToActionLink;
-	}
 
 	public Boolean hasCTA() {
 		return hasCTA;
@@ -297,55 +332,69 @@ public class HeaderTextImageHelper {
 	public void setHasCTA(Boolean hasCTA) {
 		this.hasCTA = hasCTA;
 	}
+	
+	public Boolean isDarkGreyBackground() {
+		return isDarkGreyBackground;
+	}
+	
+	public void setIsDarkGreyBackground(Boolean isDarkGreyBackground) {
+		this.isDarkGreyBackground = isDarkGreyBackground;
+	}
+	
+	public String getBackgroundColor() {
+		return this.backgroundColor;
+	}
+	
 
-	public String getImageSize() {
-		return imageSize;
+	/*************
+	 ** CTA Tab **
+	 *************/
+	
+	public String getCTATitle() {
+		return ctaTitle;
 	}
 
-	public void setImageSize(String imageSize) {
-		this.imageSize = imageSize;
+	public void setCTATitle(String callToActionTitle) {
+		this.ctaTitle = callToActionTitle;
 	}
 
-	public String getImagePosition() {
-		return imagePosition;
+	public String getCTALink() {
+		return ctaLink;
 	}
 
-	public void setImagePosition(String imagePosition) {
-		this.imagePosition = imagePosition;
+	public void setCTALink(String callToActionLink) {
+		this.ctaLink = callToActionLink;
 	}
 
-	public String getComponentType() {
-		return componentType;
+	public Boolean hasCTAIcon() {
+		return this.hasCTAIcon;
+	}
+	
+	public void setCTALinkNewWindow(boolean callToActionLinkNewWindow) {
+		this.ctaLinkNewWindow = callToActionLinkNewWindow;
 	}
 
-	public void setComponentType(String componentType) {
-		this.componentType = componentType;
-	}
-
-	public String getImageLinkURL() {
-		return imageLinkURL;
-	}
-
-	public void setImageLinkURL(String imageLinkURL) {
-		this.imageLinkURL = imageLinkURL;
-	}
-
-	public String getNewWindowHtml(boolean opensInNewWindow) {
-		if (opensInNewWindow)
-		{	
+	public String getCTALinkNewWindow() {
+		if (this.ctaLinkNewWindow) {	
 			return " target=\"_blank\"";
-		}
-		else
-		{
+		} else {
 			return "";
 		}
 	}
 
-	public boolean isLinkNewWindow() {
-		return linkNewWindow;
+	public String getCTAIconClass() {
+		return ctaIconClass;
 	}
 
-	public boolean isImageLinkNewWindow() {
-		return imageLinkNewWindow;
+	public void setCTAIconClass(String iconClass) {
+		this.ctaIconClass = iconClass;
+	}
+
+	public String getCTASectionOverride() {
+		return ctaSectionOverride;
+	}
+
+	public void setCTASectionOverride(String sectionOverride) {
+		this.ctaSectionOverride = sectionOverride;
 	}
 }
