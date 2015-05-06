@@ -18,36 +18,47 @@ public class GrandSummaryHelper {
 	
 	// Image & Advanced
 	private Image image;
+	private Image mobileimage;
 	private String id;
 	private String divId;
 	private String title;
+	private String link;
+	private Boolean newWindow;
 	private String description;
-	private Image mobileimage;
-	private Object componentType;
-	private Boolean hasCTA;
+	private Boolean isExhibition;
 	
-	// CTA Tab
+	// Exhibition & CTA Tab
 	private String ctaTitle;
 	private String ctaLink;
 	private Boolean ctaLinkNewWindow;
 	private Boolean hasCTAIcon;
 	private String ctaIconClass;
 	private String ctaSectionOverride;
+	private String ticketPrice;
+	private String location;
+	private String date;
 
+	
 	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties, Image image) {
 		this.activated = false;
-		this.hasCTA = false;
+		this.isExhibition = false;
 		
-		// Title, Link and New Window
+		// **********************
+		// ** Normal Component **
+		// **********************
+		
 		this.title = properties.get("title", String.class);
-		
-		// Description
 		this.description = properties.get("description", String.class);
+		this.link = properties.get("path", String.class);
+		
+		if(!this.title.equals("") && !this.link.equals("")) {
+			this.link= LinkUtils.getFormattedLink(this.link);
+		}
 
-		// Component Type
-		this.componentType = properties.get("component-type", String.class);
+		if (properties.get("newwindow") != null) {
+			this.newWindow = properties.get("newwindow",false);
+		}
 
-		// Image Handling
 		this.mobileimage = new Image(request.getResource());
 		this.mobileimage.setIsInUITouchMode(Placeholder.isAuthoringUIModeTouch(request));
 		this.image = image;
@@ -67,12 +78,35 @@ public class GrandSummaryHelper {
 			divId = request.getResource().getPath();
 		}
 		
-		// Call to Action
-		if (properties.get("addCallToAction") != null) {
-			this.hasCTA = properties.get("addCallToAction",false);
+		
+		// **************************
+		// ** Exhibition Component **
+		// **************************
+		
+		if (properties.get("isExhibition") != null) {
+			this.isExhibition = properties.get("isExhibition", false);
 		}
 		
-		if(this.hasCTA){
+		if (this.isExhibition) {
+			this.ticketPrice = StringUtils.EMPTY;
+			this.location = StringUtils.EMPTY;
+			this.date = StringUtils.EMPTY;
+			
+			if (properties.get("ticketPrice") != null) {
+				this.ticketPrice = properties.get("ticketPrice", String.class);
+			}
+			
+			if (properties.get("location") != null) {
+				this.location = properties.get("location", String.class);
+			}
+			
+			if (properties.get("date") != null) {
+				this.date = properties.get("date", String.class);
+			}
+			
+			// ****************
+			// ** CTA Button **
+			// ****************
 			ctaTitle = StringUtils.EMPTY;
 			ctaLink = StringUtils.EMPTY;
 			ctaIconClass = StringUtils.EMPTY;
@@ -146,14 +180,6 @@ public class GrandSummaryHelper {
 	public void setImage(Image image) {
 		this.image = image;
 	}
-
-	public Object getComponentType() {
-		return componentType;
-	}
-
-	public void setComponentType(Object componentType) {
-		this.componentType = componentType;
-	}
 	
 	public String getDescription() {
 		return this.description;
@@ -179,6 +205,22 @@ public class GrandSummaryHelper {
 		this.title = title;
 	}
 
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public Boolean getNewWindow() {
+		return newWindow;
+	}
+
+	public void setNewWindow(Boolean newWindow) {
+		this.newWindow = newWindow;
+	}
+
 	public boolean isComponentInitialised() {
 		return componentInitialised;
 	}
@@ -191,60 +233,85 @@ public class GrandSummaryHelper {
 		this.divId = divId;
 	}
 
-	public Boolean hasCTA() {
-		return hasCTA;
+	public Boolean isExhibition() {
+		return this.isExhibition;
 	}
 	
-	/************
-	 * CTA Tabs *
-	 ************/
 	
-	public String getCTAIconClass() {
-		return ctaIconClass;
+	/***************************
+	 ** Exhibition & CTA Tabs **
+	 ***************************/
+	
+	public String getTicketPrice() {
+		return ticketPrice;
 	}
 
-	public void setCTAIconClass(String iconClass) {
-		this.ctaIconClass = iconClass;
+	public void setTicketPrice(String ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getCTATitle() {
 		return ctaTitle;
 	}
 
-	public void setCTATitle(String callToActionTitle) {
-		this.ctaTitle = callToActionTitle;
+	public void setCTATitle(String ctaTitle) {
+		this.ctaTitle = ctaTitle;
 	}
 
 	public String getCTALink() {
 		return ctaLink;
 	}
 
-	public void setCTALink(String callToActionLink) {
-		this.ctaLink = callToActionLink;
+	public void setCTALink(String ctaLink) {
+		this.ctaLink = ctaLink;
 	}
 
 	public Boolean getCTALinkNewWindow() {
 		return ctaLinkNewWindow;
 	}
 
-	public void setCTALinkNewWindow(Boolean callToActionLinkNewWindow) {
-		this.ctaLinkNewWindow = callToActionLinkNewWindow;
+	public void setCTALinkNewWindow(Boolean ctaLinkNewWindow) {
+		this.ctaLinkNewWindow = ctaLinkNewWindow;
 	}
 
 	public Boolean hasCTAIcon() {
 		return hasCTAIcon;
 	}
 
-	public void setCTAIcon(Boolean hasCTAIcon) {
+	public void setHasCTAIcon(Boolean hasCTAIcon) {
 		this.hasCTAIcon = hasCTAIcon;
+	}
+
+	public String getCTAIconClass() {
+		return ctaIconClass;
+	}
+
+	public void setCTAIconClass(String ctaIconClass) {
+		this.ctaIconClass = ctaIconClass;
 	}
 
 	public String getCTASectionOverride() {
 		return ctaSectionOverride;
 	}
 
-	public void setCTASectionOverride(String sectionOverride) {
-		this.ctaSectionOverride = sectionOverride;
+	public void setCTASectionOverride(String ctaSectionOverride) {
+		this.ctaSectionOverride = ctaSectionOverride;
 	}
 
 }

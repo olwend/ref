@@ -17,30 +17,12 @@
             rotateParameter="./imageRotate"
             title="Image"
             xtype="html5smartimage"/>
-        <tab1
+        <normal
             jcr:primaryType="cq:Widget"
             anchor="100%"
-            title="Advanced"
+            title="Normal"
             xtype="panel">
             <items jcr:primaryType="cq:WidgetCollection">
-				<type
-                    jcr:primaryType="cq:Widget"
-                    defaultValue=""
-                    fieldLabel="Component type"
-                    name="./component-type"
-                    type="select"
-                    xtype="selection">
-                    <options jcr:primaryType="cq:WidgetCollection">
-                        <normal
-                            jcr:primaryType="nt:unstructured"
-                            text="Normal"
-                            value=""/>
-                        <exhibition
-                            jcr:primaryType="nt:unstructured"
-                            text="Exhibition"
-                            value="exhibition"/>
-                    </options>
-                </type>
                 <title
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Title"
@@ -57,19 +39,19 @@
                     name="./newwindow"
                     type="checkbox"
                     xtype="selection"/>
-				<addCallToAction
+				<exhibitionMode
                     jcr:primaryType="cq:Widget"
-                    defaultValue="{Boolean}true"
-                    fieldDescription="Display a Call to action Button"
-                    fieldLabel="Call to action Button"
-                    name="./addCallToAction"
+                    defaultValue="{Boolean}false"
+                    fieldDescription="Check for Exhibition Component"
+                    fieldLabel="Exhibition"
+                    name="./isExhibition"
                     type="checkbox"
                     xtype="selection">
                     <listeners
                         jcr:primaryType="nt:unstructured"
-                        loadcontent="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(2); } else { this.findParentByType('tabpanel').hideTabStripItem(2); } }"
-                        selectionchanged="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(2); } else { this.findParentByType('tabpanel').hideTabStripItem(2); } }"/>
-				</addCallToAction>
+                        loadcontent="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(2); this.findParentByType('tabpanel').unhideTabStripItem(3); } else { this.findParentByType('tabpanel').hideTabStripItem(2); this.findParentByType('tabpanel').hideTabStripItem(3);  } }"
+                        selectionchanged="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(2); this.findParentByType('tabpanel').unhideTabStripItem(3); } else { this.findParentByType('tabpanel').hideTabStripItem(2); this.findParentByType('tabpanel').hideTabStripItem(3);  } }"/>
+				</exhibitionMode>
                 <description
                     jcr:primaryType="cq:Widget"
                     editElementQuery="div.text"
@@ -81,8 +63,31 @@
                         path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
                         xtype="cqinclude"/>
                 </description>
+			</items>
+        </normal>
+        <exhibition
+            jcr:primaryType="cq:Widget"
+            anchor="100%"
+            title="Exhibition"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	<date
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Date"
+                    name="./date"
+                    xtype="textfield"/>
+				<tickets
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Ticket price"
+                    name="./ticketPrice"
+                    xtype="textfield"/>
+				<location
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Location"
+                    name="./location"
+                    xtype="textfield"/>
             </items>
-        </tab1>
+        </exhibition>
 		<callToAction
 		    jcr:primaryType="cq:Panel"
 		    title="Call to action">
@@ -169,7 +174,7 @@
 	            <calltoactionType
 		            jcr:primaryType="cq:Widget"
 		            itemId="calltoactionType"
-		            defaultValue="tickets"
+		            defaultValue="branding"
 		            fieldLabel="Icon Style"
 		            name="./calltoaction-type"
 		            type="select"
