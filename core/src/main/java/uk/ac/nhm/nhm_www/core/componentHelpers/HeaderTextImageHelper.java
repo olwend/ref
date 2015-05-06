@@ -43,9 +43,9 @@ public class HeaderTextImageHelper {
 	private String ctaSectionOverride;
 	private String ctaTitle;
 	private String ctaLink;
-	private boolean ctaLinkNewWindow;
 	private String ctaIconClass;
-	private Boolean hasCTAIcon;	
+	private boolean ctaLinkNewWindow;
+	private boolean hasCTAIcon;	
 
 	public HeaderTextImageHelper(ValueMap properties, Resource resource, HttpServletRequest request, XSSAPI xssAPI) {
 		this.activated = false;
@@ -129,15 +129,29 @@ public class HeaderTextImageHelper {
 		// ** CTA Tab Section **
 		// *********************
 		
-		this.hasCTAIcon = false;
 		if(properties.get("addCallToAction") != null){
 			this.hasCTA = properties.get("addCallToAction", false);
 		}
 		
 		if(this.hasCTA){
-			this.ctaSectionOverride = properties.get("section-override", "");
-			this.ctaTitle = properties.get("cta-title", "");
-			this.ctaLink = properties.get("cta-path", "");
+			ctaSectionOverride = StringUtils.EMPTY;
+			ctaTitle = StringUtils.EMPTY;
+			ctaLink = StringUtils.EMPTY;
+			ctaIconClass = StringUtils.EMPTY;
+			ctaLinkNewWindow = false;
+			hasCTAIcon = false;	
+			
+			if (properties.get("section-override") != null) {
+				this.ctaSectionOverride = properties.get("section-override", String.class);
+			}
+			
+			if (properties.get("cta-title") != null) {
+				this.ctaTitle = properties.get("cta-title", String.class);
+			}
+			
+			if (properties.get("cta-path") != null) {
+				this.ctaLink = properties.get("cta-path", String.class);
+			}
 			
 			if(!this.ctaTitle.equals("") && !this.ctaLink.equals("")) {
 				this.ctaLink= LinkUtils.getFormattedLink(this.ctaLink);
@@ -149,7 +163,7 @@ public class HeaderTextImageHelper {
 			
 			if(properties.get("cta-icon") != null) {
 				this.hasCTAIcon = properties.get("cta-icon", false);
-				this.ctaIconClass = properties.get("calltoaction-type", "");
+				this.ctaIconClass = properties.get("calltoaction-type", String.class);
 			}
 		}
 		
