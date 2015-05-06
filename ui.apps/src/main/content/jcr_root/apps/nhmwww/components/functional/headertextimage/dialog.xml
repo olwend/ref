@@ -131,8 +131,8 @@
                     xtype="selection">
                     <listeners
                         jcr:primaryType="nt:unstructured"
-                        loadcontent="function() {                           if(this.getValue() == 'true' ) {          this.findParentByType('tabpanel').unhideTabStripItem(3);         } else {          this.findParentByType('tabpanel').hideTabStripItem(3);         }        }"
-                        selectionchanged="function() {                           if(this.getValue() == 'true' ) {          this.findParentByType('tabpanel').unhideTabStripItem(3);         } else {          this.findParentByType('tabpanel').hideTabStripItem(3);         }        }"/>
+                        loadcontent="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(3); } else { this.findParentByType('tabpanel').hideTabStripItem(3); } }"
+                        selectionchanged="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(3); } else { this.findParentByType('tabpanel').hideTabStripItem(3); } }"/>
                 </addCallToAction>
                 <type
                     jcr:primaryType="cq:Widget"
@@ -182,8 +182,8 @@
             <items jcr:primaryType="cq:WidgetCollection">
 				<colourSectionOverride
 	                jcr:primaryType="cq:Widget"
-	                defaultValue="tickets"
-	                fieldLabel="Call To Action Type"
+	                defaultValue=""
+	                fieldLabel="Section Theme"
 	                name="./section-override"
 	                type="select"
 	                xtype="selection">
@@ -254,14 +254,15 @@
                     type="checkbox"
                     xtype="selection">
                     <listeners
-                        jcr:primaryType="nt:unstructured"
-                        loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').hide()} else {this.findParentByType('panel').getComponent('calltoactionType').show()}}"
-                        selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').hide()} else {this.findParentByType('panel').getComponent('calltoactionType').show()}}"/>
+						jcr:primaryType="nt:unstructured"
+						loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').show()} else {this.findParentByType('panel').getComponent('calltoactionType').hide()}}"
+						selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').show()} else {this.findParentByType('panel').getComponent('calltoactionType').hide()}}"/>
                 </ctaicon>
 	            <calltoactionType
 		            jcr:primaryType="cq:Widget"
+		            itemId="calltoactionType"
 		            defaultValue="tickets"
-		            fieldLabel="Call To Action Type"
+		            fieldLabel="Icon Style"
 		            name="./calltoaction-type"
 		            type="select"
 		            xtype="selection">
