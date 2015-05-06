@@ -245,7 +245,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-list__item">
-                                    <a href="/research-curation/news-events/news/index.html" class="news">
+                                    <a href="/our-science/science-news.html" class="news">
                                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_media_news.svg" data-svg-title="icon__news" data-alt="Newspaper" data-base-color="#357900" data-hover-color="#357900" data-stroke-width="3" data-hover-state="yes" data-fallback="/etc/designs/nhmwww/img/icons/nav-newspaper.png"></i>
                                         News
                                     </a>
