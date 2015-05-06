@@ -71,7 +71,7 @@
 		</div>
 	<% } %>
 	<% if(helper.hasCTA()){ %>
-		<div class="<%= helper.getCTASectionOverride() %>">
+		<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
 			<div class="info-tout info-tout__action tickets">
 				<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
 					<%=svgIcon %> 
