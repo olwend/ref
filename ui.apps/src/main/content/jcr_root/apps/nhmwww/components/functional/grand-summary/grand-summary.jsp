@@ -9,11 +9,13 @@
 <%	String svgIcon = ""; %>
 <%	String svgBaseColor = ""; %>
 
-<%	if(helper.hasCTAIcon()){
-		CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
-		SVGImage svg = ctahelper.getSVGImage(); 
-		svgIcon = svg.toHtml(currentDesign.getPath() + "/");
-		svgBaseColor = svg.getBaseColour();
+<%	if(helper.hasCTA()){
+		if(helper.hasCTAIcon()){
+			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
+			SVGImage svg = ctahelper.getSVGImage(); 
+			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
+			svgBaseColor = svg.getBaseColour();	
+		}
 }	%>
 
 	<div class="video-wrapper" >
@@ -25,18 +27,18 @@
 				<div class="caption">
 					<% if (helper.getTitle() != null) { %> <h1><%=helper.getTitle()%></h1> <% } %>
 					
-					<% if (helper.getSummary() != null) { %> <p><%=helper.getSummary()%></p> <% } %>
+					<% if (helper.getDescription() != null) { %> <p><%=helper.getDescription()%></p> <% } %>
 				</div>
 			</div>
 		</div>
 	</div>
 	<% if(helper.hasCTA()){ %>
-		<div class="<%= helper.getSectionOverride() %>">
+		<div class="<%= helper.getCTASectionOverride() %>">
 			<div class="info-tout info-tout__action tickets">
-				<a class="arrow--large burgandy" href="<%= helper.getCallToActionLink()%>" <%=helper.getCallToActionLinkNewWindow()%> data-gtm="CTA">
+				<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
 					<%=svgIcon %> 
-					<h3 class="paddingTB"><%=helper.getCallToActionTitle() %></h3>
-					<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+					<h3 class="paddingTB"><%=helper.getCTATitle() %></h3>
+					<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
 				</a>
 			</div>
 		</div>

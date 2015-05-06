@@ -1,5 +1,6 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ValueMap;
 
@@ -11,32 +12,37 @@ import com.day.cq.wcm.foundation.Image;
 import com.day.cq.wcm.foundation.Placeholder;
 
 public class GrandSummaryHelper {
-
+	
+	private boolean activated;
+	private boolean componentInitialised;
+	
+	// Image & Advanced
 	private Image image;
 	private String id;
 	private String divId;
 	private String title;
-	private String summary;
-	private boolean componentInitialised;
+	private String description;
 	private Image mobileimage;
 	private Object componentType;
 	private Boolean hasCTA;
-	private String callToActionTitle;
-	private String callToActionLink;
-	private Boolean callToActionLinkNewWindow;
+	
+	// CTA Tab
+	private String ctaTitle;
+	private String ctaLink;
+	private Boolean ctaLinkNewWindow;
 	private Boolean hasCTAIcon;
-	private String iconClass;
-	private String sectionOverride;
-	private boolean activated;
+	private String ctaIconClass;
+	private String ctaSectionOverride;
 
 	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties, Image image) {
 		this.activated = false;
+		this.hasCTA = false;
 		
 		// Title, Link and New Window
 		this.title = properties.get("title", String.class);
 		
-		// Summary
-		this.summary = properties.get("summary", String.class);
+		// Description
+		this.description = properties.get("description", String.class);
 
 		// Component Type
 		this.componentType = properties.get("component-type", String.class);
@@ -62,25 +68,42 @@ public class GrandSummaryHelper {
 		}
 		
 		// Call to Action
-		this.hasCTA = properties.get("addCallToAction", false);
+		if (properties.get("addCallToAction") != null) {
+			this.hasCTA = properties.get("addCallToAction",false);
+		}
+		
 		if(this.hasCTA){
-			// CTA Title, Link & New Window
-			this.callToActionTitle = properties.get("cta-title", "");
-			this.callToActionLink = properties.get("cta-path", "");
-			if(!this.callToActionTitle.equals("") && !this.callToActionLink.equals("")) {
-				this.callToActionLink= LinkUtils.getFormattedLink(this.callToActionLink);
+			ctaTitle = StringUtils.EMPTY;
+			ctaLink = StringUtils.EMPTY;
+			ctaIconClass = StringUtils.EMPTY;
+			ctaSectionOverride = StringUtils.EMPTY;
+			ctaLinkNewWindow = false;
+			hasCTAIcon = false;
+
+			if (properties.get("cta-title") != null) {
+				this.ctaTitle = properties.get("cta-title", String.class);
 			}
+			
+			if (properties.get("cta-path") != null) {
+				this.ctaLink = properties.get("cta-path", String.class);
+			}
+			
+			if(!this.ctaTitle.equals("") && !this.ctaLink.equals("")) {
+				this.ctaLink= LinkUtils.getFormattedLink(this.ctaLink);
+			}
+			
 			if (properties.get("callToActionNewWindow") != null) {
-				this.callToActionLinkNewWindow = properties.get("cta-newwindow",false);
+				this.ctaLinkNewWindow = properties.get("cta-newwindow",false);
 			}
-			// Do we want the icon?
-			this.hasCTAIcon = properties.get("cta-icon", false);
 			
-			// Icon Type
-			this.iconClass = properties.get("calltoaction-type", "");
+			if(properties.get("cta-icon") != null) {
+				this.hasCTAIcon = properties.get("cta-icon", false);
+				this.ctaIconClass = properties.get("calltoaction-type", String.class);
+			}
 			
-			// Section Override
-			this.sectionOverride = properties.get("section-override", "");
+			if (properties.get("section-override") != null) {
+				this.ctaSectionOverride = properties.get("section-override", String.class);
+			}
 		}
 	}
 
@@ -88,6 +111,10 @@ public class GrandSummaryHelper {
 		// Inject image class from Resource
 		this(request, page, properties, new Image(request.getResource()));
 	}
+	
+	/*************************
+	 * Image & Advanced Tabs *
+	 *************************/
 
 	public Image getImage() {
 		this.image.addCssClass(DropTarget.CSS_CLASS_PREFIX + "image");
@@ -128,16 +155,12 @@ public class GrandSummaryHelper {
 		this.componentType = componentType;
 	}
 	
-	public String getSummary() {
-		if (this.summary != null && this.summary.trim().length() > 0) {
-			return this.summary;
-		} else {
-			return null;
-		}
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setSummary(String summary) {
-		this.summary = summary;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getId() {
@@ -168,40 +191,44 @@ public class GrandSummaryHelper {
 		this.divId = divId;
 	}
 
-	public String getIconClass() {
-		return iconClass;
-	}
-
-	public void setIconClass(String iconClass) {
-		this.iconClass = iconClass;
-	}
-
 	public Boolean hasCTA() {
 		return hasCTA;
 	}
-
-	public String getCallToActionTitle() {
-		return callToActionTitle;
+	
+	/************
+	 * CTA Tabs *
+	 ************/
+	
+	public String getCTAIconClass() {
+		return ctaIconClass;
 	}
 
-	public void setCallToActionTitle(String callToActionTitle) {
-		this.callToActionTitle = callToActionTitle;
+	public void setCTAIconClass(String iconClass) {
+		this.ctaIconClass = iconClass;
 	}
 
-	public String getCallToActionLink() {
-		return callToActionLink;
+	public String getCTATitle() {
+		return ctaTitle;
 	}
 
-	public void setCallToActionLink(String callToActionLink) {
-		this.callToActionLink = callToActionLink;
+	public void setCTATitle(String callToActionTitle) {
+		this.ctaTitle = callToActionTitle;
 	}
 
-	public Boolean getCallToActionLinkNewWindow() {
-		return callToActionLinkNewWindow;
+	public String getCTALink() {
+		return ctaLink;
 	}
 
-	public void setCallToActionLinkNewWindow(Boolean callToActionLinkNewWindow) {
-		this.callToActionLinkNewWindow = callToActionLinkNewWindow;
+	public void setCTALink(String callToActionLink) {
+		this.ctaLink = callToActionLink;
+	}
+
+	public Boolean getCTALinkNewWindow() {
+		return ctaLinkNewWindow;
+	}
+
+	public void setCTALinkNewWindow(Boolean callToActionLinkNewWindow) {
+		this.ctaLinkNewWindow = callToActionLinkNewWindow;
 	}
 
 	public Boolean hasCTAIcon() {
@@ -212,12 +239,12 @@ public class GrandSummaryHelper {
 		this.hasCTAIcon = hasCTAIcon;
 	}
 
-	public String getSectionOverride() {
-		return sectionOverride;
+	public String getCTASectionOverride() {
+		return ctaSectionOverride;
 	}
 
-	public void setSectionOverride(String sectionOverride) {
-		this.sectionOverride = sectionOverride;
+	public void setCTASectionOverride(String sectionOverride) {
+		this.ctaSectionOverride = sectionOverride;
 	}
 
 }
