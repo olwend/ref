@@ -43,7 +43,7 @@
     <!-- START PAGINATION -->
     
     <!-- END PAGINATION -->
-    <div class="press-office--list-<%=componentID%>" id="press-office--list-<%=componentID%>">
+    <div class="press-office--list" id="press-office--list-<%=componentID%>">
     </div>
 </div>
 
