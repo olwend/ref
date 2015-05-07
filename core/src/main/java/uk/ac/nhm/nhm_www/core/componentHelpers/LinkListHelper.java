@@ -64,7 +64,7 @@ public class LinkListHelper extends ListHelper {
 			this.backgroundColor = this.properties.get("backgroundcolor", String.class);
 		}
 		
-		// First Column Links	
+		// First Column	
 		if(this.properties.get("firstHeader", String.class) != null){
 			this.firstHeader = this.properties.get("firstHeader", String.class);
 		}
@@ -73,7 +73,7 @@ public class LinkListHelper extends ListHelper {
 			this.firstLinkListItems = this.properties.get("firstLinkListItems", String[].class);
 		}
 		
-		// Second Column Links
+		// Second Column
 		if(this.properties.get("secondHeader", String.class) != null){
 			this.secondHeader = this.properties.get("secondHeader", String.class);
 		}
@@ -82,7 +82,7 @@ public class LinkListHelper extends ListHelper {
 			this.secondLinkListItems = this.properties.get("secondLinkListItems", String[].class);
 		}
 		
-		// Third Column Links
+		// Third Column
 		if(this.properties.get("thirdHeader", String.class) != null){
 			this.thirdHeader = this.properties.get("thirdHeader", String.class);
 		}
@@ -90,13 +90,10 @@ public class LinkListHelper extends ListHelper {
 		if(this.properties.get("thirdLinkListItems", String.class) != null){
 			this.thirdLinkListItems = this.properties.get("thirdLinkListItems", String[].class);
 		}
-				
 		super.init();
-		
 	}
 
 	public String getDescription() {
-		LOG.error("Getter: " + this.description );
 		return description;
 	}
 
@@ -121,23 +118,35 @@ public class LinkListHelper extends ListHelper {
 		}
 	}
 	
+	public int getWidthNumber() {
+		int ret = 6;
+		if(this.isFullWidth){
+			ret = 12;
+		} else {
+			if (numColumns.equals("firstcolumn")){
+				ret = 4;
+			}
+		}
+		return ret;
+	}
+	
 	public StringBuffer displayColumns() throws JSONException {
 		init();
 		StringBuffer columns = new StringBuffer();
 		columns.append("<div class=\"linklist--" + getWidthStyle() +"\">");
 		
 		if (firstLinkListItems != null){
-			columns.append(addHeader(firstHeader));
+			columns.append(addHeader(firstHeader, 1));
 			columns.append(addList(firstLinkListItems));	
 			
 			if (!numColumns.equals("firstcolumn")){
 				if (secondLinkListItems != null){
-					columns.append(addHeader(secondHeader));
+					columns.append(addHeader(secondHeader, 2));
 					columns.append(addList(secondLinkListItems));
 					
 					if (!numColumns.equals("secondcolumn")){
 						if (thirdLinkListItems != null){
-							columns.append(addHeader(thirdHeader));
+							columns.append(addHeader(thirdHeader, 3));
 							columns.append(addList(thirdLinkListItems));
 						}
 					}
@@ -157,7 +166,7 @@ public class LinkListHelper extends ListHelper {
 		return ret;
 	}
 
-	private Object addHeader(String header) {
+	private Object addHeader(String header, int noHeader) {
 		String ret = StringUtils.EMPTY;
 		if(header != null){
 			ret = "<h3>" + header + "</h3>";

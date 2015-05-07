@@ -6,20 +6,20 @@
 <% LinkListHelper helper = new LinkListHelper(properties, pageManager, currentPage, request, resourceResolver); %>
 
 <%-- [Mandatory] Background Color --%>
-<div class="linklist--container <%=helper.getBackgroundColor() %>">
-	
-	<%-- [Optional] Title & HyperLink --%>
-	<%if (helper.getComponentTitle() != null) {%><h2><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
-	
-	<%-- [Optional] Description --%>
-	ABOUT TO TEST DESCRIPTION
-	<% if (helper.getDescription() != null) { %> <div> <%= helper.getDescription() %></div> <% } %>
-	END OF DESCRIPTION
-	
-	<%-- [Mandatory] Link Lists Generation --%>
+<div class="row linklist--container linklist--container__<%=helper.getBackgroundColor() %>">
+	The color of the background is going to be <%=helper.getBackgroundColor() %>.
 	<% helper.setIsFullWidth(resource); %>
-	<% StringBuffer strBuff= helper.displayColumns(); %>
-	<%= strBuff %>
-
+	<div class="small-12 medium-<%=helper.getWidthNumber() %> large-<%=helper.getWidthNumber() %> columns">
+		The parsys holding me allows for a medium/large-<%=helper.getWidthNumber() %> width.
+		<%-- [Optional] Title & HyperLink --%>
+		<%if (helper.getComponentTitle() != null) {%><h2 class="linklist--container--header"><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
+		
+		<%-- [Optional] Description --%>
+		<% if (helper.getDescription() != null) { %> <div class="linklist--container--description"> <%= helper.getDescription() %></div> <% } %>
+		
+		<%-- [Mandatory] Link Lists Generation --%>
+		<% StringBuffer strBuff= helper.displayColumns(); %>
+		<%= strBuff %>
+	</div>
 </div>
 <% %>

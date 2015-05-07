@@ -59,7 +59,7 @@
                     xtype="selection"/>
                 <backgroundcolor
                     jcr:primaryType="cq:Widget"
-                    defaultValue=""
+                    defaultValue="white"
                     fieldLabel="Background Color"
                     name="./backgroundcolor"
                     type="select"
