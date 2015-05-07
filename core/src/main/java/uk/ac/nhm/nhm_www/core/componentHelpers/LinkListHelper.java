@@ -146,18 +146,15 @@ public class LinkListHelper extends ListHelper {
 				+ " large-block-grid-" + getColumnStyles() + "\">");
 		
 		if (firstLinkListItems != null){
-			columns.append(addHeader(firstHeader));
-			columns.append(addList(firstLinkListItems));	
+			columns.append(addList(firstLinkListItems, firstHeader, 1));	
 			
 			if (!numColumns.equals("firstcolumn")){
 				if (secondLinkListItems != null){
-					columns.append(addHeader(secondHeader));
-					columns.append(addList(secondLinkListItems));
+					columns.append(addList(secondLinkListItems, secondHeader, 2));
 					
 					if (!numColumns.equals("secondcolumn")){
 						if (thirdLinkListItems != null){
-							columns.append(addHeader(thirdHeader));
-							columns.append(addList(thirdLinkListItems));
+							columns.append(addList(thirdLinkListItems, thirdHeader, 3));
 						}
 					}
 				}
@@ -183,53 +180,61 @@ public class LinkListHelper extends ListHelper {
 	}
 
 	private String addHeader(String header) {
-		
-		//+ "<div class=\"linklist--column" + hasHeaders() + "\">"
 		String ret = StringUtils.EMPTY;
 		if(header != null){
-			ret = "<h3>" + header + "</h3>";
+			ret = "<h3 class=\"linklist--list--header\">" + header + "</h3>";
 		}
 		return ret;
 	}
 	
-	public StringBuffer addList(String[] columnItems) throws JSONException {
+	public StringBuffer addList(String[] columnItems, String header, Integer columnNumber) throws JSONException {
 		StringBuffer columnString = new StringBuffer();
-		columnString.append("<ul class=\"first-column\">");
-
-	    if (columnItems != null)
-	    {
-	        for (String linkItem : columnItems) {
-	            JSONObject json = new JSONObject(linkItem);
-	            
-				String linkTitle = json.getString("text");
-				
-	            String linkURL = json.getString("url");
-	            
-				Boolean isNewWindow = json.getBoolean("openInNewWindow"); 
-				String windowTarget = "";
-				if (isNewWindow == true) {
-					windowTarget = "_blank";
-				}
-				else {
-					windowTarget = "_self";
-				}
-				columnString.append(createListItem(linkTitle, linkURL, windowTarget));
-	        }
-	    }
-	    columnString.append("</ul>");
+		
+		columnString.append("<li>");
+			columnString.append("<div class=\"linklist--column" + hasHeaders(columnNumber) + "\">");
+				columnString.append(addHeader(header));
+				columnString.append("<ul>");
+		
+			    if (columnItems != null)
+			    {
+			        for (String linkItem : columnItems) {
+			            JSONObject json = new JSONObject(linkItem);
+			            
+						String linkTitle = json.getString("text");
+						
+			            String linkURL = json.getString("url");
+			            
+						Boolean isNewWindow = json.getBoolean("openInNewWindow"); 
+						String windowTarget = "";
+						if (isNewWindow == true) {
+							windowTarget = "_blank";
+						}
+						else {
+							windowTarget = "_self";
+						}
+						columnString.append(createListItem(linkTitle, linkURL, windowTarget));
+			        }
+			    }
+			    columnString.append("</ul>"
+				    		+ "</div>"
+			    		+ "</li>");
 	    
 	    return columnString;
 	}
 	
-	public String hasHeaders(){
+	public String hasHeaders(Integer columnNumber){
 		String ret = StringUtils.EMPTY;
-		if (this.hasFirstColumnHeader){
-			if(!this.hasSecondColumnHeader){
+		switch (columnNumber) {
+		case 2:
+			if(this.hasFirstColumnHeader && !this.hasSecondColumnHeader){
 				ret = " linklist--column--no-header";
 			}
-			if(!this.hasThirdColumnHeader){
+			break;
+		case 3:
+			if(this.hasFirstColumnHeader && !this.hasThirdColumnHeader){
 				ret = " linklist--column--no-header";
 			}
+			break;
 		}
 		return ret;
 	}
