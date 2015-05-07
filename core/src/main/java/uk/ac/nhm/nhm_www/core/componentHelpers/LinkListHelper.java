@@ -39,6 +39,12 @@ public class LinkListHelper extends ListHelper {
 	private String[] thirdLinkListItems;
 	private boolean isFullWidth = false;
 
+	private boolean hasFirstColumnHeader;
+
+	private boolean hasSecondColumnHeader;
+
+	private boolean hasThirdColumnHeader;
+
 	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
@@ -67,6 +73,7 @@ public class LinkListHelper extends ListHelper {
 		// First Column	
 		if(this.properties.get("firstHeader", String.class) != null){
 			this.firstHeader = this.properties.get("firstHeader", String.class);
+			this.hasFirstColumnHeader = true;
 		}
 		
 		if(this.properties.get("firstLinkListItems", String.class) != null){
@@ -76,6 +83,7 @@ public class LinkListHelper extends ListHelper {
 		// Second Column
 		if(this.properties.get("secondHeader", String.class) != null){
 			this.secondHeader = this.properties.get("secondHeader", String.class);
+			this.hasSecondColumnHeader = true;
 		}
 		
 		if(this.properties.get("secondLinkListItems", String.class) != null){
@@ -85,6 +93,7 @@ public class LinkListHelper extends ListHelper {
 		// Third Column
 		if(this.properties.get("thirdHeader", String.class) != null){
 			this.thirdHeader = this.properties.get("thirdHeader", String.class);
+			this.hasThirdColumnHeader = true;
 		}
 		
 		if(this.properties.get("thirdLinkListItems", String.class) != null){
@@ -122,10 +131,8 @@ public class LinkListHelper extends ListHelper {
 		int ret = 6;
 		if(this.isFullWidth){
 			ret = 12;
-		} else {
-			if (numColumns.equals("firstcolumn")){
-				ret = 4;
-			}
+		} else if (numColumns.equals("firstcolumn")){
+			ret = 4;
 		}
 		return ret;
 	}
@@ -133,20 +140,23 @@ public class LinkListHelper extends ListHelper {
 	public StringBuffer displayColumns() throws JSONException {
 		init();
 		StringBuffer columns = new StringBuffer();
-		columns.append("<div class=\"linklist--" + getWidthStyle() +"\">");
+		columns.append("<ul class=\"linklist--column-container"
+				+ " small-block-grid-1"
+				+ " medium-block-grid-" + getColumnStyles() + ""
+				+ " large-block-grid-" + getColumnStyles() + "\">");
 		
 		if (firstLinkListItems != null){
-			columns.append(addHeader(firstHeader, 1));
+			columns.append(addHeader(firstHeader));
 			columns.append(addList(firstLinkListItems));	
 			
 			if (!numColumns.equals("firstcolumn")){
 				if (secondLinkListItems != null){
-					columns.append(addHeader(secondHeader, 2));
+					columns.append(addHeader(secondHeader));
 					columns.append(addList(secondLinkListItems));
 					
 					if (!numColumns.equals("secondcolumn")){
 						if (thirdLinkListItems != null){
-							columns.append(addHeader(thirdHeader, 3));
+							columns.append(addHeader(thirdHeader));
 							columns.append(addList(thirdLinkListItems));
 						}
 					}
@@ -156,17 +166,25 @@ public class LinkListHelper extends ListHelper {
 		return columns;
 	}
 
-	private String getWidthStyle() {
-		String ret = StringUtils.EMPTY;
-		if (this.isFullWidth) {
-			ret = "";
-		} else {
-			ret = "";
+	public Integer getColumnStyles() {
+		int ret = 0;
+		switch (this.numColumns) {
+		case "firstcolumn":
+			ret = 1;
+			break;
+		case "secondcolumn":
+			ret = 2;
+			break;
+		case "thirdcolumn":
+			ret = 3;
+			break;
 		}
 		return ret;
 	}
 
-	private Object addHeader(String header, int noHeader) {
+	private String addHeader(String header) {
+		
+		//+ "<div class=\"linklist--column" + hasHeaders() + "\">"
 		String ret = StringUtils.EMPTY;
 		if(header != null){
 			ret = "<h3>" + header + "</h3>";
@@ -195,14 +213,25 @@ public class LinkListHelper extends ListHelper {
 				else {
 					windowTarget = "_self";
 				}
-				
 				columnString.append(createListItem(linkTitle, linkURL, windowTarget));
-	            
 	        }
 	    }
 	    columnString.append("</ul>");
 	    
 	    return columnString;
+	}
+	
+	public String hasHeaders(){
+		String ret = StringUtils.EMPTY;
+		if (this.hasFirstColumnHeader){
+			if(!this.hasSecondColumnHeader){
+				ret = " linklist--column--no-header";
+			}
+			if(!this.hasThirdColumnHeader){
+				ret = " linklist--column--no-header";
+			}
+		}
+		return ret;
 	}
 	
 	public StringBuffer createListItem(String title, String url, String target){
@@ -215,6 +244,4 @@ public class LinkListHelper extends ListHelper {
 				+ "</li>");
 		return listItem;
 	}
-	
-	
 }
