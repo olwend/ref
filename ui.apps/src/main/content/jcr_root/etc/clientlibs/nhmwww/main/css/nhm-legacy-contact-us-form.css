@@ -19,6 +19,7 @@
 }
 .legacy-css fieldset {
   border: none;
+  padding: 0;
 }
 .legacy-css .mainInputWidth, .legacy-css .wide {
   width: 100%;
