@@ -1,3 +1,14 @@
+.legacy-css a {
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px dotted #000000;
+  color: #000000;
+}
+.legacy-css a:hover {
+  border-bottom-style: solid;
+  border-bottom-color: #808080;
+  color: #808080;
+}
 .legacy-css #column-a {
   background-color: #eeeeee;
   padding: 1em 1.5em;
@@ -7,6 +18,10 @@
 }
 .legacy-css .mainInputWidth {
   width: 100%;
+}
+.legacy-css .wide {
+  width: 100%;
+  margin-top: 5px;
 }
 .legacy-css input.spam {
   display: none;
