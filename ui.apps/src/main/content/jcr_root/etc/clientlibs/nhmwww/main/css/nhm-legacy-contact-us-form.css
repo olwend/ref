@@ -5,9 +5,13 @@
   color: #000000;
 }
 .legacy-css a:hover {
+  text-decoration: none;
   border-bottom-style: solid;
   border-bottom-color: #808080;
   color: #808080;
+}
+.legacy-css p {
+  margin-bottom: 10px;
 }
 .legacy-css #column-a {
   background-color: #eeeeee;
@@ -16,10 +20,7 @@
 .legacy-css fieldset {
   border: none;
 }
-.legacy-css .mainInputWidth {
-  width: 100%;
-}
-.legacy-css .wide {
+.legacy-css .mainInputWidth, .legacy-css .wide {
   width: 100%;
   margin-top: 5px;
 }
