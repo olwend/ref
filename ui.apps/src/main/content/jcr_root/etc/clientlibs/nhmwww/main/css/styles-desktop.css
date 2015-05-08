@@ -10660,19 +10660,19 @@ div#feedback-bar .span11 {
   }
 }
 
-.linklist--column--items {
+.linklist--link-items {
   margin-left: 0;
 }
-.linklist--column--items li {
+.linklist--link-items li {
   padding-bottom: 0;
 }
-.linklist--column--items li a {
+.linklist--link-items li a {
   text-decoration: none;
   font-weight: bold;
   color: #000000;
   border-bottom: 1px dotted #000000;
 }
-.linklist--column--items li a:hover {
+.linklist--link-items li a:hover {
   border-bottom-style: solid;
   text-decoration: none;
 }
@@ -10686,7 +10686,7 @@ div#feedback-bar .span11 {
 .visit .linklist--container--header a {
   color: #A1164E;
 }
-.visit .linklist--column--items li a:hover {
+.visit .linklist--link-items li a:hover {
   border-bottom-color: #A1164E;
 }
 .visit .linklist--column--header a {
@@ -10696,7 +10696,7 @@ div#feedback-bar .span11 {
 .take-part .linklist--container--header a {
   color: #BF491F;
 }
-.take-part .linklist--column--items li a:hover {
+.take-part .linklist--link-items li a:hover {
   border-bottom-color: #BF491F;
 }
 .take-part .linklist--column--header a {
@@ -10706,7 +10706,7 @@ div#feedback-bar .span11 {
 .support-us .linklist--container--header a {
   color: #7F206E;
 }
-.support-us .linklist--column--items li a:hover {
+.support-us .linklist--link-items li a:hover {
   border-bottom-color: #7F206E;
 }
 .support-us .linklist--column--header a {
@@ -10716,7 +10716,7 @@ div#feedback-bar .span11 {
 .about-us .linklist--container--header a {
   color: #0B5C7B;
 }
-.about-us .linklist--column--items li a:hover {
+.about-us .linklist--link-items li a:hover {
   border-bottom-color: #0B5C7B;
 }
 .about-us .linklist--column--header a {
@@ -10726,7 +10726,7 @@ div#feedback-bar .span11 {
 .our-science .linklist--container--header a {
   color: #357900;
 }
-.our-science .linklist--column--items li a:hover {
+.our-science .linklist--link-items li a:hover {
   border-bottom-color: #357900;
 }
 .our-science .linklist--column--header a {
@@ -10736,7 +10736,7 @@ div#feedback-bar .span11 {
 .schools .linklist--container--header a {
   color: #0983BB;
 }
-.schools .linklist--column--items li a:hover {
+.schools .linklist--link-items li a:hover {
   border-bottom-color: #0983BB;
 }
 .schools .linklist--column--header a {
@@ -10746,7 +10746,7 @@ div#feedback-bar .span11 {
 .contact-us .linklist--container--header a {
   color: #808080;
 }
-.contact-us .linklist--column--items li a:hover {
+.contact-us .linklist--link-items li a:hover {
   border-bottom-color: #808080;
 }
 .contact-us .linklist--column--header a {
@@ -10756,7 +10756,7 @@ div#feedback-bar .span11 {
 .business-services .linklist--container--header a {
   color: #253480;
 }
-.business-services .linklist--column--items li a:hover {
+.business-services .linklist--link-items li a:hover {
   border-bottom-color: #253480;
 }
 .business-services .linklist--column--header a {
@@ -10766,7 +10766,7 @@ div#feedback-bar .span11 {
 .press-office .linklist--container--header a {
   color: #107E5E;
 }
-.press-office .linklist--column--items li a:hover {
+.press-office .linklist--link-items li a:hover {
   border-bottom-color: #107E5E;
 }
 .press-office .linklist--column--header a {
