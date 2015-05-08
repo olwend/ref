@@ -163,7 +163,7 @@ public class LinkListHelper extends ListHelper {
 		Boolean exit = false;
 		
 		// Will exit if there are no links in columns 1 then 2 then 3.
-		while (i <= 2 && !exit) {
+		while (i <= getColumnStyles()-1 && !exit) {
 			if(this.columnItemsList.get(i) != null){
 				columns.append(addList(i));
 				i++;
@@ -206,15 +206,11 @@ public class LinkListHelper extends ListHelper {
 				columnString.append(addHeader(columnNumber));
 				columnString.append("<ul class=\"linklist--column--items\">");
 		
-			    if (this.columnItemsList.get(columnNumber) != null)
-			    {
+			    if (this.columnItemsList.get(columnNumber) != null){
 			        for (String linkItem : this.columnItemsList.get(columnNumber)) {
 			            JSONObject json = new JSONObject(linkItem);
-			            
 						String linkTitle = json.getString("text");
-						
 			            String linkURL = json.getString("url");
-			            
 						Boolean isNewWindow = json.getBoolean("openInNewWindow"); 
 						String windowTarget = "";
 						if (isNewWindow == true) {
