@@ -6,9 +6,9 @@
 <% LinkListHelper helper = new LinkListHelper(properties, pageManager, currentPage, request, resourceResolver); %>
 
 <%-- [Mandatory] Background Color --%>
-<div class="row linklist--container linklist--container__<%=helper.getBackgroundColor() %>">
+<div class="row">
 	<% helper.setIsFullWidth(resource); %>
-	<div class="small-12 medium-<%=helper.getWidthNumber() %> large-<%=helper.getWidthNumber() %> columns">
+	<div class=" linklist--container linklist--container__<%=helper.getBackgroundColor() %> small-12 medium-<%=helper.getWidthNumber() %> large-<%=helper.getWidthNumber() %> columns">
 		<%-- [Optional] Title & HyperLink --%>
 		<%if (helper.getComponentTitle() != null) {%><h2 class="linklist--container--header"><%if (helper.getHyperLink() != null) {%><a href="<%=helper.getHyperLink() %>"<%=helper.getNewwindow()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperLink() != null) {%></a><%}%></h2> <%}%>
 		

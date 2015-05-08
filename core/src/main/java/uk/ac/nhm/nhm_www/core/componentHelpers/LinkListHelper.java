@@ -1,5 +1,9 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.jcr.AccessDeniedException;
 import javax.jcr.ItemNotFoundException;
 import javax.jcr.Node;
@@ -23,35 +27,30 @@ import com.day.cq.wcm.api.PageManager;
 
 public class LinkListHelper extends ListHelper {
 
-	//Awaiting Theo's styling
-
-	
 	protected static final Logger LOG = LoggerFactory.getLogger(LinkListHelper.class);	
 	
 	private String numColumns;
 	private String description;
 	private String backgroundColor;
-	private String firstHeader;
-	private String secondHeader;
-	private String thirdHeader;
-	private String[] firstLinkListItems;
-	private String[] secondLinkListItems;
-	private String[] thirdLinkListItems;
 	private boolean isFullWidth = false;
 
-	private boolean hasFirstColumnHeader;
+	List<String> headersList = new ArrayList<String>();
+	List<String> headersLinksList = new ArrayList<String>();	
+	List<Boolean> headersLinksNewWindowsList = new ArrayList<Boolean>();
+	List<Boolean> hasHeadersList = new ArrayList<Boolean>();
+	List<String[]> columnItemsList = new ArrayList<String[]>();
 
-	private boolean hasSecondColumnHeader;
-
-	private boolean hasThirdColumnHeader;
-
-	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 	}
 	
 	@Override
 	protected void init() {
+		String emptyStr = StringUtils.EMPTY;
+		Collections.addAll(headersList, emptyStr, emptyStr, emptyStr);
+		Collections.addAll(headersLinksList, emptyStr, emptyStr, emptyStr);
+		Collections.addAll(headersLinksNewWindowsList, false, false, false);
+		Collections.addAll(hasHeadersList, false, false, false);
 		
 		// Links Description 
 		if(this.properties.get("description", String.class) != null){
@@ -70,34 +69,41 @@ public class LinkListHelper extends ListHelper {
 			this.backgroundColor = this.properties.get("backgroundcolor", String.class);
 		}
 		
-		// First Column	
-		if(this.properties.get("firstHeader", String.class) != null){
-			this.firstHeader = this.properties.get("firstHeader", String.class);
-			this.hasFirstColumnHeader = true;
-		}
-		
+		// Links for the Three Columns
 		if(this.properties.get("firstLinkListItems", String.class) != null){
-			this.firstLinkListItems = this.properties.get("firstLinkListItems", String[].class);
+			this.columnItemsList.set(0, this.properties.get("firstLinkListItems", String[].class));
+			
+			if(this.properties.get("secondLinkListItems", String.class) != null){
+				this.columnItemsList.set(1, this.properties.get("secondLinkListItems", String[].class));
+				
+				if(this.properties.get("thirdLinkListItems", String.class) != null){
+					this.columnItemsList.set(2, this.properties.get("thirdLinkListItems", String[].class));
+				}
+			}
 		}
 		
-		// Second Column
-		if(this.properties.get("secondHeader", String.class) != null){
-			this.secondHeader = this.properties.get("secondHeader", String.class);
-			this.hasSecondColumnHeader = true;
-		}
-		
-		if(this.properties.get("secondLinkListItems", String.class) != null){
-			this.secondLinkListItems = this.properties.get("secondLinkListItems", String[].class);
-		}
-		
-		// Third Column
-		if(this.properties.get("thirdHeader", String.class) != null){
-			this.thirdHeader = this.properties.get("thirdHeader", String.class);
-			this.hasThirdColumnHeader = true;
-		}
-		
-		if(this.properties.get("thirdLinkListItems", String.class) != null){
-			this.thirdLinkListItems = this.properties.get("thirdLinkListItems", String[].class);
+		// First Column	Header
+		if(this.properties.get("firstHeader", String.class) != null){
+			this.headersList.set(0, this.properties.get("firstHeader", String.class));
+			this.headersLinksList.set(0, this.properties.get("firstHeaderLink", String.class));
+			this.headersLinksNewWindowsList.set(0, this.properties.get("firstHeaderNewwindow", false));
+			this.hasHeadersList.set(0, true);
+			
+			// Second Column
+			if(this.properties.get("secondHeader", String.class) != null){
+				this.headersList.set(1, this.properties.get("secondHeader", String.class));
+				this.headersLinksList.set(1, this.properties.get("secondHeaderLink", String.class));
+				this.headersLinksNewWindowsList.set(1, this.properties.get("secondHeaderNewwindow", false));
+				this.hasHeadersList.set(1, true);
+			}
+			
+			// Third Column
+			if(this.properties.get("thirdHeader", String.class) != null){
+				this.headersList.set(2, this.properties.get("thirdHeader", String.class));
+				this.headersLinksList.set(2, this.properties.get("thirdHeaderLink", String.class));
+				this.headersLinksNewWindowsList.set(2, this.properties.get("thirdHeaderNewwindow", false));
+				this.hasHeadersList.set(2, true);
+			}
 		}
 		super.init();
 	}
@@ -144,20 +150,15 @@ public class LinkListHelper extends ListHelper {
 				+ " small-block-grid-1"
 				+ " medium-block-grid-" + getColumnStyles() + ""
 				+ " large-block-grid-" + getColumnStyles() + "\">");
+		Integer i = 0;
+		Boolean exit = false;
 		
-		if (firstLinkListItems != null){
-			columns.append(addList(firstLinkListItems, firstHeader, 1));	
-			
-			if (!numColumns.equals("firstcolumn")){
-				if (secondLinkListItems != null){
-					columns.append(addList(secondLinkListItems, secondHeader, 2));
-					
-					if (!numColumns.equals("secondcolumn")){
-						if (thirdLinkListItems != null){
-							columns.append(addList(thirdLinkListItems, thirdHeader, 3));
-						}
-					}
-				}
+		// Will exit if there are no links in columns 1 then 2 then 3.
+		while (i <= 2 && !exit) {
+			if(this.columnItemsList.get(i) != null){
+				columns.append(addList(i));
+			} else {
+				exit = true;
 			}
 		}
 		return columns;
@@ -179,25 +180,25 @@ public class LinkListHelper extends ListHelper {
 		return ret;
 	}
 
-	private String addHeader(String header) {
+	private String addHeader(Integer columnNumber) {
 		String ret = StringUtils.EMPTY;
-		if(header != null){
-			ret = "<h3 class=\"linklist--list--header\">" + header + "</h3>";
+		if(this.headersList.get(columnNumber) != null){
+			ret = "<h3 class=\"linklist--column--header\">" + this.headersList.get(columnNumber) + "</h3>";
 		}
 		return ret;
 	}
 	
-	public StringBuffer addList(String[] columnItems, String header, Integer columnNumber) throws JSONException {
+	public StringBuffer addList(Integer columnNumber) throws JSONException {
 		StringBuffer columnString = new StringBuffer();
 		
 		columnString.append("<li>");
 			columnString.append("<div class=\"linklist--column" + hasHeaders(columnNumber) + "\">");
-				columnString.append(addHeader(header));
-				columnString.append("<ul>");
+				columnString.append(addHeader(columnNumber));
+				columnString.append("<ul class=\"linklist--column--items\">");
 		
-			    if (columnItems != null)
+			    if (this.columnItemsList.get(columnNumber) != null)
 			    {
-			        for (String linkItem : columnItems) {
+			        for (String linkItem : this.columnItemsList.get(columnNumber)) {
 			            JSONObject json = new JSONObject(linkItem);
 			            
 						String linkTitle = json.getString("text");
@@ -218,7 +219,6 @@ public class LinkListHelper extends ListHelper {
 			    columnString.append("</ul>"
 				    		+ "</div>"
 			    		+ "</li>");
-	    
 	    return columnString;
 	}
 	
@@ -226,12 +226,12 @@ public class LinkListHelper extends ListHelper {
 		String ret = StringUtils.EMPTY;
 		switch (columnNumber) {
 		case 2:
-			if(this.hasFirstColumnHeader && !this.hasSecondColumnHeader){
+			if(this.hasHeadersList.get(0) && !this.hasHeadersList.get(1)){
 				ret = " linklist--column--no-header";
 			}
 			break;
 		case 3:
-			if(this.hasFirstColumnHeader && !this.hasThirdColumnHeader){
+			if(this.hasHeadersList.get(0) && !this.hasHeadersList.get(2)){
 				ret = " linklist--column--no-header";
 			}
 			break;

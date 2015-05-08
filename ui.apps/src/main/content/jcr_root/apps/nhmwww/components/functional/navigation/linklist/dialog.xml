@@ -101,6 +101,18 @@
                     name="./firstHeader"
                     width="155"
                     xtype="textfield"/>
+                <hyperlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Hyperlink"
+                    name="./firstHeaderLink"
+                    width="155"
+                    xtype="pathfield"/>
+                <newwindow
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./firstHeaderNewwindow"
+                    type="checkbox"
+                    xtype="selection"/>
                 <items
                     jcr:primaryType="cq:Widget"
                     border="false"
@@ -135,6 +147,18 @@
                     name="./secondHeader"
                     width="155"
                     xtype="textfield"/>
+                <hyperlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Hyperlink"
+                    name="./secondHeaderLink"
+                    width="155"
+                    xtype="pathfield"/>
+                <newwindow
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./secondHeaderNewwindow"
+                    type="checkbox"
+                    xtype="selection"/>
                 <items
                     jcr:primaryType="cq:Widget"
                     border="false"
@@ -169,6 +193,18 @@
                     name="./thirdHeader"
                     width="155"
                     xtype="textfield"/>
+                <hyperlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Hyperlink"
+                    name="./thirdHeaderLink"
+                    width="155"
+                    xtype="pathfield"/>
+                <newwindow
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./thirdHeaderNewwindow"
+                    type="checkbox"
+                    xtype="selection"/>
                 <items
                     jcr:primaryType="cq:Widget"
                     border="false"
