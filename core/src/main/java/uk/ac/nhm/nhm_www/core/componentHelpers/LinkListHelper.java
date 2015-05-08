@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.NodeUtils;
 
-import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
@@ -32,13 +31,15 @@ public class LinkListHelper extends ListHelper {
 	private String numColumns;
 	private String description;
 	private String backgroundColor;
-	private boolean isFullWidth = false;
+	private boolean isFullWidth;
 
-	List<String> headersList = new ArrayList<String>();
-	List<String> headersLinksList = new ArrayList<String>();	
-	List<Boolean> headersLinksNewWindowsList = new ArrayList<Boolean>();
-	List<Boolean> hasHeadersList = new ArrayList<Boolean>();
-	List<String[]> columnItemsList = new ArrayList<String[]>();
+
+	List<String> headersList;
+	List<String> headersLinksList;	
+	List<Boolean> headersLinksNewWindowsList;
+	List<Boolean> hasHeadersList;
+	List<String[]> columnItemsList;
+	
 
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
@@ -46,17 +47,25 @@ public class LinkListHelper extends ListHelper {
 	
 	@Override
 	protected void init() {
+		isFullWidth = false;
+		
+		headersList = new ArrayList<String>();
+		headersLinksList = new ArrayList<String>();
+		headersLinksNewWindowsList = new ArrayList<Boolean>();
+		hasHeadersList = new ArrayList<Boolean>();
+		columnItemsList = new ArrayList<String[]>();
+		
 		String emptyStr = StringUtils.EMPTY;
+		String[] emptyStrArr = { emptyStr, emptyStr, emptyStr } ;
 		Collections.addAll(headersList, emptyStr, emptyStr, emptyStr);
 		Collections.addAll(headersLinksList, emptyStr, emptyStr, emptyStr);
+		Collections.addAll(columnItemsList, emptyStrArr, emptyStrArr, emptyStrArr);
 		Collections.addAll(headersLinksNewWindowsList, false, false, false);
 		Collections.addAll(hasHeadersList, false, false, false);
 		
 		// Links Description 
 		if(this.properties.get("description", String.class) != null){
-			LOG.error("Getting Properties > Description is empty" );
 			this.description = this.properties.get("description", String.class);
-			LOG.error("Getting Properties > Description should not be empty now and is : " + this.description);
 		}
 		
 		// Number of Columns being used, probably will be removed
@@ -157,6 +166,7 @@ public class LinkListHelper extends ListHelper {
 		while (i <= 2 && !exit) {
 			if(this.columnItemsList.get(i) != null){
 				columns.append(addList(i));
+				i++;
 			} else {
 				exit = true;
 			}
