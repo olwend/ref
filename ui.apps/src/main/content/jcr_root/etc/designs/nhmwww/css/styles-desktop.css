@@ -10672,6 +10672,10 @@ div#feedback-bar .span11 {
   color: #000000;
   border-bottom: 1px dotted #000000;
 }
+.linklist--column--items li a:hover {
+  border-bottom-style: solid;
+  text-decoration: none;
+}
 
 .linklist--column--header {
   margin-top: 1em;
@@ -10683,9 +10687,7 @@ div#feedback-bar .span11 {
   color: #A1164E;
 }
 .visit .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #A1164E;
-  border-bottom-style: solid;
 }
 .visit .linklist--column--header a {
   color: #A1164E;
@@ -10695,9 +10697,7 @@ div#feedback-bar .span11 {
   color: #BF491F;
 }
 .take-part .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #BF491F;
-  border-bottom-style: solid;
 }
 .take-part .linklist--column--header a {
   color: #BF491F;
@@ -10707,9 +10707,7 @@ div#feedback-bar .span11 {
   color: #7F206E;
 }
 .support-us .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #7F206E;
-  border-bottom-style: solid;
 }
 .support-us .linklist--column--header a {
   color: #7F206E;
@@ -10719,9 +10717,7 @@ div#feedback-bar .span11 {
   color: #0B5C7B;
 }
 .about-us .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #0B5C7B;
-  border-bottom-style: solid;
 }
 .about-us .linklist--column--header a {
   color: #0B5C7B;
@@ -10731,9 +10727,7 @@ div#feedback-bar .span11 {
   color: #357900;
 }
 .our-science .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #357900;
-  border-bottom-style: solid;
 }
 .our-science .linklist--column--header a {
   color: #357900;
@@ -10743,9 +10737,7 @@ div#feedback-bar .span11 {
   color: #0983BB;
 }
 .schools .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #0983BB;
-  border-bottom-style: solid;
 }
 .schools .linklist--column--header a {
   color: #0983BB;
@@ -10755,9 +10747,7 @@ div#feedback-bar .span11 {
   color: #808080;
 }
 .contact-us .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #808080;
-  border-bottom-style: solid;
 }
 .contact-us .linklist--column--header a {
   color: #808080;
@@ -10767,9 +10757,7 @@ div#feedback-bar .span11 {
   color: #253480;
 }
 .business-services .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #253480;
-  border-bottom-style: solid;
 }
 .business-services .linklist--column--header a {
   color: #253480;
@@ -10779,9 +10767,7 @@ div#feedback-bar .span11 {
   color: #107E5E;
 }
 .press-office .linklist--column--items li a:hover {
-  text-decoration: none;
   border-bottom-color: #107E5E;
-  border-bottom-style: solid;
 }
 .press-office .linklist--column--header a {
   color: #107E5E;
