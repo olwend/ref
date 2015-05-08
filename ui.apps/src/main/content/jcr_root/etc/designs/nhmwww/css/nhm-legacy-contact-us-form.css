@@ -1,5 +1,6 @@
-.legacy-css #panel-one {
+.legacy-css #column-a {
   background-color: #eeeeee;
+  padding: 1em 1.5em;
 }
 .legacy-css fieldset {
   border: none;
@@ -9,6 +10,9 @@
 }
 .legacy-css input.spam {
   display: none;
+}
+.legacy-css .icon {
+  padding-left: 10px;
 }
 
 /*# sourceMappingURL=nhm-legacy-contact-us-form.css.map */
