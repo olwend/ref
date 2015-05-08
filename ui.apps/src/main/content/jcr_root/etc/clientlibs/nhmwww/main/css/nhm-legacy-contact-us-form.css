@@ -1,0 +1,14 @@
+.legacy-css #panel-one {
+  background-color: #eeeeee;
+}
+.legacy-css fieldset {
+  border: none;
+}
+.legacy-css .mainInputWidth {
+  width: 100%;
+}
+.legacy-css input.spam {
+  display: none;
+}
+
+/*# sourceMappingURL=nhm-legacy-contact-us-form.css.map */
