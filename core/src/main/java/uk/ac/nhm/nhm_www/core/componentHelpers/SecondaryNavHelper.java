@@ -19,7 +19,8 @@ import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 
 public class SecondaryNavHelper extends ListHelper{
-	Page sectionLandingPage;
+	Page navRootPage = null;
+	
 	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListHelper.class);
 	
 	public SecondaryNavHelper(ValueMap properties, PageManager pageManager,
@@ -30,16 +31,23 @@ public class SecondaryNavHelper extends ListHelper{
 	}
 	
 	protected void init() {
-		this.sectionLandingPage = currentPage.getAbsoluteParent(4);
+		if (this.properties.get("rootPagePath", String.class) != null) {
+		    this.navRootPage = pageManager.getPage(this.properties.get("rootPagePath", String.class));
+		} 
+		if(this.navRootPage == null) {
+			this.navRootPage = currentPage.getAbsoluteParent(4);
+		}
+		
 		if (this.properties.get("title", String.class) != null) {
 		    this.componentTitle = this.properties.get("title",String.class);
 		}
 		if (this.properties.get("hyperlink", String.class) != null) {
 		    this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
 		}
+		
 
-		if(sectionLandingPage != null) {
-			Iterator<Page> children = sectionLandingPage.listChildren(new PageFilter(request));
+		if(navRootPage != null) {
+			Iterator<Page> children = navRootPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
 		this.initialised = true;
@@ -56,11 +64,11 @@ public class SecondaryNavHelper extends ListHelper{
 	}
 
 	public Page getSectionLandingPage() {
-		return sectionLandingPage;
+		return navRootPage;
 	}
 
 	public void setSectionLandingPage(Page sectionLandingPage) {
-		this.sectionLandingPage = sectionLandingPage;
+		this.navRootPage = sectionLandingPage;
 	}
 
 }

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
+import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
 import uk.ac.nhm.nhm_www.core.model.ListElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
@@ -102,8 +103,6 @@ public class ListHelper extends HelperBase {
 	}
 	
 	
-	
-	
     public Boolean getNewwindow() {
 		return newwindow;
 	}
@@ -118,13 +117,21 @@ public class ListHelper extends HelperBase {
     	return LinkUtils.validateUrl(this.hyperLink);
     }
     
+	
     public List<Object> getChildrenElements() {
     	return  this.listElements;
     }
+    
+    
     public void addListElement(final Object element) {
     	this.listElements.add(element);
 
     }
+    
+    public void addAllListElements(final List<Object> elements) {
+    	this.listElements.addAll(elements);
+    }
+
 
 
 	

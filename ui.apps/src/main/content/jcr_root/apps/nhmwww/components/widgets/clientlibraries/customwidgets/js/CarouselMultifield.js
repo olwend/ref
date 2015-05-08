@@ -144,6 +144,7 @@ NHM.CarouselItemForm =  CQ.Ext.extend(CQ.Ext.Panel, {
         this.itemHeading = new CQ.form.RichText({
             cls:"",
             width:"350px",
+            removeSingleParagraphContainer:true,
              listeners: {
                  change: {
                      scope:this,
@@ -160,6 +161,7 @@ NHM.CarouselItemForm =  CQ.Ext.extend(CQ.Ext.Panel, {
         this.itemCaption = new CQ.form.RichText({
             cls:"",
            width:"350px",
+           removeSingleParagraphContainer:true,
             listeners: {
                 change: {
                     scope:this,
@@ -268,8 +270,11 @@ NHM.CarouselItemField = CQ.Ext.extend(CQ.form.PathField, {
     },
 
     getType: function() {
-    	
-    	return this.type;
+    	if(this.type == null){
+    		return "static";
+    	} else {
+    		return this.type;
+    	}
     },
     setType: function(value) {
     	this.type = value;
