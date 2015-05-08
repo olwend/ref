@@ -13,6 +13,7 @@
         
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy.css"%>" />
+        <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-contact-us-form.css"%>" />
         
         <cq:includeClientLib js="cq.jquery" />
         <script src="<%= hostPort + currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
