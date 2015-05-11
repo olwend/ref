@@ -38,6 +38,7 @@ public class HeaderTextImageHelper {
 	private Boolean isDarkGreyBackground;
 	private String componentType;
 	private String text;
+	private Boolean addPadding;
 	
 	// CTA Tab
 	private String ctaSectionOverride;
@@ -57,6 +58,7 @@ public class HeaderTextImageHelper {
 		this.isDarkGreyBackground = false;
 		this.hasImage = false;
 		
+		this.addPadding = false;
 		String fileReference = properties.get("fileReference", "");
 		
 		if (fileReference.length() != 0 || resource.getChild("file") != null) {
@@ -97,6 +99,7 @@ public class HeaderTextImageHelper {
 		if (properties.get("newwindow") != null) {
 			this.imageLinkNewWindow = properties.get("newwindow",false);
 		}
+		this.addPadding = properties.get("addPadding",false);
 		
 		this.imageSize = properties.get("imageSize", "4");
 		this.imagePosition = properties.get("imagePosition", "right");
@@ -408,7 +411,18 @@ public class HeaderTextImageHelper {
 		return ctaSectionOverride;
 	}
 
+	public Boolean getAddPadding() {
+		return addPadding;
+	}
+
+	public void setAddPadding(Boolean addPadding) {
+		this.addPadding = addPadding;
+	}
+	
+
 	public void setCTASectionOverride(String sectionOverride) {
 		this.ctaSectionOverride = sectionOverride;
 	}
+	
+	
 }
