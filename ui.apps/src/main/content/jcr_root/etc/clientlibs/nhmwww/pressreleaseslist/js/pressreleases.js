@@ -28,7 +28,7 @@ function addMoreResultsButton() {
 	moreElementsDiv.appendChild(aTag);
 	document.getElementById("js-feed-wrapper").appendChild(moreElementsDiv);
 	
-	$('.js-feed .more-results').click(function(){
+	$('.js-feed-wrapper .more-results').click(function(){
 		var rootPath = $('.js-feed-wrapper').data('rootpath');
 		var pageSize = $('.js-feed-wrapper').data('pagesize');
 		removeMoreResultsButton();
