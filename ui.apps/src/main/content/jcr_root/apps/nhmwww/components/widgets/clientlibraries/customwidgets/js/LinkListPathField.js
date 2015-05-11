@@ -10,7 +10,7 @@ if (!window.hasOwnProperty("NHM")) {
 /**
  * Object used to create the JSON Data stored by the Widgets in the repository.
  */
-NHM.LinkListPathFieldData = CQ.Ext.extend(CQ.Static, {
+NHM.CustomMultifieldData = CQ.Ext.extend(CQ.Static, {
 	type: null,
 	text: null,
 	path: null,
@@ -31,16 +31,15 @@ NHM.LinkListPathFieldData = CQ.Ext.extend(CQ.Static, {
     	}
     }
 });
-
 /**
- * @class NHM.LinkListPathField
+ * @class NHM.LinkListPathFieldWidget
  * @extends CQ.form.CompositeField
- * This is a custom widget based on {@link CQ.form.CompositeField}.
+ * This is a custom path field with link text and target based on {@link CQ.form.CompositeField}.
  * @constructor
- * Creates a new LinkListPathField Widget.
+ * Creates a new CustomWidget.
  * @param {Object} config The config object
  */
-NHM.LinkListPathField = CQ.Ext.extend(CQ.form.CompositeField, {
+NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
     /**
      * @private
@@ -50,278 +49,151 @@ NHM.LinkListPathField = CQ.Ext.extend(CQ.form.CompositeField, {
 
     /**
      * @private
-     * @type CQ.Ext.form.Label
+     * @type CQ.Ext.form.TextField
      */
-    typeLabel: null,
-
-    /**
-     * @private
-     * @type CQ.form.Selection
-     */
-    typeSelection: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.Label
-     */
-    textLabel: null,
+    linkText: null,
 
     /**
      * @private
      * @type CQ.Ext.form.TextField
      */
-    textField: null,
+    linkURL: null,
 
     /**
      * @private
-     * @type CQ.Ext.form.Label
+     * @type CQ.Ext.form.CheckBox
      */
-    pathLabel: null,
+    openInNewWindow: null,
 
     /**
      * @private
-     * @type CQ.Ext.form.PathField
+     * @type CQ.Ext.form.FormPanel
      */
-    pathField: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.Label
-     */
-    dateLabel: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.TextField
-     */
-    dateField: null,
+    formPanel: null,
 
     constructor: function(config) {
-        config = config || { };
+        config = config || {};
         var defaults = {
-            "border": false,
-            "layout": {
-            	type: "table",
-            	columns: 6
-            }
+            "border": true,
+            "labelWidth": 75,
+            "layout": "form"
+                //"columns":6
         };
         config = CQ.Util.applyDefaults(config, defaults);
-        NHM.LinkListPathField.superclass.constructor.call(this, config);
+        NHM.LinkListPathFieldWidget.superclass.constructor.call(this, config);
     },
 
-    // overriding CQ.Ext.Component#initComponent
+    //overriding CQ.Ext.Component#initComponent
     initComponent: function() {
-    	NHM.LinkListPathField.superclass.initComponent.call(this);
-        this.typeLabel = new CQ.Ext.form.Label({
-            cls:"custommultifield-typelabel",
-            rowspan: 2,
-            text:"Type:",
-            style:"font-size: 12px; font-family: Arial, Verdana, sans-serif; vertical-align:text-bottom; padding-bottom:0px; padding-right:5px; padding-left:10px;"
-        });
-        this.add(this.typeLabel);
+        NHM.LinkListPathFieldWidget.superclass.initComponent.call(this);
 
-        this.typeSelection = new CQ.form.Selection({
-            cls:"custommultifield-typeselection",
-            defaultValue: "textandpath",
-            value: "textandpath",
-            rowspan: 2,
-            type: "select",
-            width: "155px",
-            options: [{
-            	text: "Text and Path",
-            	value: "textandpath"
-            },{
-            	text: "Date",
-            	value: "date"
-            }],
-            listeners: {
-            	afterlayout: {
-            		scope:this,
-            		fn: this.selectionCreated
-            	},
-                selectionchanged: {
-                    scope:this,
-                    fn:this.selectionChanged
-                }
-            }
-        });
-        this.add(this.typeSelection);
-
-        this.textLabel = new CQ.Ext.form.Label({
-            cls:"custommultifield-textlabel",
-            text:"Text:",
-            style:"font-size: 12px; font-family: Arial, Verdana, sans-serif; vertical-align:text-bottom; padding-bottom:0px; padding-right:5px; padding-left:10px;"
-        });
-        this.add(this.textLabel);
-
-        this.textField = new CQ.Ext.form.TextField({
-            cls:"custommultifield-textfield",
-            width: "100px",
-            listeners: {
-                change: {
-                    scope:this,
-                    fn:this.updateHidden
-                }
-            }
-        });
-        this.add(this.textField);
-
-        this.pathLabel = new CQ.Ext.form.Label({
-            cls:"custommultifield-pathlabel",
-            text:"Path:",
-            style:"font-size: 12px; font-family: Arial, Verdana, sans-serif; vertical-align:text-bottom; padding-bottom:0px; padding-right:5px; padding-left:10px;"
-        });
-        this.add(this.pathLabel);
-
-        this.pathField = new CQ.form.PathField({
-            cls:"custommultifield-pathfield",
-            width: "250px",
-            listeners: {
-                change: {
-                    scope:this,
-                    fn:this.updateHidden
-                }
-            }
-        });
-        this.add(this.pathField);
-
-        this.dateLabel = new CQ.Ext.form.Label({
-            cls:"custommultifield-datelabel",
-            hidden: true,
-            text:"Date: ",
-            style:"float: right; font-size: 12px; font-family: Arial, Verdana, sans-serif; vertical-align:text-bottom; padding-bottom:0px; padding-right:5px; padding-left:10px;"
-        });
-        this.add(this.dateLabel);
-
-        this.dateField = new CQ.Ext.form.DateField({
-        	colspan: 3,
-            cls:"custommultifield-datefield",
-            hidden: true,
-            width: "208px",
-            listeners: {
-                change: {
-                    scope:this,
-                    fn:this.updateHidden
-                }
-            }
-        });
-        this.add(this.dateField);
-
+        // Hidden field
         this.hiddenField = new CQ.Ext.form.Hidden({
             name: this.name
         });
         this.add(this.hiddenField);
+
+        // Link text
+        this.add(new CQ.Ext.form.Label({
+            cls: "customwidget - label",
+            text: "Link Text"
+        }));
+        this.linkText = new CQ.Ext.form.TextField({
+            cls: "customwidget - 1",
+            fieldLabel: "Link Text: ",
+            maxLength: 80,
+            maxLengthText: "A maximum of 80 characters is allowed for the Link Text.",
+            allowBlank: true,
+            listeners: {
+                change: {
+                    scope: this,
+                    fn: this.updateHidden
+                }
+            }
+        });
+        this.add(this.linkText);
+
+        // Link URL
+        this.add(new CQ.Ext.form.Label({
+            cls: "customwidget - label",
+            text: "Link URL"
+        }));
+        this.linkURL = new CQ.form.PathField({
+            cls: "customwidget - 2",
+            fieldLabel: "Link URL: ",
+            allowBlank: false,
+            width: 225,
+            listeners: {
+                change: {
+                    scope: this,
+                    fn: this.updateHidden
+                },
+                dialogclose: {
+                    scope: this,
+                    fn: this.updateHidden
+                }
+            }
+        });
+        this.add(this.linkURL);
+
+        // Link openInNewWindow
+        this.openInNewWindow = new CQ.Ext.form.Checkbox({
+            cls: "customwidget - 3",
+            boxLabel: "New window",
+            listeners: {
+                change: {
+                    scope: this,
+                    fn: this.updateHidden
+                },
+                check: {
+                    scope: this,
+                    fn: this.updateHidden
+                }
+            }
+        });
+        this.add(this.openInNewWindow);
         
-        this.setFieldsValue(value);
+//        this.setFieldsValue();
+
     },
 
-    // overriding CQ.form.CompositeField#processPath
-    processPath: function(path) {
-    	this.hiddenField.processPath(path);
+    processInit: function(path, record) {
+        this.linkText.processInit(path, record);
+        this.linkURL.processInit(path, record);
+        this.openInNewWindow.processInit(path, record);
     },
 
-    // overriding CQ.form.CompositeField#processRecord
-    processRecord: function(record, path) {
-    	this.hiddenField.processRecord(record, path);
-    },
-
-    // overriding CQ.form.CompositeField#setValue
     setValue: function(value) {
-    	var data = CQ.Ext.util.JSON.decode(value);
-
+        var link = JSON.parse(value);
+        this.linkText.setValue(link.text);
+        this.linkURL.setValue(link.url);
+        this.openInNewWindow.setValue(link.openInNewWindow);
         this.hiddenField.setValue(value);
-
-    	this.typeSelection.setValue(data.type);
-
-    	if (data.type == "date") {
-    		this.dateField.setValue(data.date);
-    	} else {
-    		this.textField.setValue(data.text);
-            this.pathField.setValue(data.path);
-    	}
-
-        this.showHideDate();
     },
 
-    // overriding CQ.form.CompositeField#getValue
+//	setFieldsValue: function(value) {
+//        var link = JSON.parse(value);
+//        this.linkText.setValue(link.text);
+//        this.linkURL.setValue(link.url);
+//        this.openInNewWindow.setValue(link.openInNewWindow);
+//        this.hiddenField.setValue(value);       
+//    },
+
     getValue: function() {
         return this.getRawValue();
     },
-    setFieldsValue: function(value) {
-        /*var data = CQ.Ext.util.JSON.decode(value);
-        console.log("set value inform: " + data);
-        this.hiddenField.setValue(value);
-        this.hiddenType.setValue(data.type);
-        //console.log("Item data.type:", data.type);
-        this.item.setValue(data.item);
-        this.item.setType(data.type);
-        this.itemMobile.setValue(data.itemMobile);
-        //console.log("Item item.getType():", this.item.getType());
-        this.itemURL.setValue(data.itemURL);
-        this.itemHeading.setValue(data.itemHeading);
-        this.itemCaption.setValue(data.itemCaption);*/
-       
-    },
 
-    // overriding CQ.form.CompositeField#getRawValue
     getRawValue: function() {
-    	var data = null;
-    	
-    	if (this.typeSelection.getValue() == "date") {
-    		data = new NHM.LinkListPathFieldData(this.typeSelection.getValue(), null, null, this.dateField.getValue());
-    	} else {
-    		data = new NHM.LinkListPathFieldData(this.typeSelection.getValue(), this.textField.getValue(), this.pathField.getValue(), null);
-    	}
-    	
-    	return CQ.Ext.util.JSON.encode(data);
+        var link = {"url": this.linkURL.getValue(),
+            "text": this.linkText.getValue(),
+            "openInNewWindow": this.openInNewWindow.getValue()
+        };
+        return JSON.stringify(link);
     },
 
-    // private
     updateHidden: function() {
         this.hiddenField.setValue(this.getValue());
-    },
-
-    // private
-    selectionChanged: function() {
-    	this.showHideDate();
-        this.updateHidden();
-    },
-
-    // private
-    showHideDate: function() {
-    	if (this.typeSelection != null) {
-	    	var value = this.typeSelection.getValue();
-	    	if (value == "date") {
-	    		this.textLabel.hide();
-	    		this.textField.hide();
-	    		this.pathLabel.hide();
-	    		this.pathField.hide();
-	    		this.dateLabel.show();
-	    		this.dateField.show();
-	    	} else {
-	    		this.dateLabel.hide();
-	    		this.dateField.hide();
-	    		this.textLabel.show();
-	    		this.textField.show();
-	    		this.pathLabel.show();
-	    		this.pathField.show();
-	    	}
-    	}
-    },
-
-    // private
-    // Used to fixed the issue if the element is included as Multifield's Field Config.
-    selectionCreated: function(selection, layout) {
-    	var el = selection.getEl();
-        var inputs = el.query('input');
-
-        for (var i = 0; i < inputs.length; i++) {
-        	var input = $(inputs[i]);
-        	input.css({ width: "130px"});
-        }
     }
-
 });
 
-// register xtype
-CQ.Ext.reg('custommultifield', NHM.LinkListPathField);
+CQ.Ext.reg('linklistpathfield', NHM.LinkListPathFieldWidget);

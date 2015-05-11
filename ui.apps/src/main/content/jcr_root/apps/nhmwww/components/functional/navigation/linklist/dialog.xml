@@ -127,7 +127,7 @@
                             xtype="multifield">
                             <fieldConfig
                                 jcr:primaryType="cq:Widget"
-                                xtype="mypathfield"/>
+                                xtype="linklistpathfield"/>
                         </linkListItems>
                     </items>
                 </items>
@@ -173,7 +173,7 @@
                             xtype="multifield">
                             <fieldConfig
                                 jcr:primaryType="cq:Widget"
-                                xtype="mypathfield"/>
+                                xtype="linklistpathfield"/>
                         </linkListItems>
                     </items>
                 </items>
@@ -219,7 +219,7 @@
                             xtype="multifield">
                             <fieldConfig
                                 jcr:primaryType="cq:Widget"
-                                xtype="mypathfield"/>
+                                xtype="linklistpathfield"/>
                         </linkListItems>
                     </items>
                 </items>
