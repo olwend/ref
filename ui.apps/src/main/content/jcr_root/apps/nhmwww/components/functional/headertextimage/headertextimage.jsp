@@ -35,65 +35,58 @@
 	svgIcon = svg.toHtml(currentDesign.getPath() + "/");
 	svgBaseColor = svg.getBaseColour();
 } %>
-<%
-	if(helper.isActivated()) {
-		String textPosition = "";
-		if(helper.getImagePosition().equals("left")) {
-			textPosition = "right";
-		} else {
-			textPosition = "left";
-		}
-%>
-<% if(helper.getAddPadding()) { %>
-<cq:includeClientLib categories="uk.ac.nhm.pressreleasetilefeed"/>
-<div class="hti-padding" data-equalizer>
-<%}%>
-<div class="GreyBox text <%=textPosition%>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.getHasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>		<h3>
-			<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-				<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
-			<% } %>
-					<%= helper.getHeading() %>
-			<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-				</a>
-			<% } %>
-		</h3>
-		<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
-	</div>
-<%	if(helper.hasImage()) {	%>
-		<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-"+helper.getImageSize() + " medium-"+helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
-			<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
-				<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
-			<% } %>
-				<img alt='<%= helper.getAlt() %>' data-interchange="
-			        [<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (default)], 
-			        [<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>, (small)], 
-			        [<%= helper.getPath() + ".img.620.high." + helper.getExtension() + helper.getSuffix() %>, (retina)],
-			        [<%= helper.getPath() + ".img.480.medium." + helper.getExtension() + helper.getSuffix() %>, (medium)], 
-			        [<%= helper.getPath() + ".img.full.high." + helper.getExtension() + helper.getSuffix() %>, (large)]">
-			    <%-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --%>
-				<noscript>
-			        <img src='<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>' alt='<%= helper.getAlt() %>'>
-			    </noscript>
-		    <% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
-				</a>
-			<% } %>
+
+
+<%	if(helper.isActivated()) {	%>
+	<% if(helper.getAddPadding()) { %>
+		<div class="hti-padding" data-equalizer>
+	<%}%>
+		<div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
+			<h3>
+				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+					<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
+				<% } %>
+						<%= helper.getHeading() %>
+				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+					</a>
+				<% } %>
+			</h3>
+			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
 		</div>
-	<% } %>
-	<% if(helper.hasCTA()){ %>
-		<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
-			<div class="info-tout info-tout__action tickets">
-				<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
-					<%=svgIcon %> 
-					<h3 class="paddingTB"><%=helper.getCTATitle() %></h3>
-					<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
-				</a>
+	<%	if(helper.hasImage()) {	%>
+			<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-"+helper.getImageSize() + " medium-"+helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
+				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
+					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
+				<% } %>
+					<img alt='<%= helper.getAlt() %>' data-interchange="
+						[<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (default)], 
+						[<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>, (small)], 
+						[<%= helper.getPath() + ".img.620.high." + helper.getExtension() + helper.getSuffix() %>, (retina)],
+						[<%= helper.getPath() + ".img.480.medium." + helper.getExtension() + helper.getSuffix() %>, (medium)], 
+						[<%= helper.getPath() + ".img.full.high." + helper.getExtension() + helper.getSuffix() %>, (large)]">
+					<%-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --%>
+					<noscript>
+						<img src='<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>' alt='<%= helper.getAlt() %>'>
+					</noscript>
+				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
+					</a>
+				<% } %>
 			</div>
+		<% } %>
+		<% if(helper.hasCTA()){ %>
+			<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
+				<div class="info-tout info-tout__action tickets">
+					<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
+						<%=svgIcon %> 
+						<h3 class="paddingTB"><%=helper.getCTATitle() %></h3>
+						<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+					</a>
+				</div>
+			</div>
+		<% } %>
+	<% if(helper.getAddPadding()) { %>
 		</div>
-	<% } %>
+	<%}%>
 <% } else { %>
 	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
 <% } %>
-<% if(helper.getAddPadding()) { %>
-</div>
-<%}%>
-
