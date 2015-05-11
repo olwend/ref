@@ -204,7 +204,7 @@ public class LinkListHelper extends ListHelper {
 		columnString.append("<li>");
 			columnString.append("<div class=\"linklist--column" + hasHeaders(columnNumber) + "\">");
 				columnString.append(addHeader(columnNumber));
-				columnString.append("<ul class=\"linklist--column--items\">");
+				columnString.append("<ul class=\"linklist--link-items\">");
 		
 			    if (this.columnItemsList.get(columnNumber) != null){
 			        for (String linkItem : this.columnItemsList.get(columnNumber)) {
