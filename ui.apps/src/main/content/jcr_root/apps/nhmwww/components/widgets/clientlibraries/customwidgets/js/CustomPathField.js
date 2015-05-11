@@ -153,7 +153,7 @@ NHM.CustomPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
         });
         this.add(this.openInNewWindow);
         
-        this.setFieldsValue();
+//        this.setFieldsValue();
 
     },
 
@@ -171,13 +171,13 @@ NHM.CustomPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
         this.hiddenField.setValue(value);
     },
 
-	setFieldsValue: function(value) {
-        var link = JSON.parse(value);
-        this.linkText.setValue(link.text);
-        this.linkURL.setValue(link.url);
-        this.openInNewWindow.setValue(link.openInNewWindow);
-        this.hiddenField.setValue(value);       
-    },
+//	setFieldsValue: function(value) {
+//        var link = JSON.parse(value);
+//        this.linkText.setValue(link.text);
+//        this.linkURL.setValue(link.url);
+//        this.openInNewWindow.setValue(link.openInNewWindow);
+//        this.hiddenField.setValue(value);       
+//    },
 
     getValue: function() {
         return this.getRawValue();
