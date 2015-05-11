@@ -194,10 +194,34 @@ public class LinkListHelper extends ListHelper {
 		StringBuffer columnString = new StringBuffer();
 		
 		columnString.append("<li>");
-			columnString.append("<div class=\"linklist--column" + hasHeaders(columnNumber) + "\">");
-				columnString.append(addHeader(columnNumber));
+			columnString.append(generateColumnDiv(columnNumber));
 				columnString.append(generateLinkItems(columnNumber));
+				
 	    return columnString;
+	}
+	
+	public StringBuffer generateColumnDiv(Integer columnNumber) {
+		StringBuffer ret = new StringBuffer();
+		StringBuffer div = new StringBuffer();
+		StringBuffer h3 = new StringBuffer();
+		div.append("<div class=\"linklist--column ");
+		
+		// Appends [linklist--column--no-header] and generates headers if there are any
+		if (this.hasHeadersList.get(0)){
+			if(columnNumber == 0){
+				h3.append(addHeader(columnNumber));				
+			} else {
+				if(this.hasHeadersList.get(columnNumber)){
+					h3.append(addHeader(columnNumber));
+				} else {
+					div.append(" linklist--column--no-header");
+				}
+			}
+		}
+		div.append("\">");
+		ret.append(div);
+		ret.append(h3);
+		return ret;
 	}
 
 	private StringBuffer generateLinkItems(Integer columnNumber) throws JSONException {
@@ -225,6 +249,8 @@ public class LinkListHelper extends ListHelper {
 		return ret;
 	}
 	
+
+	
 	public String hasHeaders(Integer columnNumber){
 		String ret = StringUtils.EMPTY;
 		switch (columnNumber) {
@@ -244,7 +270,7 @@ public class LinkListHelper extends ListHelper {
 	
 	private String addHeader(Integer columnNumber) {
 		String ret = StringUtils.EMPTY;
-		if(this.headersList.get(columnNumber) != null){
+		if(this.headersList.get(columnNumber) != null || !this.headersList.equals("")){
 			ret = "<h3 class=\"linklist--column--header\">" + this.headersList.get(columnNumber) + "</h3>";
 		}
 		return ret;
