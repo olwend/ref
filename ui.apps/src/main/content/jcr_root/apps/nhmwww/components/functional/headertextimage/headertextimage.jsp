@@ -73,7 +73,7 @@
 				<% } %>
 			</div>
 		<% } %>
-		<% if(helper.hasCTA()){ %>
+		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
 			<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
 				<div class="info-tout info-tout__action tickets">
 					<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
