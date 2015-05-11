@@ -4,7 +4,7 @@
 
   Will list the items under a specified root
 
---%><%@page import="uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement"%>
+--%><%@page import="uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElementImpl"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper,
 				uk.ac.nhm.nhm_www.core.utils.*"%>
 <%
@@ -27,7 +27,7 @@
 	<!-- START FEED BLOCK GRID -->
 	<ul class="small-block-grid-1 medium-block-grid-2 feed--tiles" data-equalizer>
 		<% for(Object element: helper.getTilesElements()) { 
-				PressReleaseFeedListElement prElement = (PressReleaseFeedListElement) element;
+			PressReleaseFeedListElementImpl prElement = (PressReleaseFeedListElementImpl) element;
 		
 		%>
 				<li>
