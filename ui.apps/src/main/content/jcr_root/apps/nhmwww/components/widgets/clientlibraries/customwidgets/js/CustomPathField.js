@@ -153,7 +153,7 @@ NHM.CustomPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
         });
         this.add(this.openInNewWindow);
         
-        this.setFieldsValue();
+//        this.setFieldsValue();
 
     },
 
