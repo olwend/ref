@@ -95,7 +95,7 @@
 		        <colourSectionOverride
 		            jcr:primaryType="cq:Widget"
 		            defaultValue=""
-		            fieldLabel="Colour theme"
+		            fieldLabel="Colour theme, default Inherit from Parent"
 		            name="./section-override"
 		            type="select"
 		            xtype="selection">
