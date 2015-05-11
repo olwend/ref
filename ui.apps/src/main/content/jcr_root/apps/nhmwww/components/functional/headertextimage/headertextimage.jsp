@@ -29,18 +29,18 @@
 <%	String svgIcon = ""; %>
 <%	String svgBaseColor = ""; %>
 
-<% if(helper.hasCTAIcon()){
-	CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
-	SVGImage svg = ctahelper.getSVGImage(); 
-	svgIcon = svg.toHtml(currentDesign.getPath() + "/");
-	svgBaseColor = svg.getBaseColour();
+<% if (helper.hasCTA()){
+		if (helper.hasCTAIcon()){
+			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
+			SVGImage svg = ctahelper.getSVGImage(); 
+			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
+			svgBaseColor = svg.getBaseColour();
+		}
 } %>
 
 
 <%	if(helper.isActivated()) {	%>
-	<% if(helper.getAddPadding()) { %>
-		<div class="hti-padding" data-equalizer>
-	<%}%>
+	<%	if(helper.getAddPadding()) { %> <div class="hti-padding" data-equalizer> <%}%>
 		<div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
 			<h3>
 				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
@@ -54,7 +54,7 @@
 			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
 		</div>
 	<%	if(helper.hasImage()) {	%>
-			<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-"+helper.getImageSize() + " medium-"+helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
+			<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-" + helper.getImageSize() + " medium-" + helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
 				<% } %>
@@ -84,9 +84,7 @@
 				</div>
 			</div>
 		<% } %>
-	<% if(helper.getAddPadding()) { %>
-		</div>
-	<%}%>
+	<%	if(helper.getAddPadding()) { %> </div> <% } %>
 <% } else { %>
 	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
 <% } %>
