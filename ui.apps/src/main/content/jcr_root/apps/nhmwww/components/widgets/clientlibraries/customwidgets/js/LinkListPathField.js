@@ -8,30 +8,6 @@ if (!window.hasOwnProperty("NHM")) {
 }
 
 /**
- * Object used to create the JSON Data stored by the Widgets in the repository.
- */
-NHM.CustomMultifieldData = CQ.Ext.extend(CQ.Static, {
-	type: null,
-	text: null,
-	path: null,
-    date: null,
-
-    constructor: function(type, text, path, date) {
-    	this.type = type;
-    	if (text != null) {
-    		this.text = text;
-    	}
-
-    	if (path != null) {
-    		this.path = path;
-    	}
-
-    	if (date != null) {
-    		this.date = date;
-    	}
-    }
-});
-/**
  * @class NHM.LinkListPathFieldWidget
  * @extends CQ.form.CompositeField
  * This is a custom path field with link text and target based on {@link CQ.form.CompositeField}.
@@ -41,45 +17,12 @@ NHM.CustomMultifieldData = CQ.Ext.extend(CQ.Static, {
  */
 NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
-    /**
-     * @private
-     * @type CQ.Ext.form.TextField
-     */
     hiddenField: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.TextField
-     */
     linkText: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.TextField
-     */
     linkURL: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.CheckBox
-     */
     openInNewWindow: null,
-
-    /**
-     * @private
-     * @type CQ.Ext.form.FormPanel
-     */
-    formPanel: null,
-
-    constructor: function(config) {
-        config = config || {};
-        var defaults = {
-            "border": true,
-            "labelWidth": 75,
-            "layout": "form"
-                //"columns":6
-        };
-        config = CQ.Util.applyDefaults(config, defaults);
+    
+	constructor: function(config) {
         NHM.LinkListPathFieldWidget.superclass.constructor.call(this, config);
     },
 
@@ -95,17 +38,20 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
         // Link text
         this.add(new CQ.Ext.form.Label({
-            cls: "customwidget - label",
-            text: "Link Text"
+             text: "Link Text"
         }));
         this.linkText = new CQ.Ext.form.TextField({
-            cls: "customwidget - 1",
-            fieldLabel: "Link Text: ",
-            maxLength: 80,
-            maxLengthText: "A maximum of 80 characters is allowed for the Link Text.",
-            allowBlank: true,
-            listeners: {
+           maxLength: 80,
+           listeners: {
                 change: {
+                    scope: this,
+                    fn: this.updateHidden
+                },
+                dialogopen: {
+                    scope: this,
+                    fn: this.updateHidden
+                }, 
+                dialogselect: {
                     scope: this,
                     fn: this.updateHidden
                 }
@@ -115,20 +61,25 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
         // Link URL
         this.add(new CQ.Ext.form.Label({
-            cls: "customwidget - label",
             text: "Link URL"
         }));
         this.linkURL = new CQ.form.PathField({
-            cls: "customwidget - 2",
-            fieldLabel: "Link URL: ",
-            allowBlank: false,
-            width: 225,
             listeners: {
                 change: {
                     scope: this,
                     fn: this.updateHidden
                 },
                 dialogclose: {
+                	//aux: console.log("Debug Calling OnDialogClose"),
+                    scope: this,
+                    fn: this.updateHidden
+                }, 
+                dialogopen: {
+                	//aux: console.log("Debug Calling OnDialogOpen"),
+                    scope: this,
+                    fn: this.updateHidden
+                }, 
+                dialogselect: {
                     scope: this,
                     fn: this.updateHidden
                 }
@@ -138,14 +89,20 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
         // Link openInNewWindow
         this.openInNewWindow = new CQ.Ext.form.Checkbox({
-            cls: "customwidget - 3",
-            boxLabel: "New window",
-            listeners: {
+           listeners: {
                 change: {
                     scope: this,
                     fn: this.updateHidden
                 },
                 check: {
+                    scope: this,
+                    fn: this.updateHidden
+                }, 
+                dialogopen: {
+                    scope: this,
+                    fn: this.updateHidden
+                }, 
+                dialogselect: {
                     scope: this,
                     fn: this.updateHidden
                 }
@@ -157,11 +114,11 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
     },
 
-    processInit: function(path, record) {
+    /*processInit: function(path, record) {
         this.linkText.processInit(path, record);
         this.linkURL.processInit(path, record);
         this.openInNewWindow.processInit(path, record);
-    },
+    },*/
 
     setValue: function(value) {
         var link = JSON.parse(value);
