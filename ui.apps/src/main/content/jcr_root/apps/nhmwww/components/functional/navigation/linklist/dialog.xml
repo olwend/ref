@@ -91,9 +91,6 @@
             jcr:primaryType="cq:Widget"
             title="First Column"
             xtype="panel">
-            <listeners
-                jcr:primaryType="nt:unstructured"
-                render="function() { this.findParentByType('tabpanel').hideTabStripItem(1); }"/>
             <items jcr:primaryType="cq:WidgetCollection">
                 <columntitle
                     jcr:primaryType="cq:Widget"
@@ -114,10 +111,8 @@
                     type="checkbox"
                     xtype="selection"/>
                 <items
-                    jcr:primaryType="cq:Widget"
-                    border="false"
-                    title="Link List"
-                    xtype="panel">
+                     jcr:primaryType="cq:Panel"
+                	title="Items">
                     <items jcr:primaryType="cq:WidgetCollection">
                         <linkListItems
                             jcr:primaryType="cq:Widget"
@@ -137,9 +132,6 @@
             jcr:primaryType="cq:Widget"
             title="Second Column"
             xtype="panel">
-            <listeners
-                jcr:primaryType="nt:unstructured"
-                render="function() { this.findParentByType('tabpanel').hideTabStripItem(2); }"/>
             <items jcr:primaryType="cq:WidgetCollection">
                 <columntitle
                     jcr:primaryType="cq:Widget"
@@ -160,10 +152,8 @@
                     type="checkbox"
                     xtype="selection"/>
                 <items
-                    jcr:primaryType="cq:Widget"
-                    border="false"
-                    title="Link List"
-                    xtype="panel">
+                     jcr:primaryType="cq:Panel"
+                	title="Items">
                     <items jcr:primaryType="cq:WidgetCollection">
                         <linkListItems
                             jcr:primaryType="cq:Widget"
@@ -183,9 +173,6 @@
             jcr:primaryType="cq:Widget"
             title="Third Column"
             xtype="panel">
-            <listeners
-                jcr:primaryType="nt:unstructured"
-                render="function() { this.findParentByType('tabpanel').hideTabStripItem(3); }"/>
             <items jcr:primaryType="cq:WidgetCollection">
                 <columntitle
                     jcr:primaryType="cq:Widget"
@@ -206,10 +193,8 @@
                     type="checkbox"
                     xtype="selection"/>
                 <items
-                    jcr:primaryType="cq:Widget"
-                    border="false"
-                    title="Link List"
-                    xtype="panel">
+                     jcr:primaryType="cq:Panel"
+                	title="Items">
                     <items jcr:primaryType="cq:WidgetCollection">
                         <linkListItems
                             jcr:primaryType="cq:Widget"
