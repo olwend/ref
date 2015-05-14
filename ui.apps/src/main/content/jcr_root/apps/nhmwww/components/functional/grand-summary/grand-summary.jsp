@@ -17,6 +17,7 @@
 			svgBaseColor = svg.getBaseColour();	
 		}
 }	%>
+	<%-- Massive Image with Title --%>
 	<div class="video-wrapper" >
 		<% helper.getMobileImage().draw(out); %>
 		<% helper.getImage().draw(out); %>
@@ -24,12 +25,17 @@
 			<div class="caption-inner-wrapper">
 				<div class="caption">
 					<% if (helper.getTitle() != null) { %> <h1><%=helper.getTitle()%></h1> <% if(helper.isExhibition()) { %><h2><%= helper.getDate() %></h2><% } %> <% } %>
-					<% if (helper.getDescription() != null) { %> <p><%=helper.getDescription()%></p> <% } %>
+					<% if (!helper.isExhibition()) { %><% if (helper.getDescription() != null) { %> <p><%=helper.getDescription()%></p> <% } %><% } %>
 				</div>
 			</div>
 		</div>
 	</div>	
 	<% if(helper.isExhibition()) { %>
+	
+		<%-- Description present in Exhibition Mode --%>
+		<% if (helper.getDescription() != null) { %> <p><%=helper.getDescription()%></p>
+		 
+		 <%-- CTA present in Exhibition Mode --%>
 		<div class="<%= helper.getCTASectionOverride() %>">
 			<div class="info-tout info-tout__action tickets">
 				<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
@@ -39,18 +45,23 @@
 				</a>
 			</div>
 		</div>
-		<div>
-			<p class="global-header-info__item tickets">
-				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_ticket_small.svg" data-svg-title="icon__ticket" data-alt="Tickets" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-ticket.png"></i> 
-				Entry <b><%= helper.getTicketPrice() %></b>
-			</p>
+		
+		<%-- Location and Tickets present in Exhibition Mode --%>
+		<div class="foundationwrapper">
+			<div>
+				<p class="global-header-info__item tickets">
+					<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_ticket_small.svg" data-svg-title="icon__ticket" data-alt="Tickets" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-ticket.png"></i> 
+					Entry <b><%= helper.getTicketPrice() %></b>
+				</p>
+			</div>
+			<div>
+				<p class="global-header-info__item location">
+					<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_location_small.svg" data-svg-title="icon__location" data-alt="Location" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/icon_s_feature_location_small.png"></i> 
+					Location <b><%= helper.getLocation() %></b>
+				</p>
+			</div>
 		</div>
-		<div>
-			<p class="global-header-info__item location">
-				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_location_small.svg" data-svg-title="icon__location" data-alt="Location" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/icon_s_feature_location_small.png"></i> 
-				Location <b><%= helper.getLocation() %></b>
-			</p>
-		</div>
+
 		
 	<% } %>
 <% %>
