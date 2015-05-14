@@ -24,13 +24,14 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
     openInNewWindow: null,
     
 	constructor: function(config) {
-		config = config || {};
-		var defaults = {
-		    "border": true,
-		    "labelWidth": 75,
-		    "layout": "form"
-		}; 
-		config = CQ.Util.applyDefaults(config, defaults);
+		config = config || { };
+        var defaults = {
+            "border": true,
+            "layout": "form",
+            "labelSeparator": ":",
+            "padding": "10px"
+        };
+        config = CQ.Util.applyDefaults(config, defaults);
         NHM.LinkListPathFieldWidget.superclass.constructor.call(this, config);
     },
 
@@ -44,7 +45,7 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
         }));
 
         this.linkText = new CQ.Ext.form.TextField({
-           width:"120px",
+           width:"100%",
            listeners: {
         	   	change: {
     	   			scope:this,
@@ -67,7 +68,7 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
             text: "URL"
         }));
         this.linkURL = new CQ.form.PathField({
-        	width:"120px",
+        	width:"100%",
             listeners: {
         	   	change: {
     	   			scope:this,
