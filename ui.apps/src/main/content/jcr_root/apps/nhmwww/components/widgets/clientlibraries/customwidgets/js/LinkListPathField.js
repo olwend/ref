@@ -15,6 +15,7 @@ if (!window.hasOwnProperty("NHM")) {
  * Creates a new CustomWidget.
  * @param {Object} config The config object
  */
+
 NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
     hiddenField: null,
@@ -23,6 +24,13 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
     openInNewWindow: null,
     
 	constructor: function(config) {
+		config = config || {};
+		var defaults = {
+		    "border": true,
+		    "labelWidth": 75,
+		    "layout": "form"
+		}; 
+		config = CQ.Util.applyDefaults(config, defaults);
         NHM.LinkListPathFieldWidget.superclass.constructor.call(this, config);
     },
 
@@ -30,19 +38,12 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
     initComponent: function() {
         NHM.LinkListPathFieldWidget.superclass.initComponent.call(this);
 
-        // Hidden field
-        this.hiddenField = new CQ.Ext.form.Hidden({
-            name: this.name
-        });
-        this.add(this.hiddenField);
-
         // Link text
         this.add(new CQ.Ext.form.Label({
-             text: "Title"
+            text: "Link Title"
         }));
 
         this.linkText = new CQ.Ext.form.TextField({
-           maxLength: 80,
            width:"120px",
            listeners: {
         	   	change: {
@@ -66,7 +67,7 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
             text: "URL"
         }));
         this.linkURL = new CQ.form.PathField({
-            width:"120px",
+        	width:"120px",
             listeners: {
         	   	change: {
     	   			scope:this,
@@ -83,9 +84,14 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
             }
         });
         this.add(this.linkURL);
-
+        
         // Link openInNewWindow
+        this.add(new CQ.Ext.form.Label({
+            text: "New Window"
+        }));
         this.openInNewWindow = new CQ.Ext.form.Checkbox({
+           text: "New Window",
+           fieldLabel:"Link Text: ",
            listeners: {
 	       	   	change: {
 		   			scope:this,
@@ -102,6 +108,13 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
             }
         });
         this.add(this.openInNewWindow);
+        
+        // Hidden field
+        this.hiddenField = new CQ.Ext.form.Hidden({
+            name: this.name
+        });
+        this.add(this.hiddenField);
+
     },
 
 
