@@ -38,51 +38,48 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
 
         // Link text
         this.add(new CQ.Ext.form.Label({
-             text: "Link Text"
+             text: "Title"
         }));
+
         this.linkText = new CQ.Ext.form.TextField({
            maxLength: 80,
+           width:"120px",
            listeners: {
-                change: {
-                    scope: this,
-                    fn: this.updateHidden
-                },
-                dialogopen: {
-                    scope: this,
-                    fn: this.updateHidden
-                }, 
-                dialogselect: {
-                    scope: this,
-                    fn: this.updateHidden
-                }
+        	   	change: {
+    	   			scope:this,
+                   	fn:this.updateHidden,
+	            },
+	       		dialogclose: {
+	       			scope: this,
+	       			fn: this.updateHidden,
+	       		},
+	       		valid: {
+	       			scope: this,
+	       			fn: this.updateHidden,
+	       		}
             }
         });
         this.add(this.linkText);
 
         // Link URL
         this.add(new CQ.Ext.form.Label({
-            text: "Link URL"
+            text: "URL"
         }));
         this.linkURL = new CQ.form.PathField({
+            width:"120px",
             listeners: {
-                change: {
-                    scope: this,
-                    fn: this.updateHidden
-                },
-                dialogclose: {
-                	//aux: console.log("Debug Calling OnDialogClose"),
-                    scope: this,
-                    fn: this.updateHidden
-                }, 
-                dialogopen: {
-                	//aux: console.log("Debug Calling OnDialogOpen"),
-                    scope: this,
-                    fn: this.updateHidden
-                }, 
-                dialogselect: {
-                    scope: this,
-                    fn: this.updateHidden
-                }
+        	   	change: {
+    	   			scope:this,
+                   	fn:this.updateHidden,
+	            },
+	       		dialogclose: {
+	       			scope: this,
+	       			fn: this.updateHidden,
+	       		},
+	       		valid: {
+	       			scope: this,
+	       			fn: this.updateHidden,
+	       		}
             }
         });
         this.add(this.linkURL);
@@ -90,35 +87,23 @@ NHM.LinkListPathFieldWidget = CQ.Ext.extend(CQ.form.CompositeField, {
         // Link openInNewWindow
         this.openInNewWindow = new CQ.Ext.form.Checkbox({
            listeners: {
-                change: {
-                    scope: this,
-                    fn: this.updateHidden
-                },
-                check: {
-                    scope: this,
-                    fn: this.updateHidden
-                }, 
-                dialogopen: {
-                    scope: this,
-                    fn: this.updateHidden
-                }, 
-                dialogselect: {
-                    scope: this,
-                    fn: this.updateHidden
-                }
+	       	   	change: {
+		   			scope:this,
+	               	fn:this.updateHidden,
+	            },
+	       		dialogclose: {
+	       			scope: this,
+	       			fn: this.updateHidden,
+	       		},
+	       		valid: {
+	       			scope: this,
+	       			fn: this.updateHidden,
+	       		}
             }
         });
         this.add(this.openInNewWindow);
-        
-//        this.setFieldsValue();
-
     },
 
-    /*processInit: function(path, record) {
-        this.linkText.processInit(path, record);
-        this.linkURL.processInit(path, record);
-        this.openInNewWindow.processInit(path, record);
-    },*/
 
     setValue: function(value) {
         var link = JSON.parse(value);
