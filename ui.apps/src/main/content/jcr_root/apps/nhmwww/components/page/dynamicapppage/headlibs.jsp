@@ -16,10 +16,10 @@
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-contact-us-form.css"%>" />
         
         
-        <script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/granite/jquery.js"%>"></script>
-		<script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/granite/utils.js"%>"></script>
-		<script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/granite/jquery/granite.js"%>"></script>
-		<script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/foundation/jquery.js"%>"></script>
+                <script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/utils.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort + "/etc/clientlibs/granite/jquery/granite.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort + "/etc/clientlibs/foundation/jquery.js"%>"></script>
         
         <script src="<%= hostPort + currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= hostPort + currentDesign.getPath() + "/js/plugins.js"%>"></script>
