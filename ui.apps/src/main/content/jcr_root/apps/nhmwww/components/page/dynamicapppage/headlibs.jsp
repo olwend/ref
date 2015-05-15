@@ -15,7 +15,12 @@
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy.css"%>" />
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-contact-us-form.css"%>" />
         
-        <cq:includeClientLib js="cq.jquery" />
+        
+        <script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/granite/jquery.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/granite/utils.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/granite/jquery/granite.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort + currentDesign.getPath() + "/etc/clientlibs/foundation/jquery.js"%>"></script>
+        
         <script src="<%= hostPort + currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= hostPort + currentDesign.getPath() + "/js/plugins.js"%>"></script>
         <script src="<%= hostPort + currentDesign.getPath() + "/js/main.js"%>"></script>
