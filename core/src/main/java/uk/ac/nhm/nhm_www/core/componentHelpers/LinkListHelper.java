@@ -49,6 +49,7 @@ public class LinkListHelper extends ListHelper {
 	protected void init() {
 		isFullWidth = false;
 		
+		numColumns = "";
 		headersList = new ArrayList<String>();
 		headersLinksList = new ArrayList<String>();
 		headersLinksNewWindowsList = new ArrayList<Boolean>();
