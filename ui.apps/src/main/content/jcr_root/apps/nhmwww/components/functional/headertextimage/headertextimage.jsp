@@ -38,23 +38,10 @@
 		}
 } %>
 
-
 <%	if(helper.isActivated()) {	%>
-	<%	if(helper.getAddPadding()) { %> <div class="hti-padding" data-equalizer> <%}%>
-		<div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
-			<h3>
-				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-					<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
-				<% } %>
-						<%= helper.getHeading() %>
-				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-					</a>
-				<% } %>
-			</h3>
-			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
-		</div>
-	<%	if(helper.hasImage()) {	%>
-			<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-" + helper.getImageSize() + " medium-" + helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
+	<div class="hti-wrapper small-12 medium-12 large-12 columns <%if(helper.getAddPadding()) { %> hti-padding <%}%>" data-equalizer>
+		<% if(helper.hasImage()) { %>
+			<div class="hti--image-wrapper columns small-12 medium<%=helper.getImagePosition() %>-<%=helper.getImageSize() %> large<%=helper.getImagePosition() %>-<%=helper.getImageSize() %>" data-equalizer-watch>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
 				<% } %>
@@ -73,7 +60,22 @@
 				<% } %>
 			</div>
 		<% } %>
-		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
+		
+		<div class="hti-box columns <%=helper.getBackgroundColor() %> <%= helper.getComponentType() %> small-12 medium<%=helper.getTextPosition() %>-<%=helper.getTextSize()%> large<%=helper.getTextPosition() %>-<%=helper.getTextSize()%>" data-equalizer-watch>
+			<div class="small-12 medium-12 large-12 columns hti--text--wrapper">
+				<h3 class="hti--text">
+					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+						<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
+					<% } %>
+							<%= helper.getHeading() %>
+					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+						</a>
+					<% } %>
+				</h3>
+			</div>
+			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
+		</div>
+		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()) { %>
 			<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
 				<div class="info-tout info-tout__action tickets">
 					<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
