@@ -43,41 +43,7 @@
                 </par>
                 <par2
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/parsys">
-                    <Copy_x0020_of_x0020_headertextimage
-                        jcr:lastModified="{Date}2015-02-18T16:55:36.813Z"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="nhmwww/components/functional/headertextimage"
-                        addCallToAction="true"
-                        component-type="feature-box"
-                        imagePosition="right"
-                        imageRotate="0"
-                        imageSize="4"
-                        text="&lt;p>&lt;b>Weekdays: &lt;/b>+44 (0)20 7942 5654&lt;/p>&#xa;&lt;p>&lt;b>Evenings and weekends:&lt;/b>&lt;/p>&#xa;&lt;p>+44 (0) 7799 690 151&lt;/p>&#xa;&lt;p>&lt;b>Email: &lt;/b>&lt;a href=&quot;mailto:press@nhm.ac.uk&quot;>press@nhm.ac.uk&lt;/a>&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
-                        text-heading="Contact Us"
-                        textIsRich="true"/>
-                    <secondarynav
-                        jcr:created="{Date}2015-02-19T14:18:23.951Z"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2015-02-19T14:18:23.951Z"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="nhmwww/components/functional/listfeeds/secondarynav"/>
-                    <headertextimage
-                        jcr:lastModified="{Date}2015-02-19T14:18:11.166Z"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="nhmwww/components/functional/headertextimage"
-                        addCallToAction="true"
-                        component-type="aside-box"
-                        imagePosition="right"
-                        imageRotate="0"
-                        imageSize="4"
-                        text="&lt;p>Press passes: If you are reviewing an exhibition or an event we can put aside a press ticket for you in advance.&lt;/p>&#xa;&lt;p>Gallery staff cannot accept generic media passes, staff passes or business cards.&lt;/p>&#xa;"
-                        text-heading="Press passes"
-                        textIsRich="true"/>
-                </par2>
+                    sling:resourceType="foundation/components/parsys"/>
             </row2cells21>
         </par>
         <image

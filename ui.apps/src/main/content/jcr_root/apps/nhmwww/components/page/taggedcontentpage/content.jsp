@@ -80,7 +80,7 @@
 				%><h1><%=diffOutput%></h1>
 				<%
 					}
-				%><p><%=helper.getFormattedPublishDate()%></p>
+				%>
 			</div>
 		</div>
 	</div>
