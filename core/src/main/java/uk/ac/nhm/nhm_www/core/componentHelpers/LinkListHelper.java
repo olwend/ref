@@ -171,6 +171,7 @@ public class LinkListHelper extends ListHelper {
 				exit = true;
 			}
 		}
+		columns.append("</ul>");
 		return columns;
 	}
 	
@@ -196,6 +197,8 @@ public class LinkListHelper extends ListHelper {
 		columnString.append("<li>");
 			columnString.append(generateColumnDiv(columnNumber));
 				columnString.append(generateLinkItems(columnNumber));
+			columnString.append("</div>");
+		columnString.append("</li>");
 				
 	    return columnString;
 	}
