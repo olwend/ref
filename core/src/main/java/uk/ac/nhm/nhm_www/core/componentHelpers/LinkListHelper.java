@@ -271,10 +271,13 @@ public class LinkListHelper extends ListHelper {
 		return ret;
 	}
 	
-	private String addHeader(Integer columnNumber) {
-		String ret = StringUtils.EMPTY;
+	private StringBuffer addHeader(Integer columnNumber) {
+		StringBuffer ret = new StringBuffer();
+		
 		if(this.headersList.get(columnNumber) != null || !this.headersList.equals("")){
-			ret = "<h3 class=\"linklist--column--header\">" + this.headersList.get(columnNumber) + "</h3>";
+			if(this.headersLinksList.get(columnNumber) != null || !this.headersLinksList.equals("")){ ret.append("<a href=\"" + this.headersLinksList.get(columnNumber) + "\">"); }
+				ret.append("<h3 class=\"linklist--column--header\">" + this.headersList.get(columnNumber) + "</h3>");				
+			if(this.headersLinksList.get(columnNumber) != null || !this.headersLinksList.equals("")){ ret.append("</a>"); }
 		}
 		return ret;
 	}

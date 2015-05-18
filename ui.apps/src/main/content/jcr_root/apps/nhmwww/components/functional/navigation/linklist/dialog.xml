@@ -90,6 +90,9 @@
         <firstcolumn
 			jcr:primaryType="cq:Panel"
 			title="First Column">
+			<listeners
+				jcr:primaryType="nt:unstructured"
+				render="function() { this.findParentByType('tabpanel').hideTabStripItem(1); }"/>
 			<items jcr:primaryType="cq:WidgetCollection">
 			     <columntitle
 			         jcr:primaryType="cq:Widget"
@@ -124,6 +127,9 @@
         <secondcolumn
 			jcr:primaryType="cq:Panel"
 			title="Second Column">
+			<listeners
+				jcr:primaryType="nt:unstructured"
+				render="function() { this.findParentByType('tabpanel').hideTabStripItem(2); }"/>
 			<items jcr:primaryType="cq:WidgetCollection">
 			     <columntitle
 			         jcr:primaryType="cq:Widget"
@@ -158,6 +164,9 @@
         <thirdcolumn
 		    jcr:primaryType="cq:Panel"
 		    title="Third Column">
+			<listeners
+				jcr:primaryType="nt:unstructured"
+				render="function() { this.findParentByType('tabpanel').hideTabStripItem(3); }"/>
 		    <items jcr:primaryType="cq:WidgetCollection">
 		         <columntitle
 		             jcr:primaryType="cq:Widget"
