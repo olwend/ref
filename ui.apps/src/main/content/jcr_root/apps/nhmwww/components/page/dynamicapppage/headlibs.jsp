@@ -12,7 +12,7 @@
         <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/styles.css"%>" />
         <!--<![endif]-->
-        
+        <!--adding test needs to be removed -->
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy.css"%>" />
         <% if(helper.getLegacyApp() != null && !helper.getLegacyApp().equals("")){ %>
