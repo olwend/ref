@@ -1,7 +1,9 @@
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@ page session="false" %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% DynamicPageHelper helper = new DynamicPageHelper(resource, properties); %>
 	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
         <!--[if lte IE 8]>
@@ -13,7 +15,9 @@
         
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy.css"%>" />
-        <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-contact-us-form.css"%>" />
+        <% if(helper.getLegacyApp() != null && !helper.getLegacyApp().equals("")){ %>
+        	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-" + helper.getLegacyApp() + ".css"%>" />
+         <% } %>
         
         
                 <script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery.js"%>"></script>

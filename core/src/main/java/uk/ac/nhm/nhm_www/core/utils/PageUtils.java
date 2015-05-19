@@ -136,5 +136,18 @@ public class PageUtils {
 		return cssClassSection;
 		
 	}
+
+
+	public static String getPageKeywords(Page page) {
+		String tags = "";
+		String[] pageTags = page.getProperties().get("cq:tags", String[].class);
+		if(pageTags != null && pageTags.length >0) {
+			for(String tag: pageTags) {
+				tags += tag + ", ";
+			}
+			tags = tags.substring(0, tags.length()-1);
+		}
+		return tags;
+	}
 	
 }

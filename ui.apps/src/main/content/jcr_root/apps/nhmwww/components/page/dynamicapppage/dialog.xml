@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        manageTabs="function(tab){var tabs=['configuration','image','video'];var index=tabs.indexOf(tab);if(index==-1) return;for(var i=1;i&lt;tabs.length;i++){if(index==i){this.unhideTabStripItem(i);}else{this.hideTabStripItem(i);}}this.doLayout();}"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <Basic
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_basic.infinity.json"
+                xtype="cqinclude"/>
+            <Advanced
+                jcr:primaryType="cq:Widget"
+                title="Advanced"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <introduction
+                            jcr:primaryType="cq:Widget"
+                            hideLabel="{Boolean}true"
+                            name="./pageIntroduction"
+                            xtype="richtext">
+                            <rtePlugins
+                                jcr:primaryType="cq:Widget"
+                                path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                                xtype="cqinclude"/>
+                        </introduction>
+                        <legacyApp
+		                    jcr:primaryType="cq:Widget"
+		                    defaultValue=""
+		                    fieldLabel="Choose a legacy app"
+		                    name="./legacy-app"
+		                    type="select"
+		                    xtype="selection">
+		                    <options jcr:primaryType="cq:WidgetCollection">
+		                        <o1
+		                            jcr:primaryType="nt:unstructured"
+		                            text="None"
+		                            value=""/>
+		                        <o2
+		                            jcr:primaryType="nt:unstructured"
+		                            text="Contact-us from"
+		                            value="contact-us-form"/>
+		                        <o3
+		                        	jcr:primaryType="nt:unstructured"
+		                            text="Dino directory"
+		                            value="dino-directory"/>
+	                            <o4
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="DSML Apps"
+		                            value="dsml"/>
+	                            <o5
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Nature Groups Near You"
+		                            value="ngny"/>
+		                    </options>
+		                </legacyApp>
+                    </items>
+                </items>
+            </Advanced>
+            <Image
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_image.infinity.json"
+                xtype="cqinclude"/>
+        </items>
+    </items>
+</jcr:root>

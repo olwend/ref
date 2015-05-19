@@ -33,11 +33,13 @@ import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.PageManagerFactory;
 
 import uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper;
+import uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper;
 import uk.ac.nhm.nhm_www.core.model.DynamicApp.PageResourceArray;
 import uk.ac.nhm.nhm_www.core.model.discover.Image;
 import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponent;
@@ -223,9 +225,14 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	@Override
 	public JSONObject getJSON(Page page, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject object = new JSONObject();
+		DynamicPageHelper helper = new DynamicPageHelper(page);
 		object.put("path", resolver.map(request, page.getPath()));
 		object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
 		object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
+		object.put("page-introduction", resolver.map(request, helper.getPageIntroduction()));
+		object.put("keywords", resolver.map(request, PageUtils.getPageKeywords(page)));
+		object.put("description", resolver.map(request, PageUtils.getPageDescription(page)));
+		
 		return object;
 	}
 	
