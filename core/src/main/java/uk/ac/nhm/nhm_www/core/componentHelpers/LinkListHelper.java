@@ -276,21 +276,20 @@ public class LinkListHelper extends ListHelper {
 		StringBuffer ret = new StringBuffer();
 		
 		if(this.headersList.get(columnNumber) != null || !this.headersList.equals("")){
-			if(this.headersLinksList.get(columnNumber) != null || !this.headersLinksList.equals("")){ ret.append("<a href=\"" + this.headersLinksList.get(columnNumber) + "\">"); }
+			if(this.headersLinksList.get(columnNumber) != null && !this.headersLinksList.get(columnNumber).equals("")){ ret.append("<a href=\"" + this.headersLinksList.get(columnNumber) + "\">"); }
 				ret.append("<h3 class=\"linklist--column--header\">" + this.headersList.get(columnNumber) + "</h3>");				
-			if(this.headersLinksList.get(columnNumber) != null || !this.headersLinksList.equals("")){ ret.append("</a>"); }
+			if(this.headersLinksList.get(columnNumber) != null && !this.headersLinksList.get(columnNumber).equals("")){ ret.append("</a>"); }
 		}
 		return ret;
 	}
 	
 	public StringBuffer createListItem(String title, String url, String target){
 		StringBuffer listItem = new StringBuffer();
-		listItem.append(""
-				+ "<li>"
-					+ "<a href=\"" + url + "\" target=\"" + target + "\">"
-						+ title
-					+ "</a>"
-				+ "</li>");
+		listItem.append("<li>");
+			if (url != null && !url.equals("")){ listItem.append("<a href=\"" + url + "\" target=\"" + target + "\">"); }
+						listItem.append(title);
+			if (url != null && !url.equals("")){ listItem.append("</a>"); }
+		listItem.append("</li>");
 		return listItem;
 	}
 }
