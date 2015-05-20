@@ -264,12 +264,39 @@ public class HeaderTextImageHelper {
 		this.imageSize = imageSize;
 	}
 	
+	public String getImageColumnsSize() {
+		String ret = getImageSize();
+		if (this.imagePosition.equals("top")){
+			ret = "12";
+		} else {
+			if (!ret.equals("8")){
+				ret = "6";
+			}	
+		}
+		return ret;
+	}
+	
 	public String getImagePosition() {
 		return imagePosition;
 	}
 	
 	public void setImagePosition(String imagePosition) {
 		this.imagePosition = imagePosition;
+	}
+	
+	public String getImageColumnsPosition() {
+		String ret = StringUtils.EMPTY;
+		if (this.imagePosition.equals("right")) {
+			ret = "push-";
+		}
+		return ret;
+	}
+	
+	public StringBuffer getImageSizeAndPosition(){
+		StringBuffer ret = new StringBuffer();	//large-
+		ret.append(getImageColumnsPosition());	//large-pull-
+		ret.append(getImageColumnsSize());		//large-pull-8
+		return ret;
 	}
 	
 	public String getImageLinkURL() {

@@ -43,7 +43,8 @@
 <div class="hti-wrapper small-12 medium-12 large-12 columns <%if(helper.getAddPadding()) { %> hti-padding <%}%>" data-equalizer>
 	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
-			<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-" + helper.getImageSize() + " medium-" + helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
+			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImageSizeAndPosition() %> large-<%=helper.getImageSizeAndPosition() %>" data-equalizer-watch>
+			<%--<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-" + helper.getImageSize() + " medium-" + helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>  --%>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
 				<% } %>
