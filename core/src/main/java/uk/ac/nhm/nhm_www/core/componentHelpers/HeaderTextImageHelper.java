@@ -257,11 +257,17 @@ public class HeaderTextImageHelper {
 	}
 
 	public String getImageSize() {
+		String ret = getImageSize();
 		if (this.imagePosition.equals("top")){
-			return "12";
+			ret = "12";
 		} else {
-			return imageSize;			
+			if (ret.equals("8")){
+				ret = "8";
+			} else {
+				ret = "6";
+			}	
 		}
+		return ret;
 	}
 	
 	public void setImageSize(String imageSize) {
