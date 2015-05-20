@@ -256,6 +256,29 @@ public class HeaderTextImageHelper {
 		return ret;
 	}
 	
+	public String getTextColumnsPosition() {
+		String ret = StringUtils.EMPTY;
+		if(this.textPosition.equals("left")){
+			ret = "pull-";
+		}
+		return ret;
+	}
+	
+	public String getTextColumnsSize() {
+		String ret = getImageColumnsSize();
+		if (ret.equals("8")){
+			ret = "4";
+		}
+		return ret;
+	}
+	
+	public StringBuffer getTextPositionAndSize(){
+		StringBuffer ret = new StringBuffer();	//large-
+		ret.append(getTextColumnsPosition());	//large-pull-
+		ret.append(getTextColumnsSize());		//large-pull-8
+		return ret;
+	}
+	
 	public String getImageSize() {
 		return imageSize;
 	}
@@ -292,10 +315,10 @@ public class HeaderTextImageHelper {
 		return ret;
 	}
 	
-	public StringBuffer getImageSizeAndPosition(){
+	public StringBuffer getImagePositionAndSize(){
 		StringBuffer ret = new StringBuffer();	//large-
-		ret.append(getImageColumnsPosition());	//large-pull-
-		ret.append(getImageColumnsSize());		//large-pull-8
+		ret.append(getImageColumnsPosition());	//large-push-
+		ret.append(getImageColumnsSize());		//large-push-8
 		return ret;
 	}
 	
