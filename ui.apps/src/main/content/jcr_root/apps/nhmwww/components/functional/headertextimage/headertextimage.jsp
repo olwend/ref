@@ -39,20 +39,9 @@
 } %>
 
 
-<%	if(helper.isActivated()) {	%>
-	<%	if(helper.getAddPadding()) { %> <div class="hti-padding" data-equalizer> <%}%>
-		<div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
-			<h3>
-				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-					<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
-				<% } %>
-						<%= helper.getHeading() %>
-				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-					</a>
-				<% } %>
-			</h3>
-			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
-		</div>
+<%	if(helper.isActivated()) {	%>	
+<%	if(helper.getAddPadding()) { %> <div class="hti-padding" data-equalizer> <%}%>
+	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
 			<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-" + helper.getImageSize() + " medium-" + helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
@@ -72,7 +61,25 @@
 					</a>
 				<% } %>
 			</div>
-		<% } %>
+		<% } %>	
+	<%-- Image --%>
+	
+	<%-- Text --%>
+		<div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>
+			<h3>
+				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+					<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
+				<% } %>
+						<%= helper.getHeading() %>
+				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+					</a>
+				<% } %>
+			</h3>
+			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
+		</div>	
+	<%-- Text --%>
+	
+	<%-- CTA --%>
 		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
 			<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
 				<div class="info-tout info-tout__action tickets">
@@ -83,8 +90,10 @@
 					</a>
 				</div>
 			</div>
-		<% } %>
-	<%	if(helper.getAddPadding()) { %> </div> <% } %>
+		<% } %>	
+	<%-- CTA --%>
+
+<%	if(helper.getAddPadding()) { %> </div> <% } %>
 <% } else { %>
 	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
 <% } %>
