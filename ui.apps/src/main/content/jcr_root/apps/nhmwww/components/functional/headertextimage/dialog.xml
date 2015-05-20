@@ -55,7 +55,7 @@
                         <o1
                             jcr:primaryType="nt:unstructured"
                             text="One Column"
-                            value="6"/>
+                            value="4"/>
                         <o2
                             jcr:primaryType="nt:unstructured"
                             text="Two columns"

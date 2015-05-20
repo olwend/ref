@@ -27,6 +27,7 @@ public class HeaderTextImageHelper {
 	private String imageLinkURL;
 	private boolean imageLinkNewWindow;
 	private String imagePosition;
+	private Object textPosition;
 	
 	// Text Tab
 	private String heading;
@@ -53,6 +54,7 @@ public class HeaderTextImageHelper {
 		// **********************************
 		// ** Image & Advanced Tab Section **
 		// **********************************
+		this.textPosition = "left";
 		this.isDarkGreyBackground = false;
 		this.hasImage = false;
 		
@@ -101,6 +103,7 @@ public class HeaderTextImageHelper {
 		
 		this.imageSize = properties.get("imageSize", "4");
 		this.imagePosition = properties.get("imagePosition", "right");
+		this.textPosition = setTextPosition(imagePosition);
 		
 		// **********************
 		// ** Text Tab Section **
@@ -216,6 +219,7 @@ public class HeaderTextImageHelper {
 	public void setActivated(Boolean activated) {
 		this.activated = activated;
 	}
+
 	
 	/****************
 	 **Advanced Tab**
@@ -229,39 +233,31 @@ public class HeaderTextImageHelper {
 		this.alt = alt;
 	}
 	
-	private String getTextPosition() {
+	public Object getTextPosition() {
+		return textPosition;
+	}
+	
+	private String setTextPosition(String imagePosition) {
 		String ret = StringUtils.EMPTY;
-		switch (this.imagePosition) {
+		switch (imagePosition) {
 		case "right":
-			ret = "-pull";
+			ret = "left";
+			break;
+		case "left":
+			ret = "right";
+			break;
+		case "top":
+			ret = "bottom";
 			break;
 		default:
-			ret = "";
+			ret = "left";
 			break;
 		}
 		return ret;
 	}
 	
-	private String getTextSize() {
-		String ret = getImageSize();
-		if (!this.hasImage) {
-			ret = "12";
-		} else {
-			if (ret.equals("8")){
-				ret = "4";
-			} else {
-				ret = "6";
-			}
-		}
-		return ret;
-	}
-
 	public String getImageSize() {
-		if (this.imagePosition.equals("top")){
-			return "12";
-		} else {
-			return imageSize;			
-		}
+		return imageSize;
 	}
 	
 	public void setImageSize(String imageSize) {
@@ -269,16 +265,7 @@ public class HeaderTextImageHelper {
 	}
 	
 	public String getImagePosition() {
-		String ret = StringUtils.EMPTY;
-		switch (imagePosition) {
-		case "right":
-			ret = "-push";
-			break;
-		default:
-			ret = "";
-			break;
-		}
-		return ret;
+		return imagePosition;
 	}
 	
 	public void setImagePosition(String imagePosition) {
@@ -348,12 +335,13 @@ public class HeaderTextImageHelper {
 	
 	public String setBackgroundColor() {
 		if (this.isDarkGreyBackground){
-			return "hti-box__dark-grey";
+			return "DarkGrey";
 		} else {
-			return "hti-box__light-grey";
+			return "GreyBox";
 		}
 	}
 	
+
 	public Boolean hasCTA() {
 		return hasCTA;
 	}
