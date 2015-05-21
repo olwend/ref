@@ -68,7 +68,7 @@
 	<%-- Text --%>
 		<div class="hti-box columns <%=helper.getBackgroundColor() %> <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>" data-equalizer-watch>
 		<%-- <div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>--%>
-			<div class="small-12 medium-12 large-12 columns hti--text--wrapper">
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper">
 				<h3 class="hti--text">
 					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
 						<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
@@ -82,15 +82,14 @@
 				</h3>
 				<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
 			</div>
-		</div>	
-	<%-- Text --%>
-	
-	<%-- CTA --%>
+				<%-- CTA --%>
 		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
-			<div class="row">
-				<div class="small-12 medium-12 large-12 small-offset-1 medium-offset-1 large-offset-1 columns ctabutton ctabutton--inside-hti--wrapper">
-					<div class="small-12 medium-12 large-12 columns ctabutton--inside-hti info-tout__action">
-						<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
+			<%--<div class="row">--%>
+				<%-- <div class="small-12 medium-12 large-12 small-offset-1 medium-offset-1 large-offset-1 columns ctabutton ctabutton--inside-hti--wrapper"> --%>
+					<%-- <div class="small-12 medium-12 large-12 columns ctabutton--inside-hti info-tout__action">--%>
+					<div class="small-11 medium-11 large-11 columns right ctabutton--inside-hti">
+						<%--<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">--%>
+						<a href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
 							<div class="small-2 medium-2 large-2 columns">
 								<%=svgIcon %>
 							</div>
@@ -102,10 +101,12 @@
 							</div>
 						</a>
 					</div>
-				</div>
+				<%--</div>--%>
 			</div>
 		<% } %>	
 	<%-- CTA --%>
+		</div>	
+	<%-- Text --%>
 <% } else { %>
 	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
 <% } %>
