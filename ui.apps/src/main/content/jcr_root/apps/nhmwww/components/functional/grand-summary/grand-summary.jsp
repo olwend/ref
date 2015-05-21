@@ -17,19 +17,58 @@
 			svgBaseColor = svg.getBaseColour();	
 		}
 }	%>
-	<%-- Massive Image with Title --%>
-	<div class="video-wrapper" >
-		<% helper.getMobileImage().draw(out); %>
-		<% helper.getImage().draw(out); %>
-		<div class="caption-outer-wrapper">
-			<div class="caption-inner-wrapper">
-				<div class="caption">
-					<% if (helper.getTitle() != null) { %> <h1><%=helper.getTitle()%></h1> <% if(helper.isExhibition()) { %><h2><%= helper.getDate() %></h2><% } %> <% } %>
-					<% if (!helper.isExhibition()) { %><% if (helper.getDescription() != null) { %> <p><%=helper.getDescription()%></p> <% } %><% } %>
+
+<%-- Grand Summary --%>
+	<div class="grand-summary--wrapper">
+		<%-- Main --%>
+			<div class="grand-summary--image-wrapper">
+				<% helper.getMobileImage().draw(out); %>
+				<% helper.getImage().draw(out); %>
+				<div class="row">
+					<div class="small-12 medium-9 large-8 columns grand-summary--caption-container">
+						<div class="caption-outer-wrapper">
+							<div class="caption-inner-wrapper">
+								<div class="row caption">
+									<% if (!helper.isExhibition()) { %>
+										<%-- Normal --%>
+											<div class="small-12 medium-9 large-9 columns grand-summary--caption-title--container">
+												<h2 class="grand-summary--caption-title">
+													<% if ( helper.getTitle() != null ) { %> <h1><%=helper.getTitle()%></h1> <% } %>
+												</h2>
+											</div>
+											<div class="small-12 medium-12 large-12 columns end grand-summary--caption-description--container">
+												<p>
+													<% if ( helper.getDescription() != null ) { %> <p><%=helper.getDescription()%></p> <% } %>
+												</p>
+											</div>
+										<%-- Normal --%>
+									<%} else { %>
+										<%-- Exhibition --%>
+											<div class="small-10 medium-7 large-7 columns grand-summary--caption-title--container">
+												<h2 class="grand-summary--caption-title">
+													<% if ( helper.getTitle() != null ) { %> <h1><%=helper.getTitle()%></h1> <% } %>
+												</h2>
+											</div>
+											<div class="small-8 medium-5 large-5 columns end grand-summary--caption-date--container">
+												<h3 class="grand-summary--caption-date">
+													<% if ( helper.getDate() != null ) { %><h2><%= helper.getDate() %></h2><% }%>
+												</h3>
+											</div>
+										<%-- Exhibition --%>
+									<% } %>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>	
+		<%-- Main --%>
+		<%-- Exhibition --%>
+		<%-- Exhibition --%>
+	</div>
+<%-- Grand Summary --%>
+
+
 	<% if(helper.isExhibition()) { %>
 	
 		<%-- Description present in Exhibition Mode --%>
