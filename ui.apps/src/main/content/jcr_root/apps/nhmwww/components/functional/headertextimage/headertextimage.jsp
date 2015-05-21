@@ -68,16 +68,20 @@
 	<%-- Text --%>
 		<div class="hti-box columns <%=helper.getBackgroundColor() %> <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>" data-equalizer-watch>
 		<%-- <div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>--%>
-			<h3>
-				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-					<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
-				<% } %>
+			<div class="small-12 medium-12 large-12 columns hti--text--wrapper">
+				<h3 class="hti--text">
+					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+						<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
+					<% } %>
+					
 						<%= helper.getHeading() %>
-				<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
-					</a>
-				<% } %>
-			</h3>
-			<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
+					
+					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
+						</a>
+					<% } %>
+				</h3>
+				<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
+			</div>
 		</div>	
 	<%-- Text --%>
 	
