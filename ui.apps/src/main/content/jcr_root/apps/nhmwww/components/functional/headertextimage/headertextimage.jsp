@@ -87,13 +87,21 @@
 	
 	<%-- CTA --%>
 		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
-			<div class="<%= helper.getCTASectionOverride() %>" style="clear: both">
-				<div class="info-tout info-tout__action tickets">
-					<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
-						<%=svgIcon %> 
-						<h3 class="paddingTB"><%=helper.getCTATitle() %></h3>
-						<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
-					</a>
+			<div class="row">
+				<div class="small-12 medium-12 large-12 small-offset-1 medium-offset-1 large-offset-1 columns ctabutton ctabutton--inside-hti--wrapper">
+					<div class="small-12 medium-12 large-12 columns ctabutton--inside-hti info-tout__action">
+						<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
+							<div class="small-2 medium-2 large-2 columns">
+								<%=svgIcon %>
+							</div>
+							<div class="small-7 medium-7 large-7 columns">
+								<h3 class="ctabutton--inside-hti--cta-text"><%=helper.getCTATitle() %></h3>
+							</div>
+							<div class="small-3 medium-3 large-3 columns">
+								<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		<% } %>	
