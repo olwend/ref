@@ -395,9 +395,6 @@ public class HeaderTextImageHelper {
 		case "feature-box":
 			ret = "hti-box__feature-box";
 			break;
-		case "aside-box":
-			ret = "hti-box__aside-box";
-			break;
 		default:
 			ret = "hti-box__lightgrey";
 			break;

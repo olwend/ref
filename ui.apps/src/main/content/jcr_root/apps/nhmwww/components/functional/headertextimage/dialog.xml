@@ -154,10 +154,6 @@
                             jcr:primaryType="nt:unstructured"
                             text="Feature Box"
                             value="feature-box"/>
-                        <o3
-                            jcr:primaryType="nt:unstructured"
-                            text="Aside box"
-                            value="aside-box"/>
                     </options>
                 </type>
                 <text
