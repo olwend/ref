@@ -272,6 +272,10 @@ public class HeaderTextImageHelper {
 		return ret;
 	}
 	
+	public boolean hasTextPositionSwitched() {
+		return hasImagePositionSwitched();
+	}
+	
 	public StringBuffer getTextPositionAndSize(){
 		StringBuffer ret = new StringBuffer();	//large-
 		ret.append(getTextColumnsPosition());	//large-pull-
@@ -311,6 +315,14 @@ public class HeaderTextImageHelper {
 		String ret = StringUtils.EMPTY;
 		if (this.imagePosition.equals("right")) {
 			ret = "push-";
+		}
+		return ret;
+	}
+	
+	public boolean hasImagePositionSwitched() {
+		boolean ret = false;
+		if (this.imagePosition.equals("right")) {
+			ret = true;
 		}
 		return ret;
 	}
@@ -390,7 +402,6 @@ public class HeaderTextImageHelper {
 			return "GreyBox";
 		}
 	}
-	
 
 	public Boolean hasCTA() {
 		return hasCTA;

@@ -43,8 +43,9 @@
 <div class="hti-wrapper small-12 medium-12 large-12 columns <%if(helper.getAddPadding()) { %> hti-padding <%}%>" data-equalizer>
 	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
-			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>" data-equalizer-watch>
-			<%--<div class="<%=helper.getImagePosition()%>-box <% if(helper.getImageSize().equals("8")) { %> <%= "large-" + helper.getImageSize() + " medium-" + helper.getImageSize() %> <% } else { %> <%= "large-6 medium-6 small-12 tablet desktop" %> <% } %> columns" data-equalizer-watch>  --%>
+			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>
+						<% if (helper.hasImagePositionSwitched()) { %> medium-<%=helper.getImageColumnsSize() %> large-<%=helper.getImageColumnsSize() %> <% } %>" 
+						data-equalizer-watch>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
 				<% } %>
@@ -66,8 +67,9 @@
 	<%-- Image --%>
 	
 	<%-- Text --%>
-		<div class="hti-box columns <%=helper.getBackgroundColor() %> <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>" data-equalizer-watch>
-		<%-- <div class="<%=helper.getBackgroundColor() %> text <%=helper.getTextPosition() %>-box <%= helper.getComponentType() %><% if(helper.getImageSize().equals("8")) { %> <%= "large-4" + " medium-4"%> <% } else if(helper.getImageSize().equals("4") && helper.hasImage()) { %> <%= "large-6 medium-6 small-12" %> <% } else { %> <%= "large-12" %> <% } %> columns" data-equalizer-watch>--%>
+		<div class="hti-box columns <%=helper.getBackgroundColor() %> <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>
+					<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %>" 
+					data-equalizer-watch>
 			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper">
 				<h3 class="hti--text">
 					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
