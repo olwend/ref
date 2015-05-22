@@ -119,11 +119,6 @@ public class HeaderTextImageHelper {
 			this.linkNewWindow = properties.get("newwindowheading",false);
 		}
 		
-		if (properties.get("darkgrey") != null) {
-			this.isDarkGreyBackground = properties.get("darkgrey",false);
-		}
-		
-		this.backgroundColor = setBackgroundColor();
 		this.componentType = properties.get("component-type", "");
 		this.text = properties.get("text", "");
 		
@@ -279,7 +274,7 @@ public class HeaderTextImageHelper {
 	public StringBuffer getTextPositionAndSize(){
 		StringBuffer ret = new StringBuffer();	//large-
 		ret.append(getTextColumnsPosition());	//large-pull-
-		ret.append(getTextColumnsSize());		//large-pull-8
+		ret.append(getImageColumnsSize());		//large-pull-4
 		return ret;
 	}
 	
@@ -330,7 +325,7 @@ public class HeaderTextImageHelper {
 	public StringBuffer getImagePositionAndSize(){
 		StringBuffer ret = new StringBuffer();	//large-
 		ret.append(getImageColumnsPosition());	//large-push-
-		ret.append(getImageColumnsSize());		//large-push-8
+		ret.append(getTextColumnsSize());		//large-push-8
 		return ret;
 	}
 	
@@ -388,19 +383,30 @@ public class HeaderTextImageHelper {
 	}
 	
 	public String getComponentType() {
-		return componentType;
+		/**
+		 * Workaround to avoid having the content team re-check all the HTIs.
+		 * Could be done as well by changing the values in the dialog
+		 */
+		String ret = StringUtils.EMPTY;
+		switch(this.componentType) {
+		case "dark-grey":
+			ret = "hti-box__dark-grey";
+			break;
+		case "feature-box":
+			ret = "hti-box__feature-box";
+			break;
+		case "aside-box":
+			ret = "hti-box__aside-box";
+			break;
+		default:
+			ret = "hti-box__lightgrey";
+			break;
+		}
+		return ret;
 	}
 	
 	public void setComponentType(String componentType) {
 		this.componentType = componentType;
-	}
-	
-	public String setBackgroundColor() {
-		if (this.isDarkGreyBackground){
-			return "DarkGrey";
-		} else {
-			return "GreyBox";
-		}
 	}
 
 	public Boolean hasCTA() {

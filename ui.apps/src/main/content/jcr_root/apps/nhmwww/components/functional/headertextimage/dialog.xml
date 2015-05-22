@@ -121,12 +121,6 @@
                     name="./newwindowheading"
                     type="checkbox"
                     xtype="selection"/>
-                <darkgrey
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="Dark Grey Background"
-                    name="./darkgrey"
-                    type="checkbox"
-                    xtype="selection"/>
                 <addCallToAction
                     jcr:primaryType="cq:Widget"
                     defaultValue="{Boolean}false"
@@ -143,15 +137,19 @@
                 <type
                     jcr:primaryType="cq:Widget"
                     defaultValue=""
-                    fieldLabel="Component type"
+                    fieldLabel="Component Style"
                     name="./component-type"
                     type="select"
                     xtype="selection">
                     <options jcr:primaryType="cq:WidgetCollection">
+                        <o0
+                            jcr:primaryType="nt:unstructured"
+                            text="Standard (Grey)"
+                            value="light-grey"/>
                         <o1
                             jcr:primaryType="nt:unstructured"
-                            text="Standard"
-                            value=""/>
+                            text="Dark Grey"
+                            value="dark-grey"/>
                         <o2
                             jcr:primaryType="nt:unstructured"
                             text="Feature Box"
