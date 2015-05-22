@@ -51,7 +51,7 @@ public class GrandSummaryHelper {
 		this.description = properties.get("description", String.class);
 		this.link = properties.get("path", String.class);
 		
-		if(!this.title.equals("") && !this.link.equals("")) {
+		if(this.link !=null && !this.link.equals("")) {
 			this.link= LinkUtils.getFormattedLink(this.link);
 		}
 
