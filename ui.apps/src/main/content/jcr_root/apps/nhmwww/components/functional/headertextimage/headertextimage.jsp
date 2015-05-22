@@ -67,7 +67,7 @@
 	<%-- Image --%>
 	
 	<%-- Text --%>
-		<div class="hti-box columns <%=helper.getBackgroundColor() %> <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>
+		<div class="hti-box columns <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>
 					<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %>" 
 					data-equalizer-watch>
 			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper">
