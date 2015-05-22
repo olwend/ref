@@ -10879,25 +10879,18 @@ a.button-cta {
 }
 
 /** should be able to remove these **/
-.top-box, .right-box, .bottom-box, .left-box {
-  float: none;
-}
-
 .hti-box {
   padding-bottom: 1em;
 }
-
+.hti-box.hti-box__light-grey {
+  background-color: #eeeeee;
+}
+.hti-box.hti-box__dark-grey {
+  background-color: #808080 !important;
+}
 .hti-box p {
   font-size: 1.125em;
   margin-bottom: 1.2em;
-}
-
-.hti-box__light-grey {
-  background-color: #eeeeee;
-}
-
-.hti-box__dark-grey {
-  background-color: #808080 !important;
 }
 
 .hti-box--text-wrapper {
@@ -10913,11 +10906,17 @@ a.button-cta {
 
 /** this can eventually apply to generic ctabutton only **/
 .hti-box .ctabutton--inside-hti--cta-text {
-  color: #565656;
   padding-bottom: 0;
+  margin-top: 0.4em;
   margin-bottom: 0;
   margin-left: 0.3em;
   font-family: "Elysio-Regular";
+  color: #565656;
+}
+@media screen and (min-width: 768px) {
+  .hti-box .ctabutton--inside-hti--cta-text {
+    margin-top: 0.25em;
+  }
 }
 
 /** this can eventually apply to generic ctabutton only **/
@@ -10927,15 +10926,46 @@ a.button-cta {
 
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 .visit .hti-box .ctabutton--inside-hti--cta-text {
-  color: #a1164e;
+  color: #A1164E;
 }
 
-/** temporary reset on info-tout - probably not needed **/
+.take-part .hti-box .ctabutton--inside-hti--cta-text {
+  color: #BF491F;
+}
+
+.support-us .hti-box .ctabutton--inside-hti--cta-text {
+  color: #7F206E;
+}
+
+.about-us .hti-box .ctabutton--inside-hti--cta-text {
+  color: #0B5C7B;
+}
+
+.our-science .hti-box .ctabutton--inside-hti--cta-text {
+  color: #357900;
+}
+
+.schools .hti-box .ctabutton--inside-hti--cta-text {
+  color: #0983BB;
+}
+
+.contact-us .hti-box .ctabutton--inside-hti--cta-text {
+  color: #808080;
+}
+
+.business-services .hti-box .ctabutton--inside-hti--cta-text {
+  color: #253480;
+}
+
+.press-office .hti-box .ctabutton--inside-hti--cta-text {
+  color: #107E5E;
+}
+
+/** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
 .hti-box--feature-box {
   color: #ffffff;
 }
 
-/** possibly can be removed after feature-box global styles are refactored **/
 .hti-box--feature-box .hti--text a {
   color: #ffffff;
 }
