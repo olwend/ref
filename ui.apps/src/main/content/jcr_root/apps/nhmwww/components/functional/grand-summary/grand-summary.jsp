@@ -9,14 +9,14 @@
 <%	String svgIcon = ""; %>
 <%	String svgBaseColor = ""; %>
 
-<%	if(helper.isExhibition()){
+<% 	if(helper.isExhibition()){
 		if(helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
 			svgBaseColor = svg.getBaseColour();	
 		}
-}	%>
+	} %>
 
 <%-- Grand Summary --%>
 	<div class="grand-summary--wrapper">
@@ -41,7 +41,7 @@
 													<% if ( helper.getDescription() != null ) { %> <p><%=helper.getDescription()%></p> <% } %>
 												</p>
 											</div>
-										<%-- Normal --%>
+										<%-- Normal --%> 
 									<%} else { %>
 										<%-- Exhibition --%>
 											<div class="small-10 medium-7 large-7 columns grand-summary--caption-title--container">
@@ -64,43 +64,48 @@
 			</div>
 		<%-- Main --%>
 		<%-- Exhibition --%>
+		<% if(helper.isExhibition()) { %>
+			<div class="row">
+				<div class="small-12 medium-12 large-12 columns">
+					<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3 columns grand-summary--block-grid">
+						<% if (helper.getDescription() != null) { %> <li><%=helper.getDescription()%></li><% } %>
+						<li>
+							<div class="small-12 medium-12 large-12 columns ctabutton">
+								<a href="/our-science/departments-and-staff/staff-directory.html" data-gtm="CTA">
+									<div class="small-2 medium-2 large-2 columns">
+										<%=svgIcon %>
+									</div>
+									<div class="small-7 medium-9 large-9 columns">
+										<h3 class="ctabutton--cta-text"><%=helper.getCTATitle() %></h3>
+									</div>
+									<div class="small-3 medium-1 large-1 columns">
+										<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+									</div>
+								</a>
+							</div>
+						</li>
+						<%-- SideBar --%>
+						<li>
+							<ul class="info-sidebar">
+								<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i> 
+								Entry 
+								<strong>
+									<%= helper.getTicketPrice() %>
+								</strong>
+							</ul>
+							<ul class="info-sidebar">
+								<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_location.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+								Location 
+								<strong>
+									<%= helper.getLocation() %>
+								</strong>
+							</ul>
+						</li>
+						<%-- SideBar --%>
+					</ul>
+				</div>
+			</div>
+		<% } %>
 		<%-- Exhibition --%>
 	</div>
 <%-- Grand Summary --%>
-
-
-	<% if(helper.isExhibition()) { %>
-	
-		<%-- Description present in Exhibition Mode --%>
-		<% if (helper.getDescription() != null) { %> <p><%=helper.getDescription()%></p>
-		 
-		 <%-- CTA present in Exhibition Mode --%>
-		<div class="<%= helper.getCTASectionOverride() %>">
-			<div class="info-tout info-tout__action tickets">
-				<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
-					<%=svgIcon %> 
-					<h3 class="paddingTB"><%=helper.getCTATitle() %></h3>
-					<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
-				</a>
-			</div>
-		</div>
-		
-		<%-- Location and Tickets present in Exhibition Mode --%>
-		<div class="foundationwrapper">
-			<div>
-				<p class="global-header-info__item tickets">
-					<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_ticket_small.svg" data-svg-title="icon__ticket" data-alt="Tickets" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-ticket.png"></i> 
-					Entry <b><%= helper.getTicketPrice() %></b>
-				</p>
-			</div>
-			<div>
-				<p class="global-header-info__item location">
-					<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_location_small.svg" data-svg-title="icon__location" data-alt="Location" data-base-color="#9D9D9D" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/icon_s_feature_location_small.png"></i> 
-					Location <b><%= helper.getLocation() %></b>
-				</p>
-			</div>
-		</div>
-
-		
-	<% } %>
-<% } %>
