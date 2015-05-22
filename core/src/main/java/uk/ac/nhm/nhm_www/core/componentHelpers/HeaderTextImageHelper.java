@@ -396,7 +396,7 @@ public class HeaderTextImageHelper {
 			ret = "hti-box__feature-box";
 			break;
 		default:
-			ret = "hti-box__lightgrey";
+			ret = "hti-box__light-grey";
 			break;
 		}
 		return ret;
