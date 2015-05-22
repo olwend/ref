@@ -10878,33 +10878,18 @@ a.button-cta {
   overflow: auto;
 }
 
-/** should be able to remove these **/
 .hti-box {
   padding-bottom: 1em;
-}
-.hti-box.hti-box__light-grey {
-  background-color: #eeeeee;
-}
-.hti-box.hti-box__dark-grey {
-  background-color: #808080 !important;
+  /** this can eventually apply to generic ctabutton only **/
+  /** this can eventually apply to generic ctabutton only **/
 }
 .hti-box p {
   font-size: 1.125em;
   margin-bottom: 1.2em;
 }
-
-.hti-box--text-wrapper {
-  padding: 1em 1.5em 0;
+.hti-box .ctabutton--inside-hti:hover h3 {
+  text-decoration: underline;
 }
-
-/** this replaces info-tout__action **/
-.ctabutton--inside-hti {
-  padding: 1.125em 0 1.125em 1.125em;
-  background-color: #ffffff;
-  border: none !important;
-}
-
-/** this can eventually apply to generic ctabutton only **/
 .hti-box .ctabutton--inside-hti--cta-text {
   padding-bottom: 0;
   margin-top: 0.4em;
@@ -10919,75 +10904,114 @@ a.button-cta {
   }
 }
 
-/** this can eventually apply to generic ctabutton only **/
-.hti-box .ctabutton--inside-hti:hover h3 {
-  text-decoration: underline;
+.hti-box__light-grey {
+  background-color: #eeeeee;
+  color: #565656;
 }
 
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.visit .hti-box .ctabutton--inside-hti--cta-text {
-  color: #A1164E;
+.hti-box__dark-grey {
+  background-color: #808080 !important;
+  color: #ffffff;
 }
-
-.take-part .hti-box .ctabutton--inside-hti--cta-text {
-  color: #BF491F;
+.hti-box__dark-grey .hti--text {
+  color: #ffffff;
 }
-
-.support-us .hti-box .ctabutton--inside-hti--cta-text {
-  color: #7F206E;
-}
-
-.about-us .hti-box .ctabutton--inside-hti--cta-text {
-  color: #0B5C7B;
-}
-
-.our-science .hti-box .ctabutton--inside-hti--cta-text {
-  color: #357900;
-}
-
-.schools .hti-box .ctabutton--inside-hti--cta-text {
-  color: #0983BB;
-}
-
-.contact-us .hti-box .ctabutton--inside-hti--cta-text {
-  color: #808080;
-}
-
-.business-services .hti-box .ctabutton--inside-hti--cta-text {
-  color: #253480;
-}
-
-.press-office .hti-box .ctabutton--inside-hti--cta-text {
-  color: #107E5E;
+.hti-box__dark-grey .hti--text a {
+  color: #ffffff;
 }
 
 /** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
-.hti-box--feature-box {
+.hti-box__feature-box {
+  color: #ffffff;
+}
+.hti-box__feature-box .hti--text {
+  color: #ffffff;
+}
+.hti-box__feature-box .hti--text a {
   color: #ffffff;
 }
 
-.hti-box--feature-box .hti--text a {
-  color: #ffffff;
+.hti-box--text-wrapper {
+  padding: 1em 1.5em 0;
 }
 
-.visit .hti-box--feature-box .ctabutton--inside-hti--cta-text a {
-  color: #a1164e;
+/** this replaces info-tout__action **/
+.ctabutton--inside-hti {
+  padding: 1.125em 0 1.125em 1.125em;
+  background-color: #ffffff;
+  border: none !important;
 }
 
-.visit .hti-box--feature-box .ctabutton--inside-hti--cta-text a:hover {
-  color: #a1164e;
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.visit .ctabutton--inside-hti--cta-text {
+  color: #A1164E;
+}
+.visit .hti-box__feature-box {
+  background-color: #A1164E;
 }
 
-.visit .hti-box--feature-box {
-  background-color: #a1164e;
+.take-part .ctabutton--inside-hti--cta-text {
+  color: #BF491F;
+}
+.take-part .hti-box__feature-box {
+  background-color: #BF491F;
 }
 
-/** make this modification in headertextimage.scss **/
+.support-us .ctabutton--inside-hti--cta-text {
+  color: #7F206E;
+}
+.support-us .hti-box__feature-box {
+  background-color: #7F206E;
+}
+
+.about-us .ctabutton--inside-hti--cta-text {
+  color: #0B5C7B;
+}
+.about-us .hti-box__feature-box {
+  background-color: #0B5C7B;
+}
+
+.our-science .ctabutton--inside-hti--cta-text {
+  color: #357900;
+}
+.our-science .hti-box__feature-box {
+  background-color: #357900;
+}
+
+.schools .ctabutton--inside-hti--cta-text {
+  color: #0983BB;
+}
+.schools .hti-box__feature-box {
+  background-color: #0983BB;
+}
+
+.contact-us .ctabutton--inside-hti--cta-text {
+  color: #808080;
+}
+.contact-us .hti-box__feature-box {
+  background-color: #808080;
+}
+
+.business-services .ctabutton--inside-hti--cta-text {
+  color: #253480;
+}
+.business-services .hti-box__feature-box {
+  background-color: #253480;
+}
+
+.press-office .ctabutton--inside-hti--cta-text {
+  color: #107E5E;
+}
+.press-office .hti-box__feature-box {
+  background-color: #107E5E;
+}
+
+/**overrides headertextimage.scss **/
 .hti-padding {
   margin-bottom: 1.2em;
 }
 
-/** make this modification in headertextimage.scss **/
+/**overrides headertextimage.scss **/
 .headertextimage .hti-wrapper .large-12 {
   margin-bottom: 0;
 }
