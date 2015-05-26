@@ -226,6 +226,13 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	public JSONObject getJSON(Page page, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject object = new JSONObject();
 		DynamicPageHelper helper = new DynamicPageHelper(page);
+		LOG.error("path: " + page.getPath());
+		LOG.error("PageUtils.getPageTitle(page): " +  PageUtils.getPageTitle(page));
+		LOG.error("PageUtils.getPageSection(page): " + PageUtils.getPageSection(page));
+		LOG.error("helper.getPageIntroduction(): " + helper.getPageIntroduction());
+		LOG.error("PageUtils.getPageKeywords(page): "+  PageUtils.getPageKeywords(page));
+		LOG.error("PageUtils.getPageDescription(page): "+  PageUtils.getPageDescription(page));
+		
 		object.put("path", resolver.map(request, page.getPath()));
 		object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
 		object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
