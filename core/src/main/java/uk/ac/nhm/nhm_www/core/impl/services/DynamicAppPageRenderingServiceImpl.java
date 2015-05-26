@@ -225,21 +225,18 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	@Override
 	public JSONObject getJSON(Page page, final ResourceResolver resolver, final SlingHttpServletRequest request) throws JSONException {
 		final JSONObject object = new JSONObject();
-		DynamicPageHelper helper = new DynamicPageHelper(page);
-		LOG.error("path: " + page.getPath());
-		LOG.error("PageUtils.getPageTitle(page): " +  PageUtils.getPageTitle(page));
-		LOG.error("PageUtils.getPageSection(page): " + PageUtils.getPageSection(page));
-		LOG.error("helper.getPageIntroduction(): " + helper.getPageIntroduction());
-		LOG.error("PageUtils.getPageKeywords(page): "+  PageUtils.getPageKeywords(page));
-		LOG.error("PageUtils.getPageDescription(page): "+  PageUtils.getPageDescription(page));
-		
-		object.put("path", resolver.map(request, page.getPath()));
-		object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
-		object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
-		object.put("page-introduction", resolver.map(request, helper.getPageIntroduction()));
-		object.put("keywords", resolver.map(request, PageUtils.getPageKeywords(page)));
-		object.put("description", resolver.map(request, PageUtils.getPageDescription(page)));
-		
+		try {
+			DynamicPageHelper helper = new DynamicPageHelper(page);
+			object.put("path", resolver.map(request, page.getPath()));
+			object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
+			object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
+			object.put("page-introduction", resolver.map(request, helper.getPageIntroduction()));
+			object.put("keywords", resolver.map(request, PageUtils.getPageKeywords(page)));
+			object.put("description", resolver.map(request, PageUtils.getPageDescription(page)));
+		}
+		catch (Exception e) {
+			LOG.error(e.getMessage());
+		}
 		return object;
 	}
 	
