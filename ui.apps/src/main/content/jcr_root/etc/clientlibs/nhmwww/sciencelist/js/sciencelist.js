@@ -1,5 +1,12 @@
+var name = "";
+var surname = "";
+	
+var $elementSelected;
+var departmentDivision = "";
 
 $(document).ready(function() {
+	
+	var globalMaxResult = 8;
 	
 	var nameSorted 			= false,
 		jobSorted			= false,
@@ -13,13 +20,21 @@ $(document).ready(function() {
 	names = populateOptions();
 	
 	//Needed to autocomplete the Name field
-	$("#nameInput" ).autocomplete({
+	$("#firstNameInput" ).autocomplete({
+		source:names,
+		minLength: 3
+	});
+	
+	$("#surnameInput" ).autocomplete({
 		source:names,
 		minLength: 3
 	});
 
 	$("#search").click(function() {
-		searchFunc();
+		console.log("dentro de Search");
+		globalMaxResult = 8;
+		saveSearchTerms();
+		searchFunc(globalMaxResult)
 	});
 
 	$("#name").click(function() {
@@ -38,45 +53,42 @@ $(document).ready(function() {
 		specialismsSorted = sortTable(3, specialismsSorted);
 	});
 	
+	$("#moreResults").click(function() {
+		globalMaxResult += 8;
+		searchFunc(globalMaxResult);
+	});
+	
 	nameSorted = sortTable(0, nameSorted);
+	
+	saveSearchTerms();
+	searchFunc(globalMaxResult);
 });
 
-function searchFunc() {
-
-	var name = $("#nameInput").val().split(",");
+function saveSearchTerms(){
+	name = $("#firstNameInput").val();
+	surname = $("#surnameInput").val();
 	
-	var $elementSelected = $("#division option:selected");
-	var departmentDivision = $elementSelected.val();
+	$elementSelected = $("#division option:selected");
+	departmentDivision = $elementSelected.val();
+}
+
+function searchFunc(maxResults) {
+	
 
 	var nodes = $("#peopleList").children().children();
 
 	nodes.css("display", "none");
-
-	if (name[0].length != 0) {
+	
+	if (name.length != 0) {
+		var lowercase = name.toLowerCase();
 		nodes = nodes.filter(function(){
+			
+			//Este va a ser igual que el departament
 			var $thisFirstName = $(this).attr("firstname").toLowerCase();
-			var $thisSecondName = $(this).attr("secondname").toLowerCase();
-			
-			if (name.length > 1) {
-				var firstName = $.trim(name[1].toLowerCase());
-			} else {
-				var firstName = "";
-			}
-			
-			var surname = $.trim(name[0].toLowerCase());
-			
-			if (firstName == "") {
-				if ($thisFirstName.match("^" + surname) || $thisFirstName.match(surname + "$")) {
-					return true;
-				}
-				
-				if ($thisSecondName.match("^" + surname) || $thisSecondName.match(surname + "$")) {
-					return true;
-				}
-				return false;
-			} 
-			
-			if ($thisSecondName.match(surname + "$") && $thisFirstName.match("^" + firstName)) {
+
+			console.log("name is :" + name);
+			console.log("firstname is :" + $thisFirstName);
+			if ($thisFirstName.match(lowercase)) {
 				return true;
 			}
 			
@@ -84,6 +96,21 @@ function searchFunc() {
 		});
 	}
 
+	if (surname.length != 0) {
+		var lowercase = surname.toLowerCase();
+		nodes = nodes.filter(function(){
+			
+			//Este va a ser igual que el departament
+			var $thisSurName = $(this).attr("secondname").toLowerCase();
+
+			if ($thisSurName.match(lowercase)) {
+				return true;
+			}
+			
+			return false;
+		});
+	}
+	
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
 			console.log("Department: " + $elementSelected.val());
@@ -97,6 +124,8 @@ function searchFunc() {
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
 	}
+	
+	nodes = nodes.filter(":lt(" + maxResults + ")");
 	
 	nodes.css("display", "");
 	

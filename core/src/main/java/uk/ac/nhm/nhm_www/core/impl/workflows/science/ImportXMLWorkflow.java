@@ -633,6 +633,8 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         
         final Ns1Object profile = webProfile.getProfile();
         String firstNameOutput = "";
+        
+        //We need this information for our node's name of the page.
         if(profile.getObject().getKnownAs() != null && !profile.getObject().getKnownAs().equals("")){
         	firstNameOutput = profile.getObject().getKnownAs();
         } else {
@@ -641,6 +643,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         
         final String uniqueName = firstNameOutput.toLowerCase() + "-" + profile.getObject().getLastName().toLowerCase(); 
         
+        //Basic Structure of the page being created
         final Node profileNode = rootNode.addNode(uniqueName, "cq:Page");
         final Node jcrContentNode = profileNode.addNode(JcrConstants.JCR_CONTENT, "cq:PageContent");
         jcrContentNode.setProperty("sling:resourceType", SCIENCE_PROFILE_PAGE_RESOURCE_TYPE);

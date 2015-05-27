@@ -22,8 +22,10 @@
 		<div class="row"><!-- start row --> 
 			<div class="large-4 medium-6 columns large-left-section">
 				<div class="search-first-name">
-					<h2><label for="nameInput">Name</label></h2>
-					<input type="text" id="nameInput" name="First Name" />
+					<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
+				</div>
+				<div class="search-second-name">
+					<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
 				</div>
 			</div>
 			<div class="large-4 medium-6 columns large-left-section">
@@ -97,13 +99,14 @@
 	</div>
 	<div id="peopleList" class="row">
 		<c:forEach var="profile" items="${profileList}">
-			<div class="row profiles_row">
+			<div class="row profiles_row"  > <%-- Add at the end style="display:none;"  --%>
 				<div firstname="${fn:escapeXml(profile.firstName)}"
 					secondname="${fn:escapeXml(profile.lastName)}"
 					activity="${fn:escapeXml(profile.job)}"
 					department="${fn:escapeXml(profile.department)}"
 					division="${fn:escapeXml(profile.division)}"
-					specialisms="${fn:escapeXml(profile.specialisms)}">
+					specialisms="${fn:escapeXml(profile.specialisms)}"
+					style="display:none;">
 					
 					<div class="large-3 medium-4 columns large-left-section">
 						<div class="large-5 medium-6 columns">
