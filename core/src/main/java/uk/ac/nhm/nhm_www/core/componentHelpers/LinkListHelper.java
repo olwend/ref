@@ -276,9 +276,11 @@ public class LinkListHelper extends ListHelper {
 		StringBuffer ret = new StringBuffer();
 		
 		if(this.headersList.get(columnNumber) != null || !this.headersList.equals("")){
-			if(this.headersLinksList.get(columnNumber) != null && !this.headersLinksList.get(columnNumber).equals("")){ ret.append("<a href=\"" + this.headersLinksList.get(columnNumber) + "\">"); }
-				ret.append("<h3 class=\"linklist--column--header\">" + this.headersList.get(columnNumber) + "</h3>");				
-			if(this.headersLinksList.get(columnNumber) != null && !this.headersLinksList.get(columnNumber).equals("")){ ret.append("</a>"); }
+			ret.append("<h3 class=\"linklist--column--header\">");
+				if(this.headersLinksList.get(columnNumber) != null && !this.headersLinksList.get(columnNumber).equals("")){ ret.append("<a href=\"" + this.headersLinksList.get(columnNumber) + "\">"); }
+					ret.append(this.headersList.get(columnNumber));				
+				if(this.headersLinksList.get(columnNumber) != null && !this.headersLinksList.get(columnNumber).equals("")){ ret.append("</a>"); }
+			ret.append("</h3>");
 		}
 		return ret;
 	}
