@@ -33,7 +33,7 @@
 								<div class="row caption">
 									<% if (!helper.isExhibition()) { %>
 										<%-- Normal --%>
-											<div class="small-12 medium-9 large-9 columns grand-summary--caption-title--container">
+											<div class="small-12 medium-11 large-11 columns grand-summary--caption-title--container">
 												<h2 class="grand-summary--caption-title">
 													<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
 												</h2>
