@@ -11007,18 +11007,13 @@ a.button-cta {
 }
 
 /**overrides headertextimage.scss **/
-.hti-padding {
+.headertextimage.hti-padding {
   margin-bottom: 1.2em;
 }
 
 /**overrides headertextimage.scss **/
 .headertextimage .hti-wrapper .large-12 {
   margin-bottom: 0;
-}
-
-/** can be removed here and removed from headertextimage.scss when tested **/
-.headertextimage:last-child .hti-padding {
-  margin-bottom: 1.2em;
 }
 
 .hti-box .ctabutton--inside-hti .svg-ico {
@@ -11034,9 +11029,19 @@ a.button-cta {
   	}*/
 }
 
+/** overrides headertextimage.scss custom Foundation widths **/
+.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  width: 65.7%;
+}
+
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .row .row {
+    margin: 0;
+  }
 }
 
 /** need to rename this **/
@@ -11066,8 +11071,12 @@ a.button-cta {
 }
 
 .grand-summary--caption-container .caption {
-  padding: 0;
-  height: auto;
+  padding: 0.5em 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-container .caption {
+    padding: 1em 1.5em;
+  }
 }
 
 .grand-summary--caption-title {
@@ -11075,11 +11084,19 @@ a.button-cta {
 }
 
 .grand-summary--caption-title--container {
-  padding: 0.5em 0.75em 0 0.75em;
+  padding: 0;
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-title--container {
     padding: 1em 1.5em 0 1.5em;
+  }
+}
+.grand-summary--caption-title--container.grand-summary--exhibition {
+  padding: 0.5em 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-title--container.grand-summary--exhibition {
+    padding: 1em 1.5em;
   }
 }
 
@@ -11106,9 +11123,14 @@ a.button-cta {
   }
 }
 
-.grand-summary--caption-description--container p {
-  font-family: Arial;
-  font-size: 1.15em !important;
+.grand-summary--caption-description--container p p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container p p {
+    font-size: 1.15em;
+  }
 }
 
 /** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
