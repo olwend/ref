@@ -103,6 +103,7 @@
 			<%-- CTA --%>
 		</div>	
 	<%-- Text --%>
+</div>
 <% } else { %>
 	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
 <% } %>
