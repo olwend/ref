@@ -69,40 +69,48 @@
 				<div class="small-12 medium-12 large-12 columns">
 					<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3 columns grand-summary--block-grid">
 						<% if (helper.getDescription() != null) { %> <li><%=helper.getDescription()%></li><% } %>
-						<li>
-							<div class="small-12 medium-12 large-12 columns ctabutton">
-								<a href="<%= helper.getCTALink() %>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
-									<div class="small-2 medium-2 large-2 columns">
-										<%=svgIcon %>
-									</div>
-									<div class="small-7 medium-9 large-9 columns">
-										<h3 class="ctabutton--cta-text"><%=helper.getCTATitle() %></h3>
-									</div>
-									<div class="small-3 medium-1 large-1 columns">
-										<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
-									</div>
-								</a>
-							</div>
-						</li>
+						<%-- CTA --%>
+							<li>
+								<div class="small-12 medium-12 large-12 columns ctabutton">
+									<a href="<%= helper.getCTALink() %>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
+										<div class="small-2 medium-2 large-2 columns">
+											<%=svgIcon %>
+										</div>
+										<div class="small-7 medium-9 large-9 columns">
+											<h3 class="ctabutton--cta-text"><%=helper.getCTATitle() %></h3>
+										</div>
+										<div class="small-3 medium-1 large-1 columns">
+											<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" 
+												data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" 
+												data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+										</div>
+									</a>
+								</div>
+							</li>
+						<%-- CTA --%>
 						<%-- SideBar --%>
-						<li>
-							<ul class="info-sidebar">
-								<li>
-									<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-svg-title="icon__ticket" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i> 
-									Entry 
-									<strong>
-										<%= helper.getTicketPrice() %>
-									</strong>
-								</li>
-								<li>
-									<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_location.svg" data-svg-title="icon__location" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
-									Location 
-									<strong>
-										<%= helper.getLocation() %>
-									</strong>
-								</li>
-							</ul>
-						</li>
+							<li>
+								<ul class="info-sidebar">
+									<li>
+										<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" 
+										data-svg-title="icon__ticket" data-alt="<%= helper.getCTAIconClass() %>" 
+										data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i> 
+										Entry 
+										<strong>
+											<%= helper.getTicketPrice() %>
+										</strong>
+									</li>
+									<li>
+										<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_location.svg" 
+										data-svg-title="icon__location" data-alt="<%= helper.getCTAIconClass() %>" 
+										data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+										Location 
+										<strong>
+											<%= helper.getLocation() %>
+										</strong>
+									</li>
+								</ul>
+							</li>
 						<%-- SideBar --%>
 					</ul>
 				</div>
