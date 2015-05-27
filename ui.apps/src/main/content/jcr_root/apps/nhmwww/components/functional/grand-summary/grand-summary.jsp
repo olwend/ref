@@ -87,18 +87,20 @@
 						<%-- SideBar --%>
 						<li>
 							<ul class="info-sidebar">
-								<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-svg-title="icon__ticket" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i> 
-								Entry 
-								<strong>
-									<%= helper.getTicketPrice() %>
-								</strong>
-							</ul>
-							<ul class="info-sidebar">
-								<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_location.svg" data-svg-title="icon__location" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
-								Location 
-								<strong>
-									<%= helper.getLocation() %>
-								</strong>
+								<li>
+									<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-svg-title="icon__ticket" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i> 
+									Entry 
+									<strong>
+										<%= helper.getTicketPrice() %>
+									</strong>
+								</li>
+								<li>
+									<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_location.svg" data-svg-title="icon__location" data-alt="<%= helper.getCTAIconClass() %>" data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+									Location 
+									<strong>
+										<%= helper.getLocation() %>
+									</strong>
+								</li>
 							</ul>
 						</li>
 						<%-- SideBar --%>
