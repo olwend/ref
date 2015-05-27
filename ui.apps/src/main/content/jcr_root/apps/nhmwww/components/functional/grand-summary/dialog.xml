@@ -94,8 +94,9 @@
 		    <items jcr:primaryType="cq:WidgetCollection">
 		        <colourSectionOverride
 		            jcr:primaryType="cq:Widget"
+		            hidden="{Boolean}true"
 		            defaultValue=""
-		            fieldLabel="Colour theme, default Inherit from Parent"
+		            fieldLabel="Icon coloring, not used Unhide & remove logic from grand-summary jsp to use"
 		            name="./section-override"
 		            type="select"
 		            xtype="selection">
