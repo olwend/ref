@@ -46,12 +46,12 @@
 										<%-- Normal --%> 
 									<%} else { %>
 										<%-- Exhibition --%>
-											<div class="small-10 medium-7 large-7 columns grand-summary--caption-title--container">
+											<div class="small-10 medium-7 large-7 columns grand-summary--exhibition grand-summary--caption-title--container">
 												<h2 class="grand-summary--caption-title">
 													<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
 												</h2>
 											</div>
-											<div class="small-8 medium-5 large-5 columns end grand-summary--caption-date--container">
+											<div class="small-8 medium-5 large-5 columns end grand-summary--exhibition grand-summary--caption-date--container">
 												<h3 class="grand-summary--caption-date">
 													<% if ( helper.getDate() != null ) { %> <%=helper.getDate()%> <% }%>
 												</h3>
