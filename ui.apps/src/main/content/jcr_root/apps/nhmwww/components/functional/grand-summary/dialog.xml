@@ -144,7 +144,7 @@
 		        </colourSectionOverride>
 		        <ctaTitle
 		            jcr:primaryType="cq:Widget"
-		            fieldDescription="Only displayed when image is added to the component"
+		            fieldDescription="Text is MANDATORY in Exhibition Mode"
 		            fieldLabel="CTA Title"
 		            name="./cta-title"
 		            xtype="textfield"/>
