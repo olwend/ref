@@ -11659,7 +11659,7 @@ a.button-cta {
 }
 
 /**overrides headertextimage.scss **/
-.hti-padding {
+.headertextimage.hti-padding {
   margin-bottom: 1.2em;
 }
 
@@ -11669,10 +11669,6 @@ a.button-cta {
 }
 
 /** can be removed here and removed from headertextimage.scss when tested **/
-.headertextimage:last-child .hti-padding {
-  margin-bottom: 1.2em;
-}
-
 .hti-box .ctabutton--inside-hti .svg-ico {
   height: 40px;
   top: 30%;
@@ -11684,6 +11680,11 @@ a.button-cta {
   		top: 34%;
   		right: 0;
   	}*/
+}
+
+/** overrides headertextimage.scss custom Foundation widths **/
+.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  width: 65.7%;
 }
 
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
