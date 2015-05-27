@@ -11295,12 +11295,25 @@ div#feedback-bar .span11 {
 }
 @media screen and (min-width: 768px) {
   .linklist--column--no-header {
-    padding-top: 72px;
+    padding-top: 5.625em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .linklist--column--no-header {
+    padding-top: 3.438em;
   }
 }
 
+.linklist--container--header {
+  padding-bottom: 0 !important;
+  margin-bottom: 0.4em;
+}
 .linklist--container--header a {
   color: #565656;
+}
+
+.linklist--container--description p {
+  margin-bottom: 0;
 }
 
 .linklist--column-container li {
@@ -11317,6 +11330,7 @@ div#feedback-bar .span11 {
 }
 .linklist--link-items li {
   padding-bottom: 0;
+  margin-bottom: 0.6em;
 }
 .linklist--link-items li a {
   text-decoration: none;
@@ -11330,8 +11344,9 @@ div#feedback-bar .span11 {
 }
 
 .linklist--column--header {
-  margin-top: 1em;
-  margin-bottom: 0;
+  margin-top: 0.7em;
+  margin-bottom: 0.1em;
+  padding-bottom: 0;
   color: #565656;
 }
 
@@ -11423,6 +11438,186 @@ div#feedback-bar .span11 {
 }
 .press-office .linklist--column--header a {
   color: #107E5E;
+}
+
+a.button-cta {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #009DD9;
+  margin: 0.67em 0;
+}
+
+.right-box {
+  float: right;
+}
+
+.left-box {
+  float: left;
+}
+
+.greyBox {
+  min-height: 0px;
+}
+
+.headertextimage .large-12 {
+  margin-bottom: 20px;
+}
+
+.row2cells21 .large-4.medium-4.columns .headertextimage {
+  margin-top: 30px;
+}
+
+.row2cells12 .large-8.medium-8.columns .headertextimage {
+  margin-top: 30px;
+}
+
+.hti-padding {
+  display: table;
+  margin-bottom: 1.2em;
+}
+
+.headertextimage:last-child .hti-padding {
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 48em) {
+  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
+
+  .headertextimage .right-box.large-6.medium-6.columns,
+  .headertextimage .left-box.large-6.medium-6.columns {
+    width: 48.67198%;
+  }
+
+  .headertextimage .GreyBox.large-6.medium-6.columns,
+  .headertextimage .GreyBox.right-box.large-6.medium-6.columns {
+    width: 51.32802%;
+  }
+
+  .row2cells21 .large-4.medium-4.columns .headertextimage {
+    margin-top: 0px;
+  }
+
+  .row2cells12 .large-8.medium-8.columns .headertextimage {
+    margin-top: 0px;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
+
+  .headertextimage .right-box.large-6.medium-6.columns,
+  .headertextimage .left-box.large-6.medium-6.columns {
+    width: 48.67198%;
+  }
+
+  .headertextimage .GreyBox.large-6.medium-6.columns,
+  .headertextimage .GreyBox.right-box.large-6.medium-6.columns {
+    width: 51.32802%;
+  }
+
+  .row2cells21 .large-4.medium-4.columns .headertextimage {
+    margin-top: 0px;
+  }
+
+  .row2cells12 .large-8.medium-8.columns .headertextimage {
+    margin-top: 0px;
+  }
+}
+.cq-wcm-edit .headertextimage {
+  overflow: auto;
+}
+
+/** should be able to remove these **/
+.top-box, .right-box, .bottom-box, .left-box {
+  float: none;
+}
+
+.hti-box {
+  padding: 1em 1.5em;
+}
+
+.hti-box p {
+  font-size: 1.125em;
+  margin-bottom: 1.2em;
+}
+
+.hti-box__light-grey {
+  background-color: #eeeeee;
+}
+
+.hti-box__dark-grey {
+  background-color: #808080 !important;
+}
+
+/* last resort */
+/*.ctabutton--inside-hti--wrapper {
+	margin-left: 4.333% !important;
+}*/
+/** this replaces info-tout__action? **/
+.ctabutton--inside-hti {
+  padding: 1.125em 0 1.125em 1.125em;
+  background-color: #ffffff;
+  border: none !important;
+}
+
+/* may not need this - may have to apply to ctabutton only */
+.visit .ctabutton--inside-hti {
+  border: none !important;
+  color: #a1164e;
+}
+
+.ctabutton--inside-hti--cta-text {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: "Elysio-Regular";
+}
+
+.ctabutton--inside-hti a:hover {
+  text-decoration: underline;
+}
+
+/* TODO: take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.visit .ctabutton--inside-hti--cta-text {
+  color: #a1164e;
+}
+
+/** temporary reset on info-tout **/
+.hti-box .info-tout__action h3 {
+  padding: 0;
+}
+
+.hti-box .info-tout__action a {
+  padding: 0;
+}
+
+.hti-box--feature-box {
+  color: #ffffff;
+}
+
+/** possibly can be removed after feature-box global styles are refactored **/
+.hti-box--feature-box .hti--text a {
+  color: #ffffff;
+}
+
+.visit .hti-box--feature-box .ctabutton--inside-hti--cta-text a {
+  color: #a1164e;
+}
+
+.visit .hti-box--feature-box .ctabutton--inside-hti--cta-text a:hover {
+  color: #a1164e;
+}
+
+.visit .hti-box--feature-box {
+  background-color: #a1164e;
+}
+
+/** make this modification in headertextimage.css **/
+.hti-padding {
+  margin-bottom: 1.2em;
 }
 
 /*# sourceMappingURL=styles.css.map */
