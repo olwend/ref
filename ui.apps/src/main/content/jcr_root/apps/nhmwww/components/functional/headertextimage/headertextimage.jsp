@@ -38,7 +38,6 @@
 		}
 } %>
 
-
 <%	if(helper.isActivated()) {	%>	
 <div class="hti-wrapper small-12 medium-12 large-12 columns <%if(helper.getAddPadding()) { %> hti-padding <%}%>" data-equalizer>
 	<%-- Image --%>
@@ -84,11 +83,8 @@
 				</h3>
 				<cq:text property="text" escapeXml="true" placeholder="<%= Placeholder.getDefaultPlaceholder(slingRequest, component, null)%>"/>
 			</div>
-				<%-- CTA --%>
-		<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
-			<%--<div class="row">--%>
-				<%-- <div class="small-12 medium-12 large-12 small-offset-1 medium-offset-1 large-offset-1 columns ctabutton ctabutton--inside-hti--wrapper"> --%>
-					<%-- <div class="small-12 medium-12 large-12 columns ctabutton--inside-hti info-tout__action">--%>
+			<%-- CTA --%>
+				<% if(helper.hasCTA() && !helper.getCTATitle().isEmpty()){ %>
 					<div class="small-11 medium-11 large-11 columns right ctabutton--inside-hti">
 						<%--<a class="arrow--large burgandy" href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">--%>
 						<a href="<%= helper.getCTALink()%>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
@@ -103,10 +99,8 @@
 							</div>
 						</a>
 					</div>
-				<%--</div>--%>
-			</div>
-		<% } %>	
-	<%-- CTA --%>
+				<% } %>	
+			<%-- CTA --%>
 		</div>	
 	<%-- Text --%>
 <% } else { %>
