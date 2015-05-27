@@ -51,7 +51,7 @@
 											</div>
 											<div class="small-8 medium-5 large-5 columns end grand-summary--caption-date--container">
 												<h3 class="grand-summary--caption-date">
-													<% if ( helper.getDate() != null ) { %> <%= helper.getDate() %> <% }%>
+													<% if ( helper.getDate() != null ) { %> <%=helper.getDate()%> <% }%>
 												</h3>
 											</div>
 										<%-- Exhibition --%>
@@ -71,7 +71,7 @@
 						<% if (helper.getDescription() != null) { %> <li><%=helper.getDescription()%></li><% } %>
 						<li>
 							<div class="small-12 medium-12 large-12 columns ctabutton">
-								<a href="/our-science/departments-and-staff/staff-directory.html" data-gtm="CTA">
+								<a href="<%= helper.getCTALink() %>" <%=helper.getCTALinkNewWindow()%> data-gtm="CTA">
 									<div class="small-2 medium-2 large-2 columns">
 										<%=svgIcon %>
 									</div>
