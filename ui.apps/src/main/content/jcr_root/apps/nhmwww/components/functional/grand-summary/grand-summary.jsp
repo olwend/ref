@@ -13,8 +13,10 @@
 		if(helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
+			//Changing colour from inherit section to hardcoded grey #565656.
+			svg.setBaseColour("#565656");
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
-			svgBaseColor = svg.getBaseColour();	
+			svgBaseColor = svg.getBaseColour();		
 		}
 	} %>
 
