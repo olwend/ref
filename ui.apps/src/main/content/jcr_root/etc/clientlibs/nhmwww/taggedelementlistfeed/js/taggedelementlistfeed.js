@@ -156,11 +156,12 @@ function addMoreResultsButton() {
 	$('.js-feed-wrapper .more-results').click(function(){
 		var rootPath = $('.js-feed-wrapper').data('rootpath');
 		var pageSize = $('.js-feed-wrapper').data('pagesize');
+		var componentID = $('.js-feed-wrapper').data('componentid');
 		removeMoreResultsButton();
 		var elementsShowed = $('.feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showFeeds(rootPath, currentPage+1, pageSize);
+		showFeeds(rootPath, currentPage+1, pageSize,componentID);
 	});
 }
 
