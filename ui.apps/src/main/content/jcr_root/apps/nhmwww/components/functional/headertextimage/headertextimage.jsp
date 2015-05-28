@@ -66,9 +66,12 @@
 	<%-- Image --%>
 	
 	<%-- Text --%>
-		<div class="hti-box end columns <%= helper.getComponentType() %> small-12 medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %>
-					<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %>" 
-					data-equalizer-watch>
+		<div class="hti-box end columns <%= helper.getComponentType() %> small-12 
+			<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %>
+			<% if (helper.hasImage()) { %> medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %> <% } %>
+			<% if (!helper.hasImage()) { %> medium-12 large-12 <% } %>" 
+			data-equalizer-watch>
+		
 			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper">
 				<h3 class="hti--text">
 					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
