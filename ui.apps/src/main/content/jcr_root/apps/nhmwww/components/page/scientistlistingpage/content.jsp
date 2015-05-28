@@ -21,18 +21,24 @@
 	<div class="search_content"><!-- start content search -->
 		<div class="row"><!-- start row --> 
 			<div class="large-4 medium-6 columns large-left-section">
+				By name, keywords and specialisms
 				<div class="search-first-name">
 					<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
 				</div>
 				<div class="search-second-name">
 					<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
 				</div>
+				<div class="search-keywords">
+					<input type="text" id="keywords" name="Keywords" placeholder='Keywords' />
+				</div>
 			</div>
+
 			<div class="large-4 medium-6 columns large-left-section">
 				<div class="search-depts-divs">
 					<h2><label for="division">Department and division</label></h2>
+					Filter by
 					<select id="division">
-					    <option value="All" selected="selected">All</option>
+					    <option value="All" selected="selected">Deparment and Division</option>
 					    <%-- Department: Life Sciences --%>
 					    <option class="department" value="Life Sciences">Life sciences</option>
 					    <option class="division" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
@@ -70,6 +76,18 @@
 					    
 					    <option class="department" value="Science Directorate">Science directorate</option>
 					</select>
+					<select id="activity">
+					    <option value="All" selected="selected">Activity Type</option>
+					    <%-- Department: Life Sciences --%>
+					    <option class="department" value="Life Sciences">Life sciences</option>
+					    <option class="division" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
+					    <option class="division" value="Plants" data-department="Life Sciences" data-division="Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Plants</option>
+					    <option class="division" value="Insects" data-department="Life Sciences" data-division="Insects">&nbsp;&nbsp;&nbsp;&nbsp;Insects</option>
+					    <option class="division" value="Parasites and vectors" data-department="Life Sciences" data-division="Parasites and Vectors Division">&nbsp;&nbsp;&nbsp;&nbsp;Parasites and vectors</option>
+					    <option class="division" value="Invertebrates" data-department="Life Sciences" data-division="Invertebrates">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates</option>
+					    <option class="division" value="Vertebrates" data-department="Life Sciences" data-division="Vertebrates Division">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrates</option>
+					    <option class="division" value="Angela Marmont Centre" data-department="Life Sciences" data-division="Angela Marmont Centre">&nbsp;&nbsp;&nbsp;&nbsp;Angela Marmont Centre</option>
+					</select>
 				</div>
 			</div>
 			<div class="large-4 columns">
@@ -84,22 +102,22 @@
 				<h5>Image</h5>
 			</div>
 			<div id="name" class="large-7 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
-				<h5>Name</h5>
+				<h5>Name &and;</h5>
 			</div>
 		</div>
 		<div id="job" class="large-2 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<h5>Job title</h5>
+			<h5>Job title &and;</h5>
 		</div>
 		<div id="departAndDiv" class="large-3 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<h5>Department and division</h5>
+			<h5>Department and division  (&and;)</h5>
 		</div>
 		<div id="specialisms" class="large-4 medium-4 columns profiles_table profile-content table_header hide-for-small-only">
-			<h5>Specialisms</h5>
+			<h5>Specialisms &and;</h5>
 		</div>
 	</div>
 	<div id="peopleList" class="row">
 		<c:forEach var="profile" items="${profileList}">
-			<div class="row profiles_row"  > <%-- Add at the end style="display:none;"  --%>
+			<div class="row profiles_row"  >
 				<div firstname="${fn:escapeXml(profile.firstName)}"
 					secondname="${fn:escapeXml(profile.lastName)}"
 					activity="${fn:escapeXml(profile.job)}"
@@ -150,6 +168,8 @@
 								<strong class="show-for-small-only">Specialisms:</strong>
 							</c:if>
 							<c:out value="${fn:escapeXml(profile.specialisms)}"/> 
+							
+							<%-- Truncate with style="text-overflow: ellipsis;" in div OR ${fn:substring(text, 0, 175)} in c:out --%>
 						</p>
 					</div>
 				</div>
