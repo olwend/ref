@@ -1,7 +1,7 @@
 package uk.ac.nhm_www.core.componentHelpers;
 
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
-import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement;
+import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElementImpl;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -128,7 +128,7 @@ public class FeedListHelperTest {
 		List<Object> elements = this.helper.getChildrenElements(); 
 		System.out.println("Size:" + elements.size());
 		assertTrue(elements.size() == 2);
-		PressReleaseFeedListElement element = (PressReleaseFeedListElement) elements.get(1);
+		PressReleaseFeedListElementImpl element = (PressReleaseFeedListElementImpl) elements.get(1);
 		assertNotNull(element.getPressReleaseDate());
 		assertNotNull(element.getTitle());
 		assertTrue(element.getTitle().equals("A frenchman is born"));

@@ -15,7 +15,6 @@ import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -23,13 +22,14 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
+import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper;
+import uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
-import uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement;
+import uk.ac.nhm.nhm_www.core.model.TaggedFeedListElement;
 import uk.ac.nhm.nhm_www.core.services.FeedListPaginationService;
 
 import com.day.cq.wcm.api.Page;
@@ -67,24 +67,34 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+		LOG.error("Reached the FeedListPaginationServlet");
 		String rootPath = request.getParameter("rootPath");
 		String tags = request.getParameter("tags");
 		Integer pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		Integer pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		Boolean isMultilevel = Boolean.parseBoolean(request.getParameter("isMultilevel"));
-		final Resource resource = request.getResource();
+		String resourceType = request.getParameter("resourceType");
+		
 		ResourceResolver resourceResolver = request.getResourceResolver();
+		
 		PageManager pageManager = pageManagerFactory.getPageManager(resourceResolver);
+		
 		ValueMap properties = new ValueMapDecorator(new HashMap());
+		
 		FeedListHelper helper;
 		List<Object> objects;
 		helper = processRequest(rootPath, request, pageManager, properties, resourceResolver, isMultilevel);
 		if(isMultilevel) {
-			List<DatedAndTaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags);
+			LOG.error("is multilevel 1");
+			//helper = processRequest(rootPath, request, pageManager, properties, resourceResolver);
+			List<TaggedFeedListElement> results = paginationService.searchCQ(request, rootPath, tags, resourceType);
 			objects = new ArrayList<Object>(results);
 			helper.addAllListElements(objects);
+			LOG.error("results length: " + results.size());
 		} 
 		objects = helper.getChildrenElements();
+		
+		
 		JSONObject jsonString = paginationService.getJSON(objects, pageNumber, pageSize, resourceResolver, request);
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(jsonString.toString());
@@ -94,13 +104,18 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 	
 		FeedListHelper helper = null;
 		Page rootPage = pageManager.getPage(rootPath);
+		
 		if(isMultilevel) {
 			return new DatedAndTaggedFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 		}
+		
 		Iterator<Page> childPages = rootPage.listChildren(new PageFilter(request));
 		if(childPages.hasNext()) {
 			Page child = childPages.next();
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/pressreleasepage")) { 
+				helper = new PressReleaseFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
+			}
+			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/taggedcontentpage")) { 
 				helper = new PressReleaseFeedListHelper(properties, pageManager, rootPage, request, resourceResolver);
 			}
 			if (child.getProperties().get("cq:template").equals("/apps/nhmwww/templates/newscontentpage")) { 
@@ -115,5 +130,4 @@ public class FeedListPaginationServlet extends SlingAllMethodsServlet {
 		}
 		return helper;
 	}
-	
 }

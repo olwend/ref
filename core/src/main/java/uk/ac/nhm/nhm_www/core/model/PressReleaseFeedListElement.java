@@ -1,50 +1,15 @@
 package uk.ac.nhm.nhm_www.core.model;
 
 import java.util.Date;
-import java.util.Iterator;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
+public interface PressReleaseFeedListElement extends Comparable<PressReleaseFeedListElement>{
 
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
+	public abstract boolean isInitialised();
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+	public abstract void setPressReleaseDate(Date pressReleaseDate);
 
-public class PressReleaseFeedListElement extends FeedListElement implements Comparable<PressReleaseFeedListElement> {
-	protected Date pressReleaseDate;
-	
-	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListElement.class);
-	
-	public PressReleaseFeedListElement(Page page) {
-		super(page);
-		this.pressReleaseDate = page.getProperties().get("publishdate", Date.class);
-	}
-	
-	public PressReleaseFeedListElement() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public abstract Date getPressReleaseDate();
 
-	public boolean isInitialised() {
-		if(this.title != null && this.elementLink !=null && this.imageResourcePath !=null && this.pressReleaseDate != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public void setPressReleaseDate(Date pressReleaseDate) {
-		this.pressReleaseDate = pressReleaseDate;
-	}
-
-	public Date getPressReleaseDate() {
-		return pressReleaseDate;
-	}
-
-	@Override
-	public int compareTo(PressReleaseFeedListElement o) {
-		return getPressReleaseDate().compareTo(o.getPressReleaseDate());
-	}
+	public abstract int compareTo(PressReleaseFeedListElement o);
 
 }
