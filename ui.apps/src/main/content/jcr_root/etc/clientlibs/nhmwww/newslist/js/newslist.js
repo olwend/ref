@@ -5,6 +5,7 @@ $(document).ready(function() {
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
+		var resourceType = $(this).data('resourcetype');
 		var isMultilevel = $(this).data('multilevel');
 		var tags = $(this).data('tags')
 		if (rootPath && pageSize) {
@@ -13,7 +14,7 @@ $(document).ready(function() {
 	});
 });	
 
-function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
+function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -22,6 +23,7 @@ function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths,
 			pageNumber: pageNumber,
 			pageSize: pageSize,
 			isMultilevel: isMultilevel,
+			resourceType: resourceType,
 			tags: tags
 		},
 		success: function(data){
