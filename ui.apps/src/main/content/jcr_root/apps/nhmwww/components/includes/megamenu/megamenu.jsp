@@ -47,7 +47,7 @@
                                     	<p class="tablet desktop">Our main entrance is on Cromwell Road, just five minutes' walk from South Kensington Tube station.</p>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="/tring/index.html">The Museum at Tring</a>
+                                        <a href="/visit/tring.html">The Museum at Tring</a>
                                     	<p class="tablet desktop">Visit our Museum in Hertfordshire.</p>
                                     </li>
                                 </div>
