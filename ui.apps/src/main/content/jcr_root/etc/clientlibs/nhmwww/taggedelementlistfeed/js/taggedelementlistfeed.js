@@ -154,14 +154,14 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	moreElementsDiv.appendChild(aTag);
 	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, isMultilevel:isMultilevel}, function(event){
+	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
 		var tags = event.data.tags;
 		var isMultilevel = event.data.isMultilevel;
 		removeMoreResultsButton(componentID);
-		var elementsShowed = $('#feed--list-' + componentID + ' .feed--item').length;
+		var elementsShowed = $('#feed--tiles-' + componentID + ' .feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
 		showFeeds(rootPath, currentPage+1, pageSize, componentID, tags, isMultilevel);
@@ -173,6 +173,5 @@ function removeMoreResultsButton(componentID) {
 	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
-
 
 

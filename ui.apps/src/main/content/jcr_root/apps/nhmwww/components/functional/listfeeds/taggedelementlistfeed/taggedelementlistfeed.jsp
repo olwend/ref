@@ -49,7 +49,7 @@
 %>
 
 <% if(helper.isInitialised()) { %>
-	<div class="js-feed-wrapper" id="js-feed-wrapper" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
+	<div class="js-feed-wrapper" id="js-feed-wrapper-<%=componentID%>" data-rootpath="<%= path  %>" data-pagesize="<%=noOfItems %>" 
 							data-componentid="<%=componentID %>" data-multilevel="true" data-tags="<%= helper.getTagsString()%>"
 							data-resourcetype="nhmwww/components/page/taggedcontentpage">
 								
