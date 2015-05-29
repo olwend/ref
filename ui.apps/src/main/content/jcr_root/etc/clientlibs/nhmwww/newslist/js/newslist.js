@@ -6,19 +6,14 @@ $(document).ready(function() {
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
-
-		//Remerge!
-		var resourceType = $(this).data('resourcetype');
-		//Remerge!
-
 		var tags = $(this).data('tags')
 		if (rootPath && pageSize) {
-			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
+			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
 		}
 	});
 });	
 
-function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType ) {
+function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -27,7 +22,6 @@ function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths,
 			pageNumber: pageNumber,
 			pageSize: pageSize,
 			isMultilevel: isMultilevel,
-			resourceType: resourceType,
 			tags: tags
 		},
 		success: function(data){
@@ -173,9 +167,9 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("js-feed_wrapper_"+componentID).appendChild(moreElementsDiv);
+	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.js-feed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
@@ -191,7 +185,7 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 }
 
 function removeMoreResultsButton(componentID) {
-	 var wrapperDiv = document.getElementById('js-feed_wrapper_'+componentID);
+	 var wrapperDiv = document.getElementById('js-feed-wrapper-'+componentID);
 	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
