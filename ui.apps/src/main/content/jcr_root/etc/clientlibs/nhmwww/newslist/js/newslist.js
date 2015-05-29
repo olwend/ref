@@ -6,15 +6,19 @@ $(document).ready(function() {
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
 		var isMultilevel = $(this).data('multilevel');
+
+		//Remerge!
 		var resourceType = $(this).data('resourcetype');
-		var tags = $(this).data('tags');
+		//Remerge!
+
+		var tags = $(this).data('tags')
 		if (rootPath && pageSize) {
-			showFeeds(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
+			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
+function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType ) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -31,7 +35,7 @@ function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, hideMonths
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID, hideMonths);
 			if(pageNumber != json.pages){
-				addMoreResultsButton();
+				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel);
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
@@ -42,7 +46,14 @@ function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, hideMonths
 }
 
 function showItems(pageJson, componentID, hideMonths) {
-	var currentGroup = "";
+	var monthsDisplayed = $(".news-month");
+	
+	if(monthsDisplayed.length > 0) {
+		var currentGroup = $(monthsDisplayed[monthsDisplayed.length - 1]).html();
+	} else {
+		var currentGroup ="";
+	}
+	
 	$.each(pageJson, function(index, item) {
 		
 		var addGroup = false;
@@ -52,12 +63,12 @@ function showItems(pageJson, componentID, hideMonths) {
 		}
 		currentGroup = item.group;
 		var title = item.title; 
-		var intro = item.intro;
-		var shortIntro = item.shortIntro; 
+		var intro = item.intro; 
+		var shortIntro = item.shortIntro;
 		var imagePath = item.imagePath;
 		var date = item.date;
 		var link = item.path + ".html";
-		var element = createFeed(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
+		var element = createNews(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
 		var componentClass = '#feed--list-' + componentID;
 		
 		$(componentClass).append(element);
@@ -70,11 +81,12 @@ function showItems(pageJson, componentID, hideMonths) {
 	
 }
 
-function createFeed(title, intro,shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
+function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
-	element.className = 'feed--item-' + group;
-	if (addGroup) { //!hideMonths
+	element.className = 'feed--item';
+	if (addGroup && !hideMonths) { //!hideMonths
 		var groupH3 = document.createElement("h3");
+		groupH3.className = "news-month";
 		groupH3.innerHTML = group;
 		element.appendChild(groupH3);
 	}
@@ -149,34 +161,38 @@ function createFeed(title, intro,shortIntro, date, imagePath, url, hideMonths, g
 	return element;
 }
 
-function addMoreResultsButton() {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
 	var moreElementsDiv = document.createElement("div");
 	
-	moreElementsDiv.className = "row more-results";
-	moreElementsDiv.id = "more_results";
+	moreElementsDiv.className = "row more-results more-results-" + componentID;
+	moreElementsDiv.id = "more-results-" + componentID;
 	var aTag = document.createElement("a");
 	var h5Tag = document.createElement("h5");
-	h5Tag.id = "more_results_text";
+	h5Tag.id = "more-results-text";
 	h5Tag.className = "more-results-text";
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("js-feed-wrapper").appendChild(moreElementsDiv);
+	document.getElementById("js-feed_wrapper_"+componentID).appendChild(moreElementsDiv);
 	
-	$('.js-feed .more-results').click(function(){
-		var rootPath = $('.js-feed-wrapper').data('rootpath');
-		var pageSize = $('.js-feed-wrapper').data('pagesize');
-		removeMoreResultsButton();
-		var elementsShowed = $('.feed--item').length;
+	$('.js-feed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+		var rootPath = event.data.rootPath;
+		var pageSize = event.data.pageSize;
+		var componentID = event.data.componentID;
+		var tags = event.data.tags;
+		var hideMonths = event.data.hideMonths;
+		var isMultilevel = event.data.isMultilevel;
+		removeMoreResultsButton(componentID);
+		var elementsShowed = $('#feed--list-' + componentID + ' .feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showFeeds(rootPath, currentPage+1, pageSize);
+		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
 	});
 }
 
-function removeMoreResultsButton() {
-	 var wrapperDiv = document.getElementById('js-feed-wrapper');
-	 var divToDelete = document.getElementById("more_results");
+function removeMoreResultsButton(componentID) {
+	 var wrapperDiv = document.getElementById('js-feed_wrapper_'+componentID);
+	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
 
@@ -250,7 +266,7 @@ function buildNavigators(pageNumber, numberOfPages) {
 					$('.js-feed-wrapper .pagination-centered').empty();
 					$('.press-room--list').empty();
 					
-					showFeeds(rootPath, to, pageSize);
+					shownewss(rootPath, to, pageSize);
 				}
 				
 				return false;

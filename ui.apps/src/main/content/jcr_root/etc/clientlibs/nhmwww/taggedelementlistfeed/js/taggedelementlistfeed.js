@@ -34,7 +34,7 @@ function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, isMultilev
 			var json = jQuery.parseJSON(data);
 			showItems(json.pageJson, componentID);
 			if(pageNumber != json.pages){
-				addMoreResultsButton();
+				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel);
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
@@ -140,34 +140,38 @@ function createFeed(title, shortIntro, imagePath, url) {
 		return element;
 }
 
-function addMoreResultsButton() {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
 	var moreElementsDiv = document.createElement("div");
-	moreElementsDiv.className = "row more-results";
-	moreElementsDiv.id = "more_results";
+	
+	moreElementsDiv.className = "row more-results more-results-" + componentID;
+	moreElementsDiv.id = "more-results-" + componentID;
 	var aTag = document.createElement("a");
 	var h5Tag = document.createElement("h5");
-	h5Tag.id = "more_results_text";
+	h5Tag.id = "more-results-text";
 	h5Tag.className = "more-results-text";
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("js-feed-wrapper").appendChild(moreElementsDiv);
+	document.getElementById("newslistfeed_wrapper_"+componentID).appendChild(moreElementsDiv);
 	
-	$('.js-feed-wrapper .more-results').click(function(){
-		var rootPath = $('.js-feed-wrapper').data('rootpath');
-		var pageSize = $('.js-feed-wrapper').data('pagesize');
-		var componentID = $('.js-feed-wrapper').data('componentid');
-		removeMoreResultsButton();
-		var elementsShowed = $('.feed--item').length;
+	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+		var rootPath = event.data.rootPath;
+		var pageSize = event.data.pageSize;
+		var componentID = event.data.componentID;
+		var tags = event.data.tags;
+		var hideMonths = event.data.hideMonths;
+		var isMultilevel = event.data.isMultilevel;
+		removeMoreResultsButton(componentID);
+		var elementsShowed = $('#press-office--list-' + componentID + ' .press-office--list-item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showFeeds(rootPath, currentPage+1, pageSize,componentID);
+		showFeeds(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
 	});
 }
 
-function removeMoreResultsButton() {
-	 var wrapperDiv = document.getElementById('js-feed-wrapper');
-	 var divToDelete = document.getElementById("more_results");
+function removeMoreResultsButton(componentID) {
+	 var wrapperDiv = document.getElementById('js-feed-wrapper_'+componentID);
+	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
 
