@@ -140,7 +140,7 @@ function createFeed(title, shortIntro, imagePath, url) {
 		return element;
 }
 
-function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel) {
 	var moreElementsDiv = document.createElement("div");
 	
 	moreElementsDiv.className = "row more-results more-results-" + componentID;
@@ -152,25 +152,24 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("newslistfeed_wrapper_"+componentID).appendChild(moreElementsDiv);
+	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, isMultilevel:isMultilevel}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
 		var tags = event.data.tags;
-		var hideMonths = event.data.hideMonths;
 		var isMultilevel = event.data.isMultilevel;
 		removeMoreResultsButton(componentID);
-		var elementsShowed = $('#press-office--list-' + componentID + ' .press-office--list-item').length;
+		var elementsShowed = $('#feed--list-' + componentID + ' .feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showFeeds(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
+		showFeeds(rootPath, currentPage+1, pageSize, componentID, tags, isMultilevel);
 	});
 }
 
 function removeMoreResultsButton(componentID) {
-	 var wrapperDiv = document.getElementById('js-feed-wrapper_'+componentID);
+	 var wrapperDiv = document.getElementById('js-feed-wrapper-'+componentID);
 	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
