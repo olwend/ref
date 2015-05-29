@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var hideMonths = $(this).data('hidemonths');
 		var resourceType = $(this).data('resourcetype');
 		var isMultilevel = $(this).data('multilevel');
-		var tags = $(this).data('tags')
+		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
 			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
 		}
