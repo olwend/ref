@@ -6,12 +6,6 @@ $(document).ready(function() {
 	if (rootPath && pageSize) {
 		showFeeds(rootPath, 1, pageSize);
 	}
-	
-	
-	
-	
-	
-	
 });
 
 function addMoreResultsButton() {
