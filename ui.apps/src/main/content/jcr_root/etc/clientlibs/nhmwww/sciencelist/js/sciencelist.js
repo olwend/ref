@@ -1,5 +1,6 @@
 var name = "";
 var surname = "";
+var keywords = "";
 	
 var $elementSelected;
 var departmentDivision = "";
@@ -19,7 +20,10 @@ $(document).ready(function() {
 	
 	names = populateOptions();
 	
-	//Needed to autocomplete the Name field
+	// #####################
+	// #### Autocomplete#### 
+	// #####################
+	
 	$("#firstNameInput" ).autocomplete({
 		source:names,
 		minLength: 3
@@ -30,13 +34,10 @@ $(document).ready(function() {
 		minLength: 3
 	});
 
-	$("#search").click(function() {
-		console.log("dentro de Search");
-		globalMaxResult = 8;
-		saveSearchTerms();
-		searchFunc(globalMaxResult)
-	});
-
+	// #################
+	// #### Sorting #### 
+	// #################
+	
 	$("#name").click(function() {
 		nameSorted = sortTable(0, nameSorted);
 	});
@@ -53,6 +54,16 @@ $(document).ready(function() {
 		specialismsSorted = sortTable(3, specialismsSorted);
 	});
 	
+	// ###############################
+	// #### Search & More Results #### 
+	// ###############################
+
+	$("#search").click(function() {
+		globalMaxResult = 8;
+		saveSearchTerms();
+		searchFunc(globalMaxResult)
+	});
+	
 	$("#moreResults").click(function() {
 		globalMaxResult += 8;
 		searchFunc(globalMaxResult);
@@ -67,6 +78,7 @@ $(document).ready(function() {
 function saveSearchTerms(){
 	name = $("#firstNameInput").val();
 	surname = $("#surnameInput").val();
+	keywords = $("#keywordsInput").val();
 	
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
