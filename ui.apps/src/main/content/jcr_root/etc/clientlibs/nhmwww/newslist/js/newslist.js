@@ -9,7 +9,7 @@ $(document).ready(function() {
 		var isMultilevel = $(this).data('multilevel');
 		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
-			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
+			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel,resourceType);
 		}
 	});
 });	
