@@ -76,7 +76,7 @@
 					    
 					    <option class="department" value="Science Directorate">Science directorate</option>
 					</select>
-					<select id="activity">
+					<select id="collections">
 					    <option value="All" selected="selected">Activity Type</option>
 					    <%-- Department: Life Sciences --%>
 					    <option class="department" value="Life Sciences">Life sciences</option>

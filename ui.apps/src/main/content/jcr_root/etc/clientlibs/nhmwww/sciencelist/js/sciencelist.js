@@ -14,23 +14,36 @@ $(document).ready(function() {
 		departmentSorted	= false,
 		specialismsSorted	= false;
 	
-	var names = [];
+	var names = [],
+		firstnames = [],
+		surnames = [],
+		keywords = [];
 	
 	tableColors();
 	
 	names = populateOptions();
+	firstnames = populateFirstNames();
+	surnames = populateSurNames();
+	keywords = populateKeywords();
+	
 	
 	// #####################
 	// #### Autocomplete#### 
 	// #####################
 	
+	//	Old Surname, Name functionality	
+	//	$("#nameInput" ).autocomplete({
+	//		source:names,
+	//		minLength: 3
+	//	});
+	
 	$("#firstNameInput" ).autocomplete({
-		source:names,
+		source:firstnames,
 		minLength: 3
 	});
 	
 	$("#surnameInput" ).autocomplete({
-		source:names,
+		source:surnames,
 		minLength: 3
 	});
 
@@ -85,7 +98,6 @@ function saveSearchTerms(){
 }
 
 function searchFunc(maxResults) {
-	
 
 	var nodes = $("#peopleList").children().children();
 
@@ -95,11 +107,9 @@ function searchFunc(maxResults) {
 		var lowercase = name.toLowerCase();
 		nodes = nodes.filter(function(){
 			
-			//Este va a ser igual que el departament
+			//This is going to be similar to department
 			var $thisFirstName = $(this).attr("firstname").toLowerCase();
-
-			console.log("name is :" + name);
-			console.log("firstname is :" + $thisFirstName);
+			
 			if ($thisFirstName.match(lowercase)) {
 				return true;
 			}
@@ -112,14 +122,32 @@ function searchFunc(maxResults) {
 		var lowercase = surname.toLowerCase();
 		nodes = nodes.filter(function(){
 			
-			//Este va a ser igual que el departament
+			//This is going to be similar to department
 			var $thisSurName = $(this).attr("secondname").toLowerCase();
-
+			
 			if ($thisSurName.match(lowercase)) {
 				return true;
 			}
 			
 			return false;
+		});
+	}
+	
+	if (keywords.length != 0) {
+	    var query = keywords.toLowerCase();
+	    var querywords = query.split(',');
+	    var results = new Array();
+	    var regex = '';
+	    for ( var i = 0; i < querywords.length; i++ ) {
+	        regex = new RegExp( '(?=.*\\b' + querywords[i].split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+	    }
+	    
+		nodes = nodes.filter(function(){
+			var $thisSpecialisms = $(this).attr("specialisms").toLowerCase();
+	        if ( regex.test( $thisSpecialisms ) ) {
+	            return true;
+	        }
+	        return false;
 		});
 	}
 	
@@ -202,6 +230,57 @@ function populateOptions() {
 	 $("#division").get(0).selectedIndex = 0;*/
 	
 	return names;
+}
+
+function populateFirstNames() {
+	var names = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var firstName = nodes[i].getAttribute("firstname");
+		names.push(firstName);
+	}
+	
+	//Ascending sort of the arrays
+	names.sort();
+	return names;
+}
+
+function populateSurNames() {
+	var names = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var lastName = nodes[i].getAttribute("secondname");
+		names.push(lastName);
+	}
+	
+	//Ascending sort of the arrays
+	names.sort();
+	return names;
+}
+
+function populateKeywords() {
+	var keywords = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var specialisms = nodes[i].getAttribute("specialisms");
+		keywords.push(specialisms);
+	}
+	
+	//Ascending sort of the arrays
+	keywords.sort();
+	return keywords;
 }
 
 function tableColors() {
