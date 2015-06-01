@@ -31,7 +31,7 @@ import uk.ac.nhm.nhm_www.core.services.DynamicAppPageRenderingService;
 		@Property(name = "sling.servlet.extensions", value = {"json"}),
 		@Property(name = "sling.servlet.methods", value = { "GET" }, propertyPrivate = true),
 		@Property(name = "service.description", value = "Return the Path of the required item"),
-		@Property(name = "pageId", value = "home", description = "The default item ID"),
+		@Property(name = "pageId", value = "home", description = "The default item ID")
 })
 public class DynamicAppPathRenderingServlet extends SlingAllMethodsServlet {
 
