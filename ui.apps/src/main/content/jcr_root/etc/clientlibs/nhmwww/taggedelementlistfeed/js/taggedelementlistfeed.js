@@ -154,7 +154,7 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	moreElementsDiv.appendChild(aTag);
 	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel, resourceType:resourceType}, function(event){
+	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, isMultilevel:isMultilevel, resourceType:resourceType}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
