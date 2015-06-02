@@ -7,16 +7,17 @@
 <cq:includeClientLib />
 <%	GrandSummaryHelper helper = new GrandSummaryHelper(slingRequest, currentPage, properties); %>
 <%	String svgIcon = ""; %>
-<%	String svgBaseColor = ""; %>
+<%	String svgBaseColor = "#565656"; %>
 
 <% 	if(helper.isExhibition()){
 		if(helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
 			//Changing colour from inherit section to hardcoded grey #565656.
-			svg.setBaseColour("#565656");
+			svg.setBaseColour(svgBaseColor);
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
-			svgBaseColor = svg.getBaseColour();		
+			svgBaseColor = svg.getBaseColour();
+			
 		}
 	} %>
 
