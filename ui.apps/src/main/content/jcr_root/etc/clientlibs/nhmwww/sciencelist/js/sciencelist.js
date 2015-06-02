@@ -1,6 +1,7 @@
 var name = "";
 var surname = "";
 var keywords = "";
+var autoKeywords = "";
 	
 var $elementSelected;
 var departmentDivision = "";
@@ -17,7 +18,8 @@ $(document).ready(function() {
 	var names = [],
 		firstnames = [],
 		surnames = [],
-		keywords = [];
+		keywords = [],
+		autoKeywords = [];
 	
 	tableColors();
 	
@@ -25,11 +27,12 @@ $(document).ready(function() {
 	firstnames = populateFirstNames();
 	surnames = populateSurNames();
 	keywords = populateKeywords();
+	autoKeywords = populateAutoKeywords();
 	
 	
-	// #####################
-	// #### Autocomplete#### 
-	// #####################
+	// ######################
+	// #### Autocomplete #### 
+	// ######################
 	
 	//	Old Surname, Name functionality	
 	//	$("#nameInput" ).autocomplete({
@@ -44,6 +47,11 @@ $(document).ready(function() {
 	
 	$("#surnameInput" ).autocomplete({
 		source:surnames,
+		minLength: 3
+	});
+	
+	$("#keywordsInput" ).autocomplete({
+		source:autoKeywords,
 		minLength: 3
 	});
 
@@ -281,6 +289,32 @@ function populateKeywords() {
 	//Ascending sort of the arrays
 	keywords.sort();
 	return keywords;
+}
+
+function populateAutoKeywords() {
+	var autokeywords = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var specialisms = nodes[i].getAttribute("specialisms").toLowerCase();
+		
+		var specialismsArray = specialisms.match(/\w+/g);
+		
+		if ( specialismsArray != null && specialismsArray.length > 0 ){
+			for ( var j = 0; j < specialismsArray.length; j++ ) {
+				if ( $.inArray(specialismsArray[j], autokeywords) < 0 ) {
+					autokeywords.push( specialismsArray[j] );	
+				}
+	        }
+		}
+	}
+	
+	//Ascending sort of the arrays
+	autokeywords.sort();
+	return autokeywords;
 }
 
 function tableColors() {
