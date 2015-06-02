@@ -33,7 +33,6 @@ public class GrandSummaryHelper {
 	private Boolean ctaLinkNewWindow;
 	private Boolean hasCTAIcon;
 	private String ctaIconClass;
-	private String ctaSectionOverride;
 	private String ticketPrice;
 	private String location;
 	private String date;
@@ -110,7 +109,6 @@ public class GrandSummaryHelper {
 			ctaTitle = StringUtils.EMPTY;
 			ctaLink = StringUtils.EMPTY;
 			ctaIconClass = StringUtils.EMPTY;
-			ctaSectionOverride = StringUtils.EMPTY;
 			ctaLinkNewWindow = false;
 			hasCTAIcon = false;
 
@@ -133,10 +131,6 @@ public class GrandSummaryHelper {
 			if(properties.get("cta-icon") != null) {
 				this.hasCTAIcon = properties.get("cta-icon", false);
 				this.ctaIconClass = properties.get("calltoaction-type", String.class);
-			}
-			
-			if (properties.get("section-override") != null) {
-				this.ctaSectionOverride = properties.get("section-override", String.class);
 			}
 		}
 	}
@@ -304,14 +298,6 @@ public class GrandSummaryHelper {
 
 	public void setCTAIconClass(String ctaIconClass) {
 		this.ctaIconClass = ctaIconClass;
-	}
-
-	public String getCTASectionOverride() {
-		return ctaSectionOverride;
-	}
-
-	public void setCTASectionOverride(String ctaSectionOverride) {
-		this.ctaSectionOverride = ctaSectionOverride;
 	}
 
 }

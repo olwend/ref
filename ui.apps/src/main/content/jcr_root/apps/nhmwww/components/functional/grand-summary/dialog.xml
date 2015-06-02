@@ -92,57 +92,6 @@
 		    jcr:primaryType="cq:Panel"
 		    title="Call to action">
 		    <items jcr:primaryType="cq:WidgetCollection">
-		        <colourSectionOverride
-		            jcr:primaryType="cq:Widget"
-		            hidden="{Boolean}true"
-		            defaultValue=""
-		            fieldLabel="Icon coloring, not used Unhide & remove logic from grand-summary jsp to use"
-		            name="./section-override"
-		            type="select"
-		            xtype="selection">
-		            <options jcr:primaryType="cq:WidgetCollection">
-		                <inherit
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Inherit from section"
-		                    value=""/>
-		                <aboutUs
-		                    jcr:primaryType="nt:unstructured"
-		                    text="About us"
-		                    value="about-us"/>
-		                <businessServices
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Business services"
-		                    value="business-services"/>
-		                <contactUs
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Contact us"
-		                    value="contact-us"/>
-		                <discover
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Discover"
-		                    value="discover"/>
-		                <ourScience
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Our Science"
-		                    value="our-science"/>
-		                <schools
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Schools"
-		                    value="schools"/>
-		                <supportUs
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Support Us"
-		                    value="support-us"/>
-		                <takePart
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Take part"
-		                    value="take-part"/>
-		                <visit
-		                    jcr:primaryType="nt:unstructured"
-		                    text="Visit"
-		                    value="visit"/>
-		            </options>
-		        </colourSectionOverride>
 		        <ctaTitle
 		            jcr:primaryType="cq:Widget"
 		            fieldDescription="Text is MANDATORY in Exhibition Mode"
