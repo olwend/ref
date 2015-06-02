@@ -7,17 +7,17 @@
 <cq:includeClientLib />
 <%	GrandSummaryHelper helper = new GrandSummaryHelper(slingRequest, currentPage, properties); %>
 <%	String svgIcon = ""; %>
-<%	String svgBaseColor = "#565656"; %>
+<%	String svgColor = "#565656"; %>
 
 <% 	if(helper.isExhibition()){
 		if(helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
 			//Changing colour from inherit section to hardcoded grey #565656.
-			svg.setBaseColour(svgBaseColor);
+			svg.setBaseColour(svgColor);
+			svg.setHoverColour(svgColor);
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
-			svgBaseColor = svg.getBaseColour();
-			
+			svgColor = svg.getBaseColour();
 		}
 	} %>
 
@@ -89,7 +89,7 @@
 										<div class="small-3 medium-1 large-1 columns">
 											<i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" 
 												data-svg-title="icon__arrow" data-alt="<%= helper.getCTAIconClass() %>" 
-												data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+												data-stroke-width="4" data-base-color="<%= svgColor %>"></i>
 										</div>
 									</a>
 								</div>
@@ -101,7 +101,7 @@
 									<li>
 										<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" 
 										data-svg-title="icon__ticket" data-alt="<%= helper.getCTAIconClass() %>" 
-										data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i> 
+										data-stroke-width="4" data-base-color="<%= svgColor %>"></i> 
 										Entry 
 										<strong>
 											<%= helper.getTicketPrice() %>
@@ -110,7 +110,7 @@
 									<li>
 										<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_location.svg" 
 										data-svg-title="icon__location" data-alt="<%= helper.getCTAIconClass() %>" 
-										data-stroke-width="4" data-base-color="<%= svgBaseColor %>"></i>
+										data-stroke-width="4" data-base-color="<%= svgColor %>"></i>
 										Location 
 										<strong>
 											<%= helper.getLocation() %>
