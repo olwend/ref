@@ -34,7 +34,7 @@ function showFeeds(rootPath, pageNumber, pageSize, componentID, tags, isMultilev
 			var json = jQuery.parseJSON(data);
 			showItems(json.pageJson, componentID);
 			if(pageNumber != json.pages){
-				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel);
+				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel, resourceType);
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
@@ -140,7 +140,7 @@ function createFeed(title, shortIntro, imagePath, url) {
 		return element;
 }
 
-function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel) {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, isMultilevel, resourceType) {
 	var moreElementsDiv = document.createElement("div");
 	
 	moreElementsDiv.className = "row more-results more-results-" + componentID;
@@ -154,17 +154,18 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	moreElementsDiv.appendChild(aTag);
 	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, isMultilevel:isMultilevel, resourceType:resourceType}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
 		var tags = event.data.tags;
 		var isMultilevel = event.data.isMultilevel;
+		var resourceType = event.data.resourceType;
 		removeMoreResultsButton(componentID);
 		var elementsShowed = $('#feed--tiles-' + componentID + ' .feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showFeeds(rootPath, currentPage+1, pageSize, componentID, tags, isMultilevel);
+		showFeeds(rootPath, currentPage+1, pageSize, componentID, tags, isMultilevel, resourceType);
 	});
 }
 

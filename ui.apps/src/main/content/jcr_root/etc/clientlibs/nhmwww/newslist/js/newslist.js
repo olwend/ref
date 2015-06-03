@@ -9,7 +9,7 @@ $(document).ready(function() {
 		var isMultilevel = $(this).data('multilevel');
 		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
-			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel,resourceType);
+			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 		}
 	});
 });	
@@ -31,7 +31,7 @@ function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths,
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID, hideMonths);
 			if(pageNumber != json.pages){
-				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel);
+				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
@@ -157,7 +157,7 @@ function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, 
 	return element;
 }
 
-function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
 	var moreElementsDiv = document.createElement("div");
 	
 	moreElementsDiv.className = "row more-results more-results-" + componentID;
@@ -171,18 +171,19 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	moreElementsDiv.appendChild(aTag);
 	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel, resourceType:resourceType}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
 		var tags = event.data.tags;
 		var hideMonths = event.data.hideMonths;
 		var isMultilevel = event.data.isMultilevel;
+		var resourceType = event.data.resourceType;
 		removeMoreResultsButton(componentID);
 		var elementsShowed = $('#feed--list-' + componentID + ' .feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
+		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 	});
 }
 
