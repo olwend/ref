@@ -31,5 +31,8 @@
 .legacy-css .icon {
   padding-left: 10px;
 }
+.legacy-css .requiredField {
+  color: #aa0000;
+}
 
 /*# sourceMappingURL=nhm-legacy-contact-us-form.css.map */
