@@ -16,6 +16,7 @@ import com.day.cq.wcm.foundation.Image;
 
 import uk.ac.nhm.nhm_www.core.model.science.Book;
 import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
+import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
 import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
@@ -74,6 +75,7 @@ public class ScientistProfileHelper {
 	public static final String STATEMENT_ATTRIBUTE		  = "statement";
 	public static final String SUBORGANISATION_ATTRIBUTE  = "subOrganisation";
 	public static final String VOLUME_ATTRIBUTE 		  = "volume";
+	public static final String CONFERENCE_NAME	 		  = "conferenceName";
 	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
@@ -121,9 +123,10 @@ public class ScientistProfileHelper {
 	public  static final String AUTHORED_PUBLICATIONS_NODE_NAME	  = "authored";
 	private static final String PUBLICATIONS_NODE_PATH			  = PUBLICATIONS_NODE_NAME + "/" + AUTHORED_PUBLICATIONS_NODE_NAME;
 	
-	public static final String PUBLICATION_TYPE_BOOK 	 = "Book";
-	public static final String PUBLICATION_TYPE_CHAPTER = "Chapter";
-	public static final String PUBLICATION_TYPE_ARTICLE = "Journal Article";
+	public static final String PUBLICATION_TYPE_BOOK 					= "Book";
+	public static final String PUBLICATION_TYPE_CHAPTER					= "Chapter";
+	public static final String PUBLICATION_TYPE_ARTICLE 				= "Journal Article";
+	public static final String PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS	= "Conference Proceedings";
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -485,8 +488,8 @@ public class ScientistProfileHelper {
 					final int endPage   = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final String r2Date = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
 					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, r2Date, bookEditorsSet, bookTitle, beginPage, endPage, bookPublisher, bookPlace));
-					
 					break;
+					
 				case PUBLICATION_TYPE_ARTICLE:
 					final String journalName = childProperties.get(JOURNAL_NAME_ATTRIBUTE, String.class);
 					final int volume = childProperties.get(VOLUME_ATTRIBUTE, -1);
@@ -498,6 +501,14 @@ public class ScientistProfileHelper {
 					final String rDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
 					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, rDate, journalName, volume, issue, articleBeginPage, articleEndPage, doiText, doiLink));
 					break;
+
+				case PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS:
+					final String conferenceName = childProperties.get(CONFERENCE_NAME, String.class);
+					final String placeOfPublication = childProperties.get(PLACE_ATTRIBUTE, String.class);
+					final String confReportDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
+					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, confReportDate, conferenceName, placeOfPublication));
+					break;
+					
 				default:
 					break;
 				}

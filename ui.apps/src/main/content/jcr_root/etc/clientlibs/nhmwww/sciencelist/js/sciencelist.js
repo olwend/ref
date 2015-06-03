@@ -34,12 +34,6 @@ $(document).ready(function() {
 	// #### Autocomplete #### 
 	// ######################
 	
-	//	Old Surname, Name functionality	
-	//	$("#nameInput" ).autocomplete({
-	//		source:names,
-	//		minLength: 3
-	//	});
-	
 	$("#firstNameInput" ).autocomplete({
 		source:firstnames,
 		minLength: 3

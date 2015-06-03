@@ -620,6 +620,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "place-of-publication":
                         	pubNode.setProperty(ScientistProfileHelper.PLACE_ATTRIBUTE, field.getText());
                         	break;
+                        case "name-of-conference":
+                        	pubNode.setProperty(ScientistProfileHelper.CONFERENCE_NAME, field.getText());
+                        	break;
                     }
                 }
             }
