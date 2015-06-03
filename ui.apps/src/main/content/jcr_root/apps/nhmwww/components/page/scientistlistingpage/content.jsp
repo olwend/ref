@@ -167,7 +167,8 @@
 							<c:if test="${not empty profile.specialisms}">
 								<strong class="show-for-small-only">Specialisms:</strong>
 							</c:if>
-							<c:out value="${fn:escapeXml(profile.specialisms)}"/> 
+							<c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" />
+							<c:out value="${fn:substring(tempString, 0, 175)} }"/> 
 							
 							<%-- Truncate with style="text-overflow: ellipsis;" in div OR ${fn:substring(text, 0, 175)} in c:out --%>
 						</p>
