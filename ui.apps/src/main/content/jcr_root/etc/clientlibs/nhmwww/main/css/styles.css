@@ -10937,69 +10937,69 @@ div#feedback-bar .span11 {
   color: #107E5E;
 }
 
-.press-office--list-item--content-wrapper {
+.feed--item--content-wrapper {
   margin-bottom: 1.8em;
   background-color: #eeeeee;
 }
 
-.press-office--list-item--content {
+.feed--item--content {
   padding: 0.5em 1.25em;
 }
 
-.press-office--list-item--title {
+.feed--item--title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.1em;
   line-height: 1.5em;
   padding: 0;
 }
-.press-office--list-item--title a {
+.feed--item--title a {
   color: #000000;
   font-weight: bold;
 }
-.press-office--list-item--title a:hover {
+.feed--item--title a:hover {
   color: #000000;
 }
 
-.press-office--list-item--tagline {
+.feed--item--tagline {
   font-size: 0.875em;
 }
 
-.press-office--list-item--caption {
+.feed--item--caption {
   background-color: #aaaaaa;
   padding: 0.5em 1.25em;
   color: #ffffff;
   font-size: 0.95em;
 }
 @media screen and (min-width: 768px) {
-  .press-office--list-item--caption {
+  .feed--item--caption {
     font-size: 1em;
   }
 }
 
-.press-office--feed .press-office--list-item--content-wrapper {
+.feed--tiles .feed--item--content-wrapper {
   margin-bottom: 0;
 }
 
-.press-office--list .press-office--list-item--content-wrapper {
+.feed--list .feed--item--content-wrapper {
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .press-office--list .press-office--list-item--content-wrapper {
+  .feed--list .feed--item--content-wrapper {
     padding: 1.25em;
   }
 }
 @media screen and (min-width: 768px) {
-  .press-office--list .press-office--list-item--content {
+  .feed--list .feed--item--content {
     padding-top: 0;
     padding-right: 0;
   }
 }
-.press-office--list .press-office--list-item--title {
+.feed--list .feed--item--title {
   margin-top: 0.5em;
 }
 @media screen and (min-width: 768px) {
-  .press-office--list .press-office--list-item--title {
+  .feed--list .feed--item--title {
     margin-top: 0;
   }
 }
@@ -11270,6 +11270,586 @@ div#feedback-bar .span11 {
 }
 .press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #107E5E;
+}
+
+.linklist--container {
+  padding: 0.5em 0.75em;
+  margin-bottom: 1.2em;
+}
+@media screen and (min-width: 768px) {
+  .linklist--container {
+    padding: 1em 1.5em;
+  }
+}
+
+.linklist--container__white {
+  background-color: #ffffff;
+}
+
+.linklist--container__grey {
+  background-color: #eeeeee;
+}
+
+.linklist--column--no-header {
+  padding-top: 0px;
+}
+@media screen and (min-width: 768px) {
+  .linklist--column--no-header {
+    padding-top: 5.625em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .linklist--column--no-header {
+    padding-top: 3.438em;
+  }
+}
+
+.linklist--container--header {
+  padding-bottom: 0 !important;
+  margin-bottom: 0.4em;
+}
+.linklist--container--header a {
+  color: #565656;
+}
+
+.linklist--container--description p {
+  margin-bottom: 0;
+}
+
+.linklist--column-container li {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .linklist--column-container li {
+    padding-bottom: 1.25em;
+  }
+}
+
+.linklist--link-items {
+  margin-left: 0;
+}
+.linklist--link-items li {
+  padding-bottom: 0;
+  margin-bottom: 0.6em;
+}
+.linklist--link-items li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+  border-bottom: 1px dotted #000000;
+}
+.linklist--link-items li a:hover {
+  border-bottom-style: solid;
+  text-decoration: none;
+}
+
+.linklist--column--header {
+  margin-top: 0.7em;
+  margin-bottom: 0.1em;
+  padding-bottom: 0;
+  color: #565656;
+}
+
+.visit .linklist--container--header a {
+  color: #A1164E;
+}
+.visit .linklist--link-items li a:hover {
+  border-bottom-color: #A1164E;
+}
+.visit .linklist--column--header a {
+  color: #A1164E;
+}
+
+.take-part .linklist--container--header a {
+  color: #BF491F;
+}
+.take-part .linklist--link-items li a:hover {
+  border-bottom-color: #BF491F;
+}
+.take-part .linklist--column--header a {
+  color: #BF491F;
+}
+
+.support-us .linklist--container--header a {
+  color: #7F206E;
+}
+.support-us .linklist--link-items li a:hover {
+  border-bottom-color: #7F206E;
+}
+.support-us .linklist--column--header a {
+  color: #7F206E;
+}
+
+.about-us .linklist--container--header a {
+  color: #0B5C7B;
+}
+.about-us .linklist--link-items li a:hover {
+  border-bottom-color: #0B5C7B;
+}
+.about-us .linklist--column--header a {
+  color: #0B5C7B;
+}
+
+.our-science .linklist--container--header a {
+  color: #357900;
+}
+.our-science .linklist--link-items li a:hover {
+  border-bottom-color: #357900;
+}
+.our-science .linklist--column--header a {
+  color: #357900;
+}
+
+.schools .linklist--container--header a {
+  color: #0983BB;
+}
+.schools .linklist--link-items li a:hover {
+  border-bottom-color: #0983BB;
+}
+.schools .linklist--column--header a {
+  color: #0983BB;
+}
+
+.contact-us .linklist--container--header a {
+  color: #808080;
+}
+.contact-us .linklist--link-items li a:hover {
+  border-bottom-color: #808080;
+}
+.contact-us .linklist--column--header a {
+  color: #808080;
+}
+
+.business-services .linklist--container--header a {
+  color: #253480;
+}
+.business-services .linklist--link-items li a:hover {
+  border-bottom-color: #253480;
+}
+.business-services .linklist--column--header a {
+  color: #253480;
+}
+
+.press-office .linklist--container--header a {
+  color: #107E5E;
+}
+.press-office .linklist--link-items li a:hover {
+  border-bottom-color: #107E5E;
+}
+.press-office .linklist--column--header a {
+  color: #107E5E;
+}
+
+a.button-cta {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #009DD9;
+  margin: 0.67em 0;
+}
+
+.right-box {
+  float: right;
+}
+
+.left-box {
+  float: left;
+}
+
+.greyBox {
+  min-height: 0px;
+}
+
+.headertextimage .large-12 {
+  margin-bottom: 20px;
+}
+
+.row2cells21 .large-4.medium-4.columns .headertextimage {
+  margin-top: 30px;
+}
+
+.row2cells12 .large-8.medium-8.columns .headertextimage {
+  margin-top: 30px;
+}
+
+.hti-padding {
+  display: table;
+  margin-bottom: 1.2em;
+}
+
+.headertextimage:last-child .hti-padding {
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 48em) {
+  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
+
+  .headertextimage .right-box.large-6.medium-6.columns,
+  .headertextimage .left-box.large-6.medium-6.columns {
+    width: 48.67198%;
+  }
+
+  .headertextimage .GreyBox.large-6.medium-6.columns,
+  .headertextimage .GreyBox.right-box.large-6.medium-6.columns {
+    width: 51.32802%;
+  }
+
+  .row2cells21 .large-4.medium-4.columns .headertextimage {
+    margin-top: 0px;
+  }
+
+  .row2cells12 .large-8.medium-8.columns .headertextimage {
+    margin-top: 0px;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
+
+  .headertextimage .right-box.large-6.medium-6.columns,
+  .headertextimage .left-box.large-6.medium-6.columns {
+    width: 48.67198%;
+  }
+
+  .headertextimage .GreyBox.large-6.medium-6.columns,
+  .headertextimage .GreyBox.right-box.large-6.medium-6.columns {
+    width: 51.32802%;
+  }
+
+  .row2cells21 .large-4.medium-4.columns .headertextimage {
+    margin-top: 0px;
+  }
+
+  .row2cells12 .large-8.medium-8.columns .headertextimage {
+    margin-top: 0px;
+  }
+}
+.cq-wcm-edit .headertextimage {
+  overflow: auto;
+}
+
+.hti-box {
+  padding-bottom: 1em;
+  /** this can eventually apply to generic ctabutton only **/
+  /** this can eventually apply to generic ctabutton only **/
+}
+.hti-box p {
+  font-size: 1.125em;
+  margin-bottom: 1.2em;
+}
+.hti-box .ctabutton--inside-hti:hover h3 {
+  text-decoration: underline;
+}
+.hti-box .ctabutton--inside-hti--cta-text {
+  padding-bottom: 0;
+  margin-top: 0.4em;
+  margin-bottom: 0;
+  margin-left: 0.3em;
+  font-family: "Elysio-Regular";
+  color: #565656;
+}
+@media screen and (min-width: 768px) {
+  .hti-box .ctabutton--inside-hti--cta-text {
+    margin-top: 0.25em;
+  }
+}
+
+.hti-box__light-grey {
+  background-color: #eeeeee;
+  color: #565656;
+}
+
+.hti-box__dark-grey {
+  background-color: #808080 !important;
+  color: #ffffff;
+}
+.hti-box__dark-grey .hti--text {
+  color: #ffffff;
+}
+.hti-box__dark-grey .hti--text a {
+  color: #ffffff;
+}
+
+/** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
+.hti-box__feature-box {
+  color: #ffffff;
+}
+.hti-box__feature-box .hti--text {
+  color: #ffffff;
+}
+.hti-box__feature-box .hti--text a {
+  color: #ffffff;
+}
+
+.hti-box--text-wrapper {
+  padding: 1em 1.5em 0;
+}
+
+/** this replaces info-tout__action **/
+.ctabutton--inside-hti {
+  padding: 1.125em 0 1.125em 1.125em;
+  background-color: #ffffff;
+  border: none !important;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.visit .ctabutton--inside-hti--cta-text {
+  color: #A1164E;
+}
+.visit .hti-box__feature-box {
+  background-color: #A1164E;
+}
+
+.take-part .ctabutton--inside-hti--cta-text {
+  color: #BF491F;
+}
+.take-part .hti-box__feature-box {
+  background-color: #BF491F;
+}
+
+.support-us .ctabutton--inside-hti--cta-text {
+  color: #7F206E;
+}
+.support-us .hti-box__feature-box {
+  background-color: #7F206E;
+}
+
+.about-us .ctabutton--inside-hti--cta-text {
+  color: #0B5C7B;
+}
+.about-us .hti-box__feature-box {
+  background-color: #0B5C7B;
+}
+
+.our-science .ctabutton--inside-hti--cta-text {
+  color: #357900;
+}
+.our-science .hti-box__feature-box {
+  background-color: #357900;
+}
+
+.schools .ctabutton--inside-hti--cta-text {
+  color: #0983BB;
+}
+.schools .hti-box__feature-box {
+  background-color: #0983BB;
+}
+
+.contact-us .ctabutton--inside-hti--cta-text {
+  color: #808080;
+}
+.contact-us .hti-box__feature-box {
+  background-color: #808080;
+}
+
+.business-services .ctabutton--inside-hti--cta-text {
+  color: #253480;
+}
+.business-services .hti-box__feature-box {
+  background-color: #253480;
+}
+
+.press-office .ctabutton--inside-hti--cta-text {
+  color: #107E5E;
+}
+.press-office .hti-box__feature-box {
+  background-color: #107E5E;
+}
+
+/**overrides headertextimage.scss **/
+.headertextimage.hti-padding {
+  margin-bottom: 1.2em;
+}
+
+/**overrides headertextimage.scss **/
+.headertextimage .hti-wrapper .large-12 {
+  margin-bottom: 0;
+}
+
+.hti-box .ctabutton--inside-hti .svg-ico {
+  height: 40px;
+  top: 30%;
+  /*width: 60%;*/
+  width: 100%;
+  /*
+  	@media screen and (min-width: $tablet) {
+  		height: 36%;
+  		top: 34%;
+  		right: 0;
+  	}*/
+}
+
+/** overrides headertextimage.scss custom Foundation widths **/
+.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  width: 65.7%;
+}
+
+/** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
+.grand-summary--wrapper {
+  background-color: #f4f4f4;
+  padding-bottom: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .row .row {
+    margin: 0;
+  }
+}
+
+.grand-summary--exhibition-details-grid {
+  padding-left: 0.75em;
+}
+
+.grand-summary--exhibition-details-grid li:first-child {
+  padding-right: 1em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--exhibition-details-grid li:first-child {
+    padding-left: 1em;
+  }
+}
+
+.grand-summary--exhibition-details-grid li:last-child {
+  padding-right: 0;
+}
+
+.grand-summary--exhibition-details-grid li {
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.grand-summary--wrapper .info-sidebar {
+  margin-top: 1.5em;
+  margin-left: 0;
+  padding-top: 0;
+  padding-left: 0;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .info-sidebar {
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grand-summary--wrapper .info-sidebar {
+    padding-left: 2em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .info-sidebar li:first-child {
+    margin-top: 0;
+  }
+}
+
+.grand-summary--wrapper .info-sidebar li {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 0.75em;
+}
+
+.grand-summary--wrapper .info-sidebar li .ico {
+  position: relative;
+  width: 12%;
+}
+
+.grand-summary--caption-container .caption {
+  padding: 0;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-container .caption {
+    padding-bottom: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-container .caption.grand-summary--exhibition {
+    height: 110px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grand-summary--caption-container .caption.grand-summary--exhibition {
+    height: 120px;
+  }
+}
+
+.grand-summary--caption-title--container {
+  padding: 0.5em 1em 1em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-title--container {
+    padding-top: 0.75em;
+    padding-bottom: 0;
+  }
+}
+
+.grand-summary--caption-title {
+  font-size: 1.8em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.grand-summary--caption-description--container {
+  padding: 0 1em 0.75em 1em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container {
+    padding-bottom: 0;
+    padding-left: 1em;
+  }
+}
+.grand-summary--caption-description--container p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container p {
+    font-size: 1.15em;
+  }
+}
+
+.grand-summary--caption-date--container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1em 1em 0.6em 1em;
+}
+
+.grand-summary--caption-date {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  color: #ffffff !important;
+}
+
+/** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
+.grand-summary--wrapper .ctabutton {
+  padding: 1.1em 0.95em;
+  border: 3px solid #565656;
+  background-color: #ffffff;
+}
+.grand-summary--wrapper .ctabutton:hover h3 {
+  text-decoration: underline;
+}
+.grand-summary--wrapper .ctabutton .svg-ico {
+  height: 40px;
+  top: 30%;
+  width: 100%;
+}
+.grand-summary--wrapper .ctabutton--cta-text {
+  color: #565656;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-left: 0.3em;
+  font-family: "Elysio-Regular";
+  font-size: 2em;
+}
+
+.sort-results-up {
+  background-color: red;
+}
+
+.sort-results-down {
+  background-color: blue;
 }
 
 /*# sourceMappingURL=styles.css.map */
