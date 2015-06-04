@@ -24,51 +24,53 @@
 <%-- Grand Summary --%>
 	<div class="grand-summary--wrapper">
 		<%-- Main --%>
-			<div class="grand-summary--image-wrapper">
-				<% helper.getMobileImage().draw(out); %>
-				<% helper.getImage().draw(out); %>
-				<div class="row">
-					<div class="small-12 medium-12 large-8 columns grand-summary--caption-container">
-						<div class="caption-outer-wrapper">
-							<div class="caption-inner-wrapper">
-				
-									<% if (!helper.isExhibition()) { %>
-										<%-- Normal --%>
-											<div class="row caption">
-												<div class="small-12 medium-12 large-11 columns grand-summary--caption-title--container">
-													<h2 class="grand-summary--caption-title">
-														<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
-													</h2>
+			<a href="<%= helper.getLink() %>" <%=helper.getNewWindow()%>>
+				<div class="grand-summary--image-wrapper">
+					<% helper.getMobileImage().draw(out); %>
+					<% helper.getImage().draw(out); %>
+					<div class="row">
+						<div class="small-12 medium-12 large-8 columns grand-summary--caption-container">
+							<div class="caption-outer-wrapper">
+								<div class="caption-inner-wrapper">
+					
+										<% if (!helper.isExhibition()) { %>
+											<%-- Normal --%>
+												<div class="row caption">
+													<div class="small-12 medium-12 large-11 columns grand-summary--caption-title--container">
+														<h2 class="grand-summary--caption-title">
+															<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
+														</h2>
+													</div>
+													<div class="small-12 medium-12 large-12 columns end grand-summary--caption-description--container">
+														<p>
+															<% if ( helper.getDescription() != null ) { %> <%=helper.getDescription()%> <% } %>
+														</p>
+													</div>
 												</div>
-												<div class="small-12 medium-12 large-12 columns end grand-summary--caption-description--container">
-													<p>
-														<% if ( helper.getDescription() != null ) { %> <%=helper.getDescription()%> <% } %>
-													</p>
+											<%-- Normal --%> 
+										<%} else { %>
+											<%-- Exhibition --%>
+												<div class="row caption grand-summary--exhibition">
+													<div class="small-10 medium-7 large-7 columns grand-summary--caption-title--container">
+														<h2 class="grand-summary--caption-title">
+															<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
+														</h2>
+													</div>
+													<div class="small-8 medium-5 large-5 columns end grand-summary--caption-date--container">
+														<h3 class="grand-summary--caption-date">
+															<% if ( helper.getDate() != null ) { %> <%=helper.getDate()%> <% }%>
+														</h3>
+													</div>
 												</div>
-											</div>
-										<%-- Normal --%> 
-									<%} else { %>
-										<%-- Exhibition --%>
-											<div class="row caption grand-summary--exhibition">
-												<div class="small-10 medium-7 large-7 columns grand-summary--caption-title--container">
-													<h2 class="grand-summary--caption-title">
-														<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
-													</h2>
-												</div>
-												<div class="small-8 medium-5 large-5 columns end grand-summary--caption-date--container">
-													<h3 class="grand-summary--caption-date">
-														<% if ( helper.getDate() != null ) { %> <%=helper.getDate()%> <% }%>
-													</h3>
-												</div>
-											</div>
-										<%-- Exhibition --%>
-									<% } %>
-								
+											<%-- Exhibition --%>
+										<% } %>
+									
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 		<%-- Main --%>
 		<%-- Exhibition --%>
 		<% if(helper.isExhibition()) { %>
