@@ -24,7 +24,7 @@
 <%-- Grand Summary --%>
 	<div class="grand-summary--wrapper">
 		<%-- Main --%>
-			<a href="<%= helper.getLink() %>" <%=helper.getNewWindow()%>>
+			<% if ( helper.getLink() != null ) { %> <a href="<%= helper.getLink() %>" <% if ( helper.getNewWindow() != null ) { %> <%=helper.getNewWindow()%> <% } %>> <% } %>
 				<div class="grand-summary--image-wrapper">
 					<% helper.getMobileImage().draw(out); %>
 					<% helper.getImage().draw(out); %>
@@ -32,7 +32,6 @@
 						<div class="small-12 medium-12 large-8 columns grand-summary--caption-container">
 							<div class="caption-outer-wrapper">
 								<div class="caption-inner-wrapper">
-					
 										<% if (!helper.isExhibition()) { %>
 											<%-- Normal --%>
 												<div class="row caption">
@@ -70,7 +69,7 @@
 						</div>
 					</div>
 				</div>
-			</a>
+			<% if ( helper.getLink() != null ) { %> </a> <% } %>
 		<%-- Main --%>
 		<%-- Exhibition --%>
 		<% if(helper.isExhibition()) { %>
