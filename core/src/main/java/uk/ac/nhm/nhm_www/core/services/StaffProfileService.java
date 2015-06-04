@@ -42,16 +42,12 @@ public class StaffProfileService {
     private static final Logger LOG = LoggerFactory.getLogger(StaffProfileService.class);
     
     @Activate
-    protected void activate(final ComponentContext componentContext) throws Exception
-    {
+    protected void activate(final ComponentContext componentContext) throws Exception {
         loadProperties(componentContext);
     }
-
     
-    public List<StaffProfile> getStaffProfile (final Resource resource) throws Exception
-    {
-        try
-        {
+    public List<StaffProfile> getStaffProfile (final Resource resource) throws Exception {
+        try {
             final List<StaffProfile> profileList = new ArrayList<StaffProfile>();
             
             final ResourceResolver resourceResolver = resource.getResourceResolver();
@@ -77,33 +73,27 @@ public class StaffProfileService {
             
             return profileList;
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             LOG.error("StaffProfile Get Exception: ", e);
             throw e;
         }
     }
     
-    private String getQuery()
-    {
+    private String getQuery() {
         return "SELECT * FROM [nt:unstructured] as S WHERE ISDESCENDANTNODE (S, '" + jcrPath + "') AND NAME () = 'personalInformation'";
     }
     
-    private void loadProperties(final ComponentContext componentContext)
-    {
-        try
-        {
+    private void loadProperties(final ComponentContext componentContext) {
+        try {
             queryLimit = (Integer) componentContext.getProperties().get("queryLimit");
             jcrPath = componentContext.getProperties().get("jcrPath").toString();
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             LOG.error("StaffProfile loadProperties Exception: ", e);
         }
     }
     
-    public class StaffProfile
-    {
+    public class StaffProfile {
     	private final String imagePath;
         private final String firstName;
         private final String lastName;
@@ -118,8 +108,7 @@ public class StaffProfileService {
          * @param url
          * @throws Exception
          */
-        public StaffProfile (Node node, String url) throws Exception
-        {
+        public StaffProfile (Node node, String url) throws Exception {
         	imagePath = node.getParent().getPath() + "/image";
         	
         	if(node.hasProperty("knownAs")){
@@ -156,13 +145,11 @@ public class StaffProfileService {
             this.url = url; 
         }
         
-        public String getFirstName()
-        {
+        public String getFirstName() {
             return firstName;
         }
         
-        public String getLastName()
-        {
+        public String getLastName() {
             return lastName;
         }
         
@@ -170,18 +157,15 @@ public class StaffProfileService {
         	return department;
         }
         
-        public String getDivision()
-        {
+        public String getDivision() {
             return division;
         }
         
-        public String getJob()
-        {
+        public String getJob() {
             return job;
         }
         
-        public String getUrl()
-        {
+        public String getUrl() {
             return url;
         }
         
@@ -197,5 +181,4 @@ public class StaffProfileService {
         	return imagePath;
         }
     }
-    
 }
