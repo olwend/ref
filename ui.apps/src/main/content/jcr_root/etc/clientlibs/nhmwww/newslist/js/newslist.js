@@ -1,19 +1,20 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
-	$('.newslistfeed-wrapper').each(function (){
+	$('.js-feed-wrapper').each(function (){
 		var componentID = $(this).data('componentid');
 		var rootPath = $(this).data('rootpath');
 		var pageSize = $(this).data('pagesize');
 		var hideMonths = $(this).data('hidemonths');
+		var resourceType = $(this).data('resourcetype');
 		var isMultilevel = $(this).data('multilevel');
-		var tags = $(this).data('tags')
+		var tags = $(this).data('tags');
 		if (rootPath && pageSize) {
-			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel);
+			showNews(rootPath, 1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 		}
 	});
 });	
 
-function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel ) {
+function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -22,6 +23,7 @@ function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths,
 			pageNumber: pageNumber,
 			pageSize: pageSize,
 			isMultilevel: isMultilevel,
+			resourceType: resourceType,
 			tags: tags
 		},
 		success: function(data){
@@ -29,7 +31,7 @@ function showNews(rootPath, pageNumber, pageSize, componentID, tags, hideMonths,
 			buildNavigators(pageNumber, json.pages);
 			showItems(json.pageJson, componentID, hideMonths);
 			if(pageNumber != json.pages){
-				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel);
+				addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 			}
 			$(document).foundation('reflow');
 			$(document).foundation('interchange', 'reflow');
@@ -63,7 +65,7 @@ function showItems(pageJson, componentID, hideMonths) {
 		var date = item.date;
 		var link = item.path + ".html";
 		var element = createNews(title, intro, shortIntro, date, imagePath, link, hideMonths, currentGroup, addGroup);
-		var componentClass = '#press-office--list-' + componentID;
+		var componentClass = '#feed--list-' + componentID;
 		
 		$(componentClass).append(element);
 	});
@@ -77,7 +79,7 @@ function showItems(pageJson, componentID, hideMonths) {
 
 function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, group, addGroup) {
 	var element = document.createElement("div");
-	element.className = 'press-office--list-item';
+	element.className = 'feed--item';
 	if (addGroup && !hideMonths) { //!hideMonths
 		var groupH3 = document.createElement("h3");
 		groupH3.className = "news-month";
@@ -87,13 +89,13 @@ function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, 
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
 	var dateDiv = document.createElement("div");
-	dateDiv.className = 'small-12 columns press-office--list-item--caption';
+	dateDiv.className = 'small-12 columns feed--item--caption';
 	dateDiv.innerHTML = date;
 	
 	element.appendChild(dateDiv);
 	
 	var wrapperDiv = document.createElement("div");
-	wrapperDiv.className = 'small-12 columns press-office--list-item--content-wrapper';
+	wrapperDiv.className = 'small-12 columns feed--item--content-wrapper';
 	var firstColumnDiv = document.createElement("div");
 	firstColumnDiv.className = 'small-12 medium-6 columns';
 	firstColumnDiv.setAttributeNode(document.createAttribute('data-equalizer'));
@@ -130,10 +132,10 @@ function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, 
 	secondColumnDiv.className = 'small-12 medium-6 columns';
 	
 	var contentDiv = document.createElement('div');
-	contentDiv.className = 'press-office--list-item--content';
+	contentDiv.className = 'feed--item--content';
 	
 	var h4 = document.createElement('h4');
-	h4.className = 'press-office--list-item--title';
+	h4.className = 'feed--item--title';
 	
 	var link2 = document.createElement('a');
 	link2.href = url;
@@ -145,7 +147,7 @@ function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, 
 	
 	var p = document.createElement('p');
 	p.innerHTML = shortIntro;
-	p.className = 'press-office--list-item--tagline';
+	p.className = 'feed--item--tagline';
 	
 	contentDiv.appendChild(p);
 	secondColumnDiv.appendChild(contentDiv);
@@ -155,7 +157,7 @@ function createNews(title, intro, shortIntro, date, imagePath, url, hideMonths, 
 	return element;
 }
 
-function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel) {
+function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType) {
 	var moreElementsDiv = document.createElement("div");
 	
 	moreElementsDiv.className = "row more-results more-results-" + componentID;
@@ -167,25 +169,26 @@ function addMoreResultsButton(rootPath, pageNumber, pageSize, componentID, tags,
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("newslistfeed_wrapper_"+componentID).appendChild(moreElementsDiv);
+	document.getElementById("js-feed-wrapper-"+componentID).appendChild(moreElementsDiv);
 	
-	$('.newslistfeed .more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel}, function(event){
+	$('.more-results-'+componentID).click({rootPath:rootPath, pageSize:pageSize, componentID:componentID, tags:tags, hideMonths:hideMonths, isMultilevel:isMultilevel, resourceType:resourceType}, function(event){
 		var rootPath = event.data.rootPath;
 		var pageSize = event.data.pageSize;
 		var componentID = event.data.componentID;
 		var tags = event.data.tags;
 		var hideMonths = event.data.hideMonths;
 		var isMultilevel = event.data.isMultilevel;
+		var resourceType = event.data.resourceType;
 		removeMoreResultsButton(componentID);
-		var elementsShowed = $('#press-office--list-' + componentID + ' .press-office--list-item').length;
+		var elementsShowed = $('#feed--list-' + componentID + ' .feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel);
+		showNews(rootPath, currentPage+1, pageSize, componentID, tags, hideMonths, isMultilevel, resourceType);
 	});
 }
 
 function removeMoreResultsButton(componentID) {
-	 var wrapperDiv = document.getElementById('newslistfeed_wrapper_'+componentID);
+	 var wrapperDiv = document.getElementById('js-feed-wrapper-'+componentID);
 	 var divToDelete = document.getElementById("more-results-" + componentID);
 	 wrapperDiv.removeChild(divToDelete);
 }
@@ -193,7 +196,7 @@ function removeMoreResultsButton(componentID) {
 function buildNavigators(pageNumber, numberOfPages) {
 	
 	/*if (numberOfPages > 1) {
-		$.each($('.newslistfeed-wrapper .pagination-centered'), function(index, item) { 
+		$.each($('.js-feed-wrapper .pagination-centered'), function(index, item) { 
 			//var pagination = document.createElement('ul');
 			//pagination.className = 'pagination';
 			
@@ -246,18 +249,18 @@ function buildNavigators(pageNumber, numberOfPages) {
 			
 			$(this).append(pagination);
 			
-			$('.newslistfeed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
+			$('.js-feed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
 				var to = $(this).data('index');
 				
 				if ($(this).parent().hasClass('unavailable')) {
 					return false;
 				}
 				
-				var rootPath = $('.newslistfeed-wrapper').data('rootpath');
-				var pageSize = $('.newslistfeed-wrapper').data('pagesize');
+				var rootPath = $('.js-feed-wrapper').data('rootpath');
+				var pageSize = $('.js-feed-wrapper').data('pagesize');
 				
 				if (rootPath && pageSize) {
-					$('.newslistfeed-wrapper .pagination-centered').empty();
+					$('.js-feed-wrapper .pagination-centered').empty();
 					$('.press-room--list').empty();
 					
 					shownewss(rootPath, to, pageSize);

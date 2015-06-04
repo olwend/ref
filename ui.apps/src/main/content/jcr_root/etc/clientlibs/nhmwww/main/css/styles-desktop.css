@@ -11037,7 +11037,6 @@ a.button-cta {
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
-  padding-bottom: 1.5em;
 }
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
@@ -11045,49 +11044,18 @@ a.button-cta {
   }
 }
 
-.grand-summary--exhibition-details-grid {
-  padding-left: 0.75em;
+/** need to rename this **/
+.grand-summary--block-grid {
+  padding-left: 24px;
 }
 
-.grand-summary--exhibition-details-grid li:first-child {
-  padding-right: 1em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--exhibition-details-grid li:first-child {
-    padding-left: 1em;
-  }
-}
-
-.grand-summary--exhibition-details-grid li:last-child {
-  padding-right: 0;
-}
-
-.grand-summary--exhibition-details-grid li {
-  padding-bottom: 0;
+.grand-summary--block-grid li:first-child {
   padding-left: 0;
 }
 
 .grand-summary--wrapper .info-sidebar {
-  margin-top: 1.5em;
   margin-left: 0;
-  padding-top: 0;
   padding-left: 0;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--wrapper .info-sidebar {
-    margin-top: 0;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grand-summary--wrapper .info-sidebar {
-    padding-left: 2em;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .grand-summary--wrapper .info-sidebar li:first-child {
-    margin-top: 0;
-  }
 }
 
 .grand-summary--wrapper .info-sidebar li {
@@ -11108,27 +11076,12 @@ a.button-cta {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption {
-    padding-bottom: 1em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 110px;
+    padding: 0 0 1em 0;
   }
 }
 @media screen and (min-width: 1024px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 120px;
-  }
-}
-
-.grand-summary--caption-title--container {
-  padding: 0.5em 1em 1em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-title--container {
-    padding-top: 0.75em;
-    padding-bottom: 0;
+  .grand-summary--caption-container .caption {
+    padding-bottom: 1em;
   }
 }
 
@@ -11137,22 +11090,13 @@ a.button-cta {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
-.grand-summary--caption-description--container {
-  padding: 0 1em 0.75em 1em;
+.grand-summary--caption-title--container {
+  padding: 0.5em 1em;
 }
 @media screen and (min-width: 768px) {
-  .grand-summary--caption-description--container {
+  .grand-summary--caption-title--container {
+    padding-top: 0.75em;
     padding-bottom: 0;
-    padding-left: 1em;
-  }
-}
-.grand-summary--caption-description--container p {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-description--container p {
-    font-size: 1.15em;
   }
 }
 
@@ -11165,8 +11109,28 @@ a.button-cta {
   margin: 0;
   padding: 0;
   font-size: 1.5em;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  /* 1.6 is too big */
   color: #ffffff !important;
+}
+
+.grand-summary--caption-description--container {
+  padding: 0 0.75em 0.5em 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container {
+    padding-bottom: 1em;
+    padding-left: 1em;
+  }
+}
+
+.grand-summary--caption-description--container p p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container p p {
+    font-size: 1.15em;
+  }
 }
 
 /** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
@@ -11178,26 +11142,24 @@ a.button-cta {
 .grand-summary--wrapper .ctabutton:hover h3 {
   text-decoration: underline;
 }
-.grand-summary--wrapper .ctabutton .svg-ico {
-  height: 40px;
-  top: 30%;
-  width: 100%;
-}
 .grand-summary--wrapper .ctabutton--cta-text {
   color: #565656;
   padding-bottom: 0;
   margin-bottom: 0;
   margin-left: 0.3em;
   font-family: "Elysio-Regular";
-  font-size: 2em;
 }
-
-.sort-results-up {
-  background-color: red;
-}
-
-.sort-results-down {
-  background-color: blue;
+.grand-summary--wrapper .ctabutton .svg-ico {
+  height: 40px;
+  top: 30%;
+  /*width: 60%;*/
+  width: 100%;
+  /*
+  	@media screen and (min-width: $tablet) {
+  		height: 36%;
+  		top: 34%;
+  		right: 0;
+  	}*/
 }
 
 /* IE8-specific fixes */

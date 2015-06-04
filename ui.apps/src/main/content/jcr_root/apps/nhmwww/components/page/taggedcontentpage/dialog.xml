@@ -33,10 +33,20 @@
                             hideTime="{Boolean}true"
                             name="./publishdate"
                             xtype="datetime"/>
+                        <summary
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Summary"
+                            name="./summary"
+                            xtype="richtext">
+                            <rtePlugins
+                                jcr:primaryType="cq:Widget"
+                                path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                                xtype="cqinclude"/>
+                        </summary>
                         <introduction
                             jcr:primaryType="cq:Widget"
-                            hideLabel="{Boolean}true"
-                            name="./summary"
+                            fieldLabel="Short Introduction"
+                            name="./shortIntroduction"
                             xtype="richtext">
                             <rtePlugins
                                 jcr:primaryType="cq:Widget"
