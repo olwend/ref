@@ -11800,11 +11800,11 @@ a.button-cta {
 }
 .grand-summary--caption-description--container p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1em;
+  font-size: 1em !important;
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-description--container p {
-    font-size: 1.15em;
+    font-size: 1.15em !important;
   }
 }
 
