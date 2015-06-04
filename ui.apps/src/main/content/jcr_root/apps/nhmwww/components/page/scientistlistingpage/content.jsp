@@ -204,6 +204,9 @@
 						<p>
 							<strong class="show-for-small-only">Job:</strong>
 							<c:out value="${profile.job}" />
+							<c:out value=", "/>
+							<c:out value="${profile.function}"/>
+							<c:out value="${profile.fgroup}"/>
 						</p>
 					</div>
 					<div class="large-3 medium-2 columns large-left-section profiles_table profile-content ">
