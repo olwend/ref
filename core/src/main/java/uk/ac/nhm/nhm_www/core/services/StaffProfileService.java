@@ -72,8 +72,7 @@ public class StaffProfileService {
             }
             
             return profileList;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.error("StaffProfile Get Exception: ", e);
             throw e;
         }
@@ -87,8 +86,7 @@ public class StaffProfileService {
         try {
             queryLimit = (Integer) componentContext.getProperties().get("queryLimit");
             jcrPath = componentContext.getProperties().get("jcrPath").toString();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.error("StaffProfile loadProperties Exception: ", e);
         }
     }
