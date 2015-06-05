@@ -182,12 +182,22 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     {
         switch (number)
         {
-            case 2 : return "Book";
-            case 3 : return "Chapter";
-            case 4 : return "Conference Proceedings";
-            case 5 : return "Journal Article";
-            case 80: return "Website";
-            default: return "Publication";
+	        case 2 : return "Book";
+	        case 3 : return "Chapter";
+	        case 4 : return "Conference Proceedings";
+	        case 5 : return "Journal Article";
+	        case 7 : return "Report";
+	        case 8 : return "Software";
+	        case 14: return "Other";
+	        case 15: return "Internet Publications";
+	        case 17: return "Poster";
+	        case 18: return "Thesis/Dissertation";
+	        case 22: return "Dataset";
+	        case 78: return "Webpage";
+	        case 80: return "Website";
+	        case 81: return "Newspaper/Magazine Article";
+	        //case ??: return "Scholarly Edition";
+	        default: return "Publication";
         }
     }
     
