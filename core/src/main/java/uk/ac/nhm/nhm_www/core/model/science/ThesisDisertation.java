@@ -26,6 +26,9 @@ public class ThesisDisertation extends Publication{
 		authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		
 		final StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append("####This is a + "
+								+ "ThesisDisertation"
+							+ " #####");
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 

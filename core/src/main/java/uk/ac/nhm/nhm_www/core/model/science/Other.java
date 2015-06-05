@@ -26,6 +26,9 @@ public class Other extends Publication{
 		authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		
 		final StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append("####This is a + "
+								+ "Other"
+							+ " #####");
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 
