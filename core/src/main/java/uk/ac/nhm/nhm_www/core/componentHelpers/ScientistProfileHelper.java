@@ -17,10 +17,21 @@ import com.day.cq.wcm.foundation.Image;
 import uk.ac.nhm.nhm_www.core.model.science.Book;
 import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
+import uk.ac.nhm.nhm_www.core.model.science.Dataset;
+import uk.ac.nhm.nhm_www.core.model.science.InternetPublication;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
+import uk.ac.nhm.nhm_www.core.model.science.NewspaperMagazine;
+import uk.ac.nhm.nhm_www.core.model.science.Other;
+import uk.ac.nhm.nhm_www.core.model.science.Poster;
 import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
+import uk.ac.nhm.nhm_www.core.model.science.Report;
+import uk.ac.nhm.nhm_www.core.model.science.ScholarlyEdition;
+import uk.ac.nhm.nhm_www.core.model.science.Software;
+import uk.ac.nhm.nhm_www.core.model.science.ThesisDisertation;
 import uk.ac.nhm.nhm_www.core.model.science.WebSite;
+import uk.ac.nhm.nhm_www.core.model.science.Webpage;
+import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
 import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
 
@@ -458,6 +469,15 @@ public class ScientistProfileHelper {
 				final boolean favorite = childProperties.get(FAVORITE_ATTRIBUTE, false);
 				
 				final String[] authors = childProperties.get(AUTHORS_ATTRIBUTE, String[].class);
+				
+				final String reportingDate;
+				
+				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null){
+					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
+				} else {
+					reportingDate = "";
+				}
+				
 				List<String> authorsList = new ArrayList<>();
 				if (authors != null) {
 					//Collections.addAll(authorsSet, authors);
@@ -478,7 +498,6 @@ public class ScientistProfileHelper {
 					final String publisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String place	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
 					final int page	   	   = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
-					final String reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
 					result.add(new Book(title, authorsList, favorite, publicationYear, link, reportingDate, editorsSet, publisher, place, page));
 					break;
 
@@ -497,8 +516,7 @@ public class ScientistProfileHelper {
 					
 					final int beginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int endPage   = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final String r2Date = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
-					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, r2Date, bookEditorsSet, bookTitle, beginPage, endPage, bookPublisher, bookPlace));
+					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, reportingDate, bookEditorsSet, bookTitle, beginPage, endPage, bookPublisher, bookPlace));
 					break;
 					
 				case PUBLICATION_TYPE_ARTICLE:
@@ -509,60 +527,58 @@ public class ScientistProfileHelper {
 					final int articleEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final String doiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String doiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
-					final String rDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
-					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, rDate, journalName, volume, issue, articleBeginPage, articleEndPage, doiText, doiLink));
+					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, reportingDate, journalName, volume, issue, articleBeginPage, articleEndPage, doiText, doiLink));
 					break;
 
 				case PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS:
 					final String conferenceName = childProperties.get(CONFERENCE_NAME, String.class);
 					final String placeOfPublication = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final String confReportDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
-					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, confReportDate, conferenceName, placeOfPublication));
+					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, reportingDate, conferenceName, placeOfPublication));
 					break;
 					
 				case PUBLICATION_TYPE_DATASET:
-					
+					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 					
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
-					
+					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:
-					
+					result.add(new NewspaperMagazine(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_OTHER:
-					
+					result.add(new Other(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_POSTER:
-					
+					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_REPORT:
-					
+					result.add(new Report(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_SCHOLARLY_EDITION:
-					
+					result.add(new ScholarlyEdition(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_SOFTWARE:
-					
+					result.add(new Software(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_THESIS_OR_DISERTATION:
-					
+					result.add(new ThesisDisertation(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_WEBPAGE:
-					
+					result.add(new Webpage(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				case PUBLICATION_TYPE_WEBSITE:
-					
+					result.add(new WebsitePublicationType(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 					
 				default:

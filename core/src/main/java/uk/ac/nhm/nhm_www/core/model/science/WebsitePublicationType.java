@@ -7,9 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 
 public class WebsitePublicationType extends Publication{
 	
-	public WebsitePublicationType(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final List<String> editorsSet, final String publisher, final String place,
-			final int page) {
+	public WebsitePublicationType(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			final  String href,	final String reportingDate){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 	}
 
