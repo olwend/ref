@@ -10,10 +10,13 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.day.cq.wcm.api.components.DropTarget;
 import com.day.cq.wcm.foundation.Image;
 
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.ImportXMLWorkflow;
 import uk.ac.nhm.nhm_www.core.model.science.Book;
 import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
@@ -36,6 +39,10 @@ import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
 import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
 
 public class ScientistProfileHelper {
+	
+    private static final Logger LOG = LoggerFactory.getLogger(ScientistProfileHelper.class);
+    
+    
 	/* Information Nodes Structure */
 	public static final String PERSONAL_INFORMATION_NODE_NAME 	  = "personalInformation";
 	public static final String DEPARTAMENT_INFORMATION_NODE_NAME = "department";
@@ -487,6 +494,8 @@ public class ScientistProfileHelper {
 				
 				final String link = childProperties.get(LINK_ATTRIBUTE, String.class);
 				
+				LOG.error("Loading Publication with type : " + type);
+				
 				switch (type) {
 				case PUBLICATION_TYPE_BOOK:
 					final String[] editors = childProperties.get(EDITORS_ATTRIBUTE, String[].class);
@@ -539,7 +548,6 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_DATASET:
 					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
-					
 					
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
 					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate));
