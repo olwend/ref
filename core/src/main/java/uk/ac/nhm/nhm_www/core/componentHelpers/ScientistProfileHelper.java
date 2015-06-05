@@ -127,6 +127,17 @@ public class ScientistProfileHelper {
 	public static final String PUBLICATION_TYPE_CHAPTER					= "Chapter";
 	public static final String PUBLICATION_TYPE_ARTICLE 				= "Journal Article";
 	public static final String PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS	= "Conference Proceedings";
+	public static final String PUBLICATION_TYPE_DATASET					= "Dataset";
+	public static final String PUBLICATION_TYPE_INTERNET_PUBLICATION	= "Internet Publications";
+	public static final String PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE	= "Newspaper/Magazine Article";
+	public static final String PUBLICATION_TYPE_OTHER					= "Other";
+	public static final String PUBLICATION_TYPE_POSTER					= "Poster";
+	public static final String PUBLICATION_TYPE_REPORT					= "Report";
+	public static final String PUBLICATION_TYPE_SCHOLARLY_EDITION		= "Scholarly Edition";
+	public static final String PUBLICATION_TYPE_SOFTWARE				= "Software";
+	public static final String PUBLICATION_TYPE_THESIS_OR_DISERTATION	= "Thesis/Disertation";
+	public static final String PUBLICATION_TYPE_WEBPAGE					= "Webpage";
+	public static final String PUBLICATION_TYPE_WEBSITE					= "Website";
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -507,6 +518,51 @@ public class ScientistProfileHelper {
 					final String placeOfPublication = childProperties.get(PLACE_ATTRIBUTE, String.class);
 					final String confReportDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
 					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, confReportDate, conferenceName, placeOfPublication));
+					break;
+					
+				case PUBLICATION_TYPE_DATASET:
+					
+					break;
+					
+					
+				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
+					
+					break;
+					
+				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:
+					
+					break;
+					
+				case PUBLICATION_TYPE_OTHER:
+					
+					break;
+					
+				case PUBLICATION_TYPE_POSTER:
+					
+					break;
+					
+				case PUBLICATION_TYPE_REPORT:
+					
+					break;
+					
+				case PUBLICATION_TYPE_SCHOLARLY_EDITION:
+					
+					break;
+					
+				case PUBLICATION_TYPE_SOFTWARE:
+					
+					break;
+					
+				case PUBLICATION_TYPE_THESIS_OR_DISERTATION:
+					
+					break;
+					
+				case PUBLICATION_TYPE_WEBPAGE:
+					
+					break;
+					
+				case PUBLICATION_TYPE_WEBSITE:
+					
 					break;
 					
 				default:
