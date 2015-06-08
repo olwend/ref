@@ -73,6 +73,9 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	@Reference
 	private PageManagerFactory pageManagerFactory;
 	
+	@Reference
+	private XSSAPI xssAPI;
+	
 	private int queryLimit;
 	
 	private int concurrencyLevel;
@@ -128,6 +131,9 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 
 			List<Page> pages = cache.get(itemQuery).getComplexObjectArray();
 			if(pages.size() > 0){
+				if(pages.size() > 1) {
+					LOG.warn("There are multiple pages with the same ID");
+				}
 				return pages.get(0);
 			} else {
 				return null;
@@ -230,9 +236,9 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 			object.put("path", resolver.map(request, page.getPath()));
 			object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
 			object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
-			object.put("page-introduction", resolver.map(request, helper.getPageIntroduction()));
+			object.put("page-introduction", resolver.map(request, xssAPI.encodeForHTMLAttr(helper.getPageIntroduction())));
 			object.put("keywords", resolver.map(request, PageUtils.getPageKeywords(page)));
-			object.put("description", resolver.map(request, PageUtils.getPageDescription(page)));
+			object.put("description", resolver.map(request, PageUtils.EncodeMetaDescription(PageUtils.getPageDescription(page))));
 		}
 		catch (Exception e) {
 			LOG.error(e.getMessage());
