@@ -8,7 +8,8 @@ var departmentDivision = "";
 
 $(document).ready(function() {
 	
-	var globalMaxResult = 8;
+	var globalMaxResult = 8,
+		resultsPerPage = 8;
 	
 	var nameSorted 			= false,
 		jobSorted			= false,
@@ -79,7 +80,8 @@ $(document).ready(function() {
 		searchFunc(globalMaxResult)
 	});
 	
-	$("#moreResults").click(function() {
+	$("#show-more").bind('click', function(event) {
+		event.preventDefault();
 		globalMaxResult += 8;
 		searchFunc(globalMaxResult);
 	});
@@ -165,6 +167,10 @@ function searchFunc(maxResults) {
 			console.log("Division: " + department + ", " + division);
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
+	}
+	
+	if (nodes.length < maxResults){
+		$("#show-more").hide();
 	}
 	
 	nodes = nodes.filter(":lt(" + maxResults + ")");

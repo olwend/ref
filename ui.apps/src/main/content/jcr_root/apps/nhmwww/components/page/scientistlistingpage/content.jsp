@@ -239,4 +239,9 @@
 			</div>
 		</c:forEach>
 	</div>
+	<div style="text-align: center;">
+		<a href="#" id="show-more">
+			Show more
+		</a>	
+	</div>
 </div>
