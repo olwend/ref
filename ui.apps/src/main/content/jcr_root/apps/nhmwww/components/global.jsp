@@ -45,6 +45,7 @@
         org.apache.sling.api.resource.Resource,
         org.apache.sling.api.resource.ValueMap,
         com.day.cq.commons.inherit.InheritanceValueMap,
+        com.day.cq.commons.Externalizer,
         com.day.cq.wcm.commons.WCMUtils,
         com.day.cq.wcm.api.Page,
         com.day.cq.wcm.api.NameConstants,
@@ -103,4 +104,11 @@
 		openText = "<span class=\"desktop\">Open </span>10.00-17.50";
 	}
 	
+%>
+
+<%
+	Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
+	String myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, "/content/hnmwww/en/home") + ".html";
+	String hostPort = myExternalizedUrl.substring(0, myExternalizedUrl.indexOf("/", 7));
+
 %>
