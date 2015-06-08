@@ -35,10 +35,9 @@
 
 			<div class="large-4 medium-6 columns large-left-section">
 				<div class="search-depts-divs">
-					<h2><label for="division">Department and division</label></h2>
-					Filter by
+					<label for="division">Filter by</label>
 					<select id="division">
-					    <option value="All" selected="selected">Deparment and Division</option>
+					    <option value="All" selected="selected">Department and Division</option>
 					    <%-- Department: Life Sciences --%>
 					    <option class="department" value="Life Sciences">Life sciences</option>
 					    <option class="division" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
@@ -205,9 +204,10 @@
 							<strong class="show-for-small-only">Job:</strong>
 							<c:out value="${profile.job}" />
 							<%-- Debugging purpose --%>
-								<c:out value=", "/>
-								<c:out value="${profile.function}"/>
-								<c:out value="${profile.fgroup}"/>
+								<%-- 
+									<br/>Function:<c:out value="${profile.function}"/>
+									<br/>FGroup:<c:out value="${profile.fgroup}"/>
+								--%>
 							<%-- Debugging purpose --%>
 						</p>
 					</div>
@@ -224,8 +224,15 @@
 							<c:if test="${not empty profile.specialisms}">
 								<strong class="show-for-small-only">Specialisms:</strong>
 							</c:if>
-							<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> --%>
-							<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/> 
+							<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
+							<c:choose>
+								<c:when test="${fn:length(profile.specialisms) > 175}">
+									<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
+								</c:when>
+								<c:otherwise>
+									<c:out value="${profile.specialisms}"/>
+								</c:otherwise>							
+							</c:choose>
 						</p>
 					</div>
 				</div>

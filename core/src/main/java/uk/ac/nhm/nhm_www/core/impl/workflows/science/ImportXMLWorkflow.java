@@ -359,6 +359,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         			departmentNode.setProperty(ScientistProfileHelper.DIVISION_ATTRIBUTE, organisationDefinition.getContent());
         			break;
         		case "Group Name":
+        			departmentNode.setProperty(ScientistProfileHelper.GROUP_NAME_ATTRIBUTE, organisationDefinition.getContent());
         			final String groupName = organisationDefinition.getContent();
         			if (groupName != null && !groupName.equals("")) {
         				departmentNode.setProperty(ScientistProfileHelper.GROUP_PATH_ATTRIBUTE, this.createGroupInformation(groupName, departmentNode.getParent().getParent()));

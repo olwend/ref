@@ -68,6 +68,7 @@ public class ScientistProfileHelper {
 	public static final String FROM_ATTRIBUTE 			  = "from";
 	public static final String FUNCTION_ATTRIBUTE 		  = "function";
 	public static final String GROUP_PATH_ATTRIBUTE		  = "groupPath";
+	public static final String GROUP_NAME_ATTRIBUTE		  = "groupName";
 	public static final String INSTITUTION_ATTRIBUTE 	  = "institution";
 	public static final String ISSUE_ATTRIBUTE 		   	  = "issue";
 	public static final String JOURNAL_NAME_ATTRIBUTE 	  = "journalName";

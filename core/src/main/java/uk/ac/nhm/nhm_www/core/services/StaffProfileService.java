@@ -120,6 +120,7 @@ public class StaffProfileService {
             //division = node.getProperty("department").getString();
             final Node departmentNode = node.getParent().getNode("department");
             department = departmentNode.getProperty("name").getString();
+            
             String textDivision = departmentNode.getProperty("division").getString();
             if (textDivision.startsWith("LS ") || textDivision.startsWith("ES ")) {
             	division = textDivision.substring(3);
@@ -128,16 +129,16 @@ public class StaffProfileService {
             }
             job = departmentNode.getProperty("position").getString();
             
-            if (node.hasProperty("fgroup")) {
-            	fgroup = departmentNode.getProperty("fgroup").getString();
-            } else {
-            	fgroup = " ####### No Group";
-            }
-            
-            if (node.hasProperty("function")) {
+            if (departmentNode.hasProperty("function")) {
             	function = departmentNode.getProperty("function").getString();
             } else {
-            	function = "########## No Function";
+            	function = "#Empty#";
+            }
+            
+            if (departmentNode.hasProperty("groupName") && departmentNode.getProperty("groupName").getString() != null ) {
+            	fgroup = departmentNode.getProperty("groupName").getString();
+            } else {
+            	fgroup = "#Empty#";
             }
             
             if (node.hasProperty("specialisms")) {
