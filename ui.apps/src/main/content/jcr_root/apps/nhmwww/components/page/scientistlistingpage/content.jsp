@@ -161,17 +161,17 @@
 				<h5>Image</h5>
 			</div>
 			<div id="name" class="large-7 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
-				<h5>Name &and;</h5>
+				<a href="#"><h5>Name </h5> <%-- &and; &or; --%>
 			</div>
 		</div>
 		<div id="job" class="large-2 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<h5>Job title &and;</h5>
+			<a href="#"><h5>Job title</h5></a>
 		</div>
 		<div id="departAndDiv" class="large-3 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<h5>Department and division  (&and;)</h5>
+			<a href="#"><h5>Department and division</h5></a>
 		</div>
 		<div id="specialisms" class="large-4 medium-4 columns profiles_table profile-content table_header hide-for-small-only">
-			<h5>Specialisms &and;</h5>
+			<a href="#"><h5>Specialisms</h5></a>
 		</div>
 	</div>
 	<div id="peopleList" class="row">
