@@ -79,9 +79,13 @@
 
 					<select id="collections">
 					    <option value="All" selected="selected">Collections</option>
-					    <%-- Collection: Botany --%>
-					    <option class="collection" value="Research">Research</option>
-					    <option class="group" value="Purvis Lab" data-collection="Research" data-group="Purvis Lab">&nbsp;&nbsp;&nbsp;&nbsp;F:Research, G:Purvis Lab</option> <%--Botany / Algae --%>
+					    <%-- Collection: FakeFilter_Research --%>
+					    <option class="collection" value="Research">FakeFilter F:Research</option>
+					    <option class="group" value="Purvis Lab" data-collection="Research" data-group="Purvis Lab">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Research, G:Purvis Lab</option> <%--Botany / Algae --%>
+					    
+					    <%-- Collection: FakeFilter_Collections --%> %>
+					    <option class="collection" value="Collections">FakeFilter F:Collections</option>
+					    <option class="group" value="Curator" data-collection="Collections" data-group="Curator">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Collections, G:Curator</option> <%--Botany / Algae --%>
 					    
 					    <%-- Collection: Botany --%>
 					    <option class="collection" value="Botany">Botany collections</option>
