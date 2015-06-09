@@ -53,20 +53,60 @@ $(document).ready(function() {
 	// #### Sorting #### 
 	// #################
 	
-	$("#name").click(function() {
+	$("#name").on("click", function(){
 		nameSorted = sortTable(0, nameSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('sort-results-down') ){
+			$(this).css('background-color', 'red');  
+			$(this).removeClass('sort-results-down');
+			$(this).addClass('sort-results-up');
+		} else {
+			$(this).css('background-color', 'blue');  
+			$(this).removeClass('sort-results-up');
+			$(this).addClass('sort-results-down');
+		}
 	});
 
-	$("#job").click(function() {
+	$("#job").on("click", function(){
 		jobSorted = sortTable(1, jobSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('sort-results-down') ){
+			$(this).css('background-color', 'red');  
+			$(this).removeClass('sort-results-down');
+			$(this).addClass('sort-results-up');
+		} else {
+			$(this).css('background-color', 'blue');  
+			$(this).removeClass('sort-results-up');
+			$(this).addClass('sort-results-down');
+		}
 	});
 
-	$("#departAndDiv").click(function() {
+	$("#departAndDiv").on("click", function(){
 		departmentSorted = sortTable(2, departmentSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('sort-results-down') ){
+			$(this).css('background-color', 'red');  
+			$(this).removeClass('sort-results-down');
+			$(this).addClass('sort-results-up');
+		} else {
+			$(this).css('background-color', 'blue');  
+			$(this).removeClass('sort-results-up');
+			$(this).addClass('sort-results-down');
+		}
 	});
 
-	$("#specialisms").click(function() {
+	$("#specialisms").on("click", function(){
 		specialismsSorted = sortTable(3, specialismsSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('sort-results-down') ){
+			$(this).css('background-color', 'red');  
+			$(this).removeClass('sort-results-down');
+			$(this).addClass('sort-results-up');
+		} else {
+			$(this).css('background-color', 'blue');  
+			$(this).removeClass('sort-results-up');
+			$(this).addClass('sort-results-down');
+		}
 	});
 	
 	// ###############################
