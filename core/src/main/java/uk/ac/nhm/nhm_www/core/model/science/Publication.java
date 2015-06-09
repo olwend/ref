@@ -22,7 +22,7 @@ public abstract class Publication implements Comparable<Publication> {
 		this.publicationYear = publicationYear;
 		this.favorite = favorite;
 		this.href = href;
-		this.reportingDate = reportingDate;
+		//this.reportingDate = reportingDate;
 	}
 
 	public abstract String getHTMLContent(final String currentAuthor, final boolean isFavorite);
