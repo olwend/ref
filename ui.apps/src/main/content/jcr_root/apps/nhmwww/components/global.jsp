@@ -108,7 +108,20 @@
 
 <%
 	Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
-	String myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, "/content/hnmwww/en/home") + ".html";
-	String hostPort = myExternalizedUrl.substring(0, myExternalizedUrl.indexOf("/", 7));
+	String myExternalizedUrl = "";
+	if(isOnEditMode || isOnPreviewMode || isOnDesignMode) {
+		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.AUTHOR, "/content/hnmwww/en/home") + ".html";	
+	} else {
+		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, "/content/hnmwww/en/home") + ".html";
+	}
+
+	int startIndex = 0;
+	if(myExternalizedUrl.startsWith("https")) {
+		startIndex = 8;
+	} else if(myExternalizedUrl.startsWith("http")){
+		startIndex = 7;
+	} 
+		
+	String hostPort = myExternalizedUrl.substring(0, myExternalizedUrl.indexOf("/", startIndex));
 
 %>

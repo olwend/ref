@@ -128,6 +128,7 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 				if (!updateCache(itemQuery))
 					return null;
 			}
+			
 
 			List<Page> pages = cache.get(itemQuery).getComplexObjectArray();
 			if(pages.size() > 0){
