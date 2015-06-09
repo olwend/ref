@@ -8,8 +8,7 @@ var departmentDivision = "";
 
 $(document).ready(function() {
 	
-	var globalMaxResult = 8,
-		resultsPerPage = 8;
+	var globalMaxResult = 8;
 	
 	var nameSorted 			= false,
 		jobSorted			= false,
@@ -73,6 +72,14 @@ $(document).ready(function() {
 	// ###############################
 	// #### Search & More Results #### 
 	// ###############################
+	
+	$("collections").on("change", (function(e) {
+		globalMaxResult = 8;
+	}));
+	
+	$("division").on("change", (function(e) {
+		globalMaxResult = 8;
+	}));
 
 	$("#search").click(function() {
 		globalMaxResult = 8;
@@ -83,8 +90,15 @@ $(document).ready(function() {
 	$("#show-more").bind('click', function(event) {
 		event.preventDefault();
 		globalMaxResult += 8;
+
+//		Update text depending on nOf results displayed for Debugging Purposes
+//		var $this = $(this);			
+//		$this.text('Show More (Showing ' + globalMaxResult + ')');
+		
 		searchFunc(globalMaxResult);
 	});
+	
+	
 	
 	nameSorted = sortTable(0, nameSorted);
 	
@@ -92,13 +106,16 @@ $(document).ready(function() {
 	searchFunc(globalMaxResult);
 });
 
-function saveSearchTerms(){
+function saveSearchTerms() {
 	name = $("#firstNameInput").val();
 	surname = $("#surnameInput").val();
 	keywords = $("#keywordsInput").val();
 	
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
+	
+	$collectionGroupSelected = $("#collections option:selected");
+	collectionsGroup = $collectionGroupSelected.val();
 }
 
 function searchFunc(maxResults) {
@@ -169,8 +186,24 @@ function searchFunc(maxResults) {
 		}
 	}
 	
-	if (nodes.length < maxResults){
+	if (collectionsGroup != "All") {
+		if ($collectionGroupSelected.hasClass("collection")) {
+			console.log("Collection: " + $collectionGroupSelected.val());
+			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
+		}
+		
+		if ($collectionGroupSelected.hasClass("group")) {
+			var collection = $collectionGroupSelected.data("collection");
+			var group = $collectionGroupSelected.data("group");
+			console.log("Group: " + collection + ", " + group);
+			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
+		}
+	}
+	
+	if (nodes.length < maxResults) {
 		$("#show-more").hide();
+	} else {
+		$("#show-more").show();
 	}
 	
 	nodes = nodes.filter(":lt(" + maxResults + ")");
@@ -201,8 +234,7 @@ function populateOptions() {
 		names.push(lastName + ", " + firstName);
 		
 		//Needed to not duplicate information
-		if (activities.indexOf(activity) == -1) 
-		{
+		if (activities.indexOf(activity) == -1) {
 			activities.push(activity);
 		}
 		
@@ -249,7 +281,9 @@ function populateFirstNames() {
 	//Populates the arrays with the information
 	for ( var i = 0; i < nodes.length; i++) {
 		var firstName = nodes[i].getAttribute("firstname");
-		names.push(firstName);
+		if ( $.inArray(firstName, names) < 0 ) {
+			names.push( firstName );	
+		}
 	}
 	
 	//Ascending sort of the arrays
@@ -266,7 +300,9 @@ function populateSurNames() {
 	//Populates the arrays with the information
 	for ( var i = 0; i < nodes.length; i++) {
 		var lastName = nodes[i].getAttribute("secondname");
-		names.push(lastName);
+		if ( $.inArray(lastName, names) < 0 ) {
+			names.push( lastName );	
+		}
 	}
 	
 	//Ascending sort of the arrays
@@ -323,11 +359,9 @@ function tableColors() {
 	var position = 0;
 	for ( var x = 0; x < childDiv.length; x++) {
 		if ($(childDiv[x]).height() > 0) {
-			if (position % 2 == 0) 
-			{
+			if (position % 2 == 0) {
 				childDiv[x].className = "row profiles_row odd";
-			} else 
-			{
+			} else {
 				childDiv[x].className = "row profiles_row";
 			}
 			position++;

@@ -97,8 +97,8 @@ public class StaffProfileService {
         private final String lastName;
         private final String department;
         private final String division;
-        private final String function;
-        private final String fgroup;
+        private final String collection;
+        private final String collectionGroup;
         private final String job;
         private final String[] specialisms;
         private final String url;
@@ -130,15 +130,15 @@ public class StaffProfileService {
             job = departmentNode.getProperty("position").getString();
             
             if (departmentNode.hasProperty("function")) {
-            	function = departmentNode.getProperty("function").getString();
+            	collection = departmentNode.getProperty("function").getString();
             } else {
-            	function = "#Empty#";
+            	collection = "#Empty#";
             }
             
             if (departmentNode.hasProperty("groupName") && departmentNode.getProperty("groupName").getString() != null ) {
-            	fgroup = departmentNode.getProperty("groupName").getString();
+            	collectionGroup = departmentNode.getProperty("groupName").getString();
             } else {
-            	fgroup = "#Empty#";
+            	collectionGroup = "#Empty#";
             }
             
             if (node.hasProperty("specialisms")) {
@@ -158,12 +158,12 @@ public class StaffProfileService {
             this.url = url; 
         }
         
-        public String getFunction() {
-			return function;
+        public String getCollection() {
+			return collection;
 		}
 
-		public String getFgroup() {
-			return fgroup;
+		public String getCollectionGroup() {
+			return collectionGroup;
 		}
 
 		public String getFirstName() {
