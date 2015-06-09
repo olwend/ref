@@ -14,7 +14,7 @@
         <!--<![endif]-->
         <!--adding test needs to be removed -->
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
-        <% if(helper.isDefaultLegacyCSS() { %>
+        <% if(helper.isDefaultLegacyCSS()) { %>
         	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-global.css"%>" />
        	<% } %>
         <% if(helper.getLegacyApp() != null && !helper.getLegacyApp().equals("")){ %>
