@@ -20,7 +20,7 @@
          <% } %>
         
         
-                <script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery.js"%>"></script>
+        <%--<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery.js"%>"></script>
 		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/utils.js"%>"></script>
 		<script type="text/javascript" src="<%= hostPort + "/etc/clientlibs/granite/jquery/granite.js"%>"></script>
 		<script type="text/javascript" src="<%= hostPort + "/etc/clientlibs/foundation/jquery.js"%>"></script>
@@ -33,6 +33,13 @@
 		<script type="text/javascript">var switchTo5x=true;</script>
 		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 		<script type="text/javascript">stLight.options({publisher: "4069e561-f5e3-40c7-a58e-a86ba8d470ac", doNotHash: false, doNotCopy: false, hashAddressBar: false, onhover: false});</script>
-		
+		--%>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery.min.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/utils.min.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery/granite.min.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/foundation/jquery.min.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery-ui.min.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/foundation/jquery-ui.min.js"%>"></script>
+		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/nhmwww/main.min.js"%>"></script>
 		
 		
