@@ -14,7 +14,9 @@
         <!--<![endif]-->
         <!--adding test needs to be removed -->
         <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
-        <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy.css"%>" />
+        <% if(helper.isDefaultLegacyCSS() { %>
+        	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-global.css"%>" />
+       	<% } %>
         <% if(helper.getLegacyApp() != null && !helper.getLegacyApp().equals("")){ %>
         	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-" + helper.getLegacyApp() + ".css"%>" />
          <% } %>
