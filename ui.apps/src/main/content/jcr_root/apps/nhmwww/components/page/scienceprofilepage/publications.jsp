@@ -7,25 +7,20 @@
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 
 	final Set<Publication> publications = helper.getPublications();
-
-	if (publications != null && !publications.isEmpty()) {
 %>
-<div class="large-12 medium-12 columns "><!-- Accordion -->	
-    <dl class="accordion" data-accordion>	
-        <dd class="accordion-navigation">
-            <a href="#publications"><h2>Publications </h2><span class="fa accordion-icon"></span></a>
-            <div id="publications" class="content">
-<%		
-		for (final Publication publication:publications) {
-%>
-				<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), false) %></p>
-<%			
-		}
-%>
-			</div>
-        </dd>
-    </dl>        
-</div><!-- end Accordion-->
-<%
-	}
-%>
+<% if (publications != null && !publications.isEmpty()) { %>
+	<!-- Accordion -->	
+		<div class="large-12 medium-12 columns ">
+		    <dl class="accordion" data-accordion>	
+		        <dd class="accordion-navigation">
+		            <a href="#publications"><h2>Publications </h2><span class="fa accordion-icon"></span></a>
+		            <div id="publications" class="content">
+						<% for (final Publication publication:publications) { %>
+							<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), false) %></p>
+						<% } %>
+					</div>
+		        </dd>
+		    </dl>        
+		</div>
+	<!-- end Accordion-->
+<% } %>
