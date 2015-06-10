@@ -24,7 +24,7 @@
 	} %>
 
 <%-- Grand Summary --%>
-	<div class="grand-summary--wrapper">
+	<div class="grand-summary--wrapper <% if(helper.isExhibition()) { %> grand-summary--exhibition <% } %>">
 		<%-- Main --%>
 			<% if ( helper.getLink() != null ) { %> <a href="<%= helper.getLink() %>" <% if ( helper.getNewWindow() != null ) { %> <%=helper.getNewWindow()%> <% } %>> <% } %>
 				<div class="grand-summary--image-wrapper">
@@ -52,7 +52,7 @@
 										<%} else { %>
 											<%-- Exhibition --%>
 												<div class="row caption grand-summary--exhibition">
-													<div class="small-10 medium-7 large-7 columns grand-summary--caption-title--container">
+													<div class="small-12 medium-7 large-7 columns grand-summary--caption-title--container">
 														<h2 class="grand-summary--caption-title">
 															<% if ( helper.getTitle() != null ) { %> <%=helper.getTitle()%> <% } %>
 														</h2>
