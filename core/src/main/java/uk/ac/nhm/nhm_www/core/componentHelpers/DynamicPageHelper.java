@@ -45,7 +45,7 @@ public class DynamicPageHelper {
 		setLegacyApp(legacyApp);
 		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
 		if(this.request != null) { 
-			this.protocol = request.getProtocol();
+			this.protocol = request.getScheme();
 		}
 		
 	}
@@ -99,8 +99,8 @@ public class DynamicPageHelper {
 	}
 
 	public String getProtocol() {
-		if (this.protocol != null && this.protocol.startsWith("HTTPS")) {
-			return "https://";
+		if (this.protocol != null) {
+			return this.protocol + "://";
 		} else {
 			return "http://";
 		}
