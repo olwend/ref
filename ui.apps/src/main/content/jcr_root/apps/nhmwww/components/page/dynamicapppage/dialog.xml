@@ -33,7 +33,7 @@
 	                        jcr:primaryType="cq:Widget"
 	                        fieldLabel="Include the general legacy CSS file"
 	                        name="./defaultLegacyCSS"
-	                        default="{Boolean}true"
+	                        defaultValue="{Boolean}true"
 	                        type="checkbox"
 	                        xtype="selection"/>
                         <legacyApp
