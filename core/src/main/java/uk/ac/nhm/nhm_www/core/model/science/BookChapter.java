@@ -99,8 +99,9 @@ public class BookChapter extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(">>>>>>>>This is a BookChapter<<<<<<<< ");
+		stringBuffer.append(" >>>>>>>> This is a BookChapter <<<<<<<< ");
 		stringBuffer.append(authorsString);
+		stringBuffer.append(". ");
 		
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());

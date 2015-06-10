@@ -1,5 +1,7 @@
 package uk.ac.nhm.nhm_www.core.model.science;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -59,21 +61,43 @@ public class JournalArticle extends Publication{
 	}
 
 	@Override
-	public String getHTMLContent(final String currentAuthor, final boolean isFavourite) {
-		//Lee, M. R., Hodson, M. E., Brown, D. J., MacKenzie, M. and Smith, C. L. (2008) The composition and crystallinity of the near-surface regions of weathered alkali feldspars. Geochimica et Cosmochimica Acta, 72 (issue, if any): 4962-4975.
-		// Authors (publication year) Title. Yournal name, Volume (issue): beginPage - endPage. <a href="href"> doi text </a>
-
+	public String getHTMLContent(final String author, final boolean isFavourite) {
+		// Butler, R. J. and Barrett, P. M. (2013) Global Cambrian trilobite palaeobiogeography assessed using parsimony analysis of endemicity. In: D.A.T Harper and T Servais (eds) Early Palaeozoic Biogeography and Palaeogeography, pp. 273-296. Geological Society, London.
+		// Authors (publication year) Title. Editors, Book Title, startPage - endPage. Publisher. Place.
 		final List<String> authors = this.getAuthors();
-		String authorsString;
-		if (authors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(authors.toArray(new String[authors.size()]), ", ", 0, 5) + ", et al";
-		} else {
-			authorsString = StringUtils.join(authors.toArray(new String[authors.size()]), ", ");
+		String authorsString = StringUtils.EMPTY;
+		
+		// First we normalize the author's name e.g: 
+		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
+		String currentAuthor = normalizeName(author, false);
+		String firstInitial = normalizeName(currentAuthor, true);
+		
+		Iterator<String> authorsIt = authors.iterator();
+		List<String> processedAuthors = new ArrayList<String>();
+		
+		while( authorsIt.hasNext() ){
+			String authorName = authorsIt.next().toString();
+			processedAuthors.add(normalizeName(authorName, false));
 		}
 		
-		authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+		if (processedAuthors.size() > 5 && isFavourite) {
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
+		} else {
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
+		}
+		
+//		LOG.error("This is the list of authors parsed: " + authorsString);
+//		LOG.error("Current Author: " + currentAuthor);
+//		LOG.error("First Initial Author: " + firstInitial);
+		if (authorsString.contains(currentAuthor)) {
+			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+		} else if (authorsString.contains(firstInitial)) {
+			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+		}
+//		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(" >>>>>> This is a Journal <<<<< ");
 		stringBuffer.append(authorsString);
 		
 		stringBuffer.append(" (");
