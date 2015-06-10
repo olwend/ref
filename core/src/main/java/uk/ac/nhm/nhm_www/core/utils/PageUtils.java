@@ -124,4 +124,30 @@ public class PageUtils {
 		return new SimpleDateFormat("d MMMM YYYY ").format(date);
 	}
 	
+	public static String getPageSection(Page page) {
+		String cssClassSection = "";
+		
+		if(page != null && page.getDepth() > 5) {
+			Page landingPage = page.getAbsoluteParent(4);
+			cssClassSection = landingPage.getName();
+		} else if(page != null && (page.getDepth() == 5 || page.getDepth() == 4)) {
+			cssClassSection = page.getName();
+		}
+		return cssClassSection;
+		
+	}
+
+
+	public static String getPageKeywords(Page page) {
+		String tags = "";
+		String[] pageTags = page.getProperties().get("cq:tags", String[].class);
+		if(pageTags != null && pageTags.length >0) {
+			for(String tag: pageTags) {
+				tags += tag + ", ";
+			}
+			tags = tags.substring(0, tags.length()-1);
+		}
+		return tags;
+	}
+	
 }

@@ -47,7 +47,7 @@
                                     	<p class="tablet desktop">Our main entrance is on Cromwell Road, just five minutes' walk from South Kensington Tube station.</p>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="/tring/index.html">The Museum at Tring</a>
+                                        <a href="/visit/tring.html">The Museum at Tring</a> 
                                     	<p class="tablet desktop">Visit our Museum in Hertfordshire.</p>
                                     </li>
                                 </div>
@@ -55,7 +55,7 @@
                                     <li class="nav-list__item">
 
                                     <a href="/content/nhmwww/en/home/visit/getting-here.html"><img src="https://maps.googleapis.com/maps/api/staticmap?size=360x200&markers=color:red|Natural%20History%20Museum,Cromwell%20Road,%20London" alt="Natural History Museum"></a>
-
+ 
 
                             <!--  <iframe width="360" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Natural%20History%20Museum%2C%20Cromwell%20Road%2C%20London%2C%20United%20Kingdom&key=AIzaSyC09eunz5fyve_HGt3DQGRQzEpQT1A1HbA"></iframe>  -->
                                     </li>
@@ -245,7 +245,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-list__item">
-                                    <a href="/research-curation/news-events/news/index.html" class="news">
+                                    <a href="/our-science/science-news.html" class="news">
                                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_media_news.svg" data-svg-title="icon__news" data-alt="Newspaper" data-base-color="#357900" data-hover-color="#357900" data-stroke-width="3" data-hover-state="yes" data-fallback="/etc/designs/nhmwww/img/icons/nav-newspaper.png"></i>
                                         News
                                     </a>

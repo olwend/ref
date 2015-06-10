@@ -1,17 +1,11 @@
 $(document).ready(function() {
 	//Use JQuery AJAX request to post data to a Sling Servlet
-	var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-	var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
+	var rootPath = $('.js-feed-wrapper').data('rootpath');
+	var pageSize = $('.js-feed-wrapper').data('pagesize');
 	
 	if (rootPath && pageSize) {
-		showPressReleases(rootPath, 1, pageSize);
+		showFeeds(rootPath, 1, pageSize);
 	}
-	
-	
-	
-	
-	
-	
 });
 
 function addMoreResultsButton() {
@@ -26,22 +20,22 @@ function addMoreResultsButton() {
 	h5Tag.innerHTML = "More results";
 	aTag.appendChild(h5Tag);
 	moreElementsDiv.appendChild(aTag);
-	document.getElementById("pressreleaselistfeed_wrapper").appendChild(moreElementsDiv);
+	document.getElementById("js-feed-wrapper").appendChild(moreElementsDiv);
 	
-	$('.pressreleaselistfeed .more-results').click(function(){
-		var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-		var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
+	$('.js-feed-wrapper .more-results').click(function(){
+		var rootPath = $('.js-feed-wrapper').data('rootpath');
+		var pageSize = $('.js-feed-wrapper').data('pagesize');
 		removeMoreResultsButton();
-		var elementsShowed = $('.press-office--list-item').length;
+		var elementsShowed = $('.feed--item').length;
 		var elementsToAdd = pageSize;
 		currentPage = elementsShowed / pageSize;
-		showPressReleases(rootPath, currentPage+1, pageSize);
+		showFeeds(rootPath, currentPage+1, pageSize);
 		
 	});
 }
 
 function removeMoreResultsButton() {
-	 var wrapperDiv = document.getElementById('pressreleaselistfeed_wrapper');
+	 var wrapperDiv = document.getElementById('js-feed-wrapper');
 	 var divToDelete = document.getElementById("more_results");
 	 wrapperDiv.removeChild(divToDelete);
 
@@ -49,7 +43,7 @@ function removeMoreResultsButton() {
 }
 	
 
-function showPressReleases(rootPath, pageNumber, pageSize) {
+function showFeeds(rootPath, pageNumber, pageSize) {
 	$.ajax({
 		type: 'GET',    
 		url: '/bin/list/pagination.json',
@@ -78,7 +72,7 @@ function showPressReleases(rootPath, pageNumber, pageSize) {
 function buildNavigators(pageNumber, numberOfPages) {
 	
 	/*if (numberOfPages > 1) {
-		$.each($('.pressreleaselistfeed-wrapper .pagination-centered'), function(index, item) { 
+		$.each($('.js-feed-wrapper .pagination-centered'), function(index, item) { 
 			//var pagination = document.createElement('ul');
 			//pagination.className = 'pagination';
 			
@@ -131,21 +125,21 @@ function buildNavigators(pageNumber, numberOfPages) {
 			
 			$(this).append(pagination);
 			
-			$('.pressreleaselistfeed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
+			$('.js-feed-wrapper .pagination-centered .pagination li:not(.unavailable) a').click(function(){
 				var to = $(this).data('index');
 				
 				if ($(this).parent().hasClass('unavailable')) {
 					return false;
 				}
 				
-				var rootPath = $('.pressreleaselistfeed-wrapper').data('rootpath');
-				var pageSize = $('.pressreleaselistfeed-wrapper').data('pagesize');
+				var rootPath = $('.js-feed-wrapper').data('rootpath');
+				var pageSize = $('.js-feed-wrapper').data('pagesize');
 				
 				if (rootPath && pageSize) {
-					$('.pressreleaselistfeed-wrapper .pagination-centered').empty();
+					$('.js-feed-wrapper .pagination-centered').empty();
 					$('.press-room--list').empty();
 					
-					showPressReleases(rootPath, to, pageSize);
+					showFeeds(rootPath, to, pageSize);
 				}
 				
 				return false;
@@ -163,8 +157,8 @@ function showItems(pageJson) {
 		
 		var link = item.path + ".html";
 		
-		var element = createPressRelease(title, intro, date, imagePath, link);
-		$('.press-office--list').append(element);
+		var element = createFeed(title, intro, date, imagePath, link);
+		$('.feed--list').append(element);
 	});
 	
 	setTimeout(function(){
@@ -174,19 +168,19 @@ function showItems(pageJson) {
 	
 }
 
-function createPressRelease(title, intro, date, imagePath, url) {
+function createFeed(title, intro, date, imagePath, url) {
 	var element = document.createElement("div");
-	element.className = 'press-office--list-item';
+	element.className = 'feed--item';
 	element.setAttributeNode(document.createAttribute('data-equalizer'));
 	
 	var dateDiv = document.createElement("div");
-	dateDiv.className = 'small-12 columns press-office--list-item--caption';
+	dateDiv.className = 'small-12 columns feed--item--caption';
 	dateDiv.innerHTML = date;
 	
 	element.appendChild(dateDiv);
 	
 	var wrapperDiv = document.createElement("div");
-	wrapperDiv.className = 'small-12 columns press-office--list-item--content-wrapper';
+	wrapperDiv.className = 'small-12 columns feed--item--content-wrapper';
 	var firstColumnDiv = document.createElement("div");
 	firstColumnDiv.className = 'small-12 medium-6 columns';
 	firstColumnDiv.setAttributeNode(document.createAttribute('data-equalizer'));
@@ -223,10 +217,10 @@ function createPressRelease(title, intro, date, imagePath, url) {
 	secondColumnDiv.className = 'small-12 medium-6 columns';
 	
 	var contentDiv = document.createElement('div');
-	contentDiv.className = 'press-office--list-item--content';
+	contentDiv.className = 'feed--item--content';
 	
 	var h4 = document.createElement('h4');
-	h4.className = 'press-office--list-item--title';
+	h4.className = 'feed--item--title';
 	
 	var link2 = document.createElement('a');
 	link2.href = url;
@@ -238,7 +232,7 @@ function createPressRelease(title, intro, date, imagePath, url) {
 	
 	var p = document.createElement('p');
 	p.innerHTML = intro;
-	p.className = 'press-office--list-item--tagline';
+	p.className = 'feed--item--tagline';
 	
 	contentDiv.appendChild(p);
 	secondColumnDiv.appendChild(contentDiv);
