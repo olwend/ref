@@ -4,32 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <% DynamicPageHelper helper = new DynamicPageHelper(resource, properties, request); %>
-	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
+	<link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
         <!--[if lte IE 8]>
-		<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/styles-desktop.css"%>" />
+		<link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/styles-desktop.css"%>" />
         <![endif]-->
         <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/styles.css"%>" />
+        <link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/styles.css"%>" />
         <!--<![endif]-->
         <!--adding test needs to be removed -->
-        <link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
+        <link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/twitter.css"%>" />
         <% if(helper.isDefaultLegacyCSS()) { %>
-        	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-global.css"%>" />
+        	<link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/nhm-legacy-global.css"%>" />
        	<% } %>
         <% if(helper.getLegacyApp() != null && !helper.getLegacyApp().equals("")){ %>
-        	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/css/nhm-legacy-" + helper.getLegacyApp() + ".css"%>" />
+        	<link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/nhm-legacy-" + helper.getLegacyApp() + ".css"%>" />
          <% } %>
         
         
-        <script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/jquery.js"%>"></script>
-		<script type="text/javascript" src="<%= hostPort  + "/etc/clientlibs/granite/utils.js"%>"></script>
-		<script type="text/javascript" src="<%= hostPort + "/etc/clientlibs/granite/jquery/granite.js"%>"></script>
-		<script type="text/javascript" src="<%= hostPort + "/etc/clientlibs/foundation/jquery.js"%>"></script>
+        <script type="text/javascript" src="<%= helper.getProtocol() + hostPort  + "/etc/clientlibs/granite/jquery.js"%>"></script>
+		<script type="text/javascript" src="<%= helper.getProtocol() + hostPort  + "/etc/clientlibs/granite/utils.js"%>"></script>
+		<script type="text/javascript" src="<%= helper.getProtocol() + hostPort + "/etc/clientlibs/granite/jquery/granite.js"%>"></script>
+		<script type="text/javascript" src="<%= helper.getProtocol() + hostPort + "/etc/clientlibs/foundation/jquery.js"%>"></script>
         
-        <script src="<%= hostPort + currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
-        <script src="<%= hostPort + currentDesign.getPath() + "/js/plugins.js"%>"></script>
-        <script src="<%= hostPort + currentDesign.getPath() + "/js/main.js"%>"></script>
+        <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
+        <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/plugins.js"%>"></script>
+        <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/main.js"%>"></script>
 
         <script>dataLayer = [];</script>
 		<script type="text/javascript">var switchTo5x=true;</script>
