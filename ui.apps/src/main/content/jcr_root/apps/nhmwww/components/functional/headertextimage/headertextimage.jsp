@@ -28,11 +28,13 @@
 <% 	HeaderTextImageHelper helper = new HeaderTextImageHelper(properties, resource, request, xssAPI); %>
 <%	String svgIcon = ""; %>
 <%	String svgBaseColor = ""; %>
+<%	String svgStrokeWidth = "4";%>
 
 <% if (helper.hasCTA()){
 		if (helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
+			svg.setStrokeWidth(svgStrokeWidth);
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
 			svgBaseColor = svg.getBaseColour();
 		}
