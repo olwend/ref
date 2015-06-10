@@ -111,7 +111,7 @@ public class BookChapter extends Publication{
 		stringBuffer.append(". ");
 		
 		final List<String> editors = this.getEditors();
-		if (editors != null) {
+		if (editors != null && editors.size() > 0) {
 			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
 			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
@@ -126,13 +126,13 @@ public class BookChapter extends Publication{
 			stringBuffer.append(", ");
 		}
 		
+		stringBuffer.append("In: ");
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.bookTitle);
-		stringBuffer.append("</i>.");
+		stringBuffer.append("</i>");
+		stringBuffer.append(" (eds), ");
 		
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(", ");
-			
 			stringBuffer.append("pp. ");
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");

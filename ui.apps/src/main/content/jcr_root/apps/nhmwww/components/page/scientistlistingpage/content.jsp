@@ -30,7 +30,7 @@
 					<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
 				</div>
 				<div class="search-keywords">
-					<input type="text" id="keywordsInput" name="Keywords" placeholder='Keywords' />
+					<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
 				</div>
 			</div>
 
