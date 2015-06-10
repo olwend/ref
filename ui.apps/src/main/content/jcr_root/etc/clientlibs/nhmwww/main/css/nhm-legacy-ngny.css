@@ -1,0 +1,208 @@
+.legacy-css h2, .legacy-css h3, .legacy-css #site-name, .legacy-css .nature-group h4, .legacy-css .profile h4, .legacy-css .profile h5, .legacy-css .field-type-text-with-summary h2 {
+  font-family: Arial, sans-serif;
+}
+
+/** resets footer styles **/
+.main-footer legend {
+  color: #FFFFFF;
+}
+.main-footer label {
+  font-weight: normal;
+}
+
+.legacy-css {
+  font-size: 0.75em;
+  color: #000000;
+}
+.legacy-css ul {
+  font-size: 1em;
+}
+.legacy-css p {
+  margin: 0;
+  padding: 0;
+}
+.legacy-css a {
+  color: #228900;
+  text-decoration: underline;
+}
+.legacy-css a:hover {
+  text-decoration: underline;
+}
+.legacy-css select {
+  width: auto;
+}
+.legacy-css #site-name {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+.legacy-css .page-header a:hover {
+  text-decoration: none;
+}
+.legacy-css .sidebar-first {
+  width: 170px;
+}
+.legacy-css .view-Homepage .views-field-body h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.legacy-css .view-Homepage .views-field-body p {
+  font-size: 1em;
+}
+.legacy-css #views-exposed-form-nature-groups-home-search-block label {
+  display: none;
+}
+.legacy-css #views-exposed-form-nature-groups-home-search-block input#edit-name-or-description {
+  height: 26px;
+  margin-top: 21px;
+}
+.legacy-css #views-exposed-form-nature-groups-search-page label {
+  color: #000000;
+}
+.legacy-css #edit-moreoptions {
+  width: 690px;
+}
+.legacy-css .front-page-pos h2 {
+  font-weight: bold;
+  padding: 0;
+}
+.legacy-css .front-page-pos p {
+  font-size: 1em;
+}
+.legacy-css .front-page-pos .view-events-listings a {
+  text-decoration: underline;
+}
+.legacy-css .front-page-pos #boxes-box-homepage_updatable a {
+  text-decoration: underline;
+}
+.legacy-css .front-page-pos #boxes-box-homepage_updatable p {
+  margin-bottom: 1em;
+}
+.legacy-css .block-nhmblocks h2 {
+  font-weight: bold;
+  font-size: 1.4em;
+  padding: 0;
+}
+.legacy-css .view-nature-groups h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+.legacy-css .nature-group h4 {
+  font-weight: bold;
+}
+.legacy-css .profile a:hover {
+  text-decoration: none;
+}
+.legacy-css .profile h2 {
+  font-weight: bold;
+  color: #228900;
+}
+.legacy-css .profile h3 {
+  font-weight: bold;
+  color: #228900;
+}
+.legacy-css .profile h4 {
+  margin-bottom: 0.5em;
+  padding: 0;
+  color: #228900;
+  font-weight: bold;
+}
+.legacy-css .profile h5 {
+  margin-bottom: 0.5em;
+  padding: 0;
+  color: #228900;
+  font-weight: bold;
+}
+.legacy-css .profile .user-greeting {
+  font-size: 1em;
+}
+.legacy-css .profile .account-deletion {
+  font-size: 1em;
+}
+.legacy-css .profile .account-deletion a:hover {
+  text-decoration: underline;
+}
+.legacy-css .field-type-text-with-summary p {
+  font-size: 1em;
+}
+.legacy-css .field-type-text-with-summary h2 {
+  color: #228900;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+}
+.legacy-css #block-user-login label {
+  float: none;
+}
+.legacy-css #block-user-login h2 {
+  color: #228900;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+}
+.legacy-css #sidebar-second #block-block-6 h2 {
+  margin-bottom: 1em;
+}
+.legacy-css #sidebar-second h2 {
+  color: #228900;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+.legacy-css #sidebar-second p {
+  font-size: 1em;
+}
+.legacy-css #sidebar-second a {
+  text-decoration: none;
+}
+.legacy-css #sidebar-second a:hover {
+  text-decoration: none;
+}
+.legacy-css #block-boxes-home-page-faq a {
+  text-decoration: underline;
+}
+.legacy-css #block-boxes-home-page-faq a:hover {
+  text-decoration: underline;
+}
+.legacy-css #block-boxes-home-page-faq .more-link a {
+  text-decoration: none;
+}
+.legacy-css #block-boxes-home-page-faq .more-link a:hover {
+  text-decoration: underline;
+}
+.legacy-css #block-nhmblocks-events-by-group h2 {
+  color: #228900;
+}
+.legacy-css .custom-naturegroup-details-view h2 {
+  color: #228900;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+.legacy-css #block-boxes-naturegoups-form-help p {
+  font-size: 1em;
+}
+.legacy-css #block-boxes-node-add-event-help p {
+  font-size: 1em;
+}
+.legacy-css #crm-container .label {
+  background: none;
+  color: #000000;
+  padding: 0;
+}
+.legacy-css #event-node-form label {
+  float: none;
+}
+
+.page-naturegroups .legacy-css #main-content {
+  width: 507px;
+}
+
+.two-sidebars .legacy-css #main-content {
+  width: 519px;
+}
+
+/*# sourceMappingURL=nhm-legacy-ngny.css.map */
