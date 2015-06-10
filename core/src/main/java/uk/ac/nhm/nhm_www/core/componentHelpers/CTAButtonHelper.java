@@ -59,7 +59,6 @@ public class CTAButtonHelper extends HelperBase {
 		this.helperFactory = new HelperFactory(resource);
 		helperFactory.getProperties();
 		init();
-		
 	}
 	
 	/**

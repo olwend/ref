@@ -33,6 +33,12 @@
                         name="./newwindow"
                         type="checkbox"
                         xtype="selection"/>
+                    <rootPagePath
+                        jcr:primaryType="cq:Widget"
+                        name="./rootPagePath"
+                        fieldLabel="Root page"
+                        width="155"
+                        xtype="pathfield"/>
                 </items>
             </basic>
         </items>

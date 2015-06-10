@@ -1,43 +1,15 @@
 package uk.ac.nhm.nhm_www.core.model;
 
-import org.apache.sling.api.resource.ResourceResolver;
+public interface ListElement {
 
-import uk.ac.nhm.nhm_www.core.utils.PageUtils;
+	public abstract String getTitle();
 
-import com.day.cq.wcm.api.Page;
+	public abstract void setTitle(String title);
 
-public class ListElement {
-	protected String title;
-	protected String elementLink;
-	
+	public abstract String getElementLink();
 
-	public ListElement(Page page) {
-		this.title = PageUtils.getPageTitle(page);
-		this.elementLink = page.getPath();
-	}
-	
-	public String getTitle() {
-		return title;
-	}
+	public abstract void setElementLink(String elementLink);
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	public abstract boolean isInitialised();
 
-	public String getElementLink() {
-		return elementLink;
-	}
-
-	public void setElementLink(String elementLink) {
-		this.elementLink = elementLink;
-	}
-	
-	public boolean isInitialised() {
-		if(this.title != null && this.elementLink !=null ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 }
