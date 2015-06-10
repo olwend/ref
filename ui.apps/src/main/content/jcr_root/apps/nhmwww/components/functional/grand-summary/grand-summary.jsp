@@ -8,6 +8,7 @@
 <%	GrandSummaryHelper helper = new GrandSummaryHelper(slingRequest, currentPage, properties); %>
 <%	String svgIcon = ""; %>
 <%	String svgColor = "#565656"; %>
+<%	String svgStrokeWidth = "4"; %>
 
 <% 	if(helper.isExhibition()){
 		if(helper.hasCTAIcon()){
@@ -16,6 +17,7 @@
 			//Changing colour from inherit section to hardcoded grey #565656.
 			svg.setBaseColour(svgColor);
 			svg.setHoverColour(svgColor);
+			svg.setStrokeWidth(svgStrokeWidth);
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
 			svgColor = svg.getBaseColour();
 		}
