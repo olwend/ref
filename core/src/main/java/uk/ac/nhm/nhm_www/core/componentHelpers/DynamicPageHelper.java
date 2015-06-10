@@ -10,6 +10,7 @@ public class DynamicPageHelper {
 	private ValueMap properties;
 	private String pageIntroduction;
 	private String legacyApp;
+	private Boolean defaultLegacyCSS;
 	
 	public DynamicPageHelper(Resource resource,ValueMap properties)
 	{
@@ -36,6 +37,7 @@ public class DynamicPageHelper {
 			legacyApp = getProperties().get("legacy-app", String.class);
 		}
 		setLegacyApp(legacyApp);
+		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
 		
 	}
 
@@ -70,6 +72,15 @@ public class DynamicPageHelper {
 	public void setLegacyApp(String legacyApp) {
 		this.legacyApp = legacyApp;
 	}
+
+	public Boolean isDefaultLegacyCSS() {
+		return defaultLegacyCSS;
+	}
+
+	public void setDefaultLegacyCSS(Boolean defaultLegacyCSS) {
+		this.defaultLegacyCSS = defaultLegacyCSS;
+	}
+	
 	
 	
 	

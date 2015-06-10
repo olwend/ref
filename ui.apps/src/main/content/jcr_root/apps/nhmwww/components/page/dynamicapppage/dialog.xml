@@ -29,6 +29,13 @@
                                 path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
                                 xtype="cqinclude"/>
                         </introduction>
+                        <defaultLegacyCSS
+	                        jcr:primaryType="cq:Widget"
+	                        fieldLabel="Include the general legacy CSS file"
+	                        name="./defaultLegacyCSS"
+	                        defaultValue="{Boolean}true"
+	                        type="checkbox"
+	                        xtype="selection"/>
                         <legacyApp
 		                    jcr:primaryType="cq:Widget"
 		                    defaultValue=""
