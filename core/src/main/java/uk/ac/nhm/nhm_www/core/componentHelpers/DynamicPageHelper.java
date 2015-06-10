@@ -1,5 +1,7 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
@@ -9,13 +11,13 @@ import com.day.cq.wcm.api.Page;
 public class DynamicPageHelper {
 	private Resource resource;
 	private ValueMap properties;
-	private SlingHttpServletRequest request;
+	private HttpServletRequest request;
 	private String pageIntroduction;
 	private String legacyApp;
 	private String protocol;
 	private Boolean defaultLegacyCSS;
 	
-	public DynamicPageHelper(Resource resource,ValueMap properties, SlingHttpServletRequest request)
+	public DynamicPageHelper(Resource resource,ValueMap properties, HttpServletRequest request)
 	{
 //		this.image = getProperties().get("image", String.class);
 		setResource(resource);
@@ -24,11 +26,10 @@ public class DynamicPageHelper {
 		init();
 	}
 
-	public DynamicPageHelper(Page page, SlingHttpServletRequest request) {
+	public DynamicPageHelper(Page page) {
 		Resource pageResource = page.adaptTo(Resource.class);
 		setResource(pageResource);
 		setProperties(page.getProperties());;
-		setRequest(request);
 		init();
 	}
 	private void init() {
@@ -43,7 +44,9 @@ public class DynamicPageHelper {
 		}
 		setLegacyApp(legacyApp);
 		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
-		this.protocol = request.getProtocol();
+		if(this.request != null) { 
+			this.protocol = request.getProtocol();
+		}
 		
 	}
 
@@ -63,11 +66,11 @@ public class DynamicPageHelper {
 		this.properties = properties;
 	}
 	
-	public SlingHttpServletRequest getRequest() {
+	public HttpServletRequest getRequest() {
 		return request;
 	}
 
-	public void setRequest(SlingHttpServletRequest request) {
+	public void setRequest(HttpServletRequest request) {
 		this.request = request;
 	}
 
@@ -96,7 +99,7 @@ public class DynamicPageHelper {
 	}
 
 	public String getProtocol() {
-		if (this.protocol.startsWith("HTTPS")) {
+		if (this.protocol != null && this.protocol.startsWith("HTTPS")) {
 			return "https://";
 		} else {
 			return "http://";
