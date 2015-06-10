@@ -122,6 +122,6 @@
 		startIndex = 7;
 	} 
 		
-	String hostPort = myExternalizedUrl.substring(0, myExternalizedUrl.indexOf("/", startIndex));
+	String hostPort = myExternalizedUrl.substring(startIndex, myExternalizedUrl.indexOf("/", startIndex));
 
 %>

@@ -3,7 +3,7 @@
 <%@ page session="false" %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <% DynamicPageHelper helper = new DynamicPageHelper(resource, properties); %>
+    <% DynamicPageHelper helper = new DynamicPageHelper(resource, properties, request); %>
 	<link rel="stylesheet" href="<%= hostPort + currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
         <!--[if lte IE 8]>
