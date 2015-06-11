@@ -101,7 +101,7 @@ public class JournalArticle extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(" >>>>>> This is a Journal without # <<<<< ");
+		stringBuffer.append(" >>>>>> This is a Journal <<<<< ");
 		
 		// Author N.M., Author N.M.
 		stringBuffer.append(authorsString);
