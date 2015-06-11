@@ -83,7 +83,7 @@ public class BookChapter extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
@@ -100,16 +100,26 @@ public class BookChapter extends Publication{
 		
 		final StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(" >>>>>>>> This is a BookChapter <<<<<<<< ");
-		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 		
+		// Author N.M., Author N.M.
+		stringBuffer.append(authorsString);
+		
+		// (Year)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		// ChapterTitle,
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append(". ");
+		stringBuffer.append(", ");
 		
+		// In: <i>BookTitle</i>,
+		stringBuffer.append("In: ");
+		stringBuffer.append("<i>");
+		stringBuffer.append(this.bookTitle);
+		stringBuffer.append("</i>, ");
+		
+		// Editor N.M., Editor N.M. (Eds).
 		final List<String> editors = this.getEditors();
 		if (editors != null && editors.size() > 0) {
 			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
@@ -121,34 +131,29 @@ public class BookChapter extends Publication{
 				editorsString = editorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
 			
-			stringBuffer.append(", ");
 			stringBuffer.append(editorsString);
-			stringBuffer.append(", ");
+			stringBuffer.append(" (Eds). ");
 		}
 		
-		stringBuffer.append("In: ");
-		stringBuffer.append("<i>");
-		stringBuffer.append(this.bookTitle);
-		stringBuffer.append("</i>");
-		stringBuffer.append(" (eds), ");
+		// Publisher
+		if (this.publisher != null) {
+			stringBuffer.append(this.publisher);
+			if (this.place != null) { stringBuffer.append(" : "); }
+		}
 		
+		// :PublishingLocation
+		if (this.place != null) {
+			stringBuffer.append(this.place);
+			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) { stringBuffer.append(", "); }
+		}
+		
+		// PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append("pp. ");
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
 		}
-		stringBuffer.append(". ");
-		
-		if (this.publisher != null) {
-			stringBuffer.append(this.publisher);
-			stringBuffer.append(". ");
-		}
-		
-		if (this.place != null) {
-			stringBuffer.append(this.place);
-			stringBuffer.append(".");
-		}
+		stringBuffer.append(".");
 		
 //		LOG.error("#### The final result for the publication is: " + stringBuffer + "####"); 
 		
