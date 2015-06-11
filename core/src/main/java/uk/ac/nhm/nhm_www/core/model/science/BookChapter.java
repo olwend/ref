@@ -98,6 +98,9 @@ public class BookChapter extends Publication{
 		}
 //		LOG.error("After being replaced: " + authorsString);
 		
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
+		
 		final StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(" >>>>>>>> This is a BookChapter <<<<<<<< ");
 		

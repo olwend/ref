@@ -70,7 +70,8 @@ public class JournalArticle extends Publication{
 		// First we normalize the author's name e.g: 
 		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
 		String currentAuthor = normalizeName(author, false);
-		String firstInitial = normalizeName(currentAuthor, true);
+		// We store the author name with a single initial	e.g: Ouvrard D
+		String firstInitial = normalizeName(author, true);
 		
 		Iterator<String> authorsIt = authors.iterator();
 		List<String> processedAuthors = new ArrayList<String>();
@@ -81,7 +82,7 @@ public class JournalArticle extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
@@ -94,24 +95,33 @@ public class JournalArticle extends Publication{
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
+		
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(" >>>>>> This is a Journal <<<<< ");
+		stringBuffer.append(" >>>>>> This is a Journal without # <<<<< ");
+		
+		// Author N.M., Author N.M.
 		stringBuffer.append(authorsString);
 		
+		// (Year)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		// ArticleTitle.
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append(". ");
 		
+		// <i>JournalName</i>
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getJournalName());
 		stringBuffer.append("</i>");
 		stringBuffer.append(", ");
 		
+		// <b>Volume</b>
 		if (this.volume > 0) {
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
@@ -119,20 +129,23 @@ public class JournalArticle extends Publication{
 			stringBuffer.append(" ");
 		}
 		
+		// Issue
 		if (this.issue >= 0) {
-			stringBuffer.append("(");
+			stringBuffer.append("");
 			stringBuffer.append(this.issue);
-			stringBuffer.append(")");
+			stringBuffer.append(" : ");
 		}
 		
+		// : PagesBegin-PagesEnd
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(": ");
+			stringBuffer.append(" ");
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
 			stringBuffer.append(". ");
 		}
 		
+		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.doiLink);

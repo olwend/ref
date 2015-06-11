@@ -118,7 +118,8 @@ public abstract class Publication implements Comparable<Publication> {
 		
 		//All together it turns it into				e.g: Ouvrard DNM 
 		//If firstInitial was true it will be		e.g: Ouvrard D
-		return "" + ret;
+		//We surround it with # to delimit the beginning and the end of the name.
+		return "#" + ret + "#";
 	}
 
 }
