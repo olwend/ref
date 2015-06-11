@@ -92,9 +92,9 @@ public class BookChapter extends Publication{
 //		LOG.error("Current Author: " + currentAuthor);
 //		LOG.error("First Initial Author: " + firstInitial);
 		if (authorsString.contains(currentAuthor)) {
-			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + firstInitial + "</b>");
+			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		} else if (authorsString.contains(firstInitial)) {
-			authorsString = authorsString.replaceAll(firstInitial, "<b>" + firstInitial + "</b>");
+			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
 //		LOG.error("After being replaced: " + authorsString);
 		
@@ -126,9 +126,9 @@ public class BookChapter extends Publication{
 			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
 			if (editorsString.contains(currentAuthor)) {
-				editorsString = editorsString.replaceAll(currentAuthor, "<b>" + firstInitial + "</b>");
+				editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			} else if (authorsString.contains(firstInitial)) {
-				editorsString = editorsString.replaceAll(firstInitial, "<b>" + firstInitial + "</b>");
+				editorsString = editorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
 			
 			stringBuffer.append(editorsString);
