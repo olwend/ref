@@ -66,9 +66,9 @@ public class Book extends Publication{
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
 		
-//		LOG.error("This is the list of authors parsed: " + authorsString);
-//		LOG.error("Current Author: " + currentAuthor);
-//		LOG.error("First Initial Author: " + firstInitial);
+		//		LOG.error("This is the list of authors parsed: " + authorsString);
+		//		LOG.error("Current Author: " + currentAuthor);
+		//		LOG.error("First Initial Author: " + firstInitial);
 		if (authorsString.contains(currentAuthor)) {
 			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		} else if (authorsString.contains(firstInitial)) {
@@ -76,11 +76,26 @@ public class Book extends Publication{
 		}
 //		LOG.error("After being replaced: " + authorsString);
 		
-		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(" >>>>>>>> This is a Book <<<<<<<< ");
-		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
 		
+		final StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(" >>>> This is a Book <<<< ");
+		
+		// Author N.M., Author N.M.
+		stringBuffer.append(authorsString);
+
+		// (Year)
+		stringBuffer.append(" (");
+		stringBuffer.append(this.getPublicationYear());
+		stringBuffer.append(") ");
+		
+		// <i>BookTitle</i>
+		stringBuffer.append("<i>");
+		stringBuffer.append(this.getTitle());
+		stringBuffer.append("</i>. ");
+		
+		// Editor N.M., Editor N.M.
 		final List<String> editors = this.getEditors();
 		if (editors != null) {
 			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
@@ -92,30 +107,28 @@ public class Book extends Publication{
 				editorsString = editorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
 			
-			stringBuffer.append(", ");
 			stringBuffer.append(editorsString);
 		}
 		
-		stringBuffer.append(" (");
-		stringBuffer.append(this.getPublicationYear());
-		stringBuffer.append(") ");
-		
-		stringBuffer.append("<i>");
-		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
-		
+		// Publisher
 		stringBuffer.append(this.publisher);
-		stringBuffer.append(". ");
+		if (this.place != null) { 
+			stringBuffer.append(" : ");			
+		} else {			
+			if (this.page > 0) { stringBuffer.append(", "); }
+		}
 		
+		// : PublishPlace
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			stringBuffer.append(".");
+			if (this.page > 0) { stringBuffer.append(", "); }
 		}
 		
 		if (this.page > 0) {
-			stringBuffer.append(" ");
 			stringBuffer.append(this.page);
 		}
+		
+		stringBuffer.append(".");
 			
 		return stringBuffer.toString();
 	}
