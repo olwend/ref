@@ -9,62 +9,122 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Report extends Publication{
 	
+	private boolean confidential;
+	
+	/* Pagination */
+	private int paginationBeginPage;
+	private int paginationEndPage;
+
+	private String publisher;
+	private String place;
+	private int page;
+	
 	public Report(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate) {
+			final  String href,	final String reportingDate, boolean confidential, final int paginationBeginPage,
+			final int paginationEndPage, final String publisher, final String place, int page) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.confidential = confidential;
+		this.paginationBeginPage = paginationBeginPage;
+		this.paginationEndPage = paginationEndPage;
+		this.publisher = publisher;
+		this.place = place;
+		this.page = page;
 	}
 
+	public boolean isConfidential() {
+		return confidential;
+	}
+
+	public void setConfidential(boolean confidential) {
+		this.confidential = confidential;
+	}
+	
 	@Override
 	public String getHTMLContent(final String author, final boolean isFavourite) {
 		// Butler, R. J. and Barrett, P. M. (2013) Global Cambrian trilobite palaeobiogeography assessed using parsimony analysis of endemicity. In: D.A.T Harper and T Servais (eds) Early Palaeozoic Biogeography and Palaeogeography, pp. 273-296. Geological Society, London.
 		// Authors (publication year) Title. Editors, Book Title, startPage - endPage. Publisher. Place.
-		final List<String> authors = this.getAuthors();
-		String authorsString = StringUtils.EMPTY;
-		
-		// First we normalize the author's name e.g: 
-		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
-		String currentAuthor = normalizeName(author, false);
-		String firstInitial = normalizeName(currentAuthor, true);
-		
-		Iterator<String> authorsIt = authors.iterator();
-		List<String> processedAuthors = new ArrayList<String>();
-		
-		while( authorsIt.hasNext() ){
-			String authorName = authorsIt.next().toString();
-			processedAuthors.add(normalizeName(authorName, false));
-		}
-		
-		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
-		} else {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
-		}
-		
-//		LOG.error("This is the list of authors parsed: " + authorsString);
-//		LOG.error("Current Author: " + currentAuthor);
-//		LOG.error("First Initial Author: " + firstInitial);
-		if (authorsString.contains(currentAuthor)) {
-			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-		} else if (authorsString.contains(firstInitial)) {
-			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
-		}
-//		LOG.error("After being replaced: " + authorsString);
-		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Report"
-							+ " #####");
-		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
-
-		stringBuffer.append(" (");
-		stringBuffer.append(this.getPublicationYear());
-		stringBuffer.append(") ");
+		stringBuffer.append("");
 		
-		stringBuffer.append("<i>");
-		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
+		if (!confidential) {
+			final List<String> authors = this.getAuthors();
+			String authorsString = StringUtils.EMPTY;
 			
+			// First we normalize the author's name e.g: 
+			// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
+			String currentAuthor = normalizeName(author, false);
+			String firstInitial = normalizeName(currentAuthor, true);
+			
+			Iterator<String> authorsIt = authors.iterator();
+			List<String> processedAuthors = new ArrayList<String>();
+			
+			while( authorsIt.hasNext() ){
+				String authorName = authorsIt.next().toString();
+				processedAuthors.add(normalizeName(authorName, false));
+			}
+			
+			if (processedAuthors.size() > 5 && isFavourite) {
+				authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
+			} else {
+				authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
+			}
+			
+			//LOG.error("This is the list of authors parsed: " + authorsString);
+			//LOG.error("Current Author: " + currentAuthor);
+			//LOG.error("First Initial Author: " + firstInitial);
+			if (authorsString.contains(currentAuthor)) {
+				authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+			} else if (authorsString.contains(firstInitial)) {
+				authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+			}
+			
+			//Remove name delimiters placed there by the normalizer
+			authorsString = authorsString.replaceAll("#", "");
+			
+			//LOG.error("After being replaced: " + authorsString);
+			
+			stringBuffer.append("####This is a + "
+					+ "Report"
+					+ " #####");
+			
+			// Author N.M., Author N.M.
+			stringBuffer.append(authorsString);
+			
+			// (Year)
+			stringBuffer.append(" (");
+			stringBuffer.append(this.getPublicationYear());
+			stringBuffer.append(") ");
+			
+			// Title
+			stringBuffer.append(this.getTitle());
+			stringBuffer.append(". ");
+			
+			// Publisher
+			if (this.publisher != null) {
+				stringBuffer.append(this.publisher);
+				if (this.place != null) { stringBuffer.append(" : "); }
+			}
+			
+			// :PublishingLocation
+			if (this.place != null) {
+				stringBuffer.append(this.place);
+				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || (this.page > 0 ) ) { stringBuffer.append(", "); }
+			}
+			
+//			// PagesBegin-PagesEnd.
+//			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
+//				stringBuffer.append(this.paginationBeginPage);
+//				stringBuffer.append(" - ");
+//				stringBuffer.append(this.paginationEndPage);
+//				if (this.page > 0 ){ stringBuffer.append(", "); }
+//			}
+			
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+			}
+			
+			stringBuffer.append(".");
+		}
 		return stringBuffer.toString();
 	}
 	

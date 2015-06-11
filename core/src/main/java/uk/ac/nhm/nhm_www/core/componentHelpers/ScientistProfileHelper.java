@@ -94,7 +94,8 @@ public class ScientistProfileHelper {
 	public static final String STATEMENT_ATTRIBUTE		  = "statement";
 	public static final String SUBORGANISATION_ATTRIBUTE  = "subOrganisation";
 	public static final String VOLUME_ATTRIBUTE 		  = "volume";
-	public static final String CONFERENCE_NAME	 		  = "conferenceName";
+	public static final String CONFERENCE_NAME_ATTRIBUTE  = "conferenceName";
+	public static final String CONFIDENTIAL_ATTRIBUTE	  = "confidential";
 	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
@@ -541,7 +542,7 @@ public class ScientistProfileHelper {
 					break;
 
 				case PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS:
-					final String conferenceName = childProperties.get(CONFERENCE_NAME, String.class);
+					final String conferenceName = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
 					final String placeOfPublication = childProperties.get(PLACE_ATTRIBUTE, String.class);
 					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, reportingDate, conferenceName, placeOfPublication));
 					break;
@@ -567,7 +568,13 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_REPORT:
-					result.add(new Report(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final boolean confidential = childProperties.get(CONFIDENTIAL_ATTRIBUTE, false);
+					final String reportPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final String reportPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
+					final int reportBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int reportEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int reportPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					result.add(new Report(title, authorsList, favorite, publicationYear, link, reportingDate, confidential, reportBeginPage, reportEndPage, reportPublisher, reportPublishingPlace, reportPage));
 					break;
 					
 				case PUBLICATION_TYPE_SCHOLARLY_EDITION:

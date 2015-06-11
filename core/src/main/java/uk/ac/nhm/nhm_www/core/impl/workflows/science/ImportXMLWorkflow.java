@@ -632,7 +632,10 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	pubNode.setProperty(ScientistProfileHelper.PLACE_ATTRIBUTE, field.getText());
                         	break;
                         case "name-of-conference":
-                        	pubNode.setProperty(ScientistProfileHelper.CONFERENCE_NAME, field.getText());
+                        	pubNode.setProperty(ScientistProfileHelper.CONFERENCE_NAME_ATTRIBUTE, field.getText());
+                        	break;
+                        case "confidential":
+                        	pubNode.setProperty(ScientistProfileHelper.CONFIDENTIAL_ATTRIBUTE, field.getText());
                         	break;
                     }
                 }
