@@ -561,6 +561,8 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             break;
                         case "publication-date":
                             pubNode.setProperty(ScientistProfileHelper.PUBLICATION_DATE_ATTRIBUTE, field.getDate().getYear().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.PUBLICATION_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.PUBLICATION_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
                             break;
                         case "authors":
                             final List<Person> personList = field.getPeople().getPerson();
@@ -636,7 +638,10 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	break;
                         case "thesis-type":
                         	pubNode.setProperty(ScientistProfileHelper.THESIS_TYPE_ATTRIBUTE, field.getText());
-                        	break;                        	
+                        	break;             
+                        case "publisher-url":
+                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, field.getText());
+                        	break;       
                     }
                 }
             }

@@ -83,6 +83,8 @@ public class ScientistProfileHelper {
 	public static final String PLACE_ATTRIBUTE 		   	  = "place";
 	public static final String POSITION_ATTRIBUTE 		  = "position";
 	public static final String PUBLICATION_DATE_ATTRIBUTE = "publicationDate";
+	public static final String PUBLICATION_MONTH_ATTRIBUTE = "publicationMonth";
+	public static final String PUBLICATION_DAY_ATTRIBUTE = "publicationDay";
 	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  = "title";
 	public static final String TO_ATTRIBUTE 			  = "to";
@@ -97,6 +99,7 @@ public class ScientistProfileHelper {
 	public static final String CONFERENCE_NAME_ATTRIBUTE  = "conferenceName";
 	public static final String CONFIDENTIAL_ATTRIBUTE	  = "confidential";
 	public static final String THESIS_TYPE_ATTRIBUTE	  = "thesisType";
+	public static final String PUBLISHER_URL_ATTRIBUTE	  = "publisherURL";
 	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
@@ -561,8 +564,11 @@ public class ScientistProfileHelper {
 					final int internetBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int internetEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final int internetPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
-					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate, internetPublisher, 
-							internetBeginPage, internetEndPage, internetPage));
+					final int iPublicationMonth = childProperties.get(PUBLICATION_MONTH_ATTRIBUTE, -1);
+					final int iPublicationDay = childProperties.get(PUBLICATION_DAY_ATTRIBUTE, -1);
+					final String publisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
+					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, iPublicationMonth, iPublicationDay, link, 
+							reportingDate, internetPublisher, publisherURL, internetBeginPage, internetEndPage, internetPage));
 					break;
 					
 				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:
