@@ -602,7 +602,6 @@ public class ScientistProfileHelper {
 					final String thesisPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String thesisPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
 					final String thesisType = childProperties.get(THESIS_TYPE_ATTRIBUTE, String.class);
-					final String presentedAt = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
 					final int thesisBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int thesisEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final int thesisPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
@@ -612,7 +611,7 @@ public class ScientistProfileHelper {
 						supervisorsSet = Arrays.asList(supervisors);
 					}
 					result.add(new ThesisDissertation(title, authorsList, favorite, publicationYear, link, reportingDate, supervisorsSet, thesisType, 
-							presentedAt, thesisPublisher, thesisPublishingPlace, thesisBeginPage, thesisEndPage, thesisPage));
+							thesisPublisher, thesisPublishingPlace, thesisBeginPage, thesisEndPage, thesisPage));
 					break;
 					
 				case PUBLICATION_TYPE_WEBPAGE:
