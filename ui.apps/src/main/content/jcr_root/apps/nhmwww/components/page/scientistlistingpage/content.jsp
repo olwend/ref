@@ -12,7 +12,7 @@
 %>
 <div class="main-section"><!-- CONTENT WRAPPER -->
 	<div class="title">
-	    <div class="row title">
+	    <div class="row title-bar">
 		    <div class="small-12 columns">
 		    	<h1>Staff directory</h1>
 		    	
