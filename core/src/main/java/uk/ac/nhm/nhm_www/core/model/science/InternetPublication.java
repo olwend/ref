@@ -9,9 +9,50 @@ import org.apache.commons.lang3.StringUtils;
 
 public class InternetPublication extends Publication{
 	
+	private String publisher;
+	private int paginationBeginPage;
+	private int paginationEndPage;
+	private int page;
+
 	public InternetPublication(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate) {
+			final  String href,	final String reportingDate, String internetPublisher, int internetBeginPage, int internetEndPage, int internetPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.publisher = internetPublisher;
+		this.paginationBeginPage = internetBeginPage;
+		this.paginationEndPage = internetEndPage;
+		this.page = internetPage;
+	}
+
+	public int getPaginationBeginPage() {
+		return paginationBeginPage;
+	}
+
+	public void setPaginationBeginPage(int paginationBeginPage) {
+		this.paginationBeginPage = paginationBeginPage;
+	}
+
+	public int getPaginationEndPage() {
+		return paginationEndPage;
+	}
+
+	public void setPaginationEndPage(int paginationEndPage) {
+		this.paginationEndPage = paginationEndPage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
 	@Override
@@ -48,6 +89,9 @@ public class InternetPublication extends Publication{
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
+		
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
@@ -61,9 +105,41 @@ public class InternetPublication extends Publication{
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		
+		//Link Opening
+		if (this.getLink() != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.getLink());
+			stringBuffer.append("\">");
+		}
+		
+		//Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
+		stringBuffer.append("</i>");
+
+		//Link Closing
+		if (this.getLink() != null) {
+			stringBuffer.append("</a>");
+		}
+		
+		// Publisher
+		if (this.publisher != null) {
+			stringBuffer.append(this.publisher);
+			if (this.page > 0) { stringBuffer.append(" : "); }
+		}
+		
+//		// PagesBegin-PagesEnd.
+//		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
+//			stringBuffer.append(this.paginationBeginPage);
+//			stringBuffer.append(" - ");
+//			stringBuffer.append(this.paginationEndPage);
+//			if (this.page > 0 ){ stringBuffer.append(", "); }
+//		}
+		
+		if (this.page > 0) {
+			stringBuffer.append(this.page);
+		}
 			
 		return stringBuffer.toString();
 	}

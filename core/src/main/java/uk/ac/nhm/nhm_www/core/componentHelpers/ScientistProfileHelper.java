@@ -557,7 +557,12 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
-					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String internetPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final int internetBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int internetEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int internetPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate, internetPublisher, 
+							internetBeginPage, internetEndPage, internetPage));
 					break;
 					
 				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:
