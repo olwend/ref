@@ -582,7 +582,9 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_SOFTWARE:
-					result.add(new Software(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String doiTxt = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
+					final String doiURL = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
+					result.add(new Software(title, authorsList, favorite, publicationYear, link, reportingDate, doiTxt, doiURL));
 					break;
 					
 				case PUBLICATION_TYPE_THESIS_OR_DISERTATION:

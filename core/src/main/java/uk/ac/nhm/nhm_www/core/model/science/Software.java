@@ -9,9 +9,14 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Software extends Publication{
 	
+	private String doiText;
+	private String doiLink;
+	
 	public Software(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate){
+			final  String href,	final String reportingDate, String doiTxt, String doiURL){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.doiText = doiTxt;
+		this.doiLink = doiURL;
 	}
 
 	@Override
@@ -60,10 +65,35 @@ public class Software extends Publication{
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
+
+		//Link Opening
+		if (this.getLink() != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.getLink());
+			stringBuffer.append("\">");
+		}
 		
+		//Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
+		stringBuffer.append("</i>");
+
+		//Link Closing
+		if (this.getLink() != null) {
+			stringBuffer.append("</a>");
+		}
+		
+		stringBuffer.append(".");
+		
+		// DOI hyperlink
+		if (this.doiLink != null && this.doiText != null) {
+			stringBuffer.append(" <a href=\"");
+			stringBuffer.append(this.doiLink);
+			stringBuffer.append("\">");
+			stringBuffer.append("doi: ");
+			stringBuffer.append(this.doiText);
+			stringBuffer.append("</a>");
+		}
 			
 		return stringBuffer.toString();
 	}

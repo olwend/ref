@@ -643,7 +643,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-    
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {
         //Get the contentPath node in the JCR
         Node rootNode = session.getNode(contentPath);
