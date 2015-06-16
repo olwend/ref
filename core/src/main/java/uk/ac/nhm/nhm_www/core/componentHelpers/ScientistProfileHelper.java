@@ -551,11 +551,18 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_DATASET:
-					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String datasetDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
+					final String datasetDoiURL = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
+					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate, datasetDoiText, datasetDoiURL));
 					break;
 					
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
-					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String internetPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final int internetBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int internetEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int internetPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, link, reportingDate, internetPublisher, 
+							internetBeginPage, internetEndPage, internetPage));
 					break;
 					
 				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:

@@ -8,10 +8,30 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
 public class Dataset extends Publication{
-	
+	private Object doiLink;
+	private Object doiText;
+
 	public Dataset(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate) {
+			final  String href,	final String reportingDate, String datasetDoiText, String datasetDoiURL) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.doiText = doiText;
+		this.doiLink = doiLink;
+	}
+
+	public Object getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(Object doiLink) {
+		this.doiLink = doiLink;
+	}
+
+	public Object getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(Object doiText) {
+		this.doiText = doiText;
 	}
 
 	@Override
@@ -48,6 +68,9 @@ public class Dataset extends Publication{
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
+		
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
@@ -61,10 +84,34 @@ public class Dataset extends Publication{
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		//Link Opening
+		if (this.getLink() != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.getLink());
+			stringBuffer.append("\">");
+		}
+		
+		//Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
-			
+		stringBuffer.append("</i>");
+
+		//Link Closing
+		if (this.getLink() != null) {
+			stringBuffer.append("</a>");
+		}
+		
+		stringBuffer.append(".");
+		
+		// DOI hyperlink
+		if (this.doiLink != null && this.doiText != null) {
+			stringBuffer.append(" <a href=\"");
+			stringBuffer.append(this.doiLink);
+			stringBuffer.append("\">");
+			stringBuffer.append("doi: ");
+			stringBuffer.append(this.doiText);
+			stringBuffer.append("</a>");
+		}
 		return stringBuffer.toString();
 	}
 }
