@@ -551,7 +551,9 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_DATASET:
-					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String datasetDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
+					final String datasetDoiURL = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
+					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate, datasetDoiText, datasetDoiURL));
 					break;
 					
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
