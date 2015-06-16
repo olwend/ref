@@ -31,7 +31,7 @@ import uk.ac.nhm.nhm_www.core.model.science.Qualification;
 import uk.ac.nhm.nhm_www.core.model.science.Report;
 import uk.ac.nhm.nhm_www.core.model.science.ScholarlyEdition;
 import uk.ac.nhm.nhm_www.core.model.science.Software;
-import uk.ac.nhm.nhm_www.core.model.science.ThesisDisertation;
+import uk.ac.nhm.nhm_www.core.model.science.ThesisDissertation;
 import uk.ac.nhm.nhm_www.core.model.science.WebSite;
 import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
@@ -96,6 +96,7 @@ public class ScientistProfileHelper {
 	public static final String VOLUME_ATTRIBUTE 		  = "volume";
 	public static final String CONFERENCE_NAME_ATTRIBUTE  = "conferenceName";
 	public static final String CONFIDENTIAL_ATTRIBUTE	  = "confidential";
+	public static final String THESIS_TYPE_ATTRIBUTE	  = "thesisType";
 	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
@@ -155,7 +156,7 @@ public class ScientistProfileHelper {
 	public static final String PUBLICATION_TYPE_REPORT					= "Report";
 	public static final String PUBLICATION_TYPE_SCHOLARLY_EDITION		= "Scholarly Edition";
 	public static final String PUBLICATION_TYPE_SOFTWARE				= "Software";
-	public static final String PUBLICATION_TYPE_THESIS_OR_DISERTATION	= "Thesis/Disertation";
+	public static final String PUBLICATION_TYPE_THESIS_OR_DISERTATION	= "Thesis/Dissertation";
 	public static final String PUBLICATION_TYPE_WEBPAGE					= "Webpage";
 	public static final String PUBLICATION_TYPE_WEBSITE					= "Website";
 	
@@ -496,7 +497,7 @@ public class ScientistProfileHelper {
 				
 				final String link = childProperties.get(LINK_ATTRIBUTE, String.class);
 				
-				LOG.error("Loading Publication with type : " + type);
+//				LOG.error("Loading Publication with type : " + type);
 				
 				switch (type) {
 				case PUBLICATION_TYPE_BOOK:
@@ -527,7 +528,8 @@ public class ScientistProfileHelper {
 					
 					final int beginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int endPage   = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, reportingDate, bookEditorsSet, bookTitle, beginPage, endPage, bookPublisher, bookPlace));
+					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, reportingDate, bookEditorsSet, bookTitle, 
+							beginPage, endPage, bookPublisher, bookPlace));
 					break;
 					
 				case PUBLICATION_TYPE_ARTICLE:
@@ -538,7 +540,8 @@ public class ScientistProfileHelper {
 					final int articleEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final String doiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String doiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
-					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, reportingDate, journalName, volume, issue, articleBeginPage, articleEndPage, doiText, doiLink));
+					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, reportingDate, journalName, volume, issue, 
+							articleBeginPage, articleEndPage, doiText, doiLink));
 					break;
 
 				case PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS:
@@ -574,7 +577,8 @@ public class ScientistProfileHelper {
 					final int reportBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int reportEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final int reportPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
-					result.add(new Report(title, authorsList, favorite, publicationYear, link, reportingDate, confidential, reportBeginPage, reportEndPage, reportPublisher, reportPublishingPlace, reportPage));
+					result.add(new Report(title, authorsList, favorite, publicationYear, link, reportingDate, confidential, reportBeginPage, reportEndPage, 
+							reportPublisher, reportPublishingPlace, reportPage));
 					break;
 					
 				case PUBLICATION_TYPE_SCHOLARLY_EDITION:
@@ -588,7 +592,20 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_THESIS_OR_DISERTATION:
-					result.add(new ThesisDisertation(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String thesisPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final String thesisPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
+					final String thesisType = childProperties.get(THESIS_TYPE_ATTRIBUTE, String.class);
+					final String presentedAt = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
+					final int thesisBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int thesisEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int thesisPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String[] supervisors = childProperties.get(EDITORS_ATTRIBUTE, String[].class);
+					List<String> supervisorsSet = new ArrayList<>();
+					if (supervisors != null) {
+						supervisorsSet = Arrays.asList(supervisors);
+					}
+					result.add(new ThesisDissertation(title, authorsList, favorite, publicationYear, link, reportingDate, supervisorsSet, thesisType, 
+							presentedAt, thesisPublisher, thesisPublishingPlace, thesisBeginPage, thesisEndPage, thesisPage));
 					break;
 					
 				case PUBLICATION_TYPE_WEBPAGE:

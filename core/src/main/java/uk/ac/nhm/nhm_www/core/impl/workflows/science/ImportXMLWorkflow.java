@@ -178,10 +178,8 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-    private String resolvePublicationType (final int number)
-    {
-        switch (number)
-        {
+    private String resolvePublicationType (final int number) {
+        switch (number) {
 	        case 2 : return "Book";
 	        case 3 : return "Chapter";
 	        case 4 : return "Conference Proceedings";
@@ -426,8 +424,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	}
     }
     
-    private void addAppointments(final Node node, AcademicAppointments appointments) throws Exception
-    {
+    private void addAppointments(final Node node, AcademicAppointments appointments) throws Exception {
         int counter = 0;
         
         final Node appNode = node.addNode(ScientistProfileHelper.ACADEMIC_HISTORY_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
@@ -637,6 +634,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "confidential":
                         	pubNode.setProperty(ScientistProfileHelper.CONFIDENTIAL_ATTRIBUTE, field.getText());
                         	break;
+                        case "thesis-type":
+                        	pubNode.setProperty(ScientistProfileHelper.THESIS_TYPE_ATTRIBUTE, field.getText());
+                        	break;                        	
                     }
                 }
             }
@@ -719,8 +719,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		    
 		    return asset;
 		}
-		catch(Exception e)
-		{
+		catch(Exception e) {
 		    LOG.error("writeToDam() ", e);
 		}
 		return null;
