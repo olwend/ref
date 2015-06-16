@@ -10,12 +10,22 @@ import org.apache.commons.lang3.StringUtils;
 public class Dataset extends Publication{
 	private Object doiLink;
 	private Object doiText;
+	private String publisherURL;
 
 	public Dataset(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String datasetDoiText, String datasetDoiURL) {
+			final  String href,	final String reportingDate, String datasetDoiText, String datasetDoiURL, String datasetPublisherURL) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.doiText = doiText;
 		this.doiLink = doiLink;
+		this.publisherURL = datasetPublisherURL;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 
 	public Object getDoiLink() {
@@ -87,7 +97,7 @@ public class Dataset extends Publication{
 		//Link Opening
 		if (this.getLink() != null) {
 			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.getLink());
+			stringBuffer.append(this.getPublisherURL());
 			stringBuffer.append("\">");
 		}
 		
