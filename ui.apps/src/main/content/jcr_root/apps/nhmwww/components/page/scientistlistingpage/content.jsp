@@ -177,6 +177,107 @@
 		</ul>
 	</div>
 	
+	<div class="directory-search-results--table">
+		<div class="row directory-search-results--row hide-for-small-only">
+			<div class="small-6 medium-2 large-2 columns directory-search-results--row-header">
+				Image
+			</div>
+			<div class="small-6 medium-10 large-10 columns">
+				<div class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up">
+					<a href="#">Name</a>
+				</div>
+				<div class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+					<a href="#">Job Title</a>
+				</div>
+				<div class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up">
+					<a href="#">Department and Division</a>
+				</div>
+				<div class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+					<a href="#">Specialisms</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="peopleList">
+		<c:forEach var="profile" items="${profileList}">
+						<div firstname="${fn:escapeXml(profile.firstName)}"
+					secondname="${fn:escapeXml(profile.lastName)}"
+					activity="${fn:escapeXml(profile.job)}"
+					department="${fn:escapeXml(profile.department)}"
+					division="${fn:escapeXml(profile.division)}"
+					specialisms="${fn:escapeXml(profile.specialisms)}"
+					collection="${fn:escapeXml(profile.collection)}"
+					group="${fn:escapeXml(profile.collectionGroup)}"
+					style="display:none;">
+			<div class="row directory-search-results--row">
+				<div class="small-4 medium-2 columns directory-search-results--row-content">
+					<%
+			final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
+			WCMMode.PREVIEW.toRequest(slingRequest);
+	%>
+								<cq:include path="${profile.imagePath}" resourceType="nhmwww/components/functional/foundation5image" />
+	<%
+			beforeMode.toRequest(slingRequest);
+	%>
+				</div>
+				<div class="small-8 medium-10 columns">
+					<div class="small-12 medium-2 columns directory-search-results--row-content">
+						<p>
+							<strong class="show-for-small-only">Name:</strong>
+							<a href="${fn:escapeXml(profile.url)}"> 
+								<c:out value="${profile.lastName}"/>
+								<c:out value=", "/>
+								<c:out value="${profile.firstName}"/>
+							</a>
+						</p>
+					</div>
+					<div class="small-12 medium-3 columns directory-search-results--row-content">
+						<p>
+							<strong class="show-for-small-only">Job:</strong>
+							<c:out value="${profile.job}" />
+							<%-- Debugging purpose --%>
+									<br/>Function:<c:out value="${profile.collection}"/>
+									<br/>FGroup:<c:out value="${profile.collectionGroup}"/>
+								<%-- 
+								--%>
+							<%-- Debugging purpose --%>
+						</p>
+					</div>
+					<div class="small-12 medium-4 columns directory-search-results--row-content">
+						<p>
+							<strong class="show-for-small-only">Department and Division:</strong>
+							<c:out value="${profile.department}"/>
+							<br/>
+							<c:out value="${profile.division}" />
+						</p>	
+					</div>
+					<div class="small-12 medium-3 columns directory-search-results--row-content">
+						<p>
+							<c:if test="${not empty profile.specialisms}">
+								<strong class="show-for-small-only">Specialisms:</strong>
+							</c:if>
+							<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
+							<c:choose>
+								<c:when test="${fn:length(profile.specialisms) > 175}">
+									<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
+								</c:when>
+								<c:otherwise>
+									<c:out value="${profile.specialisms}"/>
+								</c:otherwise>							
+							</c:choose>
+						</p>
+					</div>
+				</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+</div>
+	
+	
+	
+	
+	
 	<div class="row profiles_row">
 		<div class="large-3 medium-4 columns large-left-section">
 			<div id="image" class="large-5 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
