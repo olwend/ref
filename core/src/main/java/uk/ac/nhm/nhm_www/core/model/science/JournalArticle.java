@@ -103,7 +103,7 @@ public class JournalArticle extends Publication{
 		final StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(" >>>>>> This is a Journal <<<<< ");
 		
-		// Author N.M., Author N.M.
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		
 		// (Year)
