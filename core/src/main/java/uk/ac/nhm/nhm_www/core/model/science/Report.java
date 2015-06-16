@@ -111,16 +111,15 @@ public class Report extends Publication{
 				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || (this.page > 0 ) ) { stringBuffer.append(", "); }
 			}
 			
-//			// PagesBegin-PagesEnd.
-//			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-//				stringBuffer.append(this.paginationBeginPage);
-//				stringBuffer.append(" - ");
-//				stringBuffer.append(this.paginationEndPage);
-//				if (this.page > 0 ){ stringBuffer.append(", "); }
-//			}
-			
-			if (this.page > 0) {
-				stringBuffer.append(this.page);
+			// PagesBegin-PagesEnd.
+			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
+				stringBuffer.append(this.paginationBeginPage);
+				stringBuffer.append(" - ");
+				stringBuffer.append(this.paginationEndPage);
+			} else {
+				if (this.page > 0) {
+					stringBuffer.append(this.page);
+				}
 			}
 			
 			stringBuffer.append(".");
