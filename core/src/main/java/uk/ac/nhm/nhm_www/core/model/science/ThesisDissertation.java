@@ -3,7 +3,6 @@ package uk.ac.nhm.nhm_www.core.model.science;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,7 +13,6 @@ public class ThesisDissertation extends Publication{
 	private static final Logger LOG = LoggerFactory.getLogger(ThesisDissertation.class);
 	
 	private String thesisType;
-	private String publicationDate;
 	private List<String> supervisors;
 	private String publisher;
 	private String place;
@@ -23,16 +21,16 @@ public class ThesisDissertation extends Publication{
 	private int page;
 
 	public ThesisDissertation(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, List<String> supervisorsSet, String thesisType, String presentedAt, String thesisPublisher, String thesisPublishingPlace, int thesisBeginPage, int thesisEndPage, int thesisPage){
+			final  String href,	final String reportingDate, List<String> supervisorsSet, String thesisType, String thesisPublisher, String thesisPublishingPlace, 
+			int thesisBeginPage, int thesisEndPage, int thesisPage){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.publisher = thesisPublisher;
 		this.place = thesisPublishingPlace;
 		this.thesisType = thesisType;
-		this.publicationDate = presentedAt;
 		this.supervisors = supervisorsSet;
-		this.paginationBeginPage = paginationBeginPage;
-		this.paginationEndPage = paginationEndPage;
-		this.page = page;
+		this.paginationBeginPage = thesisBeginPage;
+		this.paginationEndPage = thesisEndPage;
+		this.page = thesisPage;
 	}
 
 	public String getPublisher() {
@@ -81,14 +79,6 @@ public class ThesisDissertation extends Publication{
 
 	public void setThesisType(String thesisType) {
 		this.thesisType = thesisType;
-	}
-
-	public String getPublicationDate() {
-		return publicationDate;
-	}
-
-	public void setPublicationDate(String publicationDate) {
-		this.publicationDate = publicationDate;
 	}
 
 	public List<String> getSupervisors() {
@@ -190,17 +180,15 @@ public class ThesisDissertation extends Publication{
 			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) { stringBuffer.append(", "); }
 		}
 		
-		// PagesBegin-PagesEnd
+		// PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
-			if (this.page > 0 ){ stringBuffer.append(", "); }
-		}
-		
-		// Pages
-		if (this.page > 0) {
-			stringBuffer.append(this.page);
+		} else {
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+			}
 		}
 		
 		stringBuffer.append(".");
