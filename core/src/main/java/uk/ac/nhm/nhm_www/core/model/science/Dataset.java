@@ -97,7 +97,7 @@ public class Dataset extends Publication{
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		//Link Opening
+		//Link Opening for publisher-url
 		if (this.getLink() != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.getPublisherURL());
@@ -109,7 +109,7 @@ public class Dataset extends Publication{
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
 
-		//Link Closing
+		//Link Closing for publisher-url
 		if (this.getLink() != null) {
 			stringBuffer.append("</a>");
 		}

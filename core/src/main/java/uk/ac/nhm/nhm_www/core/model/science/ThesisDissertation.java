@@ -190,7 +190,6 @@ public class ThesisDissertation extends Publication{
 				stringBuffer.append(this.page);
 			}
 		}
-		
 		stringBuffer.append(".");
 		
 		return stringBuffer.toString();

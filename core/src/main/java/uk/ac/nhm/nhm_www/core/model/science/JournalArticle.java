@@ -17,12 +17,15 @@ public class JournalArticle extends Publication{
 	
 	private String doiText;
 	private String doiLink;
+	private int page;
 	
 	public JournalArticle(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
 			final String href, final String reportingDate, final String journalName, final int volume, final int issue,
-			final int paginationBeginPage, final int paginationEndPage, final String doiText,
+			final int paginationBeginPage, final int paginationEndPage, int page, final String doiText,
 			final String doiLink) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		
+		this.page = page;
 		this.journalName = journalName;
 		this.volume = volume;
 		this.issue = issue;
@@ -129,21 +132,24 @@ public class JournalArticle extends Publication{
 			stringBuffer.append(" ");
 		}
 		
-		// Issue
+		// (Issue)
 		if (this.issue >= 0) {
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
 			stringBuffer.append("): ");
 		}
 		
-		// : PagesBegin-PagesEnd
+		// : PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(" ");
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
-			stringBuffer.append(". ");
+		} else {
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+			}
 		}
+		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {

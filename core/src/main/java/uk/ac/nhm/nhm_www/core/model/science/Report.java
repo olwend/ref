@@ -120,8 +120,8 @@ public class Report extends Publication{
 					stringBuffer.append(this.page);
 				}
 			}
-			
 			stringBuffer.append(".");
+			
 		}
 		return stringBuffer.toString();
 	}

@@ -24,12 +24,15 @@ public class BookChapter extends Publication{
 
 	private String publisher;
 	private String place;
+
+	private int page;
 	
 	public BookChapter(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
 			final String href, final String reportingDate, final List<String> bookEditorsSet, final String bookTitle, final int paginationBeginPage,
-			final int paginationEndPage, final String publisher, final String place) {
+			final int paginationEndPage, int page, final String publisher, final String place) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
+		this.page = page;
 		this.editors = bookEditorsSet;
 		this.bookTitle = bookTitle;
 		this.paginationBeginPage = paginationBeginPage;
@@ -150,13 +153,17 @@ public class BookChapter extends Publication{
 			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) { stringBuffer.append(", "); }
 		}
 		
-		// PagesBegin-PagesEnd.
+		// : PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
+		} else {
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+			}
 		}
-		stringBuffer.append(".");
+		stringBuffer.append(". ");
 		
 //		LOG.error("#### The final result for the publication is: " + stringBuffer + "####"); 
 		

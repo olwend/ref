@@ -510,10 +510,13 @@ public class ScientistProfileHelper {
 						//Collections.addAll(editorsSet, editors);
 						editorsSet = Arrays.asList(editors);
 					}
+					final int bookBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int bookEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final String publisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String place	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
 					final int page	   	   = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
-					result.add(new Book(title, authorsList, favorite, publicationYear, link, reportingDate, editorsSet, publisher, place, page));
+					result.add(new Book(title, authorsList, favorite, publicationYear, link, reportingDate, editorsSet, publisher, place, 
+							page, bookBeginPage, bookEndPage));
 					break;
 
 				case PUBLICATION_TYPE_CHAPTER:
@@ -531,8 +534,9 @@ public class ScientistProfileHelper {
 					
 					final int beginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int endPage   = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int chapterpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
 					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, reportingDate, bookEditorsSet, bookTitle, 
-							beginPage, endPage, bookPublisher, bookPlace));
+							beginPage, endPage, chapterpage, bookPublisher, bookPlace));
 					break;
 					
 				case PUBLICATION_TYPE_ARTICLE:
@@ -541,10 +545,11 @@ public class ScientistProfileHelper {
 					final int issue = childProperties.get(ISSUE_ATTRIBUTE, -1);
 					final int articleBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int articleEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int journalpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
 					final String doiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String doiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
 					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, reportingDate, journalName, volume, issue, 
-							articleBeginPage, articleEndPage, doiText, doiLink));
+							articleBeginPage, articleEndPage, journalpage, doiText, doiLink));
 					break;
 
 				case PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS:

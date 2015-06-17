@@ -12,12 +12,16 @@ public class Book extends Publication{
 	private String publisher;
 	private String place;
 	private int page;
+	private int paginationBeginPage;
+	private int paginationEndPage;
 	
 	public Book(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
 			final String href, final String reportingDate, final List<String> editorsSet, final String publisher, final String place,
-			final int page) {
+			final int page, int beginPage, int endPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
+		this.paginationBeginPage = beginPage;
+		this.paginationEndPage = endPage;
 		this.editors = editorsSet;
 		this.publisher = publisher;
 		this.place = place;
@@ -124,11 +128,17 @@ public class Book extends Publication{
 			if (this.page > 0) { stringBuffer.append(", "); }
 		}
 		
-		if (this.page > 0) {
-			stringBuffer.append(this.page);
+		// : PagesBegin-PagesEnd.
+		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
+			stringBuffer.append(this.paginationBeginPage);
+			stringBuffer.append(" - ");
+			stringBuffer.append(this.paginationEndPage);
+		} else {
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+			}
 		}
-		
-		stringBuffer.append(".");
+		stringBuffer.append(". ");
 			
 		return stringBuffer.toString();
 	}

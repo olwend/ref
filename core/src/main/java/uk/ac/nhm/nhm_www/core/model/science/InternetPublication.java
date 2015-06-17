@@ -169,7 +169,7 @@ public class InternetPublication extends Publication{
 			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { stringBuffer.append(" : "); }
 		}
 		
-		// PagesBegin-PagesEnd.
+		// : PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
@@ -179,6 +179,7 @@ public class InternetPublication extends Publication{
 				stringBuffer.append(this.page);
 			}
 		}
+		stringBuffer.append(". ");
 			
 		return stringBuffer.toString();
 	}
