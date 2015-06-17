@@ -638,10 +638,16 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	break;
                         case "thesis-type":
                         	pubNode.setProperty(ScientistProfileHelper.THESIS_TYPE_ATTRIBUTE, field.getText());
-                        	break;             
+                        	break;
                         case "publisher-url":
                         	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, field.getText());
-                        	break;       
+                        	break;
+                        case "addresses":
+//                        	final List<Line> lines = app.getEmployer().getLine();
+//                           for (final  Line line : lines) {
+//                        	List<Address> ladd = field.getAddresses().getAddress().listIterator();
+//                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, );
+                        	break;
                     }
                 }
             }

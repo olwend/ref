@@ -472,35 +472,24 @@ public class ScientistProfileHelper {
 			
 			if (child.getName().startsWith(PUBLICATION_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
-				
 				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
-				
 				final int publicationYear = childProperties.get(PUBLICATION_DATE_ATTRIBUTE, -1);
-				
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
-				
 				final boolean favorite = childProperties.get(FAVORITE_ATTRIBUTE, false);
-				
 				final String[] authors = childProperties.get(AUTHORS_ATTRIBUTE, String[].class);
-				
 				final String reportingDate;
-				
 				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null){
 					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
 				} else {
 					reportingDate = "";
 				}
-				
 				List<String> authorsList = new ArrayList<>();
 				if (authors != null) {
 					//Collections.addAll(authorsSet, authors);
 					authorsList = Arrays.asList(authors);
-					
 				}
-				
 				final String link = childProperties.get(LINK_ATTRIBUTE, String.class);
-				
-//				LOG.error("Loading Publication with type : " + type);
+				//	LOG.error("Loading Publication with type : " + type);
 				
 				switch (type) {
 				case PUBLICATION_TYPE_BOOK:
@@ -528,10 +517,8 @@ public class ScientistProfileHelper {
 						//Collections.addAll(bookEditorsSet, bookEditors);
 						bookEditorsSet = Arrays.asList(bookEditors);
 					}
-					
 					final String bookPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String bookPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					
 					final int beginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int endPage   = childProperties.get(END_PAGE_ATTRIBUTE, -1);
 					final int chapterpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
@@ -591,11 +578,38 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_OTHER:
-					result.add(new Other(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final boolean otherConfidential = childProperties.get(CONFIDENTIAL_ATTRIBUTE, false);
+					final int otherPublicationMonth = childProperties.get(PUBLICATION_MONTH_ATTRIBUTE, -1);
+					final int otherPublicationDay = childProperties.get(PUBLICATION_DAY_ATTRIBUTE, -1);
+					final String otherPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
+					final String otherJournalName = childProperties.get(JOURNAL_NAME_ATTRIBUTE, String.class);
+					final int otherVolume = childProperties.get(VOLUME_ATTRIBUTE, -1);
+					final int otherIssue = childProperties.get(ISSUE_ATTRIBUTE, -1);
+					final String otherBookTitle = childProperties.get(BOOK_TITLE_ATTRIBUTE, String.class);
+					final String[] otherEditors = childProperties.get(EDITORS_ATTRIBUTE, String[].class);
+					//final Set<String> bookEditorsSet = new TreeSet<>();
+					List<String> otherEditorsSet = new ArrayList<>();
+					if (otherEditors != null) {
+						//Collections.addAll(bookEditorsSet, bookEditors);
+						otherEditorsSet = Arrays.asList(otherEditors);
+					}
+					final String otherPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final String otherPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
+					final int otherBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int otherEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int otherPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String otherDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
+					final String otherDoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
+					result.add(new Other(title, authorsList, favorite, publicationYear, link, reportingDate, otherConfidential, 
+							otherPublicationMonth, otherPublicationDay, otherPublisherURL, otherJournalName, otherVolume, otherIssue,
+							otherEditorsSet, otherPublisher, otherPublishingPlace, otherBeginPage, otherEndPage, otherPage, otherDoiLink, 
+							otherDoiText, otherBookTitle));
 					break;
 					
 				case PUBLICATION_TYPE_POSTER:
-					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate));
+        			final String posterCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+					final String posterNameOfConference = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
+					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate, posterNameOfConference));
 					break;
 					
 				case PUBLICATION_TYPE_REPORT:

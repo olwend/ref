@@ -188,7 +188,7 @@ public class ThesisDissertation extends Publication{
 			}
 		}
 		
-		// : PagesBegin-PagesEnd.
+		// PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");

@@ -145,9 +145,8 @@ public class InternetPublication extends Publication{
 		}
 		stringBuffer.append(") ");
 		
-		
 		//Link Opening
-		if (this.getLink() != null) {
+		if (this.getPublisherURL() != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.getPublisherURL());
 			stringBuffer.append("\">");
@@ -159,7 +158,7 @@ public class InternetPublication extends Publication{
 		stringBuffer.append("</i>");
 
 		//Link Closing
-		if (this.getLink() != null) {
+		if (this.getPublisherURL() != null) {
 			stringBuffer.append("</a>");
 		}
 		

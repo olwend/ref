@@ -129,14 +129,25 @@ public class JournalArticle extends Publication{
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
 			stringBuffer.append("</b>");
-			stringBuffer.append(" ");
+			if ( this.issue < 0 ) { 
+				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) {
+					stringBuffer.append(": "); 
+				} else {
+					stringBuffer.append(". ");
+				}
+			}
 		}
 		
 		// (Issue)
 		if (this.issue >= 0) {
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
-			stringBuffer.append("): ");
+			stringBuffer.append(") ");
+			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { 
+				stringBuffer.append(": "); 
+			} else {
+				stringBuffer.append(". ");
+			}
 		}
 		
 		// : PagesBegin-PagesEnd.

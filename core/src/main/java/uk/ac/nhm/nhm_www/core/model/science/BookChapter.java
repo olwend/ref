@@ -143,8 +143,16 @@ public class BookChapter extends Publication{
 		
 		// Publisher
 		if (this.publisher != null) {
-			stringBuffer.append(this.publisher);
-			if (this.place != null) { stringBuffer.append(" : "); }
+			stringBuffer.append(this.getPublisher());
+			if (this.place != null) { 
+				stringBuffer.append(" : "); 
+			} else {
+				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { 
+					stringBuffer.append(" : "); 
+				} else {
+					stringBuffer.append(". ");
+				}
+			}
 		}
 		
 		// :PublishingLocation
