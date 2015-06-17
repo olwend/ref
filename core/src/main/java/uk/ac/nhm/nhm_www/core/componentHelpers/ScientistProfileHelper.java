@@ -573,7 +573,16 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:
-					result.add(new NewspaperMagazine(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String newsmagPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
+					final int newsmagVolume = childProperties.get(VOLUME_ATTRIBUTE, -1);
+					final int newsmagIssue = childProperties.get(ISSUE_ATTRIBUTE, -1);
+					final int newsmagBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
+					final int newsmagEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
+					final int newsmagPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String newsmagDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
+					final String newsmagDoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
+					result.add(new NewspaperMagazine(title, authorsList, favorite, publicationYear, link, reportingDate, newsmagPublisherURL,
+							newsmagBeginPage, newsmagEndPage, newsmagPage, newsmagDoiLink, newsmagDoiText, newsmagVolume, newsmagIssue));
 					break;
 					
 				case PUBLICATION_TYPE_OTHER:
