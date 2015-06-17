@@ -129,14 +129,19 @@ public class InternetPublication extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "Internet Publication"
 							+ " #####");
+		
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 
+		// (Year) || (Year, Month) || (Year, Month, Day)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
-		if (this.getiPublicationMonth() > 0 && this.getiPublicationDay() > 0){
+		if (this.getiPublicationMonth() > 0 ){
 			stringBuffer.append("/" + this.getiPublicationMonth());
-			stringBuffer.append("/" + this.getiPublicationDay());
+			if (this.getiPublicationDay() > 0){
+				stringBuffer.append("/" + this.getiPublicationDay());
+			}
 		}
 		stringBuffer.append(") ");
 		

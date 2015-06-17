@@ -87,9 +87,12 @@ public class Dataset extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "Dataset"
 							+ " #####");
+		
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 
+		// (Year)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");

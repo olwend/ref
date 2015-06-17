@@ -96,10 +96,10 @@ public class BookChapter extends Publication{
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
-//		LOG.error("After being replaced: " + authorsString);
-		
 		//Remove name delimiters placed there by the normalizer
 		authorsString = authorsString.replaceAll("#", "");
+		
+//		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(" >>>>>>>> This is a BookChapter <<<<<<<< ");

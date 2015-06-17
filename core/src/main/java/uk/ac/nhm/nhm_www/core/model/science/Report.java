@@ -77,7 +77,6 @@ public class Report extends Publication{
 			} else if (authorsString.contains(firstInitial)) {
 				authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
-			
 			//Remove name delimiters placed there by the normalizer
 			authorsString = authorsString.replaceAll("#", "");
 			

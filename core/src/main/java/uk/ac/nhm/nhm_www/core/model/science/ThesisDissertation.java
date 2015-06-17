@@ -135,7 +135,7 @@ public class ThesisDissertation extends Publication{
 								+ "ThesisDissertation"
 							+ " #####");
 		
-		// Author NM
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 
