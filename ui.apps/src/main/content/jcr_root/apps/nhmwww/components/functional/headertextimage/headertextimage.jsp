@@ -75,7 +75,7 @@
 					data-equalizer-watch>
 		
 			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper">
-				<h3 class="hti--text">
+				<h3>
 					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
 						<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
 					<% } %>
