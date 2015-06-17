@@ -11042,16 +11042,27 @@ a.button-cta {
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
-  padding-bottom: 1.5em;
+}
+.grand-summary--wrapper .row {
+  margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
     margin: 0;
   }
 }
+.grand-summary--wrapper.grand-summary--exhibition {
+  padding-bottom: 1.5em;
+}
 
 .grand-summary--exhibition-details-grid {
-  padding-left: 0.75em;
+  padding-top: 0.75em;
+  padding-left: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--exhibition-details-grid {
+    padding-top: 1.5em;
+  }
 }
 
 .grand-summary--exhibition-details-grid li:first-child {
@@ -11118,17 +11129,17 @@ a.button-cta {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 110px;
+    height: 132px;
   }
 }
 @media screen and (min-width: 1024px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 120px;
+    height: 142px;
   }
 }
 
 .grand-summary--caption-title--container {
-  padding: 0.5em 1em 0 1em;
+  padding: 1em 1.5em 0.2em 1.5em;
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-title--container {
@@ -11142,12 +11153,12 @@ a.button-cta {
 }
 
 .grand-summary--caption-description--container {
-  padding: 0 1em 0.75em 1em;
+  padding: 0 1em 0.75em 1.5em;
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-description--container {
     padding-bottom: 0;
-    padding-left: 1em;
+    padding-left: 1.5em;
   }
 }
 .grand-summary--caption-description--container p {
@@ -11162,12 +11173,12 @@ a.button-cta {
 
 .grand-summary--caption-date--container {
   background: rgba(255, 255, 255, 0.2);
-  padding: 1em 1em 0.6em 1em;
+  padding: 0.6em 0.6em 0.6em 1.5em;
 }
 
 .grand-summary--caption-date {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   font-size: 1.5em;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   color: #ffffff !important;
