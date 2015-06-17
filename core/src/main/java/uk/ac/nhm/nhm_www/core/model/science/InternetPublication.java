@@ -166,7 +166,11 @@ public class InternetPublication extends Publication{
 		// Publisher
 		if (this.publisher != null) {
 			stringBuffer.append(this.publisher);
-			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { stringBuffer.append(" : "); }
+			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { 
+				stringBuffer.append(" : "); 
+			} else {
+				stringBuffer.append(". "); 
+			}
 		}
 		
 		// : PagesBegin-PagesEnd.
@@ -174,12 +178,13 @@ public class InternetPublication extends Publication{
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
-		stringBuffer.append(". ");
 			
 		return stringBuffer.toString();
 	}

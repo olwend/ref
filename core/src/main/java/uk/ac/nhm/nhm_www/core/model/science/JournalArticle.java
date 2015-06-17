@@ -144,12 +144,13 @@ public class JournalArticle extends Publication{
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
-		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {

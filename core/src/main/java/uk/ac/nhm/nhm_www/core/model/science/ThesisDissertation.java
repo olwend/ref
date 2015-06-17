@@ -171,26 +171,35 @@ public class ThesisDissertation extends Publication{
 		// Publisher
 		if (this.publisher != null) {
 			stringBuffer.append(this.publisher);
-			if (this.place != null) { stringBuffer.append(" : "); }
+			if (this.place != null) { 
+				stringBuffer.append(" : "); 
+			} else {
+				stringBuffer.append(". ");
+			}
 		}
 		
 		// :PublishingLocation, 
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) { stringBuffer.append(", "); }
+			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
+				stringBuffer.append(", "); 
+			} else {
+				stringBuffer.append(". ");
+			}
 		}
 		
-		// PagesBegin-PagesEnd.
+		// : PagesBegin-PagesEnd.
 		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
-		stringBuffer.append(".");
 		
 		return stringBuffer.toString();
 	}

@@ -150,7 +150,11 @@ public class BookChapter extends Publication{
 		// :PublishingLocation
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) { stringBuffer.append(", "); }
+			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || (this.page > 0 ) ) {
+				stringBuffer.append(", "); 
+			} else {
+				stringBuffer.append(". ");
+			}
 		}
 		
 		// : PagesBegin-PagesEnd.
@@ -158,12 +162,13 @@ public class BookChapter extends Publication{
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
-		stringBuffer.append(". ");
 		
 //		LOG.error("#### The final result for the publication is: " + stringBuffer + "####"); 
 		

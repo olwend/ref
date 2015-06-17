@@ -150,7 +150,7 @@ public class NewspaperMagazine extends Publication{
 		stringBuffer.append(") ");
 		
 		// Link Opening to publisher-url
-		if (this.getLink() != null) {
+		if (this.getPublisherURL() != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.getPublisherURL());
 			stringBuffer.append("\">");
@@ -159,19 +159,27 @@ public class NewspaperMagazine extends Publication{
 		// Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>.");
+		stringBuffer.append("</i>");
 
 		// Link Closing to publisher-url
-		if (this.getLink() != null) {
+		if (this.getPublisherURL() != null) {
 			stringBuffer.append("</a>");
 		}
+		
+		stringBuffer.append(". ");
 		
 		// <b>Volume</b>
 		if (this.volume > 0) {
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
 			stringBuffer.append("</b>");
-			stringBuffer.append(" ");
+			if ( this.issue < 0 ) { 
+				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) {
+					stringBuffer.append(": "); 
+				} else {
+					stringBuffer.append(". ");
+				}
+			}
 		}
 		
 		// (Issue)
@@ -181,6 +189,8 @@ public class NewspaperMagazine extends Publication{
 			stringBuffer.append(") ");
 			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { 
 				stringBuffer.append(": "); 
+			} else {
+				
 			}
 		}
 		
@@ -189,12 +199,13 @@ public class NewspaperMagazine extends Publication{
 			stringBuffer.append(this.paginationBeginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
-		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {

@@ -62,26 +62,29 @@ public class Software extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "Software"
 							+ " #####");
+		
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 
+		// (Year)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 
-		//Link Opening
+		// Link Opening
 		if (this.getLink() != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.getLink());
 			stringBuffer.append("\">");
 		}
 		
-		//Title
+		// Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
 
-		//Link Closing
+		// Link Closing
 		if (this.getLink() != null) {
 			stringBuffer.append("</a>");
 		}
