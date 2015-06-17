@@ -41,11 +41,8 @@
 				</div>
 			</li>
 			<li>
-				<div class="small-9 medium-8 large-9 columns">
+				<div class="small-12 medium-12 large-12 columns">
 					<legend class="directory-search--label">Filter by</legend>
-				</div>
-				<div class="small-3 medium-4 large-3 columns">
-					<a href="#">Reset filter</a>
 				</div>
 				<div class="small-12 columns">
 					<select id="division">
