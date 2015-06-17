@@ -33,17 +33,17 @@
                     fieldLabel="Alt Text"
                     name="./alt"
                     xtype="textfield"/>
+                <addPadding
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Add Padding"
+                    name="./addPadding"
+                    type="checkbox"
+                    xtype="selection"/>
                 <description
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Description"
                     name="./jcr:description"
                     xtype="textarea"/>
-                <addPadding
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="add padding"
-                    name="./addPadding"
-                    type="checkbox"
-                    xtype="selection"/>
                 <imageSize
                     jcr:primaryType="cq:Widget"
                     defaultValue="4"
