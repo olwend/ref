@@ -139,7 +139,7 @@ public class JournalArticle extends Publication{
 		}
 		
 		// (Issue)
-		if (this.issue >= 0) {
+		if (this.issue > 0) {
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
 			stringBuffer.append(") ");

@@ -183,14 +183,14 @@ public class NewspaperMagazine extends Publication{
 		}
 		
 		// (Issue)
-		if (this.issue >= 0) {
+		if (this.issue > 0) {
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
 			stringBuffer.append(") ");
 			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { 
 				stringBuffer.append(": "); 
 			} else {
-				
+				stringBuffer.append(". ");
 			}
 		}
 		
