@@ -131,9 +131,9 @@ public class JournalArticle extends Publication{
 		
 		// Issue
 		if (this.issue >= 0) {
-			stringBuffer.append("");
+			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
-			stringBuffer.append(" : ");
+			stringBuffer.append("): ");
 		}
 		
 		// : PagesBegin-PagesEnd

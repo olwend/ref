@@ -48,6 +48,9 @@ public class WebsitePublicationType extends Publication{
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
+		
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();

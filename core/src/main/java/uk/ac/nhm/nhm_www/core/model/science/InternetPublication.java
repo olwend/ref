@@ -13,14 +13,45 @@ public class InternetPublication extends Publication{
 	private int paginationBeginPage;
 	private int paginationEndPage;
 	private int page;
+	private int iPublicationMonth;
+	private int iPublicationDay;
+	private String publisherURL;
 
 	public InternetPublication(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String internetPublisher, int internetBeginPage, int internetEndPage, int internetPage) {
+			int iPublicationMonth, int iPublicationDay, final  String href,	final String reportingDate, String internetPublisher, 
+			String publisherURL, int internetBeginPage, int internetEndPage, int internetPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.iPublicationMonth = iPublicationMonth;
+		this.iPublicationDay = iPublicationDay;
 		this.publisher = internetPublisher;
+		this.publisherURL = publisherURL;
 		this.paginationBeginPage = internetBeginPage;
 		this.paginationEndPage = internetEndPage;
 		this.page = internetPage;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
+	}
+
+	public int getiPublicationMonth() {
+		return iPublicationMonth;
+	}
+
+	public void setiPublicationMonth(int iPublicationMonth) {
+		this.iPublicationMonth = iPublicationMonth;
+	}
+
+	public int getiPublicationDay() {
+		return iPublicationDay;
+	}
+
+	public void setiPublicationDay(int iPublicationDay) {
+		this.iPublicationDay = iPublicationDay;
 	}
 
 	public int getPaginationBeginPage() {
@@ -98,18 +129,27 @@ public class InternetPublication extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "Internet Publication"
 							+ " #####");
+		
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
 
+		// (Year) || (Year, Month) || (Year, Month, Day)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
+		if (this.getiPublicationMonth() > 0 ){
+			stringBuffer.append("/" + this.getiPublicationMonth());
+			if (this.getiPublicationDay() > 0){
+				stringBuffer.append("/" + this.getiPublicationDay());
+			}
+		}
 		stringBuffer.append(") ");
 		
 		
 		//Link Opening
 		if (this.getLink() != null) {
 			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.getLink());
+			stringBuffer.append(this.getPublisherURL());
 			stringBuffer.append("\">");
 		}
 		
@@ -126,19 +166,18 @@ public class InternetPublication extends Publication{
 		// Publisher
 		if (this.publisher != null) {
 			stringBuffer.append(this.publisher);
-			if (this.page > 0) { stringBuffer.append(" : "); }
+			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { stringBuffer.append(" : "); }
 		}
 		
-//		// PagesBegin-PagesEnd.
-//		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-//			stringBuffer.append(this.paginationBeginPage);
-//			stringBuffer.append(" - ");
-//			stringBuffer.append(this.paginationEndPage);
-//			if (this.page > 0 ){ stringBuffer.append(", "); }
-//		}
-		
-		if (this.page > 0) {
-			stringBuffer.append(this.page);
+		// PagesBegin-PagesEnd.
+		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
+			stringBuffer.append(this.paginationBeginPage);
+			stringBuffer.append(" - ");
+			stringBuffer.append(this.paginationEndPage);
+		} else {
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+			}
 		}
 			
 		return stringBuffer.toString();
