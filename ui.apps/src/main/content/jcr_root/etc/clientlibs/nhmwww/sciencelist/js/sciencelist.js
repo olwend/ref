@@ -56,6 +56,9 @@ $(document).ready(function() {
 	$("#name").on("click", function(){
 		nameSorted = sortTable(0, nameSorted);
 		var $this = $(this);			
+//		In case we end up adding &and; &or; we can do something like:
+//		var aux = $(this).text() + '&and;/&or;';
+//		$(this).text(aux);
 		if ( $(this).hasClass('sort-results-down') ){
 			$(this).css('background-color', 'red');  
 			$(this).removeClass('sort-results-down');
