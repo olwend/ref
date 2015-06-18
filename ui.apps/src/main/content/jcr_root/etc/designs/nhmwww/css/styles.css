@@ -11565,26 +11565,36 @@ a.button-cta {
   background-color: #808080 !important;
   color: #ffffff;
 }
-.hti-box__dark-grey .hti--text {
+.hti-box__dark-grey h3 {
   color: #ffffff;
 }
-.hti-box__dark-grey .hti--text a {
-  color: #ffffff;
+.hti-box__dark-grey a {
+  color: #D5D5D5;
+}
+.hti-box__dark-grey a:hover {
+  color: #D5D5D5;
 }
 
 /** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
 .hti-box__feature-box {
   color: #ffffff;
 }
-.hti-box__feature-box .hti--text {
+.hti-box__feature-box h3 {
   color: #ffffff;
 }
-.hti-box__feature-box .hti--text a {
-  color: #ffffff;
+.hti-box__feature-box a {
+  color: #D5D5D5;
+}
+.hti-box__feature-box a:hover {
+  color: #D5D5D5;
 }
 
 .hti-box--text-wrapper {
   padding: 1em 1.5em 0;
+}
+.hti-box--text-wrapper ul li {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 /** this replaces info-tout__action **/
@@ -11683,31 +11693,79 @@ a.button-cta {
 
 /** overrides headertextimage.scss custom Foundation widths **/
 .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
-  width: 65.7%;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+    width: 65.7%;
+  }
 }
 
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
 }
+.grand-summary--wrapper .row {
+  margin-bottom: 0;
+}
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
     margin: 0;
   }
 }
-
-/** need to rename this **/
-.grand-summary--block-grid {
-  padding-left: 24px;
+.grand-summary--wrapper.grand-summary--exhibition {
+  padding-bottom: 1.5em;
 }
 
-.grand-summary--block-grid li:first-child {
+.grand-summary--exhibition-details-grid {
+  padding-top: 0.75em;
+  padding-left: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--exhibition-details-grid {
+    padding-top: 1.5em;
+  }
+}
+
+.grand-summary--exhibition-details-grid li:first-child {
+  padding-right: 1em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--exhibition-details-grid li:first-child {
+    padding-left: 1em;
+  }
+}
+
+.grand-summary--exhibition-details-grid li:last-child {
+  padding-right: 0;
+}
+
+.grand-summary--exhibition-details-grid li {
+  padding-bottom: 0;
   padding-left: 0;
 }
 
 .grand-summary--wrapper .info-sidebar {
+  margin-top: 1.5em;
   margin-left: 0;
+  padding-top: 0;
   padding-left: 0;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .info-sidebar {
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grand-summary--wrapper .info-sidebar {
+    padding-left: 2em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .info-sidebar li:first-child {
+    margin-top: 0;
+  }
 }
 
 .grand-summary--wrapper .info-sidebar li {
@@ -11728,12 +11786,26 @@ a.button-cta {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption {
-    padding: 0 0 1em 0;
+    padding-bottom: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-container .caption.grand-summary--exhibition {
+    height: 132px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .grand-summary--caption-container .caption {
-    padding-bottom: 1em;
+  .grand-summary--caption-container .caption.grand-summary--exhibition {
+    height: 142px;
+  }
+}
+
+.grand-summary--caption-title--container {
+  padding: 1em 1.5em 0.2em 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-title--container {
+    padding-top: 0.75em;
   }
 }
 
@@ -11742,47 +11814,36 @@ a.button-cta {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
-.grand-summary--caption-title--container {
-  padding: 0.5em 1em;
+.grand-summary--caption-description--container {
+  padding: 0 1em 0.75em 1.5em;
 }
 @media screen and (min-width: 768px) {
-  .grand-summary--caption-title--container {
-    padding-top: 0.75em;
+  .grand-summary--caption-description--container {
     padding-bottom: 0;
+    padding-left: 1.5em;
+  }
+}
+.grand-summary--caption-description--container p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1em !important;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container p {
+    font-size: 1.15em !important;
   }
 }
 
 .grand-summary--caption-date--container {
   background: rgba(255, 255, 255, 0.2);
-  padding: 1em 1em 0.6em 1em;
+  padding: 0.6em 0.6em 0.6em 1.5em;
 }
 
 .grand-summary--caption-date {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   font-size: 1.5em;
-  /* 1.6 is too big */
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   color: #ffffff !important;
-}
-
-.grand-summary--caption-description--container {
-  padding: 0 0.75em 0.5em 0.75em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-description--container {
-    padding-bottom: 1em;
-    padding-left: 1em;
-  }
-}
-
-.grand-summary--caption-description--container p p {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 0.9em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-description--container p p {
-    font-size: 1.15em;
-  }
 }
 
 /** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
@@ -11794,24 +11855,18 @@ a.button-cta {
 .grand-summary--wrapper .ctabutton:hover h3 {
   text-decoration: underline;
 }
+.grand-summary--wrapper .ctabutton .svg-ico {
+  height: 40px;
+  top: 30%;
+  width: 100%;
+}
 .grand-summary--wrapper .ctabutton--cta-text {
   color: #565656;
   padding-bottom: 0;
   margin-bottom: 0;
   margin-left: 0.3em;
   font-family: "Elysio-Regular";
-}
-.grand-summary--wrapper .ctabutton .svg-ico {
-  height: 40px;
-  top: 30%;
-  /*width: 60%;*/
-  width: 100%;
-  /*
-  	@media screen and (min-width: $tablet) {
-  		height: 36%;
-  		top: 34%;
-  		right: 0;
-  	}*/
+  font-size: 2em;
 }
 
 /*# sourceMappingURL=styles.css.map */

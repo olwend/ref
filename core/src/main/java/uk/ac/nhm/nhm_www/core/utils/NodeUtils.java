@@ -5,6 +5,8 @@ import javax.jcr.ItemNotFoundException;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class NodeUtils {
 
 	public enum RowType {HEROSECTION,ROW2CELLS12,ROW2CELLS21,ROW2CELLSEQUALS,ROW3CELLS,ROWFULLWIDTH}
@@ -42,8 +44,15 @@ public class NodeUtils {
 	public static String getNameofContainerRow(final Node node) throws AccessDeniedException, ItemNotFoundException, RepositoryException
 	{
 		String path = node.getPath();
-		String pathFromLastRow = path.substring(path.lastIndexOf("/row"));
-		String nameOfLastRow = pathFromLastRow.split("/")[1];
+		String pathFromLastRow = StringUtils.EMPTY;
+		String nameOfLastRow = StringUtils.EMPTY;
+		if(path.contains("/row")){
+			pathFromLastRow = path.substring(path.lastIndexOf("/row"));
+			nameOfLastRow = pathFromLastRow.split("/")[1];
+		} else if (path.contains("herosection")){
+			pathFromLastRow = path.substring(path.lastIndexOf("/herosection"));
+			nameOfLastRow = pathFromLastRow.split("/")[1];
+		}
 		return nameOfLastRow;
 	}
 	

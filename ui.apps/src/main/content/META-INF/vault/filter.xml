@@ -4,7 +4,7 @@
 		<exclude pattern="/apps/nhmwww/install" />
 	</filter>
 	<filter root="/apps/sidekick-customization"/>
-	<filter root="/apps/cq" />
+	<filter root="/apps/cq" /> 
 	<filter root="/apps/sling" />
 	<filter root="/apps/wcm/extensions/contentfinder"/>
 	<filter root="/etc/clientlibs/nhmwww"/>
