@@ -9,8 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 
 public class NewspaperMagazine extends Publication{
 	
-	private int paginationBeginPage;
-	private int paginationEndPage;
+	private int beginPage;
+	private int endPage;
 	private int page;
 	private String publisherURL;
 	private String doiLink;
@@ -22,78 +22,14 @@ public class NewspaperMagazine extends Publication{
 			final  String href,	final String reportingDate, String newsmagPublisherURL, int newsmagBeginPage, int newsmagEndPage, 
 			int newsmagPage, String newsmagDoiLink, String newsmagDoiText, int newsmagVolume, int newsmagIssue) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		this.paginationBeginPage = newsmagBeginPage;
-		this.paginationEndPage = newsmagEndPage;
+		this.beginPage = newsmagBeginPage;
+		this.endPage = newsmagEndPage;
 		this.page = newsmagPage;
 		this.publisherURL = newsmagPublisherURL;
 		this.doiLink = newsmagDoiLink;
 		this.doiText = newsmagDoiText;
 		this.volume = newsmagVolume;
 		this.issue = newsmagIssue;
-	}
-
-	public int getPaginationBeginPage() {
-		return paginationBeginPage;
-	}
-
-	public void setPaginationBeginPage(int paginationBeginPage) {
-		this.paginationBeginPage = paginationBeginPage;
-	}
-
-	public int getPaginationEndPage() {
-		return paginationEndPage;
-	}
-
-	public void setPaginationEndPage(int paginationEndPage) {
-		this.paginationEndPage = paginationEndPage;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public String getPublisherURL() {
-		return publisherURL;
-	}
-
-	public void setPublisherURL(String publisherURL) {
-		this.publisherURL = publisherURL;
-	}
-
-	public String getDoiLink() {
-		return doiLink;
-	}
-
-	public void setDoiLink(String doiLink) {
-		this.doiLink = doiLink;
-	}
-
-	public String getDoiText() {
-		return doiText;
-	}
-
-	public void setDoiText(String doiText) {
-		this.doiText = doiText;
-	}
-
-	public int getVolume() {
-		return volume;
-	}
-
-	public void setVolume(int volume) {
-		this.volume = volume;
-	}
-
-	public int getIssue() {
-		return issue;
-	}
-
-	public void setIssue(int issue) {
-		this.issue = issue;
 	}
 
 	@Override
@@ -150,9 +86,9 @@ public class NewspaperMagazine extends Publication{
 		stringBuffer.append(") ");
 		
 		// Link Opening to publisher-url
-		if (this.getPublisherURL() != null) {
+		if (this.publisherURL != null) {
 			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.getPublisherURL());
+			stringBuffer.append(this.publisherURL);
 			stringBuffer.append("\">");
 		}
 		
@@ -162,7 +98,7 @@ public class NewspaperMagazine extends Publication{
 		stringBuffer.append("</i>");
 
 		// Link Closing to publisher-url
-		if (this.getPublisherURL() != null) {
+		if (this.publisherURL != null) {
 			stringBuffer.append("</a>");
 		}
 		
@@ -174,7 +110,7 @@ public class NewspaperMagazine extends Publication{
 			stringBuffer.append(this.volume);
 			stringBuffer.append("</b>");
 			if ( this.issue < 0 ) { 
-				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) {
+				if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) {
 					stringBuffer.append(": "); 
 				} else {
 					stringBuffer.append(". ");
@@ -187,7 +123,7 @@ public class NewspaperMagazine extends Publication{
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
 			stringBuffer.append(") ");
-			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { 
+			if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
 				stringBuffer.append(": "); 
 			} else {
 				stringBuffer.append(". ");
@@ -195,10 +131,10 @@ public class NewspaperMagazine extends Publication{
 		}
 		
 		// : PagesBegin-PagesEnd.
-		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(this.paginationBeginPage);
+		if (this.beginPage > 0 && this.endPage > 0) {
+			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
-			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
@@ -218,6 +154,70 @@ public class NewspaperMagazine extends Publication{
 		}
 			
 		return stringBuffer.toString();
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
+	}
+
+	public String getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(String doiLink) {
+		this.doiLink = doiLink;
+	}
+
+	public String getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(String doiText) {
+		this.doiText = doiText;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public int getIssue() {
+		return issue;
+	}
+
+	public void setIssue(int issue) {
+		this.issue = issue;
 	}
 	
 }

@@ -17,14 +17,6 @@ public class Poster extends Publication{
 		this.nameOfConference = posterNameOfConference;
 	}
 
-	public String getNameOfConference() {
-		return nameOfConference;
-	}
-
-	public void setNameOfConference(String nameOfConference) {
-		this.nameOfConference = nameOfConference;
-	}
-
 	@Override
 	public String getHTMLContent(final String author, final boolean isFavourite) {
 		// Butler, R. J. and Barrett, P. M. (2013) Global Cambrian trilobite palaeobiogeography assessed using parsimony analysis of endemicity. In: D.A.T Harper and T Servais (eds) Early Palaeozoic Biogeography and Palaeogeography, pp. 273-296. Geological Society, London.
@@ -86,11 +78,19 @@ public class Poster extends Publication{
 		//Presented At
 		if( nameOfConference != null ){
 			stringBuffer.append("Presented at ");
-			stringBuffer.append(this.getNameOfConference());
+			stringBuffer.append(this.nameOfConference);
 			stringBuffer.append(". ");			
 		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getNameOfConference() {
+		return nameOfConference;
+	}
+
+	public void setNameOfConference(String nameOfConference) {
+		this.nameOfConference = nameOfConference;
 	}
 	
 }

@@ -103,5 +103,21 @@ public class Software extends Publication{
 			
 		return stringBuffer.toString();
 	}
+
+	public String getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(String doiText) {
+		this.doiText = doiText;
+	}
+
+	public String getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(String doiLink) {
+		this.doiLink = doiLink;
+	}
 	
 }

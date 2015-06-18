@@ -20,30 +20,6 @@ public class Dataset extends Publication{
 		this.publisherURL = datasetPublisherURL;
 	}
 
-	public String getPublisherURL() {
-		return publisherURL;
-	}
-
-	public void setPublisherURL(String publisherURL) {
-		this.publisherURL = publisherURL;
-	}
-
-	public Object getDoiLink() {
-		return doiLink;
-	}
-
-	public void setDoiLink(Object doiLink) {
-		this.doiLink = doiLink;
-	}
-
-	public Object getDoiText() {
-		return doiText;
-	}
-
-	public void setDoiText(Object doiText) {
-		this.doiText = doiText;
-	}
-
 	@Override
 	public String getHTMLContent(final String author, final boolean isFavourite) {
 		// Butler, R. J. and Barrett, P. M. (2013) Global Cambrian trilobite palaeobiogeography assessed using parsimony analysis of endemicity. In: D.A.T Harper and T Servais (eds) Early Palaeozoic Biogeography and Palaeogeography, pp. 273-296. Geological Society, London.
@@ -100,7 +76,7 @@ public class Dataset extends Publication{
 		//Link Opening for publisher-url
 		if (this.getLink() != null) {
 			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.getPublisherURL());
+			stringBuffer.append(this.publisherURL);
 			stringBuffer.append("\">");
 		}
 		
@@ -126,5 +102,29 @@ public class Dataset extends Publication{
 			stringBuffer.append("</a>");
 		}
 		return stringBuffer.toString();
+	}
+
+	public Object getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(Object doiLink) {
+		this.doiLink = doiLink;
+	}
+
+	public Object getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(Object doiText) {
+		this.doiText = doiText;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 }

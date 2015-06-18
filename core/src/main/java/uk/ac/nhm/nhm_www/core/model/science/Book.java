@@ -12,36 +12,20 @@ public class Book extends Publication{
 	private String publisher;
 	private String place;
 	private int page;
-	private int paginationBeginPage;
-	private int paginationEndPage;
+	private int beginPage;
+	private int endPage;
 	
 	public Book(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
 			final String href, final String reportingDate, final List<String> editorsSet, final String publisher, final String place,
 			final int page, int beginPage, int endPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
-		this.paginationBeginPage = beginPage;
-		this.paginationEndPage = endPage;
+		this.beginPage = beginPage;
+		this.endPage = endPage;
 		this.editors = editorsSet;
 		this.publisher = publisher;
 		this.place = place;
 		this.page = page;
-	}
-
-	public List<String> getEditors() {
-		return editors;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public String getPlace() {
-		return place;
-	}
-
-	public int getPage() {
-		return page;
 	}
 
 	@Override
@@ -100,7 +84,7 @@ public class Book extends Publication{
 		stringBuffer.append("</i>. ");
 		
 		// Editor N.M., Editor N.M.
-		final List<String> editors = this.getEditors();
+		final List<String> editors = this.editors;
 		if (editors != null) {
 			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
 			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
@@ -129,10 +113,10 @@ public class Book extends Publication{
 		}
 		
 		// : PagesBegin-PagesEnd.
-		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(this.paginationBeginPage);
+		if (this.beginPage > 0 && this.endPage > 0) {
+			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
-			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
@@ -142,6 +126,54 @@ public class Book extends Publication{
 		}
 			
 		return stringBuffer.toString();
+	}
+
+	public List<String> getEditors() {
+		return editors;
+	}
+
+	public void setEditors(List<String> editors) {
+		this.editors = editors;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
 	}
 	
 }
