@@ -6,6 +6,24 @@ var autoKeywords = "";
 var $elementSelected;
 var departmentDivision = "";
 
+$.extend({
+	getUrlVars : function() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	},
+	getUrlVar : function(name) {
+		return $.getUrlVars()[name];
+	}
+});
+
+
 $(document).ready(function() {
 	
 	var globalMaxResult = 8;
@@ -150,15 +168,55 @@ $(document).ready(function() {
 });
 
 function saveSearchTerms() {
+
 	name = $("#firstNameInput").val();
+	if (typeof name === undefined || name === null || name === '') {
+		aux = $.getUrlVar('name');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			console.log("name : " + aux);
+			name = aux;
+		}
+	}
+
 	surname = $("#surnameInput").val();
+	if (typeof surname === undefined || surname === null || surname === '') {
+		aux = $.getUrlVar('surname');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			console.log("surname : " + aux);
+			surname = aux;
+		}
+	}
+
 	keywords = $("#keywordsInput").val();
+	if (typeof keywords === undefined || keywords === null || keywords === '') {
+		aux = $.getUrlVar('specialism');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			console.log("specialism : " + aux);
+			keywords = aux;
+		}
+	}
 	
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
+	console.log("departmentDivision search : " + departmentDivision);
+	if (typeof departmentDivision === undefined || departmentDivision === null || departmentDivision === 'All') {
+		aux = $.getUrlVar('department');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			console.log("department : " + aux);
+			departmentDivision = aux;
+		}
+	}
 	
 	$collectionGroupSelected = $("#collections option:selected");
 	collectionsGroup = $collectionGroupSelected.val();
+	console.log("collection search : " + collectionsGroup);
+	if (typeof collectionsGroup === undefined || collectionsGroup === null || collectionsGroup === 'All') {
+		aux = $.getUrlVar('collection');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			console.log("collection url : " + aux);
+			collectionsGroup = aux;
+		}
+	}
 }
 
 function searchFunc(maxResults) {
@@ -218,6 +276,7 @@ function searchFunc(maxResults) {
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
 			console.log("Department: " + $elementSelected.val());
+			console.log("[department=" + '"' + $elementSelected.val() + '"' + "]");
 			nodes = nodes.filter("[department=" + '"' + $elementSelected.val() + '"' + "]");
 		}
 		
