@@ -11565,26 +11565,36 @@ a.button-cta {
   background-color: #808080 !important;
   color: #ffffff;
 }
-.hti-box__dark-grey .hti--text {
+.hti-box__dark-grey h3 {
   color: #ffffff;
 }
-.hti-box__dark-grey .hti--text a {
-  color: #ffffff;
+.hti-box__dark-grey a {
+  color: #D5D5D5;
+}
+.hti-box__dark-grey a:hover {
+  color: #D5D5D5;
 }
 
 /** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
 .hti-box__feature-box {
   color: #ffffff;
 }
-.hti-box__feature-box .hti--text {
+.hti-box__feature-box h3 {
   color: #ffffff;
 }
-.hti-box__feature-box .hti--text a {
-  color: #ffffff;
+.hti-box__feature-box a {
+  color: #D5D5D5;
+}
+.hti-box__feature-box a:hover {
+  color: #D5D5D5;
 }
 
 .hti-box--text-wrapper {
   padding: 1em 1.5em 0;
+}
+.hti-box--text-wrapper ul li {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 /** this replaces info-tout__action **/
