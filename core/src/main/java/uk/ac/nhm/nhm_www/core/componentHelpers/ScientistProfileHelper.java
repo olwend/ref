@@ -650,11 +650,19 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_WEBPAGE:
-					result.add(new Webpage(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String webpagePublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
+					final String webpagePublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final String webpagePublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
+					result.add(new Webpage(title, authorsList, favorite, publicationYear, link, reportingDate, webpagePublisher, 
+							webpagePublisherURL, webpagePublishingPlace));
 					break;
 					
 				case PUBLICATION_TYPE_WEBSITE:
-					result.add(new WebsitePublicationType(title, authorsList, favorite, publicationYear, link, reportingDate));
+					final String websitePublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
+					final String websitePublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
+					final String websitePublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
+					result.add(new WebsitePublicationType(title, authorsList, favorite, publicationYear, link, reportingDate, 
+							websitePublisher, websitePublisherURL, websitePublishingPlace));
 					break;
 					
 				default:

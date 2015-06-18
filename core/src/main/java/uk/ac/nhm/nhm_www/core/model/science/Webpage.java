@@ -9,9 +9,16 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Webpage extends Publication{
 	
+	private String publisher;
+	private String publisherURL;
+	private String publishingPlace;
+
 	public Webpage(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate){
+			final  String href,	final String reportingDate, String webpagePublisher, String webpagePublisherURL, String webpagePublishingPlace){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.publisher = webpagePublisher;
+		this.publisherURL = webpagePublisherURL;
+		this.publishingPlace = webpagePublishingPlace;
 	}
 
 	@Override
@@ -57,18 +64,65 @@ public class Webpage extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "Webpage"
 							+ " #####");
+
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
-
+		
+		// (Year) || (Year, Month) || (Year, Month, Day)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		// Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>. ");
+		
+		// Link Closing for PublisherURL
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
+		}
+			
+		// Publisher
+		if (this.publisher != null) {
+			stringBuffer.append(this.publisher);
+			if (this.publishingPlace != null) { 
+				stringBuffer.append(" : "); 
+			}
+		}
+		
+		// :PublishingLocation
+		if (this.publishingPlace != null) {
+			stringBuffer.append(this.publishingPlace);
+			stringBuffer.append(". ");
+		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
+	}
+
+	public String getPublishingPlace() {
+		return publishingPlace;
+	}
+
+	public void setPublishingPlace(String publishingPlace) {
+		this.publishingPlace = publishingPlace;
 	}
 	
 }

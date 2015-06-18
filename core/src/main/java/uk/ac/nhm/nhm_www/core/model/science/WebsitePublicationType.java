@@ -3,15 +3,21 @@ package uk.ac.nhm.nhm_www.core.model.science;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
 public class WebsitePublicationType extends Publication{
 	
+	private String publisher;
+	private String publishingPlace;
+	private String publisherURL;
+
 	public WebsitePublicationType(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate){
+			final  String href,	final String reportingDate, String publisher, String publisherURL, String publishingPlace){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.publisher = publisher;
+		this.publisherURL = publisherURL;
+		this.publishingPlace = publishingPlace;
 	}
 
 	@Override
@@ -57,18 +63,65 @@ public class WebsitePublicationType extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "WebsitePublicationType"
 							+ " #####");
+
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
-
+		
+		// (Year) || (Year, Month) || (Year, Month, Day)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		// Title
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>. ");
+		
+		// Link Closing for PublisherURL
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
+		}
+			
+		// Publisher
+		if (this.publisher != null) {
+			stringBuffer.append(this.publisher);
+			if (this.publishingPlace != null) { 
+				stringBuffer.append(" : "); 
+			}
+		}
+		
+		// :PublishingLocation
+		if (this.publishingPlace != null) {
+			stringBuffer.append(this.publishingPlace);
+			stringBuffer.append(". ");
+		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPublishingPlace() {
+		return publishingPlace;
+	}
+
+	public void setPublishingPlace(String publishingPlace) {
+		this.publishingPlace = publishingPlace;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 	
 }
