@@ -234,13 +234,14 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 		final JSONObject object = new JSONObject();
 		try {
 			DynamicPageHelper helper = new DynamicPageHelper(page);
-			object.put("path", resolver.map(request, page.getPath()));
+			String pageTitle = page.getPath().replace("/content/nhmwww/en/home", "");
+			object.put("path", pageTitle);
 			LOG.error("page path from HTTPS: " + page.getPath());
-			object.put("title", resolver.map(request, PageUtils.getPageTitle(page)));
+			object.put("title", PageUtils.getPageTitle(page));
 			object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
-			object.put("page-introduction", resolver.map(request, xssAPI.encodeForHTMLAttr(helper.getPageIntroduction())));
-			object.put("keywords", resolver.map(request, PageUtils.getPageKeywords(page)));
-			object.put("description", resolver.map(request, PageUtils.EncodeMetaDescription(PageUtils.getPageDescription(page))));
+			object.put("page-introduction", helper.getPageIntroduction());
+			object.put("keywords", PageUtils.getPageKeywords(page));
+			object.put("description", PageUtils.EncodeMetaDescription(PageUtils.getPageDescription(page)));
 		}
 		catch (Exception e) {
 			LOG.error(e.getMessage());
