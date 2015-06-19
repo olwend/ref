@@ -67,32 +67,36 @@ public class Webpage extends Publication{
 
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 		
-		// (Year) || (Year, Month) || (Year, Month, Day)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// Title
+		//Link Opening for publisher-url
+		if (this.publisherURL != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.publisherURL);
+			stringBuffer.append("\">");
+		}
+		
+		// Title_
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
-		
-		// Link Closing for PublisherURL
+		stringBuffer.append("</i>");
+
+		//Link Closing for publisher-url
 		if (this.publisherURL != null) {
 			stringBuffer.append("</a>");
 		}
 			
-		// Publisher
+		// Publisher :_
 		if (this.publisher != null) {
 			stringBuffer.append(this.publisher);
-			if (this.publishingPlace != null) { 
-				stringBuffer.append(" : "); 
-			}
+			stringBuffer.append(" : "); 
 		}
 		
-		// :PublishingLocation
+		// PublishingLocation._
 		if (this.publishingPlace != null) {
 			stringBuffer.append(this.publishingPlace);
 			stringBuffer.append(". ");

@@ -84,7 +84,7 @@ public class JournalArticle extends Publication{
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ArticleTitle.
+		// ArticleTitle._
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append(". ");
 		
@@ -98,29 +98,18 @@ public class JournalArticle extends Publication{
 		if (this.volume > 0) {
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
-			stringBuffer.append("</b>");
-			if ( this.issue < 0 ) { 
-				if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) {
-					stringBuffer.append(": "); 
-				} else {
-					stringBuffer.append(". ");
-				}
-			}
+			stringBuffer.append("</b> ");
 		}
 		
-		// (Issue)
+		// (Issue) :_
 		if (this.issue > 0) {
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
-			stringBuffer.append(") ");
-			if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
-				stringBuffer.append(": "); 
-			} else {
-				stringBuffer.append(". ");
-			}
+			stringBuffer.append(")");
+			stringBuffer.append(" : ");
 		}
 		
-		// : PagesBegin-PagesEnd.
+		// PagesBegin-PagesEnd.
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");

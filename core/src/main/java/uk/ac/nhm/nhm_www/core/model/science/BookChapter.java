@@ -79,25 +79,25 @@ public class BookChapter extends Publication{
 		final StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(" >>>>>>>> This is a BookChapter <<<<<<<< ");
 		
-		// Author N.M., Author N.M.
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ChapterTitle,
+		// ChapterTitle,_
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append(", ");
 		
-		// In: <i>BookTitle</i>,
+		// In: <i>BookTitle</i>,_
 		stringBuffer.append("In: ");
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.bookTitle);
 		stringBuffer.append("</i>, ");
 		
-		// Editor N.M., Editor N.M. (Eds).
+		// Editor NM, Editor NM (Eds)._
 		final List<String> editors = this.editors;
 		if (editors != null && editors.size() > 0) {
 			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
@@ -113,31 +113,17 @@ public class BookChapter extends Publication{
 			stringBuffer.append(" (Eds). ");
 		}
 		
-		// Publisher
-		if (this.publisher != null) {
-			stringBuffer.append(this.publisher);
-			if (this.place != null) { 
-				stringBuffer.append(" : "); 
-			} else {
-				if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
-					stringBuffer.append(" : "); 
-				} else {
-					stringBuffer.append(". ");
-				}
-			}
-		}
+		// Publisher :_
+		stringBuffer.append(this.publisher);
+		stringBuffer.append(" : ");			
 		
-		// :PublishingLocation
+		// PublishPlace._
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			if ( (this.beginPage > 0 && this.endPage > 0) || (this.page > 0 ) ) {
-				stringBuffer.append(", "); 
-			} else {
-				stringBuffer.append(". ");
-			}
+			stringBuffer.append(". ");
 		}
 		
-		// : PagesBegin-PagesEnd.
+		// PagesBegin-PagesEnd.
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");

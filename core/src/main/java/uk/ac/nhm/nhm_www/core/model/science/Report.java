@@ -16,7 +16,7 @@ public class Report extends Publication{
 	private int endPage;
 
 	private String publisher;
-	private String place;
+	private String publishingPlace;
 	private int page;
 	
 	public Report(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
@@ -27,7 +27,7 @@ public class Report extends Publication{
 		this.beginPage = paginationBeginPage;
 		this.endPage = paginationEndPage;
 		this.publisher = publisher;
-		this.place = place;
+		this.publishingPlace = place;
 		this.page = page;
 	}
 	
@@ -78,39 +78,29 @@ public class Report extends Publication{
 					+ "Report"
 					+ " #####");
 			
-			// Author N.M., Author N.M.
+			// Author NM, Author NM
 			stringBuffer.append(authorsString);
 			
-			// (Year)
+			// _(Year)_
 			stringBuffer.append(" (");
 			stringBuffer.append(this.getPublicationYear());
 			stringBuffer.append(") ");
 			
-			// Title
+			// Title._
 			stringBuffer.append(this.getTitle());
 			stringBuffer.append(". ");
 			
-			// Publisher
-			if (this.publisher != null) {
-				stringBuffer.append(this.publisher);
-				if (this.place != null) { 
-					stringBuffer.append(" : "); 
-				} else {
-					stringBuffer.append(". ");
-				}
+			// Publisher :_
+			stringBuffer.append(this.publisher);
+			stringBuffer.append(" : ");			
+			
+			// PublishPlace._
+			if (this.publishingPlace != null) {
+				stringBuffer.append(this.publishingPlace);
+				stringBuffer.append(". ");
 			}
 			
-			// :PublishingLocation
-			if (this.place != null) {
-				stringBuffer.append(this.place);
-				if ( (this.beginPage > 0 && this.endPage > 0) || (this.page > 0 ) ) {
-					stringBuffer.append(", "); 
-				} else {
-					stringBuffer.append(". ");
-				}
-			}
-			
-			// : PagesBegin-PagesEnd.
+			// PagesBegin - PagesEnd._
 			if (this.beginPage > 0 && this.endPage > 0) {
 				stringBuffer.append(this.beginPage);
 				stringBuffer.append(" - ");
@@ -160,11 +150,11 @@ public class Report extends Publication{
 	}
 
 	public String getPlace() {
-		return place;
+		return publishingPlace;
 	}
 
 	public void setPlace(String place) {
-		this.place = place;
+		this.publishingPlace = place;
 	}
 
 	public int getPage() {

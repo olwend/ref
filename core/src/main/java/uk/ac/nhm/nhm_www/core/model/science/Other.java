@@ -97,15 +97,14 @@ public class Other extends Publication{
 			
 			// Author NM, Author NM
 			stringBuffer.append(authorsString);
-			stringBuffer.append(". ");
 			
-			// (Year) || (Year, Month) || (Year, Month, Day)
+			// (Year) || (Year, Month) || (Year, Day Month)
 			stringBuffer.append(" (");
 			stringBuffer.append(this.getPublicationYear());
-			if (this.publicationMonth > 0 ){
-				stringBuffer.append("/" + this.publicationMonth);
-				if (this.publicationDay > 0){
-					stringBuffer.append("/" + this.publicationDay);
+			if (this.publicationDay > 0){
+				stringBuffer.append(", " + this.publicationDay);
+				if (this.publicationMonth > 0 ){
+					stringBuffer.append(" " + this.publicationMonth);
 				}
 			}
 			stringBuffer.append(") ");
@@ -117,17 +116,16 @@ public class Other extends Publication{
 				stringBuffer.append("\">");
 			}
 			
-			// Title
-			stringBuffer.append("<i>");
+			// Title._
 			stringBuffer.append(this.getTitle());
-			stringBuffer.append("</i>. ");
+			stringBuffer.append(". ");
 			
 			// Link Closing for PublisherURL
 			if (this.publisherURL != null) {
 				stringBuffer.append("</a>");
 			}
 			
-			// <i>JournalName</i>
+			// <i>JournalName</i>._
 			if (this.journalName != null ){				
 				stringBuffer.append("<i>");
 				stringBuffer.append(this.journalName);
@@ -135,33 +133,21 @@ public class Other extends Publication{
 				stringBuffer.append(". ");
 			}
 			
-			// <b>Volume</b>
+			// <b>Volume</b>_
 			if (this.volume > 0) {
 				stringBuffer.append("<b>");
 				stringBuffer.append(this.volume);
-				stringBuffer.append("</b>");
-				if ( this.issue < 0 ) { 
-					if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) {
-						stringBuffer.append(": "); 
-					} else {
-						stringBuffer.append(". ");
-					}
-				}
+				stringBuffer.append("</b> ");
 			}
 			
-			// (Issue)
+			// (Issue)_
 			if (this.issue > 0) {
 				stringBuffer.append("(");
 				stringBuffer.append(this.issue);
 				stringBuffer.append(") ");
-				if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
-					stringBuffer.append(": "); 
-				} else {
-					stringBuffer.append(". ");
-				}
 			}
 			
-			// Editor N.M., Editor N.M. (Eds).
+			// Editor NM, Editor NM (Eds)._
 			final List<String> editors = this.editors;
 			if (editors != null && editors.size() > 0) {
 				String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
@@ -177,7 +163,7 @@ public class Other extends Publication{
 				stringBuffer.append(" (Eds). ");
 			}
 			
-			// In: <i>BookTitle</i>,
+			// In: <i>BookTitle</i>._
 			if (this.bookTitle != null){
 				stringBuffer.append("In: ");
 				stringBuffer.append("<i>");
@@ -185,41 +171,22 @@ public class Other extends Publication{
 				stringBuffer.append("</i>. ");
 			}
 			
-			// Publisher
-			if (this.publisher != null) {
-				stringBuffer.append(this.publisher);
-				if (this.publishingPlace != null) { 
-					stringBuffer.append(" : "); 
-				} else {
-					if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
-						stringBuffer.append(" : "); 
-					} else {
-						stringBuffer.append(". ");
-					}
-				}
-			}
+			// Publisher :_
+			stringBuffer.append(this.publisher);
+			stringBuffer.append(" : ");			
 			
-			// :PublishingLocation
+			// PublishPlace._
 			if (this.publishingPlace != null) {
 				stringBuffer.append(this.publishingPlace);
-				if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0 )  {
-					stringBuffer.append(", "); 
-				} else {
-					stringBuffer.append(". ");
-				}
+				stringBuffer.append(". ");
 			}
 			
-			// : PagesBegin-PagesEnd.
+			// PagesBegin-PagesEnd._ || PageCount._
 			if (this.beginPage > 0 && this.endPage > 0) {
-				if ( this.beginPage == this.endPage){
-					stringBuffer.append(this.endPage);
-					stringBuffer.append(". ");
-				} else {
-					stringBuffer.append(this.beginPage);
-					stringBuffer.append(" - ");
-					stringBuffer.append(this.endPage);
-					stringBuffer.append(". ");
-				}
+				stringBuffer.append(this.beginPage);
+				stringBuffer.append(" - ");
+				stringBuffer.append(this.endPage);
+				stringBuffer.append(". ");
 			} else {
 				if (this.page > 0) {
 					stringBuffer.append(this.page);

@@ -65,9 +65,8 @@ public class Software extends Publication{
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
@@ -79,7 +78,7 @@ public class Software extends Publication{
 			stringBuffer.append("\">");
 		}
 		
-		// Title
+		// <i>Title<i>_
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
@@ -89,7 +88,7 @@ public class Software extends Publication{
 			stringBuffer.append("</a>");
 		}
 		
-		stringBuffer.append(".");
+		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {

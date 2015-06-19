@@ -66,27 +66,26 @@ public class Dataset extends Publication{
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// (Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
 		//Link Opening for publisher-url
-		if (this.getLink() != null) {
+		if (this.publisherURL != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.publisherURL);
 			stringBuffer.append("\">");
 		}
 		
-		//Title
+		// <i>Title</i>._
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
 
 		//Link Closing for publisher-url
-		if (this.getLink() != null) {
+		if (this.publisherURL != null) {
 			stringBuffer.append("</a>");
 		}
 		

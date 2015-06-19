@@ -139,10 +139,12 @@ $(document).ready(function() {
 	
 	$("collections").on("change", (function(e) {
 		globalMaxResult = 8;
+		saveSearchTerms();
 	}));
 	
 	$("division").on("change", (function(e) {
 		globalMaxResult = 8;
+		saveSearchTerms();
 	}));
 
 	$("#search").click(function() {

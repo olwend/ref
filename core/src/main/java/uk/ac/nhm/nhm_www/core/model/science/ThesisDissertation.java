@@ -81,22 +81,21 @@ public class ThesisDissertation extends Publication{
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ThesisTitle.		
+		// ThesisTitle._	
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append(". ");
 		
-		// ThesisType.
+		// ThesisType._
 		stringBuffer.append(this.thesisType);
 		stringBuffer.append(". ");
 		
-		// Supervisor N.M., Supervisor N.M. (Eds).
+		// (Supervisor(s)) Supervisor NM, Supervisor NM._
 		final List<String> supervisors = this.supervisors;
 		if (supervisors != null && supervisors.size() > 0) {
 			String supervisorsString = StringUtils.join(supervisors.toArray(new String[supervisors.size()]), ", ");
@@ -107,32 +106,24 @@ public class ThesisDissertation extends Publication{
 				supervisorsString = supervisorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
 			
+			stringBuffer.append("(Supervisor(s)) ");
 			stringBuffer.append(supervisorsString);
-			stringBuffer.append(" (Eds). ");
+			stringBuffer.append(". ");
 		}
 		
-		
-		// Publisher
+		// Publisher :_
 		if (this.publisher != null) {
 			stringBuffer.append(this.publisher);
-			if (this.place != null) { 
-				stringBuffer.append(" : "); 
-			} else {
-				stringBuffer.append(". ");
-			}
+			stringBuffer.append(" : "); 
 		}
 		
-		// :PublishingLocation, 
+		// :PublishingLocation._
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			if (this.beginPage > 0 && this.endPage > 0) {
-				stringBuffer.append(", "); 
-			} else {
-				stringBuffer.append(". ");
-			}
+			stringBuffer.append(". ");
 		}
 		
-		// PagesBegin-PagesEnd.
+		// PagesBegin - PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");

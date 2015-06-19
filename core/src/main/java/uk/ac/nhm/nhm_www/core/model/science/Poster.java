@@ -63,19 +63,18 @@ public class Poster extends Publication{
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// Title
+		// Title._
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>. ");
 		
-		//Presented At
+		//Presented At nConference._
 		if( nameOfConference != null ){
 			stringBuffer.append("Presented at ");
 			stringBuffer.append(this.nameOfConference);

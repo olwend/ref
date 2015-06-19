@@ -78,9 +78,8 @@ public class NewspaperMagazine extends Publication{
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
@@ -92,7 +91,7 @@ public class NewspaperMagazine extends Publication{
 			stringBuffer.append("\">");
 		}
 		
-		// Title
+		// <i>Title</i>._
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
@@ -104,33 +103,22 @@ public class NewspaperMagazine extends Publication{
 		
 		stringBuffer.append(". ");
 		
-		// <b>Volume</b>
+		// <b>Volume</b>_
 		if (this.volume > 0) {
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
-			stringBuffer.append("</b>");
-			if ( this.issue < 0 ) { 
-				if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) {
-					stringBuffer.append(": "); 
-				} else {
-					stringBuffer.append(". ");
-				}
-			}
+			stringBuffer.append("</b> ");
 		}
 		
-		// (Issue)
+		// (Issue) :_
 		if (this.issue > 0) {
 			stringBuffer.append("(");
 			stringBuffer.append(this.issue);
 			stringBuffer.append(") ");
-			if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
-				stringBuffer.append(": "); 
-			} else {
-				stringBuffer.append(". ");
-			}
+			stringBuffer.append(" : ");
 		}
 		
-		// : PagesBegin-PagesEnd.
+		// PagesBegin - PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");

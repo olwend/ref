@@ -76,15 +76,14 @@ public class InternetPublication extends Publication{
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year) || (Year, Month) || (Year, Month, Day)
+		// (Year) || (Year, Month) || (Year, Day Month)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
-		if (this.publicationMonth > 0 ){
-			stringBuffer.append("/" + this.publicationMonth);
-			if (this.publicationDay > 0){
-				stringBuffer.append("/" + this.publicationDay);
+		if (this.publicationDay > 0){
+			stringBuffer.append(", " + this.publicationDay);
+			if (this.publicationMonth > 0 ){
+				stringBuffer.append(" " + this.publicationMonth);
 			}
 		}
 		stringBuffer.append(") ");
@@ -96,27 +95,24 @@ public class InternetPublication extends Publication{
 			stringBuffer.append("\">");
 		}
 		
-		//Title
+		// <i>Title</i>._ 
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>");
+		stringBuffer.append("</i>. ");
 
 		//Link Closing
 		if (this.publisherURL != null) {
 			stringBuffer.append("</a>");
 		}
 		
-		// Publisher
+		// <i>TitleOfNewspaper/Magazine</i>_
 		if (this.publisher != null) {
+			stringBuffer.append("<i>");
 			stringBuffer.append(this.publisher);
-			if ( (this.beginPage > 0 && this.endPage > 0) || this.page > 0) { 
-				stringBuffer.append(" : "); 
-			} else {
-				stringBuffer.append(". "); 
-			}
+			stringBuffer.append("</i> ");
 		}
 		
-		// : PagesBegin-PagesEnd.
+		// PagesBegin-PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
