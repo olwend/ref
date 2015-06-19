@@ -10,6 +10,7 @@ var $collectionGroupSelected;;
 var collectionsGroup = "";
 
 var loadDepartmentFromURL = false;
+var loadCollectionsFromURL = false;
 
 $.extend({
 	getUrlVars : function() {
@@ -139,7 +140,7 @@ $(document).ready(function() {
 	// #### Search & More Results #### 
 	// ###############################
 	
-	$("collections").on("change", (function(e) {
+	$("collection").on("change", (function(e) {
 		globalMaxResult = 8;
 		saveSearchTerms();
 	}));
@@ -217,8 +218,21 @@ function saveSearchTerms() {
 		}
 	}
 	
-	$collectionGroupSelected = $("#collections option:selected");
+	$collectionGroupSelected = $("#collection option:selected");
 	collectionsGroup = $collectionGroupSelected.val();
+	if (collectionsGroup === 'All') {
+		aux = $.getUrlVar('collection');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadCollectionsFromURL = true;
+			collectionsGroup = aux;
+		} else {
+			aux = $.getUrlVar('group');
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadCollectionsFromURL = true;
+				collectionsGroup = aux;
+			}
+		}
+	}
 }
 
 function searchFunc(maxResults) {
@@ -296,6 +310,11 @@ function searchFunc(maxResults) {
 		}
 	}
 
+	if(loadCollectionsFromURL) {		
+		var $collection = document.getElementById("collection");
+		$collection.value = decodeURIComponent(collectionsGroup);
+		$collectionGroupSelected = $("#collection option:selected");
+	} 
 	
 	if (collectionsGroup != "All") {
 		if ($collectionGroupSelected.hasClass("collection")) {
