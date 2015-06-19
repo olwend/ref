@@ -38,16 +38,16 @@
 				<div class="search-depts-divs">
 					<label for="division">Filter by</label>
 					<select id="division">
-					    <option value="All" selected="selected">Department and Division</option>
-					    <%-- Department: Life Sciences --%>
-					    <option class="department" value="Life Sciences">Life sciences</option>
-					    <option class="division" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
-					    <option class="division" value="Plants" data-department="Life Sciences" data-division="Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Plants</option>
-					    <option class="division" value="Insects" data-department="Life Sciences" data-division="Insects">&nbsp;&nbsp;&nbsp;&nbsp;Insects</option>
-					    <option class="division" value="Parasites and vectors" data-department="Life Sciences" data-division="Parasites and Vectors Division">&nbsp;&nbsp;&nbsp;&nbsp;Parasites and vectors</option>
-					    <option class="division" value="Invertebrates" data-department="Life Sciences" data-division="Invertebrates">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates</option>
-					    <option class="division" value="Vertebrates" data-department="Life Sciences" data-division="Vertebrates Division">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrates</option>
-					    <option class="division" value="Angela Marmont Centre" data-department="Life Sciences" data-division="Angela Marmont Centre">&nbsp;&nbsp;&nbsp;&nbsp;Angela Marmont Centre</option>
+						<option value="All" selected="selected">Department and Division</option>
+						<%-- Department: Life Sciences --%>
+						<option class="department" id="Life Sciences" value="Life Sciences">Life sciences</option>
+						<option class="division" id="Genomics and Microbial diversity" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
+						<option class="division" id="Plants" value="Plants" data-department="Life Sciences" data-division="Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Plants</option>
+						<option class="division" id="Insects" value="Insects" data-department="Life Sciences" data-division="Insects">&nbsp;&nbsp;&nbsp;&nbsp;Insects</option>
+						<option class="division" id="Parasites and vectors" value="Parasites and vectors" data-department="Life Sciences" data-division="Parasites and Vectors Division">&nbsp;&nbsp;&nbsp;&nbsp;Parasites and vectors</option>
+						<option class="division" id="Invertebrates" value="Invertebrates" data-department="Life Sciences" data-division="Invertebrates">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates</option>
+						<option class="division" id="Vertebrates" value="Vertebrates" data-department="Life Sciences" data-division="Vertebrates Division">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrates</option>
+						<option class="division" id="Angela Marmont Centre" value="Angela Marmont Centre" data-department="Life Sciences" data-division="Angela Marmont Centre">&nbsp;&nbsp;&nbsp;&nbsp;Angela Marmont Centre</option>
 					    
 					    <%-- Department: Earth Sciences --%>
 					    <option class="department" value="Earth Sciences">Earth sciences</option>

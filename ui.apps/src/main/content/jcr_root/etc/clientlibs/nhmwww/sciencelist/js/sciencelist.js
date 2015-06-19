@@ -9,6 +9,8 @@ var departmentDivision = "";
 var $collectionGroupSelected;;
 var collectionsGroup = "";
 
+var loadDepartmentFromURL = false; // 0 = NoURL Load
+
 $.extend({
 	getUrlVars : function() {
 		var vars = [], hash;
@@ -201,25 +203,29 @@ function saveSearchTerms() {
 	
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
-	console.log("departmentDivision search : " + departmentDivision);
-	if (typeof departmentDivision === undefined || departmentDivision === null || departmentDivision === 'All') {
-		aux = $.getUrlVar('department');
+	console.log("Setting up departmentDivision with Search : " + departmentDivision);
+	if (departmentDivision === 'All') {
+		console.log("Search was ## " + aux + " ##, looking in URL for a division");
+		aux = $.getUrlVar('division');
+		console.log("Input in URL for division is ## " + aux + " ##");
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			console.log("department : " + aux);
+			loadDepartmentFromURL = true;	//division
+			console.log("Works!, Setting up departmentDivision to " + aux);
 			departmentDivision = aux;
+		} else {
+			console.log("No division input from URL, looking for Department instead");
+			aux = $.getUrlVar('department');
+			console.log("Input in URL for department is ## " + aux + " ##");
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				console.log("Works!, Setting up departmentDivision to " + aux);
+				loadDepartmentFromURL = true;	//department
+				departmentDivision = aux;
+			}
 		}
 	}
 	
 	$collectionGroupSelected = $("#collections option:selected");
 	collectionsGroup = $collectionGroupSelected.val();
-	console.log("collection search : " + collectionsGroup);
-	if (typeof collectionsGroup === undefined || collectionsGroup === null || collectionsGroup === 'All') {
-		aux = $.getUrlVar('collection');
-		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			console.log("collection url : " + aux);
-			collectionsGroup = aux;
-		}
-	}
 }
 
 function searchFunc(maxResults) {
@@ -276,6 +282,14 @@ function searchFunc(maxResults) {
 		});
 	}
 	
+	if(loadDepartmentFromURL) {		
+		console.log("Loading Department " + decodeURIComponent(departmentDivision) + " from URL");
+		var $division = document.getElementById("division");
+		$division.value = decodeURIComponent(departmentDivision);
+		console.log("setting $elementSelected to the proper option");
+		$elementSelected = $("#division option:selected");
+	} 
+
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
 			console.log("Department: " + $elementSelected.val());
@@ -290,6 +304,7 @@ function searchFunc(maxResults) {
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
 	}
+
 	
 	if (collectionsGroup != "All") {
 		if ($collectionGroupSelected.hasClass("collection")) {
