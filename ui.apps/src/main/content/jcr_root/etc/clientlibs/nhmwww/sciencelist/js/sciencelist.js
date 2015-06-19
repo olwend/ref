@@ -179,7 +179,6 @@ function saveSearchTerms() {
 	if (typeof name === undefined || name === null || name === '') {
 		aux = $.getUrlVar('name');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			console.log("name : " + aux);
 			name = aux;
 		}
 	}
@@ -188,7 +187,6 @@ function saveSearchTerms() {
 	if (typeof surname === undefined || surname === null || surname === '') {
 		aux = $.getUrlVar('surname');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			console.log("surname : " + aux);
 			surname = aux;
 		}
 	}
@@ -197,7 +195,6 @@ function saveSearchTerms() {
 	if (typeof keywords === undefined || keywords === null || keywords === '') {
 		aux = $.getUrlVar('specialism');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			console.log("specialism : " + aux);
 			keywords = aux;
 		}
 	}
@@ -297,15 +294,12 @@ function searchFunc(maxResults) {
 
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
-			console.log("Department: " + $elementSelected.val());
-			console.log("[department=" + '"' + $elementSelected.val() + '"' + "]");
 			nodes = nodes.filter("[department=" + '"' + $elementSelected.val() + '"' + "]");
 		}
 		
 		if ($elementSelected.hasClass("division")) {
 			var department = $elementSelected.data("department");
 			var division = $elementSelected.data("division");
-			console.log("Division: " + department + ", " + division);
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
 	}
@@ -318,14 +312,12 @@ function searchFunc(maxResults) {
 	
 	if (collectionsGroup != "All") {
 		if ($collectionGroupSelected.hasClass("collection")) {
-			console.log("Collection: " + $collectionGroupSelected.val());
 			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
 		}
 		
 		if ($collectionGroupSelected.hasClass("group")) {
 			var collection = $collectionGroupSelected.data("collection");
 			var group = $collectionGroupSelected.data("group");
-			console.log("Group: " + collection + ", " + group);
 			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
 		}
 	}
