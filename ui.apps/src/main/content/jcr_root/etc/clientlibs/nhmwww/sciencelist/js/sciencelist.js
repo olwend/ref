@@ -6,6 +6,9 @@ var autoKeywords = "";
 var $elementSelected;
 var departmentDivision = "";
 
+var $collectionGroupSelected;;
+var collectionsGroup = "";
+
 $.extend({
 	getUrlVars : function() {
 		var vars = [], hash;
@@ -158,8 +161,6 @@ $(document).ready(function() {
 		
 		searchFunc(globalMaxResult);
 	});
-	
-	
 	
 	nameSorted = sortTable(0, nameSorted);
 	
