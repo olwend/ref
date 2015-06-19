@@ -12,6 +12,8 @@ var collectionsGroup = "";
 var loadDepartmentFromURL = false;
 var loadCollectionsFromURL = false;
 
+var ignoreURL = false;
+
 $.extend({
 	getUrlVars : function() {
 		var vars = [], hash;
@@ -176,31 +178,44 @@ $(document).ready(function() {
 function saveSearchTerms() {
 
 	name = $("#firstNameInput").val();
+
+	surname = $("#surnameInput").val();
+
+	keywords = $("#keywordsInput").val();
+	
+	$elementSelected = $("#division option:selected");
+	departmentDivision = $elementSelected.val();
+	
+	$collectionGroupSelected = $("#collection option:selected");
+	collectionsGroup = $collectionGroupSelected.val();
+	
 	if (typeof name === undefined || name === null || name === '') {
 		aux = $.getUrlVar('name');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			name = aux;
 		}
+	} else {
+		ignoreURL = true;
 	}
-
-	surname = $("#surnameInput").val();
+	
 	if (typeof surname === undefined || surname === null || surname === '') {
 		aux = $.getUrlVar('surname');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			surname = aux;
 		}
+	} else {
+		ignoreURL = true;
 	}
-
-	keywords = $("#keywordsInput").val();
+	
 	if (typeof keywords === undefined || keywords === null || keywords === '') {
 		aux = $.getUrlVar('specialism');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			keywords = aux;
 		}
+	} else {
+		ignoreURL = true;
 	}
 	
-	$elementSelected = $("#division option:selected");
-	departmentDivision = $elementSelected.val();
 	if (departmentDivision === 'All') {
 		aux = $.getUrlVar('division');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
@@ -213,10 +228,10 @@ function saveSearchTerms() {
 				departmentDivision = aux;
 			}
 		}
+	} else {
+		ignoreURL = true;
 	}
 	
-	$collectionGroupSelected = $("#collection option:selected");
-	collectionsGroup = $collectionGroupSelected.val();
 	if (collectionsGroup === 'All') {
 		aux = $.getUrlVar('collection');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
@@ -229,6 +244,8 @@ function saveSearchTerms() {
 				collectionsGroup = aux;
 			}
 		}
+	} else {
+		ignoreURL = true;
 	}
 }
 
@@ -286,7 +303,7 @@ function searchFunc(maxResults) {
 		});
 	}
 	
-	if(loadDepartmentFromURL) {		
+	if(loadDepartmentFromURL && !ignoreURL) {		
 		var $division = document.getElementById("division");
 		$division.value = decodeURIComponent(departmentDivision);
 		$elementSelected = $("#division option:selected");
@@ -304,7 +321,7 @@ function searchFunc(maxResults) {
 		}
 	}
 
-	if(loadCollectionsFromURL) {		
+	if(loadCollectionsFromURL && !ignoreURL) {		
 		var $collection = document.getElementById("collection");
 		$collection.value = decodeURIComponent(collectionsGroup);
 		$collectionGroupSelected = $("#collection option:selected");
