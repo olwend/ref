@@ -9,7 +9,7 @@ var departmentDivision = "";
 var $collectionGroupSelected;;
 var collectionsGroup = "";
 
-var loadDepartmentFromURL = false; // 0 = NoURL Load
+var loadDepartmentFromURL = false;
 
 $.extend({
 	getUrlVars : function() {
@@ -203,22 +203,15 @@ function saveSearchTerms() {
 	
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
-	console.log("Setting up departmentDivision with Search : " + departmentDivision);
 	if (departmentDivision === 'All') {
-		console.log("Search was ## " + aux + " ##, looking in URL for a division");
 		aux = $.getUrlVar('division');
-		console.log("Input in URL for division is ## " + aux + " ##");
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			loadDepartmentFromURL = true;	//division
-			console.log("Works!, Setting up departmentDivision to " + aux);
+			loadDepartmentFromURL = true;
 			departmentDivision = aux;
 		} else {
-			console.log("No division input from URL, looking for Department instead");
 			aux = $.getUrlVar('department');
-			console.log("Input in URL for department is ## " + aux + " ##");
 			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-				console.log("Works!, Setting up departmentDivision to " + aux);
-				loadDepartmentFromURL = true;	//department
+				loadDepartmentFromURL = true;
 				departmentDivision = aux;
 			}
 		}
@@ -283,10 +276,8 @@ function searchFunc(maxResults) {
 	}
 	
 	if(loadDepartmentFromURL) {		
-		console.log("Loading Department " + decodeURIComponent(departmentDivision) + " from URL");
 		var $division = document.getElementById("division");
 		$division.value = decodeURIComponent(departmentDivision);
-		console.log("setting $elementSelected to the proper option");
 		$elementSelected = $("#division option:selected");
 	} 
 
