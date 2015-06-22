@@ -91,9 +91,7 @@ public class Other extends Publication{
 			
 			// LOG.error("After being replaced: " + authorsString);
 			
-			stringBuffer.append("####This is a + "
-					+ "Other"
-					+ " #####");
+			stringBuffer.append("####This is a Other Publication####");
 			
 			// Author NM, Author NM
 			stringBuffer.append(authorsString);
@@ -133,18 +131,19 @@ public class Other extends Publication{
 				stringBuffer.append(". ");
 			}
 			
-			// <b>Volume</b>_
+			// <b>Volume</b>
 			if (this.volume > 0) {
 				stringBuffer.append("<b>");
 				stringBuffer.append(this.volume);
 				stringBuffer.append("</b> ");
-			}
-			
-			// (Issue)_
-			if (this.issue > 0) {
-				stringBuffer.append("(");
-				stringBuffer.append(this.issue);
-				stringBuffer.append(") ");
+				
+				// (Issue) :_
+				if (this.issue > 0) {
+					stringBuffer.append("(");
+					stringBuffer.append(this.issue);
+					stringBuffer.append(")");
+				}
+				stringBuffer.append(" : ");
 			}
 			
 			// Editor NM, Editor NM (Eds)._

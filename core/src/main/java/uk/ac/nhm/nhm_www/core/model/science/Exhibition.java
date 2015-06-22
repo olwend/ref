@@ -7,26 +7,11 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class ScholarlyEdition extends Publication{
+public class Exhibition extends Publication{
 	
-	private String publisherURL;
-	private int beginPage;
-	private int endPage;
-	private int page;
-	private String doiLink;
-	private String doiText;
-
-	public ScholarlyEdition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String scholarlyPublisherURL, int scholarlyBeginPage, int scholarlyEndPage, 
-			int scholarlyPage, String scholarlydoiText, String scholarlydoiLink){
+	public Exhibition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			final  String href,	final String reportingDate){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		this.publisherURL = scholarlyPublisherURL;
-		this.beginPage = scholarlyBeginPage;
-		this.endPage = scholarlyEndPage;
-		this.page = scholarlyPage;
-		this.doiLink = scholarlydoiLink;
-		this.doiText = scholarlydoiText;
-		
 	}
 
 	@Override
@@ -63,58 +48,22 @@ public class ScholarlyEdition extends Publication{
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
-		// LOG.error("After being replaced: " + authorsString);
+//		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a Scholarly Edition Publication####");
+		stringBuffer.append("####This is an Exhibition Publication####");
 		
-		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		
-		// (Year) || (Year, Month) || (Year, Day Month)
+		stringBuffer.append(". ");
+
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// Link Opening for PublisherURL
-		if (this.publisherURL != null) {
-			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.publisherURL);
-			stringBuffer.append("\">");
-		}
-		
-		// Title._
+		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append(". ");
-		
-		// Link Closing for PublisherURL
-		if (this.publisherURL != null) {
-			stringBuffer.append("</a>");
-		}
-		
-		// PagesBegin-PagesEnd._ || PageCount._
-		if (this.beginPage > 0 && this.endPage > 0) {
-			stringBuffer.append(this.beginPage);
-			stringBuffer.append(" - ");
-			stringBuffer.append(this.endPage);
-			stringBuffer.append(". ");
-		} else {
-			if (this.page > 0) {
-				stringBuffer.append(this.page);
-				stringBuffer.append(". ");
-			}
-		}
-		
-		// DOI hyperlink
-		if (this.doiLink != null && this.doiText != null) {
-			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.doiLink);
-			stringBuffer.append("\">");
-			stringBuffer.append("doi: ");
-			stringBuffer.append(this.doiText);
-			stringBuffer.append("</a>");
-		}
-		
+		stringBuffer.append("</i>. ");
+			
 		return stringBuffer.toString();
 	}
 	

@@ -564,6 +564,19 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             pubNode.setProperty(ScientistProfileHelper.PUBLICATION_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
                             pubNode.setProperty(ScientistProfileHelper.PUBLICATION_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
                             break;
+                            
+                        case "finish-date":
+                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                            break;
+                            
+                        case "start-date":
+                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                            break;
+                            
                         case "authors":
                             final List<Person> personList = field.getPeople().getPerson();
                             
