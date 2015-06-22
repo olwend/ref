@@ -10264,6 +10264,9 @@ div#feedback-bar .span11 {
 }
 
 /***** PRESS OFFICE *****/
+.press-office {
+  /** h3 here is the title of the press release tiles component, not HTI **/
+}
 .press-office h3 {
   padding-bottom: 10px;
   padding-left: 0.5em;
@@ -10881,6 +10884,11 @@ a.button-cta {
 .hti-box p {
   font-size: 1.125em;
   margin-bottom: 1.2em;
+}
+.hti-box h3 {
+  padding-left: 0;
+  padding-bottom: 0.3em;
+  color: #565656;
 }
 .hti-box .ctabutton--inside-hti:hover h3 {
   text-decoration: underline;
