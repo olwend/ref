@@ -46,13 +46,14 @@
             
 		<% } %>
 		<% if(element.getIsContentSlide()) { %>
-        	<li data-thumb="<%=element.getFilename()%>">
+        	<li data-thumb="<%=element.getFilename()%>"  data-gtm="<%=helper.getCarouselRow()%>-carousel-<%=imageIndex%>">
         	<%
         		final String imageResourceName = CarouselBuilderService.IMAGE_NODE_NAME_PREFIX + imageIndex;
         		final Resource imageResource = resource.getChild(imageResourceName);
         		
         		if (imageResource == null) {
         	%>
+        	test
             <img src="<%=element.getFilename()%>" alt="<%=element.getAlt()%>">
             <% 
         		} else {
@@ -64,13 +65,13 @@
             %>
             <div class="event-slide-content">
 	            
-	           	<h4><%if (element.getHyperlink() != null && !element.getHyperlink().equals("")) { %><a href="<%=element.getHyperlink()%>"<%=helper.getNewWindowHtml()%>><% } %><%=element.getHeading() %><%if (element.getHyperlink() != null && !element.getHyperlink().equals("")) { %></a><% } %></h4>
+	           	<h4><%if (element.getHyperlink() != null && !element.getHyperlink().equals("")) { %><a href="<%=element.getHyperlink()%>"<%=helper.getNewWindowHtml()%> data-gtm="<%=helper.getCarouselRow()%>-carousel-<%=imageIndex%>"><% } %><%=element.getHeading() %><%if (element.getHyperlink() != null && !element.getHyperlink().equals("")) { %></a><% } %></h4>
 	            <p><%=element.getCaption()%></p>
             </div>
             
 		<% } %>
 		<% if(!element.getIsVideo() &&  !element.getIsContentSlide()) { %>
-        	<li data-thumb="<%=element.getFilename()%>">
+        	<li data-thumb="<%=element.getFilename()%>"  data-gtm="<%=helper.getCarouselRow()%>-carousel-<%=imageIndex%>">
             <%if (element.getHyperlink() != null && !element.getHyperlink().equals("")) { %><a href="<%=element.getHyperlink()%>"<%=helper.getNewWindowHtml()%>><% } %>
             	<%
         		final String imageResourceName = CarouselBuilderService.IMAGE_NODE_NAME_PREFIX + imageIndex;
