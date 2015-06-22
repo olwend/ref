@@ -15,10 +15,11 @@ public class ScholarlyEdition extends Publication{
 	private int page;
 	private String doiLink;
 	private String doiText;
+	private String publisher;
 
 	public ScholarlyEdition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
 			final  String href,	final String reportingDate, String scholarlyPublisherURL, int scholarlyBeginPage, int scholarlyEndPage, 
-			int scholarlyPage, String scholarlydoiText, String scholarlydoiLink){
+			int scholarlyPage, String scholarlydoiText, String scholarlydoiLink, String scholarlyPublisher){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.publisherURL = scholarlyPublisherURL;
 		this.beginPage = scholarlyBeginPage;
@@ -26,7 +27,7 @@ public class ScholarlyEdition extends Publication{
 		this.page = scholarlyPage;
 		this.doiLink = scholarlydoiLink;
 		this.doiText = scholarlydoiText;
-		
+		this.publisher = scholarlyPublisher;
 	}
 
 	@Override
@@ -92,6 +93,10 @@ public class ScholarlyEdition extends Publication{
 			stringBuffer.append("</a>");
 		}
 		
+		// Publisher :_
+		stringBuffer.append(this.publisher);
+		stringBuffer.append(" : ");		
+		
 		// PagesBegin-PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
@@ -116,6 +121,62 @@ public class ScholarlyEdition extends Publication{
 		}
 		
 		return stringBuffer.toString();
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public String getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(String doiLink) {
+		this.doiLink = doiLink;
+	}
+
+	public String getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(String doiText) {
+		this.doiText = doiText;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 	
 }

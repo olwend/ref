@@ -663,6 +663,7 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PUBLICATION_TYPE_SCHOLARLY_EDITION:
+					final String scholarlyPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String scholarlyPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
 					final int scholarlyBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
 					final int scholarlyEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
@@ -670,7 +671,7 @@ public class ScientistProfileHelper {
 					final String scholarlydoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String scholarlydoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
 					result.add(new ScholarlyEdition(title, authorsList, favorite, publicationYear, link, reportingDate, scholarlyPublisherURL, 
-							scholarlyBeginPage, scholarlyEndPage, scholarlyPage, scholarlydoiText, scholarlydoiLink));
+							scholarlyBeginPage, scholarlyEndPage, scholarlyPage, scholarlydoiText, scholarlydoiLink, scholarlyPublisher));
 					break;
 					
 				case PUBLICATION_TYPE_SOFTWARE:
