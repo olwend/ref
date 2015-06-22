@@ -255,6 +255,11 @@ function searchFunc(maxResults) {
 
 	nodes.css("display", "none");
 	
+	if(!ignoreURL) {		
+		var $name = document.getElementById("firstNameInput");
+		$name.value = decodeURIComponent(name);
+	} 
+	
 	if (name.length != 0) {
 		var lowercase = name.toLowerCase();
 		nodes = nodes.filter(function(){
@@ -269,6 +274,11 @@ function searchFunc(maxResults) {
 			return false;
 		});
 	}
+	
+	if(!ignoreURL) {		
+		var $surname = document.getElementById("surnameInput");
+		$surname.value = decodeURIComponent(surname);
+	} 
 
 	if (surname.length != 0) {
 		var lowercase = surname.toLowerCase();
@@ -284,6 +294,11 @@ function searchFunc(maxResults) {
 			return false;
 		});
 	}
+	
+	if(!ignoreURL) {		
+		var $keywords = document.getElementById("keywordsInput");
+		$keywords.value = decodeURIComponent(keywords);
+	} 
 	
 	if (keywords.length != 0) {
 	    var query = keywords.toLowerCase();
