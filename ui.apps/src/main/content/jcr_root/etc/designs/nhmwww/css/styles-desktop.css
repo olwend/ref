@@ -10819,11 +10819,6 @@ a.button-cta {
   margin-top: 30px;
 }
 
-.hti-padding {
-  display: table;
-  margin-bottom: 1.2em;
-}
-
 .headertextimage:last-child .hti-padding {
   margin-bottom: 0px;
 }
@@ -11017,8 +11012,10 @@ a.button-cta {
 }
 
 /**overrides headertextimage.scss **/
-.headertextimage.hti-padding {
+.headertextimage .hti-padding {
   margin-bottom: 1.2em;
+  width: 100%;
+  display: table;
 }
 
 /**overrides headertextimage.scss **/
