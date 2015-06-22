@@ -46,7 +46,7 @@
             
 		<% } %>
 		<% if(element.getIsContentSlide()) { %>
-        	<li data-thumb="<%=element.getFilename()%>"  data-gtm="<%=helper.getCarouselRow()%>-carousel-<%=imageIndex%>">
+        	<li data-thumb="<%=element.getFilename()%>"  data-gtm="<%=helper.getCarouselRow()%>-minor-carousel-<%=imageIndex%>">
         	<%
         		final String imageResourceName = CarouselBuilderService.IMAGE_NODE_NAME_PREFIX + imageIndex;
         		final Resource imageResource = resource.getChild(imageResourceName);
@@ -71,7 +71,7 @@
             
 		<% } %>
 		<% if(!element.getIsVideo() &&  !element.getIsContentSlide()) { %>
-        	<li data-thumb="<%=element.getFilename()%>"  data-gtm="<%=helper.getCarouselRow()%>-carousel-<%=imageIndex%>">
+        	<li data-thumb="<%=element.getFilename()%>"  data-gtm="<%=helper.getCarouselRow()%>-major-carousel-<%=imageIndex%>">
             <%if (element.getHyperlink() != null && !element.getHyperlink().equals("")) { %><a href="<%=element.getHyperlink()%>"<%=helper.getNewWindowHtml()%>><% } %>
             	<%
         		final String imageResourceName = CarouselBuilderService.IMAGE_NODE_NAME_PREFIX + imageIndex;
