@@ -74,9 +74,7 @@ public class Report extends Publication{
 			
 			//LOG.error("After being replaced: " + authorsString);
 			
-			stringBuffer.append("####This is a + "
-					+ "Report"
-					+ " #####");
+			stringBuffer.append("####This is a Report Publication####");
 			
 			// Author NM, Author NM
 			stringBuffer.append(authorsString);
@@ -100,7 +98,7 @@ public class Report extends Publication{
 				stringBuffer.append(". ");
 			}
 			
-			// PagesBegin - PagesEnd._
+			// PagesBegin-PagesEnd._ || PageCount._
 			if (this.beginPage > 0 && this.endPage > 0) {
 				stringBuffer.append(this.beginPage);
 				stringBuffer.append(" - ");

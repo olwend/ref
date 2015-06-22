@@ -60,9 +60,7 @@ public class Dataset extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Dataset"
-							+ " #####");
+		stringBuffer.append("####This is a Dataset Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

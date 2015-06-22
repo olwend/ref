@@ -70,9 +70,7 @@ public class InternetPublication extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Internet Publication"
-							+ " #####");
+		stringBuffer.append("####This is an Internet Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

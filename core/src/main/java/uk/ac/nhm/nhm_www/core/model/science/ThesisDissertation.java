@@ -75,9 +75,7 @@ public class ThesisDissertation extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "ThesisDissertation"
-							+ " #####");
+		stringBuffer.append("####This is a Thesis | Dissertation Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

@@ -74,7 +74,7 @@ public class JournalArticle extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(" >>>>>> This is a Journal <<<<< ");
+		stringBuffer.append("####This is a Journal Article Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
@@ -99,13 +99,13 @@ public class JournalArticle extends Publication{
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
 			stringBuffer.append("</b> ");
-		}
-		
-		// (Issue) :_
-		if (this.issue > 0) {
-			stringBuffer.append("(");
-			stringBuffer.append(this.issue);
-			stringBuffer.append(")");
+			
+			// (Issue) :_
+			if (this.issue > 0) {
+				stringBuffer.append("(");
+				stringBuffer.append(this.issue);
+				stringBuffer.append(")");
+			}
 			stringBuffer.append(" : ");
 		}
 		

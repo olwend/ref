@@ -60,9 +60,7 @@ public class WebsitePublicationType extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "WebsitePublicationType"
-							+ " #####");
+		stringBuffer.append("####This is a Website Publication####");
 
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
