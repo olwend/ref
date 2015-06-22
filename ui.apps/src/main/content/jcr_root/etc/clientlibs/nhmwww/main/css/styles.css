@@ -11587,9 +11587,12 @@ a.button-cta {
 .hti-box--text-wrapper {
   padding: 1em 1.5em 0;
 }
+.hti-box--text-wrapper ul {
+  margin-left: 1em;
+}
 .hti-box--text-wrapper ul li {
   list-style-type: disc;
-  list-style-position: inside;
+  list-style-position: outside;
 }
 
 /** this replaces info-tout__action **/
