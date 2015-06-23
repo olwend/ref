@@ -45,6 +45,7 @@ import org.slf4j.LoggerFactory;
 import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointment;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointments;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Address;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degree;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degrees;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Field;
@@ -562,20 +563,44 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             break;
                         case "publication-date":
                             pubNode.setProperty(ScientistProfileHelper.PUBLICATION_DATE_ATTRIBUTE, field.getDate().getYear().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.PUBLICATION_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.PUBLICATION_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                            final BigInteger publicationMonth = field.getDate().getMonth();
+                            final BigInteger publicationDay = field.getDate().getDay();
+                            if ( publicationMonth != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.PUBLICATION_MONTH_ATTRIBUTE, publicationMonth.longValue());
+                            }
+                            if ( publicationDay != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.PUBLICATION_DAY_ATTRIBUTE, publicationDay.longValue());
+                            }
                             break;
                             
                         case "finish-date":
-                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                        	final BigInteger finishYear = field.getDate().getMonth();
+                            final BigInteger finishMonth = field.getDate().getMonth();
+                            final BigInteger finishDay = field.getDate().getDay();
+                            if ( finishYear != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_YEAR_ATTRIBUTE, finishYear.longValue());
+                            }
+                            if ( finishMonth != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_MONTH_ATTRIBUTE, finishMonth.longValue());
+                            }
+                            if ( finishDay != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_DAY_ATTRIBUTE, finishDay.longValue());
+                            }
                             break;
                             
                         case "start-date":
-                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                        	final BigInteger startYear = field.getDate().getMonth();
+                            final BigInteger startMonth = field.getDate().getMonth();
+                            final BigInteger startDay = field.getDate().getDay();
+                            if ( startYear != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_YEAR_ATTRIBUTE, startYear.longValue());
+                            }
+                            if ( startMonth != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_MONTH_ATTRIBUTE, startMonth.longValue());
+                            }
+                            if ( startDay != null ){
+                            	pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_DAY_ATTRIBUTE, startDay.longValue());
+                            }
                             break;
                             
                         case "authors":
@@ -668,6 +693,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
+    private String resolveProfessionalActivityType (final int number) {
+        switch (number) {
+	        case 60 : return "Fellowship";
+	        default: return "Professional Activity";
+        }
+    }
+    
     private void addProfessionalActivities (final Node rootNode, final ProfessionalActivities activities) throws Exception {
         int i  = 0;
         
@@ -676,40 +708,67 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         while (listIt.hasNext()){
         	Activity activity = listIt.next();
 
-            final Node pubNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
+            final Node paNode = rootNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
             
-            //RESOLVE PUBLICATION TYPE HERE ##########################################
-            final String type = resolvePublicationType (activity.getObject().getTypeId().intValue());  
-            
-            final String reportingDate = activity.getObject().getReportingDate1();
-            pubNode.setProperty(ScientistProfileHelper.REPORTING_DATE_ATTRIBUTE, reportingDate);
-
-            pubNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
-            
-            pubNode.setProperty(ScientistProfileHelper.LINK_ATTRIBUTE, activity.getObject().getHref());
+            // Setting up type of Professional Activity
+            final String type = resolveProfessionalActivityType (activity.getObject().getTypeId().intValue());  
+            paNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
             
             for (Record record: activity.getObject().getRecords().getRecord()) {
                 for (Field field: record.getNative().getField()) {
                     switch (field.getName()) {
                         case "title":
-                            pubNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
+                            paNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
                             break;
-                        case "finish-date":
-                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
-                            break;
+                        case "end-date":
+                        	final BigInteger endYear = field.getDate().getMonth();
+                        	final BigInteger endMonth = field.getDate().getMonth();
+                        	final BigInteger endDay = field.getDate().getDay();
+                        	if ( endYear != null ){
+                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_END_DATE_YEAR_NAME, endYear.longValue());
+                        	}
+                        	if ( endMonth != null ){
+                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_END_DATE_MONTH_NAME, endMonth.longValue());
+                        	}
+                        	if ( endDay != null ){
+                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_END_DATE_DAY_NAME, endDay.longValue());
+                        	}
+                        	break;
+                        	
                         case "start-date":
-                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
-                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
-                            break;
-                        case "name-of-conference":
-                        	pubNode.setProperty(ScientistProfileHelper.CONFERENCE_NAME_ATTRIBUTE, field.getText());
+                        	final BigInteger startYear = field.getDate().getMonth();
+                        	final BigInteger startMonth = field.getDate().getMonth();
+                        	final BigInteger startDay = field.getDate().getDay();
+                        	if ( startYear != null ){
+                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_START_DATE_YEAR_NAME, startYear.longValue());
+                        	}
+                        	if ( startMonth != null ){
+                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_START_DATE_MONTH_NAME, startMonth.longValue());
+                        	}
+                        	if ( startDay != null ){
+                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_START_DATE_DAY_NAME, startDay.longValue());
+                        	}
                         	break;
-                        case "confidential":
-                        	pubNode.setProperty(ScientistProfileHelper.CONFIDENTIAL_ATTRIBUTE, field.getText());
-                        	break;
+//                        case "organisation":
+//                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
+//                            while(types.hasNext()) {
+//                            	Address address = types.next();
+//                            	ListIterator<Object> lines = address.getContent().listIterator();
+//                            	while (lines.hasNext()){
+//                            		Line line = lines.next();
+//                            		switch (line.getType()) {
+//                            		case "organisation":
+//                            			paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, line.getContent());
+//                            			break;
+//                            		case "city":
+//                            			paNode.setProperty(ScientistProfileHelper.CITY_ATTRIBUTE, line.getContent());
+//                            			break;
+//                            		case "country":
+//                            			paNode.setProperty(ScientistProfileHelper.COUNTRY_ATTRIBUTE, line.getContent());
+//                            		}
+//                            	}
+//							}
+//                            break;
                     }
                 }
             }
@@ -791,7 +850,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         
         // Node : professionalActivities
         final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-        final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addProfessionalActivities(associated, activities);
 
         // Node : publications
@@ -807,7 +866,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
             
-
 	/**
 	 * Private Functions
 	 */

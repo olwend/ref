@@ -22,11 +22,13 @@ import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
 import uk.ac.nhm.nhm_www.core.model.science.Dataset;
 import uk.ac.nhm.nhm_www.core.model.science.Exhibition;
+import uk.ac.nhm.nhm_www.core.model.science.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.InternetPublication;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
 import uk.ac.nhm.nhm_www.core.model.science.NewspaperMagazine;
 import uk.ac.nhm.nhm_www.core.model.science.Other;
 import uk.ac.nhm.nhm_www.core.model.science.Poster;
+import uk.ac.nhm.nhm_www.core.model.science.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
 import uk.ac.nhm.nhm_www.core.model.science.Report;
@@ -150,8 +152,17 @@ public class ScientistProfileHelper {
 	private static final String NON_ACADEMIC_HISTORY_NODE_PATH    = PROFESIONAL_INFORMATION_NODE_NAME + "/" + NON_ACADEMIC_HISTORY_NODE_NAME;
 	
 	/* Professional Activities */
-	public  static final String PROFESSIONAL_ACTIVITIES_NODE_NAME  = "profesionalActivities";
-	public  static final String ASSOCIATED_PROFESSIONAL_NODE_NAME  = "associated";
+	public  static final String PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME 		= "professionalActivity";
+	public  static final String PROFESSIONAL_ACTIVITIES_NODE_NAME  				= "professionalActivities";
+	public  static final String ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME  	= "associated";
+	private static final String PROFESSIONAL_ACTIVITIES_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
+	public	static final String PRO_ACT_URL = "url";
+	public 	static final String PRO_ACT_START_DATE_DAY_NAME		= "startDay";
+	public 	static final String PRO_ACT_START_DATE_MONTH_NAME	= "startMonth";
+	public 	static final String PRO_ACT_START_DATE_YEAR_NAME	= "startYear";
+	public 	static final String PRO_ACT_END_DATE_DAY_NAME		= "endDay";
+	public 	static final String PRO_ACT_END_DATE_MONTH_NAME		= "endMonth";
+	public 	static final String PRO_ACT_END_DATE_YEAR_NAME		= "endYear";
 	
 	/* Publications */
 	public  static final String PUBLICATION_PREFIX_NODE_NAME	  = "publication";
@@ -326,6 +337,10 @@ public class ScientistProfileHelper {
 	
 	public Set<Publication> getPublications() {
 		return this.extractPublications(PUBLICATIONS_NODE_PATH);
+	}
+	
+	public Set<ProfessionalActivity> getProfessionalActivities() {
+		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
 	}
 	
 	public Set<WebSite> getWebSites() {
@@ -773,6 +788,45 @@ public class ScientistProfileHelper {
 				
 				if (phone.isValid()) {
 					result.add(phone);
+				}
+			}
+		}
+		return result;
+	}
+	
+	private Set<ProfessionalActivity> extractProfessionalActivities(final String nodeName) {
+		final Set<ProfessionalActivity> result = new TreeSet<ProfessionalActivity>(); 
+		
+		final Resource professionalActivitiesResource = this.resource.getChild(nodeName);
+		
+		if (professionalActivitiesResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = professionalActivitiesResource.listChildren();
+		
+		while (children.hasNext()) {
+			final Resource child = children.next();
+			
+			if (child.getName().startsWith(PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				
+				//final String title = childProperties.get("");
+				
+				String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
+				String yearStartDate = childProperties.get(PRO_ACT_START_DATE_YEAR_NAME, String.class);
+				String monthStartDate = childProperties.get(PRO_ACT_START_DATE_MONTH_NAME, String.class);
+				String dayStartDate = childProperties.get(PRO_ACT_START_DATE_DAY_NAME, String.class);
+				String yearEndDate = childProperties.get(PRO_ACT_END_DATE_YEAR_NAME, String.class);
+				String monthEndDate = childProperties.get(PRO_ACT_END_DATE_MONTH_NAME, String.class);
+				String dayEndDate = childProperties.get(PRO_ACT_END_DATE_DAY_NAME, String.class);
+				String reportingDate = "";
+				
+				final ProfessionalActivity professionalActivity = new Fellowship(title, reportingDate, 
+						yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
+				
+				if (professionalActivity.isValid()) {
+					result.add(professionalActivity);
 				}
 			}
 		}
