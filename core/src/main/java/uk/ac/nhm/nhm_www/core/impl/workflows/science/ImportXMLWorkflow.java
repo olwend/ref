@@ -667,13 +667,66 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
+    private void addProfessionalActivities (final Node rootNode, final List<WebProfile.Publications.Contributed.Publication> publications) throws Exception {
+        int i  = 0;
+        
+        for (WebProfile.Publications.Contributed.Publication pub: publications) {
+            final Node pubNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
+            
+            pubNode.setProperty(ScientistProfileHelper.FAVORITE_ATTRIBUTE, pub.isIsFavourite() == null ? false : pub.isIsFavourite());
+            
+            
+            //RESOLVE PUBLICATION TYPE HERE ##########################################
+            final String type = resolvePublicationType (pub.getObject().getTypeId().intValue());  
+            
+            final String reportingDate = pub.getObject().getReportingDate1();
+            pubNode.setProperty(ScientistProfileHelper.REPORTING_DATE_ATTRIBUTE, reportingDate);
+
+            pubNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
+            
+            pubNode.setProperty(ScientistProfileHelper.LINK_ATTRIBUTE, pub.getObject().getHref());
+            
+            for (Record record: pub.getObject().getRecords().getRecord()) {
+                for (Field field: record.getNative().getField()) {
+                    switch (field.getName()) {
+                        case "title":
+                            pubNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
+                            break;
+                        case "finish-date":
+                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                            break;
+                        case "start-date":
+                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_YEAR_ATTRIBUTE, field.getDate().getYear().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_MONTH_ATTRIBUTE, field.getDate().getMonth().longValue());
+                            pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_DAY_ATTRIBUTE, field.getDate().getDay().longValue());
+                            break;
+                        case "name-of-conference":
+                        	pubNode.setProperty(ScientistProfileHelper.CONFERENCE_NAME_ATTRIBUTE, field.getText());
+                        	break;
+                        case "confidential":
+                        	pubNode.setProperty(ScientistProfileHelper.CONFIDENTIAL_ATTRIBUTE, field.getText());
+                        	break;
+                    }
+                }
+            }
+        }
+    }
+    
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {
         //Get the contentPath node in the JCR
         Node rootNode = session.getNode(contentPath);
         
+        // ############################
+        // ## Getting the WebProfile ##
+        // ############################
         final Ns1Object profile = webProfile.getProfile();
-        String firstNameOutput = "";
         
+        // ############################
+        // ## Building the Node Name ##
+        // ############################
+        String firstNameOutput = "";
         //We need this information for our node's name of the page.
         if(profile.getObject().getKnownAs() != null && !profile.getObject().getKnownAs().equals("")){
         	firstNameOutput = profile.getObject().getKnownAs();
@@ -681,17 +734,42 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	firstNameOutput = profile.getObject().getFirstName();
         }
         
+        // Node Name
         final String uniqueName = firstNameOutput.toLowerCase() + "-" + profile.getObject().getLastName().toLowerCase(); 
         
-        //Basic Structure of the page being created
+        // ####################
+        // ## Page Structure ##
+        // ####################
+        // Setting up nodes:
+        //
+        //      	andy-purvis 											(cq:Page)
+        //      		`-- jcr:content										(cq:PageContent)
+        //      				|-- personalInformation						(nt:unstructured)
+        //      				|		|-- websites						(nt:unstructured)
+        //      				|		 `- phonenumbers					(nt:unstructured)
+        //      				|-- department								(nt:unstructured)
+        //      				|-- professional							(nt:unstructured)
+        //      				|		|-- academicAppointments			(nt:unstructured)
+        //      				|		|-- degrees							(nt:unstructured)
+        //      				|		 `- nonAcademicAppointments			(nt:unstructured)
+        //      				|-- professionalActivities					(nt:unstructured)
+        //      				|		 `- associated						(nt:unstructured) 	<<<<<<<<<<<< Unsure!
+        //      				|-- publications							(nt:unstructured)
+        //      				|		 `- authored						(nt:unstructured)
+        //      				 `- image									(nt:unstructured)
+        //
+        
+        // Node : andy-purvis
         final Node profileNode = rootNode.addNode(uniqueName, "cq:Page");
+        
+        // Node : jcr:content
         final Node jcrContentNode = profileNode.addNode(JcrConstants.JCR_CONTENT, "cq:PageContent");
         jcrContentNode.setProperty("sling:resourceType", SCIENCE_PROFILE_PAGE_RESOURCE_TYPE);
         jcrContentNode.setProperty(JcrConstants.JCR_TITLE, firstNameOutput + " " + profile.getObject().getLastName());
 
+        // Node : personalInformation
         final Node personalInfo = jcrContentNode.addNode(ScientistProfileHelper.PERSONAL_INFORMATION_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         setNodeProfile (personalInfo, profile);
-        
         final ProfessionalActivities activities = webProfile.getProfessionalActivities();
         if (activities != null) {
         	final List<Activity> activitiesList = activities.getAssociated().getActivity();
@@ -702,17 +780,23 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	}
         }
         
+        // Node : department
         final Node department = jcrContentNode.addNode(ScientistProfileHelper.DEPARTAMENT_INFORMATION_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         setDepartment (department, profile);  
         
+        // Node : professional
         processRecords (jcrContentNode, profile.getObject().getRecords().getRecord());
         
+        // Node : professionalActivities
+        final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+//        addProfessionalActivities(jcrContentNode, activities);
+
+        // Node : publications
         final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-        
         final Node authored = publications.addNode(ScientistProfileHelper.AUTHORED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-        
-        addPublication (authored, webProfile.getPublications().getAuthored().getPublication());      
-        
+        addPublication (authored, webProfile.getPublications().getAuthored().getPublication());
+
+        // Node : image
         final Node imageNode = jcrContentNode.addNode("image");
         if (imagePath != null) {
         	imageNode.setProperty("fileReference", imagePath);

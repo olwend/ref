@@ -149,6 +149,9 @@ public class ScientistProfileHelper {
 	public  static final String NON_ACADEMIC_HISTORY_NODE_NAME	  = "nonAcademicAppointments";
 	private static final String NON_ACADEMIC_HISTORY_NODE_PATH    = PROFESIONAL_INFORMATION_NODE_NAME + "/" + NON_ACADEMIC_HISTORY_NODE_NAME;
 	
+	/* Professional Activities */
+	public  static final String PROFESIONAL_ACTIVITIES_NODE_NAME  = "profesionalActivities";
+	
 	/* Publications */
 	public  static final String PUBLICATION_PREFIX_NODE_NAME	  = "publication";
 	public  static final String PUBLICATIONS_NODE_NAME			  = "publications";
