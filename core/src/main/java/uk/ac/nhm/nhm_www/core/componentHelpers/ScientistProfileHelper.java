@@ -150,7 +150,8 @@ public class ScientistProfileHelper {
 	private static final String NON_ACADEMIC_HISTORY_NODE_PATH    = PROFESIONAL_INFORMATION_NODE_NAME + "/" + NON_ACADEMIC_HISTORY_NODE_NAME;
 	
 	/* Professional Activities */
-	public  static final String PROFESIONAL_ACTIVITIES_NODE_NAME  = "profesionalActivities";
+	public  static final String PROFESSIONAL_ACTIVITIES_NODE_NAME  = "profesionalActivities";
+	public  static final String ASSOCIATED_PROFESSIONAL_NODE_NAME  = "associated";
 	
 	/* Publications */
 	public  static final String PUBLICATION_PREFIX_NODE_NAME	  = "publication";

@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
@@ -667,26 +668,27 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-    private void addProfessionalActivities (final Node rootNode, final List<WebProfile.Publications.Contributed.Publication> publications) throws Exception {
+    private void addProfessionalActivities (final Node rootNode, final ProfessionalActivities activities) throws Exception {
         int i  = 0;
         
-        for (WebProfile.Publications.Contributed.Publication pub: publications) {
+        ListIterator<Activity> listIt = activities.getAssociated().getActivity().listIterator();
+        
+        while (listIt.hasNext()){
+        	Activity activity = listIt.next();
+
             final Node pubNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
             
-            pubNode.setProperty(ScientistProfileHelper.FAVORITE_ATTRIBUTE, pub.isIsFavourite() == null ? false : pub.isIsFavourite());
-            
-            
             //RESOLVE PUBLICATION TYPE HERE ##########################################
-            final String type = resolvePublicationType (pub.getObject().getTypeId().intValue());  
+            final String type = resolvePublicationType (activity.getObject().getTypeId().intValue());  
             
-            final String reportingDate = pub.getObject().getReportingDate1();
+            final String reportingDate = activity.getObject().getReportingDate1();
             pubNode.setProperty(ScientistProfileHelper.REPORTING_DATE_ATTRIBUTE, reportingDate);
 
             pubNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
             
-            pubNode.setProperty(ScientistProfileHelper.LINK_ATTRIBUTE, pub.getObject().getHref());
+            pubNode.setProperty(ScientistProfileHelper.LINK_ATTRIBUTE, activity.getObject().getHref());
             
-            for (Record record: pub.getObject().getRecords().getRecord()) {
+            for (Record record: activity.getObject().getRecords().getRecord()) {
                 for (Field field: record.getNative().getField()) {
                     switch (field.getName()) {
                         case "title":
@@ -788,8 +790,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         processRecords (jcrContentNode, profile.getObject().getRecords().getRecord());
         
         // Node : professionalActivities
-        final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-//        addProfessionalActivities(jcrContentNode, activities);
+        final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        addProfessionalActivities(associated, activities);
 
         // Node : publications
         final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
