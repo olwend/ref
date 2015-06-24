@@ -721,7 +721,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             paNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
                             break;
                         case "end-date":
-                        	final BigInteger endYear = field.getDate().getMonth();
+                        	final BigInteger endYear = field.getDate().getYear();
                         	final BigInteger endMonth = field.getDate().getMonth();
                         	final BigInteger endDay = field.getDate().getDay();
                         	if ( endYear != null ){
@@ -736,7 +736,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	break;
                         	
                         case "start-date":
-                        	final BigInteger startYear = field.getDate().getMonth();
+                        	final BigInteger startYear = field.getDate().getYear();
                         	final BigInteger startMonth = field.getDate().getMonth();
                         	final BigInteger startDay = field.getDate().getDay();
                         	if ( startYear != null ){

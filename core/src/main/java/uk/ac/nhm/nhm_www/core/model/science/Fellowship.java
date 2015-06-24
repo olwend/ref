@@ -18,10 +18,13 @@ public class Fellowship extends ProfessionalActivity {
 		
 		stringBuffer.append(" ");
 		stringBuffer.append(this.daysd + "/" + this.monthsd + "/" + this.yearsd);
-		stringBuffer.append("-");
-		stringBuffer.append(this.dayed + "/" + this.monthed + "/" + this.yeared);
+		stringBuffer.append(" - ");
+		if (this.dayed != null && this.monthed != null && this.yeared != null){
+			stringBuffer.append(this.dayed + "/" + this.monthed + "/" + this.yeared);
+		} else {
+			stringBuffer.append("Ongoing");
+		}
 		
 		return stringBuffer.toString();
 	}
-
 }
