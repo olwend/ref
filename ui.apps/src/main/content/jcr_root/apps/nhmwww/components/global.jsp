@@ -114,6 +114,7 @@
 	} else {
 		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, "/content/hnmwww/en/home") + ".html";
 	}
+	String pathForSignup = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, currentPage.getPath()) + ".html";
 
 	int startIndex = 0;
 	if(myExternalizedUrl.startsWith("https")) {
