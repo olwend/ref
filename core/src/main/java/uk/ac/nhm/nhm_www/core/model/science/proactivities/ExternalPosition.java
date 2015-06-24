@@ -4,8 +4,8 @@ package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
 public class ExternalPosition extends ProfessionalActivity {
 
-	public ExternalPosition(String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, String yearEndDate, String monthEndDate, String dayEndDate) {
-		super(title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
+	public ExternalPosition(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, String yearEndDate, String monthEndDate, String dayEndDate) {
+		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 	}
 
 	@Override

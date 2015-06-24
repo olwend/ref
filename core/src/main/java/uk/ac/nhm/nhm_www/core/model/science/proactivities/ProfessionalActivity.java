@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public abstract class ProfessionalActivity implements Comparable<ProfessionalActivity> {
 	private static final Logger LOG = LoggerFactory.getLogger(ProfessionalActivity.class);
+	protected String url;
 	protected String title;
 	protected String reportingDate;
 	protected String yearsd;
@@ -14,8 +15,9 @@ public abstract class ProfessionalActivity implements Comparable<ProfessionalAct
 	protected String monthed;
 	protected String dayed;
 	
-	public ProfessionalActivity(final String title, final String reportingDate, final String yearsd, final String monthsd, 
+	public ProfessionalActivity(final String url, final String title, final String reportingDate, final String yearsd, final String monthsd, 
 			final String daysd, final String yeared, final String monthed, final String dayed) {
+		this.url = url;
 		this.title = title;
 		this.yearsd = yearsd;
 		this.monthsd = monthsd;

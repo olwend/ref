@@ -4,8 +4,9 @@ package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
 public class Fellowship extends ProfessionalActivity {
 
-	public Fellowship(String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, String yearEndDate, String monthEndDate, String dayEndDate) {
-		super(title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
+	public Fellowship(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
+			String yearEndDate, String monthEndDate, String dayEndDate) {
+		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 	}
 
 	@Override
