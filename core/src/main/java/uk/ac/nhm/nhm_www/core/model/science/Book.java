@@ -12,32 +12,20 @@ public class Book extends Publication{
 	private String publisher;
 	private String place;
 	private int page;
+	private int beginPage;
+	private int endPage;
 	
 	public Book(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
 			final String href, final String reportingDate, final List<String> editorsSet, final String publisher, final String place,
-			final int page) {
+			final int page, int beginPage, int endPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
+		this.beginPage = beginPage;
+		this.endPage = endPage;
 		this.editors = editorsSet;
 		this.publisher = publisher;
 		this.place = place;
 		this.page = page;
-	}
-
-	public List<String> getEditors() {
-		return editors;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public String getPlace() {
-		return place;
-	}
-
-	public int getPage() {
-		return page;
 	}
 
 	@Override
@@ -80,24 +68,24 @@ public class Book extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(" >>>> This is a Book <<<< ");
+		stringBuffer.append("####This is a Book Publication####");
 		
-		// Author N.M., Author N.M.
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// <i>BookTitle</i>
+		// <i>BookTitle</i>._
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>. ");
 		
-		// Editor N.M., Editor N.M.
-		final List<String> editors = this.getEditors();
-		if (editors != null) {
+		// Editor NM, Editor NM (Eds)._
+		final List<String> editors = this.editors;
+		if (editors != null && editors.size() > 0) {
 			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
 			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
@@ -108,29 +96,81 @@ public class Book extends Publication{
 			}
 			
 			stringBuffer.append(editorsString);
+			stringBuffer.append(" (Eds). ");
 		}
 		
-		// Publisher
+		// Publisher :_
 		stringBuffer.append(this.publisher);
-		if (this.place != null) { 
-			stringBuffer.append(" : ");			
-		} else {			
-			if (this.page > 0) { stringBuffer.append(", "); }
-		}
+		stringBuffer.append(" : ");			
 		
-		// : PublishPlace
+		// PublishPlace._
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			if (this.page > 0) { stringBuffer.append(", "); }
+			stringBuffer.append(". ");
 		}
 		
-		if (this.page > 0) {
-			stringBuffer.append(this.page);
+		// PagesBegin - PagesEnd._ || PageCount._
+		if (this.beginPage > 0 && this.endPage > 0) {
+			stringBuffer.append(this.beginPage);
+			stringBuffer.append(" - ");
+			stringBuffer.append(this.endPage);
+			stringBuffer.append(". ");
+		} else {
+			if (this.page > 0) {
+				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
+			}
 		}
-		
-		stringBuffer.append(".");
 			
 		return stringBuffer.toString();
+	}
+
+	public List<String> getEditors() {
+		return editors;
+	}
+
+	public void setEditors(List<String> editors) {
+		this.editors = editors;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
 	}
 	
 }

@@ -33,6 +33,7 @@
                 <cq:include script="qualifications.jsp" />
 				<cq:include script="employmenthistory.jsp" />
             </div>
+            <cq:include script="professionalactivities.jsp" />
             <cq:include script="publications.jsp" />
         </div><!-- end body row -->
 		<div class="large-4 medium-4 columns"><!-- aside row -->     

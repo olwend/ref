@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <image
+            jcr:primaryType="cq:Widget"
+            cropParameter="./imageCrop"
+            ddGroups="[media]"
+            fileNameParameter="./fileName"
+            fileReferenceParameter="./fileReference"
+            mapParameter="./imageMap"
+            name="./file"
+            requestSuffix=".img.png"
+            rotateParameter="./imageRotate"
+            title="Image"
+            xtype="html5smartimage"/>
+        <normal
+            jcr:primaryType="cq:Widget"
+            anchor="100%"
+            title="Normal"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <title
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Title"
+                    name="./title"
+                    xtype="textfield"/>
+                <path
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Links to"
+                    name="./path"
+                    xtype="pathfield"/>
+                <newwindow
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Open in New Window"
+                    name="./newwindow"
+                    type="checkbox"
+                    xtype="selection"/>
+				<exhibitionMode
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}false"
+                    fieldDescription="Check for Exhibition Component"
+                    fieldLabel="Exhibition"
+                    name="./isExhibition"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(2); this.findParentByType('tabpanel').unhideTabStripItem(3); } else { this.findParentByType('tabpanel').hideTabStripItem(2); this.findParentByType('tabpanel').hideTabStripItem(3);  } }"
+                        selectionchanged="function() { if(this.getValue() == 'true' ) { this.findParentByType('tabpanel').unhideTabStripItem(2); this.findParentByType('tabpanel').unhideTabStripItem(3); } else { this.findParentByType('tabpanel').hideTabStripItem(2); this.findParentByType('tabpanel').hideTabStripItem(3);  } }"/>
+				</exhibitionMode>
+                <description
+                    jcr:primaryType="cq:Widget"
+                    editElementQuery="div.text"
+                    hideLabel="{Boolean}true"
+                    name="./description"
+                    xtype="richtext">
+                    <rtePlugins
+                        jcr:primaryType="cq:Widget"
+                        path="/apps/nhmwww/components/includes/rteconfig/rtePlugins.infinity.json"
+                        xtype="cqinclude"/>
+                </description>
+			</items>
+        </normal>
+        <exhibition
+            jcr:primaryType="cq:Widget"
+            anchor="100%"
+            title="Exhibition"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	<date
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Date"
+                    name="./date"
+                    xtype="textfield"/>
+				<tickets
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Ticket price"
+                    name="./ticketPrice"
+                    xtype="textfield"/>
+				<location
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Location"
+                    name="./location"
+                    xtype="textfield"/>
+            </items>
+        </exhibition>
+		<callToAction
+		    jcr:primaryType="cq:Panel"
+		    title="Call to action">
+		    <items jcr:primaryType="cq:WidgetCollection">
+		        <ctaTitle
+		            jcr:primaryType="cq:Widget"
+		            fieldDescription="Text is MANDATORY in Exhibition Mode"
+		            fieldLabel="CTA Title"
+		            name="./cta-title"
+		            xtype="textfield"/>
+		        <ctaPath
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="CTA Path"
+		            name="./cta-path"
+		            width="155"
+		            xtype="pathfield"/>
+		        <ctaNewwindow
+		            jcr:primaryType="cq:Widget"
+		            fieldLabel="CTA Open in New Window"
+		            name="./cta-newwindow"
+		            type="checkbox"
+		            xtype="selection"/>
+                <ctaIcon
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="CTA Icon"
+                    name="./cta-icon"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+						jcr:primaryType="nt:unstructured"
+						loadcontent="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').show()} else {this.findParentByType('panel').getComponent('calltoactionType').hide()}}"
+						selectionchanged="function() {if (this.getValue() == 'true') {this.findParentByType('panel').getComponent('calltoactionType').show()} else {this.findParentByType('panel').getComponent('calltoactionType').hide()}}"/>
+                </ctaIcon>
+	            <calltoactionType
+		            jcr:primaryType="cq:Widget"
+		            itemId="calltoactionType"
+		            defaultValue="branding"
+		            fieldLabel="Icon Style"
+		            name="./calltoaction-type"
+		            type="select"
+		            xtype="selection">
+		            <options jcr:primaryType="cq:WidgetCollection">
+		                <alarmclock
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Alarm Clock"
+		                    value="timed-entry"/>
+		                <audioguide
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Audio Guide"
+		                    value="audio"/>
+		                <author
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Author"
+		                    value="author"/>
+		                <branding
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Branding"
+		                    value="branding"/>
+		                <calender
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Calendar"
+		                    value="dates"/>
+		                <clock
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Clock"
+		                    value="times"/>
+		                <gallery
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Gallery"
+		                    value="gallery"/>
+		                <location
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Location"
+		                    value="location"/>
+		                <membership
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Membership"
+		                    value="membership"/>
+		                <noflashphotography
+		                    jcr:primaryType="nt:unstructured"
+		                    text="No Flash Photography"
+		                    value="noflashphotography"/>
+		                <nophotography
+		                    jcr:primaryType="nt:unstructured"
+		                    text="No Photography"
+		                    value="nophotography"/>
+		                <subscription
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Subscription"
+		                    value="subscription"/>
+		                <sunset
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Sunset"
+		                    value="after-hours"/>
+		                <ticket
+		                    jcr:primaryType="nt:unstructured"
+		                    text="Ticket"
+		                    value="tickets"/>
+		            </options>
+		        </calltoactionType>
+		    </items>
+		</callToAction>
+    </items>
+</jcr:root>

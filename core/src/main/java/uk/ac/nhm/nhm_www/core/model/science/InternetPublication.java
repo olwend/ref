@@ -10,80 +10,24 @@ import org.apache.commons.lang3.StringUtils;
 public class InternetPublication extends Publication{
 	
 	private String publisher;
-	private int paginationBeginPage;
-	private int paginationEndPage;
+	private int beginPage;
+	private int endPage;
 	private int page;
-	private int iPublicationMonth;
-	private int iPublicationDay;
+	private int publicationMonth;
+	private int publicationDay;
 	private String publisherURL;
 
 	public InternetPublication(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
 			int iPublicationMonth, int iPublicationDay, final  String href,	final String reportingDate, String internetPublisher, 
 			String publisherURL, int internetBeginPage, int internetEndPage, int internetPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		this.iPublicationMonth = iPublicationMonth;
-		this.iPublicationDay = iPublicationDay;
+		this.publicationMonth = iPublicationMonth;
+		this.publicationDay = iPublicationDay;
 		this.publisher = internetPublisher;
 		this.publisherURL = publisherURL;
-		this.paginationBeginPage = internetBeginPage;
-		this.paginationEndPage = internetEndPage;
+		this.beginPage = internetBeginPage;
+		this.endPage = internetEndPage;
 		this.page = internetPage;
-	}
-
-	public String getPublisherURL() {
-		return publisherURL;
-	}
-
-	public void setPublisherURL(String publisherURL) {
-		this.publisherURL = publisherURL;
-	}
-
-	public int getiPublicationMonth() {
-		return iPublicationMonth;
-	}
-
-	public void setiPublicationMonth(int iPublicationMonth) {
-		this.iPublicationMonth = iPublicationMonth;
-	}
-
-	public int getiPublicationDay() {
-		return iPublicationDay;
-	}
-
-	public void setiPublicationDay(int iPublicationDay) {
-		this.iPublicationDay = iPublicationDay;
-	}
-
-	public int getPaginationBeginPage() {
-		return paginationBeginPage;
-	}
-
-	public void setPaginationBeginPage(int paginationBeginPage) {
-		this.paginationBeginPage = paginationBeginPage;
-	}
-
-	public int getPaginationEndPage() {
-		return paginationEndPage;
-	}
-
-	public void setPaginationEndPage(int paginationEndPage) {
-		this.paginationEndPage = paginationEndPage;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
 	}
 
 	@Override
@@ -126,61 +70,116 @@ public class InternetPublication extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Internet Publication"
-							+ " #####");
+		stringBuffer.append("####This is an Internet Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year) || (Year, Month) || (Year, Month, Day)
+		// (Year) || (Year, Month) || (Year, Day Month)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
-		if (this.getiPublicationMonth() > 0 ){
-			stringBuffer.append("/" + this.getiPublicationMonth());
-			if (this.getiPublicationDay() > 0){
-				stringBuffer.append("/" + this.getiPublicationDay());
+		if (this.publicationDay > 0){
+			stringBuffer.append(", " + this.publicationDay);
+			if (this.publicationMonth > 0 ){
+				stringBuffer.append(" " + this.publicationMonth);
 			}
 		}
 		stringBuffer.append(") ");
 		
-		
 		//Link Opening
-		if (this.getLink() != null) {
+		if (this.publisherURL != null) {
 			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.getPublisherURL());
+			stringBuffer.append(this.publisherURL);
 			stringBuffer.append("\">");
 		}
 		
-		//Title
+		// <i>Title</i>._ 
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>");
+		stringBuffer.append("</i>. ");
 
 		//Link Closing
-		if (this.getLink() != null) {
+		if (this.publisherURL != null) {
 			stringBuffer.append("</a>");
 		}
 		
-		// Publisher
+		// <i>TitleOfNewspaper/Magazine</i>_
 		if (this.publisher != null) {
+			stringBuffer.append("<i>");
 			stringBuffer.append(this.publisher);
-			if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || this.page > 0) { stringBuffer.append(" : "); }
+			stringBuffer.append("</i> ");
 		}
 		
-		// PagesBegin-PagesEnd.
-		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(this.paginationBeginPage);
+		// PagesBegin-PagesEnd._ || PageCount._
+		if (this.beginPage > 0 && this.endPage > 0) {
+			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
-			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(this.endPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getPublicationMonth() {
+		return publicationMonth;
+	}
+
+	public void setPublicationMonth(int publicationMonth) {
+		this.publicationMonth = publicationMonth;
+	}
+
+	public int getPublicationDay() {
+		return publicationDay;
+	}
+
+	public void setPublicationDay(int publicationDay) {
+		this.publicationDay = publicationDay;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 	
 }

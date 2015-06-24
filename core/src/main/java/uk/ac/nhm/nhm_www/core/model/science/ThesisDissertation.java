@@ -16,8 +16,8 @@ public class ThesisDissertation extends Publication{
 	private List<String> supervisors;
 	private String publisher;
 	private String place;
-	private int paginationBeginPage;
-	private int paginationEndPage;
+	private int beginPage;
+	private int endPage;
 	private int page;
 
 	public ThesisDissertation(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
@@ -28,65 +28,9 @@ public class ThesisDissertation extends Publication{
 		this.place = thesisPublishingPlace;
 		this.thesisType = thesisType;
 		this.supervisors = supervisorsSet;
-		this.paginationBeginPage = thesisBeginPage;
-		this.paginationEndPage = thesisEndPage;
+		this.beginPage = thesisBeginPage;
+		this.endPage = thesisEndPage;
 		this.page = thesisPage;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public String getPlace() {
-		return place;
-	}
-
-	public void setPlace(String place) {
-		this.place = place;
-	}
-
-	public int getPaginationBeginPage() {
-		return paginationBeginPage;
-	}
-
-	public void setPaginationBeginPage(int paginationBeginPage) {
-		this.paginationBeginPage = paginationBeginPage;
-	}
-
-	public int getPaginationEndPage() {
-		return paginationEndPage;
-	}
-
-	public void setPaginationEndPage(int paginationEndPage) {
-		this.paginationEndPage = paginationEndPage;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public String getThesisType() {
-		return thesisType;
-	}
-
-	public void setThesisType(String thesisType) {
-		this.thesisType = thesisType;
-	}
-
-	public List<String> getSupervisors() {
-		return supervisors;
-	}
-
-	public void setSupervisors(List<String> supervisors) {
-		this.supervisors = supervisors;
 	}
 
 	@Override
@@ -131,29 +75,26 @@ public class ThesisDissertation extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "ThesisDissertation"
-							+ " #####");
+		stringBuffer.append("####This is a Thesis | Dissertation Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ThesisTitle.		
+		// ThesisTitle._	
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append(". ");
 		
-		// ThesisType.
-		stringBuffer.append(this.getThesisType());
+		// ThesisType._
+		stringBuffer.append(this.thesisType);
 		stringBuffer.append(". ");
 		
-		// Supervisor N.M., Supervisor N.M. (Eds).
-		final List<String> supervisors = this.getSupervisors();
+		// (Supervisor(s)) Supervisor NM, Supervisor NM._
+		final List<String> supervisors = this.supervisors;
 		if (supervisors != null && supervisors.size() > 0) {
 			String supervisorsString = StringUtils.join(supervisors.toArray(new String[supervisors.size()]), ", ");
 			supervisorsString = supervisorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
@@ -163,37 +104,93 @@ public class ThesisDissertation extends Publication{
 				supervisorsString = supervisorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
 			
+			stringBuffer.append("(Supervisor(s)) ");
 			stringBuffer.append(supervisorsString);
-			stringBuffer.append(" (Eds). ");
+			stringBuffer.append(". ");
 		}
 		
-		
-		// Publisher
+		// Publisher :_
 		if (this.publisher != null) {
 			stringBuffer.append(this.publisher);
-			if (this.place != null) { stringBuffer.append(" : "); }
+			stringBuffer.append(" : "); 
 		}
 		
-		// :PublishingLocation, 
+		// :PublishingLocation._
 		if (this.place != null) {
 			stringBuffer.append(this.place);
-			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) { stringBuffer.append(", "); }
+			stringBuffer.append(". ");
 		}
 		
-		// PagesBegin-PagesEnd.
-		if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-			stringBuffer.append(this.paginationBeginPage);
+		// PagesBegin - PagesEnd._ || PageCount._
+		if (this.beginPage > 0 && this.endPage > 0) {
+			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
-			stringBuffer.append(this.paginationEndPage);
+			stringBuffer.append(this.endPage);
+			stringBuffer.append(". ");
 		} else {
 			if (this.page > 0) {
 				stringBuffer.append(this.page);
+				stringBuffer.append(". ");
 			}
 		}
 		
-		stringBuffer.append(".");
-		
 		return stringBuffer.toString();
+	}
+
+	public String getThesisType() {
+		return thesisType;
+	}
+
+	public void setThesisType(String thesisType) {
+		this.thesisType = thesisType;
+	}
+
+	public List<String> getSupervisors() {
+		return supervisors;
+	}
+
+	public void setSupervisors(List<String> supervisors) {
+		this.supervisors = supervisors;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
 	}
 	
 }

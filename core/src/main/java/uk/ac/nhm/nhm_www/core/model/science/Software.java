@@ -59,34 +59,34 @@ public class Software extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Software"
-							+ " #####");
+		stringBuffer.append("####This is a Software Publication####");
+		
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 
-		//Link Opening
+		// Link Opening
 		if (this.getLink() != null) {
 			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.getLink());
 			stringBuffer.append("\">");
 		}
 		
-		//Title
+		// <i>Title<i>_
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
 
-		//Link Closing
+		// Link Closing
 		if (this.getLink() != null) {
 			stringBuffer.append("</a>");
 		}
 		
-		stringBuffer.append(".");
+		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {
@@ -99,6 +99,22 @@ public class Software extends Publication{
 		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(String doiText) {
+		this.doiText = doiText;
+	}
+
+	public String getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(String doiLink) {
+		this.doiLink = doiLink;
 	}
 	
 }

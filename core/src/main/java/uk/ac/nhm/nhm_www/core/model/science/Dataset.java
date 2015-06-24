@@ -20,30 +20,6 @@ public class Dataset extends Publication{
 		this.publisherURL = datasetPublisherURL;
 	}
 
-	public String getPublisherURL() {
-		return publisherURL;
-	}
-
-	public void setPublisherURL(String publisherURL) {
-		this.publisherURL = publisherURL;
-	}
-
-	public Object getDoiLink() {
-		return doiLink;
-	}
-
-	public void setDoiLink(Object doiLink) {
-		this.doiLink = doiLink;
-	}
-
-	public Object getDoiText() {
-		return doiText;
-	}
-
-	public void setDoiText(Object doiText) {
-		this.doiText = doiText;
-	}
-
 	@Override
 	public String getHTMLContent(final String author, final boolean isFavourite) {
 		// Butler, R. J. and Barrett, P. M. (2013) Global Cambrian trilobite palaeobiogeography assessed using parsimony analysis of endemicity. In: D.A.T Harper and T Servais (eds) Early Palaeozoic Biogeography and Palaeogeography, pp. 273-296. Geological Society, London.
@@ -84,37 +60,34 @@ public class Dataset extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Dataset"
-							+ " #####");
+		stringBuffer.append("####This is a Dataset Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
-		// (Year)
+		// (Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		//Link Opening
-		if (this.getLink() != null) {
+		//Link Opening for publisher-url
+		if (this.publisherURL != null) {
 			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.getPublisherURL());
+			stringBuffer.append(this.publisherURL);
 			stringBuffer.append("\">");
 		}
 		
-		//Title
+		// <i>Title</i>._
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
 
-		//Link Closing
-		if (this.getLink() != null) {
+		//Link Closing for publisher-url
+		if (this.publisherURL != null) {
 			stringBuffer.append("</a>");
 		}
 		
-		stringBuffer.append(".");
+		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {
@@ -126,5 +99,29 @@ public class Dataset extends Publication{
 			stringBuffer.append("</a>");
 		}
 		return stringBuffer.toString();
+	}
+
+	public Object getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(Object doiLink) {
+		this.doiLink = doiLink;
+	}
+
+	public Object getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(Object doiText) {
+		this.doiText = doiText;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 }

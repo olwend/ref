@@ -9,9 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Poster extends Publication{
 	
+	private String nameOfConference;
+
 	public Poster(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate) {
+			final  String href,	final String reportingDate, String posterNameOfConference) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.nameOfConference = posterNameOfConference;
 	}
 
 	@Override
@@ -57,18 +60,36 @@ public class Poster extends Publication{
 		stringBuffer.append("####This is a + "
 								+ "Poster"
 							+ " #####");
+		
+		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
 
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		// Title._
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>. ");
+		
+		//Presented At nConference._
+		if( nameOfConference != null ){
+			stringBuffer.append("Presented at ");
+			stringBuffer.append(this.nameOfConference);
+			stringBuffer.append(". ");			
+		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getNameOfConference() {
+		return nameOfConference;
+	}
+
+	public void setNameOfConference(String nameOfConference) {
+		this.nameOfConference = nameOfConference;
 	}
 	
 }

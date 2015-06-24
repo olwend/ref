@@ -6,6 +6,32 @@ var autoKeywords = "";
 var $elementSelected;
 var departmentDivision = "";
 
+var $collectionGroupSelected;;
+var collectionsGroup = "";
+
+var loadDepartmentFromURL = false;
+var loadCollectionsFromURL = false;
+
+var ignoreURL = false;
+
+$.extend({
+	getUrlVars : function() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	},
+	getUrlVar : function(name) {
+		return $.getUrlVars()[name];
+	}
+});
+
+
 $(document).ready(function() {
 	
 	var globalMaxResult = 8;
@@ -56,6 +82,9 @@ $(document).ready(function() {
 	$("#name").on("click", function(){
 		nameSorted = sortTable(0, nameSorted);
 		var $this = $(this);			
+//		In case we end up adding &and; &or; we can do something like:
+//		var aux = $(this).text() + '&and;/&or;';
+//		$(this).text(aux);
 		if ( $(this).hasClass('sort-results-down') ){
 			$(this).css('background-color', 'red');  
 			$(this).removeClass('sort-results-down');
@@ -113,12 +142,14 @@ $(document).ready(function() {
 	// #### Search & More Results #### 
 	// ###############################
 	
-	$("collections").on("change", (function(e) {
+	$("collection").on("change", (function(e) {
 		globalMaxResult = 8;
+		saveSearchTerms();
 	}));
 	
 	$("division").on("change", (function(e) {
 		globalMaxResult = 8;
+		saveSearchTerms();
 	}));
 
 	$("#search").click(function() {
@@ -138,8 +169,6 @@ $(document).ready(function() {
 		searchFunc(globalMaxResult);
 	});
 	
-	
-	
 	nameSorted = sortTable(0, nameSorted);
 	
 	saveSearchTerms();
@@ -147,15 +176,77 @@ $(document).ready(function() {
 });
 
 function saveSearchTerms() {
+
 	name = $("#firstNameInput").val();
+
 	surname = $("#surnameInput").val();
+
 	keywords = $("#keywordsInput").val();
 	
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
 	
-	$collectionGroupSelected = $("#collections option:selected");
+	$collectionGroupSelected = $("#collection option:selected");
 	collectionsGroup = $collectionGroupSelected.val();
+	
+	if (typeof name === undefined || name === null || name === '') {
+		aux = $.getUrlVar('name');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			name = aux;
+		}
+	} else {
+		ignoreURL = true;
+	}
+	
+	if (typeof surname === undefined || surname === null || surname === '') {
+		aux = $.getUrlVar('surname');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			surname = aux;
+		}
+	} else {
+		ignoreURL = true;
+	}
+	
+	if (typeof keywords === undefined || keywords === null || keywords === '') {
+		aux = $.getUrlVar('specialism');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			keywords = aux;
+		}
+	} else {
+		ignoreURL = true;
+	}
+	
+	if (departmentDivision === 'All') {
+		aux = $.getUrlVar('division');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadDepartmentFromURL = true;
+			departmentDivision = aux;
+		} else {
+			aux = $.getUrlVar('department');
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadDepartmentFromURL = true;
+				departmentDivision = aux;
+			}
+		}
+	} else {
+		ignoreURL = true;
+	}
+	
+	if (collectionsGroup === 'All') {
+		aux = $.getUrlVar('collection');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadCollectionsFromURL = true;
+			collectionsGroup = aux;
+		} else {
+			aux = $.getUrlVar('group');
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadCollectionsFromURL = true;
+				collectionsGroup = aux;
+			}
+		}
+	} else {
+		ignoreURL = true;
+	}
 }
 
 function searchFunc(maxResults) {
@@ -163,6 +254,11 @@ function searchFunc(maxResults) {
 	var nodes = $("#peopleList").children().children();
 
 	nodes.css("display", "none");
+	
+	if(!ignoreURL) {		
+		var $name = document.getElementById("firstNameInput");
+		$name.value = decodeURIComponent(name);
+	} 
 	
 	if (name.length != 0) {
 		var lowercase = name.toLowerCase();
@@ -178,6 +274,11 @@ function searchFunc(maxResults) {
 			return false;
 		});
 	}
+	
+	if(!ignoreURL) {		
+		var $surname = document.getElementById("surnameInput");
+		$surname.value = decodeURIComponent(surname);
+	} 
 
 	if (surname.length != 0) {
 		var lowercase = surname.toLowerCase();
@@ -193,6 +294,11 @@ function searchFunc(maxResults) {
 			return false;
 		});
 	}
+	
+	if(!ignoreURL) {		
+		var $keywords = document.getElementById("keywordsInput");
+		$keywords.value = decodeURIComponent(keywords);
+	} 
 	
 	if (keywords.length != 0) {
 	    var query = keywords.toLowerCase();
@@ -212,30 +318,38 @@ function searchFunc(maxResults) {
 		});
 	}
 	
+	if(loadDepartmentFromURL && !ignoreURL) {		
+		var $division = document.getElementById("division");
+		$division.value = decodeURIComponent(departmentDivision);
+		$elementSelected = $("#division option:selected");
+	} 
+
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
-			console.log("Department: " + $elementSelected.val());
 			nodes = nodes.filter("[department=" + '"' + $elementSelected.val() + '"' + "]");
 		}
 		
 		if ($elementSelected.hasClass("division")) {
 			var department = $elementSelected.data("department");
 			var division = $elementSelected.data("division");
-			console.log("Division: " + department + ", " + division);
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
 	}
+
+	if(loadCollectionsFromURL && !ignoreURL) {		
+		var $collection = document.getElementById("collection");
+		$collection.value = decodeURIComponent(collectionsGroup);
+		$collectionGroupSelected = $("#collection option:selected");
+	} 
 	
 	if (collectionsGroup != "All") {
 		if ($collectionGroupSelected.hasClass("collection")) {
-			console.log("Collection: " + $collectionGroupSelected.val());
 			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
 		}
 		
 		if ($collectionGroupSelected.hasClass("group")) {
 			var collection = $collectionGroupSelected.data("collection");
 			var group = $collectionGroupSelected.data("group");
-			console.log("Group: " + collection + ", " + group);
 			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
 		}
 	}

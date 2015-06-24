@@ -31,7 +31,6 @@
             <row3cells
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
-            
         </par>
     </jcr:content>
 </jcr:root>

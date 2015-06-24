@@ -59,7 +59,6 @@ public class CTAButtonHelper extends HelperBase {
 		this.helperFactory = new HelperFactory(resource);
 		helperFactory.getProperties();
 		init();
-		
 	}
 	
 	/**
@@ -77,6 +76,12 @@ public class CTAButtonHelper extends HelperBase {
 		this.hasImage = false;
 		this.initialised = false;
 		this.heading = properties.get("heading", "");
+		
+		// Fix for the usage of this helper in HTI && Grand Summary
+		if ( (this.heading == null || this.heading.equals("")) && (properties.get("cta-title") != null) ){
+			this.heading = properties.get("cta-title", String.class);
+		}
+		
 		this.title = properties.get("title", "");
 		
 		this.resource = resource;

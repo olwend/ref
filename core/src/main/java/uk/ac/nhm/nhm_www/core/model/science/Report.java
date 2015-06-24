@@ -12,11 +12,11 @@ public class Report extends Publication{
 	private boolean confidential;
 	
 	/* Pagination */
-	private int paginationBeginPage;
-	private int paginationEndPage;
+	private int beginPage;
+	private int endPage;
 
 	private String publisher;
-	private String place;
+	private String publishingPlace;
 	private int page;
 	
 	public Report(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
@@ -24,19 +24,11 @@ public class Report extends Publication{
 			final int paginationEndPage, final String publisher, final String place, int page) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.confidential = confidential;
-		this.paginationBeginPage = paginationBeginPage;
-		this.paginationEndPage = paginationEndPage;
+		this.beginPage = paginationBeginPage;
+		this.endPage = paginationEndPage;
 		this.publisher = publisher;
-		this.place = place;
+		this.publishingPlace = place;
 		this.page = page;
-	}
-
-	public boolean isConfidential() {
-		return confidential;
-	}
-
-	public void setConfidential(boolean confidential) {
-		this.confidential = confidential;
 	}
 	
 	@Override
@@ -82,48 +74,93 @@ public class Report extends Publication{
 			
 			//LOG.error("After being replaced: " + authorsString);
 			
-			stringBuffer.append("####This is a + "
-					+ "Report"
-					+ " #####");
+			stringBuffer.append("####This is a Report Publication####");
 			
-			// Author N.M., Author N.M.
+			// Author NM, Author NM
 			stringBuffer.append(authorsString);
 			
-			// (Year)
+			// _(Year)_
 			stringBuffer.append(" (");
 			stringBuffer.append(this.getPublicationYear());
 			stringBuffer.append(") ");
 			
-			// Title
+			// Title._
 			stringBuffer.append(this.getTitle());
 			stringBuffer.append(". ");
 			
-			// Publisher
-			if (this.publisher != null) {
-				stringBuffer.append(this.publisher);
-				if (this.place != null) { stringBuffer.append(" : "); }
+			// Publisher :_
+			stringBuffer.append(this.publisher);
+			stringBuffer.append(" : ");			
+			
+			// PublishPlace._
+			if (this.publishingPlace != null) {
+				stringBuffer.append(this.publishingPlace);
+				stringBuffer.append(". ");
 			}
 			
-			// :PublishingLocation
-			if (this.place != null) {
-				stringBuffer.append(this.place);
-				if ( (this.paginationBeginPage > 0 && this.paginationEndPage > 0) || (this.page > 0 ) ) { stringBuffer.append(", "); }
-			}
-			
-			// PagesBegin-PagesEnd.
-			if (this.paginationBeginPage > 0 && this.paginationEndPage > 0) {
-				stringBuffer.append(this.paginationBeginPage);
+			// PagesBegin-PagesEnd._ || PageCount._
+			if (this.beginPage > 0 && this.endPage > 0) {
+				stringBuffer.append(this.beginPage);
 				stringBuffer.append(" - ");
-				stringBuffer.append(this.paginationEndPage);
+				stringBuffer.append(this.endPage);
+				stringBuffer.append(". ");
 			} else {
 				if (this.page > 0) {
 					stringBuffer.append(this.page);
+					stringBuffer.append(". ");
 				}
 			}
 			
-			stringBuffer.append(".");
 		}
 		return stringBuffer.toString();
+	}
+
+	public boolean isConfidential() {
+		return confidential;
+	}
+
+	public void setConfidential(boolean confidential) {
+		this.confidential = confidential;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPlace() {
+		return publishingPlace;
+	}
+
+	public void setPlace(String place) {
+		this.publishingPlace = place;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
 	}
 	
 }

@@ -3,15 +3,21 @@ package uk.ac.nhm.nhm_www.core.model.science;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
 public class WebsitePublicationType extends Publication{
 	
+	private String publisher;
+	private String publishingPlace;
+	private String publisherURL;
+
 	public WebsitePublicationType(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate){
+			final  String href,	final String reportingDate, String publisher, String publisherURL, String publishingPlace){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.publisher = publisher;
+		this.publisherURL = publisherURL;
+		this.publishingPlace = publishingPlace;
 	}
 
 	@Override
@@ -54,21 +60,72 @@ public class WebsitePublicationType extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "WebsitePublicationType"
-							+ " #####");
-		stringBuffer.append(authorsString);
-		stringBuffer.append(". ");
+		stringBuffer.append("####This is a Website Publication####");
 
+		// Author NM, Author NM
+		stringBuffer.append(authorsString);
+		
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
+		//Link Opening for publisher-url
+		if (this.publisherURL != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.publisherURL);
+			stringBuffer.append("\">");
+		}
+		
+		// Title_
 		stringBuffer.append("<i>");
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
+		stringBuffer.append("</i> ");
+
+		//Link Closing for publisher-url
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
+		}
+		
+		stringBuffer.append(". ");
+			
+		// Publisher :_
+		if (this.publisher != null) {
+			stringBuffer.append(this.publisher);
+			stringBuffer.append(" : "); 
+		}
+		
+		// PublishingLocation._
+		if (this.publishingPlace != null) {
+			stringBuffer.append(this.publishingPlace);
+			stringBuffer.append(". ");
+		}
 			
 		return stringBuffer.toString();
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPublishingPlace() {
+		return publishingPlace;
+	}
+
+	public void setPublishingPlace(String publishingPlace) {
+		this.publishingPlace = publishingPlace;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 	
 }
