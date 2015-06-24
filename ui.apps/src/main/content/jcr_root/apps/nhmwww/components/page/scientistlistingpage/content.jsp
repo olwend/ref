@@ -19,24 +19,33 @@
 		    </div>
 	    </div>
 	</div>
-	<div class="search_content"><!-- start content search -->
-		<div class="row"><!-- start row --> 
-			<div class="large-4 medium-6 columns large-left-section">
-				By name, keywords and specialisms
-				<div class="search-first-name">
-					<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
+	
+	
+	<div class="row directory-search directory-search__science-profiles">
+		<ul class="small-block-grid-1 medium-block-grid-3 directory-search--fields-block-grid">
+			<li>
+				<legend class="directory-search--label">By name, keywords and specialisms</legend>
+				<div class="small-6 columns pr-10">
+					<div class="search-second-name">
+						<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
+					</div>
 				</div>
-				<div class="search-second-name">
-					<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
+				<div class="small-6 columns">
+					<div class="search-first-name">
+						<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
+					</div>
 				</div>
-				<div class="search-keywords">
-					<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
+				<div class="small-12 columns">
+					<div class="search-keywords">
+						<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
+					</div>
 				</div>
-			</div>
-
-			<div class="large-4 medium-6 columns large-left-section">
-				<div class="search-depts-divs">
-					<label for="division">Filter by</label>
+			</li>
+			<li>
+				<div class="small-12 medium-12 large-12 columns">
+					<legend class="directory-search--label">Filter by</legend>
+				</div>
+				<div class="small-12 columns">
 					<select id="division">
 						<option value="All" selected="selected">Department and Division</option>
 						<%-- Department: Life Sciences --%>
@@ -76,8 +85,9 @@
 					    
 					    <option class="department" id="Science Directorate" value="Science Directorate">Science directorate</option>
 					</select>
-
-					<select id="collection">
+				</div>
+				<div class="small-12 columns">
+					<select id="collection" class="mb-0">
 						<option value="All" selected="selected">Collections</option>
 						<%-- Collection: FakeFilter_Research --%>
 						<option class="collection" id="Research" value="Research">FakeFilter F:Research</option>
@@ -148,12 +158,22 @@
 					    <option class="collection" id="Molecular" value="Molecular">Molecular collections</option>
 					</select>
 				</div>
-			</div>
-			<div class="large-4 columns">
-				<input id="search" type="button" value="Search the staff directory" name="submit" class="arrow"/>
-			</div>
-		</div><!--end start row -->
-	</div><!-- / start content search -->
+			</li>
+			<li>
+				<div class="small-12 medium-12 large-12 columns directory-search-button--container">
+					<div class="small-4 columns">
+						<i class="ico svg-ico directory-search-button--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_service_staff.svg" alt="Search Directory" data-alt="Search Directory" data-stroke-width="2" data-fallback="/etc/designs/nhmwww/img/icons/icon_l_service_staff-suport-us.png" data-base-color="#FFFFFF" data-hover-color="#FFFFFF" data-hover-state="no"></i>
+					</div>
+					<div class="small-5 columns">
+						<input id="search" type="button" value="Search Directory" name="submit" class="directory-search-button--text"/>
+					</div>
+					<div class="small-3 columns">
+						<i class="ico svg-ico directory-search-button--arrow" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" alt="Search Directory" data-alt="Search Directory" data-stroke-width="4" data-fallback="/etc/designs/nhmwww/img/icons/icon_l_general_arrow_r-support-us.png" data-base-color="#FFFFFF" data-hover-color="#FFFFFF" data-hover-state="no"></i>
+					</div>
+				</div>
+			</li>
+		</ul>	
+	</div>
 	
 	<div class="row profiles_row">
 		<div class="large-3 medium-4 columns large-left-section">
