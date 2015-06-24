@@ -312,7 +312,7 @@
                                     <div class="newslettersignup">
 	                                    <cq:includeClientLib categories="nhm-www.newsletter" />
 	                                    <h4> Sign up for our emails</h4>
-	                                    <form action="<%= helper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="post">
+	                                    <form action="<%= helper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
 	                                        <div class="form-field firstname">
 	                                            <label for="name">Full name</label>
 	                                            <input class="item-input" name="name" type="text" />
