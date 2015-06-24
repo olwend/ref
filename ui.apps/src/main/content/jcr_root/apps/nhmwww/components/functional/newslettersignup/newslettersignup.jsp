@@ -1,8 +1,8 @@
 <%@page session="false"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.NewsletterSignUpHelper"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
-<% DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request); %>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
+<% DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request); %>
 <cq:includeClientLib categories="nhm-www.newsletter" />
 <!-- START OF FOOTER -->
 <footer class="main-footer">
