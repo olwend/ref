@@ -57,6 +57,10 @@
                             jcr:primaryType="nt:unstructured"
                             text="@NHM_WPY"
                             value="nhm-wpy"/>
+                        <o12
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_Tring"
+                            value="nhm-tring"/>
                     </options>
                 </widgetid>
                 <height

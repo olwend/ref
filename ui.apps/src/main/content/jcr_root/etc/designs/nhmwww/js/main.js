@@ -447,10 +447,12 @@ jQuery(document).ready(function() {
             var position=jQuery(this).scrollTop(),
                 subNav = jQuery('.subnav'),
                 mainNav = jQuery('.global-header'),
+                globalHeaderBar = jQuery('.global-header-bar');
                 hero = jQuery('.hero'),
                 infoSection = jQuery('.row.info'),
                 heroPos = hero.position();
-            if(position > 0){
+
+            if(position > globalHeaderBar.height()) {
                 mainNav.addClass('sticky');
             } else {
                 mainNav.removeClass('sticky');

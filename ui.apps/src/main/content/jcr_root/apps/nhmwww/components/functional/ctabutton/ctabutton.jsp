@@ -65,9 +65,7 @@
 	            </div>
             <% } %>
         </div>
-	<%}
-	
-	else {%>
+	<%} else {%>
 	<!--  no image -->
 		<div class="info-tout info-tout__action <%//= helper.getIconClass() //tona: Removing this and hard coding it as "tickets" because the CSS is coded to use this class for formatting and using another class will break it; see the SVG above for a similar situation %>tickets">
 			<a class="arrow--large burgandy" href="<%= helper.getLinkURL() %>"<%=helper.getNewWindowHtml()%> data-gtm="CTA">

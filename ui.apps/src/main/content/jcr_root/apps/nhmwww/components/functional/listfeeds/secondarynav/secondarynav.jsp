@@ -5,7 +5,7 @@
   This will create a section specific secondary Nav
 
 --%><%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.SecondaryNavHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.ListElement"%>
+<%@page import="uk.ac.nhm.nhm_www.core.model.ListElementImpl"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.ListHelper,
 				uk.ac.nhm.nhm_www.core.utils.*"%>
 <%
@@ -21,7 +21,7 @@
 <% if(helper.isInitialised()) {%>
 <!-- START SIDE NAV -->
 				<div class="parbase section">
-					<div class="press-office--side-nav">
+					<div class="secondary-nav-wrapper">
 						<% if(helper.getComponentTitle() != null && !helper.getComponentTitle().equals("")) { %>
 							<p><%= helper.getComponentTitle() %></p>
 						<% }
@@ -34,7 +34,7 @@
 						<ul class="side-nav">
 							<li<%= currentPageCssClass %>><a href="<%= LinkUtils.getFormattedLink(helper.getSectionLandingPage().getPath()) %>"><%= helper.getSectionLandingPage().getTitle() %> home</a></li>
 							<%for (Object navElement: helper.getChildrenElements()) { 
-								ListElement processingElement = (ListElement) navElement;
+								ListElementImpl processingElement = (ListElementImpl) navElement;
 								currentPageCssClass = "";
 								if(currentPage.getPath().equals(processingElement.getElementLink())){
 									currentPageCssClass = " class=\"selected\" ";
