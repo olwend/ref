@@ -1,5 +1,7 @@
 <%@page session="false"%>
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.NewsletterSignUpHelper"%>
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+<% DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request); %>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <cq:includeClientLib categories="nhm-www.newsletter" />
 <!-- START OF FOOTER -->
@@ -40,7 +42,7 @@
 	if (helper.isComponentInitialised()) {
 %>
 	<div class="footer-utility columns large-3 newslettersignup">
-		<form action="<%= helper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
+		<form action="<%= dynamicPageHelper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
 		  <fieldset>
             <legend><%= helper.getTitle() %></legend>
             	 <label class="item-label" for="name">Full name</label>
