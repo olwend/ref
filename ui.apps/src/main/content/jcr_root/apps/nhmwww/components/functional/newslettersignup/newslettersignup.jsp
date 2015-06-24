@@ -40,8 +40,8 @@
 	if (helper.isComponentInitialised()) {
 %>
 	<div class="footer-utility columns large-3 newslettersignup">
-		<form action="<%= currentPage.getPath() %>/jcr:content.newslettersignup.html" method="post">
-          <fieldset>
+		<form action="<%= helper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
+		  <fieldset>
             <legend><%= helper.getTitle() %></legend>
             	 <label class="item-label" for="name">Full name</label>
                  <input class="item-input" name="name" type="text" />
