@@ -1,4 +1,5 @@
-package uk.ac.nhm.nhm_www.core.model.science;
+package uk.ac.nhm.nhm_www.core.model.science.proactivities;
+
 
 
 public class Fellowship extends ProfessionalActivity {
@@ -12,15 +13,18 @@ public class Fellowship extends ProfessionalActivity {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
 		stringBuffer.append("####This is a Fellowship####");
-		
 		stringBuffer.append(" ");
-		stringBuffer.append(this.title);
 		
-		stringBuffer.append(" ");
-		stringBuffer.append(this.daysd + "/" + this.monthsd + "/" + this.yearsd);
-		stringBuffer.append(" - ");
+		// Title_
+		if (this.title != null){
+			stringBuffer.append(this.title);
+			stringBuffer.append(" ");
+		}
+		
 		if (this.dayed != null && this.monthed != null && this.yeared != null){
-			stringBuffer.append(this.dayed + "/" + this.monthed + "/" + this.yeared);
+			stringBuffer.append(this.yearsd);
+			stringBuffer.append(" - ");
+			stringBuffer.append(this.yeared);
 		} else {
 			stringBuffer.append("Ongoing");
 		}

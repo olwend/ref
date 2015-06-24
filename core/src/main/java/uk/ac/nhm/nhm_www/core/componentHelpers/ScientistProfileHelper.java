@@ -22,13 +22,11 @@ import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
 import uk.ac.nhm.nhm_www.core.model.science.Dataset;
 import uk.ac.nhm.nhm_www.core.model.science.Exhibition;
-import uk.ac.nhm.nhm_www.core.model.science.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.InternetPublication;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
 import uk.ac.nhm.nhm_www.core.model.science.NewspaperMagazine;
 import uk.ac.nhm.nhm_www.core.model.science.Other;
 import uk.ac.nhm.nhm_www.core.model.science.Poster;
-import uk.ac.nhm.nhm_www.core.model.science.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
 import uk.ac.nhm.nhm_www.core.model.science.Report;
@@ -40,6 +38,8 @@ import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
 import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 
 public class ScientistProfileHelper {
 	

@@ -1,4 +1,4 @@
-package uk.ac.nhm.nhm_www.core.model.science;
+package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,10 +59,10 @@ public abstract class ProfessionalActivity implements Comparable<ProfessionalAct
 	}
 	
 	public String getStartDate(){
-		return daysd + "/" + monthsd + "/" + yearsd; 
+		return this.daysd + "/" + this.monthsd + "/" + this.yearsd; 
 	}
 	
 	public String getEndDate(){
-		return dayed + "/" + monthed + "/" + yeared; 
+		return this.dayed + "/" + this.monthed + "/" + this.yeared; 
 	}
 }

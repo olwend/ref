@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map.Entry;
@@ -753,9 +754,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 //                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
 //                            while(types.hasNext()) {
 //                            	Address address = types.next();
-//                            	ListIterator<Object> lines = address.getContent().listIterator();
-//                            	while (lines.hasNext()){
-//                            		Line line = lines.next();
+//                            	List<Object> lines = address.getContent();
+//                            	Iterator<Object> linesIt = lines.iterator();
+//                            	//ListIterator<Object> lines = address.getContent().listIterator();
+//                            	while (linesIt.hasNext()){
+//                            		Object tempObject = linesIt.next();
+//                            		LOG.error("instanceOF: " + tempObject.getClass());
+//                            		LOG.error("instanceOF content: " + tempObject);
+//                            		Line line = (Line) tempObject;
 //                            		switch (line.getType()) {
 //                            		case "organisation":
 //                            			paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, line.getContent());
