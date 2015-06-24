@@ -13255,6 +13255,9 @@ div#feedback-bar .span11 {
 }
 
 /***** PRESS OFFICE *****/
+.press-office {
+  /** h3 here is the title of the press release tiles component, not HTI **/
+}
 .press-office h3 {
   padding-bottom: 10px;
   padding-left: 0.5em;
@@ -13810,11 +13813,6 @@ a.button-cta {
   margin-top: 30px;
 }
 
-.hti-padding {
-  display: table;
-  margin-bottom: 1.2em;
-}
-
 .headertextimage:last-child .hti-padding {
   margin-bottom: 0px;
 }
@@ -13878,6 +13876,11 @@ a.button-cta {
   font-size: 1.125em;
   margin-bottom: 1.2em;
 }
+.hti-box h3 {
+  padding-left: 0;
+  padding-bottom: 0.3em;
+  color: #565656;
+}
 .hti-box .ctabutton--inside-hti:hover h3 {
   text-decoration: underline;
 }
@@ -13904,26 +13907,39 @@ a.button-cta {
   background-color: #808080 !important;
   color: #ffffff;
 }
-.hti-box__dark-grey .hti--text {
+.hti-box__dark-grey h3 {
   color: #ffffff;
 }
-.hti-box__dark-grey .hti--text a {
-  color: #ffffff;
+.hti-box__dark-grey a {
+  color: #D5D5D5;
+}
+.hti-box__dark-grey a:hover {
+  color: #D5D5D5;
 }
 
 /** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
 .hti-box__feature-box {
   color: #ffffff;
 }
-.hti-box__feature-box .hti--text {
+.hti-box__feature-box h3 {
   color: #ffffff;
 }
-.hti-box__feature-box .hti--text a {
-  color: #ffffff;
+.hti-box__feature-box a {
+  color: #D5D5D5;
+}
+.hti-box__feature-box a:hover {
+  color: #D5D5D5;
 }
 
 .hti-box--text-wrapper {
   padding: 1em 1.5em 0;
+}
+.hti-box--text-wrapper ul {
+  margin-left: 1em;
+}
+.hti-box--text-wrapper ul li {
+  list-style-type: disc;
+  list-style-position: outside;
 }
 
 /** this replaces info-tout__action **/
@@ -13998,8 +14014,10 @@ a.button-cta {
 }
 
 /**overrides headertextimage.scss **/
-.headertextimage.hti-padding {
+.headertextimage .hti-padding {
   margin-bottom: 1.2em;
+  width: 100%;
+  display: table;
 }
 
 /**overrides headertextimage.scss **/
