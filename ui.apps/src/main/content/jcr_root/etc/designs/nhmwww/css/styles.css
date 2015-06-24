@@ -14868,6 +14868,16 @@ a.button-cta {
   font-size: 2em;
 }
 
+label {
+  color: #ffffff;
+}
+
+fieldset legend {
+  background: none;
+  font-weight: normal;
+  padding: 0;
+}
+
 .directory-search-results--sort-results-up::after {
   background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-up.png");
   background-position: right center;
