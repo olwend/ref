@@ -182,16 +182,16 @@
 			</div>
 			<div class="small-6 medium-10 large-10 columns">
 				<div id="name" class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
-					<a href="#">Name</a>
+					Name
 				</div>
 				<div id="job" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
-					<a href="#">Job Title</a>
+					Job Title
 				</div>
 				<div id="departAndDiv" class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
-					<a href="#">Department and Division</a>
+					Department and Division
 				</div>
 				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
-					<a href="#">Specialisms</a>
+					Specialisms
 				</div>
 			</div>
 		</div>
