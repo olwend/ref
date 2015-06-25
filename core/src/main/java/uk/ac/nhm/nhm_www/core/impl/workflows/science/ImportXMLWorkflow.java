@@ -696,12 +696,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     
     private String resolveProfessionalActivityType (final int number) {
         switch (number) {
-        	case 31 : return "Committee";
-        	case 33 : return "Event Administration";
-        	case 56 : return "Editorship";
-	        case 60 : return "Fellowship";
-	        case 73 : return "Membership";
-	        case 76 : return "Publication Review Referee";
+        	case 31 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES;
+        	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITIONS;
+        	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
+        	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_GRANT_APPLICATION_ASSESSMENT;
+        	case 56 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP;
+	        case 60 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP;
+	        case 73 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP;
+	        case 76 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE;
 	        default: return "Professional Activity";
         }
     }
@@ -758,7 +760,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 	                        	}
 	                        	break;
-//                        case "organisation":
+//                        case "organisation":	// EXACTLY the same for "institution"
 //                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
 //                            while(types.hasNext()) {
 //                            	Address address = types.next();
@@ -838,6 +840,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
                         	}
                         	break;  
+                        	
+                        case "c-office-held-type":
+                        	final String officeHeldType = field.getText();
+                        	if ( officeHeldType != null ){
+                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, officeHeldType);
+                        	}
+                        	break;
                             	
 //                        case "c-committee-roles":
 //                        	final String committeeRole = field.getText();
