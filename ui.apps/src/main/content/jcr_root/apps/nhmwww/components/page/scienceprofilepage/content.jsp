@@ -31,14 +31,18 @@
         <div class="small-12 columns">
             <div class="show-for-large-up">
                 <ul class="tabs" data-tab>
-                    <li class="tab-title active"><a href="#panel1">Professional activities</a></li>
-                    <li class="tab-title"><a href="#panel2">Publications</a></li>
+                 	<li class="tab-title active"><a href="#panel1">Introduction</a></li>
+                    <li class="tab-title"><a href="#panel2">Professional activities</a></li>
+                    <li class="tab-title"><a href="#panel3">Publications</a></li>
                 </ul>
                 <div class="tabs-content">
                     <div class="content active" id="panel1">
-                        <cq:include script="professionalactivities.jsp" />
+                        <cq:include script="introduction.jsp" />
                     </div>
                     <div class="content" id="panel2">
+                        <cq:include script="professionalactivities.jsp" />
+                    </div>
+                    <div class="content" id="panel3">
                         <cq:include script="publications.jsp" />
                     </div>
                 </div>
@@ -46,14 +50,20 @@
             <div class="hide-for-large-up">
 				<dl class="accordion" data-accordion>
 					<dd class="accordion-navigation">
-						<a href="#panel1a">Professional Activities</a>
+						<a href="#panel1a">Introduction</a>
                         <div id="panel1a" class="content">
+                            <cq:include script="introduction.jsp" />
+                        </div>
+					</dd>
+					<dd class="accordion-navigation">
+						<a href="#panel2a">Professional Activities</a>
+                        <div id="panel2a" class="content">
                             <cq:include script="professionalactivities.jsp" />
                         </div>
 					</dd>
 					<dd class="accordion-navigation">
-						<a href="#panel2b">Publications</a>
-						<div id="panel2b" class="content">
+						<a href="#panel3b">Publications</a>
+						<div id="panel3b" class="content">
 							<cq:include script="publications.jsp" />
 						</div>
 					</dd>
