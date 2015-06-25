@@ -187,7 +187,7 @@
 				<div id="job" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					Job Title
 				</div>
-				<div id="departAndDiv" class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
+				<div id="departAndDiv" class="small-12 medium-4 large-4 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
 					Department and Division
 				</div>
 				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
@@ -211,7 +211,7 @@
 						collection="${fn:escapeXml(profile.collection)}"
 						group="${fn:escapeXml(profile.collectionGroup)}"
 						style="display:none;">
-							<div class="small-4 medium-2 columns directory-search-results--row-content js--profile-content">
+							<div class="small-4 medium-2 large-2 columns directory-search-results--row-content js--profile-content">
 								<%
 		final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
 		WCMMode.PREVIEW.toRequest(slingRequest);
@@ -221,14 +221,14 @@
 		beforeMode.toRequest(slingRequest);
 %>
 							</div>
-							<div class="small-8 medium-10 columns">
+							<div class="small-8 medium-10 large-10 columns">
 								<div class="small-12 medium-2 columns directory-search-results--row-content js--profile-content">
 									<a href="${fn:escapeXml(profile.url)}"> <c:out
 										value="${profile.lastName}" /> <c:out value=", " /> <c:out
 										value="${profile.firstName}" />
 									</a>
 								</div>
-								<div class="small-12 medium-3 columns directory-search-results--row-content js--profile-content">
+								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
 									<c:out value="${profile.job}" />
 									<%-- Debugging purpose --%>
 											<br/>Function:<c:out value="${profile.collection}"/>
@@ -237,12 +237,12 @@
 										--%>
 									<%-- Debugging purpose --%>
 								</div>
-								<div class="small-12 medium-4 columns directory-search-results--row-content js--profile-content">
+								<div class="small-12 medium-4 large-4 columns directory-search-results--row-content js--profile-content">
 									<c:out value="${profile.department}"/>
 									<br/>
 									<c:out value="${profile.division}" />
 								</div>
-								<div class="small-12 medium-3 columns directory-search-results--row-content js--profile-content">
+								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
 									<c:if test="${not empty profile.specialisms}">
 										<strong class="show-for-small-only">Specialisms:</strong>
 									</c:if>
