@@ -172,115 +172,96 @@
 				</div>
 			</li>
 		</ul>	
-	</div>
-	<!--  ORIGINAL -->
+	</div><!--  NEW -->
 
-	<div class="row profiles_row">
-		<div class="large-3 medium-4 columns large-left-section">
-			<div id="image"
-				class="large-5 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
-				<h5>Image</h5>
+
+	<div class="directory-search-results--table">
+		<div class="row directory-search-results--row hide-for-small-only">
+			<div id="image" class="small-6 medium-2 large-2 columns directory-search-results--row-header">
+				Image
 			</div>
-			<div id="name"
-				class="large-7 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
-				<a href="#"><h5>Name</h5> <!--  &and; &or; -->
-			</div>
-		</div>
-		<div id="job"
-			class="large-2 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<a href="#"><h5>Job title</h5></a>
-		</div>
-		<div id="departAndDiv"
-			class="large-3 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<a href="#"><h5>Department and division</h5></a>
-		</div>
-		<div id="specialisms"
-			class="large-4 medium-4 columns profiles_table profile-content table_header hide-for-small-only">
-			<a href="#"><h5>Specialisms</h5></a>
-		</div>
-	</div>
-	<div id="peopleList" class="row">
-		<c:forEach var="profile" items="${profileList}">
-			<div class="row profiles_row">
-				<div firstname="${fn:escapeXml(profile.firstName)}"
-					secondname="${fn:escapeXml(profile.lastName)}"
-					activity="${fn:escapeXml(profile.job)}"
-					department="${fn:escapeXml(profile.department)}"
-					division="${fn:escapeXml(profile.division)}"
-					specialisms="${fn:escapeXml(profile.specialisms)}"
-					collection="${fn:escapeXml(profile.collection)}"
-					group="${fn:escapeXml(profile.collectionGroup)}"
-					style="display: none;">
-
-					<div class="large-3 medium-4 columns large-left-section">
-						<div class="large-5 medium-6 columns">
-							<%
-	final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
-	WCMMode.PREVIEW.toRequest(slingRequest);
-%>
-							<cq:include path="${profile.imagePath}"
-								resourceType="nhmwww/components/functional/foundation5image" />
-							<%
-beforeMode.toRequest(slingRequest);
-%>
-						</div>
-						<div
-							class="large-7 medium-6 columns profiles_table profile-content">
-							<p>
-								<strong class="show-for-small-only">Name:</strong> <a
-									href="${fn:escapeXml(profile.url)}"> <c:out
-										value="${profile.lastName}" /> <c:out value=", " /> <c:out
-										value="${profile.firstName}" />
-								</a>
-							</p>
-						</div>
-					</div>
-					<div
-						class="large-2 medium-2 columns large-left-section profiles_table profile-content ">
-						<p>
-							<strong class="show-for-small-only">Job:</strong>
-							<c:out value="${profile.job}" />
-							<%-- 							Debugging purpose --%>
-							<br />Function:
-							<c:out value="${profile.collection}" />
-							<br />FGroup:
-							<c:out value="${profile.collectionGroup}" />
-
-							<%-- 							Debugging purpose --%>
-						</p>
-					</div>
-					<div
-						class="large-3 medium-2 columns large-left-section profiles_table profile-content ">
-						<p>
-							<strong class="show-for-small-only">Department and
-								Division:</strong>
-							<c:out value="${profile.department}" />
-							<br />
-							<c:out value="${profile.division}" />
-						</p>
-					</div>
-					<div
-						class="large-4 medium-4 columns profiles_table profile-content">
-						<p>
-							<c:if test="${not empty profile.specialisms}">
-								<strong class="show-for-small-only">Specialisms:</strong>
-							</c:if>
-							<c:choose>
-								<c:when test="${fn:length(profile.specialisms) > 175}">
-									<c:out value="${fn:substring(profile.specialisms, 0, 175)}" />&hellip;
- 								</c:when>
-								<c:otherwise>
-									<c:out value="${profile.specialisms}" />
-								</c:otherwise>
-							</c:choose>
-						</p>
-					</div>
+			<div class="small-6 medium-10 large-10 columns">
+				<div id="name" class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up">
+					<a href="#">Name</a>
+				</div>
+				<div id="job" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+					<a href="#">Job Title</a>
+				</div>
+				<div id="departAndDiv" class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up">
+					<a href="#">Department and Division</a>
+				</div>
+				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+					<a href="#">Specialisms</a>
 				</div>
 			</div>
-		</c:forEach>
+		</div>
+		
+
+		<div id="peopleList" class="row">
+			<c:forEach var="profile" items="${profileList}">
+				<div class="row directory-search-results--row">
+					<div firstname="${fn:escapeXml(profile.firstName)}"
+						secondname="${fn:escapeXml(profile.lastName)}"
+						activity="${fn:escapeXml(profile.job)}"
+						department="${fn:escapeXml(profile.department)}"
+						division="${fn:escapeXml(profile.division)}"
+						specialisms="${fn:escapeXml(profile.specialisms)}"
+						collection="${fn:escapeXml(profile.collection)}"
+						group="${fn:escapeXml(profile.collectionGroup)}"
+						style="display:none;">
+							<div class="small-4 medium-2 columns directory-search-results--row-content">
+								<%
+		final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
+		WCMMode.PREVIEW.toRequest(slingRequest);
+%>
+							<cq:include path="${profile.imagePath}" resourceType="nhmwww/components/functional/foundation5image" />
+<%
+		beforeMode.toRequest(slingRequest);
+%>
+							</div>
+							<div class="small-8 medium-10 columns">
+								<div class="small-12 medium-2 columns directory-search-results--row-content">
+									<a href="${fn:escapeXml(profile.url)}"> <c:out
+										value="${profile.lastName}" /> <c:out value=", " /> <c:out
+										value="${profile.firstName}" />
+									</a>
+								</div>
+								<div class="small-12 medium-3 columns directory-search-results--row-content">
+									<c:out value="${profile.job}" />
+									<%-- Debugging purpose --%>
+											<br/>Function:<c:out value="${profile.collection}"/>
+											<br/>FGroup:<c:out value="${profile.collectionGroup}"/>
+										<%-- 
+										--%>
+									<%-- Debugging purpose --%>
+								</div>
+								<div class="small-12 medium-4 columns directory-search-results--row-content">
+									<c:out value="${profile.department}"/>
+									<br/>
+									<c:out value="${profile.division}" />
+								</div>
+								<div class="small-12 medium-3 columns directory-search-results--row-content">
+									<c:if test="${not empty profile.specialisms}">
+										<strong class="show-for-small-only">Specialisms:</strong>
+									</c:if>
+									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
+									<c:choose>
+										<c:when test="${fn:length(profile.specialisms) > 175}">
+											<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
+										</c:when>
+										<c:otherwise>
+											<c:out value="${profile.specialisms}"/>
+										</c:otherwise>							
+									</c:choose>
+								</div>
+							</div>
+						</div>
+					</div>
+			</c:forEach>
+		</div>
 	</div>
 
-	<!--  ORIGINAL -->
+<!--  NEW -->
 
 	<div style="text-align: center;">
 		<a href="#" id="show-more">
