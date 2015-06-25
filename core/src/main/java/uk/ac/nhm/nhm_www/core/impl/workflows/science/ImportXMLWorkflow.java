@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map.Entry;
@@ -720,18 +721,21 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "title":
                             paNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
                             break;
+                        case "url":
+                            paNode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
+                            break;
                         case "end-date":
                         	final BigInteger endYear = field.getDate().getYear();
                         	final BigInteger endMonth = field.getDate().getMonth();
                         	final BigInteger endDay = field.getDate().getDay();
                         	if ( endYear != null ){
-                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_END_DATE_YEAR_NAME, endYear.longValue());
+                        		paNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
                         	}
                         	if ( endMonth != null ){
-                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_END_DATE_MONTH_NAME, endMonth.longValue());
+                        		paNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
                         	}
                         	if ( endDay != null ){
-                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_END_DATE_DAY_NAME, endDay.longValue());
+                        		paNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
                         	}
                         	break;
                         	
@@ -740,22 +744,27 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	final BigInteger startMonth = field.getDate().getMonth();
                         	final BigInteger startDay = field.getDate().getDay();
                         	if ( startYear != null ){
-                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_START_DATE_YEAR_NAME, startYear.longValue());
+                        		paNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
                         	}
                         	if ( startMonth != null ){
-                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_START_DATE_MONTH_NAME, startMonth.longValue());
+                        		paNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
                         	}
                         	if ( startDay != null ){
-                        		paNode.setProperty(ScientistProfileHelper.PRO_ACT_START_DATE_DAY_NAME, startDay.longValue());
+                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
                         	}
                         	break;
 //                        case "organisation":
 //                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
 //                            while(types.hasNext()) {
 //                            	Address address = types.next();
-//                            	ListIterator<Object> lines = address.getContent().listIterator();
-//                            	while (lines.hasNext()){
-//                            		Line line = lines.next();
+//                            	List<Object> lines = address.getContent();
+//                            	Iterator<Object> linesIt = lines.iterator();
+//                            	//ListIterator<Object> lines = address.getContent().listIterator();
+//                            	while (linesIt.hasNext()){
+//                            		Object tempObject = linesIt.next();
+//                            		LOG.error("instanceOF: " + tempObject.getClass());
+//                            		LOG.error("instanceOF content: " + tempObject);
+//                            		Line line = (Line) tempObject;
 //                            		switch (line.getType()) {
 //                            		case "organisation":
 //                            			paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, line.getContent());
@@ -769,6 +778,19 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 //                            	}
 //							}
 //                            break;
+                        case "c-membership-type":
+                        	final String membershipType = field.getText();
+                        	if ( membershipType != null ){
+                        		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, membershipType);
+                        	}
+                        	break;
+                        	
+                        case "c-committee-roles":
+                        	final String committeeRole = field.getText();
+                        	if ( committeeRole != null ){
+                        		paNode.setProperty(ScientistProfileHelper.COMMITTEE_ROLE_ATTRIBUTE, committeeRole);
+                        	}
+                        	break;
                     }
                 }
             }

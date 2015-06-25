@@ -10,11 +10,13 @@ import org.apache.commons.lang3.StringUtils;
 public class Poster extends Publication{
 	
 	private String nameOfConference;
+	private String city;
 
 	public Poster(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String posterNameOfConference) {
+			final  String href,	final String reportingDate, String posterNameOfConference, String posterCity) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.nameOfConference = posterNameOfConference;
+		this.city = posterCity;
 	}
 
 	@Override
@@ -71,14 +73,20 @@ public class Poster extends Publication{
 		
 		// Title._
 		stringBuffer.append("<i>");
-		stringBuffer.append(this.getTitle());
+		stringBuffer.append(getTitle());
 		stringBuffer.append("</i>. ");
 		
 		//Presented At nConference._
-		if( nameOfConference != null ){
+		if( this.nameOfConference != null ){
 			stringBuffer.append("Presented at ");
 			stringBuffer.append(this.nameOfConference);
 			stringBuffer.append(". ");			
+		}
+		
+		// City._
+		if ( this.city != null ) {
+			stringBuffer.append(this.city);
+			stringBuffer.append(". ");		
 		}
 			
 		return stringBuffer.toString();

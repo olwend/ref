@@ -13,22 +13,17 @@ import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.day.cq.wcm.api.components.DropTarget;
-import com.day.cq.wcm.foundation.Image;
-
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.ImportXMLWorkflow;
 import uk.ac.nhm.nhm_www.core.model.science.Book;
 import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
 import uk.ac.nhm.nhm_www.core.model.science.Dataset;
 import uk.ac.nhm.nhm_www.core.model.science.Exhibition;
-import uk.ac.nhm.nhm_www.core.model.science.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.InternetPublication;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
 import uk.ac.nhm.nhm_www.core.model.science.NewspaperMagazine;
 import uk.ac.nhm.nhm_www.core.model.science.Other;
+import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
 import uk.ac.nhm.nhm_www.core.model.science.Poster;
-import uk.ac.nhm.nhm_www.core.model.science.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
 import uk.ac.nhm.nhm_www.core.model.science.Report;
@@ -39,7 +34,11 @@ import uk.ac.nhm.nhm_www.core.model.science.WebSite;
 import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
-import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
+
+import com.day.cq.wcm.api.components.DropTarget;
+import com.day.cq.wcm.foundation.Image;
 
 public class ScientistProfileHelper {
 	
@@ -94,6 +93,17 @@ public class ScientistProfileHelper {
 	public static final String END_CONFERENCE_YEAR_ATTRIBUTE 	= "endConferenceYear";
 	public static final String END_CONFERENCE_MONTH_ATTRIBUTE 	= "endConferenceMonth";
 	public static final String END_CONFERENCE_DAY_ATTRIBUTE		= "endConferenceDay";
+	
+	//Professional Activities
+	public static final String URL_ATTRIBUTE					= "url";
+	public static final String START_DATE_DAY_NAME_ATTRIBUTE	= "startDay";
+	public static final String START_DATE_MONTH_NAME_ATTRIBUTE	= "startMonth";
+	public static final String START_DATE_YEAR_NAME_ATTRIBUTE	= "startYear";
+	public static final String END_DATE_DAY_NAME_ATTRIBUTE		= "endDay";
+	public static final String END_DATE_MONTH_NAME_ATTRIBUTE	= "endMonth";
+	public static final String END_DATE_YEAR_NAME_ATTRIBUTE		= "endYear";
+	public static final String MEMBERSHIP_TYPE_ATTRIBUTE		= "membershipType";
+	public static final String COMMITTEE_ROLE_ATTRIBUTE			= "committeeRole";
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  = "title";
@@ -151,19 +161,6 @@ public class ScientistProfileHelper {
 	public  static final String NON_ACADEMIC_HISTORY_NODE_NAME	  = "nonAcademicAppointments";
 	private static final String NON_ACADEMIC_HISTORY_NODE_PATH    = PROFESIONAL_INFORMATION_NODE_NAME + "/" + NON_ACADEMIC_HISTORY_NODE_NAME;
 	
-	/* Professional Activities */
-	public  static final String PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME 		= "professionalActivity";
-	public  static final String PROFESSIONAL_ACTIVITIES_NODE_NAME  				= "professionalActivities";
-	public  static final String ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME  	= "associated";
-	private static final String PROFESSIONAL_ACTIVITIES_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
-	public	static final String PRO_ACT_URL = "url";
-	public 	static final String PRO_ACT_START_DATE_DAY_NAME		= "startDay";
-	public 	static final String PRO_ACT_START_DATE_MONTH_NAME	= "startMonth";
-	public 	static final String PRO_ACT_START_DATE_YEAR_NAME	= "startYear";
-	public 	static final String PRO_ACT_END_DATE_DAY_NAME		= "endDay";
-	public 	static final String PRO_ACT_END_DATE_MONTH_NAME		= "endMonth";
-	public 	static final String PRO_ACT_END_DATE_YEAR_NAME		= "endYear";
-	
 	/* Publications */
 	public  static final String PUBLICATION_PREFIX_NODE_NAME	  = "publication";
 	public  static final String PUBLICATIONS_NODE_NAME			  = "publications";
@@ -186,6 +183,25 @@ public class ScientistProfileHelper {
 	public static final String PUBLICATION_TYPE_WEBPAGE					= "Webpage";
 	public static final String PUBLICATION_TYPE_WEBSITE					= "Website";
 	public static final String PUBLICATION_TYPE_EXHIBITION				= "Exhibition";
+	
+	/* Professional Activities */
+	public  static final String PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME 		= "professionalActivity";
+	public  static final String PROFESSIONAL_ACTIVITIES_NODE_NAME  				= "professionalActivities";
+	public  static final String ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME  	= "associated";
+	private static final String PROFESSIONAL_ACTIVITIES_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
+
+	
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES						= "Commmitees";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORIAL_BOARD					= "EditorialBoard";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_CONFERENCE				= "EventConference";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_ORGANISATION				= "EventOrganisation";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_WORKSHOP					= "EvenWorkshop";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITION				= "ExternalPosition";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP						= "Fellowship";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_MUSEUM_SERVICE					= "MuseumService";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_GRANTS			= "ReviewerRefereeGrant";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_PUBLICATION	= "ReviewerRefereePublication";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_SOCIETIE_MEMBERSHIP				= "SocietieMembership";
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -667,7 +683,7 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_POSTER:
 					final String posterNameOfConference = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
 					final String posterCity = childProperties.get(CITY_ATTRIBUTE, String.class);
-					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate, posterNameOfConference));
+					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate, posterNameOfConference, posterCity));
 					break;
 					
 				case PUBLICATION_TYPE_REPORT:
@@ -811,23 +827,61 @@ public class ScientistProfileHelper {
 			if (child.getName().startsWith(PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				
-				//final String title = childProperties.get("");
+				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
 				
-				String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
-				String yearStartDate = childProperties.get(PRO_ACT_START_DATE_YEAR_NAME, String.class);
-				String monthStartDate = childProperties.get(PRO_ACT_START_DATE_MONTH_NAME, String.class);
-				String dayStartDate = childProperties.get(PRO_ACT_START_DATE_DAY_NAME, String.class);
-				String yearEndDate = childProperties.get(PRO_ACT_END_DATE_YEAR_NAME, String.class);
-				String monthEndDate = childProperties.get(PRO_ACT_END_DATE_MONTH_NAME, String.class);
-				String dayEndDate = childProperties.get(PRO_ACT_END_DATE_DAY_NAME, String.class);
-				String reportingDate = "";
-				
-				final ProfessionalActivity professionalActivity = new Fellowship(title, reportingDate, 
-						yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
-				
-				if (professionalActivity.isValid()) {
-					result.add(professionalActivity);
+				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
+				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayStartDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String reportingDate;
+				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
+					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
+				} else {
+					reportingDate = "";
 				}
+				
+				switch (type) {
+				case PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES:
+					//Comitee membership, c.name, institution, city, country, sded/ong
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EDITORIAL_BOARD:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_CONFERENCE:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ORGANISATION:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_WORKSHOP:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITION:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
+					final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
+					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_MUSEUM_SERVICE:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_GRANTS:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_PUBLICATION:
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_SOCIETIE_MEMBERSHIP:
+					break;
+
+				}
+
 			}
 		}
 		return result;
