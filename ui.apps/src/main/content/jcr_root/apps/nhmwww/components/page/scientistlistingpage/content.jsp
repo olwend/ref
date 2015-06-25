@@ -19,24 +19,33 @@
 		    </div>
 	    </div>
 	</div>
-	<div class="search_content"><!-- start content search -->
-		<div class="row"><!-- start row --> 
-			<div class="large-4 medium-6 columns large-left-section">
-				By name, keywords and specialisms
-				<div class="search-first-name">
-					<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
+	
+	
+	<div class="row directory-search directory-search__science-profiles">
+		<ul class="small-block-grid-1 medium-block-grid-3 directory-search--fields-block-grid">
+			<li>
+				<legend class="directory-search--label">By name, keywords and specialisms</legend>
+				<div class="small-6 columns pr-10">
+					<div class="search-second-name">
+						<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
+					</div>
 				</div>
-				<div class="search-second-name">
-					<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
+				<div class="small-6 columns">
+					<div class="search-first-name">
+						<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
+					</div>
 				</div>
-				<div class="search-keywords">
-					<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
+				<div class="small-12 columns">
+					<div class="search-keywords">
+						<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
+					</div>
 				</div>
-			</div>
-
-			<div class="large-4 medium-6 columns large-left-section">
-				<div class="search-depts-divs">
-					<label for="division">Filter by</label>
+			</li>
+			<li>
+				<div class="small-12 medium-12 large-12 columns">
+					<legend class="directory-search--label">Filter by</legend>
+				</div>
+				<div class="small-12 columns">
 					<select id="division">
 						<option value="All" selected="selected">Department and Division</option>
 						<%-- Department: Life Sciences --%>
@@ -76,8 +85,9 @@
 					    
 					    <option class="department" id="Science Directorate" value="Science Directorate">Science directorate</option>
 					</select>
-
-					<select id="collection">
+				</div>
+				<div class="small-12 columns">
+					<select id="collection" class="mb-0">
 						<option value="All" selected="selected">Collections</option>
 						<%-- Collection: FakeFilter_Research --%>
 						<option class="collection" id="Research" value="Research">FakeFilter F:Research</option>
@@ -148,48 +158,59 @@
 					    <option class="collection" id="Molecular" value="Molecular">Molecular collections</option>
 					</select>
 				</div>
-			</div>
-			<div class="large-4 columns">
-				<input id="search" type="button" value="Search the staff directory" name="submit" class="arrow"/>
-			</div>
-		</div><!--end start row -->
-	</div><!-- / start content search -->
-	
-	<div class="row profiles_row">
-		<div class="large-3 medium-4 columns large-left-section">
-			<div id="image" class="large-5 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
-				<h5>Image</h5>
-			</div>
-			<div id="name" class="large-7 medium-6 columns profiles_table profile-content table_header hide-for-small-only">
-				<a href="#"><h5>Name </h5> <%-- &and; &or; --%>
-			</div>
-		</div>
-		<div id="job" class="large-2 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<a href="#"><h5>Job title</h5></a>
-		</div>
-		<div id="departAndDiv" class="large-3 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only">
-			<a href="#"><h5>Department and division</h5></a>
-		</div>
-		<div id="specialisms" class="large-4 medium-4 columns profiles_table profile-content table_header hide-for-small-only">
-			<a href="#"><h5>Specialisms</h5></a>
-		</div>
+			</li>
+			<li>
+				<div class="small-12 medium-12 large-12 columns directory-search-button--container">
+					<div class="small-4 columns">
+						<i class="ico svg-ico directory-search-button--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_service_staff.svg" alt="Search Directory" data-alt="Search Directory" data-stroke-width="2" data-fallback="/etc/designs/nhmwww/img/icons/icon_l_service_staff-suport-us.png" data-base-color="#FFFFFF" data-hover-color="#FFFFFF" data-hover-state="no"></i>
+					</div>
+					<div class="small-5 columns">
+						<input id="search" type="button" value="Search Directory" name="submit" class="directory-search-button--text"/>
+					</div>
+					<div class="small-3 columns">
+						<i class="ico svg-ico directory-search-button--arrow" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" alt="Search Directory" data-alt="Search Directory" data-stroke-width="4" data-fallback="/etc/designs/nhmwww/img/icons/icon_l_general_arrow_r-support-us.png" data-base-color="#FFFFFF" data-hover-color="#FFFFFF" data-hover-state="no"></i>
+					</div>
+				</div>
+			</li>
+		</ul>	
 	</div>
-	<div id="peopleList" class="row">
-		<c:forEach var="profile" items="${profileList}">
-			<div class="row profiles_row"  >
-				<div firstname="${fn:escapeXml(profile.firstName)}"
-					secondname="${fn:escapeXml(profile.lastName)}"
-					activity="${fn:escapeXml(profile.job)}"
-					department="${fn:escapeXml(profile.department)}"
-					division="${fn:escapeXml(profile.division)}"
-					specialisms="${fn:escapeXml(profile.specialisms)}"
-					collection="${fn:escapeXml(profile.collection)}"
-					group="${fn:escapeXml(profile.collectionGroup)}"
-					style="display:none;">
-					
-					<div class="large-3 medium-4 columns large-left-section">
-						<div class="large-5 medium-6 columns">
-<%
+	
+	<div class="directory-search-results--table">
+		<div class="row directory-search-results--row hide-for-small-only">
+			<div class="small-6 medium-2 large-2 columns directory-search-results--row-header">
+				Image
+			</div>
+			<div class="small-6 medium-10 large-10 columns">
+				<div class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up">
+					<a href="#">Name</a>
+				</div>
+				<div class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+					<a href="#">Job Title</a>
+				</div>
+				<div class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up">
+					<a href="#">Department and Division</a>
+				</div>
+				<div class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+					<a href="#">Specialisms</a>
+				</div>
+			</div>
+		</div>
+		
+		<!--  NEW -->
+		<div id="peopleList" class="row">
+			<c:forEach var="profile" items="${profileList}">
+				<div class="row directory-search-results--row">
+					<div firstname="${fn:escapeXml(profile.firstName)}"
+						secondname="${fn:escapeXml(profile.lastName)}"
+						activity="${fn:escapeXml(profile.job)}"
+						department="${fn:escapeXml(profile.department)}"
+						division="${fn:escapeXml(profile.division)}"
+						specialisms="${fn:escapeXml(profile.specialisms)}"
+						collection="${fn:escapeXml(profile.collection)}"
+						group="${fn:escapeXml(profile.collectionGroup)}"
+						style="display:none;">
+							<div class="small-4 medium-2 columns directory-search-results--row-content">
+								<%
 		final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
 		WCMMode.PREVIEW.toRequest(slingRequest);
 %>
@@ -197,58 +218,145 @@
 <%
 		beforeMode.toRequest(slingRequest);
 %>
+							</div>
+							<div class="small-8 medium-10 columns">
+								<div class="small-12 medium-2 columns directory-search-results--row-content">
+									<a href="${fn:escapeXml(profile.url)}"> <c:out
+										value="${profile.lastName}" /> <c:out value=", " /> <c:out
+										value="${profile.firstName}" />
+									</a>
+								</div>
+								<div class="small-12 medium-3 columns directory-search-results--row-content">
+									<c:out value="${profile.job}" />
+									<%-- Debugging purpose --%>
+											<br/>Function:<c:out value="${profile.collection}"/>
+											<br/>FGroup:<c:out value="${profile.collectionGroup}"/>
+										<%-- 
+										--%>
+									<%-- Debugging purpose --%>
+								</div>
+								<div class="small-12 medium-4 columns directory-search-results--row-content">
+									<c:out value="${profile.department}"/>
+									<br/>
+									<c:out value="${profile.division}" />
+								</div>
+								<div class="small-12 medium-3 columns directory-search-results--row-content">
+									<c:if test="${not empty profile.specialisms}">
+										<strong class="show-for-small-only">Specialisms:</strong>
+									</c:if>
+									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
+									<c:choose>
+										<c:when test="${fn:length(profile.specialisms) > 175}">
+											<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
+										</c:when>
+										<c:otherwise>
+											<c:out value="${profile.specialisms}"/>
+										</c:otherwise>							
+									</c:choose>
+								</div>
+							</div>
 						</div>
-						<div class="large-7 medium-6 columns profiles_table profile-content">
-							<p>
-								<strong class="show-for-small-only">Name:</strong>
-								<a href="${fn:escapeXml(profile.url)}"> 
-									<c:out value="${profile.lastName}"/>
-									<c:out value=", "/>
-									<c:out value="${profile.firstName}"/>
-								</a>
-							</p>
-						</div>
 					</div>
-					<div class="large-2 medium-2 columns large-left-section profiles_table profile-content ">
-						<p>
-							<strong class="show-for-small-only">Job:</strong>
-							<c:out value="${profile.job}" />
-							<%-- Debugging purpose --%>
-									<br/>Function:<c:out value="${profile.collection}"/>
-									<br/>FGroup:<c:out value="${profile.collectionGroup}"/>
-								<%-- 
-								--%>
-							<%-- Debugging purpose --%>
-						</p>
-					</div>
-					<div class="large-3 medium-2 columns large-left-section profiles_table profile-content ">
-						<p>
-							<strong class="show-for-small-only">Department and Division:</strong>
-							<c:out value="${profile.department}"/>
-							<br/>
-							<c:out value="${profile.division}" />
-						</p>
-					</div>
-					<div class="large-4 medium-4 columns profiles_table profile-content">
-						<p>
-							<c:if test="${not empty profile.specialisms}">
-								<strong class="show-for-small-only">Specialisms:</strong>
-							</c:if>
-							<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
-							<c:choose>
-								<c:when test="${fn:length(profile.specialisms) > 175}">
-									<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
-								</c:when>
-								<c:otherwise>
-									<c:out value="${profile.specialisms}"/>
-								</c:otherwise>							
-							</c:choose>
-						</p>
-					</div>
-				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</div>
 	</div>
+	
+	<!--  ORIGINAL -->
+	
+<!-- 	<div class="row profiles_row"> -->
+<!-- 		<div class="large-3 medium-4 columns large-left-section"> -->
+<!-- 			<div id="image" class="large-5 medium-6 columns profiles_table profile-content table_header hide-for-small-only"> -->
+<!-- 				<h5>Image</h5> -->
+<!-- 			</div> -->
+<!-- 			<div id="name" class="large-7 medium-6 columns profiles_table profile-content table_header hide-for-small-only"> -->
+<%-- 				<a href="#"><h5>Name </h5> &and; &or; --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div id="job" class="large-2 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only"> -->
+<!-- 			<a href="#"><h5>Job title</h5></a> -->
+<!-- 		</div> -->
+<!-- 		<div id="departAndDiv" class="large-3 medium-2 columns large-left-section profiles_table profile-content table_header hide-for-small-only"> -->
+<!-- 			<a href="#"><h5>Department and division</h5></a> -->
+<!-- 		</div> -->
+<!-- 		<div id="specialisms" class="large-4 medium-4 columns profiles_table profile-content table_header hide-for-small-only"> -->
+<!-- 			<a href="#"><h5>Specialisms</h5></a> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<div id="peopleList" class="row"> -->
+<%-- 		<c:forEach var="profile" items="${profileList}"> --%>
+<!-- 			<div class="row profiles_row"  > -->
+<%-- 				<div firstname="${fn:escapeXml(profile.firstName)}" --%>
+<%-- 					secondname="${fn:escapeXml(profile.lastName)}" --%>
+<%-- 					activity="${fn:escapeXml(profile.job)}" --%>
+<%-- 					department="${fn:escapeXml(profile.department)}" --%>
+<%-- 					division="${fn:escapeXml(profile.division)}" --%>
+<%-- 					specialisms="${fn:escapeXml(profile.specialisms)}" --%>
+<%-- 					collection="${fn:escapeXml(profile.collection)}" --%>
+<%-- 					group="${fn:escapeXml(profile.collectionGroup)}" --%>
+<!-- 					style="display:none;"> -->
+					
+<!-- 					<div class="large-3 medium-4 columns large-left-section"> -->
+<!-- 						<div class="large-5 medium-6 columns"> -->
+<%-- <% --%>
+<!-- // 		final WCMMode beforeMode = WCMMode.fromRequest(slingRequest); -->
+<!-- // 		WCMMode.PREVIEW.toRequest(slingRequest); -->
+<%-- %> --%>
+<%-- 							<cq:include path="${profile.imagePath}" resourceType="nhmwww/components/functional/foundation5image" /> --%>
+<%-- <% --%>
+<!-- // 		beforeMode.toRequest(slingRequest); -->
+<%-- %> --%>
+<!-- 						</div> -->
+<!-- 						<div class="large-7 medium-6 columns profiles_table profile-content"> -->
+<!-- 							<p> -->
+<!-- 								<strong class="show-for-small-only">Name:</strong> -->
+<%-- 								<a href="${fn:escapeXml(profile.url)}">  --%>
+<%-- 									<c:out value="${profile.lastName}"/> --%>
+<!-- 									<c:out value=", "/> -->
+<%-- 									<c:out value="${profile.firstName}"/> --%>
+<!-- 								</a> -->
+<!-- 							</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="large-2 medium-2 columns large-left-section profiles_table profile-content "> -->
+<!-- 						<p> -->
+<!-- 							<strong class="show-for-small-only">Job:</strong> -->
+<%-- 							<c:out value="${profile.job}" /> --%>
+<%-- 							Debugging purpose --%>
+<%-- 									<br/>Function:<c:out value="${profile.collection}"/> --%>
+<%-- 									<br/>FGroup:<c:out value="${profile.collectionGroup}"/> --%>
+<%-- 								
+<%-- 								--%>
+<%-- 							Debugging purpose --%>
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 					<div class="large-3 medium-2 columns large-left-section profiles_table profile-content "> -->
+<!-- 						<p> -->
+<!-- 							<strong class="show-for-small-only">Department and Division:</strong> -->
+<%-- 							<c:out value="${profile.department}"/> --%>
+<!-- 							<br/> -->
+<%-- 							<c:out value="${profile.division}" /> --%>
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 					<div class="large-4 medium-4 columns profiles_table profile-content"> -->
+<!-- 						<p> -->
+<%-- 							<c:if test="${not empty profile.specialisms}"> --%>
+<!-- 								<strong class="show-for-small-only">Specialisms:</strong> -->
+<!-- 							</c:if> -->
+<%-- 							<c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;		 --%>
+<!-- 							<c:choose> -->
+<%-- 								<c:when test="${fn:length(profile.specialisms) > 175}"> --%>
+<%-- 									<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip; --%>
+<!-- 								</c:when> -->
+<!-- 								<c:otherwise> -->
+<%-- 									<c:out value="${profile.specialisms}"/> --%>
+<!-- 								</c:otherwise>							 -->
+<!-- 							</c:choose> -->
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</c:forEach> -->
+<!-- 	</div> -->
 	<div style="text-align: center;">
 		<a href="#" id="show-more">
 			Show more
