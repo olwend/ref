@@ -513,11 +513,13 @@ function tableColors() {
 	var position = 0;
 	for ( var x = 0; x < childDiv.length; x++) {
 		if ($(childDiv[x]).height() > 0) {
-			if (position % 2 == 0) {
-				childDiv[x].className = "row profiles_row odd";
-			} else {
-				childDiv[x].className = "row profiles_row";
-			}
+			childDiv[x].className = "row directory-search-results--row";
+//			Old code for even / odd columns 			
+//			if (position % 2 == 0) {
+//				childDiv[x].className = "row profiles_row odd";
+//			} else {
+//				childDiv[x].className = "row profiles_row";
+//			}
 			position++;
 		}
 	}
@@ -526,8 +528,7 @@ function tableColors() {
 function sortTable(column, isSorted) {
 	var sort_by_name;
 	
-	if (!isSorted)
-	{
+	if (!isSorted) {
 		sort_by_name = function(a, b) {
 			if (column == 0) {
 				return $(a).children().children().eq(column).children('.profile-content').text().toLowerCase().localeCompare(
@@ -537,8 +538,7 @@ function sortTable(column, isSorted) {
 					$(b).children().children().eq(column).text().toLowerCase());
 			}
 		}
-	} else
-	{
+	} else {
 		sort_by_name = function(a, b) {
 			if (column == 0) {
 				return $(b).children().children().eq(column).children('.profile-content').text().toLowerCase().localeCompare(
