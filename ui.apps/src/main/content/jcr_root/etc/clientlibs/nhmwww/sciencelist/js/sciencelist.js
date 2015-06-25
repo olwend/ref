@@ -525,8 +525,8 @@ function sortTable(column, isSorted) {
 	if (!isSorted) {
 		sort_by_name = function(a, b) {
 			if (column == 0) {
-				return $(a).children().children().eq(column).children('.profile-content').text().toLowerCase().localeCompare(
-						$(b).children().children().eq(column).children('.profile-content').text().toLowerCase());
+				return $(a).children().children().eq(column).children('.js--profile-content').text().toLowerCase().localeCompare(
+						$(b).children().children().eq(column).children('.js--profile-content').text().toLowerCase());
 			} else {
 				return $(a).children().children().eq(column).text().toLowerCase().localeCompare(
 					$(b).children().children().eq(column).text().toLowerCase());
@@ -535,8 +535,8 @@ function sortTable(column, isSorted) {
 	} else {
 		sort_by_name = function(a, b) {
 			if (column == 0) {
-				return $(b).children().children().eq(column).children('.profile-content').text().toLowerCase().localeCompare(
-						$(a).children().children().eq(column).children('.profile-content').text().toLowerCase());
+				return $(b).children().children().eq(column).children('.js--profile-content').text().toLowerCase().localeCompare(
+						$(a).children().children().eq(column).children('.js--profile-content').text().toLowerCase());
 			} else {
 				return $(b).children().children().eq(column).text().toLowerCase().localeCompare(
 					$(a).children().children().eq(column).text().toLowerCase());
