@@ -13,10 +13,6 @@ import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.day.cq.wcm.api.components.DropTarget;
-import com.day.cq.wcm.foundation.Image;
-
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.ImportXMLWorkflow;
 import uk.ac.nhm.nhm_www.core.model.science.Book;
 import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
@@ -26,6 +22,7 @@ import uk.ac.nhm.nhm_www.core.model.science.InternetPublication;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
 import uk.ac.nhm.nhm_www.core.model.science.NewspaperMagazine;
 import uk.ac.nhm.nhm_www.core.model.science.Other;
+import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
 import uk.ac.nhm.nhm_www.core.model.science.Poster;
 import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
@@ -37,9 +34,11 @@ import uk.ac.nhm.nhm_www.core.model.science.WebSite;
 import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
-import uk.ac.nhm.nhm_www.core.model.science.PhoneNumber;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
+
+import com.day.cq.wcm.api.components.DropTarget;
+import com.day.cq.wcm.foundation.Image;
 
 public class ScientistProfileHelper {
 	
@@ -684,7 +683,7 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_POSTER:
 					final String posterNameOfConference = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
 					final String posterCity = childProperties.get(CITY_ATTRIBUTE, String.class);
-					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate, posterNameOfConference));
+					result.add(new Poster(title, authorsList, favorite, publicationYear, link, reportingDate, posterNameOfConference, posterCity));
 					break;
 					
 				case PUBLICATION_TYPE_REPORT:
