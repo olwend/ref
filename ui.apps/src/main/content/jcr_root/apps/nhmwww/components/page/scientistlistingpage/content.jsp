@@ -197,10 +197,11 @@
 		</div>
 		
 
-		<div id="peopleList">
-			<c:forEach var="profile" items="${profileList}">
-				<div class="row">
-				
+		<div id="peopleList" class="row">
+			
+			
+				<c:forEach var="profile" items="${profileList}">
+					<div class="row js--directory-search-results--row__empty">
 					<div firstname="${fn:escapeXml(profile.firstName)}"
 						secondname="${fn:escapeXml(profile.lastName)}"
 						activity="${fn:escapeXml(profile.job)}"
@@ -257,9 +258,9 @@
 								</div>
 							</div>
 						</div>
-			
 					</div>
 			</c:forEach>
+			
 		</div>
 	</div>
 
