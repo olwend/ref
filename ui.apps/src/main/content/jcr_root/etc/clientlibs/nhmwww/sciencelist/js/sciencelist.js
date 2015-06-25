@@ -514,12 +514,6 @@ function tableColors() {
 	for ( var x = 0; x < childDiv.length; x++) {
 		if ($(childDiv[x]).height() > 0) {
 			childDiv[x].className = "row directory-search-results--row";
-//			Old code for even / odd columns 			
-//			if (position % 2 == 0) {
-//				childDiv[x].className = "row profiles_row odd";
-//			} else {
-//				childDiv[x].className = "row profiles_row";
-//			}
 			position++;
 		}
 	}
