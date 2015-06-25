@@ -14904,8 +14904,23 @@ fieldset legend {
 .directory-search-results--table .row {
   margin-bottom: 0;
 }
+@media screen and (min-width: 768px) {
+  .directory-search-results--table .row {
+    width: 98%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--table .row {
+    width: 100%;
+  }
+}
 .directory-search-results--table .row .row {
   margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--table .row .row {
+    width: 100%;
+  }
 }
 
 .directory-search-results--row {
@@ -14921,17 +14936,61 @@ fieldset legend {
 }
 
 .directory-search-results--row-header {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.2em;
   cursor: pointer;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-header {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--row-header {
+    font-size: 1.2em;
+  }
 }
 
 .directory-search-results--row-content {
   padding-right: 0.9em;
+  color: #565656;
+  font-size: 0.95em;
 }
-.directory-search-results--row-content p {
-  margin-bottom: 0;
-  font-size: 1em;
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content {
+    font-size: 0.9em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--row-content {
+    font-size: 1em;
+  }
+}
+
+.directory-search-results--row-content--name {
+  font-size: 1.1em;
+}
+
+.directory-search-results--row-content--job-title {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content--job-title {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1em;
+  }
+}
+
+.directory-search-results--row-content--label {
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content--label {
+    font-weight: normal;
+  }
 }
 
 .pr-10 {
@@ -14944,6 +15003,9 @@ fieldset legend {
 
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;
+}
+.directory-search.row {
+  width: 100%;
 }
 .directory-search a {
   color: #B7B7B7;
