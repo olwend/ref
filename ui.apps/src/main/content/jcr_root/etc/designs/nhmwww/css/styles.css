@@ -14917,6 +14917,7 @@ fieldset legend {
 .directory-search-results--row-header {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
+  cursor: pointer;
 }
 
 .directory-search-results--row-content {
