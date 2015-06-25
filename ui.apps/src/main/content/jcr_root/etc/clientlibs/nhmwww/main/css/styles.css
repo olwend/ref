@@ -14901,6 +14901,9 @@ fieldset legend {
 .directory-search-results--table {
   color: #000000;
 }
+.directory-search-results--table .row {
+  margin-bottom: 0;
+}
 
 .directory-search-results--row {
   padding: 1em 1.5em 1em 1em;
