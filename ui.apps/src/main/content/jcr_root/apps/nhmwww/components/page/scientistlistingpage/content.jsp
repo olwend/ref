@@ -181,16 +181,16 @@
 				Image
 			</div>
 			<div class="small-6 medium-10 large-10 columns">
-				<div id="name" class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up">
+				<div id="name" class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
 					<a href="#">Name</a>
 				</div>
-				<div id="job" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+				<div id="job" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					<a href="#">Job Title</a>
 				</div>
-				<div id="departAndDiv" class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up">
+				<div id="departAndDiv" class="small-12 medium-4 large-3 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
 					<a href="#">Department and Division</a>
 				</div>
-				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down">
+				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					<a href="#">Specialisms</a>
 				</div>
 			</div>
@@ -209,7 +209,7 @@
 						collection="${fn:escapeXml(profile.collection)}"
 						group="${fn:escapeXml(profile.collectionGroup)}"
 						style="display:none;">
-							<div class="small-4 medium-2 columns directory-search-results--row-content">
+							<div class="small-4 medium-2 columns directory-search-results--row-content js--profile-content">
 								<%
 		final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
 		WCMMode.PREVIEW.toRequest(slingRequest);
@@ -220,13 +220,13 @@
 %>
 							</div>
 							<div class="small-8 medium-10 columns">
-								<div class="small-12 medium-2 columns directory-search-results--row-content">
+								<div class="small-12 medium-2 columns directory-search-results--row-content js--profile-content">
 									<a href="${fn:escapeXml(profile.url)}"> <c:out
 										value="${profile.lastName}" /> <c:out value=", " /> <c:out
 										value="${profile.firstName}" />
 									</a>
 								</div>
-								<div class="small-12 medium-3 columns directory-search-results--row-content">
+								<div class="small-12 medium-3 columns directory-search-results--row-content js--profile-content">
 									<c:out value="${profile.job}" />
 									<%-- Debugging purpose --%>
 											<br/>Function:<c:out value="${profile.collection}"/>
@@ -235,12 +235,12 @@
 										--%>
 									<%-- Debugging purpose --%>
 								</div>
-								<div class="small-12 medium-4 columns directory-search-results--row-content">
+								<div class="small-12 medium-4 columns directory-search-results--row-content js--profile-content">
 									<c:out value="${profile.department}"/>
 									<br/>
 									<c:out value="${profile.division}" />
 								</div>
-								<div class="small-12 medium-3 columns directory-search-results--row-content">
+								<div class="small-12 medium-3 columns directory-search-results--row-content js--profile-content">
 									<c:if test="${not empty profile.specialisms}">
 										<strong class="show-for-small-only">Specialisms:</strong>
 									</c:if>
