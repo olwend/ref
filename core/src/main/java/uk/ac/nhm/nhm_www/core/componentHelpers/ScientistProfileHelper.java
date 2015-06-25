@@ -95,15 +95,23 @@ public class ScientistProfileHelper {
 	public static final String END_CONFERENCE_DAY_ATTRIBUTE		= "endConferenceDay";
 	
 	//Professional Activities
-	public static final String URL_ATTRIBUTE					= "url";
-	public static final String START_DATE_DAY_NAME_ATTRIBUTE	= "startDay";
-	public static final String START_DATE_MONTH_NAME_ATTRIBUTE	= "startMonth";
-	public static final String START_DATE_YEAR_NAME_ATTRIBUTE	= "startYear";
-	public static final String END_DATE_DAY_NAME_ATTRIBUTE		= "endDay";
-	public static final String END_DATE_MONTH_NAME_ATTRIBUTE	= "endMonth";
-	public static final String END_DATE_YEAR_NAME_ATTRIBUTE		= "endYear";
-	public static final String MEMBERSHIP_TYPE_ATTRIBUTE		= "membershipType";
-	public static final String COMMITTEE_ROLE_ATTRIBUTE			= "committeeRole";
+	public static final String URL_ATTRIBUTE						= "url";
+	public static final String START_DATE_DAY_NAME_ATTRIBUTE		= "startDay";
+	public static final String START_DATE_MONTH_NAME_ATTRIBUTE		= "startMonth";
+	public static final String START_DATE_YEAR_NAME_ATTRIBUTE		= "startYear";
+	public static final String END_DATE_DAY_NAME_ATTRIBUTE			= "endDay";
+	public static final String END_DATE_MONTH_NAME_ATTRIBUTE		= "endMonth";
+	public static final String END_DATE_YEAR_NAME_ATTRIBUTE			= "endYear";
+	public static final String MEMBERSHIP_TYPE_ATTRIBUTE			= "membershipType";
+	public static final String COMMITTEE_ROLE_ATTRIBUTE				= "committeeRole";
+	public static final String EDITORSHIP_ROLE_ATTRIBUTE			= "editorshipRole";
+	public static final String ADMINISTRATIVE_ROLE_ATTRIBUTE		= "administrativeRole";
+	public static final String EVENT_TYPE_ATTRIBUTE					= "eventType";
+	public static final String PUBLICATION_TITLE_ATTRIBUTE			= "publicationTitle";
+	public static final String PUBLICATION_TYPE_ATTRIBUTE			= "publicationType";
+	public static final String REVIEW_TYPE_ATTRIBUTE				= "reviewType";
+	public static final String SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE	= "societymembershipRole";
+	
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  = "title";

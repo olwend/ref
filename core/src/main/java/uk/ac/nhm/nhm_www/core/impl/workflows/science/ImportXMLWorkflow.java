@@ -696,7 +696,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     
     private String resolveProfessionalActivityType (final int number) {
         switch (number) {
+        	case 31 : return "Committee";
+        	case 33 : return "Event Administration";
+        	case 56 : return "Editorship";
 	        case 60 : return "Fellowship";
+	        case 73 : return "Membership";
+	        case 76 : return "Publication Review Referee";
 	        default: return "Professional Activity";
         }
     }
@@ -719,40 +724,40 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                 for (Field field: record.getNative().getField()) {
                     switch (field.getName()) {
                         case "title":
-                            paNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
-                            break;
+                        		paNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
+	                            break;
                         case "url":
-                            paNode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
-                            break;
+	                            paNode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
+	                            break;
                         case "end-date":
-                        	final BigInteger endYear = field.getDate().getYear();
-                        	final BigInteger endMonth = field.getDate().getMonth();
-                        	final BigInteger endDay = field.getDate().getDay();
-                        	if ( endYear != null ){
-                        		paNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-                        	}
-                        	if ( endMonth != null ){
-                        		paNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-                        	}
-                        	if ( endDay != null ){
-                        		paNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-                        	}
-                        	break;
+	                        	final BigInteger endYear = field.getDate().getYear();
+	                        	final BigInteger endMonth = field.getDate().getMonth();
+	                        	final BigInteger endDay = field.getDate().getDay();
+	                        	if ( endYear != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+	                        	}
+	                        	if ( endMonth != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+	                        	}
+	                        	if ( endDay != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+	                        	}
+	                        	break;
                         	
                         case "start-date":
-                        	final BigInteger startYear = field.getDate().getYear();
-                        	final BigInteger startMonth = field.getDate().getMonth();
-                        	final BigInteger startDay = field.getDate().getDay();
-                        	if ( startYear != null ){
-                        		paNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-                        	}
-                        	if ( startMonth != null ){
-                        		paNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-                        	}
-                        	if ( startDay != null ){
-                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-                        	}
-                        	break;
+	                        	final BigInteger startYear = field.getDate().getYear();
+	                        	final BigInteger startMonth = field.getDate().getMonth();
+	                        	final BigInteger startDay = field.getDate().getDay();
+	                        	if ( startYear != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+	                        	}
+	                        	if ( startMonth != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+	                        	}
+	                        	if ( startDay != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+	                        	}
+	                        	break;
 //                        case "organisation":
 //                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
 //                            while(types.hasNext()) {
@@ -779,18 +784,67 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 //							}
 //                            break;
                         case "c-membership-type":
-                        	final String membershipType = field.getText();
-                        	if ( membershipType != null ){
-                        		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, membershipType);
-                        	}
-                        	break;
+								final String membershipType = field.getText();
+								if ( membershipType != null ){
+									paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, membershipType);
+								}
+								break;
                         	
-                        case "c-committee-roles":
-                        	final String committeeRole = field.getText();
-                        	if ( committeeRole != null ){
-                        		paNode.setProperty(ScientistProfileHelper.COMMITTEE_ROLE_ATTRIBUTE, committeeRole);
+                        case "c-editorship-role":
+	                          	final String editorshipRole = field.getText();
+	                          	if ( editorshipRole != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.EDITORSHIP_ROLE_ATTRIBUTE, editorshipRole);
+	                          	}
+	                          	break;  
+
+                        case "c-administrative-role":
+	                        	final String administrativeRole = field.getText();
+	                        	if ( administrativeRole != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.EDITORSHIP_ROLE_ATTRIBUTE, administrativeRole);
+	                        	}
+	                        	break;  
+	                            	
+                        case "c-event-type":
+	                          	final String eventType = field.getText();
+	                          	if ( eventType != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, eventType);
+	                          	}
+	                          	break;
+                          	
+                        case "c-text1":
+		                    	final String publicationTitle = field.getText();
+		                    	if ( publicationTitle != null ){
+		                    		paNode.setProperty(ScientistProfileHelper.PUBLICATION_TITLE_ATTRIBUTE, publicationTitle);
+		                    	}
+		                    	break;
+                            	
+                        case "c-publication-type":
+	                          	final String publicationType = field.getText();
+	                          	if ( publicationType != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.PUBLICATION_TYPE_ATTRIBUTE, publicationType);
+	                          	}
+	                          	break;
+	                          	
+                        case "c-review-type":
+                          	final String reviewType = field.getText();
+                          	if ( reviewType != null ){
+                          		paNode.setProperty(ScientistProfileHelper.PUBLICATION_TYPE_ATTRIBUTE, reviewType);
+                          	}
+                          	break;
+                          	
+                        case "c-society-or-membership-role":
+                        	final String societyMembershipRole = field.getText();
+                        	if ( societyMembershipRole != null ){
+                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
                         	}
-                        	break;
+                        	break;  
+                            	
+//                        case "c-committee-roles":
+//                        	final String committeeRole = field.getText();
+//                        	if ( committeeRole != null ){
+//                        		paNode.setProperty(ScientistProfileHelper.COMMITTEE_ROLE_ATTRIBUTE, committeeRole);
+//                        	}
+//                        	break;
                     }
                 }
             }
