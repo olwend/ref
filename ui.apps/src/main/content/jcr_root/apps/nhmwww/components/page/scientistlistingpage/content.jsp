@@ -223,13 +223,13 @@
 							</div>
 							<div class="small-8 medium-10 large-10 columns">
 								<div class="small-12 medium-2 columns directory-search-results--row-content js--profile-content">
-									<a href="${fn:escapeXml(profile.url)}"> <c:out
+									<a href="${fn:escapeXml(profile.url)}" class="directory-search-results--row-content--name"> <c:out
 										value="${profile.lastName}" /> <c:out value=", " /> <c:out
 										value="${profile.firstName}" />
 									</a>
 								</div>
 								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
-									<c:out value="${profile.job}" />
+									<span class="directory-search-results--row-content--job-title"><c:out value="${profile.job}" /></span>
 									<%-- Debugging purpose --%>
 											<br/>Function:<c:out value="${profile.collection}"/>
 											<br/>FGroup:<c:out value="${profile.collectionGroup}"/>
@@ -238,13 +238,13 @@
 									<%-- Debugging purpose --%>
 								</div>
 								<div class="small-12 medium-4 large-4 columns directory-search-results--row-content js--profile-content">
-									<c:out value="${profile.department}"/>
+									<span class="directory-search-results--row-content--label show-for-small-only">Department:</span><c:out value="${profile.department}"/>
 									<br/>
-									<c:out value="${profile.division}" />
+									<span class="directory-search-results--row-content--label show-for-small-only">Division:</span><c:out value="${profile.division}" />
 								</div>
 								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
 									<c:if test="${not empty profile.specialisms}">
-										<strong class="show-for-small-only">Specialisms:</strong>
+										<span class="directory-search-results--row-content--label show-for-small-only">Specialisms:</span>
 									</c:if>
 									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
 									<c:choose>
