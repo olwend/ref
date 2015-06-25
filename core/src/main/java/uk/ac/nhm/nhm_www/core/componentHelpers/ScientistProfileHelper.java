@@ -95,15 +95,23 @@ public class ScientistProfileHelper {
 	public static final String END_CONFERENCE_DAY_ATTRIBUTE		= "endConferenceDay";
 	
 	//Professional Activities
-	public static final String URL_ATTRIBUTE					= "url";
-	public static final String START_DATE_DAY_NAME_ATTRIBUTE	= "startDay";
-	public static final String START_DATE_MONTH_NAME_ATTRIBUTE	= "startMonth";
-	public static final String START_DATE_YEAR_NAME_ATTRIBUTE	= "startYear";
-	public static final String END_DATE_DAY_NAME_ATTRIBUTE		= "endDay";
-	public static final String END_DATE_MONTH_NAME_ATTRIBUTE	= "endMonth";
-	public static final String END_DATE_YEAR_NAME_ATTRIBUTE		= "endYear";
-	public static final String MEMBERSHIP_TYPE_ATTRIBUTE		= "membershipType";
-	public static final String COMMITTEE_ROLE_ATTRIBUTE			= "committeeRole";
+	public static final String URL_ATTRIBUTE						= "url";
+	public static final String START_DATE_DAY_NAME_ATTRIBUTE		= "startDay";
+	public static final String START_DATE_MONTH_NAME_ATTRIBUTE		= "startMonth";
+	public static final String START_DATE_YEAR_NAME_ATTRIBUTE		= "startYear";
+	public static final String END_DATE_DAY_NAME_ATTRIBUTE			= "endDay";
+	public static final String END_DATE_MONTH_NAME_ATTRIBUTE		= "endMonth";
+	public static final String END_DATE_YEAR_NAME_ATTRIBUTE			= "endYear";
+	public static final String MEMBERSHIP_TYPE_ATTRIBUTE			= "membershipType";
+	public static final String COMMITTEE_ROLE_ATTRIBUTE				= "committeeRole";
+	public static final String EDITORSHIP_ROLE_ATTRIBUTE			= "editorshipRole";
+	public static final String ADMINISTRATIVE_ROLE_ATTRIBUTE		= "administrativeRole";
+	public static final String EVENT_TYPE_ATTRIBUTE					= "eventType";
+	public static final String PUBLICATION_TITLE_ATTRIBUTE			= "publicationTitle";
+	public static final String PUBLICATION_TYPE_ATTRIBUTE			= "publicationType";
+	public static final String REVIEW_TYPE_ATTRIBUTE				= "reviewType";
+	public static final String SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE	= "societymembershipRole";
+	public static final String OFFICE_HELD_TYPE_ATTRIBUTE			= "officeHeldType";
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  = "title";
@@ -189,19 +197,15 @@ public class ScientistProfileHelper {
 	public  static final String PROFESSIONAL_ACTIVITIES_NODE_NAME  				= "professionalActivities";
 	public  static final String ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME  	= "associated";
 	private static final String PROFESSIONAL_ACTIVITIES_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
-
 	
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES						= "Commmitees";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORIAL_BOARD					= "EditorialBoard";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_CONFERENCE				= "EventConference";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_ORGANISATION				= "EventOrganisation";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_WORKSHOP					= "EvenWorkshop";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITION				= "ExternalPosition";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP						= "Fellowship";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_MUSEUM_SERVICE					= "MuseumService";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_GRANTS			= "ReviewerRefereeGrant";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_PUBLICATION	= "ReviewerRefereePublication";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_SOCIETIE_MEMBERSHIP				= "SocietieMembership";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES					= "Commmittee";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION			= "Event Administration";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITIONS			= "External Positions";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP					= "Editorship";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP					= "Fellowship";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP					= "Membership";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE				= "Review Referee";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_GRANT_APPLICATION_ASSESSMENT	= "Grant Application Assessment";
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -848,36 +852,9 @@ public class ScientistProfileHelper {
 					//Comitee membership, c.name, institution, city, country, sded/ong
 					break;
 					
-				case PROFESSIONAL_ACTIVITY_TYPE_EDITORIAL_BOARD:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_CONFERENCE:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ORGANISATION:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_WORKSHOP:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITION:
-					break;
-					
 				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
 					final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate));
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_MUSEUM_SERVICE:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_GRANTS:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_REVIEWER_REFEREE_PUBLICATION:
-					break;
-					
-				case PROFESSIONAL_ACTIVITY_TYPE_SOCIETIE_MEMBERSHIP:
 					break;
 
 				}
