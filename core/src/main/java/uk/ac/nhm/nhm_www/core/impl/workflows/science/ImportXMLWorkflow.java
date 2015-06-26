@@ -11,10 +11,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -46,7 +44,6 @@ import org.slf4j.LoggerFactory;
 import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointment;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointments;
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Address;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degree;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degrees;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Field;
@@ -760,7 +757,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 	                        	}
 	                        	break;
-//                        case "organisation":	// EXACTLY the same for "institution"
+//                        case "organisation":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
 //                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
 //                            while(types.hasNext()) {
 //                            	Address address = types.next();
@@ -802,14 +799,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "c-administrative-role":
 	                        	final String administrativeRole = field.getText();
 	                        	if ( administrativeRole != null ){
-	                        		paNode.setProperty(ScientistProfileHelper.EDITORSHIP_ROLE_ATTRIBUTE, administrativeRole);
+	                        		paNode.setProperty(ScientistProfileHelper.ADMINISTRATIVE_ROLE_ATTRIBUTE, administrativeRole);
 	                        	}
 	                        	break;  
 	                            	
                         case "c-event-type":
 	                          	final String eventType = field.getText();
 	                          	if ( eventType != null ){
-	                          		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, eventType);
+	                          		paNode.setProperty(ScientistProfileHelper.EVENT_TYPE_ATTRIBUTE, eventType);
 	                          	}
 	                          	break;
                           	
@@ -828,32 +825,39 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          	break;
 	                          	
                         case "c-review-type":
-                          	final String reviewType = field.getText();
-                          	if ( reviewType != null ){
-                          		paNode.setProperty(ScientistProfileHelper.PUBLICATION_TYPE_ATTRIBUTE, reviewType);
-                          	}
-                          	break;
+	                          	final String reviewType = field.getText();
+	                          	if ( reviewType != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.REVIEW_TYPE_ATTRIBUTE, reviewType);
+	                          	}
+	                          	break;
                           	
                         case "c-society-or-membership-role":
-                        	final String societyMembershipRole = field.getText();
-                        	if ( societyMembershipRole != null ){
-                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
-                        	}
-                        	break;  
+	                        	final String societyMembershipRole = field.getText();
+	                        	if ( societyMembershipRole != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
+	                        	}
+	                        	break;  
                         	
                         case "c-office-held-type":
-                        	final String officeHeldType = field.getText();
-                        	if ( officeHeldType != null ){
-                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, officeHeldType);
-                        	}
-                        	break;
-                            	
-//                        case "c-committee-roles":
-//                        	final String committeeRole = field.getText();
-//                        	if ( committeeRole != null ){
-//                        		paNode.setProperty(ScientistProfileHelper.COMMITTEE_ROLE_ATTRIBUTE, committeeRole);
-//                        	}
-//                        	break;
+	                        	final String officeHeldType = field.getText();
+	                        	if ( officeHeldType != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_HELD_TYPE_ATTRIBUTE, officeHeldType);
+	                        	}
+	                        	break;
+                        	
+                        case "c-office-internal-or-external":
+	                        	final String officeInternalOrExternal = field.getText();
+	                        	if ( officeInternalOrExternal != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_INTERNAL_EXTERNAL_ATTRIBUTE, officeInternalOrExternal);
+	                        	}
+	                        	break;
+                        	
+                        case "c-other-office-held-types":
+	                        	final String officeOtherHeldType = field.getText();
+	                        	if ( officeOtherHeldType != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, officeOtherHeldType);
+	                        	}
+	                        	break;
                     }
                 }
             }

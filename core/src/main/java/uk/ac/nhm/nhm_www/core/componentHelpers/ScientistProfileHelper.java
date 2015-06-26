@@ -34,6 +34,7 @@ import uk.ac.nhm.nhm_www.core.model.science.WebSite;
 import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Committee;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 
@@ -111,7 +112,9 @@ public class ScientistProfileHelper {
 	public static final String PUBLICATION_TYPE_ATTRIBUTE			= "publicationType";
 	public static final String REVIEW_TYPE_ATTRIBUTE				= "reviewType";
 	public static final String SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE	= "societymembershipRole";
+	public static final String OFFICE_INTERNAL_EXTERNAL_ATTRIBUTE	= "officeInternalOrExternal";
 	public static final String OFFICE_HELD_TYPE_ATTRIBUTE			= "officeHeldType";
+	public static final String OFFICE_OTHER_HELD_TYPE_ATTRIBUTE		= "officeOtherHeldType";
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  = "title";
@@ -834,6 +837,7 @@ public class ScientistProfileHelper {
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
 				
 				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
+				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
 				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
 				final String dayStartDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
@@ -849,11 +853,31 @@ public class ScientistProfileHelper {
 				
 				switch (type) {
 				case PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES:
+                	final String committeeCity ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		committeeCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                	} else {
+                		committeeCity = "";
+                	}
+                	final String committeeCountry ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		committeeCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                	} else {
+                		committeeCountry = "";
+                	}
+                	final String committeeInstitution ;
+                	if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                		committeeInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                	} else {
+                		committeeInstitution = "";
+                	}
+					final String committeeMembershipType = childProperties.get(MEMBERSHIP_TYPE_ATTRIBUTE, String.class);
+					result.add(new Committee(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							committeeMembershipType, committeeCity, committeeCountry, committeeInstitution));
 					//Comitee membership, c.name, institution, city, country, sded/ong
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
-					final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate));
 					break;
 
