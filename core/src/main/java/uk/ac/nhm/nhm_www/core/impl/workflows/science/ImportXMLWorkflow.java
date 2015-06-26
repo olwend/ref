@@ -696,11 +696,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	case 31 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES;
         	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION;
         	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
-        	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_GRANT_APPLICATION_ASSESSMENT;
+        	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT;
         	case 56 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP;
 	        case 60 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP;
 	        case 73 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP;
-	        case 76 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE;
+	        case 76 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION;
 	        default: return "Professional Activity";
         }
     }
@@ -839,10 +839,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	}
 	                        	break;
 
-	                          	
-	                          	
-	                          	
-                            	
                         case "c-publication-type":
 	                          	final String publicationType = field.getText();
 	                          	if ( publicationType != null ){
@@ -856,6 +852,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          		paNode.setProperty(ScientistProfileHelper.REVIEW_TYPE_ATTRIBUTE, reviewType);
 	                          	}
 	                          	break;
+	                          	
+	                          	
+	                          	
+	                          	
+	                          	
+	                          	
 	                          	
                         case "c-membership-type":
 								final String membershipType = field.getText();
