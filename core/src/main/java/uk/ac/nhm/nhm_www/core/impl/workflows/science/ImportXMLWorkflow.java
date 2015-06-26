@@ -694,7 +694,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     private String resolveProfessionalActivityType (final int number) {
         switch (number) {
         	case 31 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES;
-        	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITIONS;
+        	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION;
         	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
         	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_GRANT_APPLICATION_ASSESSMENT;
         	case 56 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP;
@@ -782,19 +782,27 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 //                            	}
 //							}
 //                            break;
-                        case "c-membership-type":
-								final String membershipType = field.getText();
-								if ( membershipType != null ){
-									paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, membershipType);
-								}
-								break;
-                        	
-                        case "c-editorship-role":
-	                          	final String editorshipRole = field.getText();
-	                          	if ( editorshipRole != null ){
-	                          		paNode.setProperty(ScientistProfileHelper.EDITORSHIP_ROLE_ATTRIBUTE, editorshipRole);
+	                        	
+                        case "c-committee-roles":
+	                          	final String committeeRole = field.getText();
+	                          	if ( committeeRole != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.COMMITTEE_ROLE_ATTRIBUTE, committeeRole);
 	                          	}
-	                          	break;  
+	                          	break;
+	                          	
+                        case "c-editorship-role":
+	                        	final String editorshipRole = field.getText();
+	                        	if ( editorshipRole != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.EDITORSHIP_ROLE_ATTRIBUTE, editorshipRole);
+	                        	}
+	                        	break;
+	                        	
+                        case "c-text1":
+	                        	final String publisher = field.getText();
+	                        	if ( publisher != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.C_TEXT_1_ATTRIBUTE, publisher);
+	                        	}
+	                        	break;
 
                         case "c-administrative-role":
 	                        	final String administrativeRole = field.getText();
@@ -802,20 +810,38 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.ADMINISTRATIVE_ROLE_ATTRIBUTE, administrativeRole);
 	                        	}
 	                        	break;  
-	                            	
+	                    
                         case "c-event-type":
 	                          	final String eventType = field.getText();
 	                          	if ( eventType != null ){
 	                          		paNode.setProperty(ScientistProfileHelper.EVENT_TYPE_ATTRIBUTE, eventType);
 	                          	}
 	                          	break;
-                          	
-                        case "c-text1":
-		                    	final String publicationTitle = field.getText();
-		                    	if ( publicationTitle != null ){
-		                    		paNode.setProperty(ScientistProfileHelper.PUBLICATION_TITLE_ATTRIBUTE, publicationTitle);
-		                    	}
-		                    	break;
+	                          	
+                        case "c-internal-or-external":
+	                          	final String internalOrExternalPosition = field.getText();
+	                          	if ( internalOrExternalPosition != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.INTERNAL_OR_EXTERNAL_ATTRIBUTE, internalOrExternalPosition);
+	                          	}
+	                          	break;
+
+                        case "c-office-held-type":
+	                        	final String officeHeldType = field.getText();
+	                        	if ( officeHeldType != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_HELD_TYPE_ATTRIBUTE, officeHeldType);
+	                        	}
+	                        	break;
+                        	
+                        case "c-other-office-held-types":
+	                        	final String officeOtherHeldType = field.getText();
+	                        	if ( officeOtherHeldType != null ){
+	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, officeOtherHeldType);
+	                        	}
+	                        	break;
+
+	                          	
+	                          	
+	                          	
                             	
                         case "c-publication-type":
 	                          	final String publicationType = field.getText();
@@ -830,6 +856,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          		paNode.setProperty(ScientistProfileHelper.REVIEW_TYPE_ATTRIBUTE, reviewType);
 	                          	}
 	                          	break;
+	                          	
+                        case "c-membership-type":
+								final String membershipType = field.getText();
+								if ( membershipType != null ){
+									paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, membershipType);
+								}
+								break;
                           	
                         case "c-society-or-membership-role":
 	                        	final String societyMembershipRole = field.getText();
@@ -837,13 +870,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
 	                        	}
 	                        	break;  
-                        	
-                        case "c-office-held-type":
-	                        	final String officeHeldType = field.getText();
-	                        	if ( officeHeldType != null ){
-	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_HELD_TYPE_ATTRIBUTE, officeHeldType);
-	                        	}
-	                        	break;
+
                         	
                         case "c-office-internal-or-external":
 	                        	final String officeInternalOrExternal = field.getText();
@@ -852,12 +879,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	}
 	                        	break;
                         	
-                        case "c-other-office-held-types":
-	                        	final String officeOtherHeldType = field.getText();
-	                        	if ( officeOtherHeldType != null ){
-	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, officeOtherHeldType);
-	                        	}
-	                        	break;
                     }
                 }
             }

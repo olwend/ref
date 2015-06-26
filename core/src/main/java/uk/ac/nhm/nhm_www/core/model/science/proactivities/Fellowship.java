@@ -16,10 +16,10 @@ public class Fellowship extends ProfessionalActivity {
 		stringBuffer.append("####This is a Fellowship####");
 		stringBuffer.append(" ");
 		
-		// Title_
+		// Title,_
 		if (this.title != null){
 			stringBuffer.append(this.title);
-			stringBuffer.append(" ");
+			stringBuffer.append(", ");
 		}
 		
 		// startYear - endYear. || startYear - on going.

@@ -35,7 +35,10 @@ import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Committee;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Editorship;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventAdministration;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 
 import com.day.cq.wcm.api.components.DropTarget;
@@ -108,13 +111,14 @@ public class ScientistProfileHelper {
 	public static final String EDITORSHIP_ROLE_ATTRIBUTE			= "editorshipRole";
 	public static final String ADMINISTRATIVE_ROLE_ATTRIBUTE		= "administrativeRole";
 	public static final String EVENT_TYPE_ATTRIBUTE					= "eventType";
-	public static final String PUBLICATION_TITLE_ATTRIBUTE			= "publicationTitle";
+	public static final String C_TEXT_1_ATTRIBUTE					= "publicationTitle";
 	public static final String PUBLICATION_TYPE_ATTRIBUTE			= "publicationType";
 	public static final String REVIEW_TYPE_ATTRIBUTE				= "reviewType";
 	public static final String SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE	= "societymembershipRole";
 	public static final String OFFICE_INTERNAL_EXTERNAL_ATTRIBUTE	= "officeInternalOrExternal";
 	public static final String OFFICE_HELD_TYPE_ATTRIBUTE			= "officeHeldType";
 	public static final String OFFICE_OTHER_HELD_TYPE_ATTRIBUTE		= "officeOtherHeldType";
+	public static final String INTERNAL_OR_EXTERNAL_ATTRIBUTE		= "internalOrExternalPosition";
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  = "title";
@@ -203,7 +207,7 @@ public class ScientistProfileHelper {
 	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES					= "Commmittee";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION			= "Event Administration";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_POSITIONS			= "External Positions";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION	= "External Positions";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP					= "Editorship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP					= "Fellowship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP					= "Membership";
@@ -871,17 +875,77 @@ public class ScientistProfileHelper {
                 	} else {
                 		committeeInstitution = "";
                 	}
-					final String committeeMembershipType = childProperties.get(MEMBERSHIP_TYPE_ATTRIBUTE, String.class);
+                	final String committeeRole = childProperties.get(COMMITTEE_ROLE_ATTRIBUTE, String.class);
 					result.add(new Committee(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							committeeMembershipType, committeeCity, committeeCountry, committeeInstitution));
-					//Comitee membership, c.name, institution, city, country, sded/ong
+							committeeRole, committeeCity, committeeCountry, committeeInstitution));
 					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP:
+					final String editorialRole = childProperties.get(EDITORSHIP_ROLE_ATTRIBUTE, String.class);
+					final String editorialPublisher = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
+					result.add(new Editorship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							editorialRole, editorialPublisher));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION:
+                	final String eventCity ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		eventCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                	} else {
+                		eventCity = "";
+                	}
+                	final String eventCountry ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		eventCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                	} else {
+                		eventCountry = "";
+                	}
+                	final String eventInstitution ;
+                	if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                		eventInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                	} else {
+                		eventInstitution = "";
+                	}
+					final String eventRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
+					final String eventType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+					result.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							eventRole, eventType, eventCity, eventCountry, eventInstitution));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION:
+                    final String inOrExCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            inOrExCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            inOrExCity = "";
+                    }
+                    final String inOrExCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            inOrExCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            inOrExCountry = "";
+                    }
+                    final String inOrExInstitution ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            inOrExInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            inOrExInstitution = "";
+                    }
+					final String internalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
+					final String officeHeldType = childProperties.get(OFFICE_HELD_TYPE_ATTRIBUTE, String.class);
+					final String officeOtherHeldType = childProperties.get(OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, String.class);
+					result.add(new InternalOrExternalPosition(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							internalOrExternal, officeHeldType, officeOtherHeldType, inOrExCity, inOrExCountry, inOrExInstitution));
+					break;				
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
 					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate));
 					break;
 
 				}
+				
+				
+				
 
 			}
 		}
