@@ -853,33 +853,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          	}
 	                          	break;
 	                          	
-	                          	
-	                          	
-	                          	
-	                          	
-	                          	
-	                          	
-                        case "c-membership-type":
-								final String membershipType = field.getText();
-								if ( membershipType != null ){
-									paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_TYPE_ATTRIBUTE, membershipType);
-								}
-								break;
-                          	
                         case "c-society-or-membership-role":
 	                        	final String societyMembershipRole = field.getText();
 	                        	if ( societyMembershipRole != null ){
-	                        		paNode.setProperty(ScientistProfileHelper.SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
+	                        		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
 	                        	}
 	                        	break;  
-
-                        	
-                        case "c-office-internal-or-external":
-	                        	final String officeInternalOrExternal = field.getText();
-	                        	if ( officeInternalOrExternal != null ){
-	                        		paNode.setProperty(ScientistProfileHelper.OFFICE_INTERNAL_EXTERNAL_ATTRIBUTE, officeInternalOrExternal);
-	                        	}
-	                        	break;
                         	
                     }
                 }
