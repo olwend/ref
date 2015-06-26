@@ -239,12 +239,12 @@
 								</div>
 								<div class="small-12 medium-4 large-4 columns directory-search-results--row-content js--profile-content">
 									<span class="directory-search-results--row-content--label show-for-small-only">Department:</span><c:out value="${profile.department}"/>
-									<br/>
+									<br />
 									<span class="directory-search-results--row-content--label show-for-small-only">Division:</span><c:out value="${profile.division}" />
 								</div>
 								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
 									<c:if test="${not empty profile.specialisms}">
-										<span class="directory-search-results--row-content--label show-for-small-only">Specialisms:</span>
+										<span class="directory-search-results--row-content--label show-for-small-only">Specialisms: </span>
 									</c:if>
 									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
 									<c:choose>
