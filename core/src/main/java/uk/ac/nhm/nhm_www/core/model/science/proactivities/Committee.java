@@ -4,16 +4,16 @@ package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
 public class Committee extends ProfessionalActivity {
 
-	private String committeeMembership;
+	private String committeeRole;
 	private String city;
 	private String country;
 	private String institution;
 
 	public Committee(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String committeeMembershipType, String committeeCity, String committeeCountry, 
+			String yearEndDate, String monthEndDate, String dayEndDate, String committeeRole, String committeeCity, String committeeCountry, 
 			String committeeInstitution) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
-		this.committeeMembership = committeeMembershipType;
+		this.committeeRole = committeeRole;
 		this.city = committeeCity;
 		this.country = committeeCountry;
 		this.institution = committeeInstitution;
@@ -26,9 +26,9 @@ public class Committee extends ProfessionalActivity {
 		stringBuffer.append("####This is a Committee####");
 		stringBuffer.append(" ");
 		
-		// CommitteeMembership,_
-		if (this.committeeMembership!= null){
-			stringBuffer.append(this.committeeMembership);
+		// CommitteeRole,_
+		if (this.committeeRole!= null){
+			stringBuffer.append(this.committeeRole);
 			stringBuffer.append(", ");
 		}
 		
@@ -39,18 +39,19 @@ public class Committee extends ProfessionalActivity {
 		}
 		
 		// <a href=url>InstitutionName</a>,_ 
-		if (this.url != null) {
-			stringBuffer.append("<a href=\"");
-			stringBuffer.append(this.url);
-			stringBuffer.append("\">");
-		}
 		if (this.institution != null && !this.institution.equals("")){
+			if (this.url != null) {
+				stringBuffer.append("<a href=\"");
+				stringBuffer.append(this.url);
+				stringBuffer.append("\">");
+			}
+			
 			stringBuffer.append(this.institution);
-		}
-		
-		if (this.url != null) {
-			stringBuffer.append("</a>");
-			stringBuffer.append(", ");
+			
+			if (this.url != null) {
+				stringBuffer.append("</a>");
+				stringBuffer.append(", ");
+			}
 		}
 		
 		// City,_
@@ -65,12 +66,17 @@ public class Committee extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
+		// startYear - endYear. || startYear - on going.
 		if (this.dayed != null && this.monthed != null && this.yeared != null){
 			stringBuffer.append(this.yearsd);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.yeared);
+			stringBuffer.append(".");
 		} else {
-			stringBuffer.append("Ongoing");
+			stringBuffer.append(this.yearsd);
+			stringBuffer.append(" - ");
+			stringBuffer.append("on going");
+			stringBuffer.append(".");
 		}
 		
 		return stringBuffer.toString();

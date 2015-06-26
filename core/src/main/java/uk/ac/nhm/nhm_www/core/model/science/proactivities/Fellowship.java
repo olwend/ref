@@ -22,12 +22,17 @@ public class Fellowship extends ProfessionalActivity {
 			stringBuffer.append(" ");
 		}
 		
+		// startYear - endYear. || startYear - on going.
 		if (this.dayed != null && this.monthed != null && this.yeared != null){
 			stringBuffer.append(this.yearsd);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.yeared);
+			stringBuffer.append(".");
 		} else {
-			stringBuffer.append("Ongoing");
+			stringBuffer.append(this.yearsd);
+			stringBuffer.append(" - ");
+			stringBuffer.append("on going");
+			stringBuffer.append(".");
 		}
 		
 		return stringBuffer.toString();
