@@ -14334,10 +14334,13 @@ fieldset legend {
 
 .directory-search-results--row-content--label {
   font-weight: bold;
+  float: left;
+  margin-right: 0.25em;
 }
 @media screen and (min-width: 768px) {
   .directory-search-results--row-content--label {
     font-weight: normal;
+    float: none;
   }
 }
 
