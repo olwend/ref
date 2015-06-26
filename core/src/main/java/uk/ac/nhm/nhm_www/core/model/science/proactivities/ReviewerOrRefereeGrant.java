@@ -2,65 +2,47 @@ package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
 
 
-public class EventAdministration extends ProfessionalActivity {
+public class ReviewerOrRefereeGrant extends ProfessionalActivity {
 
 	private String city;
 	private String country;
-	private String institution;
-	private String eventType;
-	private String role;
+	private String organisation;
 
-	public EventAdministration(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String role, String eventType, String eventCity, String eventCountry,
-			String eventInstitution) {
+	public ReviewerOrRefereeGrant(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
+			String yearEndDate, String monthEndDate, String dayEndDate, String grantCity, String grantCountry, String grantOrganisation) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
-		this.role = role;
-		this.eventType = eventType;
-		this.city = eventCity;
-		this.country = eventCountry;
-		this.institution = eventInstitution;
+		this.city = grantCity;
+		this.country = grantCountry;
+		this.organisation = grantOrganisation;
 	}
 
 	@Override
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		stringBuffer.append("####This is an EventAdministration####");
+		stringBuffer.append("####This is a RoRGrantAssessment####");
 		stringBuffer.append(" ");
 		
-		// AdministrativeRole,_
-		if (this.role!= null){
-			stringBuffer.append(this.role);
+		// Title,_
+		if (this.title != null){
+			stringBuffer.append(this.title);
 			stringBuffer.append(", ");
 		}
 		
-		// <a href=url>EventTitle</a>,_
-		if (this.title != null){
+		// <a href=url>OrganisationName</a>,_ 
+		if (this.organisation != null && !this.organisation.equals("")){
 			if (this.url != null) {
 				stringBuffer.append("<a href=\"");
 				stringBuffer.append(this.url);
 				stringBuffer.append("\">");
 			}
-		
-			stringBuffer.append(this.title);
-			stringBuffer.append(" ");
-		
+			
+			stringBuffer.append(this.organisation);
+			
 			if (this.url != null) {
 				stringBuffer.append("</a>");
 				stringBuffer.append(", ");
 			}
-		}
-		
-		// (EventType),_
-		if (this.eventType != null){
-			stringBuffer.append("(");
-			stringBuffer.append(eventType);
-			stringBuffer.append("), ");
-		}
-		
-		// InstitutionName,_ 
-		if (this.institution != null && !this.institution.equals("")){
-			stringBuffer.append(this.institution);
 		}
 		
 		// City,_

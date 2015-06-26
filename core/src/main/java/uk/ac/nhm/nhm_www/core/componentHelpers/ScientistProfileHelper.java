@@ -40,6 +40,8 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventAdministration;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
 
 import com.day.cq.wcm.api.components.DropTarget;
 import com.day.cq.wcm.foundation.Image;
@@ -106,7 +108,6 @@ public class ScientistProfileHelper {
 	public static final String END_DATE_DAY_NAME_ATTRIBUTE			= "endDay";
 	public static final String END_DATE_MONTH_NAME_ATTRIBUTE		= "endMonth";
 	public static final String END_DATE_YEAR_NAME_ATTRIBUTE			= "endYear";
-	public static final String MEMBERSHIP_TYPE_ATTRIBUTE			= "membershipType";
 	public static final String COMMITTEE_ROLE_ATTRIBUTE				= "committeeRole";
 	public static final String EDITORSHIP_ROLE_ATTRIBUTE			= "editorshipRole";
 	public static final String ADMINISTRATIVE_ROLE_ATTRIBUTE		= "administrativeRole";
@@ -114,8 +115,7 @@ public class ScientistProfileHelper {
 	public static final String C_TEXT_1_ATTRIBUTE					= "publicationTitle";
 	public static final String PUBLICATION_TYPE_ATTRIBUTE			= "publicationType";
 	public static final String REVIEW_TYPE_ATTRIBUTE				= "reviewType";
-	public static final String SOCIETY_MEMBERSHIP_ROLE_ATTRIBUTE	= "societymembershipRole";
-	public static final String OFFICE_INTERNAL_EXTERNAL_ATTRIBUTE	= "officeInternalOrExternal";
+	public static final String MEMBERSHIP_ROLE_ATTRIBUTE			= "membershipRole";
 	public static final String OFFICE_HELD_TYPE_ATTRIBUTE			= "officeHeldType";
 	public static final String OFFICE_OTHER_HELD_TYPE_ATTRIBUTE		= "officeOtherHeldType";
 	public static final String INTERNAL_OR_EXTERNAL_ATTRIBUTE		= "internalOrExternalPosition";
@@ -211,8 +211,8 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP					= "Editorship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP					= "Fellowship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP					= "Membership";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE				= "Review Referee";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_GRANT_APPLICATION_ASSESSMENT	= "Grant Application Assessment";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -960,10 +960,63 @@ public class ScientistProfileHelper {
 					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							fellowshipCity, fellowshipCountry, fellowshipOrganisation));
 					break;
-
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION:
+					final String publication = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
+					final String publicationType = childProperties.get(PUBLICATION_TYPE_ATTRIBUTE, String.class);
+					final String reviewType = childProperties.get(REVIEW_TYPE_ATTRIBUTE, String.class);
+					
+					result.add(new ReviewerOrRefereePublication(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							publication, publicationType, reviewType));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT:
+                    final String grantCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            grantCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            grantCity = "";
+                    }
+                    final String grantCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            grantCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            grantCountry = "";
+                    }
+                    final String grantOrganisation ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            grantOrganisation = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            grantOrganisation = "";
+                    }
+					result.add(new ReviewerOrRefereeGrant(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							grantCity, grantCountry, grantOrganisation));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP:
+                    final String membershipCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            membershipCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            membershipCity = "";
+                    }
+                    final String membershipCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            membershipCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            membershipCountry = "";
+                    }
+                    final String membershipInstitution ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            membershipInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            membershipInstitution = "";
+                    }
+                    final String membershipRole = childProperties.get(MEMBERSHIP_ROLE_ATTRIBUTE, String.class);
+                    result.add(new (url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+                    		membershipCity, membershipCountry, membershipInstitution, membershipRole));
+                    break;  
 				}
-				
-				
 				
 
 			}
