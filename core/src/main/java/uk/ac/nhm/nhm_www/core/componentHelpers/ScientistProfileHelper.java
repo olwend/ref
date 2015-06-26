@@ -939,7 +939,26 @@ public class ScientistProfileHelper {
 					break;				
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
-					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate));
+                    final String fellowshipCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            fellowshipCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            fellowshipCity = "";
+                    }
+                    final String fellowshipCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            fellowshipCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            fellowshipCountry = "";
+                    }
+                    final String fellowshipOrganisation ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            fellowshipOrganisation = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            fellowshipOrganisation = "";
+                    }
+					result.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							fellowshipCity, fellowshipCountry, fellowshipOrganisation));
 					break;
 
 				}
