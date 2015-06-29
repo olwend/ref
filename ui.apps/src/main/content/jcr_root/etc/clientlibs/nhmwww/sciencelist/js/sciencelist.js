@@ -352,10 +352,7 @@ function searchFunc(maxResults) {
 	nodes = nodes.filter(":lt(" + maxResults + ")");
 	
 	nodes.css("display", "");
-//	nodes.parent().addClass("##########FML##########");
-//	nodes.parent().addClass("row directory-search-results--row");
-//	nodes.className = "row directory-search-results--row";
-	
+	nodes.addClass("directory-search--result");
 	
 	tableColors();
 }
@@ -503,8 +500,12 @@ function populateAutoKeywords() {
 function tableColors() {
 	var childDiv = $("#peopleList").children();
 	for ( var x = 0; x < childDiv.length; x++) {
-		if ($(childDiv[x]).height() > 0) {
-			childDiv[x].className = "row directory-search-results--row";
+		var personNodes = $(childDiv[x]).children();
+		for ( var i = 0; i < personNodes.length; i++) {
+			if ($(personNodes[i]).hasClass("directory-search--result")) {
+				$(personNodes[i]).removeClass("directory-search--result");
+				$(personNodes[i]).addClass("row directory-search-results--row");
+			}
 		}
 	}
 }
