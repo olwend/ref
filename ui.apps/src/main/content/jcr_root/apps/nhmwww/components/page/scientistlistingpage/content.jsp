@@ -181,13 +181,13 @@
 				Image
 			</div>
 			<div class="small-6 medium-10 large-10 columns">
-				<div id="name" class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
+				<div id="name" class="small-12 medium-2 large-2 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					Name
 				</div>
 				<div id="job" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					Job Title
 				</div>
-				<div id="departAndDiv" class="small-12 medium-4 large-4 columns directory-search-results--row-header directory-search-results--sort-results-up js--profile-content">
+				<div id="departAndDiv" class="small-12 medium-4 large-4 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					Department and Division
 				</div>
 				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">

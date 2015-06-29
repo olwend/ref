@@ -82,56 +82,48 @@ $(document).ready(function() {
 	$("#name").on("click", function(){
 		nameSorted = sortTable(1, nameSorted);
 		var $this = $(this);			
-		if ( $(this).hasClass('sort-results-down') ){
-			$(this).css('background-color', 'red');  
-			$(this).removeClass('sort-results-down');
-			$(this).addClass('sort-results-up');
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
 		} else {
-			$(this).css('background-color', 'blue');  
-			$(this).removeClass('sort-results-up');
-			$(this).addClass('sort-results-down');
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
 		}
 	});
 
 	$("#job").on("click", function(){
 		jobSorted = sortTable(2, jobSorted);
 		var $this = $(this);			
-		if ( $(this).hasClass('sort-results-down') ){
-			$(this).css('background-color', 'red');  
-			$(this).removeClass('sort-results-down');
-			$(this).addClass('sort-results-up');
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
 		} else {
-			$(this).css('background-color', 'blue');  
-			$(this).removeClass('sort-results-up');
-			$(this).addClass('sort-results-down');
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
 		}
 	});
 
 	$("#departAndDiv").on("click", function(){
 		departmentSorted = sortTable(3, departmentSorted);
 		var $this = $(this);			
-		if ( $(this).hasClass('sort-results-down') ){
-			$(this).css('background-color', 'red');  
-			$(this).removeClass('sort-results-down');
-			$(this).addClass('sort-results-up');
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
 		} else {
-			$(this).css('background-color', 'blue');  
-			$(this).removeClass('sort-results-up');
-			$(this).addClass('sort-results-down');
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
 		}
 	});
 
 	$("#specialisms").on("click", function(){
 		specialismsSorted = sortTable(4, specialismsSorted);
 		var $this = $(this);			
-		if ( $(this).hasClass('sort-results-down') ){
-			$(this).css('background-color', 'red');  
-			$(this).removeClass('sort-results-down');
-			$(this).addClass('sort-results-up');
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
 		} else {
-			$(this).css('background-color', 'blue');  
-			$(this).removeClass('sort-results-up');
-			$(this).addClass('sort-results-down');
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
 		}
 	});
 	
