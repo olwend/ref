@@ -266,9 +266,9 @@
 
 <!--  NEW -->
 
-	<div style="text-align: center;">
+	<div class="row more-results">
 		<a href="#" id="show-more">
-			Show more
+			<h5 class="more-results-text">Show more</h5>
 		</a>	
 	</div>
 </div>
