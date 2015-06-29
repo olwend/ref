@@ -24,19 +24,14 @@
 		<ul class="small-block-grid-1 medium-block-grid-3 directory-search--fields-block-grid">
 			<li>
 				<legend class="directory-search--label">By name, keywords and specialisms</legend>
-				<div class="small-6 columns pr-10">
+				<div class="small-12 medium-12 large-12 columns">
 					<div class="search-second-name">
 						<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
 					</div>
 				</div>
-				<div class="small-6 columns">
+				<div class="small-12 medium-12 large-12 columns">
 					<div class="search-first-name">
 						<input type="text" id="firstNameInput" name="First Name" placeholder='First name' />
-					</div>
-				</div>
-				<div class="small-12 columns">
-					<div class="search-keywords">
-						<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
 					</div>
 				</div>
 			</li>
@@ -44,7 +39,12 @@
 				<div class="small-12 medium-12 large-12 columns">
 					<legend class="directory-search--label">Filter by</legend>
 				</div>
-				<div class="small-12 columns">
+				<div class="small-12 medium-12 large-12 columns">
+					<div class="search-keywords">
+						<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
+					</div>
+				</div>
+				<div class="small-12 medium-12 large-12 columns">
 					<select id="division">
 						<option value="All" selected="selected">Department and Division</option>
 						<%-- Department: Life Sciences --%>
@@ -85,7 +85,7 @@
 					    <option class="department" id="Science Directorate" value="Science Directorate">Science directorate</option>
 					</select>
 				</div>
-				<%-- <div class="small-12 columns">
+				<%-- <div class="small-12 medium-12 large-12 columns">
 					<select id="collection" class="mb-0">
 						<option value="All" selected="selected">Collections</option>--%>
 						<%-- Collection: FakeFilter_Research --%>
