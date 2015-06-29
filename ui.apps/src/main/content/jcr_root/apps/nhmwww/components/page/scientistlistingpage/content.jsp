@@ -49,38 +49,38 @@
 						<option value="All" selected="selected">Department and Division</option>
 						<%-- Department: Life Sciences --%>
 						<option class="department" id="Life Sciences" value="Life Sciences">Life sciences</option>
-						<option class="division" id="Genomics and Microbial diversity" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
-						<option class="division" id="Plants" value="Plants" data-department="Life Sciences" data-division="Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Plants</option>
-						<option class="division" id="Insects" value="Insects" data-department="Life Sciences" data-division="Insects">&nbsp;&nbsp;&nbsp;&nbsp;Insects</option>
-						<option class="division" id="Parasites and vectors" value="Parasites and vectors" data-department="Life Sciences" data-division="Parasites and Vectors Division">&nbsp;&nbsp;&nbsp;&nbsp;Parasites and vectors</option>
-						<option class="division" id="Invertebrates" value="Invertebrates" data-department="Life Sciences" data-division="Invertebrates">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates</option>
-						<option class="division" id="Vertebrates" value="Vertebrates" data-department="Life Sciences" data-division="Vertebrates Division">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrates</option>
-						<option class="division" id="Angela Marmont Centre" value="Angela Marmont Centre" data-department="Life Sciences" data-division="Angela Marmont Centre">&nbsp;&nbsp;&nbsp;&nbsp;Angela Marmont Centre</option>
+						<option class="division" id="Genomics and Microbial diversity" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">Genomics and Microbial diversity</option>
+						<option class="division" id="Plants" value="Plants" data-department="Life Sciences" data-division="Plants Division">Plants</option>
+						<option class="division" id="Insects" value="Insects" data-department="Life Sciences" data-division="Insects">Insects</option>
+						<option class="division" id="Parasites and vectors" value="Parasites and vectors" data-department="Life Sciences" data-division="Parasites and Vectors Division">Parasites and vectors</option>
+						<option class="division" id="Invertebrates" value="Invertebrates" data-department="Life Sciences" data-division="Invertebrates">Invertebrates</option>
+						<option class="division" id="Vertebrates" value="Vertebrates" data-department="Life Sciences" data-division="Vertebrates Division">Vertebrates</option>
+						<option class="division" id="Angela Marmont Centre" value="Angela Marmont Centre" data-department="Life Sciences" data-division="Angela Marmont Centre">Angela Marmont Centre</option>
 					    
 						<%-- Department: Earth Sciences --%>
 						<option class="department" id="Earth Sciences" value="Earth Sciences">Earth sciences</option>
-						<option class="division" id="Mineral and planentary sciences" value="Mineral and planentary sciences" data-department="Earth Sciences" data-division="Mineral and Planetary Sciences Division">&nbsp;&nbsp;&nbsp;&nbsp;Mineral and planentary sciences</option>
-						<option class="division" id="Economic and environmental earth sciences" value="Economic and environmental earth sciences" data-department="Earth Sciences" data-division="Economic and Environmental Earth Sciences">&nbsp;&nbsp;&nbsp;&nbsp;Economic and environmental earth sciences</option>
-						<option class="division" id="Vertebrate and anthropology palaeobiology" value="Vertebrate and anthropology palaeobiology" data-department="Earth Sciences" data-division="Vertebrates and Anthropology Palaeobiology">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrate and anthropology palaeobiology</option>
-						<option class="division" id="Invertebrates and plants" value="Invertebrates and plants" data-department="Earth Sciences" data-division="Invertebrates and Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates and plants</option>
-						<option class="division" id="Department Management Team" value="Department Management Team" data-department="Earth Sciences" data-division="Department Management Team">&nbsp;&nbsp;&nbsp;&nbsp;Department Management Team</option>
+						<option class="division" id="Mineral and planentary sciences" value="Mineral and planentary sciences" data-department="Earth Sciences" data-division="Mineral and Planetary Sciences Division">Mineral and planentary sciences</option>
+						<option class="division" id="Economic and environmental earth sciences" value="Economic and environmental earth sciences" data-department="Earth Sciences" data-division="Economic and Environmental Earth Sciences">Economic and environmental earth sciences</option>
+						<option class="division" id="Vertebrate and anthropology palaeobiology" value="Vertebrate and anthropology palaeobiology" data-department="Earth Sciences" data-division="Vertebrates and Anthropology Palaeobiology">Vertebrate and anthropology palaeobiology</option>
+						<option class="division" id="Invertebrates and plants" value="Invertebrates and plants" data-department="Earth Sciences" data-division="Invertebrates and Plants Division">Invertebrates and plants</option>
+						<option class="division" id="Department Management Team" value="Department Management Team" data-department="Earth Sciences" data-division="Department Management Team">Department Management Team</option>
 						
 						<%-- Department: Core research laboratories --%>
 						<option class="department" id="Science Facilities"value="Science Facilities">Core research laboratories</option>
-						<option class="division" id="Conservation Centre" value="Conservation Centre" data-department="Science Facilities" data-division="Conservation Centre">&nbsp;&nbsp;&nbsp;&nbsp;Conservation Centre</option>
-						<option class="division" id="Imaging and Analysis Centre" value="Imaging and Analysis Centre" data-department="Science Facilities" data-division="Imaging and Analysis Centre">&nbsp;&nbsp;&nbsp;&nbsp;Imaging and Analysis Centre</option>
-						<option class="division" id="Molecular Biology Laboratories" value="Molecular Biology Laboratories" data-department="Science Facilities" data-division="Molecular Biology Laboratories">&nbsp;&nbsp;&nbsp;&nbsp;Molecular Biology Laboratories</option>
-						<option class="division" id="Digitisation Centre" value="Digitisation Centre" data-department="Science Facilities" data-division="Digitisation centre">&nbsp;&nbsp;&nbsp;&nbsp;Digitisation Centre</option>
+						<option class="division" id="Conservation Centre" value="Conservation Centre" data-department="Science Facilities" data-division="Conservation Centre">Conservation Centre</option>
+						<option class="division" id="Imaging and Analysis Centre" value="Imaging and Analysis Centre" data-department="Science Facilities" data-division="Imaging and Analysis Centre">Imaging and Analysis Centre</option>
+						<option class="division" id="Molecular Biology Laboratories" value="Molecular Biology Laboratories" data-department="Science Facilities" data-division="Molecular Biology Laboratories">Molecular Biology Laboratories</option>
+						<option class="division" id="Digitisation Centre" value="Digitisation Centre" data-department="Science Facilities" data-division="Digitisation centre">Digitisation Centre</option>
 						
 						<%-- Department: Library and Archives --%>
 						<option class="department" id="Library and Archives"value="Library and Archives">Library and Archives</option>
-						<option class="division" id="Digital Services Team" value="Digital Services Team" data-department="Library and Archives" data-division="LA Digital Services Team">&nbsp;&nbsp;&nbsp;&nbsp;Digital Services Team</option>
-						<option class="division" id="Library Services Team" value="Library Services Team" data-department="Library and Archives" data-division="LA Library Services Team">&nbsp;&nbsp;&nbsp;&nbsp;Library Services Team </option>
-						<option class="division" id="LA IPR" value="LA IPR" data-department="Library and Archives" data-division="LA IPR">&nbsp;&nbsp;&nbsp;&nbsp;LA IPR</option>
-						<option class="division" id="LA Modern Collections Team"  value="LA Modern Collections Team" data-department="Library and Archives" data-division="LA Modern Collections Team">&nbsp;&nbsp;&nbsp;&nbsp;LA Modern Collections Team</option>
-						<option class="division" id="LA Museum Archives and Records Management" value="LA Museum Archives and Records Management" data-department="Library and Archives" data-division="LA Museum Archives and Records Management">&nbsp;&nbsp;&nbsp;&nbsp;LA Museum Archives and Records Management</option>
-						<option class="division" id="LA Special Collections Team" value="LA Special Collections Team" data-department="Library and Archives" data-division="LA Special Collections Team">&nbsp;&nbsp;&nbsp;&nbsp;LA Special Collections Team</option>
-						<option class="division" id="LA HOD and Admin" value="LA HOD and Admin" data-department="Library and Archives" data-division="LA HOD and Admin">&nbsp;&nbsp;&nbsp;&nbsp;LA HOD and Admin</option>
+						<option class="division" id="Digital Services Team" value="Digital Services Team" data-department="Library and Archives" data-division="LA Digital Services Team">Digital Services Team</option>
+						<option class="division" id="Library Services Team" value="Library Services Team" data-department="Library and Archives" data-division="LA Library Services Team">Library Services Team </option>
+						<option class="division" id="LA IPR" value="LA IPR" data-department="Library and Archives" data-division="LA IPR">LA IPR</option>
+						<option class="division" id="LA Modern Collections Team"  value="LA Modern Collections Team" data-department="Library and Archives" data-division="LA Modern Collections Team">LA Modern Collections Team</option>
+						<option class="division" id="LA Museum Archives and Records Management" value="LA Museum Archives and Records Management" data-department="Library and Archives" data-division="LA Museum Archives and Records Management">LA Museum Archives and Records Management</option>
+						<option class="division" id="LA Special Collections Team" value="LA Special Collections Team" data-department="Library and Archives" data-division="LA Special Collections Team">LA Special Collections Team</option>
+						<option class="division" id="LA HOD and Admin" value="LA HOD and Admin" data-department="Library and Archives" data-division="LA HOD and Admin">LA HOD and Admin</option>
 					    
 					    <option class="department" id="Science Directorate" value="Science Directorate">Science directorate</option>
 					</select>
@@ -90,65 +90,65 @@
 						<option value="All" selected="selected">Collections</option>
 						<%-- Collection: FakeFilter_Research --%>
 						<option class="collection" id="Research" value="Research">FakeFilter F:Research</option>
-						<option class="group" id="Purvis Lab" value="Purvis Lab" data-collection="Research" data-group="Purvis Lab">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Research, G:Purvis Lab</option> <%--Botany / Algae --%>
+						<option class="group" id="Purvis Lab" value="Purvis Lab" data-collection="Research" data-group="Purvis Lab">FakeFilter F:Research, G:Purvis Lab</option> <%--Botany / Algae --%>
 					
 						<%-- Collection: FakeFilter_Collections --%> %>
 						<option class="collection" id="Collections" value="Collections">FakeFilter F:Collections</option>
-						<option class="group" id="Curator" value="Curator" data-collection="Collections" data-group="Curator">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Collections, G:Curator</option> <%--Botany / Algae --%>
+						<option class="group" id="Curator" value="Curator" data-collection="Collections" data-group="Curator">FakeFilter F:Collections, G:Curator</option> <%--Botany / Algae --%>
 	
 					    <%-- Collection: Botany --%>
 					    <option class="collection" id="Botany" value="Botany">Botany collections</option>
-					    <option class="group" id="Algae" value="Algae" data-collection="Botany" data-group="Algae">&nbsp;&nbsp;&nbsp;&nbsp;Algae collections</option>
-					    <option class="group" id="Diatoms" value="Diatoms" data-collection="Botany" data-group="Diatoms">&nbsp;&nbsp;&nbsp;&nbsp;Diatoms collections</option>
-					    <option class="group" id="Lichens" value="Lichens" data-collection="Botany" data-group="Lichens">&nbsp;&nbsp;&nbsp;&nbsp;Lichens collections</option>
-					    <option class="group" id="Bryophytes" value="Bryophytes" data-collection="Botany" data-group="Bryophytes">&nbsp;&nbsp;&nbsp;&nbsp;Bryophytes collections</option>
-					    <option class="group" id="Ferns" value="Ferns" data-collection="Botany" data-group="Ferns">&nbsp;&nbsp;&nbsp;&nbsp;Ferns collections</option>
-					    <option class="group" id="British and Irish Herbarium" value="British and Irish Herbarium" data-collection="Botany" data-group="British and Irish Herbarium">&nbsp;&nbsp;&nbsp;&nbsp;British and Irish Herbarium collections</option>
-					    <option class="group" id="Historical collections" value="Historical collections" data-collection="Botany" data-group="Historical collections">&nbsp;&nbsp;&nbsp;&nbsp;Historical collections</option>
+					    <option class="group" id="Algae" value="Algae" data-collection="Botany" data-group="Algae">Algae collections</option>
+					    <option class="group" id="Diatoms" value="Diatoms" data-collection="Botany" data-group="Diatoms">Diatoms collections</option>
+					    <option class="group" id="Lichens" value="Lichens" data-collection="Botany" data-group="Lichens">Lichens collections</option>
+					    <option class="group" id="Bryophytes" value="Bryophytes" data-collection="Botany" data-group="Bryophytes">Bryophytes collections</option>
+					    <option class="group" id="Ferns" value="Ferns" data-collection="Botany" data-group="Ferns">Ferns collections</option>
+					    <option class="group" id="British and Irish Herbarium" value="British and Irish Herbarium" data-collection="Botany" data-group="British and Irish Herbarium">British and Irish Herbarium collections</option>
+					    <option class="group" id="Historical collections" value="Historical collections" data-collection="Botany" data-group="Historical collections">Historical collections</option>
 					
 					    <%-- Collection: Entomology --%>
 					    <option class="collection" id="Entomology" value="Entomology">Entomology collections</option>
-					    <option class="group" id="Hymenoptera" value="Hymenoptera" data-collection="Entomology" data-group="Hymenoptera">&nbsp;&nbsp;&nbsp;&nbsp;Hymenoptera collections</option>
-					    <option class="group" id="Coleoptera" value="Coleoptera" data-collection="Entomology" data-group="Coleoptera">&nbsp;&nbsp;&nbsp;&nbsp;Coleoptera collections</option>
-					    <option class="group" id="Lepidoptera" value="Lepidoptera" data-collection="Entomology" data-group="Lepidoptera">&nbsp;&nbsp;&nbsp;&nbsp;Lepidoptera collections</option>
-					    <option class="group" id="Siphonaptera" value="Siphonaptera" data-collection="Entomology" data-group="Siphonaptera">&nbsp;&nbsp;&nbsp;&nbsp;Siphonaptera collections</option>
-					    <option class="group" id="Diptera" value="Diptera" data-collection="Entomology" data-group="Diptera">&nbsp;&nbsp;&nbsp;&nbsp;Diptera collections</option>
-					    <option class="group" id="Hemiptera" value="Hemiptera" data-collection="Entomology" data-group="Hemiptera">&nbsp;&nbsp;&nbsp;&nbsp;Hemiptera collections</option>
-					    <option class="group" id="Phthiraptera, Thysanoptera, and Psocoptera" value="Phthiraptera, Thysanoptera, and Psocoptera" data-collection="Entomology" data-group="Phthiraptera, Thysanoptera, and Psocoptera">&nbsp;&nbsp;&nbsp;&nbsp;Phthiraptera, Thysanoptera, and Psocoptera collections</option>
-					    <option class="group" id="Odonata, Neuroptera and associated collections" value="Odonata, Neuroptera and associated collections" data-collection="Entomology" data-group="Odonata, Neuroptera and associated collections">&nbsp;&nbsp;&nbsp;&nbsp;Odonata, Neuroptera and associated collections</option>
-					    <option class="group" id="Apterygota" value="Apterygota" data-collection="Entomology" data-group="Apterygota">&nbsp;&nbsp;&nbsp;&nbsp;Apterygota collections</option>
-					    <option class="group" id="Arachnida" value="Arachnida" data-collection="Entomology" data-group="Arachnida">&nbsp;&nbsp;&nbsp;&nbsp;Arachnida collections</option>
-					    <option class="group" id="Myriapoda" value="Myriapoda" data-collection="Entomology" data-group="Myriapoda">&nbsp;&nbsp;&nbsp;&nbsp;Myriapoda collections</option>
-					    <option class="group" id="Onychophora" value="Onychophora" data-collection="Entomology" data-group="Onychophora">&nbsp;&nbsp;&nbsp;&nbsp;Onychophora collections</option>
-					    <option class="group" id="Tardigrada" value="Tardigrada" data-collection="Entomology" data-group="Tardigrada">&nbsp;&nbsp;&nbsp;&nbsp;Tardigrada collections</option>
-					    <option class="group" id="Historical collections" value="Historical collections" data-collection="Entomology" data-group="Historical collections">&nbsp;&nbsp;&nbsp;&nbsp;Historical collections</option>
+					    <option class="group" id="Hymenoptera" value="Hymenoptera" data-collection="Entomology" data-group="Hymenoptera">Hymenoptera collections</option>
+					    <option class="group" id="Coleoptera" value="Coleoptera" data-collection="Entomology" data-group="Coleoptera">Coleoptera collections</option>
+					    <option class="group" id="Lepidoptera" value="Lepidoptera" data-collection="Entomology" data-group="Lepidoptera">Lepidoptera collections</option>
+					    <option class="group" id="Siphonaptera" value="Siphonaptera" data-collection="Entomology" data-group="Siphonaptera">Siphonaptera collections</option>
+					    <option class="group" id="Diptera" value="Diptera" data-collection="Entomology" data-group="Diptera">Diptera collections</option>
+					    <option class="group" id="Hemiptera" value="Hemiptera" data-collection="Entomology" data-group="Hemiptera">Hemiptera collections</option>
+					    <option class="group" id="Phthiraptera, Thysanoptera, and Psocoptera" value="Phthiraptera, Thysanoptera, and Psocoptera" data-collection="Entomology" data-group="Phthiraptera, Thysanoptera, and Psocoptera">Phthiraptera, Thysanoptera, and Psocoptera collections</option>
+					    <option class="group" id="Odonata, Neuroptera and associated collections" value="Odonata, Neuroptera and associated collections" data-collection="Entomology" data-group="Odonata, Neuroptera and associated collections">Odonata, Neuroptera and associated collections</option>
+					    <option class="group" id="Apterygota" value="Apterygota" data-collection="Entomology" data-group="Apterygota">Apterygota collections</option>
+					    <option class="group" id="Arachnida" value="Arachnida" data-collection="Entomology" data-group="Arachnida">Arachnida collections</option>
+					    <option class="group" id="Myriapoda" value="Myriapoda" data-collection="Entomology" data-group="Myriapoda">Myriapoda collections</option>
+					    <option class="group" id="Onychophora" value="Onychophora" data-collection="Entomology" data-group="Onychophora">Onychophora collections</option>
+					    <option class="group" id="Tardigrada" value="Tardigrada" data-collection="Entomology" data-group="Tardigrada">Tardigrada collections</option>
+					    <option class="group" id="Historical collections" value="Historical collections" data-collection="Entomology" data-group="Historical collections">Historical collections</option>
 					
 					    <%-- Collection: Zoology --%>
 					    <option class="collection" id="Zoology" value="Zoology">Zoology collections</option>
-					    <option class="group" id="Invertebrate" value="Invertebrate" data-collection="Zoology" data-group="Invertebrate">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrate collections</option>
-					    <option class="group" id="Vertebrate" value="Vertebrate" data-collection="Zoology" data-group="Vertebrate">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrate collections</option>
-					    <option class="group" id="Bird" value="Bird" data-collection="Zoology" data-group="Bird">&nbsp;&nbsp;&nbsp;&nbsp;Bird collections</option>
-					    <option class="group" id="Fish" value="Fish" data-collection="Zoology" data-group="Fish">&nbsp;&nbsp;&nbsp;&nbsp;Fish collections</option>
-					    <option class="group" id="Amphbians" value="Amphbians" data-collection="Zoology" data-group="Amphbians">&nbsp;&nbsp;&nbsp;&nbsp;Amphbians collections</option>
-					    <option class="group" id="Reptiles" value="Reptiles" data-collection="Zoology" data-group="Reptiles">&nbsp;&nbsp;&nbsp;&nbsp;Reptiles collections</option>
-					    <option class="group" id="Mammals" value="Mammals" data-collection="Zoology" data-group="Mammals">&nbsp;&nbsp;&nbsp;&nbsp;Mammals collections</option>
+					    <option class="group" id="Invertebrate" value="Invertebrate" data-collection="Zoology" data-group="Invertebrate">Invertebrate collections</option>
+					    <option class="group" id="Vertebrate" value="Vertebrate" data-collection="Zoology" data-group="Vertebrate">Vertebrate collections</option>
+					    <option class="group" id="Bird" value="Bird" data-collection="Zoology" data-group="Bird">Bird collections</option>
+					    <option class="group" id="Fish" value="Fish" data-collection="Zoology" data-group="Fish">Fish collections</option>
+					    <option class="group" id="Amphbians" value="Amphbians" data-collection="Zoology" data-group="Amphbians">Amphbians collections</option>
+					    <option class="group" id="Reptiles" value="Reptiles" data-collection="Zoology" data-group="Reptiles">Reptiles collections</option>
+					    <option class="group" id="Mammals" value="Mammals" data-collection="Zoology" data-group="Mammals">Mammals collections</option>
 					
 					    <%-- Collection: Palaeontology --%>
 					    <option class="collection" id="Palaeontology" value="Palaeontology">Palaeontology collections</option>
-					    <option class="group" id="Anthropology" value="Anthropology" data-collection="Palaeontology" data-group="Anthropology">&nbsp;&nbsp;&nbsp;&nbsp;Anthropology collections</option>
-					    <option class="group" id="Micropalaeontology" value="Micropalaeontology" data-collection="Palaeontology" data-group="Micropalaeontology">&nbsp;&nbsp;&nbsp;&nbsp;Micropalaeontology collections</option>
-					    <option class="group" id="Fossil invertebrate" value="Fossil invertebrate" data-collection="Palaeontology" data-group="Fossil invertebrate">&nbsp;&nbsp;&nbsp;&nbsp;Fossil invertebrate collections</option>
-					    <option class="group" id="Fossil vertebrate" value="Fossil vertebrate" data-collection="Palaeontology" data-group="Fossil vertebrate">&nbsp;&nbsp;&nbsp;&nbsp;Fossil vertebrate collections</option>
-					    <option class="group" id="Palaeobotany" value="Palaeobotany" data-collection="Palaeontology" data-group="Palaeobotany">&nbsp;&nbsp;&nbsp;&nbsp;Palaeobotany collections</option>
+					    <option class="group" id="Anthropology" value="Anthropology" data-collection="Palaeontology" data-group="Anthropology">Anthropology collections</option>
+					    <option class="group" id="Micropalaeontology" value="Micropalaeontology" data-collection="Palaeontology" data-group="Micropalaeontology">Micropalaeontology collections</option>
+					    <option class="group" id="Fossil invertebrate" value="Fossil invertebrate" data-collection="Palaeontology" data-group="Fossil invertebrate">Fossil invertebrate collections</option>
+					    <option class="group" id="Fossil vertebrate" value="Fossil vertebrate" data-collection="Palaeontology" data-group="Fossil vertebrate">Fossil vertebrate collections</option>
+					    <option class="group" id="Palaeobotany" value="Palaeobotany" data-collection="Palaeontology" data-group="Palaeobotany">Palaeobotany collections</option>
 					
 					    <%-- Collection: Mineralogy --%>
 					    <option class="collection" id="Mineralogy" value="Mineralogy">Mineralogy collections</option>
-					    <option class="group" id="Meteorite" value="Meteorite" data-collection="Mineralogy" data-group="Meteorite">&nbsp;&nbsp;&nbsp;&nbsp;Meteorite collections</option>
-					    <option class="group" id="Mineral" value="Mineral" data-collection="Mineralogy" data-group="Mineral">&nbsp;&nbsp;&nbsp;&nbsp;Mineral collections</option>
-					    <option class="group" id="Gemstone" value="Gemstone" data-collection="Mineralogy" data-group="Gemstone">&nbsp;&nbsp;&nbsp;&nbsp;Gemstone collections</option>
-					    <option class="group" id="Ocean bottom deposit"  value="Ocean bottom deposit" data-collection="Mineralogy" data-group="Ocean bottom deposit">&nbsp;&nbsp;&nbsp;&nbsp;Ocean bottom deposit collections</option>
-					    <option class="group" id="Ores" value="Ores" data-collection="Mineralogy" data-group="Ores">&nbsp;&nbsp;&nbsp;&nbsp;Ores collections</option>
-					    <option class="group" id="Petrology" value="Petrology" data-collection="Mineralogy" data-group="Petrology">&nbsp;&nbsp;&nbsp;&nbsp;Petrology collections</option>
+					    <option class="group" id="Meteorite" value="Meteorite" data-collection="Mineralogy" data-group="Meteorite">Meteorite collections</option>
+					    <option class="group" id="Mineral" value="Mineral" data-collection="Mineralogy" data-group="Mineral">Mineral collections</option>
+					    <option class="group" id="Gemstone" value="Gemstone" data-collection="Mineralogy" data-group="Gemstone">Gemstone collections</option>
+					    <option class="group" id="Ocean bottom deposit"  value="Ocean bottom deposit" data-collection="Mineralogy" data-group="Ocean bottom deposit">Ocean bottom deposit collections</option>
+					    <option class="group" id="Ores" value="Ores" data-collection="Mineralogy" data-group="Ores">Ores collections</option>
+					    <option class="group" id="Petrology" value="Petrology" data-collection="Mineralogy" data-group="Petrology">Petrology collections</option>
 					
 					    <%-- Collection: British --%>
 					    <option class="collection" id="British" value="British">British collections</option>
