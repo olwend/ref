@@ -13769,18 +13769,6 @@ h6 {
   }
 }
 
-.main-footer .footer-utility input[type="submit"] {
-  border: 2px solid #fff;
-  margin: 0.4em 0 0;
-  padding: 0.9em 0.3em 1em 1em;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="submit"] {
-    border-width: 1px;
-    padding: 0.7em 0.3em 0.7em 1em;
-  }
-}
-
 .event-slider-wrapper h4 {
   padding: 0.5em;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
@@ -14868,14 +14856,27 @@ a.button-cta {
   font-size: 2em;
 }
 
-label {
+.main-footer label {
   color: #ffffff;
 }
-
-fieldset legend {
+.main-footer fieldset legend {
   background: none;
   font-weight: normal;
   padding: 0;
+}
+.main-footer .footer-utility input {
+  height: auto !important;
+}
+.main-footer .footer-utility input[type="submit"] {
+  border: 2px solid #fff;
+  margin: 0.4em 0 0;
+  padding: 0.9em 0.3em 1em 1em;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-utility input[type="submit"] {
+    border-width: 1px;
+    padding: 0.7em 0.3em 0.7em 1em;
+  }
 }
 
 .directory-search-results--sort-results-up::after {
