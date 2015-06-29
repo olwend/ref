@@ -13769,18 +13769,6 @@ h6 {
   }
 }
 
-.main-footer .footer-utility input[type="submit"] {
-  border: 2px solid #fff;
-  margin: 0.4em 0 0;
-  padding: 0.9em 0.3em 1em 1em;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="submit"] {
-    border-width: 1px;
-    padding: 0.7em 0.3em 0.7em 1em;
-  }
-}
-
 .event-slider-wrapper h4 {
   padding: 0.5em;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
@@ -14868,14 +14856,27 @@ a.button-cta {
   font-size: 2em;
 }
 
-label {
+.main-footer label {
   color: #ffffff;
 }
-
-fieldset legend {
+.main-footer fieldset legend {
   background: none;
   font-weight: normal;
   padding: 0;
+}
+.main-footer .footer-utility input {
+  height: auto !important;
+}
+.main-footer .footer-utility input[type="submit"] {
+  border: 2px solid #fff;
+  margin: 0.4em 0 0;
+  padding: 0.9em 0.3em 1em 1em;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-utility input[type="submit"] {
+    border-width: 1px;
+    padding: 0.7em 0.3em 0.7em 1em;
+  }
 }
 
 .directory-search-results--sort-results-up::after {
@@ -14997,6 +14998,15 @@ fieldset legend {
   }
 }
 
+.more-results-text__directory-search-results {
+  font-size: 1.3em;
+}
+@media screen and (min-width: 768px) {
+  .more-results-text__directory-search-results {
+    font-size: 1.4em;
+  }
+}
+
 .pr-10 {
   padding-right: 0.65em;
 }
@@ -15022,10 +15032,6 @@ fieldset legend {
 .directory-search select {
   background-image: url(/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
   padding-left: 1em;
-}
-
-.directory-search--dropdown--sub-category {
-  padding-left: 1.3em;
 }
 
 .directory-search--label {
@@ -15059,18 +15065,21 @@ fieldset legend {
 
 .directory-search-button--container {
   position: relative;
-  border: 5px solid #ffffff;
+  border: 4px solid #ffffff;
   padding: 1.5em 1em;
-  margin-top: 2.2em;
+  margin-top: 1em;
   margin-bottom: 1.2em;
 }
 @media screen and (min-width: 768px) {
   .directory-search-button--container {
-    margin-top: 2.4em;
+    padding-top: 1.95em;
+    margin-top: 2.25em;
   }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .directory-search-button--container {
+    padding-top: 1.5em;
+    margin-top: 2.6em;
     margin-bottom: 0;
   }
 }
