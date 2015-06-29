@@ -14248,6 +14248,7 @@ fieldset legend {
 
 .directory-search-results--table {
   color: #000000;
+  margin-bottom: 2em;
 }
 .directory-search-results--table .row {
   margin-bottom: 0;
