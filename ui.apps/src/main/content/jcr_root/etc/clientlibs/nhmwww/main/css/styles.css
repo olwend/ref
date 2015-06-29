@@ -11601,6 +11601,7 @@ a.button-cta {
 .hti-box--text-wrapper ul li {
   list-style-type: disc;
   list-style-position: outside;
+  font-size: 1.125em;
 }
 
 /** this replaces info-tout__action **/
