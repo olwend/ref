@@ -14998,6 +14998,15 @@ a.button-cta {
   }
 }
 
+.more-results-text__directory-search-results {
+  font-size: 1.3em;
+}
+@media screen and (min-width: 768px) {
+  .more-results-text__directory-search-results {
+    font-size: 1.4em;
+  }
+}
+
 .pr-10 {
   padding-right: 0.65em;
 }

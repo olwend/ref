@@ -264,7 +264,7 @@
 
 	<div class="row more-results">
 		<a href="#" id="show-more">
-			<h5 class="more-results-text">Show more</h5>
+			<h5 class="more-results-text more-results-text__directory-search-results">Show more</h5>
 		</a>	
 	</div>
 </div>
