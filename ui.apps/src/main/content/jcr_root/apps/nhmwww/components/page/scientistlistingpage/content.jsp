@@ -212,14 +212,10 @@
 						group="${fn:escapeXml(profile.collectionGroup)}"
 						style="display:none;">
 							<div class="small-4 medium-2 large-2 columns directory-search-results--row-content js--profile-content">
-								<%
-		final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
-		WCMMode.PREVIEW.toRequest(slingRequest);
-%>
-							<cq:include path="${profile.imagePath}" resourceType="nhmwww/components/functional/foundation5image" />
-<%
-		beforeMode.toRequest(slingRequest);
-%>
+								<% final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
+									WCMMode.PREVIEW.toRequest(slingRequest);%>
+								<cq:include path="${profile.imagePath}" resourceType="nhmwww/components/functional/foundation5image" />
+									<% beforeMode.toRequest(slingRequest); %>
 							</div>
 							<div class="small-8 medium-10 large-10 columns">
 								<div class="small-12 medium-2 columns directory-search-results--row-content js--profile-content">

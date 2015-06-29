@@ -80,11 +80,8 @@ $(document).ready(function() {
 	// #################
 	
 	$("#name").on("click", function(){
-		nameSorted = sortTable(0, nameSorted);
+		nameSorted = sortTable(1, nameSorted);
 		var $this = $(this);			
-//		In case we end up adding &and; &or; we can do something like:
-//		var aux = $(this).text() + '&and;/&or;';
-//		$(this).text(aux);
 		if ( $(this).hasClass('sort-results-down') ){
 			$(this).css('background-color', 'red');  
 			$(this).removeClass('sort-results-down');
@@ -97,7 +94,7 @@ $(document).ready(function() {
 	});
 
 	$("#job").on("click", function(){
-		jobSorted = sortTable(1, jobSorted);
+		jobSorted = sortTable(2, jobSorted);
 		var $this = $(this);			
 		if ( $(this).hasClass('sort-results-down') ){
 			$(this).css('background-color', 'red');  
@@ -111,7 +108,7 @@ $(document).ready(function() {
 	});
 
 	$("#departAndDiv").on("click", function(){
-		departmentSorted = sortTable(2, departmentSorted);
+		departmentSorted = sortTable(3, departmentSorted);
 		var $this = $(this);			
 		if ( $(this).hasClass('sort-results-down') ){
 			$(this).css('background-color', 'red');  
@@ -125,7 +122,7 @@ $(document).ready(function() {
 	});
 
 	$("#specialisms").on("click", function(){
-		specialismsSorted = sortTable(3, specialismsSorted);
+		specialismsSorted = sortTable(4, specialismsSorted);
 		var $this = $(this);			
 		if ( $(this).hasClass('sort-results-down') ){
 			$(this).css('background-color', 'red');  
@@ -169,7 +166,7 @@ $(document).ready(function() {
 		searchFunc(globalMaxResult);
 	});
 	
-	nameSorted = sortTable(0, nameSorted);
+	nameSorted = sortTable(1, nameSorted);
 	
 	saveSearchTerms();
 	searchFunc(globalMaxResult);
@@ -524,23 +521,13 @@ function sortTable(column, isSorted) {
 	
 	if (!isSorted) {
 		sort_by_name = function(a, b) {
-			if (column == 0) {
-				return $(a).children().children().eq(column).children('.js--profile-content').text().toLowerCase().localeCompare(
-						$(b).children().children().eq(column).children('.js--profile-content').text().toLowerCase());
-			} else {
-				return $(a).children().children().eq(column).text().toLowerCase().localeCompare(
-					$(b).children().children().eq(column).text().toLowerCase());
-			}
+			return $(a).children().children().children().eq(column).text().toLowerCase().localeCompare(
+				$(b).children().children().children().eq(column).text().toLowerCase());
 		}
 	} else {
 		sort_by_name = function(a, b) {
-			if (column == 0) {
-				return $(b).children().children().eq(column).children('.js--profile-content').text().toLowerCase().localeCompare(
-						$(a).children().children().eq(column).children('.js--profile-content').text().toLowerCase());
-			} else {
-				return $(b).children().children().eq(column).text().toLowerCase().localeCompare(
-					$(a).children().children().eq(column).text().toLowerCase());
-			}
+			return $(b).children().children().children().eq(column).text().toLowerCase().localeCompare(
+				$(a).children().children().children().eq(column).text().toLowerCase());
 		}
 	}
 
