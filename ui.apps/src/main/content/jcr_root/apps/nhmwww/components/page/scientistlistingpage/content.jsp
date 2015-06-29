@@ -23,7 +23,7 @@
 	<div class="row directory-search directory-search__science-profiles">
 		<ul class="small-block-grid-1 medium-block-grid-3 directory-search--fields-block-grid">
 			<li>
-				<legend class="directory-search--label">By name, keywords and specialisms</legend>
+				<legend class="directory-search--label">Search by name</legend>
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="search-second-name">
 						<input type="text" id="surnameInput" name="Surname" placeholder='Surname' />
@@ -37,11 +37,11 @@
 			</li>
 			<li>
 				<div class="small-12 medium-12 large-12 columns">
-					<legend class="directory-search--label">Filter by</legend>
+					<legend class="directory-search--label">Search by keywords or department</legend>
 				</div>
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="search-keywords">
-						<input type="text" id="keywordsInput" name="Keywords" placeholder='Specialisms' />
+						<input type="text" id="keywordsInput" name="Keywords" placeholder='Your keywords and specialisms' />
 					</div>
 				</div>
 				<div class="small-12 medium-12 large-12 columns">
