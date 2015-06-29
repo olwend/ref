@@ -352,6 +352,10 @@ function searchFunc(maxResults) {
 	nodes = nodes.filter(":lt(" + maxResults + ")");
 	
 	nodes.css("display", "");
+//	nodes.parent().addClass("##########FML##########");
+//	nodes.parent().addClass("row directory-search-results--row");
+//	nodes.className = "row directory-search-results--row";
+	
 	
 	tableColors();
 }
@@ -498,12 +502,9 @@ function populateAutoKeywords() {
 
 function tableColors() {
 	var childDiv = $("#peopleList").children();
-
-	var position = 0;
 	for ( var x = 0; x < childDiv.length; x++) {
 		if ($(childDiv[x]).height() > 0) {
 			childDiv[x].className = "row directory-search-results--row";
-			position++;
 		}
 	}
 }
