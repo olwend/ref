@@ -67,7 +67,7 @@ public class Committee extends ProfessionalActivity {
 		}
 		
 		// startYear - endYear. || startYear - on going.
-		if (this.dayed != null && this.monthed != null && this.yeared != null){
+		if (this.yeared != null){
 			stringBuffer.append(this.yearsd);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.yeared);
