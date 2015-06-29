@@ -694,13 +694,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     private String resolveProfessionalActivityType (final int number) {
         switch (number) {
         	case 31 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES;
-        	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION;
-        	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
-        	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT;
         	case 56 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP;
-	        case 60 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP;
-	        case 73 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP;
-	        case 76 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION;
+        	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
+        	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION;
+        	case 60 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP;
+        	case 76 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION;
+        	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT;
+        	case 37 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP;
 	        default: return "Professional Activity";
         }
     }
@@ -859,7 +859,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
 	                        	}
 	                        	break;  
-                        	
                     }
                 }
             }

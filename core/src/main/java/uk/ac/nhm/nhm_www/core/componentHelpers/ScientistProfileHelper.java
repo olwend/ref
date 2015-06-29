@@ -39,6 +39,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Editorship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventAdministration;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
@@ -1013,12 +1014,10 @@ public class ScientistProfileHelper {
                             membershipInstitution = "";
                     }
                     final String membershipRole = childProperties.get(MEMBERSHIP_ROLE_ATTRIBUTE, String.class);
-                    result.add(new (url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+                    result.add(new Membership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
                     		membershipCity, membershipCountry, membershipInstitution, membershipRole));
                     break;  
 				}
-				
-
 			}
 		}
 		return result;
