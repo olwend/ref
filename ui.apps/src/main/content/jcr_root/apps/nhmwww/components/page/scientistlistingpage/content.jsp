@@ -219,15 +219,19 @@
 							</div>
 							<div class="small-8 medium-10 large-10 columns">
 								<div class="small-12 medium-2 columns directory-search-results--row-content js--profile-content">
-									<a href="${fn:escapeXml(profile.url)}" class="directory-search-results--row-content--name"> 
-										<c:out value="${profile.lastName}" /> 
-										<c:out value=", " /> 
-										<c:out value="${profile.firstName}" />
+									<a href="${fn:escapeXml(profile.url)}" class="directory-search-results--row-content--name"> <c:out
+										value="${profile.lastName}" /> <c:out value=", " /> <c:out
+										value="${profile.firstName}" />
 									</a>
 								</div>
 								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
-									<span class="directory-search-results--row-content--job-title">
-										<c:out value="${profile.job}" /></span>
+									<span class="directory-search-results--row-content--job-title"><c:out value="${profile.job}" /></span>
+									<%-- Debugging purpose --%>
+											<br/>Function:<c:out value="${profile.collection}"/>
+											<br/>FGroup:<c:out value="${profile.collectionGroup}"/>
+										<%-- 
+										--%>
+									<%-- Debugging purpose --%>
 								</div>
 								<div class="small-12 medium-4 large-4 columns directory-search-results--row-content js--profile-content">
 									<span class="directory-search-results--row-content--label show-for-small-only">Department:</span><c:out value="${profile.department}"/>
