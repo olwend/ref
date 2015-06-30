@@ -9,6 +9,9 @@ var departmentDivision = "";
 var $collectionGroupSelected;;
 var collectionsGroup = "";
 
+var loadDepartmentFromURL = false;
+var loadCollectionsFromURL = false;
+
 var ignoreURL = false;
 
 $.extend({
@@ -178,46 +181,39 @@ function saveSearchTerms() {
 		aux = $.getUrlVar('name');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			name = aux;
-			var $name = document.getElementById("firstNameInput");
-			$name.value = decodeURIComponent(name);
 		}
 		aux = $.getUrlVar('surname');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			surname = aux;
-			var $surname = document.getElementById("surnameInput");
-			$surname.value = decodeURIComponent(surname);
 		}
 		aux = $.getUrlVar('specialism');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			keywords = aux;
-			var $keywords = document.getElementById("keywordsInput");
-			$keywords.value = decodeURIComponent(keywords);
 		}
 		aux = $.getUrlVar('division');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadDepartmentFromURL = true;
 			departmentDivision = aux;
 		} else {
 			aux = $.getUrlVar('department');
 			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadDepartmentFromURL = true;
 				departmentDivision = aux;
-				var $division = document.getElementById("division");
-				$division.value = decodeURIComponent(departmentDivision);
-				$elementSelected = $("#division option:selected");
 			}
 		}
 //		aux = $.getUrlVar('collection');
 //		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+//			loadCollectionsFromURL = true;
 //			collectionsGroup = aux;
 //		} else {
 //			aux = $.getUrlVar('group');
 //			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+//				loadCollectionsFromURL = true;
 //				collectionsGroup = aux;
-//				var $collection = document.getElementById("collection");
-//				$collection.value = decodeURIComponent(collectionsGroup);
-//				$collectionGroupSelected = $("#collection option:selected");
 //			}
 //		}
 	}
+	
 	ignoreURL = true;
 }
 
@@ -226,7 +222,12 @@ function searchFunc(maxResults) {
 	var nodes = $("#peopleList").children().children();
 
 	nodes.css("display", "none");
-
+	
+	if(!ignoreURL) {		
+		var $name = document.getElementById("firstNameInput");
+		$name.value = decodeURIComponent(name);
+	}
+	
 	if (name.length != 0) {
 		var lowercase = name.toLowerCase();
 		nodes = nodes.filter(function(){
@@ -240,6 +241,11 @@ function searchFunc(maxResults) {
 			
 			return false;
 		});
+	}
+	
+	if(!ignoreURL) {		
+		var $surname = document.getElementById("surnameInput");
+		$surname.value = decodeURIComponent(surname);
 	}
 
 	if (surname.length != 0) {
@@ -255,6 +261,11 @@ function searchFunc(maxResults) {
 			
 			return false;
 		});
+	}
+	
+	if(!ignoreURL) {		
+		var $keywords = document.getElementById("keywordsInput");
+		$keywords.value = decodeURIComponent(keywords);
 	}
 	
 	if (keywords.length != 0) {
@@ -274,6 +285,12 @@ function searchFunc(maxResults) {
 	        return false;
 		});
 	}
+	
+	if(loadDepartmentFromURL && !ignoreURL) {		
+		var $division = document.getElementById("division");
+		$division.value = decodeURIComponent(departmentDivision);
+		$elementSelected = $("#division option:selected");
+	}
 
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
@@ -285,6 +302,12 @@ function searchFunc(maxResults) {
 			var division = $elementSelected.data("division");
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
+	}
+
+	if(loadCollectionsFromURL && !ignoreURL) {		
+		var $collection = document.getElementById("collection");
+		$collection.value = decodeURIComponent(collectionsGroup);
+		$collectionGroupSelected = $("#collection option:selected");
 	}
 	
 	if (collectionsGroup != "All") {
