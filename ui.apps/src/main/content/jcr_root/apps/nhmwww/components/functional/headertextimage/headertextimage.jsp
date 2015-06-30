@@ -41,7 +41,7 @@
 } %>
 
 <%	if(helper.isActivated()) {	%>	
-<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>">
+<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>" data-equalizer>
 	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
 			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>
