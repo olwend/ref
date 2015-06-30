@@ -11032,7 +11032,15 @@ a.button-cta {
 
 /**overrides headertextimage.scss **/
 .headertextimage .hti-wrapper .large-12 {
-  margin-bottom: 0;
+  margin-bottom: 1.2em;
+}
+
+.headertextimage .hti-wrapper .hti--image-wrapper {
+  margin: 0;
+}
+
+.headertextimage .hti-wrapper .hti-box--text-wrapper {
+  margin: 0;
 }
 
 .hti-box .ctabutton--inside-hti .svg-ico {
