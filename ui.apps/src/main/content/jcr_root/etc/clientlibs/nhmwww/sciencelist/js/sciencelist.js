@@ -198,7 +198,6 @@ function saveSearchTerms() {
 	
 //	if (collectionsGroup != 'All') {
 //		ignoreURL = true;
-//		console.log("Ignoring URL parameters cuz of collections");
 //	}
 	
 	if (!ignoreURL){
@@ -237,8 +236,6 @@ function saveSearchTerms() {
 //			}
 //		}
 	}
-	
-	console.log("commenting collections out");
 }
 
 function searchFunc(maxResults) {
