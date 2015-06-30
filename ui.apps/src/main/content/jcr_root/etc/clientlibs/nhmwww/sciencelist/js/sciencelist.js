@@ -160,6 +160,7 @@ $(document).ready(function() {
 	
 	nameSorted = sortTable(1, nameSorted);
 	
+	ignoreURL = false;
 	saveSearchTerms();
 	searchFunc(globalMaxResult);
 });
@@ -175,31 +176,6 @@ function saveSearchTerms() {
 	
 	$collectionGroupSelected = $("#collection option:selected");
 	collectionsGroup = $collectionGroupSelected.val();
-	
-	// #######################################
-	// #### Should URL Parameters be used ####
-	// #######################################
-	
-	if (typeof name !== undefined && name != null && name != '') {
-		ignoreURL = true;
-	}
-	
-	if (typeof surname !== undefined && surname != null && surname != '') {
-		ignoreURL = true;
-	}
-	
-	if (typeof keywords !== undefined && keywords != null && keywords != '') {
-		ignoreURL = true;
-	}
-	
-	if (departmentDivision != 'All') {
-		ignoreURL = true;
-	}
-	
-//	if (collectionsGroup != 'All') {
-//		ignoreURL = true;
-//		console.log("Ignoring URL parameters cuz of collections");
-//	}
 	
 	if (!ignoreURL){
 		aux = $.getUrlVar('name');
@@ -238,7 +214,7 @@ function saveSearchTerms() {
 //		}
 	}
 	
-	console.log("commenting collections out");
+	ignoreURL = true;
 }
 
 function searchFunc(maxResults) {
