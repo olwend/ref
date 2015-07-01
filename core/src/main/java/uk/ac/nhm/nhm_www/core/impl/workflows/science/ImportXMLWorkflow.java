@@ -685,6 +685,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 //                        	List<Address> ladd = field.getAddresses().getAddress().listIterator();
 //                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, );
                         	break;
+                        case "sdf":
+                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, field.getText());
+                        	break;                        	
                     }
                 }
             }
