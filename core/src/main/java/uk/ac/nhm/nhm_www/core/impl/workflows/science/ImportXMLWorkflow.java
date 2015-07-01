@@ -517,22 +517,22 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     
     private String resolvePublicationType (final int number) {
         switch (number) {
-	        case 2 : return "Book";
-	        case 3 : return "Chapter";
-	        case 4 : return "Conference Proceedings";
-	        case 5 : return "Journal Article";
-	        case 7 : return "Report";
-	        case 8 : return "Software";
-	        case 13: return "Exhibition";
-	        case 14: return "Other";
-	        case 15: return "Internet Publications";
-	        case 16: return "Scholarly Edition";
-	        case 17: return "Poster";
-	        case 18: return "Thesis/Dissertation";
-	        case 22: return "Dataset";
-	        case 78: return "Webpage";
-	        case 80: return "Website";
-	        case 81: return "Newspaper/Magazine Article";
+	        case 2 : return ScientistProfileHelper.PUBLICATION_TYPE_BOOK;
+	        case 3 : return ScientistProfileHelper.PUBLICATION_TYPE_CHAPTER;
+	        case 4 : return ScientistProfileHelper.PUBLICATION_TYPE_CONFERENCE_PROCEEDINGS;
+	        case 5 : return ScientistProfileHelper.PUBLICATION_TYPE_ARTICLE;
+	        case 7 : return ScientistProfileHelper.PUBLICATION_TYPE_REPORT;
+	        case 8 : return ScientistProfileHelper.PUBLICATION_TYPE_SOFTWARE;
+	        case 13: return ScientistProfileHelper.PUBLICATION_TYPE_EXHIBITION;
+	        case 14: return ScientistProfileHelper.PUBLICATION_TYPE_OTHER;
+	        case 15: return ScientistProfileHelper.PUBLICATION_TYPE_INTERNET_PUBLICATION;
+	        case 16: return ScientistProfileHelper.PUBLICATION_TYPE_SCHOLARLY_EDITION;
+	        case 17: return ScientistProfileHelper.PUBLICATION_TYPE_POSTER;
+	        case 18: return ScientistProfileHelper.PUBLICATION_TYPE_THESIS_OR_DISERTATION;
+	        case 22: return ScientistProfileHelper.PUBLICATION_TYPE_DATASET;
+	        case 78: return ScientistProfileHelper.PUBLICATION_TYPE_WEBPAGE;
+	        case 80: return ScientistProfileHelper.PUBLICATION_TYPE_WEBSITE;
+	        case 81: return ScientistProfileHelper.PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE;
 	        default: return "Publication";
         }
     }

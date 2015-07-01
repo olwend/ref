@@ -89,8 +89,10 @@ public class Report extends Publication{
 			stringBuffer.append(". ");
 			
 			// Publisher :_
-			stringBuffer.append(this.publisher);
-			stringBuffer.append(" : ");			
+			if (this.publisher != null){
+				stringBuffer.append(" : ");			
+				stringBuffer.append(this.publisher);
+			}
 			
 			// PublishPlace._
 			if (this.publishingPlace != null) {
