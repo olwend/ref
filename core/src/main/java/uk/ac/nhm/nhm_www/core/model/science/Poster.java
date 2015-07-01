@@ -59,9 +59,7 @@ public class Poster extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a + "
-								+ "Poster"
-							+ " #####");
+//		stringBuffer.append("####This is a Poster #####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

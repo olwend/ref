@@ -69,7 +69,7 @@ public class Exhibition extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is an Exhibition####");
+//		stringBuffer.append("####This is an Exhibition####");
 		
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");

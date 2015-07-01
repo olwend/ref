@@ -91,7 +91,7 @@ public class Other extends Publication{
 			
 			// LOG.error("After being replaced: " + authorsString);
 			
-			stringBuffer.append("####This is a Other Publication####");
+//			stringBuffer.append("####This is a Other Publication####");
 			
 			// Author NM, Author NM
 			stringBuffer.append(authorsString);

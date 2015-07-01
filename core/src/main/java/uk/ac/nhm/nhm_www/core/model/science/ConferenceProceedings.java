@@ -95,7 +95,7 @@ public class ConferenceProceedings extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a Conference Proceeding Publication####");
+//		stringBuffer.append("####This is a Conference Proceeding Publication####");
 
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

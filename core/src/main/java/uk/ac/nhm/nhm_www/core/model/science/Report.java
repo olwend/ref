@@ -74,7 +74,7 @@ public class Report extends Publication{
 			
 			//LOG.error("After being replaced: " + authorsString);
 			
-			stringBuffer.append("####This is a Report Publication####");
+//			stringBuffer.append("####This is a Report Publication####");
 			
 			// Author NM, Author NM
 			stringBuffer.append(authorsString);

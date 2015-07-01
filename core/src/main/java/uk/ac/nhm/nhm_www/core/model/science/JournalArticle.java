@@ -74,7 +74,7 @@ public class JournalArticle extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a Journal Article Publication####");
+//		stringBuffer.append("####This is a Journal Article Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

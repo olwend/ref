@@ -72,7 +72,7 @@ public class NewspaperMagazine extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a Newspaper|Magazine Publication####");
+//		stringBuffer.append("####This is a Newspaper|Magazine Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

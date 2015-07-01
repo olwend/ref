@@ -58,7 +58,7 @@ public class Software extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is a Software Publication####");
+//		stringBuffer.append("####This is a Software Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
