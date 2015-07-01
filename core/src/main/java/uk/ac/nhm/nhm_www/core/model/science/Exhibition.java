@@ -9,9 +9,28 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Exhibition extends Publication{
 	
+	private String location;
+	private String publisherURL;
+	private int startDay;
+	private int startMonth;
+	private int startYear;
+	private int endDay;
+	private int endMonth;
+	private int endYear;
+
 	public Exhibition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate){
+			final  String href,	final String reportingDate, String exhibitionLocation, String exhibitionPublisherURL, 
+			int startExhibitionDay, int startExhibitionMonth, int startExhibitionYear, int endExhibitionDay, int endExhibitionMonth, 
+			int endExhibitionYear){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
+		this.location = exhibitionLocation;
+		this.publisherURL = exhibitionPublisherURL;
+		this.startDay = startExhibitionDay;
+		this.startMonth = startExhibitionMonth;
+		this.startYear = startExhibitionYear;
+		this.endDay = endExhibitionDay;
+		this.endMonth = endExhibitionMonth;
+		this.endYear = endExhibitionYear;
 	}
 
 	@Override
@@ -51,7 +70,7 @@ public class Exhibition extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("####This is an Exhibition Publication####");
+		stringBuffer.append("####This is an Exhibition####");
 		
 		stringBuffer.append(authorsString);
 		stringBuffer.append(". ");
@@ -60,9 +79,44 @@ public class Exhibition extends Publication{
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		stringBuffer.append("<i>");
+		// Link Opening for PublisherURL
+		if (this.publisherURL != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.publisherURL);
+			stringBuffer.append("\">");
+		}
+		
+		// Title._
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append("</i>. ");
+		stringBuffer.append(". ");
+		
+		// Link Closing for PublisherURL
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
+		}
+		
+		// Venue._
+		stringBuffer.append(this.location);
+		stringBuffer.append(". ");
+		
+		// Start Date - Finish Date, Year._
+		if (this.startDay > 0 && this.startMonth > 0 && this.startYear > 0 && this.endDay > 0 && this.endMonth > 0 && this.endYear > 0 ){
+			stringBuffer.append(this.startDay);
+			
+			if ( this.startMonth != this.endMonth){
+				stringBuffer.append(this.startMonth);
+				if (this.startYear != this.endYear){
+					stringBuffer.append(" ");
+					stringBuffer.append(this.startMonth);
+				}
+			} 
+			stringBuffer.append(" - ");
+			stringBuffer.append(this.endDay);
+			stringBuffer.append(" ");
+			stringBuffer.append(this.startMonth);
+			stringBuffer.append(" ");
+			stringBuffer.append(this.startMonth);
+		}
 			
 		return stringBuffer.toString();
 	}

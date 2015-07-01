@@ -97,12 +97,12 @@ public class ScientistProfileHelper {
 	public static final String PUBLICATION_DATE_ATTRIBUTE 	= "publicationDate";
 	public static final String PUBLICATION_MONTH_ATTRIBUTE	= "publicationMonth";
 	public static final String PUBLICATION_DAY_ATTRIBUTE 	= "publicationDay";
-	public static final String START_CONFERENCE_YEAR_ATTRIBUTE 	= "startConferenceYear";
-	public static final String START_CONFERENCE_MONTH_ATTRIBUTE = "startConferenceMonth";
-	public static final String START_CONFERENCE_DAY_ATTRIBUTE	= "startConferenceDay";
-	public static final String END_CONFERENCE_YEAR_ATTRIBUTE 	= "endConferenceYear";
-	public static final String END_CONFERENCE_MONTH_ATTRIBUTE 	= "endConferenceMonth";
-	public static final String END_CONFERENCE_DAY_ATTRIBUTE		= "endConferenceDay";
+	public static final String START_YEAR_ATTRIBUTE 		= "startYear";
+	public static final String START_MONTH_ATTRIBUTE 		= "startMonth";
+	public static final String START_DAY_ATTRIBUTE			= "startDay";
+	public static final String END_YEAR_ATTRIBUTE 			= "endYear";
+	public static final String END_MONTH_ATTRIBUTE 			= "endMonth";
+	public static final String END_DAY_ATTRIBUTE			= "endDay";
 	
 	//Professional Activities
 	public static final String URL_ATTRIBUTE						= "url";
@@ -124,21 +124,22 @@ public class ScientistProfileHelper {
 	public static final String OFFICE_OTHER_HELD_TYPE_ATTRIBUTE		= "officeOtherHeldType";
 	public static final String INTERNAL_OR_EXTERNAL_ATTRIBUTE		= "internalOrExternalPosition";
 	
-	public static final String PUBLISHER_ATTRIBUTE 	   	  = "publisher";
-	public static final String TITLE_ATTRIBUTE 		   	  = "title";
-	public static final String TO_ATTRIBUTE 			  = "to";
-	public static final String TYPE_ATTRIBUTE 			  = "type";
-	public static final String REPORTING_DATE_ATTRIBUTE   = "reportingDate";
-	public static final String SPECIALISMS_ATTRIBUTE	  = "specialisms";
-	public static final String START_DATE_ATTRIBUTE 	  = "startDate";
-	public static final String START_PAGE_ATTRIBUTE 	  = "startPage";
-	public static final String STATEMENT_ATTRIBUTE		  = "statement";
-	public static final String SUBORGANISATION_ATTRIBUTE  = "subOrganisation";
-	public static final String VOLUME_ATTRIBUTE 		  = "volume";
-	public static final String CONFERENCE_NAME_ATTRIBUTE  = "conferenceName";
-	public static final String CONFIDENTIAL_ATTRIBUTE	  = "confidential";
-	public static final String THESIS_TYPE_ATTRIBUTE	  = "thesisType";
-	public static final String PUBLISHER_URL_ATTRIBUTE	  = "publisherURL";
+	public static final String PUBLISHER_ATTRIBUTE 	   	  	= "publisher";
+	public static final String TITLE_ATTRIBUTE 		   	  	= "title";
+	public static final String TO_ATTRIBUTE 			  	= "to";
+	public static final String TYPE_ATTRIBUTE 			  	= "type";
+	public static final String REPORTING_DATE_ATTRIBUTE   	= "reportingDate";
+	public static final String SPECIALISMS_ATTRIBUTE	  	= "specialisms";
+	public static final String START_DATE_ATTRIBUTE 	  	= "startDate";
+	public static final String START_PAGE_ATTRIBUTE 	  	= "startPage";
+	public static final String STATEMENT_ATTRIBUTE		  	= "statement";
+	public static final String SUBORGANISATION_ATTRIBUTE  	= "subOrganisation";
+	public static final String VOLUME_ATTRIBUTE 		  	= "volume";
+	public static final String CONFERENCE_NAME_ATTRIBUTE  	= "conferenceName";
+	public static final String CONFIDENTIAL_ATTRIBUTE	  	= "confidential";
+	public static final String THESIS_TYPE_ATTRIBUTE	  	= "thesisType";
+	public static final String PUBLISHER_URL_ATTRIBUTE	  	= "publisherURL";
+	public static final String PUBLISHER_LOCATION_ATTRIBUTE = "location";
 	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
@@ -215,6 +216,8 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP					= "Editorship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP					= "Fellowship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP					= "Membership";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXHIBITION					= "Exhibition";
+	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 	
@@ -605,12 +608,12 @@ public class ScientistProfileHelper {
 					final int conferenceVolume = childProperties.get(VOLUME_ATTRIBUTE, -1);
 					final int conferenceIssue = childProperties.get(ISSUE_ATTRIBUTE, -1);
 					final String conferencePublishedProceedings = childProperties.get(JOURNAL_NAME_ATTRIBUTE, String.class);
-					final int startConferenceYear = childProperties.get(START_CONFERENCE_YEAR_ATTRIBUTE, -1);
-					final int startConferenceMonth= childProperties.get(START_CONFERENCE_MONTH_ATTRIBUTE, -1);
-					final int startConferenceDay = childProperties.get(START_CONFERENCE_DAY_ATTRIBUTE, -1);
-					final int endConferenceYear = childProperties.get(START_CONFERENCE_YEAR_ATTRIBUTE, -1);
-					final int endConferenceMonth= childProperties.get(START_CONFERENCE_MONTH_ATTRIBUTE, -1);
-					final int endConferenceDay = childProperties.get(START_CONFERENCE_DAY_ATTRIBUTE, -1);
+					final int startConferenceYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
+					final int startConferenceMonth= childProperties.get(START_MONTH_ATTRIBUTE, -1);
+					final int startConferenceDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
+					final int endConferenceYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
+					final int endConferenceMonth= childProperties.get(START_MONTH_ATTRIBUTE, -1);
+					final int endConferenceDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
 					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, reportingDate, conferenceName, conferencePublisherURL,
 							conferenceEditorsSet, conferencePublisher, conferencePublishingPlace, conferenceBeginPage, conferenceEndPage, conferencePage,
 							conferenceDoiText, conferenceDoiLink, conferenceVolume, conferenceIssue, conferencePublishedProceedings, startConferenceYear, 
@@ -622,10 +625,6 @@ public class ScientistProfileHelper {
 					final String datasetDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String datasetDoiURL = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
 					result.add(new Dataset(title, authorsList, favorite, publicationYear, link, reportingDate, datasetDoiText, datasetDoiURL, datasetPublisherURL));
-					break;
-					
-				case PUBLICATION_TYPE_EXHIBITION:
-					result.add(new Exhibition(title, authorsList, favorite, publicationYear, link, reportingDate));
 					break;
 
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
@@ -760,6 +759,20 @@ public class ScientistProfileHelper {
 					final String websitePublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
 					result.add(new WebsitePublicationType(title, authorsList, favorite, publicationYear, link, reportingDate, 
 							websitePublisher, websitePublisherURL, websitePublishingPlace));
+					break;
+					
+				case PUBLICATION_TYPE_EXHIBITION:
+					final String exhibitionPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
+					final String exhibitionLocation = childProperties.get(PUBLISHER_LOCATION_ATTRIBUTE, String.class);
+					final int startExhibitionYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
+					final int startExhibitionMonth= childProperties.get(START_MONTH_ATTRIBUTE, -1);
+					final int startExhibitionDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
+					final int endExhibitionYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
+					final int endExhibitionMonth = childProperties.get(START_MONTH_ATTRIBUTE, -1);
+					final int endExhibitionDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
+					result.add(new Exhibition(title, authorsList, favorite, publicationYear, link, reportingDate, 
+							exhibitionLocation, exhibitionPublisherURL, startExhibitionDay, startExhibitionMonth, startExhibitionYear,
+							endExhibitionDay, endExhibitionMonth, endExhibitionYear));
 					break;
 					
 				default:
@@ -1030,7 +1043,10 @@ public class ScientistProfileHelper {
 					final String eventType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
 					setEvents.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							eventRole, eventType, eventCity, eventCountry, eventInstitution));
-					break;			
+					break;		
+					
+				default:
+					break;
 				}
 			}
 		}

@@ -178,27 +178,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-    private String resolvePublicationType (final int number) {
-        switch (number) {
-	        case 2 : return "Book";
-	        case 3 : return "Chapter";
-	        case 4 : return "Conference Proceedings";
-	        case 5 : return "Journal Article";
-	        case 7 : return "Report";
-	        case 8 : return "Software";
-	        case 14: return "Other";
-	        case 15: return "Internet Publications";
-	        case 17: return "Poster";
-	        case 18: return "Thesis/Dissertation";
-	        case 22: return "Dataset";
-	        case 78: return "Webpage";
-	        case 80: return "Website";
-	        case 81: return "Newspaper/Magazine Article";
-	        //case ??: return "Scholarly Edition";
-	        default: return "Publication";
-        }
-    }
-    
     private void deletePreviousInformation () throws PathNotFoundException, RepositoryException {
     	//Get the contentPath node in the JCR
         final Node rootNode = session.getNode(contentPath);
@@ -536,6 +515,28 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
+    private String resolvePublicationType (final int number) {
+        switch (number) {
+	        case 2 : return "Book";
+	        case 3 : return "Chapter";
+	        case 4 : return "Conference Proceedings";
+	        case 5 : return "Journal Article";
+	        case 7 : return "Report";
+	        case 8 : return "Software";
+	        case 13: return "Exhibition";
+	        case 14: return "Other";
+	        case 15: return "Internet Publications";
+	        case 16: return "Scholarly Edition";
+	        case 17: return "Poster";
+	        case 18: return "Thesis/Dissertation";
+	        case 22: return "Dataset";
+	        case 78: return "Webpage";
+	        case 80: return "Website";
+	        case 81: return "Newspaper/Magazine Article";
+	        default: return "Publication";
+        }
+    }
+    
     private void addPublication (final Node rootNode, final List<WebProfile.Publications.Contributed.Publication> publications) throws Exception {
         int i  = 0;
         
@@ -576,13 +577,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             final BigInteger finishMonth = field.getDate().getMonth();
                             final BigInteger finishDay = field.getDate().getDay();
                             if ( finishYear != null ){
-                            	pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_YEAR_ATTRIBUTE, finishYear.longValue());
+                            	pubNode.setProperty(ScientistProfileHelper.END_YEAR_ATTRIBUTE, finishYear.longValue());
                             }
                             if ( finishMonth != null ){
-                            	pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_MONTH_ATTRIBUTE, finishMonth.longValue());
+                            	pubNode.setProperty(ScientistProfileHelper.END_MONTH_ATTRIBUTE, finishMonth.longValue());
                             }
                             if ( finishDay != null ){
-                            	pubNode.setProperty(ScientistProfileHelper.END_CONFERENCE_DAY_ATTRIBUTE, finishDay.longValue());
+                            	pubNode.setProperty(ScientistProfileHelper.END_DAY_ATTRIBUTE, finishDay.longValue());
                             }
                             break;
                             
@@ -591,13 +592,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             final BigInteger startMonth = field.getDate().getMonth();
                             final BigInteger startDay = field.getDate().getDay();
                             if ( startYear != null ){
-                            	pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_YEAR_ATTRIBUTE, startYear.longValue());
+                            	pubNode.setProperty(ScientistProfileHelper.START_YEAR_ATTRIBUTE, startYear.longValue());
                             }
                             if ( startMonth != null ){
-                            	pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_MONTH_ATTRIBUTE, startMonth.longValue());
+                            	pubNode.setProperty(ScientistProfileHelper.START_MONTH_ATTRIBUTE, startMonth.longValue());
                             }
                             if ( startDay != null ){
-                            	pubNode.setProperty(ScientistProfileHelper.START_CONFERENCE_DAY_ATTRIBUTE, startDay.longValue());
+                            	pubNode.setProperty(ScientistProfileHelper.START_DAY_ATTRIBUTE, startDay.longValue());
                             }
                             break;
                             
@@ -679,15 +680,15 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "publisher-url":
                         	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, field.getText());
                         	break;
+                        case "location":
+                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_LOCATION_ATTRIBUTE, field.getText());
+                        	break;
                         case "addresses":
 //                        	final List<Line> lines = app.getEmployer().getLine();
 //                           for (final  Line line : lines) {
 //                        	List<Address> ladd = field.getAddresses().getAddress().listIterator();
 //                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, );
-                        	break;
-                        case "sdf":
-                        	pubNode.setProperty(ScientistProfileHelper.PUBLISHER_URL_ATTRIBUTE, field.getText());
-                        	break;                        	
+                        	break;                    	
                     }
                 }
             }
