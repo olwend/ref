@@ -1,104 +1,361 @@
+var name = "";
+var surname = "";
+var keywords = "";
+var autoKeywords = "";
+	
+var $elementSelected;
+var departmentDivision = "";
+
+var $collectionGroupSelected;;
+var collectionsGroup = "";
+
+var loadDepartmentFromURL = false;
+var loadCollectionsFromURL = false;
+
+var ignoreURL = false;
+
+$.extend({
+	getUrlVars : function() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	},
+	getUrlVar : function(name) {
+		return $.getUrlVars()[name];
+	}
+});
+
 
 $(document).ready(function() {
+	
+	var globalMaxResult = 8;
 	
 	var nameSorted 			= false,
 		jobSorted			= false,
 		departmentSorted	= false,
 		specialismsSorted	= false;
 	
-	var names = [];
+	var names = [],
+		firstnames = [],
+		surnames = [],
+		keywords = [],
+		autoKeywords = [];
 	
 	tableColors();
 	
 	names = populateOptions();
+	firstnames = populateFirstNames();
+	surnames = populateSurNames();
+	keywords = populateKeywords();
+	autoKeywords = populateAutoKeywords();
 	
-	//Needed to autocomplete the Name field
-	$("#nameInput" ).autocomplete({
-		source:names,
+	
+	// ######################
+	// #### Autocomplete #### 
+	// ######################
+	
+	$("#firstNameInput" ).autocomplete({
+		source:firstnames,
+		minLength: 3
+	});
+	
+	$("#surnameInput" ).autocomplete({
+		source:surnames,
+		minLength: 3
+	});
+	
+	$("#keywordsInput" ).autocomplete({
+		source:autoKeywords,
 		minLength: 3
 	});
 
-	$("#search").click(function() {
-		searchFunc();
+	// #################
+	// #### Sorting #### 
+	// #################
+	
+	$("#name").on("click", function(){
+		nameSorted = sortTable(1, nameSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
+		} else {
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
+		}
 	});
 
-	$("#name").click(function() {
-		nameSorted = sortTable(0, nameSorted);
+	$("#job").on("click", function(){
+		jobSorted = sortTable(2, jobSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
+		} else {
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
+		}
 	});
 
-	$("#job").click(function() {
-		jobSorted = sortTable(1, jobSorted);
+	$("#departAndDiv").on("click", function(){
+		departmentSorted = sortTable(3, departmentSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
+		} else {
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
+		}
 	});
 
-	$("#departAndDiv").click(function() {
-		departmentSorted = sortTable(2, departmentSorted);
-	});
-
-	$("#specialisms").click(function() {
-		specialismsSorted = sortTable(3, specialismsSorted);
+	$("#specialisms").on("click", function(){
+		specialismsSorted = sortTable(4, specialismsSorted);
+		var $this = $(this);			
+		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+			$(this).removeClass('directory-search-results--sort-results-down');
+			$(this).addClass('directory-search-results--sort-results-up');
+		} else {
+			$(this).removeClass('directory-search-results--sort-results-up');
+			$(this).addClass('directory-search-results--sort-results-down');
+		}
 	});
 	
-	nameSorted = sortTable(0, nameSorted);
+	// ###############################
+	// #### Search & More Results #### 
+	// ###############################
+	
+	$("collection").on("change", (function(e) {
+		globalMaxResult = 8;
+		saveSearchTerms();
+	}));
+	
+	$("division").on("change", (function(e) {
+		globalMaxResult = 8;
+		saveSearchTerms();
+	}));
+
+	$("#search").click(function() {
+		globalMaxResult = 8;
+		saveSearchTerms();
+		searchFunc(globalMaxResult)
+	});
+	
+	$("#show-more").bind('click', function(event) {
+		event.preventDefault();
+		globalMaxResult += 8;
+
+//		Update text depending on nOf results displayed for Debugging Purposes
+//		var $this = $(this);			
+//		$this.text('Show More (Showing ' + globalMaxResult + ')');
+		
+		searchFunc(globalMaxResult);
+	});
+	
+	nameSorted = sortTable(1, nameSorted);
+	
+	saveSearchTerms();
+	searchFunc(globalMaxResult);
 });
 
-function searchFunc() {
+function saveSearchTerms() {
 
-	var name = $("#nameInput").val().split(",");
+	name = $("#firstNameInput").val();
+	surname = $("#surnameInput").val();
+	keywords = $("#keywordsInput").val();
 	
-	var $elementSelected = $("#division option:selected");
-	var departmentDivision = $elementSelected.val();
+	$elementSelected = $("#division option:selected");
+	departmentDivision = $elementSelected.val();
+	
+	$collectionGroupSelected = $("#collection option:selected");
+	collectionsGroup = $collectionGroupSelected.val();
+	
+	// #######################################
+	// #### Should URL Parameters be used ####
+	// #######################################
+	
+	if (typeof name !== undefined && name != null && name != '') {
+		ignoreURL = true;
+	}
+	
+	if (typeof surname !== undefined && surname != null && surname != '') {
+		ignoreURL = true;
+	}
+	
+	if (typeof keywords !== undefined && keywords != null && keywords != '') {
+		ignoreURL = true;
+	}
+	
+	if (departmentDivision != 'All') {
+		ignoreURL = true;
+	}
+	
+//	if (collectionsGroup != 'All') {
+//		ignoreURL = true;
+//		console.log("Ignoring URL parameters cuz of collections");
+//	}
+	
+	if (!ignoreURL){
+		aux = $.getUrlVar('name');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			name = aux;
+		}
+		aux = $.getUrlVar('surname');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			surname = aux;
+		}
+		aux = $.getUrlVar('specialism');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			keywords = aux;
+		}
+		aux = $.getUrlVar('division');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadDepartmentFromURL = true;
+			departmentDivision = aux;
+		} else {
+			aux = $.getUrlVar('department');
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadDepartmentFromURL = true;
+				departmentDivision = aux;
+			}
+		}
+//		aux = $.getUrlVar('collection');
+//		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+//			loadCollectionsFromURL = true;
+//			collectionsGroup = aux;
+//		} else {
+//			aux = $.getUrlVar('group');
+//			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+//				loadCollectionsFromURL = true;
+//				collectionsGroup = aux;
+//			}
+//		}
+	}
+	
+	console.log("commenting collections out");
+}
+
+function searchFunc(maxResults) {
 
 	var nodes = $("#peopleList").children().children();
 
 	nodes.css("display", "none");
-
-	if (name[0].length != 0) {
+	
+	if(!ignoreURL) {		
+		var $name = document.getElementById("firstNameInput");
+		$name.value = decodeURIComponent(name);
+	}
+	
+	if (name.length != 0) {
+		var lowercase = name.toLowerCase();
 		nodes = nodes.filter(function(){
+			
+			//This is going to be similar to department
 			var $thisFirstName = $(this).attr("firstname").toLowerCase();
-			var $thisSecondName = $(this).attr("secondname").toLowerCase();
 			
-			if (name.length > 1) {
-				var firstName = $.trim(name[1].toLowerCase());
-			} else {
-				var firstName = "";
-			}
-			
-			var surname = $.trim(name[0].toLowerCase());
-			
-			if (firstName == "") {
-				if ($thisFirstName.match("^" + surname) || $thisFirstName.match(surname + "$")) {
-					return true;
-				}
-				
-				if ($thisSecondName.match("^" + surname) || $thisSecondName.match(surname + "$")) {
-					return true;
-				}
-				return false;
-			} 
-			
-			if ($thisSecondName.match(surname + "$") && $thisFirstName.match("^" + firstName)) {
+			if ($thisFirstName.match(lowercase)) {
 				return true;
 			}
 			
 			return false;
 		});
 	}
+	
+	if(!ignoreURL) {		
+		var $surname = document.getElementById("surnameInput");
+		$surname.value = decodeURIComponent(surname);
+	}
+
+	if (surname.length != 0) {
+		var lowercase = surname.toLowerCase();
+		nodes = nodes.filter(function(){
+			
+			//This is going to be similar to department
+			var $thisSurName = $(this).attr("secondname").toLowerCase();
+			
+			if ($thisSurName.match(lowercase)) {
+				return true;
+			}
+			
+			return false;
+		});
+	}
+	
+	if(!ignoreURL) {		
+		var $keywords = document.getElementById("keywordsInput");
+		$keywords.value = decodeURIComponent(keywords);
+	}
+	
+	if (keywords.length != 0) {
+	    var query = keywords.toLowerCase();
+	    var querywords = query.split(',');
+	    var results = new Array();
+	    var regex = '';
+	    for ( var i = 0; i < querywords.length; i++ ) {
+	        regex = new RegExp( '(?=.*\\b' + querywords[i].split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+	    }
+	    
+		nodes = nodes.filter(function(){
+			var $thisSpecialisms = $(this).attr("specialisms").toLowerCase();
+	        if ( regex.test( $thisSpecialisms ) ) {
+	            return true;
+	        }
+	        return false;
+		});
+	}
+	
+	if(loadDepartmentFromURL && !ignoreURL) {		
+		var $division = document.getElementById("division");
+		$division.value = decodeURIComponent(departmentDivision);
+		$elementSelected = $("#division option:selected");
+	}
 
 	if (departmentDivision != "All") {
 		if ($elementSelected.hasClass("department")) {
-			console.log("Department: " + $elementSelected.val());
 			nodes = nodes.filter("[department=" + '"' + $elementSelected.val() + '"' + "]");
 		}
 		
 		if ($elementSelected.hasClass("division")) {
 			var department = $elementSelected.data("department");
 			var division = $elementSelected.data("division");
-			console.log("Division: " + department + ", " + division);
 			nodes = nodes.filter("[division=" + '"' + division + '"' + "][department=" + '"' + department + '"' + "]");	
 		}
 	}
+
+	if(loadCollectionsFromURL && !ignoreURL) {		
+		var $collection = document.getElementById("collection");
+		$collection.value = decodeURIComponent(collectionsGroup);
+		$collectionGroupSelected = $("#collection option:selected");
+	}
+	
+	if (collectionsGroup != "All") {
+		if ($collectionGroupSelected.hasClass("collection")) {
+			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
+		}
+		
+		if ($collectionGroupSelected.hasClass("group")) {
+			var collection = $collectionGroupSelected.data("collection");
+			var group = $collectionGroupSelected.data("group");
+			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
+		}
+	}
+	
+	if (nodes.length < maxResults) {
+		$("#show-more").hide();
+	} else {
+		$("#show-more").show();
+	}
+	
+	nodes = nodes.filter(":lt(" + maxResults + ")");
 	
 	nodes.css("display", "");
+	nodes.addClass("directory-search--result");
 	
 	tableColors();
 }
@@ -124,8 +381,7 @@ function populateOptions() {
 		names.push(lastName + ", " + firstName);
 		
 		//Needed to not duplicate information
-		if (activities.indexOf(activity) == -1) 
-		{
+		if (activities.indexOf(activity) == -1) {
 			activities.push(activity);
 		}
 		
@@ -163,20 +419,96 @@ function populateOptions() {
 	return names;
 }
 
+function populateFirstNames() {
+	var names = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var firstName = nodes[i].getAttribute("firstname");
+		if ( $.inArray(firstName, names) < 0 ) {
+			names.push( firstName );	
+		}
+	}
+	
+	//Ascending sort of the arrays
+	names.sort();
+	return names;
+}
+
+function populateSurNames() {
+	var names = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var lastName = nodes[i].getAttribute("secondname");
+		if ( $.inArray(lastName, names) < 0 ) {
+			names.push( lastName );	
+		}
+	}
+	
+	//Ascending sort of the arrays
+	names.sort();
+	return names;
+}
+
+function populateKeywords() {
+	var keywords = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var specialisms = nodes[i].getAttribute("specialisms");
+		keywords.push(specialisms);
+	}
+	
+	//Ascending sort of the arrays
+	keywords.sort();
+	return keywords;
+}
+
+function populateAutoKeywords() {
+	var autokeywords = [];
+	
+	//Get the nodes
+	var nodes = $("#peopleList").children().children();
+	
+	//Populates the arrays with the information
+	for ( var i = 0; i < nodes.length; i++) {
+		var specialisms = nodes[i].getAttribute("specialisms").toLowerCase();
+		
+		var specialismsArray = specialisms.match(/\w+/g);
+		
+		if ( specialismsArray != null && specialismsArray.length > 0 ){
+			for ( var j = 0; j < specialismsArray.length; j++ ) {
+				if ( $.inArray(specialismsArray[j], autokeywords) < 0 ) {
+					autokeywords.push( specialismsArray[j] );	
+				}
+	        }
+		}
+	}
+	
+	//Ascending sort of the arrays
+	autokeywords.sort();
+	return autokeywords;
+}
+
 function tableColors() {
 	var childDiv = $("#peopleList").children();
-
-	var position = 0;
 	for ( var x = 0; x < childDiv.length; x++) {
-		if ($(childDiv[x]).height() > 0) {
-			if (position % 2 == 0) 
-			{
-				childDiv[x].className = "row profiles_row odd";
-			} else 
-			{
-				childDiv[x].className = "row profiles_row";
+		var personNodes = $(childDiv[x]).children();
+		for ( var i = 0; i < personNodes.length; i++) {
+			if ($(personNodes[i]).hasClass("directory-search--result")) {
+				$(personNodes[i]).removeClass("directory-search--result");
+				$(personNodes[i]).addClass("row directory-search-results--row");
 			}
-			position++;
 		}
 	}
 }
@@ -184,27 +516,15 @@ function tableColors() {
 function sortTable(column, isSorted) {
 	var sort_by_name;
 	
-	if (!isSorted)
-	{
+	if (!isSorted) {
 		sort_by_name = function(a, b) {
-			if (column == 0) {
-				return $(a).children().children().eq(column).children('.profile-content').text().toLowerCase().localeCompare(
-						$(b).children().children().eq(column).children('.profile-content').text().toLowerCase());
-			} else {
-				return $(a).children().children().eq(column).text().toLowerCase().localeCompare(
-					$(b).children().children().eq(column).text().toLowerCase());
-			}
+			return $(a).children().children().children().eq(column).text().toLowerCase().localeCompare(
+				$(b).children().children().children().eq(column).text().toLowerCase());
 		}
-	} else
-	{
+	} else {
 		sort_by_name = function(a, b) {
-			if (column == 0) {
-				return $(b).children().children().eq(column).children('.profile-content').text().toLowerCase().localeCompare(
-						$(a).children().children().eq(column).children('.profile-content').text().toLowerCase());
-			} else {
-				return $(b).children().children().eq(column).text().toLowerCase().localeCompare(
-					$(a).children().children().eq(column).text().toLowerCase());
-			}
+			return $(b).children().children().children().eq(column).text().toLowerCase().localeCompare(
+				$(a).children().children().children().eq(column).text().toLowerCase());
 		}
 	}
 
