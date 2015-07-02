@@ -35,7 +35,6 @@ public class Editorship extends ProfessionalActivity {
 				stringBuffer.append("\">");
 			}
 			stringBuffer.append(this.title);
-			stringBuffer.append(", ");
 			
 			if (this.url != null) {
 				stringBuffer.append("</a>");
