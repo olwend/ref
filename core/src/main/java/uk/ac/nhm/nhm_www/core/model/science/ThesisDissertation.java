@@ -40,8 +40,6 @@ public class ThesisDissertation extends Publication{
 		final List<String> authors = this.getAuthors();
 		String authorsString = StringUtils.EMPTY;
 		
-		LOG.error("Inside a Thesis Dissertation");
-		
 		// First we normalize the author's name e.g: 
 		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
 		String currentAuthor = normalizeName(author, false);

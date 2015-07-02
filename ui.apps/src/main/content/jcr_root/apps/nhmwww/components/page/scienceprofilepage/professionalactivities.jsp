@@ -63,8 +63,14 @@
 				<% } %>
 				
 		<h2>Events</h2>
-		<%-- Events / Conference Attendance --%>
-		<%-- Events / Workshop --%>
+			<%-- Events Participation --%><%
+			
+			Set<ProfessionalActivity> setParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
+			for (final ProfessionalActivity activity: setParticipations) { %>
+				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+			<% } %>
+			<%-- Events / Conference Attendance --%>
+			<%-- Events / Workshop --%>
 		<h3>Organisation</h3>
 		<%-- Events / Organisation --%><%
 			Set<ProfessionalActivity> setAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION);

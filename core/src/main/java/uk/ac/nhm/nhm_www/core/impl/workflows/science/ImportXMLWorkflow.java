@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
@@ -47,6 +48,7 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointme
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degree;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degrees;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Field;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Items;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Line;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Link;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.NonAcademicEmployment;
@@ -697,14 +699,15 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     
     private String resolveProfessionalActivityType (final int number) {
         switch (number) {
+	        case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION;
+	        case 60 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP;
         	case 31 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES;
+        	case 37 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP;
         	case 56 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP;
-        	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
-        	case 32 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION;
-        	case 60 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP;
         	case 76 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION;
         	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT;
-        	case 37 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP;
+        	case 36 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION;
+        	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
 	        default: return "Professional Activity";
         }
     }
@@ -813,6 +816,15 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	if ( administrativeRole != null ){
 	                        		paNode.setProperty(ScientistProfileHelper.ADMINISTRATIVE_ROLE_ATTRIBUTE, administrativeRole);
 	                        	}
+	                        	break;  
+	                        	
+                        case "c-event-role":                       	
+	                        	final List<String> rolesList = field.getItems().getItem();
+	                        	String[] participationRoles = new String[rolesList.size()];
+                        		for (int j = 0; j < rolesList.size(); j++){
+                        			participationRoles[j] = rolesList.get(j);
+                        		}
+                        		paNode.setProperty(ScientistProfileHelper.PARTICIPATION_ROLES_ATTRIBUTE, participationRoles);
 	                        	break;  
 	                    
                         case "c-event-type":

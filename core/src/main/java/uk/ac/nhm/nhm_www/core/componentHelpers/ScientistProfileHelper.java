@@ -40,6 +40,7 @@ import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Committee;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Editorship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventAdministration;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventParticipation;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
@@ -115,6 +116,7 @@ public class ScientistProfileHelper {
 	public static final String COMMITTEE_ROLE_ATTRIBUTE				= "committeeRole";
 	public static final String EDITORSHIP_ROLE_ATTRIBUTE			= "editorshipRole";
 	public static final String ADMINISTRATIVE_ROLE_ATTRIBUTE		= "administrativeRole";
+	public static final String PARTICIPATION_ROLES_ATTRIBUTE		= "participationRoles";
 	public static final String EVENT_TYPE_ATTRIBUTE					= "eventType";
 	public static final String C_TEXT_1_ATTRIBUTE					= "publicationTitle";
 	public static final String PUBLICATION_TYPE_ATTRIBUTE			= "publicationType";
@@ -212,6 +214,7 @@ public class ScientistProfileHelper {
 	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES					= "Commmittee";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION			= "Event Administration";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION			= "Event Participation";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION	= "External Positions";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP					= "Editorship";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP					= "Fellowship";
@@ -374,6 +377,7 @@ public class ScientistProfileHelper {
 	}
 	
 	public Map<String, Set<ProfessionalActivity>> getProfessionalActivities() {
+		LOG.error("###############################New batch of Testing");
 		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
 	}
 	
@@ -843,7 +847,10 @@ public class ScientistProfileHelper {
 		
 		Set<ProfessionalActivity> setCommittees = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setEditorships = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setEvents = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setEventsAdministration = new TreeSet<ProfessionalActivity>();
+		LOG.error("Creating the set eventsParticipation");
+		Set<ProfessionalActivity> setEventsParticipation = new TreeSet<ProfessionalActivity>();
+		LOG.error("Created the set eventsParticipation");
 		Set<ProfessionalActivity> setPositions = new TreeSet<ProfessionalActivity>(); // External then Internal
 		Set<ProfessionalActivity> setFellowships = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setReviewPublications = new TreeSet<ProfessionalActivity>();
@@ -1020,30 +1027,56 @@ public class ScientistProfileHelper {
 							grantCity, grantCountry, grantOrganisation));
 					break;
 					
-				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION:
-                	final String eventCity ;
+                case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION:
+                	LOG.error("In type eventsAdministration");
+			        final String eventOrganisationCity ;
+			        if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+			                eventOrganisationCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+			        } else {
+			                eventOrganisationCity = "";
+			        }
+			        final String eventOrganisationCountry ;
+			        if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+			                eventOrganisationCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+			        } else {
+			                eventOrganisationCountry = "";
+			        }
+			        final String eventOrganisationInstitution ;
+			        if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+			                eventOrganisationInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+			        } else {
+			                eventOrganisationInstitution = "";
+			        }
+                    final String eventOrganisationRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
+                    final String eventOrganisationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+                    setEventsAdministration.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+                                        eventOrganisationRole, eventOrganisationType, eventOrganisationCity, eventOrganisationCountry, eventOrganisationInstitution));
+                        break;  	
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION:
+                	final String eventParticipationCity ;
                 	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
-                		eventCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                		eventParticipationCity = childProperties.get(CITY_ATTRIBUTE, String.class);
                 	} else {
-                		eventCity = "";
+                		eventParticipationCity = "";
                 	}
-                	final String eventCountry ;
+                	final String eventParticipationCountry ;
                 	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
-                		eventCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                		eventParticipationCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
                 	} else {
-                		eventCountry = "";
+                		eventParticipationCountry = "";
                 	}
-                	final String eventInstitution ;
+                	final String eventParticipationInstitution ;
                 	if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
-                		eventInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                		eventParticipationInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
                 	} else {
-                		eventInstitution = "";
+                		eventParticipationInstitution = "";
                 	}
-					final String eventRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
-					final String eventType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
-					setEvents.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							eventRole, eventType, eventCity, eventCountry, eventInstitution));
-					break;		
+					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
+					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							eventParticipationRoles, eventParticipationType, eventParticipationCity, eventParticipationCountry, eventParticipationInstitution));
+					break;	
 					
 				default:
 					break;
@@ -1058,7 +1091,8 @@ public class ScientistProfileHelper {
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP, setEditorships);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION, setReviewPublications);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT, setReviewGrants);
-		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION, setEvents);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION, setEventsAdministration);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION, setEventsAdministration);
 		
 		return result;
 	}
