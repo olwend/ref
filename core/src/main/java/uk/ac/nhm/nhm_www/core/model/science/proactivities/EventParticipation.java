@@ -31,8 +31,6 @@ public class EventParticipation extends ProfessionalActivity {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		LOG.error("I'm there!!!!!!!<<<<<<<<<<<");
-		stringBuffer.append("####This is an EventParticipation####");
 		stringBuffer.append(" ");
 		
 		// ParticipationRole, ParticipationRole,_
@@ -86,16 +84,18 @@ public class EventParticipation extends ProfessionalActivity {
 		}
 		
 		// startYear - endYear. || startYear - on going.
-		if (this.yeared != null){
-			stringBuffer.append(this.yearsd);
-			stringBuffer.append(" - ");
-			stringBuffer.append(this.yeared);
-			stringBuffer.append(".");
-		} else {
-			stringBuffer.append(this.yearsd);
-			stringBuffer.append(" - ");
-			stringBuffer.append("on going");
-			stringBuffer.append(".");
+		if (this.yearsd != null){
+			if (this.yeared != null) {
+				stringBuffer.append(this.yearsd);
+				stringBuffer.append(" - ");
+				stringBuffer.append(this.yeared);
+				stringBuffer.append(".");
+			} else {
+				stringBuffer.append(this.yearsd);
+				stringBuffer.append(" - ");
+				stringBuffer.append("on going");
+				stringBuffer.append(".");
+			}
 		}
 		
 		return stringBuffer.toString();

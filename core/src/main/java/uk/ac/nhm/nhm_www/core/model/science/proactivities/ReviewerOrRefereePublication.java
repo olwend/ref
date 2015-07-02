@@ -20,7 +20,6 @@ public class ReviewerOrRefereePublication extends ProfessionalActivity {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		stringBuffer.append("####This is a RoRPublication####");
 		stringBuffer.append(" ");
 		 
 		// Publication,_
@@ -44,16 +43,18 @@ public class ReviewerOrRefereePublication extends ProfessionalActivity {
 		}
 		
 		// startYear - endYear. || startYear - on going.
-		if (this.yeared != null){
-			stringBuffer.append(this.yearsd);
-			stringBuffer.append(" - ");
-			stringBuffer.append(this.yeared);
-			stringBuffer.append(".");
-		} else {
-			stringBuffer.append(this.yearsd);
-			stringBuffer.append(" - ");
-			stringBuffer.append("on going");
-			stringBuffer.append(".");
+		if (this.yearsd != null){
+			if (this.yeared != null) {
+				stringBuffer.append(this.yearsd);
+				stringBuffer.append(" - ");
+				stringBuffer.append(this.yeared);
+				stringBuffer.append(".");
+			} else {
+				stringBuffer.append(this.yearsd);
+				stringBuffer.append(" - ");
+				stringBuffer.append("on going");
+				stringBuffer.append(".");
+			}
 		}
 		
 		return stringBuffer.toString();
