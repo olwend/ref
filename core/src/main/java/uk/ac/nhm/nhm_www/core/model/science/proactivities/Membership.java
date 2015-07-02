@@ -22,7 +22,7 @@ public class Membership extends ProfessionalActivity {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		stringBuffer.append("####This is an InternalOrExternalPosition####");
+		stringBuffer.append("####This is an Membership####");
 		stringBuffer.append(" ");
 		
 		// Role,_

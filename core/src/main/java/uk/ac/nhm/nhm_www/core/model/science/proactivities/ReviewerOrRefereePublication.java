@@ -22,7 +22,7 @@ public class ReviewerOrRefereePublication extends ProfessionalActivity {
 		
 		stringBuffer.append("####This is a RoRPublication####");
 		stringBuffer.append(" ");
-		
+		 
 		// Publication,_
 		if (this.publication != null){
 			stringBuffer.append(this.publication);
