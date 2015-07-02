@@ -53,7 +53,7 @@ public class Address {
 
     @XmlElementRef(name = "line", namespace = "http://www.symplectic.co.uk/publications/api", type = Line.class, required = false)
     @XmlMixed
-    protected List<java.lang.Object> content;
+    protected List<Line> content;
     @XmlAttribute(name = "iso-country-code")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -90,9 +90,9 @@ public class Address {
      * 
      * 
      */
-    public List<java.lang.Object> getContent() {
+    public List<Line> getContent() {
         if (content == null) {
-            content = new ArrayList<java.lang.Object>();
+            content = new ArrayList<Line>();
         }
         return this.content;
     }

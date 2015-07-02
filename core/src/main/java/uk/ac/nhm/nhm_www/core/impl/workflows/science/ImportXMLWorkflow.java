@@ -45,6 +45,7 @@ import org.slf4j.LoggerFactory;
 import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointment;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointments;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Address;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degree;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degrees;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Field;
@@ -765,30 +766,32 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	}
 	                        	break;
 //                        case "organisation":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
-//                            final ListIterator<Address> types = field.getAddresses().getAddress().listIterator();
-//                            while(types.hasNext()) {
-//                            	Address address = types.next();
-//                            	List<Object> lines = address.getContent();
-//                            	Iterator<Object> linesIt = lines.iterator();
-//                            	//ListIterator<Object> lines = address.getContent().listIterator();
-//                            	while (linesIt.hasNext()){
-//                            		Object tempObject = linesIt.next();
-//                            		LOG.error("instanceOF: " + tempObject.getClass());
-//                            		LOG.error("instanceOF content: " + tempObject);
-//                            		Line line = (Line) tempObject;
-//                            		switch (line.getType()) {
-//                            		case "organisation":
-//                            			paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, line.getContent());
-//                            			break;
-//                            		case "city":
-//                            			paNode.setProperty(ScientistProfileHelper.CITY_ATTRIBUTE, line.getContent());
-//                            			break;
-//                            		case "country":
-//                            			paNode.setProperty(ScientistProfileHelper.COUNTRY_ATTRIBUTE, line.getContent());
-//                            		}
-//                            	}
-//							}
-//                            break;
+//	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
+//	                            while(organisationTypes.hasNext()) {
+//	                            	Address address = organisationTypes.next();
+//	                            	List<Line> lines = address.getContent();
+//	                            	Iterator<Line> linesIt = lines.iterator();
+//	                            	while (linesIt.hasNext()){
+//	                            		Line line = (Line) linesIt.next();			//Cannot convert to 
+//	                            		switch (line.getType()) {
+//	                            		case "organisation":
+//	                            			if(line.getContent() != null){
+//	                            				paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, line.getContent());
+//	                            			}
+//	                            			break;
+//	                            		case "city":
+//	                            			if(line.getContent() != null){
+//	                            				paNode.setProperty(ScientistProfileHelper.CITY_ATTRIBUTE, line.getContent());
+//	                            			}
+//	                            			break;
+//	                            		case "country":
+//	                            			if(line.getContent() != null){
+//	                            				paNode.setProperty(ScientistProfileHelper.COUNTRY_ATTRIBUTE, line.getContent());
+//	                            			}
+//	                            		}
+//	                            	}
+//								}
+//	                            break;
 	                        	
                         case "c-committee-roles":
 	                          	final String committeeRole = field.getText();
