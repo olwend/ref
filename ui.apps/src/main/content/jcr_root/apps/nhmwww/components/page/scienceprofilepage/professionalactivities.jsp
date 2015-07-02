@@ -64,7 +64,6 @@
 				
 		<h2>Events</h2>
 			<%-- Events Participation --%><%
-			
 			Set<ProfessionalActivity> setParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
 			for (final ProfessionalActivity activity: setParticipations) { %>
 				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
@@ -78,6 +77,7 @@
 				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
 			<% } %>
 		<%-- Internal Positions --%><%
+		
 		%>
 	</div>
 <% } %>

@@ -1092,7 +1092,7 @@ public class ScientistProfileHelper {
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION, setReviewPublications);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT, setReviewGrants);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION, setEventsAdministration);
-		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION, setEventsAdministration);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION, setEventsParticipation);
 		
 		return result;
 	}
