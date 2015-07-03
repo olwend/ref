@@ -18,7 +18,10 @@
 		<% if (!setPositions.isEmpty()){ %>
 			<% StringBuffer externalPositionsStringBuffer = new StringBuffer(); %>
 			<% for (final ProfessionalActivity activity: setPositions) { %>
-				<% externalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL));%>
+				<%
+					String[] parameters = {ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL};
+					externalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+				%>
 			<% } %>
 			<% if (externalPositionsStringBuffer.length() > 0) { %>
 				<h2>External Positions</h2>
@@ -44,7 +47,7 @@
 			<% } %>
 		<% } %>
 			
-		<%-- Membeships --%>
+		<%-- Memberships --%>
 		<% Set<ProfessionalActivity> setMemberships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); %>
 		<% if (!setMemberships.isEmpty()) { %>
 			<h2>Societies and memberships</h2>
@@ -82,31 +85,74 @@
 						<% } %>
 				<% } %>
 		<% } %>
-		<h2>Events</h2>
-			<%-- Events Participation --%>
-			<%-- Events / Conference Attendance --%>
-			<%-- Events / Workshop --%>
-			<% Set<ProfessionalActivity> setEParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION); %>
-			<% if (!setEParticipations.isEmpty()) { %>
-				<% for (final ProfessionalActivity activity: setEParticipations) { %>
-					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+
+			<%-- Events Participation Logic--%>
+				<% Set<ProfessionalActivity> setEParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION); %>
+				<% Set<ProfessionalActivity> setEAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION); %>
+				<% StringBuffer eventsAdministrationStringBuffer = new StringBuffer(); %>
+				<% StringBuffer eventsWorkshopStringBuffer = new StringBuffer(); %>
+				<% StringBuffer otherEventStringBuffer = new StringBuffer(); %>
+
+				<%-- Events / Organisation --%>
+					<% if (!setEAdministrations.isEmpty()) { %>
+						<% for (final ProfessionalActivity activity: setEAdministrations) { %>
+							<% eventsAdministrationStringBuffer.append(activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials())); %>
+						<% } %>
+					<% } %>
+				
+				<%-- Events / Conference Attendance && Workshop --%>
+				<% if (!setEParticipations.isEmpty()) { %>
+				
+					<%-- Events / Conference Attendance --%>
+						<% for (final ProfessionalActivity activity: setEParticipations) { %>
+							<%
+								String[] parameters = {
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE,
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_MEETING,
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_COLLOQUIUM,
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONGRESS,
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
+								};
+							eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+							%>
+						<% } %>
+					
+					<%-- Events / Workshop --%>
+						<% for (final ProfessionalActivity activity: setEParticipations) { %>
+							<%
+								String[] parameters = {ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP};
+								otherEventStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+							%>
+						<% } %>
+					
+					<%-- Displaying Events --%>
+						<% if (eventsWorkshopStringBuffer.length() > 0 || otherEventStringBuffer.length() > 0 || eventsAdministrationStringBuffer.length() > 0) { %>
+							<h2>Events</h2>
+							<% if (otherEventStringBuffer.length() > 0) { %>
+								<h2>Conference Attendance</h2>
+								<%= otherEventStringBuffer %>
+							<% } %>
+							<% if (eventsWorkshopStringBuffer.length() > 0) { %>
+								<h2>Workshop Attendance</h2>
+								<%= eventsWorkshopStringBuffer %>
+							<% } %>
+							<% if (eventsWorkshopStringBuffer.length() > 0) { %>
+								<h2>Organisation</h2>
+								<%= eventsAdministrationStringBuffer %>
+							<% } %>
+											
+						<% } %>
 				<% } %>
-			<% } %>
-			
-		<h3>Organisation</h3>
-		<%-- Events / Organisation --%>
-			<% Set<ProfessionalActivity> setEAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION); %>
-			<% if (!setEAdministrations.isEmpty()) { %>
-				<% for (final ProfessionalActivity activity: setEAdministrations) { %>
-					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
-				<% } %>
-			<% } %>
 		
 		<%-- Internal Positions --%>
 		<% if (!setPositions.isEmpty()){ %>
 			<% StringBuffer internalPositionsStringBuffer = new StringBuffer(); %>
 			<% for (final ProfessionalActivity activity: setPositions) { %>
-				<% internalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL));%>
+				<%
+					String[] parameters = {ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL};
+					internalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+				%>
 			<% } %>
 			<% if (internalPositionsStringBuffer.length() > 0) { %>
 				<h2>Internal Positions</h2>

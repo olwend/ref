@@ -225,6 +225,12 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL					= "Internal";
 	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP					= "Workshop";
 	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE				= "Conference";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_MEETING					= "Meeting";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_COLLOQUIUM				= "Colloquium";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_CONGRESS					= "Congress";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION				= "Convention";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM				= "Symposium";
+	
 	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
