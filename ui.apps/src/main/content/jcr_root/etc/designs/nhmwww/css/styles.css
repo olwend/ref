@@ -13536,6 +13536,10 @@ a.button-cta {
   margin-top: 2em;
 }
 
+.pr-0 {
+  padding-right: 0;
+}
+
 .science-profiles-detail-page .title-bar {
   margin-bottom: 1.2em;
 }
@@ -13543,12 +13547,35 @@ a.button-cta {
   padding-right: 0;
 }
 
-.science-profiles-detail-page--personal-group .columns {
+.science-profiles-detail-page--personal {
   padding-right: 0.9375em;
+}
+
+.science-profiles-detail-page--group {
+  padding-right: 0;
 }
 
 .science-profiles-detail-page--tabs-container {
   background-color: #808080;
+}
+.science-profiles-detail-page--tabs-container .tab-title {
+  border-right: 1px solid #ffffff;
+}
+.science-profiles-detail-page--tabs-container .tab-title a {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  background-color: #808080;
+  color: #ffffff;
+}
+.science-profiles-detail-page--tabs-container .tab-title a:hover {
+  background-color: #aaaaaa;
+  text-decoration: none;
+}
+.science-profiles-detail-page--tabs-container .tab-title.active a {
+  color: #357900;
+}
+.science-profiles-detail-page--tabs-container .tab-title.active a:hover {
+  background-color: #ffffff;
 }
 
 .science-profiles-detail-page--tabs-content-container {
