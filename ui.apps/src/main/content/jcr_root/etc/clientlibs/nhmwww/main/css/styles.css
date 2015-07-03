@@ -13563,8 +13563,15 @@ a.button-cta {
   background-color: #808080;
   color: #ffffff;
 }
+.science-profiles-detail-page--tabs-container .tab-title a:hover {
+  background-color: #aaaaaa;
+  text-decoration: none;
+}
 .science-profiles-detail-page--tabs-container .tab-title.active a {
   color: #357900;
+}
+.science-profiles-detail-page--tabs-container .tab-title.active a:hover {
+  background-color: #ffffff;
 }
 
 .science-profiles-detail-page--tabs-content-container {
