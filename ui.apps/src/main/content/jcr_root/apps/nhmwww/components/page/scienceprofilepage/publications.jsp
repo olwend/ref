@@ -8,10 +8,12 @@
 
 	final Set<Publication> publications = helper.getPublications();
 %>
-<% if (publications != null && !publications.isEmpty()) { %>
-	<div id="publications" class="content">
-		<% for (final Publication publication:publications) { %>
-		<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), false) %></p>
-		<% } %>
-	</div>
-<% } %>
+<div class="small-12 medium-8 large-8 columns">
+	<% if (publications != null && !publications.isEmpty()) { %>
+		<div id="publications" class="content science-profiles-detail-page--tabs-content-container">
+			<% for (final Publication publication:publications) { %>
+			<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), false) %></p>
+			<% } %>
+		</div>
+	<% } %>
+</div>
