@@ -12884,6 +12884,10 @@ a.button-cta {
   margin-top: 2em;
 }
 
+.pr-0 {
+  padding-right: 0;
+}
+
 .science-profiles-detail-page .title-bar {
   margin-bottom: 1.2em;
 }
@@ -12897,6 +12901,18 @@ a.button-cta {
 
 .science-profiles-detail-page--tabs-container {
   background-color: #808080;
+}
+.science-profiles-detail-page--tabs-container .tab-title {
+  border-right: 1px solid #ffffff;
+}
+.science-profiles-detail-page--tabs-container .tab-title a {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  background-color: #808080;
+  color: #ffffff;
+}
+.science-profiles-detail-page--tabs-container .tab-title.active a {
+  color: #357900;
 }
 
 .science-profiles-detail-page--tabs-content-container {
