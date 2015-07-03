@@ -8,11 +8,10 @@
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles-desktop.css"%>" />
         <![endif]-->
         <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles.css"%>" />
+        <cq:includeClientLib css="nhmwww.main" />
         <!--<![endif]-->       
         <cq:includeClientLib js="cq.jquery" />
         <cq:includeClientLib js="nhmwww.main" />
-        <cq:includeClientLib css="nhmwww.main" />
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
         <%}%>
