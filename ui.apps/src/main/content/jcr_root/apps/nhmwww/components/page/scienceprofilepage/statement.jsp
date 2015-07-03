@@ -7,8 +7,8 @@
 
 	if (personalStatement != null) {
 %>
-<div class="large-12 medium-12 columns "><!-- get Property here -->
-	<h2>Summary</h2>
+<div class="small-12 medium-12 large-12 columns "><!-- get Property here -->
+	<h3>Summary</h3>
 	<p><%= personalStatement %></p>
 </div>
 <%
