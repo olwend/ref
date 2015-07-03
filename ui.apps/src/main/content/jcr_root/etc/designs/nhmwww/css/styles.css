@@ -13532,4 +13532,27 @@ a.button-cta {
   background-color: #565656;
 }
 
+.mt-32 {
+  margin-top: 2em;
+}
+
+.science-profiles-detail-page .title-bar {
+  margin-bottom: 1.2em;
+}
+.science-profiles-detail-page .hti-wrapper .columns {
+  padding-right: 0;
+}
+
+.science-profiles-detail-page--personal-group .columns {
+  padding-right: 0.9375em;
+}
+
+.science-profiles-detail-page--tabs-container {
+  background-color: #808080;
+}
+
+.science-profiles-detail-page--tabs-content-container {
+  padding: 0 1.8em 0 2em;
+}
+
 /*# sourceMappingURL=styles.css.map */
