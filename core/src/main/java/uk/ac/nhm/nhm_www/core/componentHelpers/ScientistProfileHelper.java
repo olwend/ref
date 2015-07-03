@@ -221,6 +221,11 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP					= "Membership";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_EXHIBITION					= "Exhibition";
 	
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL					= "External";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL					= "Internal";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP					= "Workshop";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE				= "Conference";
+	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 	

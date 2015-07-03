@@ -8,76 +8,112 @@
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 	final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
-
+			
 %>
 <% if (activities != null && !activities.isEmpty()) { %>
 	<div id="professionalactivities" class="content">
 	
 		<%-- External Positions --%>
-			<% Set<ProfessionalActivity> setPositions = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION); %>
-			<% if (!setPositions.isEmpty()){ %>
-				<h2>External Positions</h2><%
-				for (final ProfessionalActivity activity: setPositions) { %>
-					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
-				<% } %>
+		<% Set<ProfessionalActivity> setPositions = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION); %>
+		<% if (!setPositions.isEmpty()){ %>
+			<% StringBuffer externalPositionsStringBuffer = new StringBuffer(); %>
+			<% for (final ProfessionalActivity activity: setPositions) { %>
+				<% externalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL));%>
 			<% } %>
-		<%-- External Positions --%>
+			<% if (externalPositionsStringBuffer.length() > 0) { %>
+				<h2>External Positions</h2>
+				<%= externalPositionsStringBuffer %>
+			<% } %>
+		<% } %>
+		
+		<%-- Fellowships --%>
+		<% Set<ProfessionalActivity> setFellowships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP); %>
+		<% if (!setFellowships.isEmpty()) { %>
+			<h2>Fellowships</h2>
+			<% for (final ProfessionalActivity activity: setFellowships) { %>
+				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+			<% } %>
+		<% } %>
 			
+		<%-- Committees --%>
+		<% Set<ProfessionalActivity> setCommittees = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES); %>
+		<% if (!setCommittees.isEmpty()) { %>
+			<h2>Committees</h2>
+			<% for (final ProfessionalActivity activity: setCommittees) { %>
+				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+			<% } %>
+		<% } %>
 			
-		<h2>Fellowships</h2>
-		<%-- Fellowships --%><%
-			Set<ProfessionalActivity> setFellowships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP);
-			for (final ProfessionalActivity activity: setFellowships) { %>
+		<%-- Membeships --%>
+		<% Set<ProfessionalActivity> setMemberships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); %>
+		<% if (!setMemberships.isEmpty()) { %>
+			<h2>Societies and memberships</h2>
+			<% for (final ProfessionalActivity activity: setMemberships) { %>
 				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
 			<% } %>
-		<h2>Committees</h2>
-		<%-- Committees --%><%
-			Set<ProfessionalActivity> setCommittees = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES);
-			for (final ProfessionalActivity activity: setCommittees) { %>
+		<% } %>
+			
+		<%-- Editorships --%>
+		<% Set<ProfessionalActivity> setEditorships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP); %>
+		<% if (!setEditorships.isEmpty()) { %>
+			<h2>Editorial boards</h2>
+			<% for (final ProfessionalActivity activity: setEditorships) { %>
 				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
 			<% } %>
-		<h2>Societies and memberships</h2>
-		<%-- Membeships --%><%
-			Set<ProfessionalActivity> setMemberships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP);
-			for (final ProfessionalActivity activity: setMemberships) { %>
-				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
-			<% } %>
-		<h2>Editorial boards</h2>
-		<%-- Editorships --%><%
-			Set<ProfessionalActivity> setEditorships = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP);
-			for (final ProfessionalActivity activity: setEditorships) { %>
-				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
-			<% } %>
-		<h2>Reviewer / referee</h2>
-			<h3>Publications</h3>
-			<%-- ReviewerReferee / Publications --%><%
-				Set<ProfessionalActivity> setPublications = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION);
-				for (final ProfessionalActivity activity: setPublications) { %>
-					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+		<% } %>
+		
+		<%-- Reviewer / Referee --%>
+		<% Set<ProfessionalActivity> setPublications = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION); %>
+		<% Set<ProfessionalActivity> setGrants = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT); %>
+		<% if (!setPublications.isEmpty() || !setGrants.isEmpty()) { %>
+			<h2>Reviewer / referee</h2>
+				<%-- ReviewerReferee / Publications --%>
+				<% if (!setPublications.isEmpty()) { %>
+					<h3>Publications</h3>
+						<% for (final ProfessionalActivity activity: setPublications) { %>
+							<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+						<% } %>
 				<% } %>
-			<h3>Grants</h3>
-			<%-- ReviewerReferee / Grants --%><%
-				Set<ProfessionalActivity> setGrants = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT);
-				for (final ProfessionalActivity activity: setGrants) { %>
-					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+				<%-- ReviewerReferee / Grants --%>
+				<% if (!setGrants.isEmpty()) { %>
+					<h3>Grants</h3>
+						<% for (final ProfessionalActivity activity: setGrants) { %>
+							<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+						<% } %>
 				<% } %>
-				
+		<% } %>
 		<h2>Events</h2>
-			<%-- Events Participation --%><%
-			Set<ProfessionalActivity> setParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
-			for (final ProfessionalActivity activity: setParticipations) { %>
-				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
-			<% } %>
+			<%-- Events Participation --%>
 			<%-- Events / Conference Attendance --%>
 			<%-- Events / Workshop --%>
-		<h3>Organisation</h3>
-		<%-- Events / Organisation --%><%
-			Set<ProfessionalActivity> setAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION);
-			for (final ProfessionalActivity activity: setAdministrations) { %>
-				<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+			<% Set<ProfessionalActivity> setEParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION); %>
+			<% if (!setEParticipations.isEmpty()) { %>
+				<% for (final ProfessionalActivity activity: setEParticipations) { %>
+					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+				<% } %>
 			<% } %>
-		<%-- Internal Positions --%><%
+			
+		<h3>Organisation</h3>
+		<%-- Events / Organisation --%>
+			<% Set<ProfessionalActivity> setEAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION); %>
+			<% if (!setEAdministrations.isEmpty()) { %>
+				<% for (final ProfessionalActivity activity: setEAdministrations) { %>
+					<p><%= activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials()) %></p>
+				<% } %>
+			<% } %>
 		
-		%>
+		<%-- Internal Positions --%>
+		<% if (!setPositions.isEmpty()){ %>
+			<% StringBuffer internalPositionsStringBuffer = new StringBuffer(); %>
+			<% for (final ProfessionalActivity activity: setPositions) { %>
+				<% internalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL));%>
+			<% } %>
+			<% if (internalPositionsStringBuffer.length() > 0) { %>
+				<h2>Internal Positions</h2>
+				<%= internalPositionsStringBuffer %>
+			<% } %>
+		<% } %>
+		
+		
 	</div>
 <% } %>
