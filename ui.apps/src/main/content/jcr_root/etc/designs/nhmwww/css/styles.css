@@ -13557,6 +13557,7 @@ a.button-cta {
 
 .science-profiles-detail-page--tabs-container {
   background-color: #808080;
+  margin-top: 0;
 }
 .science-profiles-detail-page--tabs-container .tab-title {
   border-right: 1px solid #ffffff;
