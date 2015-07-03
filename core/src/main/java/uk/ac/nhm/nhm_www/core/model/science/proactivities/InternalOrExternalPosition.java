@@ -26,9 +26,9 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 	}
 
 	@Override
-	public String getFilteredHTMLContent(String currentAuthor, String parameter) {
-		this.positionType = parameter;
-		return super.getFilteredHTMLContent(currentAuthor, parameter);
+	public String getFilteredHTMLContent(String currentAuthor, String[] parameters) {
+		this.positionType = parameters[0];
+		return super.getFilteredHTMLContent(currentAuthor, parameters);
 	}
 
 	@Override

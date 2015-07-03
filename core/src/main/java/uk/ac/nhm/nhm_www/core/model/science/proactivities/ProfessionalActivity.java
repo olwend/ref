@@ -29,7 +29,7 @@ public abstract class ProfessionalActivity implements Comparable<ProfessionalAct
 
 	public abstract String getHTMLContent(final String currentAuthor);
 	
-	public String getFilteredHTMLContent(final String currentAuthor, String parameter){
+	public String getFilteredHTMLContent(final String currentAuthor, String[] parameter){
 		String res = getHTMLContent(currentAuthor);
 		return res;
 	}

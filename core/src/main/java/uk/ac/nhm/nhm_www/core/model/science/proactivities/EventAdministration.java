@@ -25,6 +25,8 @@ public class EventAdministration extends ProfessionalActivity {
 		
 		stringBuffer.append(" ");
 		
+		stringBuffer.append("<p>");
+		
 		// AdministrativeRole,_
 		if (this.role!= null){
 			stringBuffer.append(this.role);
@@ -86,6 +88,8 @@ public class EventAdministration extends ProfessionalActivity {
 				stringBuffer.append(".");
 			}
 		}
+		
+		stringBuffer.append("</p>");
 		
 		return stringBuffer.toString();
 	}
