@@ -12895,8 +12895,12 @@ a.button-cta {
   padding-right: 0;
 }
 
-.science-profiles-detail-page--personal-group .columns {
+.science-profiles-detail-page--personal {
   padding-right: 0.9375em;
+}
+
+.science-profiles-detail-page--group {
+  padding-right: 0;
 }
 
 .science-profiles-detail-page--tabs-container {
