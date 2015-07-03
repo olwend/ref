@@ -237,8 +237,6 @@ function saveSearchTerms() {
 //			}
 //		}
 	}
-	
-	console.log("commenting collections out");
 }
 
 function searchFunc(maxResults) {
