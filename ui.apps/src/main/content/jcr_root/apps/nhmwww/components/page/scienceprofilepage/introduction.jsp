@@ -7,23 +7,23 @@
 <%
 
 %>
-<div class="row">
+<%-- <div class="row"> --%>
 	<!-- MAIN ROW -->
-	<div class="large-8 medium-8 columns large-left-section our-science">
+	<div class="small-12 medium-8 large-8 columns">
 		<!-- body row -->
-		<cq:include script="statement.jsp" />
-		<div class="large-12 medium-12 columns ">
+		<div class="science-profiles-detail-page--tabs-content-container">
+			<cq:include script="statement.jsp" />
 			<cq:include script="qualifications.jsp" />
 			<cq:include script="employmenthistory.jsp" />
 		</div>
 	</div>
 	<!-- end body row -->
-	<div class="large-4 medium-4 columns">
+	<div class="small-12 medium-4 large-4 columns">
 		<!-- aside row -->
 		<cq:include script="highlightedpublications.jsp" />
 		<cq:include script="externallinks.jsp" />
 		<!-- end aside row -->
 	</div>
 	<!-- / END MAIN ROW-->
-</div>
+<%-- </div> --%>
 <!-- /END CONTENT WRAPPER -->
