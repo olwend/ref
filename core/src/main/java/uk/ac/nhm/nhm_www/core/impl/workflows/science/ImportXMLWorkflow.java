@@ -765,6 +765,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 	                        	}
 	                        	break;
+	                        	
 //                        case "organisation":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
 //	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
 //	                            while(organisationTypes.hasNext()) {
@@ -772,7 +773,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 //	                            	List<Line> lines = address.getContent();
 //	                            	Iterator<Line> linesIt = lines.iterator();
 //	                            	while (linesIt.hasNext()){
-//	                            		Line line = (Line) linesIt.next();			//Cannot convert to 
+//	                            		Line line = (Line) linesIt.next();			//java.lang.ClassCastException: java.lang.String cannot be cast to uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Line
 //	                            		switch (line.getType()) {
 //	                            		case "organisation":
 //	                            			if(line.getContent() != null){
