@@ -13,9 +13,11 @@ if (publications != null) {
 	int count = 0;
 	for (final Publication publication:publications) {
 		if (publication.isFavorite()) { %>
-			<% if (!hasFavorites) { 	hasFavorites = true; %>
-				<div class="large-12 medium-12 columns aside-box about-us large4-padding highlight-publications">  
-			    	<h3>Highlighted publications</h3>
+		<% if (!hasFavorites) { 	hasFavorites = true; %>
+		<div class="hti-wrapper">
+			<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey highlight-publications">  
+		    	<div class="hti-box--text-wrapper">
+		    		<h3>Highlighted publications</h3>
 			<% } %>
 			<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), true) %></p> <%			
 				count++;
@@ -25,6 +27,8 @@ if (publications != null) {
 		}
 	} %>
 	<% if (hasFavorites) { %>
+				</div>
+			</div>
 		</div>
 	<% } %>
 <% } %>
