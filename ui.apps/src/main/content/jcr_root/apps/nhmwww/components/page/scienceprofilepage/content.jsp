@@ -14,23 +14,27 @@
     final String lastName  = helper.getLastName();
     final String nickName  = helper.getNickName();
 %>
-<div class="main-section"><!-- CONTENT WRAPPER -->
+<div class="main-section science-profiles-detail-page"><!-- CONTENT WRAPPER -->
     <div class="title">
         <div class="row title-bar">
-            <div class="small-12 columns">
+            <div class="small-12 medium-12 large-12 columns">
                 <h1><%= title %> <%= firstName %> <%= lastName %></h1>
             </div>
         </div>
     </div>
-    <div class="row personal-group" data-equalizer>
-        <cq:include script="personalinformation.jsp" />
-       <cq:include script="groupandspecialisms.jsp" />
+    <div class="row personal-group science-profiles-detail-page--personal-group" data-equalizer>
+       <div class="small-12 medium-8 large-8 columns science-profiles-detail-page--personal">
+       		<cq:include script="personalinformation.jsp" />
+       </div>
+       <div class="small-12 medium-4 large-4 columns science-profiles-detail-page--group">
+       		<cq:include script="groupandspecialisms.jsp" />
+       </div>
    </div>
-
+   
     <div class="row">
-        <div class="small-12 columns">
+        <div class="small-12 medium-12 large-12 columns">
             <div class="show-for-large-up">
-                <ul class="tabs" data-tab>
+                <ul class="tabs science-profiles-detail-page--tabs-container mt-32" data-tab>
                  	<li class="tab-title active"><a href="#panel1">Introduction</a></li>
                     <li class="tab-title"><a href="#panel2">Professional activities</a></li>
                     <li class="tab-title"><a href="#panel3">Publications</a></li>
