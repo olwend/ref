@@ -241,13 +241,8 @@
 									</c:if>
 									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
 									<c:choose>
-<<<<<<< HEAD
-										<c:when test="${fn:length(profile.specialisms) > 175}">
-											<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
-=======
 										<c:when test="${fn:length(profile.specialisms) > 120}">
 											<c:out value="${fn:substring(profile.specialisms, 0, 120)}"/>&hellip;
->>>>>>> directory-search
 										</c:when>
 										<c:otherwise>
 											<c:out value="${profile.specialisms}"/>
@@ -258,10 +253,6 @@
 						</div>
 					</div>
 			</c:forEach>
-<<<<<<< HEAD
-=======
-			
->>>>>>> directory-search
 		</div>
 	</div>
 
