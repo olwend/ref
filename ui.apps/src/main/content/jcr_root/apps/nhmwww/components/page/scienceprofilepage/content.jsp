@@ -55,7 +55,7 @@
 				<dl class="accordion" data-accordion>
 					<dd class="accordion-navigation">
 						<a href="#panel1a">Introduction</a>
-                        <div id="panel1a" class="content">
+                        <div id="panel1a" class="content science-profiles-detail-page--accordion-content-container">
                             <cq:include script="introduction.jsp" />
                         </div>
 					</dd>
