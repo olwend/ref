@@ -118,7 +118,7 @@
 	if(currentPage != null) {
 		pathForSignup = currentPage.getPath();
 	} else {
-        pathForSignup = pageManager.getPage("/content/hnmwww/en/home/visit").getPath();
+        pathForSignup = pageManager.getPage("/content/nhmwww/en/home/visit").getPath();
 	}
 	int startIndex = 0;
 	if(myExternalizedUrl.startsWith("https")) {
