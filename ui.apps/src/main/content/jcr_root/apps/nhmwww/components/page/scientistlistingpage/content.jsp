@@ -237,8 +237,7 @@
 								<div class="small-12 medium-3 large-3 columns directory-search-results--row-content js--profile-content">
 									<c:if test="${not empty profile.specialisms}">
 										<span class="directory-search-results--row-content--label show-for-small-only">Specialisms: </span>
-									</c:if>
-									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
+									</c:if>	
 									<c:choose>
 										<c:when test="${fn:length(profile.specialisms) > 120}">
 											<c:out value="${fn:substring(profile.specialisms, 0, 120)}"/>&hellip;
