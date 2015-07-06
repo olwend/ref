@@ -11,7 +11,7 @@
 		final Set<WebSite> websites = helper.getWebSites();
 %>
 <div class="hti-wrapper">    
-	<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey additional-links">  
+	<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey mb-20 additional-links">  
 	    <div class="hti-box--text-wrapper">
 		    <h3>Additional links</h3><!-- get Property here -->
 		    <ul class="list__no-bullet">

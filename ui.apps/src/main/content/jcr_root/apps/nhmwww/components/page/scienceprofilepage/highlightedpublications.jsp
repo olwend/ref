@@ -15,7 +15,7 @@ if (publications != null) {
 		if (publication.isFavorite()) { %>
 		<% if (!hasFavorites) { 	hasFavorites = true; %>
 		<div class="hti-wrapper">
-			<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey highlight-publications">  
+			<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey mb-20 highlight-publications">  
 		    	<div class="hti-box--text-wrapper">
 		    		<h3>Highlighted publications</h3>
 			<% } %>
