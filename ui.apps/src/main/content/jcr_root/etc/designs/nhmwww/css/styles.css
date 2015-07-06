@@ -13603,7 +13603,12 @@ a.button-cta {
 
 @media screen and (min-width: 768px) {
   .science-profiles-detail-page--tabs-content-container {
-    padding: 0 1.8em 0 2em;
+    padding: 0 1.8em 0 1em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .science-profiles-detail-page--tabs-content-container {
+    padding-left: 2em;
   }
 }
 
