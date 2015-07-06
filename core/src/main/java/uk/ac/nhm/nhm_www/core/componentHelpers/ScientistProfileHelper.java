@@ -47,6 +47,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
+import uk.ac.nhm.nhm_www.core.model.science.projects.Project;
 
 import com.day.cq.wcm.api.components.DropTarget;
 import com.day.cq.wcm.foundation.Image;
@@ -231,9 +232,16 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION				= "Convention";
 	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM				= "Symposium";
 	
-	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
+
+	/* Projects */
+	public static final String PROJECT_PREFIX_NODE_NAME 		= "project";
+	public static final String PROJECT_NODE_NAME  				= "projects";
+	public static final String ASSOCIATED_PROJECT_NODE_NAME  	= "???";
+	private static final String PROJECT_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
+	
+	
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -388,7 +396,6 @@ public class ScientistProfileHelper {
 	}
 	
 	public Map<String, Set<ProfessionalActivity>> getProfessionalActivities() {
-		LOG.error("###############################New batch of Testing");
 		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
 	}
 	
@@ -859,9 +866,7 @@ public class ScientistProfileHelper {
 		Set<ProfessionalActivity> setCommittees = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setEditorships = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setEventsAdministration = new TreeSet<ProfessionalActivity>();
-		LOG.error("Creating the set eventsParticipation");
 		Set<ProfessionalActivity> setEventsParticipation = new TreeSet<ProfessionalActivity>();
-		LOG.error("Created the set eventsParticipation");
 		Set<ProfessionalActivity> setPositions = new TreeSet<ProfessionalActivity>(); // External then Internal
 		Set<ProfessionalActivity> setFellowships = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setReviewPublications = new TreeSet<ProfessionalActivity>();
@@ -1110,6 +1115,254 @@ public class ScientistProfileHelper {
 	
 	public Set<ProfessionalActivity> getProfessionalActivitySet(Map<String, Set<ProfessionalActivity>> activities, String professionalActivity){
 		Set<ProfessionalActivity> result = activities.get(professionalActivity);
+		return result;
+	}
+	
+	private Map<String, Set<ProfessionalActivity>> extractProjects(final String nodeName) {
+		final Map<String, Set<ProfessionalActivity>> result = new TreeMap<String, Set<ProfessionalActivity>>();
+		
+		Set<Project> setGrants = new TreeSet<Project>();
+		Set<Project> setProjects = new TreeSet<Project>();
+		Set<Project> setConsultancies = new TreeSet<Project>();
+		Set<Project> setPartnerships = new TreeSet<Project>();
+		Set<Project> setFieldworks = new TreeSet<Project>();		
+		
+		final Resource projectResource = this.resource.getChild(nodeName);
+		
+		if (projectResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = projectResource.listChildren();
+		
+		while (children.hasNext()) {
+			final Resource child = children.next();
+			
+			if (child.getName().startsWith(PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				
+				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
+				
+				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
+				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
+				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayStartDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String reportingDate;
+				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
+					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
+				} else {
+					reportingDate = "";
+				}
+				
+				switch (type) {
+				
+				case PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION:
+                    final String inOrExCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            inOrExCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            inOrExCity = "";
+                    }
+                    final String inOrExCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            inOrExCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            inOrExCountry = "";
+                    }
+                    final String inOrExInstitution ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            inOrExInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            inOrExInstitution = "";
+                    }
+					final String internalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
+					final String officeHeldType = childProperties.get(OFFICE_HELD_TYPE_ATTRIBUTE, String.class);
+					final String officeOtherHeldType = childProperties.get(OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, String.class);
+					setPositions.add(new InternalOrExternalPosition(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							internalOrExternal, officeHeldType, officeOtherHeldType, inOrExCity, inOrExCountry, inOrExInstitution));
+					break;	
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
+                    final String fellowshipCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            fellowshipCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            fellowshipCity = "";
+                    }
+                    final String fellowshipCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            fellowshipCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            fellowshipCountry = "";
+                    }
+                    final String fellowshipOrganisation ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            fellowshipOrganisation = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            fellowshipOrganisation = "";
+                    }
+					setFellowships.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							fellowshipCity, fellowshipCountry, fellowshipOrganisation));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES:
+                	final String committeeCity ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		committeeCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                	} else {
+                		committeeCity = "";
+                	}
+                	final String committeeCountry ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		committeeCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                	} else {
+                		committeeCountry = "";
+                	}
+                	final String committeeInstitution ;
+                	if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                		committeeInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                	} else {
+                		committeeInstitution = "";
+                	}
+                	final String committeeRole = childProperties.get(COMMITTEE_ROLE_ATTRIBUTE, String.class);
+					setCommittees.add(new Committee(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							committeeRole, committeeCity, committeeCountry, committeeInstitution));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP:
+                    final String membershipCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            membershipCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            membershipCity = "";
+                    }
+                    final String membershipCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            membershipCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            membershipCountry = "";
+                    }
+                    final String membershipInstitution ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            membershipInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            membershipInstitution = "";
+                    }
+                    final String membershipRole = childProperties.get(MEMBERSHIP_ROLE_ATTRIBUTE, String.class);
+                    setMemberships.add(new Membership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+                    		membershipCity, membershipCountry, membershipInstitution, membershipRole));
+                    break; 
+                    
+				case PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP:
+					final String editorialRole = childProperties.get(EDITORSHIP_ROLE_ATTRIBUTE, String.class);
+					final String editorialPublisher = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
+					setEditorships.add(new Editorship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							editorialRole, editorialPublisher));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION:
+					final String publication = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
+					final String publicationType = childProperties.get(PUBLICATION_TYPE_ATTRIBUTE, String.class);
+					final String reviewType = childProperties.get(REVIEW_TYPE_ATTRIBUTE, String.class);
+					
+					setReviewPublications.add(new ReviewerOrRefereePublication(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							publication, publicationType, reviewType));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT:
+                    final String grantCity ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            grantCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                    } else {
+                            grantCity = "";
+                    }
+                    final String grantCountry ;
+                    if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                            grantCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                    } else {
+                            grantCountry = "";
+                    }
+                    final String grantOrganisation ;
+                    if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                            grantOrganisation = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    } else {
+                            grantOrganisation = "";
+                    }
+					setReviewGrants.add(new ReviewerOrRefereeGrant(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							grantCity, grantCountry, grantOrganisation));
+					break;
+					
+                case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION:
+                	LOG.error("In type eventsAdministration");
+			        final String eventOrganisationCity ;
+			        if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+			                eventOrganisationCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+			        } else {
+			                eventOrganisationCity = "";
+			        }
+			        final String eventOrganisationCountry ;
+			        if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+			                eventOrganisationCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+			        } else {
+			                eventOrganisationCountry = "";
+			        }
+			        final String eventOrganisationInstitution ;
+			        if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+			                eventOrganisationInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+			        } else {
+			                eventOrganisationInstitution = "";
+			        }
+                    final String eventOrganisationRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
+                    final String eventOrganisationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+                    setEventsAdministration.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+                                        eventOrganisationRole, eventOrganisationType, eventOrganisationCity, eventOrganisationCountry, eventOrganisationInstitution));
+                        break;  	
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION:
+                	final String eventParticipationCity ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		eventParticipationCity = childProperties.get(CITY_ATTRIBUTE, String.class);
+                	} else {
+                		eventParticipationCity = "";
+                	}
+                	final String eventParticipationCountry ;
+                	if ( childProperties.get(CITY_ATTRIBUTE, String.class) != null ){
+                		eventParticipationCountry = childProperties.get(COUNTRY_ATTRIBUTE, String.class);
+                	} else {
+                		eventParticipationCountry = "";
+                	}
+                	final String eventParticipationInstitution ;
+                	if ( childProperties.get(ORGANISATION_ATTRIBUTE, String.class) != null ){
+                		eventParticipationInstitution = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                	} else {
+                		eventParticipationInstitution = "";
+                	}
+					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
+					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							eventParticipationRoles, eventParticipationType, eventParticipationCity, eventParticipationCountry, eventParticipationInstitution));
+					break;	
+					
+				default:
+					break;
+				}
+			}
+		}
+		
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION, setPositions);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP, setFellowships);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES, setCommittees);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP, setMemberships);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP, setEditorships);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION, setReviewPublications);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT, setReviewGrants);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION, setEventsAdministration);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION, setEventsParticipation);
+		
 		return result;
 	}
 }
