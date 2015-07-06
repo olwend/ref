@@ -12939,6 +12939,10 @@ a.button-cta {
   }
 }
 
+.science-profiles-detail-page--accordion-content-container {
+  padding: 0.5em !important;
+}
+
 /* IE8-specific fixes */
 .visit .bottom-banner .large-4 {
   padding-right: 0;
