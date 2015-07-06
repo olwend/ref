@@ -1,9 +1,14 @@
 package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
 
 
 public class InternalOrExternalPosition extends ProfessionalActivity {
+	
+    private static final Logger LOG = LoggerFactory.getLogger(InternalOrExternalPosition.class);
 	
 	private String positionType;
 	private String internalOrExternal;

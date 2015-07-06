@@ -19,7 +19,9 @@
 			<% StringBuffer externalPositionsStringBuffer = new StringBuffer(); %>
 			<% for (final ProfessionalActivity activity: setPositions) { %>
 				<%
-					String[] parameters = {ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL};
+					String[] parameters = {
+						ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL
+					};
 					externalPositionsStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
 				%>
 			<% } %>
@@ -114,15 +116,17 @@
 									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
 									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
 								};
-							eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+								otherEventStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
 							%>
 						<% } %>
 					
 					<%-- Events / Workshop --%>
 						<% for (final ProfessionalActivity activity: setEParticipations) { %>
 							<%
-								String[] parameters = {ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP};
-								otherEventStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+								String[] parameters = {
+									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP
+								};
+								eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
 							%>
 						<% } %>
 					
@@ -130,15 +134,15 @@
 						<% if (eventsWorkshopStringBuffer.length() > 0 || otherEventStringBuffer.length() > 0 || eventsAdministrationStringBuffer.length() > 0) { %>
 							<h2>Events</h2>
 							<% if (otherEventStringBuffer.length() > 0) { %>
-								<h2>Conference Attendance</h2>
+								<h3>Conference Attendance</h3>
 								<%= otherEventStringBuffer %>
 							<% } %>
 							<% if (eventsWorkshopStringBuffer.length() > 0) { %>
-								<h2>Workshop Attendance</h2>
+								<h3>Workshop Attendance</h3>
 								<%= eventsWorkshopStringBuffer %>
 							<% } %>
-							<% if (eventsWorkshopStringBuffer.length() > 0) { %>
-								<h2>Organisation</h2>
+							<% if (eventsAdministrationStringBuffer.length() > 0) { %>
+								<h3>Organisation</h3>
 								<%= eventsAdministrationStringBuffer %>
 							<% } %>
 											

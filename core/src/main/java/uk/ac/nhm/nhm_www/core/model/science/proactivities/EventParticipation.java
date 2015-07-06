@@ -4,9 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
-
-
 
 public class EventParticipation extends ProfessionalActivity {
 	
@@ -47,9 +44,11 @@ public class EventParticipation extends ProfessionalActivity {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		stringBuffer.append(" ");
+		stringBuffer.append("");
 		
-		if (eventParticipationTypeMatchesRequestedProfessionalActivity()){
+		boolean displayEvent = eventParticipationTypeMatchesRequestedProfessionalActivity();
+		
+		if (displayEvent){
 			
 			stringBuffer.append("<p>");
 			
@@ -117,11 +116,9 @@ public class EventParticipation extends ProfessionalActivity {
 					stringBuffer.append(".");
 				}
 			}
-			
 			stringBuffer.append("</p>");
+			
 		}
-		
-		
 		return stringBuffer.toString();
 	}
 	
