@@ -10,21 +10,24 @@
 	if (helper.hasExternalWebSites()) {
 		final Set<WebSite> websites = helper.getWebSites();
 %>
-            
-<div class="large-12 medium-12 columns aside-box about-us large4-padding additional-links">  
-    <h3>Additional links</h3><!-- get Property here -->
-    <ul>
-<%
-		for (final WebSite website:websites) {
-			if (website.isValid() && !website.isPersonalInformationWebSite() && !WebSite.TWITTER_TYPE.equals(website.getType())) {
-%>
-    	<li><a href="<%= website.getLink() %>"><%= website.getLabel() %></a></li>
-<%
-			}
-		}
-%>
-   	</ul>
+<div class="hti-wrapper">    
+	<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey additional-links">  
+	    <div class="hti-box--text-wrapper">
+		    <h3>Additional links</h3><!-- get Property here -->
+		    <ul>
+		<%
+				for (final WebSite website:websites) {
+					if (website.isValid() && !website.isPersonalInformationWebSite() && !WebSite.TWITTER_TYPE.equals(website.getType())) {
+		%>
+		    	<li><a href="<%= website.getLink() %>"><%= website.getLabel() %></a></li>
+		<%
+					}
+				}
+		%>
+		   	</ul>
+		</div>
+	</div>
 </div>
-<%
-	}
-%>
+	<%
+		}
+	%>
