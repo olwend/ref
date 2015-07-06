@@ -54,6 +54,7 @@ public class DynamicAppPathRenderingServlet extends SlingAllMethodsServlet {
 		try {
 			ResourceResolver resourceResolver = request.getResourceResolver();
 			JSONObject jsonObject = pageRenderingService.getJSON(page, resourceResolver, request);
+			LOG.error("HTPPS IN SERVLET" + jsonObject.getString("path"));;
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(jsonObject.toString());
 		} catch (JSONException e) {

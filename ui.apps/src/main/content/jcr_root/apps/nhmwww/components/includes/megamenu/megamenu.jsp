@@ -1,5 +1,6 @@
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-
+<% DynamicPageHelper helper = new DynamicPageHelper(resource, properties, request); %>
 <!-- START OF MEGAMENU -->
             <nav class="global-header-bar global-nav-menu">
                 <div class="row">
@@ -311,7 +312,7 @@
                                     <div class="newslettersignup">
 	                                    <cq:includeClientLib categories="nhm-www.newsletter" />
 	                                    <h4> Sign up for our emails</h4>
-	                                    <form action="<%= currentPage.getPath() %>/jcr:content.newslettersignup.html" method="post">
+	                                    <form action="<%= helper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
 	                                        <div class="form-field firstname">
 	                                            <label for="name">Full name</label>
 	                                            <input class="item-input" name="name" type="text" />
