@@ -10,8 +10,9 @@
 	final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
 			
 %>
+<div class="small-12 medium-8 large-8 columns">
 <% if (activities != null && !activities.isEmpty()) { %>
-	<div id="professionalactivities" class="content">
+	<div id="professionalactivities" class="content science-profiles-detail-page--tabs-content-container">
 	
 		<%-- External Positions --%>
 		<% Set<ProfessionalActivity> setPositions = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION); %>
@@ -167,3 +168,4 @@
 		
 	</div>
 <% } %>
+</div>
