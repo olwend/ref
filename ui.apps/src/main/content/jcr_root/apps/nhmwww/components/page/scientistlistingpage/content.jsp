@@ -65,12 +65,13 @@
 						<option class="division" id="Invertebrates and plants" value="Invertebrates and plants" data-department="Earth Sciences" data-division="Invertebrates and Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates and plants</option>
 						<option class="division" id="Department Management Team" value="Department Management Team" data-department="Earth Sciences" data-division="Department Management Team">&nbsp;&nbsp;&nbsp;&nbsp;Department Management Team</option>
 						
-						<%-- Department: Core research laboratories --%>
-						<option class="department" id="Science Facilities"value="Science Facilities">Core research laboratories</option>
-						<option class="division" id="Conservation Centre" value="Conservation Centre" data-department="Science Facilities" data-division="Conservation Centre">Conservation Centre</option>
-						<option class="division" id="Imaging and Analysis Centre" value="Imaging and Analysis Centre" data-department="Science Facilities" data-division="Imaging and Analysis Centre">&nbsp;&nbsp;&nbsp;&nbsp;Imaging and Analysis Centre</option>
-						<option class="division" id="Molecular Biology Laboratories" value="Molecular Biology Laboratories" data-department="Science Facilities" data-division="Molecular Biology Laboratories">&nbsp;&nbsp;&nbsp;&nbsp;Molecular Biology Laboratories</option>
-						<option class="division" id="Digitisation Centre" value="Digitisation Centre" data-department="Science Facilities" data-division="Digitisation centre">&nbsp;&nbsp;&nbsp;&nbsp;Digitisation Centre</option>
+
+						<%-- Department: Core Research Laboratories --%>
+						<option class="department" id="Core Research Laboratories" value="Core Research Laboratories">Core Research Laboratories</option>
+						<option class="division" id="Conservation Centre" value="Conservation Centre" data-department="Core Research Laboratories" data-division="Conservation Centre">&nbsp;&nbsp;&nbsp;&nbsp;Conservation Centre</option>
+						<option class="division" id="Imaging and Analysis Centre" value="Imaging and Analysis Centre" data-department="Core Research Laboratories" data-division="Imaging and Analysis Centre">&nbsp;&nbsp;&nbsp;&nbsp;Imaging and Analysis Centre</option>
+						<option class="division" id="Molecular Biology Laboratories" value="Molecular Biology Laboratories" data-department="Core Research Laboratories" data-division="Molecular Biology Laboratories">&nbsp;&nbsp;&nbsp;&nbsp;Molecular Biology Laboratories</option>
+						<option class="division" id="Digitisation Centre" value="Digitisation Centre" data-department="Core Research Laboratories" data-division="Digitisation centre">&nbsp;&nbsp;&nbsp;&nbsp;Digitisation Centre</option>
 						
 						<%-- Department: Library and Archives --%>
 						<option class="department" id="Library and Archives"value="Library and Archives">Library and Archives</option>
@@ -240,8 +241,13 @@
 									</c:if>
 									<%-- <c:set var="tempString" value="${fn:escapeXml(profile.specialisms)}" /> &hellip;--%>		
 									<c:choose>
+<<<<<<< HEAD
 										<c:when test="${fn:length(profile.specialisms) > 175}">
 											<c:out value="${fn:substring(profile.specialisms, 0, 175)}"/>&hellip;
+=======
+										<c:when test="${fn:length(profile.specialisms) > 120}">
+											<c:out value="${fn:substring(profile.specialisms, 0, 120)}"/>&hellip;
+>>>>>>> directory-search
 										</c:when>
 										<c:otherwise>
 											<c:out value="${profile.specialisms}"/>
@@ -252,6 +258,10 @@
 						</div>
 					</div>
 			</c:forEach>
+<<<<<<< HEAD
+=======
+			
+>>>>>>> directory-search
 		</div>
 	</div>
 
