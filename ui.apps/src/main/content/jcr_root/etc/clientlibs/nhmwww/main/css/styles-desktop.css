@@ -12943,6 +12943,13 @@ a.button-cta {
   padding: 0.5em !important;
 }
 
+.list__no-bullet {
+  margin-left: 0 !important;
+}
+.list__no-bullet li {
+  list-style-type: none !important;
+}
+
 /* IE8-specific fixes */
 .visit .bottom-banner .large-4 {
   padding-right: 0;
