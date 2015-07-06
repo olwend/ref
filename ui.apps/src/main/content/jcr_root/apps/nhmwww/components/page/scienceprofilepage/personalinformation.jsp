@@ -29,15 +29,15 @@
 		<div class="small-12 medium-7 large-6 columns hti-box hti-box__light-grey" data-equalizer-watch>
 			<div class="hti-box--text-wrapper">
 				<h2><%= personalInformationHeader %></h2>
-				<p>
-					<strong>Department:</strong>
+				<span class="science-profiles-detail-page--personal--label">Department:</span>
 					<%= departmentName %>
-					<br> <strong>Division:</strong>
+					<br>
+				<span class="science-profiles-detail-page--personal--label">Division:</span>
 					<%= division %>
 					<br>
 					<% String emailPartial = email.replaceAll("@(.*)",""); %>
 		
-					<strong>Contact:</strong> <a
+				<span class="science-profiles-detail-page--personal--label">Contact:</span> <a
 						href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=<%=helper.getFirstName()%>+<%=helper.getLastName()%>">
 						email</a> <br>
 					<%
@@ -46,11 +46,11 @@
 					if (phones.size() == 1) {
 			%>
 		
-					<strong>Phone:</strong>
-					<%= phones.get(0).getPhone() %>
-					<br>
-					<%
-					} else {
+				<span class="science-profiles-detail-page--personal--label">Phone:</span>
+				<%= phones.get(0).getPhone() %>
+				<br>
+				<%
+				} else {
 			%>
 				
 				<div class="phone-numbers" data-equalizer>
