@@ -12949,9 +12949,10 @@ a.button-cta {
 }
 .science-profiles-detail-page--tabs-container .tab-title.active a {
   color: #357900;
+  background-color: #eeeeee;
 }
 .science-profiles-detail-page--tabs-container .tab-title.active a:hover {
-  background-color: #ffffff;
+  background-color: #eeeeee;
 }
 
 @media screen and (min-width: 768px) {
