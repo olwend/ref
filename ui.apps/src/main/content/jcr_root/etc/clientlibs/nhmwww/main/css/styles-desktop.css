@@ -12684,6 +12684,11 @@ a.button-cta {
 .directory-search-results--row-content--name {
   font-size: 1.2em;
 }
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content--name {
+    font-size: 1em;
+  }
+}
 
 .directory-search-results--row-content--job-title {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
