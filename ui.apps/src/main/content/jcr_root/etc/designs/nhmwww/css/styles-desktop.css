@@ -12925,6 +12925,9 @@ a.button-cta {
 .science-profiles-detail-page--personal-group h3 {
   padding-bottom: 0.1em;
 }
+.science-profiles-detail-page--personal-group .hti-box {
+  padding-bottom: 0;
+}
 
 .science-profiles-detail-page--personal {
   margin-bottom: 1.2em;
