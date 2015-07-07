@@ -388,7 +388,6 @@ public class ScientistProfileHelper {
 	}
 	
 	public Map<String, Set<ProfessionalActivity>> getProfessionalActivities() {
-		LOG.error("###############################New batch of Testing");
 		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
 	}
 	

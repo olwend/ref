@@ -8,7 +8,6 @@
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 	final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
-			
 %>
 <div class="small-12 medium-8 large-8 columns">
 <% if (activities != null && !activities.isEmpty()) { %>
@@ -89,66 +88,66 @@
 				<% } %>
 		<% } %>
 
-			<%-- Events Participation Logic--%>
-				<% Set<ProfessionalActivity> setEParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION); %>
-				<% Set<ProfessionalActivity> setEAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION); %>
-				<% StringBuffer eventsAdministrationStringBuffer = new StringBuffer(); %>
-				<% StringBuffer eventsWorkshopStringBuffer = new StringBuffer(); %>
-				<% StringBuffer otherEventStringBuffer = new StringBuffer(); %>
+		<%-- Events --%>
+		<% Set<ProfessionalActivity> setEParticipations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION); %>
+		<% Set<ProfessionalActivity> setEAdministrations = helper.getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION); %>
+		<% StringBuffer eventsAdministrationStringBuffer = new StringBuffer(); %>
+		<% StringBuffer eventsWorkshopStringBuffer = new StringBuffer(); %>
+		<% StringBuffer otherEventStringBuffer = new StringBuffer(); %>
 
-				<%-- Events / Organisation --%>
-					<% if (!setEAdministrations.isEmpty()) { %>
-						<% for (final ProfessionalActivity activity: setEAdministrations) { %>
-							<% eventsAdministrationStringBuffer.append(activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials())); %>
-						<% } %>
-					<% } %>
-				
-				<%-- Events / Conference Attendance && Workshop --%>
-				<% if (!setEParticipations.isEmpty()) { %>
-				
-					<%-- Events / Conference Attendance --%>
-						<% for (final ProfessionalActivity activity: setEParticipations) { %>
-							<%
-								String[] parameters = {
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE,
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_MEETING,
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_COLLOQUIUM,
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONGRESS,
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
-								};
-								otherEventStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
-							%>
-						<% } %>
-					
-					<%-- Events / Workshop --%>
-						<% for (final ProfessionalActivity activity: setEParticipations) { %>
-							<%
-								String[] parameters = {
-									ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP
-								};
-								eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
-							%>
-						<% } %>
-					
-					<%-- Displaying Events --%>
-						<% if (eventsWorkshopStringBuffer.length() > 0 || otherEventStringBuffer.length() > 0 || eventsAdministrationStringBuffer.length() > 0) { %>
-							<h2>Events</h2>
-							<% if (otherEventStringBuffer.length() > 0) { %>
-								<h3>Conference Attendance</h3>
-								<%= otherEventStringBuffer %>
-							<% } %>
-							<% if (eventsWorkshopStringBuffer.length() > 0) { %>
-								<h3>Workshop Attendance</h3>
-								<%= eventsWorkshopStringBuffer %>
-							<% } %>
-							<% if (eventsAdministrationStringBuffer.length() > 0) { %>
-								<h3>Organisation</h3>
-								<%= eventsAdministrationStringBuffer %>
-							<% } %>
-											
-						<% } %>
+		<%-- Events / Organisation --%>
+			<% if (!setEAdministrations.isEmpty()) { %>
+				<% for (final ProfessionalActivity activity: setEAdministrations) { %>
+					<% eventsAdministrationStringBuffer.append(activity.getHTMLContent(helper.getLastName() + " " + helper.getInitials())); %>
 				<% } %>
+			<% } %>
+		
+		<%-- Events / Conference Attendance && Workshop --%>
+		<% if (!setEParticipations.isEmpty()) { %>
+		
+			<%-- Events / Conference Attendance --%>
+				<% for (final ProfessionalActivity activity: setEParticipations) { %>
+					<%
+						String[] parameters = {
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE,
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_MEETING,
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_COLLOQUIUM,
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONGRESS,
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
+						};
+						otherEventStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+					%>
+				<% } %>
+			
+			<%-- Events / Workshop --%>
+				<% for (final ProfessionalActivity activity: setEParticipations) { %>
+					<%
+						String[] parameters = {
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP
+						};
+						eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(helper.getLastName() + " " + helper.getInitials(), parameters));
+					%>
+				<% } %>
+			
+			<%-- Displaying Events --%>
+				<% if (eventsWorkshopStringBuffer.length() > 0 || otherEventStringBuffer.length() > 0 || eventsAdministrationStringBuffer.length() > 0) { %>
+					<h2>Events</h2>
+					<% if (otherEventStringBuffer.length() > 0) { %>
+						<h3>Conference Attendance</h3>
+						<%= otherEventStringBuffer %>
+					<% } %>
+					<% if (eventsWorkshopStringBuffer.length() > 0) { %>
+						<h3>Workshop Attendance</h3>
+						<%= eventsWorkshopStringBuffer %>
+					<% } %>
+					<% if (eventsAdministrationStringBuffer.length() > 0) { %>
+						<h3>Organisation</h3>
+						<%= eventsAdministrationStringBuffer %>
+					<% } %>
+									
+				<% } %>
+		<% } %>
 		
 		<%-- Internal Positions --%>
 		<% if (!setPositions.isEmpty()){ %>
