@@ -20,7 +20,7 @@
 			final String groupName = groupService.getGroupName(resource);
 			if (!groupScientists.isEmpty()) {
 	%>
-			<h2><%= groupName %></h2>
+			<h3><%= groupName %></h3>
 			<!-- <h2>Group</h2> -->
 			<p>
 				<%
@@ -53,7 +53,7 @@
 	
 		if (specialisms != null) {
 	%>
-			<h2>Specialisms</h2>
+			<h3>Specialisms</h3>
 			<p><%= specialisms %></p>
 			<%
 		}
