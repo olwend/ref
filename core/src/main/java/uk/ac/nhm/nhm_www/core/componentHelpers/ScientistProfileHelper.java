@@ -2,7 +2,6 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -1110,5 +1109,204 @@ public class ScientistProfileHelper {
 	public Set<ProfessionalActivity> getProfessionalActivitySet(Map<String, Set<ProfessionalActivity>> activities, String professionalActivity){
 		Set<ProfessionalActivity> result = activities.get(professionalActivity);
 		return result;
+	}
+	
+	public String getIorEPositions(Map<String, Set<ProfessionalActivity>> activities, boolean externalPosition){
+		StringBuffer result = new StringBuffer(); 
+		StringBuffer aux = new StringBuffer(); 
+		Set<ProfessionalActivity> setPositions = getProfessionalActivitySet(activities, PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION);
+		if (!setPositions.isEmpty()){ 
+			if (externalPosition){
+				for (final ProfessionalActivity activity: setPositions) { 
+					String[] parameters = {
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL
+					};
+					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+					
+				} 
+				if (aux.length() > 0) { 
+					result.append("<h2>External Positions</h2>");
+					result.append(aux);
+				} 
+			} else {
+				for (final ProfessionalActivity activity: setPositions) {
+					String[] parameters = {
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL
+					};
+					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+				}
+				if (aux.length() > 0) {
+					result.append("<h2>Internal Positions</h2>");
+					result.append(aux);
+				}
+			}
+		} 
+		return result.toString();
+	}
+	
+	public String getFellowships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuffer result = new StringBuffer(); 
+		Set<ProfessionalActivity> setFellowships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP); 
+		if (!setFellowships.isEmpty()) { 
+			result.append("<h2>Fellowships</h2>");
+			for (final ProfessionalActivity activity: setFellowships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getCommittees(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuffer result = new StringBuffer(); 
+		Set<ProfessionalActivity> setCommittees = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES); 
+		if (!setCommittees.isEmpty()) { 
+			result.append("<h2>Committees</h2>");
+			for (final ProfessionalActivity activity: setCommittees) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getMemberships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuffer result = new StringBuffer(); 
+		Set<ProfessionalActivity> setMemberships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); 
+		if (!setMemberships.isEmpty()) { 
+			result.append("<h2>Memberships</h2>");
+			for (final ProfessionalActivity activity: setMemberships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getEditorships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuffer result = new StringBuffer(); 
+		Set<ProfessionalActivity> setEditorships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); 
+		if (!setEditorships.isEmpty()) { 
+			result.append("<h2>Editorships</h2>");
+			for (final ProfessionalActivity activity: setEditorships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getReviewsRefereed(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuffer result = new StringBuffer(); 
+		Set<ProfessionalActivity> setPublications = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION); 
+		Set<ProfessionalActivity> setGrants = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT); 
+		if (!setPublications.isEmpty() || !setGrants.isEmpty()) { 
+			result.append("<h2>Reviewer / referee</h2>");
+				if (!setPublications.isEmpty()) { 
+					result.append("<h3>Publications</h3>");
+						for (final ProfessionalActivity activity: setPublications) { 
+							result.append("<p>");
+							result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+							result.append("</p>");
+						} 
+				} 
+				// ReviewerReferee / Grants --
+				if (!setGrants.isEmpty()) { 
+					result.append("<h3>Grants</h3>");
+						for (final ProfessionalActivity activity: setGrants) { 
+							result.append("<p>");
+							result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+							result.append("</p>");
+						} 
+				} 
+		} 
+		return result.toString();
+	}
+	
+	public String getEvents(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuffer result = new StringBuffer(); 
+
+		// - Events' variables -
+		Set<ProfessionalActivity> setEParticipations = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
+		Set<ProfessionalActivity> setEAdministrations = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION);
+		StringBuffer eventsAdministrationStringBuffer = new StringBuffer();
+		StringBuffer eventsWorkshopStringBuffer = new StringBuffer();
+		StringBuffer otherEventStringBuffer = new StringBuffer();
+
+		// - Events / Organisation -
+		if (!setEAdministrations.isEmpty()) {
+			for (final ProfessionalActivity activity: setEAdministrations) {
+				eventsAdministrationStringBuffer.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+			}
+		}
+		
+		// - Events / Participation -
+		if (!setEParticipations.isEmpty()) {
+			// - Events / Participation / Conference Attendance -
+			for (final ProfessionalActivity activity: setEParticipations) {
+				String[] parameters = {
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_MEETING,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_COLLOQUIUM,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONGRESS,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
+				};
+				otherEventStringBuffer.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+			}
+			
+			// - Events / Participation / Workshop -
+			for (final ProfessionalActivity activity: setEParticipations) {
+										String[] parameters = {
+						ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP
+					};
+					eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+			}
+		}
+		
+		// - Displaying Events -
+		if (eventsWorkshopStringBuffer.length() > 0 || otherEventStringBuffer.length() > 0 || eventsAdministrationStringBuffer.length() > 0) {
+			result.append("<h2>Events</h2>");
+			if (otherEventStringBuffer.length() > 0) {
+				result.append("<h3>Conference Attendance</h3>");
+				result.append(otherEventStringBuffer);
+			}
+			if (eventsWorkshopStringBuffer.length() > 0) {
+				result.append("<h3>Workshop Attendance</h3>");
+				result.append(eventsWorkshopStringBuffer);
+			}
+			if (eventsAdministrationStringBuffer.length() > 0) {
+				result.append("<h3>Organisation</h3>");
+				result.append(eventsAdministrationStringBuffer);
+			}
+		}
+		
+		return result.toString();
+	}
+	
+	public boolean displayProfessionalActivitiesTab(Resource resource){
+		boolean res = false;
+		StringBuffer aux = new StringBuffer();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+		
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getIorEPositions(activities, true));
+			aux.append(helper.getFellowships(activities));
+			aux.append(helper.getCommittees(activities));
+			aux.append(helper.getMemberships(activities));
+			aux.append(helper.getEditorships(activities));
+			aux.append(helper.getReviewsRefereed(activities));
+			aux.append(helper.getEvents(activities));
+			aux.append(helper.getIorEPositions(activities, false));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
 	}
 }

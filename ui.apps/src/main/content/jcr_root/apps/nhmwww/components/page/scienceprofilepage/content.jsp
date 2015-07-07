@@ -36,16 +36,20 @@
             <div class="show-for-large-up">
                 <ul class="tabs science-profiles-detail-page--tabs-container mt-32" data-tab>
                  	<li class="tab-title active"><a href="#panel1">Introduction</a></li>
-                    <li class="tab-title"><a href="#panel2">Professional activities</a></li>
+                 	<% if (helper.displayProfessionalActivitiesTab(resource)) { %>
+	                    <li class="tab-title"><a href="#panel2">Professional activities</a></li>
+                 	<% } %>
                     <li class="tab-title"><a href="#panel3">Publications</a></li>
                 </ul>
                 <div class="tabs-content">
                     <div class="content active" id="panel1">
                         <cq:include script="introduction.jsp" />
                     </div>
-                    <div class="content" id="panel2">
-                        <cq:include script="professionalactivities.jsp" />
-                    </div>
+                   	<% if (helper.displayProfessionalActivitiesTab(resource)) { %>
+	                    <div class="content" id="panel2">
+	                        <cq:include script="professionalactivities.jsp" />
+	                    </div>
+                 	<% } %>
                     <div class="content" id="panel3">
                         <cq:include script="publications.jsp" />
                     </div>
@@ -59,12 +63,14 @@
                             <cq:include script="introduction.jsp" />
                         </div>
 					</dd>
-					<dd class="accordion-navigation">
-						<a href="#panel2a">Professional Activities</a>
-                        <div id="panel2a" class="content">
-                            <cq:include script="professionalactivities.jsp" />
-                        </div>
-					</dd>
+                 	<% if (helper.displayProfessionalActivitiesTab(resource)) { %>
+						<dd class="accordion-navigation">
+							<a href="#panel2a">Professional Activities</a>
+	                        <div id="panel2a" class="content">
+	                            <cq:include script="professionalactivities.jsp" />
+	                        </div>
+						</dd>
+                 	<% } %>
 					<dd class="accordion-navigation">
 						<a href="#panel3b">Publications</a>
 						<div id="panel3b" class="content">
