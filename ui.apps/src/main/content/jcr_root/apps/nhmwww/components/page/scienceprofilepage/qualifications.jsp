@@ -20,7 +20,7 @@
 <%
 	if (degrees != null && degrees.size() > 0) {
 %>
-	<h3>Degrees</h3>
+	<h4>Degrees</h4>
 <%
 		for (final Qualification degree:degrees) {
 			final int fromYear		 = degree.getFromYear();
@@ -48,7 +48,7 @@
 	}
 	if (certificates != null && certificates.size() > 0) {
 %>
-	<h3>Certificates</h3>
+	<h4>Certificates</h4>
 <%
 		for (final Qualification certificate:certificates) {
 			final int fromYear 		   = certificate.getFromYear();
@@ -74,7 +74,7 @@
 	}
 	if (postgraduateTrainings != null && postgraduateTrainings.size() > 0) {
 %>
-	<h3>Post Graduate training</h3>
+	<h4>Post Graduate training</h4>
 <%
 		for (final Qualification postgraduateTraining:postgraduateTrainings) {
 			final int fromYear 		   = postgraduateTraining.getFromYear();

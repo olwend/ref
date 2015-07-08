@@ -2,7 +2,6 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -1117,7 +1116,206 @@ public class ScientistProfileHelper {
 		Set<ProfessionalActivity> result = activities.get(professionalActivity);
 		return result;
 	}
+
+	public String getIorEPositions(Map<String, Set<ProfessionalActivity>> activities, boolean externalPosition){
+		StringBuilder result = new StringBuilder(); 
+		StringBuilder aux = new StringBuilder(); 
+		Set<ProfessionalActivity> setPositions = getProfessionalActivitySet(activities, PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION);
+		if (!setPositions.isEmpty()){ 
+			if (externalPosition){
+				for (final ProfessionalActivity activity: setPositions) { 
+					String[] parameters = {
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL
+					};
+					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+					
+				} 
+				if (aux.length() > 0) { 
+					result.append("<h3>External Positions</h3>");
+					result.append(aux);
+				} 
+			} else {
+				for (final ProfessionalActivity activity: setPositions) {
+					String[] parameters = {
+							ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL
+					};
+					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+				}
+				if (aux.length() > 0) {
+					result.append("<h3>Internal Positions</h3>");
+					result.append(aux);
+				}
+			}
+		} 
+		return result.toString();
+	}
 	
+	public String getFellowships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setFellowships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP); 
+		if (!setFellowships.isEmpty()) { 
+			result.append("<h3>Fellowships</h3>");
+			for (final ProfessionalActivity activity: setFellowships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getCommittees(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setCommittees = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES); 
+		if (!setCommittees.isEmpty()) { 
+			result.append("<h3>Committees</h3>");
+			for (final ProfessionalActivity activity: setCommittees) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getMemberships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setMemberships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); 
+		if (!setMemberships.isEmpty()) { 
+			result.append("<h3>Memberships</h3>");
+			for (final ProfessionalActivity activity: setMemberships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getEditorships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setEditorships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); 
+		if (!setEditorships.isEmpty()) { 
+			result.append("<h3>Editorships</h3>");
+			for (final ProfessionalActivity activity: setEditorships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getReviewsRefereed(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setPublications = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION); 
+		Set<ProfessionalActivity> setGrants = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT); 
+		if (!setPublications.isEmpty() || !setGrants.isEmpty()) { 
+			result.append("<h3>Reviewer / referee</h3>");
+				if (!setPublications.isEmpty()) { 
+					result.append("<h4>Publications</h4>");
+						for (final ProfessionalActivity activity: setPublications) { 
+							result.append("<p>");
+							result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+							result.append("</p>");
+						} 
+				} 
+				// ReviewerReferee / Grants --
+				if (!setGrants.isEmpty()) { 
+					result.append("<h4>Grants</h4>");
+						for (final ProfessionalActivity activity: setGrants) { 
+							result.append("<p>");
+							result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+							result.append("</p>");
+						} 
+				} 
+		} 
+		return result.toString();
+	}
+	
+	public String getEvents(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+
+		// - Events' variables -
+		Set<ProfessionalActivity> setEParticipations = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
+		Set<ProfessionalActivity> setEAdministrations = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION);
+		StringBuilder eventsAdministrationStringBuilder = new StringBuilder();
+		StringBuilder eventsWorkshopStringBuilder = new StringBuilder();
+		StringBuilder otherEventStringBuilder = new StringBuilder();
+
+		// - Events / Organisation -
+		if (!setEAdministrations.isEmpty()) {
+			for (final ProfessionalActivity activity: setEAdministrations) {
+				eventsAdministrationStringBuilder.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+			}
+		}
+		
+		// - Events / Participation -
+		if (!setEParticipations.isEmpty()) {
+			// - Events / Participation / Conference Attendance -
+			for (final ProfessionalActivity activity: setEParticipations) {
+				String[] parameters = {
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONFERENCE,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_MEETING,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_COLLOQUIUM,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONGRESS,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
+					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
+				};
+				otherEventStringBuilder.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+			}
+			
+			// - Events / Participation / Workshop -
+			for (final ProfessionalActivity activity: setEParticipations) {
+										String[] parameters = {
+						ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP
+					};
+					eventsWorkshopStringBuilder.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+			}
+		}
+		
+		// - Displaying Events -
+		if (eventsWorkshopStringBuilder.length() > 0 || otherEventStringBuilder.length() > 0 || eventsAdministrationStringBuilder.length() > 0) {
+			result.append("<h3>Events</h3>");
+			if (otherEventStringBuilder.length() > 0) {
+				result.append("<h4>Conference Attendance</h4>");
+				result.append(otherEventStringBuilder);
+			}
+			if (eventsWorkshopStringBuilder.length() > 0) {
+				result.append("<h4>Workshop Attendance</h4>");
+				result.append(eventsWorkshopStringBuilder);
+			}
+			if (eventsAdministrationStringBuilder.length() > 0) {
+				result.append("<h4>Organisation</h4>");
+				result.append(eventsAdministrationStringBuilder);
+			}
+		}
+		
+		return result.toString();
+	}
+	
+	public boolean displayProfessionalActivitiesTab(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+		
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getIorEPositions(activities, true));
+			aux.append(helper.getFellowships(activities));
+			aux.append(helper.getCommittees(activities));
+			aux.append(helper.getMemberships(activities));
+			aux.append(helper.getEditorships(activities));
+			aux.append(helper.getReviewsRefereed(activities));
+			aux.append(helper.getEvents(activities));
+			aux.append(helper.getIorEPositions(activities, false));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
+	}
+
 	private Map<String, Set<ProfessionalActivity>> extractProjects(final String nodeName) {
 		final Map<String, Set<ProfessionalActivity>> result = new TreeMap<String, Set<ProfessionalActivity>>();
 		

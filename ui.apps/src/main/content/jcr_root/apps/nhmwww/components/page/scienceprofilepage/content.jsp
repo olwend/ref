@@ -36,9 +36,15 @@
             <div class="show-for-large-up">
                 <ul class="tabs science-profiles-detail-page--tabs-container mt-32" data-tab>
                  	<li class="tab-title active"><a href="#panel1">Introduction</a></li>
+
                  	<li class="tab-title"><a href="#panel2">Projects</a></li>
-                    <li class="tab-title"><a href="#panel3">Professional activities</a></li>
+
+                 	<% if (helper.displayProfessionalActivitiesTab(resource)) { %>
+	                    <li class="tab-title"><a href="#panel3">Professional activities</a></li>
+                 	<% } %>
+                    
                     <li class="tab-title"><a href="#panel4">Publications</a></li>
+
                 </ul>
                 <div class="tabs-content">
                     <div class="content active" id="panel1">
@@ -47,10 +53,10 @@
                     <div class="content" id="panel2">
                         <cq:include script="projects.jsp" />
                     </div>
-                    <% if(helper.getProfessionalActivities() !=null && !helper.getProfessionalActivities().isEmpty()) { %>
-                    <div class="content" id="panel3">
-                        <cq:include script="professionalactivities.jsp" />
-                    </div>
+                   	<% if (helper.displayProfessionalActivitiesTab(resource)) { %>
+                        <div class="content" id="panel3">
+                            <cq:include script="professionalactivities.jsp" />
+                        </div>
                     <% } %>
                     <div class="content" id="panel4">
                         <cq:include script="publications.jsp" />
@@ -71,12 +77,14 @@
                             <cq:include script="projects.jsp" />
                         </div>
 					</dd>
-					<dd class="accordion-navigation">
-						<a href="#panel3b">Professional Activities</a>
-                        <div id="panel3b" class="content">
-                            <cq:include script="professionalactivities.jsp" />
-                        </div>
-					</dd>
+                 	<% if (helper.displayProfessionalActivitiesTab(resource)) { %>
+						<dd class="accordion-navigation">
+							<a href="#panel3b">Professional Activities</a>
+	                        <div id="panel3b" class="content">
+	                            <cq:include script="professionalactivities.jsp" />
+	                        </div>
+						</dd>
+                 	<% } %>
 					<dd class="accordion-navigation">
 						<a href="#panel4c">Publications</a>
 						<div id="panel4c" class="content">
