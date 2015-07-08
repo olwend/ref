@@ -191,7 +191,7 @@
 				<div id="departAndDiv" class="small-12 medium-4 large-4 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					Department and Division
 				</div>
-				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
+				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header js--profile-content">
 					Specialisms
 				</div>
 			</div>
