@@ -10,8 +10,8 @@
 %>
 <div class="small-12 medium-8 large-8 columns">
 	<% if (publications != null && !publications.isEmpty()) { %>	
-		<h3>Publications</h3>
 		<div id="publications" class="content science-profiles-detail-page--tabs-content-container">
+			<h3>Publications</h3>
 			<% for (final Publication publication:publications) { %>
 			<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), false) %></p>
 			<% } %>

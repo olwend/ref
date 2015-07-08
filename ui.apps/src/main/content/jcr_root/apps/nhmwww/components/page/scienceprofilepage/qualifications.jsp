@@ -15,7 +15,7 @@
 		return;
 	}
 %>
-<h4>Qualifications</h4>
+<h3>Qualifications</h3>
 <div class="qualifications-list description-list">
 <%
 	if (degrees != null && degrees.size() > 0) {

@@ -15,7 +15,7 @@
 <%
 		if (academics != null && academics.size() > 0) {
 %>
-	<h4>Academic</<h4>
+	<h4>Academic</h4>
 <%
 			for (final WorkExperience academic:academics) {
 				
