@@ -1309,4 +1309,12 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
+	
+	public boolean displayGroupsAndSpecialisms(Resource resource) {
+		boolean res = false;
+		if ( hasGroup() && getSpecialisms() != null) {
+			res = true;
+		}
+		return res;
+	}
 }
