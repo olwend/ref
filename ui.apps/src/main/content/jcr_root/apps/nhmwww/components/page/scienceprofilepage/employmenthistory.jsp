@@ -10,12 +10,12 @@
 
 	if ((academics != null && academics.size() > 0) || (nonAcademics != null && nonAcademics.size() > 0)) {
 %>			
-<h2>Employment history</h2>
+<h3>Employment history</h3>
 <div class="employment-list description-list">
 <%
 		if (academics != null && academics.size() > 0) {
 %>
-	<h3>Academic</h3>
+	<h4>Academic</<h4>
 <%
 			for (final WorkExperience academic:academics) {
 				
@@ -48,7 +48,7 @@
 	
 		if (nonAcademics != null && nonAcademics.size() > 0) {
 %>
-	<h3>Non-academic</h3>
+	<h4>Non-academic</h4>
 <%
 			for (final WorkExperience nonAcademic:nonAcademics) {
 				if (nonAcademic.isValid()) {

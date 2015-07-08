@@ -1112,8 +1112,8 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getIorEPositions(Map<String, Set<ProfessionalActivity>> activities, boolean externalPosition){
-		StringBuffer result = new StringBuffer(); 
-		StringBuffer aux = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
+		StringBuilder aux = new StringBuilder(); 
 		Set<ProfessionalActivity> setPositions = getProfessionalActivitySet(activities, PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION);
 		if (!setPositions.isEmpty()){ 
 			if (externalPosition){
@@ -1125,7 +1125,7 @@ public class ScientistProfileHelper {
 					
 				} 
 				if (aux.length() > 0) { 
-					result.append("<h2>External Positions</h2>");
+					result.append("<h3>External Positions</h3>");
 					result.append(aux);
 				} 
 			} else {
@@ -1136,7 +1136,7 @@ public class ScientistProfileHelper {
 					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
 				}
 				if (aux.length() > 0) {
-					result.append("<h2>Internal Positions</h2>");
+					result.append("<h3>Internal Positions</h3>");
 					result.append(aux);
 				}
 			}
@@ -1145,10 +1145,10 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getFellowships(Map<String, Set<ProfessionalActivity>> activities){
-		StringBuffer result = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setFellowships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP); 
 		if (!setFellowships.isEmpty()) { 
-			result.append("<h2>Fellowships</h2>");
+			result.append("<h3>Fellowships</h3>");
 			for (final ProfessionalActivity activity: setFellowships) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1159,10 +1159,10 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getCommittees(Map<String, Set<ProfessionalActivity>> activities){
-		StringBuffer result = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setCommittees = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES); 
 		if (!setCommittees.isEmpty()) { 
-			result.append("<h2>Committees</h2>");
+			result.append("<h3>Committees</h3>");
 			for (final ProfessionalActivity activity: setCommittees) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1173,10 +1173,10 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getMemberships(Map<String, Set<ProfessionalActivity>> activities){
-		StringBuffer result = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setMemberships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); 
 		if (!setMemberships.isEmpty()) { 
-			result.append("<h2>Memberships</h2>");
+			result.append("<h3>Memberships</h3>");
 			for (final ProfessionalActivity activity: setMemberships) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1187,10 +1187,10 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getEditorships(Map<String, Set<ProfessionalActivity>> activities){
-		StringBuffer result = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setEditorships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP); 
 		if (!setEditorships.isEmpty()) { 
-			result.append("<h2>Editorships</h2>");
+			result.append("<h3>Editorships</h3>");
 			for (final ProfessionalActivity activity: setEditorships) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1201,13 +1201,13 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getReviewsRefereed(Map<String, Set<ProfessionalActivity>> activities){
-		StringBuffer result = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setPublications = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION); 
 		Set<ProfessionalActivity> setGrants = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT); 
 		if (!setPublications.isEmpty() || !setGrants.isEmpty()) { 
-			result.append("<h2>Reviewer / referee</h2>");
+			result.append("<h3>Reviewer / referee</h3>");
 				if (!setPublications.isEmpty()) { 
-					result.append("<h3>Publications</h3>");
+					result.append("<h4>Publications</h4>");
 						for (final ProfessionalActivity activity: setPublications) { 
 							result.append("<p>");
 							result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1216,7 +1216,7 @@ public class ScientistProfileHelper {
 				} 
 				// ReviewerReferee / Grants --
 				if (!setGrants.isEmpty()) { 
-					result.append("<h3>Grants</h3>");
+					result.append("<h4>Grants</h4>");
 						for (final ProfessionalActivity activity: setGrants) { 
 							result.append("<p>");
 							result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1228,19 +1228,19 @@ public class ScientistProfileHelper {
 	}
 	
 	public String getEvents(Map<String, Set<ProfessionalActivity>> activities){
-		StringBuffer result = new StringBuffer(); 
+		StringBuilder result = new StringBuilder(); 
 
 		// - Events' variables -
 		Set<ProfessionalActivity> setEParticipations = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
 		Set<ProfessionalActivity> setEAdministrations = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION);
-		StringBuffer eventsAdministrationStringBuffer = new StringBuffer();
-		StringBuffer eventsWorkshopStringBuffer = new StringBuffer();
-		StringBuffer otherEventStringBuffer = new StringBuffer();
+		StringBuilder eventsAdministrationStringBuilder = new StringBuilder();
+		StringBuilder eventsWorkshopStringBuilder = new StringBuilder();
+		StringBuilder otherEventStringBuilder = new StringBuilder();
 
 		// - Events / Organisation -
 		if (!setEAdministrations.isEmpty()) {
 			for (final ProfessionalActivity activity: setEAdministrations) {
-				eventsAdministrationStringBuffer.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				eventsAdministrationStringBuilder.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
 			}
 		}
 		
@@ -1256,7 +1256,7 @@ public class ScientistProfileHelper {
 					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_CONVENTION,
 					ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_SYMPOSIUM
 				};
-				otherEventStringBuffer.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+				otherEventStringBuilder.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
 			}
 			
 			// - Events / Participation / Workshop -
@@ -1264,24 +1264,24 @@ public class ScientistProfileHelper {
 										String[] parameters = {
 						ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_WORKSHOP
 					};
-					eventsWorkshopStringBuffer.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+					eventsWorkshopStringBuilder.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
 			}
 		}
 		
 		// - Displaying Events -
-		if (eventsWorkshopStringBuffer.length() > 0 || otherEventStringBuffer.length() > 0 || eventsAdministrationStringBuffer.length() > 0) {
-			result.append("<h2>Events</h2>");
-			if (otherEventStringBuffer.length() > 0) {
-				result.append("<h3>Conference Attendance</h3>");
-				result.append(otherEventStringBuffer);
+		if (eventsWorkshopStringBuilder.length() > 0 || otherEventStringBuilder.length() > 0 || eventsAdministrationStringBuilder.length() > 0) {
+			result.append("<h3>Events</h3>");
+			if (otherEventStringBuilder.length() > 0) {
+				result.append("<h4>Conference Attendance</h4>");
+				result.append(otherEventStringBuilder);
 			}
-			if (eventsWorkshopStringBuffer.length() > 0) {
-				result.append("<h3>Workshop Attendance</h3>");
-				result.append(eventsWorkshopStringBuffer);
+			if (eventsWorkshopStringBuilder.length() > 0) {
+				result.append("<h4>Workshop Attendance</h4>");
+				result.append(eventsWorkshopStringBuilder);
 			}
-			if (eventsAdministrationStringBuffer.length() > 0) {
-				result.append("<h3>Organisation</h3>");
-				result.append(eventsAdministrationStringBuffer);
+			if (eventsAdministrationStringBuilder.length() > 0) {
+				result.append("<h4>Organisation</h4>");
+				result.append(eventsAdministrationStringBuilder);
 			}
 		}
 		
@@ -1290,7 +1290,7 @@ public class ScientistProfileHelper {
 	
 	public boolean displayProfessionalActivitiesTab(Resource resource){
 		boolean res = false;
-		StringBuffer aux = new StringBuffer();
+		StringBuilder aux = new StringBuilder();
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
 		
