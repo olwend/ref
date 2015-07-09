@@ -6,6 +6,7 @@
 				java.util.Set"%> 
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+	final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialisms(resource);
 
 	final String function  		= helper.getFunction(); 
 	final String position  		= helper.getPosition(); 
@@ -20,13 +21,26 @@
 	} else {
 		personalInformationHeader = "";
 	}
+	
 %>
 		<div class="hti-wrapper">
-			<div class="small-12 medium-5 large-6 columns hti--image-wrapper hti-box__light-grey" data-equalizer-watch>
+			<div class="
+				<% if (displayGroupsAndSpecialisms) { %>
+					small-12 medium-5 large-6 
+				<% } else { %>
+					small-12 medium-5 large-4 
+				<% } %>
+				columns hti--image-wrapper hti-box__light-grey" data-equalizer-watch>
         		<cq:include script="image.jsp" />
         	</div>
     	</div>
-		<div class="small-12 medium-7 large-6 columns hti-box hti-box__light-grey" data-equalizer-watch>
+		<div class="
+				<% if (displayGroupsAndSpecialisms) { %>
+					small-12 medium-7 large-6
+				<% } else { %>
+					small-12 medium-7 large-8
+				<% } %>
+				columns hti-box hti-box__light-grey" data-equalizer-watch>
 			<div class="hti-box--text-wrapper">
 				<h2><%= personalInformationHeader %></h2>
 				
