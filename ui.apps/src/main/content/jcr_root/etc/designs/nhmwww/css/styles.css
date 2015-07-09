@@ -13428,8 +13428,10 @@ a.button-cta {
 .directory-search--fields-block-grid li {
   padding-bottom: 0;
 }
-.directory-search--fields-block-grid li:last-child {
-  padding-right: 0;
+@media screen and (min-width: 768px) {
+  .directory-search--fields-block-grid li:last-child {
+    padding-right: 0;
+  }
 }
 
 .directory-search-button--container {
