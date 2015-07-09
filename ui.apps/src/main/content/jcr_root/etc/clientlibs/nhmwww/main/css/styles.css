@@ -13570,6 +13570,10 @@ a.button-cta {
 .science-profiles-detail-page .hti-wrapper .columns {
   padding-right: 0;
 }
+.science-profiles-detail-page .accordion-navigation a {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.125em;
+}
 
 .science-profiles-detail-page--personal-group h2 {
   padding-bottom: 0;
