@@ -1310,6 +1310,16 @@ public class ScientistProfileHelper {
 		return res;
 	}
 	
+	public boolean displayPublications(Resource resource) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Set<Publication> publications = helper.getPublications();
+		boolean res = false;
+		if (publications != null && !publications.isEmpty()) {
+			res = true;
+		}
+		return res;
+	}
+	
 	public boolean displayGroupsAndSpecialisms(Resource resource) {
 		boolean res = false;
 		if ( hasGroup() && getSpecialisms() != null) {
@@ -1317,4 +1327,5 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
+	
 }
