@@ -49,7 +49,7 @@
 						<option value="All" selected="selected">Department and Division</option>
 						<%-- Department: Life Sciences --%>
 						<option class="department" id="Life Sciences" value="Life Sciences">Life sciences</option>
-						<option class="division" id="Genomics and Microbial diversity" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Genomics and Microbial Biodiversity Division">&nbsp;&nbsp;&nbsp;&nbsp;Genomics and Microbial diversity</option>
+						<option class="division" id="Diversity and Informatics" value="Genomics and Microbial diversity" data-department="Life Sciences" data-division="Diversity and Informatics">&nbsp;&nbsp;&nbsp;&nbsp;Diversity and Informatics</option>
 						<option class="division" id="Plants" value="Plants" data-department="Life Sciences" data-division="Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Plants</option>
 						<option class="division" id="Insects" value="Insects" data-department="Life Sciences" data-division="Insects">&nbsp;&nbsp;&nbsp;&nbsp;Insects</option>
 						<option class="division" id="Parasites and vectors" value="Parasites and vectors" data-department="Life Sciences" data-division="Parasites and Vectors Division">&nbsp;&nbsp;&nbsp;&nbsp;Parasites and vectors</option>
@@ -191,7 +191,7 @@
 				<div id="departAndDiv" class="small-12 medium-4 large-4 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
 					Department and Division
 				</div>
-				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header directory-search-results--sort-results-down js--profile-content">
+				<div id="specialisms" class="small-12 medium-3 large-3 columns directory-search-results--row-header js--profile-content">
 					Specialisms
 				</div>
 			</div>

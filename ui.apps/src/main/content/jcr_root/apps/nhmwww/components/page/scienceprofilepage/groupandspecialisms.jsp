@@ -7,7 +7,6 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-
 	final String specialisms 	   = helper.getSpecialisms();
 %>
 <div class="hti-wrapper">
@@ -18,8 +17,7 @@
 			final ScientistsGroupsService groupService = sling.getService(ScientistsGroupsService.class);
 			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
 			final String groupName = groupService.getGroupName(resource);
-			if (!groupScientists.isEmpty()) {
-	%>
+			if (!groupScientists.isEmpty()) { %>
 			<h3><%= groupName %></h3>
 			<!-- <h2>Group</h2> -->
 			<p>
@@ -42,22 +40,17 @@
 					} else {
 						groupOutput += "<a href=\"" + scientist.getPath()+".html\">"+scientist.getName()+"</a>";
 					}
-				}
-	
-	%>
+				} %>
 				<%= groupOutput %>
 			</p>
 			<%
 			}
 		}
 	
-		if (specialisms != null) {
-	%>
+		if (specialisms != null) { %>
 			<h3>Specialisms</h3>
 			<p><%= specialisms %></p>
-			<%
-		}
-	%>
+		<% } %>
 		</div>
 	</div>
 </div>
