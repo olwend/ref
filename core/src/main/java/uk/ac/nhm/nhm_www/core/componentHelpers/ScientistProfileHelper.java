@@ -1310,7 +1310,7 @@ public class ScientistProfileHelper {
 		return res;
 	}
 	
-	public boolean displayPublications(Resource resource) {
+	public boolean displayPublicationsTab(Resource resource) {
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Set<Publication> publications = helper.getPublications();
 		boolean res = false;
@@ -1320,7 +1320,7 @@ public class ScientistProfileHelper {
 		return res;
 	}
 	
-	public boolean displayGroupsAndSpecialisms(Resource resource) {
+	public boolean displayGroupsAndSpecialismsBox(Resource resource) {
 		boolean res = false;
 		if ( hasGroup() && getSpecialisms() != null) {
 			res = true;
