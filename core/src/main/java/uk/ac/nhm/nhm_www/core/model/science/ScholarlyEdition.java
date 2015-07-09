@@ -56,15 +56,13 @@ public class ScholarlyEdition extends Publication{
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
 		
-//		LOG.error("This is the list of authors parsed: " + authorsString);
-//		LOG.error("Current Author: " + currentAuthor);
-//		LOG.error("First Initial Author: " + firstInitial);
 		if (authorsString.contains(currentAuthor)) {
 			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		} else if (authorsString.contains(firstInitial)) {
 			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 		}
-		// LOG.error("After being replaced: " + authorsString);
+		//Remove name delimiters placed there by the normalizer
+		authorsString = authorsString.replaceAll("#", "");
 		
 		final StringBuffer stringBuffer = new StringBuffer();
 //		stringBuffer.append("####This is a Scholarly Edition Publication####");
