@@ -4,7 +4,7 @@
 <% 
     final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
     final String title = helper.getTitle();
-    final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialisms(resource);
+    final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialismsBox(resource)(resource);
     final boolean displayProfessionalActivitiesTab = helper.displayProfessionalActivitiesTab(resource);
     final boolean displayPublicationsTab = helper.displayPublicationsTab(resource);
     String firstName = "";
