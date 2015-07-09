@@ -86,7 +86,7 @@
 					<% if (displayProfessionalActivitiesTab) { %>
 						<dd class="accordion-navigation">
 							<a href="#panel2a">Professional Activities</a>
-							<div id="panel2a" class="content">
+							<div id="panel2a" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="professionalactivities.jsp" />
 							</div>
 						</dd>
@@ -94,7 +94,7 @@
 					<% if (displayPublicationsTab) { %>
 						<dd class="accordion-navigation">
 							<a href="#panel3b">Publications</a>
-							<div id="panel3b" class="content">
+							<div id="panel3b" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="publications.jsp" />
 							</div>
 						</dd>
