@@ -31,12 +31,12 @@
 			<div class="
 				<% if (displayGroupsAndSpecialisms) { %>
 					<%-- Will display box over 8 columns --%>
-					small-12 medium-8 large-8 
+					small-12 medium-8 large-8 science-profiles-detail-page--personal
 				<% } else { %>
 					<%-- Will display box over all 12 columns --%>
-					small-12 medium-12 large-12 
+					small-12 medium-12 large-12 science-profiles-detail-page--personal__single
 				<% } %>
-				columns science-profiles-detail-page--personal">
+				columns">
 				<cq:include script="personalinformation.jsp" />
 			</div>
 		<% if (displayGroupsAndSpecialisms) { %>
