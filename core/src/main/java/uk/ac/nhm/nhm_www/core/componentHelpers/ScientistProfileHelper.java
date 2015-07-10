@@ -922,7 +922,7 @@ public class ScientistProfileHelper {
                 	
                 	final String committeeRole = childProperties.get(COMMITTEE_ROLE_ATTRIBUTE, String.class);
 					setCommittees.add(new Committee(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							committeeRole));
+							committeeRole, committeeInstitution));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP:
@@ -930,7 +930,7 @@ public class ScientistProfileHelper {
                     
                     final String membershipRole = childProperties.get(MEMBERSHIP_ROLE_ATTRIBUTE, String.class);
                     setMemberships.add(new Membership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
-                    		membershipRole)); //problemas aqui
+                    		membershipRole, membershipInstitution));
                     break; 
                     
 				case PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP:
@@ -953,33 +953,25 @@ public class ScientistProfileHelper {
                     final String grantOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
                    
 					setReviewGrants.add(new ReviewerOrRefereeGrant(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
-							));
+							grantOrganisations));
 					break;
 					
                 case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION:
-			        final String[] eventOrganisationsCities = childProperties.get(INSTITUTION_CITIES_ATTRIBUTE, String[].class);
-			        
-			        final String[] eventOrganisationsCountries = childProperties.get(INSTITUTION_COUNTRIES_ATTRIBUTE, String[].class);
-			        
-			        final String[] eventOrganisationsInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String[].class);
+			        final String eventOrganisationsInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 			        
                     final String eventOrganisationsRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
                     final String eventOrganisationsType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
                     setEventsAdministration.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-                                        eventOrganisationsRole, eventOrganisationsType, eventOrganisationsCities, eventOrganisationsCountries, eventOrganisationsInstitution));
-                        break;  	
+                                        eventOrganisationsRole, eventOrganisationsType, eventOrganisationsInstitution));
+                    break;  	
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION:
-                	final String[] eventParticipationCities = childProperties.get(INSTITUTION_CITIES_ATTRIBUTE, String[].class);
-                	
-                	final String[] eventParticipationCountries = childProperties.get(INSTITUTION_COUNTRIES_ATTRIBUTE, String[].class);
-                	
-                	final String[] eventParticipationInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String[].class);
+                	final String eventParticipationInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
                 	
 					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
 					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
 					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							eventParticipationRoles, eventParticipationType, eventParticipationCities, eventParticipationCountries, eventParticipationInstitution));
+							eventParticipationRoles, eventParticipationType, eventParticipationInstitution));
 					break;	
 					
 				default:

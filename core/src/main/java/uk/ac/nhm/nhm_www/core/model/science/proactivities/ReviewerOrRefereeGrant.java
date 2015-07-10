@@ -1,19 +1,41 @@
 package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
+import org.apache.sling.commons.json.JSONArray;
+import org.apache.sling.commons.json.JSONException;
+import org.apache.sling.commons.json.JSONObject;
+
 
 
 public class ReviewerOrRefereeGrant extends ProfessionalActivity {
 
-	private String[] cities;
-	private String[] countries;
-	private String[] organisations;
+	private Organisation[] organisations;
 
 	public ReviewerOrRefereeGrant(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String[] grantCities, String[] grantCountries, String[] grantOrganisations) {
+			String yearEndDate, String monthEndDate, String dayEndDate, String grantOrganisations) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
-		this.cities = grantCities;
-		this.countries = grantCountries;
-		this.organisations = grantOrganisations;
+		
+		assignJSON(grantOrganisations);
+	}
+	
+	private void assignJSON(String aux) {
+		try {
+			if (aux == null){
+				return;
+			}
+			final JSONObject jsonObject = new JSONObject(aux);
+			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
+			
+			this.organisations = new Organisation[jsonArray.length()];
+			
+			for (int i = 0; i < jsonArray.length(); i++) {
+				final JSONObject organisationJson = jsonArray.getJSONObject(i);
+				
+				final Organisation organisation = new Organisation(organisationJson);
+				this.organisations[i] = organisation;
+			}
+		} catch (final JSONException e) {
+			this.organisations = null;
+		}
 	}
 
 	@Override
@@ -28,17 +50,17 @@ public class ReviewerOrRefereeGrant extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
-		if (organisations.length > 0){
-			for (int i = 0; i < organisations.length; i++) {
-				// <a href=url>OrganisationName</a>,_ 
-				if (organisations[i] != null && !organisations[i].equals("")){
+		if (organisations != null){
+			for (Organisation organisation  : organisations) {
+				// <a href=url>InstitutionName</a>,_ 
+				if (organisation.getOrganisation() != null){
 					if (this.url != null) {
 						stringBuffer.append("<a href=\"");
 						stringBuffer.append(this.url);
 						stringBuffer.append("\">");
 					}
 					
-					stringBuffer.append(this.organisations[i]);
+					stringBuffer.append(organisation.getOrganisation());
 					
 					if (this.url != null) {
 						stringBuffer.append("</a>");
@@ -47,19 +69,15 @@ public class ReviewerOrRefereeGrant extends ProfessionalActivity {
 				}
 				
 				// City,_
-				if(cities.length > 0 ){
-					if (cities[i] != null && !cities[i].equals("")){
-						stringBuffer.append(cities[i]);
-						stringBuffer.append(", ");
-					}	
-				}
+				if (organisation.getCity() != null){
+					stringBuffer.append(organisation.getCity() );
+					stringBuffer.append(", ");
+				}	
 				
 				// Country,_
-				if (countries.length > 0){
-					if (countries[i] != null && !countries[i].equals("")){
-						stringBuffer.append(this.countries[i]);
-						stringBuffer.append(", ");
-					}
+				if (organisation.getCountry() != null){
+					stringBuffer.append(organisation.getCountry());
+					stringBuffer.append(", ");
 				}
 			}
 		}

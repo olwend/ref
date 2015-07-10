@@ -19,38 +19,6 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 	private String officeOtherHeldType;
 	private Institution[] institutions;
 
-	private class Institution {
-		protected String organisation;
-		protected String city;
-		protected String country;
-		public Institution(JSONObject jsonObject) {
-			try {
-				this.organisation = jsonObject.getString("organisation");
-			} catch (JSONException e) {
-				this.organisation = null;
-			}
-			try {
-				this.city = jsonObject.getString("city");
-			} catch (JSONException e) {
-				this.city = null;
-			}
-			try {
-				this.country = jsonObject.getString("country");
-			} catch (JSONException e) {
-				this.country = null;
-			}
-		}
-		public String getOrganisation() {
-			return organisation;
-		}
-		public String getCity() {
-			return city;
-		}
-		public String getCountry() {
-			return country;
-		}
-	}
-	
 	public InternalOrExternalPosition(String url, String title, final String reportingDate, String yearStartDate, 
 			String monthStartDate, String dayStartDate, String yearEndDate, String monthEndDate, String dayEndDate,
 			String internalOrExternal, String officeHeldType, String officeOtherHeldType, String inOrExInstitution) {
@@ -59,7 +27,14 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 		this.officeHeldType = officeHeldType;
 		this.officeOtherHeldType = officeOtherHeldType;
 		
+		assignJSON(inOrExInstitution);
+	}
+
+	private void assignJSON(String inOrExInstitution) {
 		try {
+			if (inOrExInstitution == null){
+				return;
+			}
 			final JSONObject jsonObject = new JSONObject(inOrExInstitution);
 			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
 			
@@ -109,7 +84,7 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 				}
 			}
 			
-			if (institutions.length > 0){
+			if ( institutions != null ){
 				for (Institution institution  : institutions) {
 					// <a href=url>InstitutionName</a>,_ 
 					if (institution.getOrganisation() != null){
