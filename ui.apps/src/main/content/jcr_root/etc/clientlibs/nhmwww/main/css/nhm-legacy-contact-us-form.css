@@ -29,10 +29,20 @@
   display: none;
 }
 .legacy-css .icon {
+  padding-bottom: 6px;
   padding-left: 10px;
 }
 .legacy-css .requiredField {
   color: #aa0000;
+}
+.legacy-css.teacher-enews-form input {
+  display: inline;
+}
+.legacy-css.teacher-enews-form label {
+  display: inline;
+}
+.legacy-css.teacher-enews-form .icon {
+  padding-left: 0;
 }
 
 /*# sourceMappingURL=nhm-legacy-contact-us-form.css.map */
