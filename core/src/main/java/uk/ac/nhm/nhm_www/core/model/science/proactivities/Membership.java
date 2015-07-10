@@ -4,19 +4,19 @@ package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
 public class Membership extends ProfessionalActivity {
 
-	private String city;
-	private String country;
-	private String institution;
+	private String[] cities;
+	private String[] countries;
+	private String[] institutions;
 	private String role;
 
 	public Membership(String url, String title, final String reportingDate, String yearStartDate, 
 			String monthStartDate, String dayStartDate, String yearEndDate, String monthEndDate, String dayEndDate, 
-			String membershipCity, String membershipCountry, String membershipInstitution, String membershipRole) {
+			String[] membershipCities, String[] membershipCountries, String[] membershipInstitution, String membershipRole) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.role = membershipRole;
-		this.city = membershipCity;
-		this.country = membershipCountry;
-		this.institution = membershipInstitution;
+		this.cities = membershipCities;
+		this.countries = membershipCountries;
+		this.institutions = membershipInstitution;
 	}
 
 	public String getHTMLContent(String currentAuthor) {
@@ -30,32 +30,40 @@ public class Membership extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
-		// <a href=url>InstitutionName</a>,_ 
-		if (this.institution != null && !this.institution.equals("")){
-			if (this.url != null) {
-				stringBuffer.append("<a href=\"");
-				stringBuffer.append(this.url);
-				stringBuffer.append("\">");
+		if (institutions.length > 0){
+			for (int i = 0; i < institutions.length; i++) {
+				// <a href=url>InstitutionName</a>,_ 
+				if (institutions[i] != null && !institutions[i].equals("")){
+					if (this.url != null) {
+						stringBuffer.append("<a href=\"");
+						stringBuffer.append(this.url);
+						stringBuffer.append("\">");
+					}
+					
+					stringBuffer.append(this.institutions[i]);
+					
+					if (this.url != null) {
+						stringBuffer.append("</a>");
+						stringBuffer.append(", ");
+					}
+				}
+				
+				// City,_
+				if(cities.length > 0 ){
+					if (cities[i] != null && !cities[i].equals("")){
+						stringBuffer.append(cities[i]);
+						stringBuffer.append(", ");
+					}	
+				}
+				
+				// Country,_
+				if (countries.length > 0){
+					if (countries[i] != null && !countries[i].equals("")){
+						stringBuffer.append(this.countries[i]);
+						stringBuffer.append(", ");
+					}
+				}
 			}
-			
-			stringBuffer.append(this.institution);
-			
-			if (this.url != null) {
-				stringBuffer.append("</a>");
-				stringBuffer.append(", ");
-			}
-		}
-		
-		// City,_
-		if (this.city != null && !this.city.equals("")){
-			stringBuffer.append(this.city);
-			stringBuffer.append(", ");
-		}	
-		
-		// Country,_
-		if (this.country != null && !this.country.equals("")){
-			stringBuffer.append(this.country);
-			stringBuffer.append(", ");
 		}
 		
 		// startYear - endYear. || startYear - on going.

@@ -1,5 +1,8 @@
 package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
+import org.apache.sling.commons.json.JSONArray;
+import org.apache.sling.commons.json.JSONException;
+import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,20 +17,63 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 	private String internalOrExternal;
 	private String officeHeldType;
 	private String officeOtherHeldType;
-	private String city;
-	private String country;
-	private String institution;
+	private Institution[] institutions;
 
+	private class Institution {
+		protected String organisation;
+		protected String city;
+		protected String country;
+		public Institution(JSONObject jsonObject) {
+			try {
+				this.organisation = jsonObject.getString("organisation");
+			} catch (JSONException e) {
+				this.organisation = null;
+			}
+			try {
+				this.city = jsonObject.getString("city");
+			} catch (JSONException e) {
+				this.city = null;
+			}
+			try {
+				this.country = jsonObject.getString("country");
+			} catch (JSONException e) {
+				this.country = null;
+			}
+		}
+		public String getOrganisation() {
+			return organisation;
+		}
+		public String getCity() {
+			return city;
+		}
+		public String getCountry() {
+			return country;
+		}
+	}
+	
 	public InternalOrExternalPosition(String url, String title, final String reportingDate, String yearStartDate, 
 			String monthStartDate, String dayStartDate, String yearEndDate, String monthEndDate, String dayEndDate,
-			String internalOrExternal, String officeHeldType, String officeOtherHeldType, String inOrExCity, String inOrExCountry, String inOrExInstitution) {
+			String internalOrExternal, String officeHeldType, String officeOtherHeldType, String inOrExInstitution) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.internalOrExternal = internalOrExternal;
 		this.officeHeldType = officeHeldType;
 		this.officeOtherHeldType = officeOtherHeldType;
-		this.city = inOrExCity;
-		this.country = inOrExCountry;
-		this.institution = inOrExInstitution;
+		
+		try {
+			final JSONObject jsonObject = new JSONObject(inOrExInstitution);
+			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
+			
+			this.institutions = new Institution[jsonArray.length()];
+			
+			for (int i = 0; i < jsonArray.length(); i++) {
+				final JSONObject organisationJson = jsonArray.getJSONObject(i);
+				
+				final Institution institution = new Institution(organisationJson);
+				this.institutions[i] = institution;
+			}
+		} catch (final JSONException e) {
+			this.institutions = null;
+		}
 	}
 
 	@Override
@@ -63,32 +109,36 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 				}
 			}
 			
-			// <a href=url>InstitutionName</a>,_ 
-			if (this.institution != null && !this.institution.equals("")){
-				if (this.url != null) {
-					stringBuffer.append("<a href=\"");
-					stringBuffer.append(this.url);
-					stringBuffer.append("\">");
+			if (institutions.length > 0){
+				for (Institution institution  : institutions) {
+					// <a href=url>InstitutionName</a>,_ 
+					if (institution.getOrganisation() != null){
+						if (this.url != null) {
+							stringBuffer.append("<a href=\"");
+							stringBuffer.append(this.url);
+							stringBuffer.append("\">");
+						}
+						
+						stringBuffer.append(institution.getOrganisation());
+						
+						if (this.url != null) {
+							stringBuffer.append("</a>");
+							stringBuffer.append(", ");
+						}
+					}
+					
+					// City,_
+					if (institution.getCity() != null){
+						stringBuffer.append(institution.getCity() );
+						stringBuffer.append(", ");
+					}	
+					
+					// Country,_
+					if (institution.getCountry() != null){
+						stringBuffer.append(institution.getCountry());
+						stringBuffer.append(", ");
+					}
 				}
-				
-				stringBuffer.append(this.institution);
-				
-				if (this.url != null) {
-					stringBuffer.append("</a>");
-					stringBuffer.append(", ");
-				}
-			}
-			
-			// City,_
-			if (this.city != null && !this.city.equals("")){
-				stringBuffer.append(this.city);
-				stringBuffer.append(", ");
-			}	
-			
-			// Country,_
-			if (this.country != null && !this.country.equals("")){
-				stringBuffer.append(this.country);
-				stringBuffer.append(", ");
 			}
 			
 			// startYear - endYear. || startYear - on going.
@@ -127,5 +177,4 @@ public class InternalOrExternalPosition extends ProfessionalActivity {
 			}
 		}
 	}
-	
 }
