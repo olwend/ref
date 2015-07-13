@@ -1,9 +1,16 @@
 package uk.ac.nhm.nhm_www.core.model.science;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class Publication implements Comparable<Publication> {
+	private static final Logger LOG = LoggerFactory.getLogger(Publication.class);
+	
 	private List<String> authors;
 	
 	private String title;
@@ -23,6 +30,7 @@ public abstract class Publication implements Comparable<Publication> {
 		this.publicationYear = publicationYear;
 		this.favorite = favorite;
 		this.href = href;
+		//this.reportingDate = reportingDate;
 	}
 
 	public abstract String getHTMLContent(final String currentAuthor, final boolean isFavorite);
@@ -68,6 +76,50 @@ public abstract class Publication implements Comparable<Publication> {
 
 	public String getLink() {
 		return href;
+	}
+	
+    public static String normalizeName(String fullName, boolean onlyFirstInitial){
+//    	LOG.error("Inside normalizeName, our fullName is " + fullName);
+    	//fullName will be for example: 			e.g: Ouvrard D N M || Ouvrard DNM || Ouvrard D 
+		StringBuffer ret = new StringBuffer();
+		List<String> namesList = new ArrayList(Arrays.asList(fullName.split(" ")));
+		
+		//#############
+		//## Surname ##
+		//#############
+		//Possible cases for surnames				e.g: Ouvrard || OUVRARD
+		String surname = namesList.get(0);
+											//		LOG.error("Surname is " + surname);
+		//First Letter of Surname in uppercase		e.g: Ouvrard > O
+		ret.append(surname.substring(0, 1).toUpperCase());
+		//Rest of the surname in lowercase			e.g: UVRARD > uvrard
+		ret.append(surname.substring(1, surname.length()).toLowerCase());
+											//		LOG.error("Surname ended up looking like this : " + ret);
+
+		//Done with the Surname, removing it from the list
+		namesList.remove(0);
+		
+		//Separator between Surname and Name Initials
+		ret.append(" ");
+			
+		//#####################
+		//## Name Initial(s) ##
+		//#####################
+		//Possible cases for name initials: 		e.g: D N M || DNM || D
+		String initials = StringUtils.join(namesList.toArray(new String[namesList.size()]), "");
+											//		LOG.error("Initials are " + initials);
+		
+		//If onlyFirstInitial we append just the first initial
+		if(onlyFirstInitial) {
+			ret.append(initials.substring(0, 1));
+		} else {
+			ret.append(initials);
+		}
+		
+		//All together it turns it into				e.g: Ouvrard DNM 
+		//If firstInitial was true it will be		e.g: Ouvrard D
+		//We surround it with # to delimit the beginning and the end of the name.
+		return "#" + ret + "#";
 	}
 
 }

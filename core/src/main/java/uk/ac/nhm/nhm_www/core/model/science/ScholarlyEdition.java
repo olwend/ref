@@ -7,30 +7,27 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class JournalArticle extends Publication{
-	private String journalName;
-	private int volume;
-	private int issue;
+public class ScholarlyEdition extends Publication{
+	
+	private String publisherURL;
 	private int beginPage;
 	private int endPage;
-	private String doiText;
-	private String doiLink;
 	private int page;
-	
-	public JournalArticle(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final String journalName, final int volume, final int issue,
-			final int paginationBeginPage, final int paginationEndPage, int page, final String doiText,
-			final String doiLink) {
+	private String doiLink;
+	private String doiText;
+	private String publisher;
+
+	public ScholarlyEdition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			final  String href,	final String reportingDate, String scholarlyPublisherURL, int scholarlyBeginPage, int scholarlyEndPage, 
+			int scholarlyPage, String scholarlydoiText, String scholarlydoiLink, String scholarlyPublisher){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		
-		this.page = page;
-		this.journalName = journalName;
-		this.volume = volume;
-		this.issue = issue;
-		this.beginPage = paginationBeginPage;
-		this.endPage = paginationEndPage;
-		this.doiText = doiText;
-		this.doiLink = doiLink;
+		this.publisherURL = scholarlyPublisherURL;
+		this.beginPage = scholarlyBeginPage;
+		this.endPage = scholarlyEndPage;
+		this.page = scholarlyPage;
+		this.doiLink = scholarlydoiLink;
+		this.doiText = scholarlydoiText;
+		this.publisher = scholarlyPublisher;
 	}
 
 	@Override
@@ -43,8 +40,7 @@ public class JournalArticle extends Publication{
 		// First we normalize the author's name e.g: 
 		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
 		String currentAuthor = normalizeName(author, false);
-		// We store the author name with a single initial	e.g: Ouvrard D
-		String firstInitial = normalizeName(author, true);
+		String firstInitial = normalizeName(currentAuthor, true);
 		
 		Iterator<String> authorsIt = authors.iterator();
 		List<String> processedAuthors = new ArrayList<String>();
@@ -55,14 +51,11 @@ public class JournalArticle extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
 		
-//		LOG.error("This is the list of authors parsed: " + authorsString);
-//		LOG.error("Current Author: " + currentAuthor);
-//		LOG.error("First Initial Author: " + firstInitial);
 		if (authorsString.contains(currentAuthor)) {
 			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		} else if (authorsString.contains(firstInitial)) {
@@ -71,45 +64,38 @@ public class JournalArticle extends Publication{
 		//Remove name delimiters placed there by the normalizer
 		authorsString = authorsString.replaceAll("#", "");
 		
-//		LOG.error("After being replaced: " + authorsString);
-		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a Journal Article Publication####");
+//		stringBuffer.append("####This is a Scholarly Edition Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
 		
-		// (Year)
+		// (Year) || (Year, Month) || (Year, Day Month)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ArticleTitle._
+		// Link Opening for PublisherURL
+		if (this.publisherURL != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.publisherURL);
+			stringBuffer.append("\">");
+		}
+		
+		// Title._
 		stringBuffer.append(this.getTitle());
 		stringBuffer.append(". ");
 		
-		// <i>JournalName</i>
-		stringBuffer.append("<i>");
-		stringBuffer.append(this.journalName);
-		stringBuffer.append("</i>");
-		stringBuffer.append(", ");
-		
-		// <b>Volume</b>
-		if (this.volume > 0) {
-			stringBuffer.append("<b>");
-			stringBuffer.append(this.volume);
-			stringBuffer.append("</b> ");
-			
-			// (Issue) :_
-			if (this.issue > 0) {
-				stringBuffer.append("(");
-				stringBuffer.append(this.issue);
-				stringBuffer.append(")");
-			}
-			stringBuffer.append(" : ");
+		// Link Closing for PublisherURL
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
 		}
 		
-		// PagesBegin-PagesEnd.
+		// Publisher :_
+		stringBuffer.append(this.publisher);
+		stringBuffer.append(" : ");		
+		
+		// PagesBegin-PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
@@ -135,28 +121,12 @@ public class JournalArticle extends Publication{
 		return stringBuffer.toString();
 	}
 
-	public String getJournalName() {
-		return journalName;
+	public String getPublisherURL() {
+		return publisherURL;
 	}
 
-	public void setJournalName(String journalName) {
-		this.journalName = journalName;
-	}
-
-	public int getVolume() {
-		return volume;
-	}
-
-	public void setVolume(int volume) {
-		this.volume = volume;
-	}
-
-	public int getIssue() {
-		return issue;
-	}
-
-	public void setIssue(int issue) {
-		this.issue = issue;
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 
 	public int getBeginPage() {
@@ -175,12 +145,12 @@ public class JournalArticle extends Publication{
 		this.endPage = endPage;
 	}
 
-	public String getDoiText() {
-		return doiText;
+	public int getPage() {
+		return page;
 	}
 
-	public void setDoiText(String doiText) {
-		this.doiText = doiText;
+	public void setPage(int page) {
+		this.page = page;
 	}
 
 	public String getDoiLink() {
@@ -191,12 +161,20 @@ public class JournalArticle extends Publication{
 		this.doiLink = doiLink;
 	}
 
-	public int getPage() {
-		return page;
+	public String getDoiText() {
+		return doiText;
 	}
 
-	public void setPage(int page) {
-		this.page = page;
+	public void setDoiText(String doiText) {
+		this.doiText = doiText;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 	
 }

@@ -5,7 +5,6 @@
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 %>
 
-<div class="profile-img">
 <%
   	final WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
   	WCMMode.PREVIEW.toRequest(slingRequest);
@@ -15,4 +14,3 @@
 <%
 	beforeMode.toRequest(slingRequest);
 %>
-</div>

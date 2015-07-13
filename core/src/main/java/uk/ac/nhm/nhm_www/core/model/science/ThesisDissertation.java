@@ -1,40 +1,36 @@
 package uk.ac.nhm.nhm_www.core.model.science;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
-
-public class BookChapter extends Publication{
-	private static final Logger LOG = LoggerFactory.getLogger(BookChapter.class);
+public class ThesisDissertation extends Publication{
 	
-	private List<String> editors;
-	private String bookTitle;
-	private int beginPage;
-	private int endPage;
+	private static final Logger LOG = LoggerFactory.getLogger(ThesisDissertation.class);
+	
+	private String thesisType;
+	private List<String> supervisors;
 	private String publisher;
 	private String place;
+	private int beginPage;
+	private int endPage;
 	private int page;
-	
-	public BookChapter(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final List<String> bookEditorsSet, final String bookTitle, final int beginPage,
-			final int endPage, int page, final String publisher, final String place) {
+
+	public ThesisDissertation(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			final  String href,	final String reportingDate, List<String> supervisorsSet, String thesisType, String thesisPublisher, String thesisPublishingPlace, 
+			int thesisBeginPage, int thesisEndPage, int thesisPage){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		
-		this.page = page;
-		this.editors = bookEditorsSet;
-		this.bookTitle = bookTitle;
-		this.beginPage = beginPage;
-		this.endPage = endPage;
-		this.publisher = publisher;
-		this.place = place;
+		this.publisher = thesisPublisher;
+		this.place = thesisPublishingPlace;
+		this.thesisType = thesisType;
+		this.supervisors = supervisorsSet;
+		this.beginPage = thesisBeginPage;
+		this.endPage = thesisEndPage;
+		this.page = thesisPage;
 	}
 
 	@Override
@@ -58,7 +54,7 @@ public class BookChapter extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
@@ -77,53 +73,53 @@ public class BookChapter extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a BookChapter Publication####");
+//		stringBuffer.append("####This is a Thesis | Dissertation Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		
+
 		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ChapterTitle,_
+		// ThesisTitle._	
 		stringBuffer.append(this.getTitle());
-		stringBuffer.append(", ");
+		stringBuffer.append(". ");
 		
-		// In: <i>BookTitle</i>,_
-		stringBuffer.append("In: ");
-		stringBuffer.append("<i>");
-		stringBuffer.append(this.bookTitle);
-		stringBuffer.append("</i>, ");
+		// ThesisType._
+		stringBuffer.append(this.thesisType);
+		stringBuffer.append(". ");
 		
-		// Editor NM, Editor NM (Eds)._
-		final List<String> editors = this.editors;
-		if (editors != null && editors.size() > 0) {
-			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
-			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-			
-			if (editorsString.contains(currentAuthor)) {
-				editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+		// (Supervisor(s)) Supervisor NM, Supervisor NM._
+		final List<String> supervisors = this.supervisors;
+		if (supervisors != null && supervisors.size() > 0) {
+			String supervisorsString = StringUtils.join(supervisors.toArray(new String[supervisors.size()]), ", ");
+			supervisorsString = supervisorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+			if (supervisorsString.contains(currentAuthor)) {
+				supervisorsString = supervisorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			} else if (authorsString.contains(firstInitial)) {
-				editorsString = editorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+				supervisorsString = supervisorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
 			}
 			
-			stringBuffer.append(editorsString);
-			stringBuffer.append(" (Eds). ");
+			stringBuffer.append("(Supervisor(s)) ");
+			stringBuffer.append(supervisorsString);
+			stringBuffer.append(". ");
 		}
 		
 		// Publisher :_
-		stringBuffer.append(this.publisher);
-		stringBuffer.append(" : ");			
+		if (this.publisher != null) {
+			stringBuffer.append(this.publisher);
+			stringBuffer.append(" : "); 
+		}
 		
-		// PublishPlace._
+		// :PublishingLocation._
 		if (this.place != null) {
 			stringBuffer.append(this.place);
 			stringBuffer.append(". ");
 		}
 		
-		// PagesBegin-PagesEnd.
+		// PagesBegin - PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
@@ -136,41 +132,23 @@ public class BookChapter extends Publication{
 			}
 		}
 		
-//		LOG.error("#### The final result for the publication is: " + stringBuffer + "####"); 
-		
 		return stringBuffer.toString();
 	}
 
-	public List<String> getEditors() {
-		return editors;
+	public String getThesisType() {
+		return thesisType;
 	}
 
-	public void setEditors(List<String> editors) {
-		this.editors = editors;
+	public void setThesisType(String thesisType) {
+		this.thesisType = thesisType;
 	}
 
-	public String getBookTitle() {
-		return bookTitle;
+	public List<String> getSupervisors() {
+		return supervisors;
 	}
 
-	public void setBookTitle(String bookTitle) {
-		this.bookTitle = bookTitle;
-	}
-
-	public int getBeginPage() {
-		return beginPage;
-	}
-
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
-
-	public int getEndPage() {
-		return endPage;
-	}
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
+	public void setSupervisors(List<String> supervisors) {
+		this.supervisors = supervisors;
 	}
 
 	public String getPublisher() {
@@ -187,6 +165,22 @@ public class BookChapter extends Publication{
 
 	public void setPlace(String place) {
 		this.place = place;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
 	}
 
 	public int getPage() {

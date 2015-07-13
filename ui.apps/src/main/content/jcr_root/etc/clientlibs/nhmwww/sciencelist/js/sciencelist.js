@@ -115,17 +115,17 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#specialisms").on("click", function(){
-		specialismsSorted = sortTable(4, specialismsSorted);
-		var $this = $(this);			
-		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
-			$(this).removeClass('directory-search-results--sort-results-down');
-			$(this).addClass('directory-search-results--sort-results-up');
-		} else {
-			$(this).removeClass('directory-search-results--sort-results-up');
-			$(this).addClass('directory-search-results--sort-results-down');
-		}
-	});
+//	$("#specialisms").on("click", function(){
+//		specialismsSorted = sortTable(4, specialismsSorted);
+//		var $this = $(this);			
+//		if ( $(this).hasClass('directory-search-results--sort-results-down') ){
+//			$(this).removeClass('directory-search-results--sort-results-down');
+//			$(this).addClass('directory-search-results--sort-results-up');
+//		} else {
+//			$(this).removeClass('directory-search-results--sort-results-up');
+//			$(this).addClass('directory-search-results--sort-results-down');
+//		}
+//	});
 	
 	// ###############################
 	// #### Search & More Results #### 
@@ -198,7 +198,6 @@ function saveSearchTerms() {
 	
 //	if (collectionsGroup != 'All') {
 //		ignoreURL = true;
-//		console.log("Ignoring URL parameters cuz of collections");
 //	}
 	
 	if (!ignoreURL){
@@ -237,8 +236,6 @@ function saveSearchTerms() {
 //			}
 //		}
 	}
-	
-	console.log("commenting collections out");
 }
 
 function searchFunc(maxResults) {

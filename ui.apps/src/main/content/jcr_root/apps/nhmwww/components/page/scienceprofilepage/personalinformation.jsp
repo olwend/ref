@@ -6,6 +6,7 @@
 				java.util.Set"%> 
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+	final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialismsBox(resource);
 
 	final String function  		= helper.getFunction(); 
 	final String position  		= helper.getPosition(); 
@@ -20,63 +21,73 @@
 	} else {
 		personalInformationHeader = "";
 	}
+	
 %>
-	<div class="large-8 medium-8 columns large-left-section profile-box our-science" data-equalizer-watch>
-		<div class="large-6 medium-6 columns">
-        	<cq:include script="image.jsp" />
+		<div class="hti-wrapper">
+			<div class="
+				<% if (displayGroupsAndSpecialisms) { %>
+					small-12 medium-5 large-6 
+				<% } else { %>
+					small-12 medium-5 large-4 
+				<% } %>
+				columns hti--image-wrapper hti-box__light-grey" data-equalizer-watch>
+        		<cq:include script="image.jsp" />
+        	</div>
     	</div>
-    	<div class="large-6 medium-6 columns">
-	        <div class="profile-info">
-	            <h2><%= personalInformationHeader %></h2>
-	            <p>
-	            	<strong>Department:</strong> <%= departmentName %>
-	            	<br> 
-	            	<strong>Division:</strong> <%= division %>
-	            	<br>
-	            	<% String emailPartial = email.replaceAll("@(.*)",""); %>
-	            
-	            	<strong>Contact:</strong> <a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=<%=helper.getFirstName()%>+<%=helper.getLastName()%>"> email</a>
-	            	<br>
-	<%
-		final List<PhoneNumber> phones = helper.getPhones();
-		if (phones != null && !phones.isEmpty()) {
-			if (phones.size() == 1) {
-	%>
-	            
-	            	<strong>Phone:</strong> <%= phones.get(0).getPhone() %>
-	            	<br>
-	<%
-			} else {
-	%>
-				<div class="phone-numbers" data-equalizer>
-					<div class="phone-label columns" data-equalizer-watch><strong>Phones:</strong></div>
-					<div class="phone-number end columns" data-equalizer-watch>
-	<%
-				for (final PhoneNumber phone : phones) {
-	%> 
-						<div><strong><%= phone.getLabel() %>:</strong> <%= phone.getPhone() %></div>
-	<% 			
-				}
-	%>
-					</div>
-				</div>
-	<%
-			}
-		}
-		
-		if (sites != null) {
-			for (final WebSite site : sites) {
-				if (site.isValid() && site.isPersonalInformationWebSite()) {
-					final String label = site.getLabel();
-					final String link  = site.getLink();
-	%> 
-	            <a href="<%= link %>" target="_blank"><%= label %></a>
-	            <br>
-	<%
-				}
-			}
-		}
-	%> 
-	        </div>
-	    </div>
-    </div>
+		<div class="
+				<% if (displayGroupsAndSpecialisms) { %>
+					small-12 medium-7 large-6
+				<% } else { %>
+					small-12 medium-7 large-8
+				<% } %>
+				columns hti-box hti-box__light-grey" data-equalizer-watch>
+			<div class="hti-box--text-wrapper">
+				<h2><%= personalInformationHeader %></h2>
+				
+				<%-- Department --%>
+				<span class="science-profiles-detail-page--personal--label">Department:</span> 
+					<%= departmentName %> <br>
+					
+				<%-- Division --%>
+				<span class="science-profiles-detail-page--personal--label">Division:</span> 
+					<%= division %> <br>
+				
+				<%-- Email --%>
+				<% String emailPartial = email.replaceAll("@(.*)",""); %>
+				<span class="science-profiles-detail-page--personal--label">Contact:</span> <a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=<%=helper.getFirstName()%>+<%=helper.getLastName()%>"> email</a> <br>
+				
+				<%-- Phones --%><% 
+				final List<PhoneNumber> phones = helper.getPhones();
+				if (phones != null && !phones.isEmpty()) {
+					if (phones.size() == 1) { %>
+						<span class="science-profiles-detail-page--personal--label">Phone:</span>
+						<%= phones.get(0).getPhone() %>
+						<br> <% 
+					} else { %>
+						<div class="phone-numbers" data-equalizer>
+							<div class="phone-label columns" data-equalizer-watch>
+								<strong>Phones:</strong>
+							</div>
+							<div class="phone-number end columns" data-equalizer-watch>
+								<% for (final PhoneNumber phone : phones) { %>
+								<div>
+									<strong><%= phone.getLabel() %>:</strong>
+									<%= phone.getPhone() %></div>
+								<% } %>
+							</div>
+						</div> <% 
+					} 
+				} %>
+				
+				<%-- Websites --%><%
+				if (sites != null) {
+					for (final WebSite site : sites) {
+						if (site.isValid() && site.isPersonalInformationWebSite()) {
+							final String label = site.getLabel();
+							final String link  = site.getLink(); %>
+				<a href="<%= link %>" target="_blank"><%= label %></a> <br> <%
+						}
+					}
+				} %>
+			</div>
+		</div>

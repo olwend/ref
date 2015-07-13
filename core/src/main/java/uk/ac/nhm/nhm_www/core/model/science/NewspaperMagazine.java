@@ -1,40 +1,35 @@
 package uk.ac.nhm.nhm_www.core.model.science;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
-
-public class BookChapter extends Publication{
-	private static final Logger LOG = LoggerFactory.getLogger(BookChapter.class);
+public class NewspaperMagazine extends Publication{
 	
-	private List<String> editors;
-	private String bookTitle;
 	private int beginPage;
 	private int endPage;
-	private String publisher;
-	private String place;
 	private int page;
-	
-	public BookChapter(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final List<String> bookEditorsSet, final String bookTitle, final int beginPage,
-			final int endPage, int page, final String publisher, final String place) {
+	private String publisherURL;
+	private String doiLink;
+	private String doiText;
+	private int volume;
+	private int issue;
+
+	public NewspaperMagazine(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			final  String href,	final String reportingDate, String newsmagPublisherURL, int newsmagBeginPage, int newsmagEndPage, 
+			int newsmagPage, String newsmagDoiLink, String newsmagDoiText, int newsmagVolume, int newsmagIssue) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		
-		this.page = page;
-		this.editors = bookEditorsSet;
-		this.bookTitle = bookTitle;
-		this.beginPage = beginPage;
-		this.endPage = endPage;
-		this.publisher = publisher;
-		this.place = place;
+		this.beginPage = newsmagBeginPage;
+		this.endPage = newsmagEndPage;
+		this.page = newsmagPage;
+		this.publisherURL = newsmagPublisherURL;
+		this.doiLink = newsmagDoiLink;
+		this.doiText = newsmagDoiText;
+		this.volume = newsmagVolume;
+		this.issue = newsmagIssue;
 	}
 
 	@Override
@@ -58,7 +53,7 @@ public class BookChapter extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
@@ -77,53 +72,51 @@ public class BookChapter extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a BookChapter Publication####");
+//		stringBuffer.append("####This is a Newspaper|Magazine Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		
+
 		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
 		
-		// ChapterTitle,_
-		stringBuffer.append(this.getTitle());
-		stringBuffer.append(", ");
+		// Link Opening to publisher-url
+		if (this.publisherURL != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.publisherURL);
+			stringBuffer.append("\">");
+		}
 		
-		// In: <i>BookTitle</i>,_
-		stringBuffer.append("In: ");
+		// <i>Title</i>._
 		stringBuffer.append("<i>");
-		stringBuffer.append(this.bookTitle);
-		stringBuffer.append("</i>, ");
+		stringBuffer.append(this.getTitle());
+		stringBuffer.append("</i>");
+
+		// Link Closing to publisher-url
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
+		}
 		
-		// Editor NM, Editor NM (Eds)._
-		final List<String> editors = this.editors;
-		if (editors != null && editors.size() > 0) {
-			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
-			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+		stringBuffer.append(". ");
+		
+		// <b>Volume</b>
+		if (this.volume > 0) {
+			stringBuffer.append("<b>");
+			stringBuffer.append(this.volume);
+			stringBuffer.append("</b> ");
 			
-			if (editorsString.contains(currentAuthor)) {
-				editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-			} else if (authorsString.contains(firstInitial)) {
-				editorsString = editorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+			// (Issue) :_
+			if (this.issue > 0) {
+				stringBuffer.append("(");
+				stringBuffer.append(this.issue);
+				stringBuffer.append(")");
 			}
-			
-			stringBuffer.append(editorsString);
-			stringBuffer.append(" (Eds). ");
+			stringBuffer.append(" : ");
 		}
 		
-		// Publisher :_
-		stringBuffer.append(this.publisher);
-		stringBuffer.append(" : ");			
-		
-		// PublishPlace._
-		if (this.place != null) {
-			stringBuffer.append(this.place);
-			stringBuffer.append(". ");
-		}
-		
-		// PagesBegin-PagesEnd.
+		// PagesBegin - PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
@@ -136,25 +129,17 @@ public class BookChapter extends Publication{
 			}
 		}
 		
-//		LOG.error("#### The final result for the publication is: " + stringBuffer + "####"); 
-		
+		// DOI hyperlink
+		if (this.doiLink != null && this.doiText != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.doiLink);
+			stringBuffer.append("\">");
+			stringBuffer.append("doi: ");
+			stringBuffer.append(this.doiText);
+			stringBuffer.append("</a>");
+		}
+			
 		return stringBuffer.toString();
-	}
-
-	public List<String> getEditors() {
-		return editors;
-	}
-
-	public void setEditors(List<String> editors) {
-		this.editors = editors;
-	}
-
-	public String getBookTitle() {
-		return bookTitle;
-	}
-
-	public void setBookTitle(String bookTitle) {
-		this.bookTitle = bookTitle;
 	}
 
 	public int getBeginPage() {
@@ -173,28 +158,52 @@ public class BookChapter extends Publication{
 		this.endPage = endPage;
 	}
 
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public String getPlace() {
-		return place;
-	}
-
-	public void setPlace(String place) {
-		this.place = place;
-	}
-
 	public int getPage() {
 		return page;
 	}
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
+	}
+
+	public String getDoiLink() {
+		return doiLink;
+	}
+
+	public void setDoiLink(String doiLink) {
+		this.doiLink = doiLink;
+	}
+
+	public String getDoiText() {
+		return doiText;
+	}
+
+	public void setDoiText(String doiText) {
+		this.doiText = doiText;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public int getIssue() {
+		return issue;
+	}
+
+	public void setIssue(int issue) {
+		this.issue = issue;
 	}
 	
 }

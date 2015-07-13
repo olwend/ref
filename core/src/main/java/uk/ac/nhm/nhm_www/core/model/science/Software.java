@@ -3,34 +3,19 @@ package uk.ac.nhm.nhm_www.core.model.science;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class JournalArticle extends Publication{
-	private String journalName;
-	private int volume;
-	private int issue;
-	private int beginPage;
-	private int endPage;
+public class Software extends Publication{
+	
 	private String doiText;
 	private String doiLink;
-	private int page;
 	
-	public JournalArticle(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final String journalName, final int volume, final int issue,
-			final int paginationBeginPage, final int paginationEndPage, int page, final String doiText,
-			final String doiLink) {
+	public Software(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			final  String href,	final String reportingDate, String doiTxt, String doiURL){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		
-		this.page = page;
-		this.journalName = journalName;
-		this.volume = volume;
-		this.issue = issue;
-		this.beginPage = paginationBeginPage;
-		this.endPage = paginationEndPage;
-		this.doiText = doiText;
-		this.doiLink = doiLink;
+		this.doiText = doiTxt;
+		this.doiLink = doiURL;
 	}
 
 	@Override
@@ -43,8 +28,7 @@ public class JournalArticle extends Publication{
 		// First we normalize the author's name e.g: 
 		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
 		String currentAuthor = normalizeName(author, false);
-		// We store the author name with a single initial	e.g: Ouvrard D
-		String firstInitial = normalizeName(author, true);
+		String firstInitial = normalizeName(currentAuthor, true);
 		
 		Iterator<String> authorsIt = authors.iterator();
 		List<String> processedAuthors = new ArrayList<String>();
@@ -55,7 +39,7 @@ public class JournalArticle extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
@@ -74,105 +58,46 @@ public class JournalArticle extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a Journal Article Publication####");
+//		stringBuffer.append("####This is a Software Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		
-		// (Year)
+
+		// _(Year)_
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
 		stringBuffer.append(") ");
+
+		// Link Opening
+		if (this.getLink() != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.getLink());
+			stringBuffer.append("\">");
+		}
 		
-		// ArticleTitle._
-		stringBuffer.append(this.getTitle());
-		stringBuffer.append(". ");
-		
-		// <i>JournalName</i>
+		// <i>Title<i>_
 		stringBuffer.append("<i>");
-		stringBuffer.append(this.journalName);
+		stringBuffer.append(this.getTitle());
 		stringBuffer.append("</i>");
-		stringBuffer.append(", ");
-		
-		// <b>Volume</b>
-		if (this.volume > 0) {
-			stringBuffer.append("<b>");
-			stringBuffer.append(this.volume);
-			stringBuffer.append("</b> ");
-			
-			// (Issue) :_
-			if (this.issue > 0) {
-				stringBuffer.append("(");
-				stringBuffer.append(this.issue);
-				stringBuffer.append(")");
-			}
-			stringBuffer.append(" : ");
+
+		// Link Closing
+		if (this.getLink() != null) {
+			stringBuffer.append("</a>");
 		}
 		
-		// PagesBegin-PagesEnd.
-		if (this.beginPage > 0 && this.endPage > 0) {
-			stringBuffer.append(this.beginPage);
-			stringBuffer.append(" - ");
-			stringBuffer.append(this.endPage);
-			stringBuffer.append(". ");
-		} else {
-			if (this.page > 0) {
-				stringBuffer.append(this.page);
-				stringBuffer.append(". ");
-			}
-		}
+		stringBuffer.append(". ");
 		
 		// DOI hyperlink
 		if (this.doiLink != null && this.doiText != null) {
-			stringBuffer.append("<a href=\"");
+			stringBuffer.append(" <a href=\"");
 			stringBuffer.append(this.doiLink);
 			stringBuffer.append("\">");
 			stringBuffer.append("doi: ");
 			stringBuffer.append(this.doiText);
 			stringBuffer.append("</a>");
 		}
-		
+			
 		return stringBuffer.toString();
-	}
-
-	public String getJournalName() {
-		return journalName;
-	}
-
-	public void setJournalName(String journalName) {
-		this.journalName = journalName;
-	}
-
-	public int getVolume() {
-		return volume;
-	}
-
-	public void setVolume(int volume) {
-		this.volume = volume;
-	}
-
-	public int getIssue() {
-		return issue;
-	}
-
-	public void setIssue(int issue) {
-		this.issue = issue;
-	}
-
-	public int getBeginPage() {
-		return beginPage;
-	}
-
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
-
-	public int getEndPage() {
-		return endPage;
-	}
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
 	}
 
 	public String getDoiText() {
@@ -189,14 +114,6 @@ public class JournalArticle extends Publication{
 
 	public void setDoiLink(String doiLink) {
 		this.doiLink = doiLink;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
 	}
 	
 }

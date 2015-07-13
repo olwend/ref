@@ -1,40 +1,33 @@
 package uk.ac.nhm.nhm_www.core.model.science;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
-
-public class BookChapter extends Publication{
-	private static final Logger LOG = LoggerFactory.getLogger(BookChapter.class);
+public class InternetPublication extends Publication{
 	
-	private List<String> editors;
-	private String bookTitle;
+	private String publisher;
 	private int beginPage;
 	private int endPage;
-	private String publisher;
-	private String place;
 	private int page;
-	
-	public BookChapter(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final List<String> bookEditorsSet, final String bookTitle, final int beginPage,
-			final int endPage, int page, final String publisher, final String place) {
+	private int publicationMonth;
+	private int publicationDay;
+	private String publisherURL;
+
+	public InternetPublication(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+			int iPublicationMonth, int iPublicationDay, final  String href,	final String reportingDate, String internetPublisher, 
+			String publisherURL, int internetBeginPage, int internetEndPage, int internetPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
-		
-		this.page = page;
-		this.editors = bookEditorsSet;
-		this.bookTitle = bookTitle;
-		this.beginPage = beginPage;
-		this.endPage = endPage;
-		this.publisher = publisher;
-		this.place = place;
+		this.publicationMonth = iPublicationMonth;
+		this.publicationDay = iPublicationDay;
+		this.publisher = internetPublisher;
+		this.publisherURL = publisherURL;
+		this.beginPage = internetBeginPage;
+		this.endPage = internetEndPage;
+		this.page = internetPage;
 	}
 
 	@Override
@@ -58,7 +51,7 @@ public class BookChapter extends Publication{
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
-			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al. ";
+			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ", 0, 5) + ", et al";
 		} else {
 			authorsString = StringUtils.join(processedAuthors.toArray(new String[processedAuthors.size()]), ", ");
 		}
@@ -77,53 +70,47 @@ public class BookChapter extends Publication{
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a BookChapter Publication####");
+//		stringBuffer.append("####This is an Internet Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);
-		
-		// _(Year)_
+
+		// (Year) || (Year, Month) || (Year, Day Month)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
+		if (this.publicationDay > 0){
+			stringBuffer.append(", " + this.publicationDay);
+			if (this.publicationMonth > 0 ){
+				stringBuffer.append(" " + this.publicationMonth);
+			}
+		}
 		stringBuffer.append(") ");
 		
-		// ChapterTitle,_
-		stringBuffer.append(this.getTitle());
-		stringBuffer.append(", ");
+		//Link Opening
+		if (this.publisherURL != null) {
+			stringBuffer.append("<a href=\"");
+			stringBuffer.append(this.publisherURL);
+			stringBuffer.append("\">");
+		}
 		
-		// In: <i>BookTitle</i>,_
-		stringBuffer.append("In: ");
+		// <i>Title</i>._ 
 		stringBuffer.append("<i>");
-		stringBuffer.append(this.bookTitle);
-		stringBuffer.append("</i>, ");
-		
-		// Editor NM, Editor NM (Eds)._
-		final List<String> editors = this.editors;
-		if (editors != null && editors.size() > 0) {
-			String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
-			editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-			
-			if (editorsString.contains(currentAuthor)) {
-				editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-			} else if (authorsString.contains(firstInitial)) {
-				editorsString = editorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
-			}
-			
-			stringBuffer.append(editorsString);
-			stringBuffer.append(" (Eds). ");
+		stringBuffer.append(this.getTitle());
+		stringBuffer.append("</i>. ");
+
+		//Link Closing
+		if (this.publisherURL != null) {
+			stringBuffer.append("</a>");
 		}
 		
-		// Publisher :_
-		stringBuffer.append(this.publisher);
-		stringBuffer.append(" : ");			
-		
-		// PublishPlace._
-		if (this.place != null) {
-			stringBuffer.append(this.place);
-			stringBuffer.append(". ");
+		// <i>TitleOfNewspaper/Magazine</i>_
+		if (this.publisher != null) {
+			stringBuffer.append("<i>");
+			stringBuffer.append(this.publisher);
+			stringBuffer.append("</i> ");
 		}
 		
-		// PagesBegin-PagesEnd.
+		// PagesBegin-PagesEnd._ || PageCount._
 		if (this.beginPage > 0 && this.endPage > 0) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
@@ -135,26 +122,16 @@ public class BookChapter extends Publication{
 				stringBuffer.append(". ");
 			}
 		}
-		
-//		LOG.error("#### The final result for the publication is: " + stringBuffer + "####"); 
-		
+			
 		return stringBuffer.toString();
 	}
 
-	public List<String> getEditors() {
-		return editors;
+	public String getPublisher() {
+		return publisher;
 	}
 
-	public void setEditors(List<String> editors) {
-		this.editors = editors;
-	}
-
-	public String getBookTitle() {
-		return bookTitle;
-	}
-
-	public void setBookTitle(String bookTitle) {
-		this.bookTitle = bookTitle;
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
 	public int getBeginPage() {
@@ -173,28 +150,36 @@ public class BookChapter extends Publication{
 		this.endPage = endPage;
 	}
 
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public String getPlace() {
-		return place;
-	}
-
-	public void setPlace(String place) {
-		this.place = place;
-	}
-
 	public int getPage() {
 		return page;
 	}
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+
+	public int getPublicationMonth() {
+		return publicationMonth;
+	}
+
+	public void setPublicationMonth(int publicationMonth) {
+		this.publicationMonth = publicationMonth;
+	}
+
+	public int getPublicationDay() {
+		return publicationDay;
+	}
+
+	public void setPublicationDay(int publicationDay) {
+		this.publicationDay = publicationDay;
+	}
+
+	public String getPublisherURL() {
+		return publisherURL;
+	}
+
+	public void setPublisherURL(String publisherURL) {
+		this.publisherURL = publisherURL;
 	}
 	
 }
