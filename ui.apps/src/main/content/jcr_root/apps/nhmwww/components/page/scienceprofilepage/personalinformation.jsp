@@ -6,7 +6,7 @@
 				java.util.Set"%> 
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-	final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialisms(resource);
+	final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialismsBox(resource);
 
 	final String function  		= helper.getFunction(); 
 	final String position  		= helper.getPosition(); 

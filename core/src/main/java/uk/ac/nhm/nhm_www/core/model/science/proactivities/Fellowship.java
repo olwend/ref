@@ -1,19 +1,41 @@
 package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
+import org.apache.sling.commons.json.JSONArray;
+import org.apache.sling.commons.json.JSONException;
+import org.apache.sling.commons.json.JSONObject;
+
 
 
 public class Fellowship extends ProfessionalActivity {
 
-	private String city;
-	private String country;
-	private String organisation;
+	private Organisation[] organisations;
 
 	public Fellowship(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String fellowshipCity, String fellowshipCountry, String fellowshipOrganisation) {
+			String yearEndDate, String monthEndDate, String dayEndDate, String fellowshipOrganisations) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
-		this.city = fellowshipCity;
-		this.country = fellowshipCountry;
-		this.organisation = fellowshipOrganisation;
+		
+		returnJSON(fellowshipOrganisations);
+	}
+
+	private void returnJSON(String aux) {
+		try {
+			if (aux == null){
+				return;
+			}
+			final JSONObject jsonObject = new JSONObject(aux);
+			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
+			
+			this.organisations = new Organisation[jsonArray.length()];
+			
+			for (int i = 0; i < jsonArray.length(); i++) {
+				final JSONObject organisationJson = jsonArray.getJSONObject(i);
+				
+				final Organisation organisation = new Organisation(organisationJson);
+				this.organisations[i] = organisation;
+			}
+		} catch (final JSONException e) {
+			this.organisations = null;
+		}
 	}
 
 	@Override
@@ -28,32 +50,35 @@ public class Fellowship extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
-		// <a href=url>OrganisationName</a>,_ 
-		if (this.organisation != null && !this.organisation.equals("")){
-			if (this.url != null) {
-				stringBuffer.append("<a href=\"");
-				stringBuffer.append(this.url);
-				stringBuffer.append("\">");
+		if (organisations != null){
+			String aux = "";
+			for (Organisation organisation  : organisations) {
+				// <a href=url>InstitutionName</a>,_ 
+				if (organisation.getOrganisation() != null){
+					if (this.url != null) {
+						stringBuffer.append("<a href=\"");
+						stringBuffer.append(this.url);
+						stringBuffer.append("\">");
+					}
+					stringBuffer.append(organisation.getOrganisation());
+					if (this.url != null) {
+						stringBuffer.append("</a>");
+					}
+					stringBuffer.append(", ");
+				}
+				
+				// City,_
+				if (organisation.getCity() != null){
+					stringBuffer.append(organisation.getCity() );
+					stringBuffer.append(", ");
+				}	
+				
+				// Country,_
+				if (organisation.getCountry() != null){
+					stringBuffer.append(organisation.getCountry());
+					stringBuffer.append(", ");
+				}
 			}
-			
-			stringBuffer.append(this.organisation);
-			
-			if (this.url != null) {
-				stringBuffer.append("</a>");
-				stringBuffer.append(", ");
-			}
-		}
-		
-		// City,_
-		if (this.city != null && !this.city.equals("")){
-			stringBuffer.append(this.city);
-			stringBuffer.append(", ");
-		}	
-		
-		// Country,_
-		if (this.country != null && !this.country.equals("")){
-			stringBuffer.append(this.country);
-			stringBuffer.append(", ");
 		}
 		
 		// startYear - endYear. || startYear - on going.

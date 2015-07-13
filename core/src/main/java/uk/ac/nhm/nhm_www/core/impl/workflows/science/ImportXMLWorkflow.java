@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
@@ -38,12 +39,15 @@ import org.apache.jackrabbit.util.Text;
 import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.commons.json.JSONArray;
+import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointment;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointments;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Address;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degree;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degrees;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Field;
@@ -762,35 +766,83 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		paNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 	                        	}
 	                        	break;
-	                        	
-//                        case "organisation":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
-//	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
-//	                            while(organisationTypes.hasNext()) {
-//	                            	Address address = organisationTypes.next();
-//	                            	List<Line> lines = address.getContent();
-//	                            	Iterator<Line> linesIt = lines.iterator();
-//	                            	while (linesIt.hasNext()){
-//	                            		Line line = (Line) linesIt.next();			//java.lang.ClassCastException: java.lang.String cannot be cast to uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Line
-//	                            		switch (line.getType()) {
-//	                            		case "organisation":
-//	                            			if(line.getContent() != null){
-//	                            				paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, line.getContent());
-//	                            			}
-//	                            			break;
-//	                            		case "city":
-//	                            			if(line.getContent() != null){
-//	                            				paNode.setProperty(ScientistProfileHelper.CITY_ATTRIBUTE, line.getContent());
-//	                            			}
-//	                            			break;
-//	                            		case "country":
-//	                            			if(line.getContent() != null){
-//	                            				paNode.setProperty(ScientistProfileHelper.COUNTRY_ATTRIBUTE, line.getContent());
-//	                            			}
-//	                            		}
-//	                            	}
-//								}
-//	                            break;
-	                        	
+
+                        case "organisation":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
+                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
+                            JSONArray jsonOrganisationsArray = new JSONArray(); 
+                            
+                            while(organisationTypes.hasNext()) {
+                            	Address address = organisationTypes.next();
+                            	List<java.lang.Object> lines = address.getContent();
+                            	
+                            	JSONObject jsonAddress = new JSONObject();
+                            	for (final java.lang.Object object : lines) {
+                            		if (! (object instanceof Line)) {
+                            			continue;
+                            		}
+                            		final Line line = (Line) object;
+                            		switch (line.getType()) {
+                            		case "organisation":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("organisation", line.getContent());
+                            			}
+                            			break;
+                            		case "city":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("city", line.getContent());
+                            			}
+                            			break;
+                            		case "country":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("country", line.getContent());
+                            			}
+                            		}
+                            	}
+                            	jsonOrganisationsArray.put(jsonAddress);
+							}
+                            final JSONObject organisations = new JSONObject();
+                            organisations.put("organisations", jsonOrganisationsArray);
+                            paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
+                            break;
+                            
+                        case "institution":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
+                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
+                            JSONArray jsonInstitutionsArray = new JSONArray(); 
+                            
+                            while(institutionTypes.hasNext()) {
+                            	Address address = institutionTypes.next();
+                            	List<java.lang.Object> lines = address.getContent();
+                            	
+                            	JSONObject jsonAddress = new JSONObject();
+                            	for (final java.lang.Object object : lines) {
+                            		if (! (object instanceof Line)) {
+                            			continue;
+                            		}
+                            		final Line line = (Line) object;
+                            		switch (line.getType()) {
+                            		case "organisation":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("organisation", line.getContent());
+                            			}
+                            			break;
+                            		case "city":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("city", line.getContent());
+                            			}
+                            			break;
+                            		case "country":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("country", line.getContent());
+                            			}
+                            		}
+                            	}
+                            	jsonInstitutionsArray.put(jsonAddress);
+							}
+                            final JSONObject institutions = new JSONObject();
+                            institutions.put("organisations", jsonInstitutionsArray);
+                            paNode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
+                            break;
+                            
                         case "c-committee-roles":
 	                          	final String committeeRole = field.getText();
 	                          	if ( committeeRole != null ){
