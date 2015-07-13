@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,7 @@ import uk.ac.nhm.nhm_www.core.model.science.Publication;
 import uk.ac.nhm.nhm_www.core.model.science.Qualification;
 import uk.ac.nhm.nhm_www.core.model.science.Report;
 import uk.ac.nhm.nhm_www.core.model.science.ScholarlyEdition;
+import uk.ac.nhm.nhm_www.core.model.science.Scientist;
 import uk.ac.nhm.nhm_www.core.model.science.Software;
 import uk.ac.nhm.nhm_www.core.model.science.ThesisDissertation;
 import uk.ac.nhm.nhm_www.core.model.science.WebSite;
@@ -46,6 +48,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
+import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 
 import com.day.cq.wcm.api.components.DropTarget;
 import com.day.cq.wcm.foundation.Image;
@@ -1207,10 +1210,18 @@ public class ScientistProfileHelper {
 		return res;
 	}
 	
-	public boolean displayGroupsAndSpecialismsBox(Resource resource) {
+	public boolean displayGroupsAndSpecialismsBox(Resource resource, SlingScriptHelper sling) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		boolean res = false;
-		if ( hasGroup() && getSpecialisms() != null) {
+		if ( !res && helper.getSpecialisms() != null) {
 			res = true;
+		}
+		if ( !res && helper.hasGroup() ){
+			final ScientistsGroupsService groupService = sling.getService(ScientistsGroupsService.class);
+			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
+			if (!groupScientists.isEmpty()) {
+				res = true;
+			}
 		}
 		return res;
 	}
