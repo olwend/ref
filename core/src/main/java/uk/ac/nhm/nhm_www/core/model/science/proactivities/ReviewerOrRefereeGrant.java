@@ -61,10 +61,10 @@ public class ReviewerOrRefereeGrant extends ProfessionalActivity {
 					}
 					
 					stringBuffer.append(organisation.getOrganisation());
+					stringBuffer.append(", ");
 					
 					if (this.url != null) {
 						stringBuffer.append("</a>");
-						stringBuffer.append(", ");
 					}
 				}
 				

@@ -51,6 +51,7 @@ public class Fellowship extends ProfessionalActivity {
 		}
 		
 		if (organisations != null){
+			String aux = "";
 			for (Organisation organisation  : organisations) {
 				// <a href=url>InstitutionName</a>,_ 
 				if (organisation.getOrganisation() != null){
@@ -61,10 +62,10 @@ public class Fellowship extends ProfessionalActivity {
 					}
 					
 					stringBuffer.append(organisation.getOrganisation());
+					stringBuffer.append(", ");
 					
 					if (this.url != null) {
 						stringBuffer.append("</a>");
-						stringBuffer.append(", ");
 					}
 				}
 				

@@ -62,10 +62,10 @@ public class Membership extends ProfessionalActivity {
 					}
 					
 					stringBuffer.append(institution.getOrganisation());
+					stringBuffer.append(", ");
 					
 					if (this.url != null) {
 						stringBuffer.append("</a>");
-						stringBuffer.append(", ");
 					}
 				}
 				
