@@ -18,31 +18,31 @@
 			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
 			final String groupName = groupService.getGroupName(resource);
 			if (!groupScientists.isEmpty()) { %>
-			<h3><%= groupName %></h3>
-			<!-- <h2>Group</h2> -->
-			<p>
-				<%
-				boolean isFirst = true;
-				String groupOutput = "";
-				for (final Scientist scientist : groupScientists) {
-					final String path = scientist.getPath();
-					if (isFirst) {
-						isFirst = false;
-					} else {
-	
-						groupOutput += ",&nbsp;";
-					
-					}
-					
-					if (currentPage.getPath().equals(path)) {
-						groupOutput += scientist.getName();
-	
-					} else {
-						groupOutput += "<a href=\"" + scientist.getPath()+".html\">"+scientist.getName()+"</a>";
-					}
-				} %>
-				<%= groupOutput %>
-			</p>
+				<h3><%= groupName %></h3>
+				<!-- <h2>Group</h2> -->
+				<p>
+					<%
+					boolean isFirst = true;
+					String groupOutput = "";
+					for (final Scientist scientist : groupScientists) {
+						final String path = scientist.getPath();
+						if (isFirst) {
+							isFirst = false;
+						} else {
+		
+							groupOutput += ",&nbsp;";
+						
+						}
+						
+						if (currentPage.getPath().equals(path)) {
+							groupOutput += scientist.getName();
+		
+						} else {
+							groupOutput += "<a href=\"" + scientist.getPath()+".html\">"+scientist.getName()+"</a>";
+						}
+					} %>
+					<%= groupOutput %>
+				</p>
 			<%
 			}
 		}
