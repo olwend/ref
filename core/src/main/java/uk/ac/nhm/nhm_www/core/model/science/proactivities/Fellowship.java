@@ -60,13 +60,11 @@ public class Fellowship extends ProfessionalActivity {
 						stringBuffer.append(this.url);
 						stringBuffer.append("\">");
 					}
-					
 					stringBuffer.append(organisation.getOrganisation());
-					stringBuffer.append(", ");
-					
 					if (this.url != null) {
 						stringBuffer.append("</a>");
 					}
+					stringBuffer.append(", ");
 				}
 				
 				// City,_

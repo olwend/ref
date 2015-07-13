@@ -18,8 +18,6 @@ public class Editorship extends ProfessionalActivity {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		stringBuffer.append(" ");
-		
 		// Role,_
 		if (this.role != null){
 			stringBuffer.append(this.role);
@@ -34,11 +32,10 @@ public class Editorship extends ProfessionalActivity {
 				stringBuffer.append("\">");
 			}
 			stringBuffer.append(this.title);
-			
 			if (this.url != null) {
 				stringBuffer.append("</a>");
-				stringBuffer.append(", ");
 			}
+			stringBuffer.append(", ");
 		}
 		
 		// Publisher_

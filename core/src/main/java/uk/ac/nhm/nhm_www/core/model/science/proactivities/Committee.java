@@ -55,7 +55,7 @@ public class Committee extends ProfessionalActivity {
 		// CommitteeName,_
 		if (this.title != null){
 			stringBuffer.append(this.title);
-			stringBuffer.append(" ");
+			stringBuffer.append(", ");
 		}
 		
 		if ( institutions != null ){
@@ -67,13 +67,11 @@ public class Committee extends ProfessionalActivity {
 						stringBuffer.append(this.url);
 						stringBuffer.append("\">");
 					}
-					
 					stringBuffer.append(institution.getOrganisation());
-					stringBuffer.append(", ");
-					
 					if (this.url != null) {
 						stringBuffer.append("</a>");
 					}
+					stringBuffer.append(", ");
 				}
 				
 				// City,_

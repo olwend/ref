@@ -54,18 +54,8 @@ public class ReviewerOrRefereeGrant extends ProfessionalActivity {
 			for (Organisation organisation  : organisations) {
 				// <a href=url>InstitutionName</a>,_ 
 				if (organisation.getOrganisation() != null){
-					if (this.url != null) {
-						stringBuffer.append("<a href=\"");
-						stringBuffer.append(this.url);
-						stringBuffer.append("\">");
-					}
-					
 					stringBuffer.append(organisation.getOrganisation());
 					stringBuffer.append(", ");
-					
-					if (this.url != null) {
-						stringBuffer.append("</a>");
-					}
 				}
 				
 				// City,_

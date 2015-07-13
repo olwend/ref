@@ -87,14 +87,11 @@ public class EventParticipation extends ProfessionalActivity {
 					stringBuffer.append(this.url);
 					stringBuffer.append("\">");
 				}
-				
 				stringBuffer.append(this.title);
-				stringBuffer.append(" ");
-				
 				if (this.url != null) {
 					stringBuffer.append("</a>");
-					stringBuffer.append(", ");
 				}
+				stringBuffer.append(", ");
 			}
 			
 			// (EventType),_
@@ -108,18 +105,8 @@ public class EventParticipation extends ProfessionalActivity {
 				for (Institution institution  : institutions) {
 					// <a href=url>InstitutionName</a>,_ 
 					if (institution.getOrganisation() != null){
-						if (this.url != null) {
-							stringBuffer.append("<a href=\"");
-							stringBuffer.append(this.url);
-							stringBuffer.append("\">");
-						}
-						
 						stringBuffer.append(institution.getOrganisation());
 						stringBuffer.append(", ");
-						
-						if (this.url != null) {
-							stringBuffer.append("</a>");
-						}
 					}
 					
 					// City,_
