@@ -63,8 +63,12 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.PhoneNumber;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Record;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebAddress;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.ProfessionalActivities;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities.Associated.Activity;
+import uk.ac.nhm.nhm_www.core.model.science.projects.Project;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 
 import com.adobe.granite.workflow.WorkflowException;
@@ -710,6 +714,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	case 44 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT;
         	case 36 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION;
         	case 33 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION;
+        	
+        	
+        	case 39 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_CONSULTING;
+        	case 66 : return "Partnership";
+        	case 54 : return "Fieldwork";
 	        default: return "Professional Activity";
         }
     }
@@ -782,6 +791,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             		}
                             		final Line line = (Line) object;
                             		switch (line.getType()) {
+                            		case "name":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("name", line.getContent());
+                            			}
+                            			break;
                             		case "organisation":
                             			if(line.getContent() != null){
                             				jsonAddress.put("organisation", line.getContent());
@@ -796,7 +810,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             			if(line.getContent() != null){
                             				jsonAddress.put("country", line.getContent());
                             			}
+                            			break;
                             		}
+                            		
                             	}
                             	jsonOrganisationsArray.put(jsonAddress);
 							}
@@ -820,6 +836,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             		}
                             		final Line line = (Line) object;
                             		switch (line.getType()) {
+                            		case "name":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("name", line.getContent());
+                            			}
+                            			break;
                             		case "organisation":
                             			if(line.getContent() != null){
                             				jsonAddress.put("organisation", line.getContent());
@@ -834,6 +855,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             			if(line.getContent() != null){
                             				jsonAddress.put("country", line.getContent());
                             			}
+                            			break;
                             		}
                             	}
                             	jsonInstitutionsArray.put(jsonAddress);
@@ -934,6 +956,43 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
+    private void addGrants (final Node rootNode, final Grants grants){
+//    	final List<Grant> grantPrimaryInvestigatorIt = grants.getPrimaryInvestigator();
+//    	final List<Grant> grantSecondaryInvestigatorIt = grants.getSecondaryInvestigator();
+//    	final List<Grant> grantFundedByIt = grants.getFundedBy().getGrant();					// ... Not even this one!
+//    	
+//        for (Grants grant: grantPrimaryInvestigatorIt) {
+//            final Node pubNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
+//        }
+    }
+    
+    private void addProjects (final Node projectsGrants , final Node projectsProActs, final Node projectsProjects, final WebProfile webProfile) throws Exception {
+    	
+    	// ################
+        // ### Projects ###
+    	// ################
+    	
+//        ListIterator<Project> projectsAdministrator = webProfile.getProjects().getAdministratorOf();
+//        ListIterator<Project> projectsChampion = webProfile.getProjects().getChampionOf();
+//        ListIterator<Project> projectsFunded = webProfile.getProjects().getFundedBy();
+//        ListIterator<Project> projectsLeader = webProfile.getProjects().getLeaderOf();
+//        ListIterator<Project> projectsManager = webProfile.getProjects().getManagerOf();
+//        ListIterator<Project> projectsMember = webProfile.getProjects().getMemberOf();
+//        ListIterator<Project> projectsResearcher = webProfile.getProjects().getResearcherOn();
+
+    	// ##############
+        // ### Grants ###
+    	// ##############
+    	
+    	addGrants(projectsGrants, webProfile.getGrants());
+    	
+    	// ###############################
+        // ### Professional Activities ###
+    	// ###############################
+    	
+    	addProfessionalActivities(projectsProActs, webProfile.getProfessionalActivities());
+    }
+    
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {
         //Get the contentPath node in the JCR
         Node rootNode = session.getNode(contentPath);
@@ -973,7 +1032,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         //      				|		|-- degrees							(nt:unstructured)
         //      				|		 `- nonAcademicAppointments			(nt:unstructured)
         //      				|-- professionalActivities					(nt:unstructured)
-        //      				|		 `- associated						(nt:unstructured) 	<<<<<<<<<<<< Unsure!
+        //      				|		 `- associated						(nt:unstructured)
+        //      				|-- projects								(nt:unstructured)
+        //						|		|-- grants							(nt:unstructured)
+        //						|		|-- professionalactivities			(nt:unstructured)
+        //      				|		 `- projects						(nt:unstructured)
         //      				|-- publications							(nt:unstructured)
         //      				|		 `- authored						(nt:unstructured)
         //      				 `- image									(nt:unstructured)
@@ -1011,6 +1074,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addProfessionalActivities(associated, activities);
+        
+        // Node : projects
+        final Node projectsNode = jcrContentNode.addNode(ScientistProfileHelper.PROJECT_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node projectsGrants 	= projectsNode.addNode(ScientistProfileHelper.PROJECT_GRANTS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node projectsProActs 	= projectsNode.addNode(ScientistProfileHelper.PROJECT_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node projectsProjects = projectsNode.addNode(ScientistProfileHelper.PROJECT_PROJECTS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        addProjects(projectsGrants, projectsProActs, projectsProjects, webProfile);
 
         // Node : publications
         final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
