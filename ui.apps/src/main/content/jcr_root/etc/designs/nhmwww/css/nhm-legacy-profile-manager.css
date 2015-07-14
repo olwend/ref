@@ -1,0 +1,30 @@
+/* placeholder for css for profile manager */
+div.profile-manager #page-container {
+  width: 1160px !important;
+}
+
+.profile-manager .legacy-css .column#column-c {
+  width: 920px;
+}
+
+.profile-manager .legacy-css .column#column-c form#registrationForm label, .profile-manager .legacy-css .column#column-c form label {
+  width: 30%;
+}
+.profile-manager .legacy-css .column#column-c form#registrationForm label.wide{
+  width: 90%;
+}
+.profile-manager .legacy-css .column#column-c form#registrationForm input, .profile-manager .legacy-css .column#column-c form input {
+  width: 65%;
+  padding-left: 5%;
+  margin-left: 33%;
+}
+.profile-manager .title .title-bar h1 {
+  width: 100% !important;
+  text-align: left;
+}
+
+.profile-manager .legacy-css .summary#column-a {
+  width: 670px;
+}
+.profile-manager .legacy-css .summary a.point-right {
+  background: url(images/circle-right.gif) center right no-repeat;

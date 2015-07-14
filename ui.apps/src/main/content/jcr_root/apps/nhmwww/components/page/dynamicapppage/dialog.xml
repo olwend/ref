@@ -64,6 +64,18 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Nature Groups Near You"
 		                            value="ngny"/>
+	                            <o6
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Profile manager"
+		                            value="profile-manager"/>
+	                            <o7
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Patronmail"
+		                            value="patronmail"/>
+		                        <o8
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Picture library"
+		                            value="piclib"/>    
 		                    </options>
 		                </legacyApp>
                     </items>
