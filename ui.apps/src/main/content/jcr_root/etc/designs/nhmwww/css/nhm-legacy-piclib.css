@@ -11,19 +11,6 @@
 .legacy-css h5 {
   color: #000177;
 }
-.legacy-css #tabnavContainer {
-  border-top-right-radius: 15px;
-}
-.legacy-css #tabnavContainer h2 {
-  padding-bottom: 5px;
-}
-.legacy-css #tabnavContainer h2 a:hover {
-  text-decoration: none;
-  border-bottom: none;
-}
-.legacy-css #tabnavContainer #contact {
-  padding-top: 6px;
-}
 .legacy-css #searchNavContainer {
   width: 940px;
 }
@@ -49,6 +36,9 @@
 }
 .legacy-css #searchHistory select {
   height: 1.5rem;
+}
+.legacy-css #p7IRMdv_1 a {
+  border-bottom: none;
 }
 .legacy-css .p7IRMdesc {
   background-color: rgba(0, 1, 119, 0.8);
@@ -78,9 +68,45 @@ body {
   padding-left: 14px;
 }
 
+#page-container {
+  border: none;
+}
+
 .row {
   margin-bottom: 0;
   width: 100%;
+}
+
+#tabnavContainer {
+  padding: 12px 14px;
+  max-width: 1160px;
+  width: 100%;
+}
+#tabnavContainer h2 {
+  padding-bottom: 5px;
+  font-size: 2.8em;
+}
+#tabnavContainer h2 a:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+#tabnavContainer #tabnav {
+  position: relative;
+  float: left;
+  padding-top: 8px;
+  margin-left: 8%;
+  left: 0;
+}
+#tabnavContainer #tabnav a {
+  font-size: 0.95em;
+}
+#tabnavContainer #tabnav a:hover {
+  color: #dddded;
+  text-decoration: underline;
+  background: none;
+}
+#tabnavContainer #contact {
+  padding-top: 17px;
 }
 
 .nhm-breadcrumb, .register-signin {
@@ -116,6 +142,10 @@ body {
 }
 .main-footer .footer-nav label {
   font-size: 14px;
+}
+
+.contact-us .title-bar {
+  background-color: #000177;
 }
 
 /*# sourceMappingURL=nhm-legacy-piclib.css.map */
