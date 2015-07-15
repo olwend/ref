@@ -1,121 +1,100 @@
-.legacy-css p, .legacy-css input, .legacy-css select, .legacy-css textarea, .legacy-css ol, .legacy-css ul, .legacy-css li {
-  font-size: 1em;
+.legacy-css .banner {
+  margin: 0 auto;
+  background-color: #eee;
 }
-.legacy-css a {
-  font-weight: normal;
-  border-bottom: none;
+.legacy-css .banner p {
+  font-size: 16px;
 }
-.legacy-css a:hover {
-  border-bottom-width: 1px;
+.legacy-css #formTable input[type="checkbox"] + label, .legacy-css #formTable input[type="radio"] + label {
+  display: inline;
+  margin-right: 0;
 }
-.legacy-css h5 {
-  color: #000177;
+.legacy-css #formTable label {
+  font-size: 16px;
 }
-.legacy-css #tabnavContainer {
-  border-top-right-radius: 15px;
+.legacy-css #formTable td {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 16px;
 }
-.legacy-css #tabnavContainer h2 {
-  padding-bottom: 5px;
+.legacy-css #formTable .button {
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 11px;
 }
-.legacy-css #tabnavContainer h2 a:hover {
-  text-decoration: none;
-  border-bottom: none;
-}
-.legacy-css #tabnavContainer #contact {
-  padding-top: 6px;
-}
-.legacy-css #searchNavContainer {
-  width: 940px;
-}
-.legacy-css #searchNavContainer label {
-  font-size: 12px;
-}
-.legacy-css #searchBox #txtkeys1searchnav {
-  float: left;
-  font-size: 110%;
-  height: 30px;
-}
-.legacy-css #resultsPer select {
-  float: left;
-  width: 60px;
-  height: 1.5rem;
-}
-.legacy-css #resultsPer label {
-  float: left;
-  padding-top: 2px;
-}
-.legacy-css #searchHistory {
-  width: 130px;
-}
-.legacy-css #searchHistory select {
-  height: 1.5rem;
-}
-.legacy-css .p7IRMdesc {
-  background-color: rgba(0, 1, 119, 0.8);
-}
-.legacy-css .p7IRMdesc p {
-  font-size: 1em;
-}
-.legacy-css #contactInfo {
-  border-top-right-radius: 15px;
-}
-.legacy-css #channelsContainer h3 {
-  font-size: 1.4em;
-}
-.legacy-css #channelsContainer a:hover {
-  border-bottom: none;
-}
-
-.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
-  width: 100%;
+.legacy-css #formTable label[for="form_answer_selection_869"], .legacy-css #formTable label[for="form_answer_selection_894"], .legacy-css #formTable label[for="form_answer_selection_895"], .legacy-css #formTable label[for="form_answer_selection_892"] {
+  padding-right: 16px;
 }
 
 body {
-  font-size: 76%;
+  color: #565656;
 }
 
 #page-body {
-  padding-left: 14px;
+  padding: 0;
 }
 
-.row {
-  margin-bottom: 0;
+#page-container {
+  width: 100%;
+  border: none;
+}
+
+h1 {
   width: 100%;
 }
 
-.nhm-breadcrumb, .register-signin {
-  font-size: 1.2em;
-}
-.nhm-breadcrumb a, .register-signin a {
-  color: #d5d5d5;
-}
-.nhm-breadcrumb a:hover, .register-signin a:hover {
-  color: #d5d5d5;
-}
-.nhm-breadcrumb a:visited, .register-signin a:visited {
-  color: #d5d5d5;
+.breadcrumb {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .nhm-breadcrumb {
   text-align: left;
-  float: left;
 }
 
-.register-signin {
-  float: right;
+.row {
+  margin-bottom: 0;
+}
+
+#nav-content {
+  background-color: #eee;
+  background-image: none;
+  width: 100%;
+}
+#nav-content #nav-content-level1 {
+  background-image: none;
+  background-color: #eee;
+  border: none;
+  padding-left: 24px;
+  padding-bottom: 0.5em;
+}
+#nav-content #nav-content-level1 li {
+  border: none;
+  list-style: disc;
+  display: list-item;
+}
+#nav-content #nav-content-level1 li a {
+  background-color: #eee;
+  padding-left: 0;
+  font-weight: normal;
+  border-bottom: none;
+}
+#nav-content #nav-content-level1 li a:hover {
+  color: #808080;
+  background-image: none;
+  text-decoration: underline;
+}
+
+ul#nav-content-level1 li a {
+  color: #808080;
 }
 
 .main-footer .framed-wrapper {
   text-align: left;
 }
 .main-footer .footer-utility legend, .main-footer .footer-utility .errors {
-  font-size: 16px;
-}
-.main-footer .footer-utility .item-label, .main-footer .footer-utility input {
-  font-size: 14px;
-}
-.main-footer .footer-nav label {
-  font-size: 14px;
+  color: #fff;
 }
 
-/*# sourceMappingURL=nhm-legacy-piclib.css.map */
+/*# sourceMappingURL=nhm-legacy-patronmail.css.map */
