@@ -1,0 +1,151 @@
+.legacy-css p, .legacy-css input, .legacy-css select, .legacy-css textarea, .legacy-css ol, .legacy-css ul, .legacy-css li {
+  font-size: 1em;
+}
+.legacy-css a {
+  font-weight: normal;
+  border-bottom: none;
+}
+.legacy-css a:hover {
+  border-bottom-width: 1px;
+}
+.legacy-css h5 {
+  color: #000177;
+}
+.legacy-css #searchNavContainer {
+  width: 940px;
+}
+.legacy-css #searchNavContainer label {
+  font-size: 12px;
+}
+.legacy-css #searchBox #txtkeys1searchnav {
+  float: left;
+  font-size: 110%;
+  height: 30px;
+}
+.legacy-css #resultsPer select {
+  float: left;
+  width: 60px;
+  height: 1.5rem;
+}
+.legacy-css #resultsPer label {
+  float: left;
+  padding-top: 2px;
+}
+.legacy-css #searchHistory {
+  width: 130px;
+}
+.legacy-css #searchHistory select {
+  height: 1.5rem;
+}
+.legacy-css #p7IRMdv_1 a {
+  border-bottom: none;
+}
+.legacy-css .p7IRMdesc {
+  background-color: rgba(0, 1, 119, 0.8);
+}
+.legacy-css .p7IRMdesc p {
+  font-size: 1em;
+}
+.legacy-css #contactInfo {
+  border-top-right-radius: 15px;
+}
+.legacy-css #channelsContainer h3 {
+  font-size: 1.4em;
+}
+.legacy-css #channelsContainer a:hover {
+  border-bottom: none;
+}
+
+.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  width: 100%;
+}
+
+body {
+  font-size: 76%;
+}
+
+#page-body {
+  padding-left: 14px;
+}
+
+#page-container {
+  border: none;
+}
+
+.row {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+#tabnavContainer {
+  padding: 12px 14px;
+  max-width: 1160px;
+  width: 100%;
+}
+#tabnavContainer h2 {
+  padding-bottom: 5px;
+  font-size: 2.8em;
+}
+#tabnavContainer h2 a:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+#tabnavContainer #tabnav {
+  position: relative;
+  float: left;
+  padding-top: 8px;
+  margin-left: 8%;
+  left: 0;
+}
+#tabnavContainer #tabnav a {
+  font-size: 0.95em;
+}
+#tabnavContainer #tabnav a:hover {
+  color: #dddded;
+  text-decoration: underline;
+  background: none;
+}
+#tabnavContainer #contact {
+  padding-top: 17px;
+}
+
+.nhm-breadcrumb, .register-signin {
+  font-size: 1.2em;
+}
+.nhm-breadcrumb a, .register-signin a {
+  color: #d5d5d5;
+}
+.nhm-breadcrumb a:hover, .register-signin a:hover {
+  color: #d5d5d5;
+}
+.nhm-breadcrumb a:visited, .register-signin a:visited {
+  color: #d5d5d5;
+}
+
+.nhm-breadcrumb {
+  text-align: left;
+  float: left;
+}
+
+.register-signin {
+  float: right;
+}
+
+.main-footer .framed-wrapper {
+  text-align: left;
+}
+.main-footer .footer-utility legend, .main-footer .footer-utility .errors {
+  font-size: 16px;
+}
+.main-footer .footer-utility .item-label, .main-footer .footer-utility input {
+  font-size: 14px;
+}
+.main-footer .footer-nav label {
+  font-size: 14px;
+}
+
+.contact-us .title-bar {
+  background-color: #000177;
+}
+
+/*# sourceMappingURL=nhm-legacy-piclib.css.map */
