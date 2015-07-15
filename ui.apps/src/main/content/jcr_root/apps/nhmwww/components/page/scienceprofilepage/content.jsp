@@ -7,6 +7,7 @@
     final boolean displayGroupsAndSpecialisms = helper.displayGroupsAndSpecialismsBox(resource, sling);
     final boolean displayProfessionalActivitiesTab = helper.displayProfessionalActivitiesTab(resource);
     final boolean displayPublicationsTab = helper.displayPublicationsTab(resource);
+    final boolean displayProjectsTab = helper.displayProjectsTab(resource);
     String firstName = "";
     if(helper.getNickName() != null && !helper.getNickName().equals("")){
         firstName = helper.getNickName();
@@ -53,11 +54,14 @@
 				<ul class="tabs science-profiles-detail-page--tabs-container mt-32" data-tab>
 					<li class="tab-title active"><a href="#panel1">Introduction</a></li>
 
-                 	<li class="tab-title"><a href="#panel2">Projects</a></li>
-
+					<% if (displayProjectsTab) { %>
+	                 	<li class="tab-title"><a href="#panel2">Projects</a></li>
+					<% } %>
+					
 					<% if (displayProfessionalActivitiesTab) { %>
 						<li class="tab-title"><a href="#panel3">Professional activities</a></li>
 					<% } %>
+					
 					<% if (displayPublicationsTab) { %>
 						<li class="tab-title"><a href="#panel4">Publications</a></li> 
 					<% } %>
@@ -66,9 +70,11 @@
 					<div class="content active" id="panel1">
 						<cq:include script="introduction.jsp" />
 					</div>
-                    <div class="content" id="panel2">
-                        <cq:include script="projects.jsp" />
-                    </div>
+					<% if (displayProjectsTab) { %>
+	                    <div class="content" id="panel2">
+	                        <cq:include script="projects.jsp" />
+	                    </div>
+					<% } %>
 					<% if (displayProfessionalActivitiesTab) { %>
 						<div class="content" id="panel3">
 							<cq:include script="professionalactivities.jsp" />
@@ -89,12 +95,14 @@
 							<cq:include script="introduction.jsp" />
 						</div>
 					</dd>
-					<dd class="accordion-navigation">
-						<a href="#panel2a">Projects</a>
-                        <div id="panel2a" class="content">
-                            <cq:include script="projects.jsp" />
-                        </div>
-					</dd>
+					<% if (displayProjectsTab) { %>
+						<dd class="accordion-navigation">
+							<a href="#panel2a">Projects</a>
+	                        <div id="panel2a" class="content">
+	                            <cq:include script="projects.jsp" />
+	                        </div>
+						</dd>
+					<% } %>
 					<% if (displayProfessionalActivitiesTab) { %>
 						<dd class="accordion-navigation">
 							<a href="#panel3b">Professional Activities</a>

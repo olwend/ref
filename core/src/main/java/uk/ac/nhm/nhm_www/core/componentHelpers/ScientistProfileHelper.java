@@ -44,8 +44,10 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Editorship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventAdministration;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventParticipation;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fieldwork;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Partnership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
@@ -244,14 +246,18 @@ public class ScientistProfileHelper {
 	/* Projects */
 	public static final String PROJECT_PREFIX_NODE_NAME 					= "project";
 	public static final String PROJECT_NODE_NAME  							= "projects";
-	public static final String PROJECT_GRANTS_NODE_NAME  					= "grants";
-	public static final String PROJECT_PROFESSIONAL_ACTIVITIES_NODE_NAME  	= "professionalactivities";
-	public static final String PROJECT_PROJECTS_NODE_NAME  					= "projects";
-	private static final String PROJECT_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
+	public static final String PROJECT_CONTAINER_NODE_NAME  				= "container";
+	private static final String PROJECT_NODE_PATH			  	= PROJECT_NODE_NAME + "/" + PROJECT_CONTAINER_NODE_NAME;
 	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_CONSULTING					= "Consulting";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP					= "Partnership";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK 					= "Fieldwork";
+	
+	/* Grants */
+	public static final String GRANT_PREFIX_NODE_NAME 					= "project";
+	public static final String GRANT_NODE_NAME  						= "grants";
+	public static final String GRANT_CONTAINER_NODE_NAME  				= "container";
+	private static final String GRANT_NODE_PATH			  	= GRANT_NODE_NAME + "/" + GRANT_CONTAINER_NODE_NAME;
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	
@@ -883,6 +889,8 @@ public class ScientistProfileHelper {
 		Set<ProfessionalActivity> setReviewGrants = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setMemberships = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setConsultancies = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setPartnerships = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setFieldworks = new TreeSet<ProfessionalActivity>();
 		
 		
 		final Resource professionalActivitiesResource = this.resource.getChild(nodeName);
@@ -997,6 +1005,20 @@ public class ScientistProfileHelper {
 							yearEndDate, monthEndDate, dayEndDate, consultingOrganisations));
 					break;
 					
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP:
+                    final String partnershipOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+					setPartnerships.add(new Partnership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, partnershipOrganisations));
+					break;
+					
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK:
+                    final String fieldworkOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+					setFieldworks.add(new Fieldwork(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, fieldworkOrganisations));
+					break;
+					
 				default:
 					break;
 				}
@@ -1013,6 +1035,9 @@ public class ScientistProfileHelper {
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION, setEventsAdministration);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION, setEventsParticipation);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_CONSULTING, setConsultancies);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP, setPartnerships);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK, setFieldworks);
+		
 		
 		return result;
 	}
@@ -1202,10 +1227,37 @@ public class ScientistProfileHelper {
 	public String getConsultancies(Map<String, Set<ProfessionalActivity>> activities){
 		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setConsultancies = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_CONSULTING); 
-		result.append("Getting Consultancies");
 		if (!setConsultancies.isEmpty()) { 
 			result.append("<h3>Consultancy</h3>");
 			for (final ProfessionalActivity activity: setConsultancies) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getPartnerships(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setPartnerships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP); 
+		if (!setPartnerships.isEmpty()) { 
+			result.append("<h3>Partnership</h3>");
+			for (final ProfessionalActivity activity: setPartnerships) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getFieldworks(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setFieldworks = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK); 
+		if (!setFieldworks.isEmpty()) { 
+			result.append("<h3>Fieldwork</h3>");
+			for (final ProfessionalActivity activity: setFieldworks) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
@@ -1235,15 +1287,29 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
+	
+	public boolean displayProjectsTab(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+		
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getConsultancies(activities));
+			aux.append(helper.getPartnerships(activities));
+			aux.append(helper.getFieldworks(activities));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
+	}
 
 	private Map<String, Set<ProfessionalActivity>> extractProjects(final String nodeName) {
 		final Map<String, Set<ProfessionalActivity>> result = new TreeMap<String, Set<ProfessionalActivity>>();
 		
 //		Set<Grant> setGrants = new TreeSet<Grant>();
 		Set<Project> setProjects = new TreeSet<Project>();
-		Set<ProfessionalActivity> setConsultancies = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setPartnerships = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setFieldworks = new TreeSet<ProfessionalActivity>();		
 		
 		final Resource projectResource = this.resource.getChild(nodeName);
 		
@@ -1256,7 +1322,7 @@ public class ScientistProfileHelper {
 		while (children.hasNext()) {
 			final Resource child = children.next();
 			
-			if (child.getName().startsWith(PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME)) {
+			if (child.getName().startsWith(PROJECT_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
@@ -1288,7 +1354,7 @@ public class ScientistProfileHelper {
 			}
 		}
 		
-		result.put(PROFESSIONAL_ACTIVITY_TYPE_CONSULTING, setConsultancies);
+//		result.put(PROFESSIONAL_ACTIVITY_TYPE_CONSULTING, setConsultancies);
 
 		
 		return result;

@@ -13,9 +13,15 @@
 
 <% if (activities != null && !activities.isEmpty()) { %>
 	<div id="projects" class="content science-profiles-detail-page--tabs-content-container">
-		Consultancies should show up Here
+	
 		<%-- Consultancies --%>
 		<%= helper.getConsultancies(activities) %>
+		
+		<%-- Partnerships --%>
+		<%= helper.getPartnerships(activities) %>
+		
+		<%-- Fieldworks --%>
+		<%= helper.getFieldworks(activities) %>
 			
 	</div>
 <% } %>
