@@ -974,10 +974,53 @@ public class WebProfile {
          * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "")
+        @XmlType(name = "", propOrder = { 
+        	"project" 
+        })
         public static class ChampionOf {
-
-
+        	
+        	@XmlElement(namespace = "", required = true)
+            protected List<WebProfile.Projects.ChampionOf.Project> project;
+        	
+        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+                if (project == null) {
+                	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
+                }
+                return this.project;
+            }
+        	
+        	@XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "")
+            public static class Project
+                extends Ns1Object
+            {
+//                @XmlAttribute(name = "is-favourite")
+//                protected Boolean isFavourite;
+//
+//                /**
+//                 * Gets the value of the isFavourite property.
+//                 * 
+//                 * @return
+//                 *     possible object is
+//                 *     {@link Boolean }
+//                 *     
+//                 */
+//                public Boolean isIsFavourite() {
+//                    return isFavourite;
+//                }
+//
+//                /**
+//                 * Sets the value of the isFavourite property.
+//                 * 
+//                 * @param value
+//                 *     allowed object is
+//                 *     {@link Boolean }
+//                 *     
+//                 */
+//                public void setIsFavourite(Boolean value) {
+//                    this.isFavourite = value;
+//                }
+            }
         }
 
 
