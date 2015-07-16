@@ -1,3 +1,4 @@
+<%@page import="uk.ac.nhm.nhm_www.core.model.science.projects.Project"%>
 <%@page import="uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
 				uk.ac.nhm.nhm_www.core.model.science.Publication,
@@ -8,11 +9,15 @@
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 	final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+	final Map<String, Set<Project>> projects = helper.getProjects();
 %>
 <div class="small-12 medium-8 large-8 columns">
 
 <% if (activities != null && !activities.isEmpty()) { %>
 	<div id="projects" class="content science-profiles-detail-page--tabs-content-container">
+	
+		<%-- Projects --%>
+		<%= helper.getProjectsType(projects) %>
 	
 		<%-- Consultancies --%>
 		<%= helper.getConsultancies(activities) %>

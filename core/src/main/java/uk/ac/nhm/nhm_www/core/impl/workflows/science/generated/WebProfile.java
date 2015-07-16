@@ -994,32 +994,7 @@ public class WebProfile {
             public static class Project
                 extends Ns1Object
             {
-//                @XmlAttribute(name = "is-favourite")
-//                protected Boolean isFavourite;
-//
-//                /**
-//                 * Gets the value of the isFavourite property.
-//                 * 
-//                 * @return
-//                 *     possible object is
-//                 *     {@link Boolean }
-//                 *     
-//                 */
-//                public Boolean isIsFavourite() {
-//                    return isFavourite;
-//                }
-//
-//                /**
-//                 * Sets the value of the isFavourite property.
-//                 * 
-//                 * @param value
-//                 *     allowed object is
-//                 *     {@link Boolean }
-//                 *     
-//                 */
-//                public void setIsFavourite(Boolean value) {
-//                    this.isFavourite = value;
-//                }
+
             }
         }
 

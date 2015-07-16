@@ -57,6 +57,12 @@ public class Partnership extends ProfessionalActivity {
 		
 		if ( organisations != null ){
 			for (Organisation organisation  : organisations) {
+				// Name,_ 
+				if (organisation.getName() != null){
+					stringBuffer.append(organisation.getName());
+					stringBuffer.append("<br>");
+				}
+				
 				// Organisation,_ 
 				if (organisation.getOrganisation() != null){
 					stringBuffer.append(organisation.getOrganisation());

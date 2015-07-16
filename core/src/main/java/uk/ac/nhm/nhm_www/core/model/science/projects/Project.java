@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 public abstract class Project implements Comparable<Project> {
 	private static final Logger LOG = LoggerFactory.getLogger(Project.class);
 	protected String url;
-	protected String title;
+	protected String name;
 	protected String reportingDate;
 	protected String yearsd;
 	protected String monthsd;
@@ -18,7 +18,7 @@ public abstract class Project implements Comparable<Project> {
 	public Project(final String url, final String title, final String reportingDate, final String yearsd, final String monthsd, 
 			final String daysd, final String yeared, final String monthed, final String dayed) {
 		this.url = url;
-		this.title = title;
+		this.name = title;
 		this.yearsd = yearsd;
 		this.monthsd = monthsd;
 		this.daysd = daysd;
@@ -50,7 +50,7 @@ public abstract class Project implements Comparable<Project> {
 		final int reportingDatesComparation = p.reportingDate.compareTo(p.reportingDate) * -1;
 		
 		if (reportingDatesComparation == 0) {
-			return this.title.compareTo(p.title);
+			return this.name.compareTo(p.name);
 		}
 		
 		return reportingDatesComparation;
@@ -58,11 +58,11 @@ public abstract class Project implements Comparable<Project> {
 	}
 
 	public String getTitle() {
-		return title;
+		return name;
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.name = title;
 	}
 	
 	public String getStartDate(){

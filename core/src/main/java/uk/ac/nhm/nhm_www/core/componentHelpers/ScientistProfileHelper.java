@@ -52,6 +52,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
 import uk.ac.nhm.nhm_www.core.model.science.projects.Project;
+import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectType;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 
 import com.day.cq.wcm.api.components.DropTarget;
@@ -152,6 +153,13 @@ public class ScientistProfileHelper {
 	public static final String PUBLISHER_URL_ATTRIBUTE	  	= "publisherURL";
 	public static final String PUBLISHER_LOCATION_ATTRIBUTE = "location";
 	
+	
+	//Projects
+	public static final String FUNDING_SOURCE_ATTRIBUTE		= "fundingSource";
+	public static final String EXTERNAL_COLLABORATORS		= "externalCollaborators";
+	public static final String NHM_URL						= "nhmURL";
+
+	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
 	private static final String TITLE_ATTRIBUTE_NAME 	   	  = PERSONAL_INFORMATION_NODE_NAME + "/" + TITLE_ATTRIBUTE;
@@ -244,14 +252,16 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 
 	/* Projects */
-	public static final String PROJECT_PREFIX_NODE_NAME 					= "project";
-	public static final String PROJECT_NODE_NAME  							= "projects";
-	public static final String PROJECT_CONTAINER_NODE_NAME  				= "container";
-	private static final String PROJECT_NODE_PATH			  	= PROJECT_NODE_NAME + "/" + PROJECT_CONTAINER_NODE_NAME;
+	public static final String PROJECTS_PREFIX_NODE_NAME 					= "project";
+	public static final String PROJECTS_NODE_NAME  							= "projects";
+	public static final String PROJECTS_CONTAINER_NODE_NAME  				= "container";
+	private static final String PROJECTS_NODE_PATH			  	= PROJECTS_NODE_NAME + "/" + PROJECTS_CONTAINER_NODE_NAME;
 	
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_CONSULTING					= "Consulting";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP					= "Partnership";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK 					= "Fieldwork";
+	
+	public static final String PROJECT_TYPE_PROJECT										= "Project";
 	
 	/* Grants */
 	public static final String GRANT_PREFIX_NODE_NAME 					= "project";
@@ -413,6 +423,10 @@ public class ScientistProfileHelper {
 	
 	public Map<String, Set<ProfessionalActivity>> getProfessionalActivities() {
 		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
+	}
+	
+	public Map<String, Set<Project>> getProjects() {
+		return this.extractProjects(PROJECTS_NODE_PATH);
 	}
 	
 	public Set<WebSite> getWebSites() {
@@ -1293,8 +1307,10 @@ public class ScientistProfileHelper {
 		StringBuilder aux = new StringBuilder();
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
-		
+		final Map<String, Set<Project>> projects = helper.getProjects();
+
 		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getProjectsType(projects));
 			aux.append(helper.getConsultancies(activities));
 			aux.append(helper.getPartnerships(activities));
 			aux.append(helper.getFieldworks(activities));
@@ -1305,10 +1321,9 @@ public class ScientistProfileHelper {
 		return res;
 	}
 
-	private Map<String, Set<ProfessionalActivity>> extractProjects(final String nodeName) {
-		final Map<String, Set<ProfessionalActivity>> result = new TreeMap<String, Set<ProfessionalActivity>>();
+	private Map<String, Set<Project>> extractProjects(final String nodeName) {
+		final Map<String, Set<Project>> result = new TreeMap<String, Set<Project>>();
 		
-//		Set<Grant> setGrants = new TreeSet<Grant>();
 		Set<Project> setProjects = new TreeSet<Project>();
 		
 		final Resource projectResource = this.resource.getChild(nodeName);
@@ -1322,18 +1337,20 @@ public class ScientistProfileHelper {
 		while (children.hasNext()) {
 			final Resource child = children.next();
 			
-			if (child.getName().startsWith(PROJECT_PREFIX_NODE_NAME)) {
+			if (child.getName().startsWith(PROJECTS_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
-				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
-				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
 				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
 				final String dayStartDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
 				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
 				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
 				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String url = childProperties.get(NHM_URL, String.class);
+				final String name = childProperties.get(NAME_ATTRIBUTE, String.class);
+				final String collaborator = childProperties.get(EXTERNAL_COLLABORATORS, String.class);
+				final String fundingSource = childProperties.get(FUNDING_SOURCE_ATTRIBUTE, String.class);
 				final String reportingDate;
 				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
 					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
@@ -1341,23 +1358,41 @@ public class ScientistProfileHelper {
 					reportingDate = "";
 				}
 				
-				switch (type) {
-//				case PROFESSIONAL_ACTIVITY_TYPE_CONSULTING:
-//                    final String consultingOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
-//					setConsultancies.add(new Consultancy(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-//							yearEndDate, monthEndDate, dayEndDate, consultingOrganisations));
+//				Uncomment when more types of projects are present
+//				switch (type) {
+//				case PROJECT_TYPE_PROJECT:
+					setProjects.add(new ProjectType(url, name, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, fundingSource, collaborator));
 //					break;
-					
-				default:
-					break;
-				}
+//					
+//				default:
+//					break;
+//				}
 			}
 		}
 		
-//		result.put(PROFESSIONAL_ACTIVITY_TYPE_CONSULTING, setConsultancies);
-
+		result.put(PROJECT_TYPE_PROJECT, setProjects);
 		
 		return result;
+	}
+	
+	public Set<Project> getProjectSet(Map<String, Set<Project>> activities, String project){
+		Set<Project> result = activities.get(project);
+		return result;
+	}
+	
+	public String getProjectsType(Map<String, Set<Project>> project){
+		StringBuilder result = new StringBuilder(); 
+		Set<Project> setProjectsType = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
+		if (!setProjectsType.isEmpty()) { 
+			result.append("<h3>Other projects</h3>");
+			for (final Project projectType: setProjectsType) { 
+				result.append("<p>");
+				result.append(projectType.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
 	}
 	
 	public boolean displayPublicationsTab(Resource resource) {

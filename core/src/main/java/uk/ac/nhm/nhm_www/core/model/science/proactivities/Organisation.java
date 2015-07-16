@@ -4,11 +4,17 @@ import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 
 public class Organisation {
+	protected String name;
 	protected String organisation;
 	protected String city;
 	protected String country;
 
 	public Organisation(JSONObject jsonObject) {
+		try {
+			this.name = jsonObject.getString("name");
+		} catch (JSONException e) {
+			this.name = null;
+		}
 		try {
 			this.organisation = jsonObject.getString("organisation");
 		} catch (JSONException e) {
@@ -36,5 +42,9 @@ public class Organisation {
 
 	public String getCountry() {
 		return country;
+	}
+
+	public String getName() {
+		return name;
 	}
 }
