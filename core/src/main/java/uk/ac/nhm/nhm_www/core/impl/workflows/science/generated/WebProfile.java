@@ -523,30 +523,13 @@ public class WebProfile {
         public static class PrimaryInvestigator {
 
             @XmlElement(namespace = "")
-            protected List<Grant> grants;
+            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
-            /**
-             * Gets the value of the grant property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public List<Grant> getGrants() {
-                return grants;
-            }
-
-            /**
-             * Sets the value of the grant property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public void setGrant(List<Grant> grants) {
-                this.grants = grants;
+            public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
+                if (grants == null) {
+                	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
+                }
+                return this.grants;
             }
             
         	@XmlAccessorType(XmlAccessType.FIELD)
@@ -556,7 +539,6 @@ public class WebProfile {
             {
 
             }
-
         }
 
 
@@ -583,30 +565,12 @@ public class WebProfile {
             @XmlElement(namespace = "")
             protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
-            /**
-             * Gets the value of the grant property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Ns1Object }
-             *     
-             */
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                return grants;
+                if (grants == null) {
+                	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
+                }
+                return this.grants;
             }
-
-            /**
-             * Sets the value of the grant property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public void setGrants(List<WebProfile.Grants.PrimaryInvestigator.Grant> grants) {
-                this.grants = grants;
-            }
-
         }
         
         @XmlAccessorType(XmlAccessType.FIELD)
@@ -616,32 +580,13 @@ public class WebProfile {
             @XmlElement(namespace = "")
             protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
-            /**
-             * Gets the value of the grant property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Ns1Object }
-             *     
-             */
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                return grants;
+                if (grants == null) {
+                	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
+                }
+                return this.grants;
             }
-
-            /**
-             * Sets the value of the grant property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public void setGrant(List<WebProfile.Grants.PrimaryInvestigator.Grant> grants) {
-                this.grants = grants;
-            }
-
         }
-
     }
 
 

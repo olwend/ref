@@ -964,9 +964,28 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	
 		List<ListIterator<Grant>> allGrants = new ArrayList<ListIterator<Grant>>();
         
-		allGrants.add(grants.getPrimaryInvestigator().getGrants().listIterator());
-		allGrants.add(grants.getSecondaryInvestigator().getGrants().listIterator());
-		allGrants.add(grants.getFundedBy().getGrants().listIterator());
+		if(grants != null){
+			if(grants.getPrimaryInvestigator() != null){
+				if(grants.getPrimaryInvestigator().getGrants() != null){
+					LOG.error("Inside third layer - Wasn't Null!!" + grants.getPrimaryInvestigator().getGrants().size());	
+					allGrants.add(grants.getPrimaryInvestigator().getGrants().listIterator());
+				}
+			}
+			
+			if(grants.getSecondaryInvestigator() != null){
+				if(grants.getSecondaryInvestigator().getGrants() != null){
+					LOG.error("Inside third layer - Wasn't Null!!" + grants.getSecondaryInvestigator().getGrants().size());		
+					allGrants.add(grants.getSecondaryInvestigator().getGrants().listIterator());
+				}
+			}
+			
+			if(grants.getFundedBy() != null){
+				if(grants.getFundedBy().getGrants() != null){
+					LOG.error("Inside third layer - Wasn't Null!!" + grants.getFundedBy().getGrants().size());	
+					allGrants.add(grants.getFundedBy().getGrants().listIterator());
+				}
+			}
+		}
 		
 		for (ListIterator<Grant> listIterator : allGrants) {
 			while (listIterator.hasNext()){
@@ -1065,12 +1084,26 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	
 		List<ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project>> allProjects = new ArrayList<ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project>>();
         
-		allProjects.add(projects.getChampionOf().getProjects().listIterator());
-		allProjects.add(projects.getFundedBy().getProjects().listIterator());
-		allProjects.add(projects.getLeaderOf().getProjects().listIterator());
-		allProjects.add(projects.getManagerOf().getProjects().listIterator());
-		allProjects.add(projects.getMemberOf().getProjects().listIterator());
-		allProjects.add(projects.getResearcherOn().getProjects().listIterator());
+		
+		if(projects.getChampionOf().getProjects().listIterator() != null){
+			allProjects.add(projects.getChampionOf().getProjects().listIterator());
+		}
+		if(projects.getFundedBy().getProjects().listIterator() != null){
+			allProjects.add(projects.getFundedBy().getProjects().listIterator());
+		}
+		if(projects.getLeaderOf().getProjects().listIterator() != null){
+			allProjects.add(projects.getLeaderOf().getProjects().listIterator());
+		}
+		if(projects.getManagerOf().getProjects().listIterator() != null){
+			allProjects.add(projects.getManagerOf().getProjects().listIterator());
+		}
+		if(projects.getMemberOf().getProjects().listIterator() != null){
+			allProjects.add(projects.getMemberOf().getProjects().listIterator());
+		}
+		if(projects.getResearcherOn().getProjects().listIterator() != null){
+			allProjects.add(projects.getResearcherOn().getProjects().listIterator());
+		}
+		
 		
 		for (ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project> listIterator : allProjects) {
 			while (listIterator.hasNext()){
@@ -1178,7 +1211,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			}
 		}
     }
-    
     
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {
         //Get the contentPath node in the JCR
