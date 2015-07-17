@@ -158,7 +158,16 @@ public class ScientistProfileHelper {
 	public static final String FUNDING_SOURCE_ATTRIBUTE		= "fundingSource";
 	public static final String EXTERNAL_COLLABORATORS		= "externalCollaborators";
 	public static final String NHM_URL						= "nhmURL";
-
+	
+	
+	//Grants
+	public static final String PROPOSAL_TITLE				= "proposalTitle";
+	public static final String ROLE_PRINCIPAL_INVESTIGATOR	= "principalInvestigator";
+	public static final String ROLE_CO_INVESTIGATOR			= "coInvestigator";
+	public static final String FUNDER_NAME					= "funderName";
+	public static final String TOTAL_VALUE_AWARDED			= "totalAwarded";
+	public static final String NHM_VALUE_AWARDED			= "nhmAwarded";
+	
 	
 	/* Personal Information */
 	private static final String INITIALS_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + INITIALS_ATTRIBUTE;
@@ -252,22 +261,24 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 
 	/* Projects */
-	public static final String PROJECTS_PREFIX_NODE_NAME 					= "project";
-	public static final String PROJECTS_NODE_NAME  							= "projects";
-	public static final String PROJECTS_CONTAINER_NODE_NAME  				= "container";
+	public static final String PROJECTS_PREFIX_NODE_NAME 				= "project";
+	public static final String PROJECTS_NODE_NAME  						= "projects";
+	public static final String PROJECTS_CONTAINER_NODE_NAME  			= "container";
 	private static final String PROJECTS_NODE_PATH			  	= PROJECTS_NODE_NAME + "/" + PROJECTS_CONTAINER_NODE_NAME;
 	
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_CONSULTING					= "Consulting";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP					= "Partnership";
-	public static final String PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK 					= "Fieldwork";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_CONSULTING	= "Consulting";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP	= "Partnership";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK 	= "Fieldwork";
 	
-	public static final String PROJECT_TYPE_PROJECT										= "Project";
+	public static final String PROJECT_TYPE_PROJECT						= "Project";
 	
 	/* Grants */
 	public static final String GRANT_PREFIX_NODE_NAME 					= "project";
 	public static final String GRANT_NODE_NAME  						= "grants";
 	public static final String GRANT_CONTAINER_NODE_NAME  				= "container";
 	private static final String GRANT_NODE_PATH			  	= GRANT_NODE_NAME + "/" + GRANT_CONTAINER_NODE_NAME;
+	
+	public static final String GRANT_TYPE_GRANT							= "Grant";
 	
 	private static final String IMAGE_NODE_NAME	= "image";
 	

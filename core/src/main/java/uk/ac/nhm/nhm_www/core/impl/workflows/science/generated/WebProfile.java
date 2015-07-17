@@ -10,12 +10,15 @@ package uk.ac.nhm.nhm_www.core.impl.workflows.science.generated;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants.PrimaryInvestigator.Grant;
 
 
 /**
@@ -424,7 +427,7 @@ public class WebProfile {
         @XmlElement(name = "secondary-investigator", namespace = "", required = true)
         protected WebProfile.Grants.SecondaryInvestigator secondaryInvestigator;
         @XmlElement(name = "funded-by", namespace = "", required = true)
-        protected WebProfile.Projects.FundedBy fundedBy;
+        protected WebProfile.Grants.FundedBy fundedBy;
 
         /**
          * Gets the value of the primaryInvestigator property.
@@ -482,7 +485,7 @@ public class WebProfile {
          *     {@link WebProfile.Projects.FundedBy }
          *     
          */
-        public WebProfile.Projects.FundedBy getFundedBy() {
+        public WebProfile.Grants.FundedBy getFundedBy() {
             return fundedBy;
         }
 
@@ -494,7 +497,7 @@ public class WebProfile {
          *     {@link WebProfile.Projects.FundedBy }
          *     
          */
-        public void setFundedBy(WebProfile.Projects.FundedBy value) {
+        public void setFundedBy(WebProfile.Grants.FundedBy value) {
             this.fundedBy = value;
         }
 
@@ -519,6 +522,40 @@ public class WebProfile {
         @XmlType(name = "")
         public static class PrimaryInvestigator {
 
+            @XmlElement(namespace = "")
+            protected List<Grant> grants;
+
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public List<Grant> getGrants() {
+                return grants;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrant(List<Grant> grants) {
+                this.grants = grants;
+            }
+            
+        	@XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "")
+            public static class Grant
+                extends Ns1Object
+            {
+
+            }
 
         }
 
@@ -542,7 +579,66 @@ public class WebProfile {
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
         public static class SecondaryInvestigator {
+        	
+            @XmlElement(namespace = "")
+            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
+                return grants;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrants(List<WebProfile.Grants.PrimaryInvestigator.Grant> grants) {
+                this.grants = grants;
+            }
+
+        }
+        
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "")
+        public static class FundedBy {
+        	
+            @XmlElement(namespace = "")
+            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
+
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
+                return grants;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrant(List<WebProfile.Grants.PrimaryInvestigator.Grant> grants) {
+                this.grants = grants;
+            }
 
         }
 
@@ -982,7 +1078,7 @@ public class WebProfile {
         	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
         	
-        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+        	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
                 if (project == null) {
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }
@@ -1020,35 +1116,18 @@ public class WebProfile {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "grant"
+            "project"
         })
         public static class FundedBy {
-
-            @XmlElement(namespace = "")
-            protected Ns1Object grant;
-
-            /**
-             * Gets the value of the grant property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public Ns1Object getGrant() {
-                return grant;
-            }
-
-            /**
-             * Sets the value of the grant property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public void setGrant(Ns1Object value) {
-                this.grant = value;
+        	
+        	@XmlElement(namespace = "", required = true)
+            protected List<WebProfile.Projects.ChampionOf.Project> project;
+        	
+        	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
+                if (project == null) {
+                	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
+                }
+                return this.project;
             }
 
         }
@@ -1077,7 +1156,7 @@ public class WebProfile {
         	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
         	
-        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+        	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
                 if (project == null) {
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }
@@ -1110,7 +1189,7 @@ public class WebProfile {
         	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
         	
-        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+        	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
                 if (project == null) {
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }
@@ -1143,7 +1222,7 @@ public class WebProfile {
         	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
         	
-        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+        	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
                 if (project == null) {
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }
@@ -1176,7 +1255,7 @@ public class WebProfile {
         	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
         	
-        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+        	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
                 if (project == null) {
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }

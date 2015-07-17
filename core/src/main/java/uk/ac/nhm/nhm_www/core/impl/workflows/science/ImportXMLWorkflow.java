@@ -64,6 +64,7 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Record;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebAddress;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants.PrimaryInvestigator.Grant;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.ProfessionalActivities;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities;
@@ -957,16 +958,105 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-    private void addGrants (final Node rootNode, final Grants grants){
-//    	final List<Grant> grantPrimaryInvestigatorIt = grants.getPrimaryInvestigator();
-//    	final List<Grant> grantSecondaryInvestigatorIt = grants.getSecondaryInvestigator();
-//    	final List<Grant> grantFundedByIt = grants.getFundedBy().getGrant();					// ... Not even this one!
-//    	
-//        for (Grants grant: grantPrimaryInvestigatorIt) {
-//            final Node pubNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
-//        }
+    private void addGrants (final Node rootNode, final Grants grants) throws Exception{
     	
-//    	addGrants(projectsGrants, webProfile.getGrants());
+    	int i = 0;
+    	
+		List<ListIterator<Grant>> allGrants = new ArrayList<ListIterator<Grant>>();
+        
+		allGrants.add(grants.getPrimaryInvestigator().getGrants().listIterator());
+		allGrants.add(grants.getSecondaryInvestigator().getGrants().listIterator());
+		allGrants.add(grants.getFundedBy().getGrants().listIterator());
+		
+		for (ListIterator<Grant> listIterator : allGrants) {
+			while (listIterator.hasNext()){
+				Grant project = listIterator.next();
+				
+				final Node grantsNode = rootNode.addNode(ScientistProfileHelper.GRANT_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
+				
+				final String type = ScientistProfileHelper.GRANT_TYPE_GRANT;
+				grantsNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
+				
+				for (Record record: project.getObject().getRecords().getRecord()) {
+					for (Field field: record.getNative().getField()) {
+						switch (field.getName()) {
+						
+						case "c-proposal-title":
+							final List<String> fundingSources = field.getItems().getItem();
+							grantsNode.setProperty(ScientistProfileHelper.PROPOSAL_TITLE, fundingSources.toArray(new String[fundingSources.size()]));
+							break;
+							
+						case "c-role-principal-investigator":
+                            final List<Person> principalPersonList = field.getPeople().getPerson();
+                            
+                            String[] principals = new String[principalPersonList.size()];
+                            
+                            for (int j = 0; j < principalPersonList.size(); j++) {
+                                Person person = principalPersonList.get(j);
+                                principals[j] =  person.getLastName() + " " + person.getInitials();
+                            }
+							grantsNode.setProperty(ScientistProfileHelper.ROLE_PRINCIPAL_INVESTIGATOR, field.getText());
+							break;
+
+						case "c-role-co-investigator":
+                            final List<Person> coInvestigatorPersonList = field.getPeople().getPerson();
+                            
+                            String[] coInvestigators = new String[coInvestigatorPersonList.size()];
+                            
+                            for (int j = 0; j < coInvestigatorPersonList.size(); j++) {
+                                Person person = coInvestigatorPersonList.get(j);
+                                coInvestigators[j] =  person.getLastName() + " " + person.getInitials();
+                            }
+                            
+                            grantsNode.setProperty(ScientistProfileHelper.ROLE_CO_INVESTIGATOR, coInvestigators);
+                            break;
+							
+						case "c-funder-name":
+							grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME, field.getText());
+							break;
+							
+						case "c-total-value-awarded":
+							grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().longValue());
+							break;
+							
+						case "c-value-to-nhm-awarded":
+							grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().longValue());
+							break;
+
+						case "c-end-date":
+							final BigInteger endYear = field.getDate().getYear();
+							final BigInteger endMonth = field.getDate().getMonth();
+							final BigInteger endDay = field.getDate().getDay();
+							if ( endYear != null ){
+								grantsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+							}
+							if ( endMonth != null ){
+								grantsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+							}
+							if ( endDay != null ){
+								grantsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+							}
+							break;
+							
+						case "c-start-date":
+							final BigInteger startYear = field.getDate().getYear();
+							final BigInteger startMonth = field.getDate().getMonth();
+							final BigInteger startDay = field.getDate().getDay();
+							if ( startYear != null ){
+								grantsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+							}
+							if ( startMonth != null ){
+								grantsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+							}
+							if ( startDay != null ){
+								grantsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+							}
+							break;
+						}
+					}
+				}
+			}
+		}
     }
     
     private void addProjects (final Node rootNode, final Projects projects) throws Exception {
@@ -975,12 +1065,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	
 		List<ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project>> allProjects = new ArrayList<ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project>>();
         
-		allProjects.add(projects.getChampionOf().getProject().listIterator());
-//		allProjects.add(projects.getFundedBy().getProject().listIterator());
-		allProjects.add(projects.getLeaderOf().getProject().listIterator());
-		allProjects.add(projects.getManagerOf().getProject().listIterator());
-		allProjects.add(projects.getMemberOf().getProject().listIterator());
-		allProjects.add(projects.getResearcherOn().getProject().listIterator());
+		allProjects.add(projects.getChampionOf().getProjects().listIterator());
+		allProjects.add(projects.getFundedBy().getProjects().listIterator());
+		allProjects.add(projects.getLeaderOf().getProjects().listIterator());
+		allProjects.add(projects.getManagerOf().getProjects().listIterator());
+		allProjects.add(projects.getMemberOf().getProjects().listIterator());
+		allProjects.add(projects.getResearcherOn().getProjects().listIterator());
 		
 		for (ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project> listIterator : allProjects) {
 			while (listIterator.hasNext()){
