@@ -96,7 +96,8 @@ public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
 				final HttpClient httpClient = new HttpClient();
 				
 				final PostMethod postMethod = new PostMethod(newslettersService.getNHMNewslettersSignUpService());
-				
+				String host = "Remote host: " + request.getRemoteHost() + " Server name:" + request.getServerName() + " Servlet path: " + request.getServletPath();
+				LOG.error("REQUEST VALUES: " +host);
 				postMethod.addParameter("source", "www.nhm.ac.uk");
 				postMethod.addParameter("name"  , name);
 				postMethod.addParameter("email" , email);
