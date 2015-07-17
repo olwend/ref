@@ -1073,7 +1073,16 @@ public class WebProfile {
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
         public static class LeaderOf {
-
+        	
+        	@XmlElement(namespace = "", required = true)
+            protected List<WebProfile.Projects.ChampionOf.Project> project;
+        	
+        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+                if (project == null) {
+                	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
+                }
+                return this.project;
+            }
 
         }
 
@@ -1098,6 +1107,15 @@ public class WebProfile {
         @XmlType(name = "")
         public static class ManagerOf {
 
+        	@XmlElement(namespace = "", required = true)
+            protected List<WebProfile.Projects.ChampionOf.Project> project;
+        	
+        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+                if (project == null) {
+                	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
+                }
+                return this.project;
+            }
 
         }
 
@@ -1122,6 +1140,15 @@ public class WebProfile {
         @XmlType(name = "")
         public static class MemberOf {
 
+        	@XmlElement(namespace = "", required = true)
+            protected List<WebProfile.Projects.ChampionOf.Project> project;
+        	
+        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+                if (project == null) {
+                	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
+                }
+                return this.project;
+            }
 
         }
 
@@ -1146,6 +1173,15 @@ public class WebProfile {
         @XmlType(name = "")
         public static class ResearcherOn {
 
+        	@XmlElement(namespace = "", required = true)
+            protected List<WebProfile.Projects.ChampionOf.Project> project;
+        	
+        	public List<WebProfile.Projects.ChampionOf.Project> getProject() {
+                if (project == null) {
+                	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
+                }
+                return this.project;
+            }
 
         }
 
