@@ -958,33 +958,25 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-    private void addFakeGrants (final Node rootNode, final List<Grant> grants, String uniqueName) throws Exception {
-    	int i = 0 ;
-    	
-    	LOG.error("Scanning: " + uniqueName + "Stuff: " + grants.size());
-		
-		if ( uniqueName.equals("tim-littlewood")){
-			LOG.error("############# At least I should have something in FundedBy!########### ");
-		}
-        
-        for (WebProfile.Grants.PrimaryInvestigator.Grant grant: grants) {
-            final Node pubNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
-            
-            final String type = resolvePublicationType (grant.getObject().getTypeId().intValue());
-            
-            LOG.error(uniqueName + " has a grant of type: " + type );
-        }
-    }
-    
     private void addGrants (final Node rootNode, final Grants grants, String uniqueName) throws Exception{
     	int i = 0;
     	
-    	LOG.error("Getting Name of Dude : " + uniqueName );
+    	final Grants aux = grants;
+    	
+    	final WebProfile.Grants.PrimaryInvestigator primary = aux.getPrimaryInvestigator();
+    	final WebProfile.Grants.SecondaryInvestigator secondary = aux.getSecondaryInvestigator();
+    	final WebProfile.Grants.FundedBy fundedby = aux.getFundedBy();
+    	
+    	LOG.error("Scanning: " + uniqueName + "Stuff: " + grants.getFundedBy().getGrants().size());
     	
 		List<ListIterator<Grant>> allGrants = new ArrayList<ListIterator<Grant>>();
 		
 		if ( uniqueName.equals("tim-littlewood")){
-			LOG.error("WTFFF");
+			
+			int j = 0;
+			j = 5; 
+					
+			LOG.error("############# At least I should have something in FundedBy!########### ");
 			LOG.error("Stuff: " + grants.getFundedBy().getGrants().size());
 		}
         
@@ -1332,8 +1324,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         // Node : grants
         final Node grantsNode = jcrContentNode.addNode(ScientistProfileHelper.GRANT_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node grants = grantsNode.addNode(ScientistProfileHelper.GRANT_CONTAINER_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-//        addGrants(grants, webProfile.getGrants(), uniqueName);
-        addFakeGrants(grants, webProfile.getGrants().getFundedBy().getGrants(), uniqueName);
+        addGrants(grants, webProfile.getGrants(), uniqueName);
         
         // Node : publications
         final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);

@@ -421,11 +421,11 @@ public class WebProfile {
     })
     public static class Grants {
 
-        @XmlElement(name = "primary-investigator", namespace = "", required = true)
+        @XmlElement(name = "primary-investigator", namespace="", required = true)
         protected WebProfile.Grants.PrimaryInvestigator primaryInvestigator;
-        @XmlElement(name = "secondary-investigator", namespace = "", required = true)
+        @XmlElement(name = "secondary-investigator", namespace="", required = true)
         protected WebProfile.Grants.SecondaryInvestigator secondaryInvestigator;
-        @XmlElement(name = "funded-by", namespace = "", required = true)
+        @XmlElement(name = "funded-by", namespace="", required = true)
         protected WebProfile.Grants.FundedBy fundedBy;
 
         /**
@@ -519,18 +519,18 @@ public class WebProfile {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            	"grants"
+            	"grant"
             })
         public static class PrimaryInvestigator {
 
-            @XmlElement(namespace = "", required = true)
-            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
+            @XmlElement(name = "grant", namespace="grant", required = true)
+            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grant;
 
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                if (grants == null) {
-                	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
+                if (grant == null) {
+                	grant = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
                 }
-                return grants;
+                return this.grant;
             }
             
         	@XmlAccessorType(XmlAccessType.FIELD)
@@ -561,35 +561,35 @@ public class WebProfile {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            	"grants"
+            	"grant"
             })
         public static class SecondaryInvestigator {
         	
-            @XmlElement(namespace = "", required = true)
-            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
+            @XmlElement(name = "grant", namespace="grant", required = true)
+            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grant;
 
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                if (grants == null) {
-                	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
+                if (grant == null) {
+                	grant = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
                 }
-                return this.grants;
+                return this.grant;
             }
         }
         
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            	"grants"
+            	"grant"
             })
         public static class FundedBy {
         	
-            @XmlElement(namespace = "", required = true)
-            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
+            @XmlElement(name = "grant", namespace="grant", required = true)
+            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grant;
 
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                if (grants == null) {
-                	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
+                if (grant == null) {
+                	grant = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
                 }
-                return this.grants;
+                return this.grant;
             }
         }
     }
@@ -1073,7 +1073,7 @@ public class WebProfile {
             protected List<WebProfile.Projects.ChampionOf.Project> project;
         	
         	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
-                if (project == null) {
+                if (project == null) { 
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }
                 return this.project;
