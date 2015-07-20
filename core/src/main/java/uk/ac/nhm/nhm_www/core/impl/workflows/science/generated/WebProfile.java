@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants.PrimaryInvestigator.Grant;
 
 
 /**
@@ -519,17 +518,19 @@ public class WebProfile {
          * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "")
+        @XmlType(name = "", propOrder = {
+            	"grants"
+            })
         public static class PrimaryInvestigator {
 
-            @XmlElement(namespace = "")
+            @XmlElement(namespace = "", required = true)
             protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
                 if (grants == null) {
                 	grants = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
                 }
-                return this.grants;
+                return grants;
             }
             
         	@XmlAccessorType(XmlAccessType.FIELD)
@@ -559,10 +560,12 @@ public class WebProfile {
          * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "")
+        @XmlType(name = "", propOrder = {
+            	"grants"
+            })
         public static class SecondaryInvestigator {
         	
-            @XmlElement(namespace = "")
+            @XmlElement(namespace = "", required = true)
             protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
@@ -574,10 +577,12 @@ public class WebProfile {
         }
         
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "")
+        @XmlType(name = "", propOrder = {
+            	"grants"
+            })
         public static class FundedBy {
         	
-            @XmlElement(namespace = "")
+            @XmlElement(namespace = "", required = true)
             protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grants;
 
             public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
@@ -588,7 +593,6 @@ public class WebProfile {
             }
         }
     }
-
 
     /**
      * <p>Java class for anonymous complex type.
