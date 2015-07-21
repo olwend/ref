@@ -523,14 +523,31 @@ public class WebProfile {
             })
         public static class PrimaryInvestigator {
 
-            @XmlElement(name = "grant", namespace="grant", required = true)
-            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grant;
+            @XmlElement(namespace="grant")
+            protected WebProfile.Grants.PrimaryInvestigator.Grant grant;
 
-            public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                if (grant == null) {
-                	grant = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
-                }
-                return this.grant;
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public Ns1Object getGrant() {
+                return grant;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrant(WebProfile.Grants.PrimaryInvestigator.Grant value) {
+                this.grant = value;
             }
             
         	@XmlAccessorType(XmlAccessType.FIELD)
@@ -565,14 +582,31 @@ public class WebProfile {
             })
         public static class SecondaryInvestigator {
         	
-            @XmlElement(name = "grant", namespace="grant", required = true)
-            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grant;
+            @XmlElement(namespace="grant")
+            protected WebProfile.Grants.PrimaryInvestigator.Grant grant;
 
-            public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                if (grant == null) {
-                	grant = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
-                }
-                return this.grant;
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public WebProfile.Grants.PrimaryInvestigator.Grant getGrant() {
+                return grant;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrant(WebProfile.Grants.PrimaryInvestigator.Grant value) {
+                this.grant = value;
             }
         }
         
@@ -582,14 +616,31 @@ public class WebProfile {
             })
         public static class FundedBy {
         	
-            @XmlElement(name = "grant", namespace="grant", required = true)
-            protected List<WebProfile.Grants.PrimaryInvestigator.Grant> grant;
+            @XmlElement(namespace="grant")
+            protected WebProfile.Grants.PrimaryInvestigator.Grant grant;
 
-            public List<WebProfile.Grants.PrimaryInvestigator.Grant> getGrants() {
-                if (grant == null) {
-                	grant = new ArrayList<WebProfile.Grants.PrimaryInvestigator.Grant>();
-                }
-                return this.grant;
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public WebProfile.Grants.PrimaryInvestigator.Grant getGrant() {
+                return grant;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrant(WebProfile.Grants.PrimaryInvestigator.Grant value) {
+                this.grant = value;
             }
         }
     }

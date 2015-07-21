@@ -967,7 +967,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	final WebProfile.Grants.SecondaryInvestigator secondary = aux.getSecondaryInvestigator();
     	final WebProfile.Grants.FundedBy fundedby = aux.getFundedBy();
     	
-    	LOG.error("Scanning: " + uniqueName + "Stuff: " + grants.getFundedBy().getGrants().size());
+    	LOG.error("Scanning: " + uniqueName + "Stuff: " + grants.getFundedBy().getGrant());
     	
 		List<ListIterator<Grant>> allGrants = new ArrayList<ListIterator<Grant>>();
 		
@@ -977,34 +977,34 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			j = 5; 
 					
 			LOG.error("############# At least I should have something in FundedBy!########### ");
-			LOG.error("Stuff: " + grants.getFundedBy().getGrants().size());
+			LOG.error("Stuff: " + grants.getFundedBy().getGrant().getObject().getRecords().getRecord().get(0).getNative().getField().get(2).getText());
 		}
         
 		if(grants != null){
 			if(grants.getPrimaryInvestigator() != null){
-				if(grants.getPrimaryInvestigator().getGrants() != null){
-					if (grants.getPrimaryInvestigator().getGrants().size() > 0){
-						LOG.error("Inside third layer - Wasn't Null!! " + grants.getPrimaryInvestigator().getGrants().size());	
+				if(grants.getPrimaryInvestigator().getGrant() != null){
+					if (grants.getPrimaryInvestigator().getGrant() != null){
+						LOG.error("Inside third layer - Wasn't Null!! " + grants.getPrimaryInvestigator().getGrant());	
 					}
-					allGrants.add(grants.getPrimaryInvestigator().getGrants().listIterator());
+//					allGrants.add(grants.getPrimaryInvestigator().getGrant());
 				}
 			}
 			
 			if(grants.getSecondaryInvestigator() != null){
-				if(grants.getSecondaryInvestigator().getGrants() != null){
-					if (grants.getSecondaryInvestigator().getGrants().size() > 0){
-						LOG.error("Inside third layer - Wasn't Null!! " + grants.getSecondaryInvestigator().getGrants().size());	
+				if(grants.getSecondaryInvestigator().getGrant() != null){
+					if (grants.getSecondaryInvestigator().getGrant() != null){
+						LOG.error("Inside third layer - Wasn't Null!! " + grants.getSecondaryInvestigator().getGrant());	
 					}
-					allGrants.add(grants.getSecondaryInvestigator().getGrants().listIterator());
+//					allGrants.add(grants.getSecondaryInvestigator().getGrant());
 				}
 			}
 			
 			if(grants.getFundedBy() != null){
-				if(grants.getFundedBy().getGrants() != null){
-					if (grants.getFundedBy().getGrants().size() > 0){
-						LOG.error("Inside third layer - Wasn't Null!! " + grants.getFundedBy().getGrants().size());	
+				if(grants.getFundedBy().getGrant() != null){
+					if (grants.getFundedBy().getGrant() != null){
+						LOG.error("Inside third layer - Wasn't Null!! " + grants.getFundedBy().getGrant());	
 					}
-					allGrants.add(grants.getFundedBy().getGrants().listIterator());
+//					allGrants.add(grants.getFundedBy().getGrant().listIterator());
 				}
 			}
 		}
