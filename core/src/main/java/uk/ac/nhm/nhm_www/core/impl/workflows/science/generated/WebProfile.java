@@ -1089,7 +1089,7 @@ public class WebProfile {
         public static class FundedBy {
         	
             @XmlElement(namespace = "")
-            protected Ns1Object grant;
+            protected List<Ns1Object> grant;
             
            	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
@@ -1102,7 +1102,7 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public Ns1Object getGrant() {
+            public List<Ns1Object> getGrant() {
                 return grant;
             }
 
@@ -1114,7 +1114,7 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public void setGrant(Ns1Object value) {
+            public void setGrant(List<Ns1Object> value) {
                 this.grant = value;
             }
 
@@ -1124,8 +1124,6 @@ public class WebProfile {
                 }
                 return this.project;
             }
-        	
-        	
 
         }
 

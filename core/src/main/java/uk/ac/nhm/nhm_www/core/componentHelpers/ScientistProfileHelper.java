@@ -165,6 +165,7 @@ public class ScientistProfileHelper {
 	public static final String ROLE_PRINCIPAL_INVESTIGATOR	= "principalInvestigator";
 	public static final String ROLE_CO_INVESTIGATOR			= "coInvestigator";
 	public static final String FUNDER_NAME					= "funderName";
+	public static final String FUNDER_NAME_OTHER			= "funderNameOther";
 	public static final String TOTAL_VALUE_AWARDED			= "totalAwarded";
 	public static final String NHM_VALUE_AWARDED			= "nhmAwarded";
 	

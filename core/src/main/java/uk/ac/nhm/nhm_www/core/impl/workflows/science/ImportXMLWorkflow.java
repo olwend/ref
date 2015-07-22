@@ -963,58 +963,37 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	
     	final Grants aux = grants;
     	
-    	final Ns1Object primary = aux.getPrimaryInvestigator().getGrant();
-    	final Ns1Object secondary = aux.getSecondaryInvestigator().getGrant();
-    	final Ns1Object fundedby = aux.getFundedBy().getGrant();
+    	LOG.error("Scanning: " + uniqueName );
     	
-    	LOG.error("Scanning: " + uniqueName + "Stuff: " + grants.getFundedBy().getGrant());
-    	
-		List<ListIterator<Grant>> allGrants = new ArrayList<ListIterator<Grant>>();
-		
-		if ( uniqueName.equals("tim-littlewood")){
-			
-			LOG.error("Trying Ns1Object stuff: " + grants.getFundedBy().getGrant().getObject().getRecords().getRecord().get(0).getNative().getField().get(1).getText());
-			
-			int j = 0;
-			j = 5; 
-					
-			//LOG.error("############# At least I should have something in FundedBy!########### ");
-			//LOG.error("Stuff: " + grants.getFundedBy().getGrant().getObject().getRecords().getRecord().get(0).getNative().getField().get(2).getText());
-		}
+		List<Ns1Object> allGrants = new ArrayList<Ns1Object>();
         
 		if(grants != null){
 			if(grants.getPrimaryInvestigator() != null){
-				if(grants.getPrimaryInvestigator().getGrant() != null){
-					if (grants.getPrimaryInvestigator().getGrant() != null){
-						LOG.error("Found Primary - Wasn't Null!! " + grants.getPrimaryInvestigator().getGrant());	
-					}
-//					allGrants.add(grants.getPrimaryInvestigator().getGrant());
+				if (grants.getPrimaryInvestigator().getGrant() != null){
+					LOG.error("Found Primary");	
+					allGrants.add(grants.getPrimaryInvestigator().getGrant());
 				}
 			}
 			
 			if(grants.getSecondaryInvestigator() != null){
-				if(grants.getSecondaryInvestigator().getGrant() != null){
-					if (grants.getSecondaryInvestigator().getGrant() != null){
-						LOG.error("Found Secondary - Wasn't Null!! " + grants.getSecondaryInvestigator().getGrant());	
-					}
-//					allGrants.add(grants.getSecondaryInvestigator().getGrant());
+				if (grants.getSecondaryInvestigator().getGrant() != null){
+					LOG.error("Found Secondary");	
+					allGrants.add(grants.getSecondaryInvestigator().getGrant());
 				}
 			}
 			
 			if(grants.getFundedBy() != null){
-				if(grants.getFundedBy().getGrant() != null){
-					if (grants.getFundedBy().getGrant() != null){
-						LOG.error("Found FundedBy - Wasn't Null!! " + grants.getFundedBy().getGrant());	
+				if (grants.getFundedBy().getGrant() != null){
+					LOG.error("Found FundedBy");	
+					for (Ns1Object ns1Object : grants.getFundedBy().getGrant()) {
+						LOG.error("Adding a ns1Object from Fundedby! :) ");
+						allGrants.add(ns1Object);
 					}
-//					allGrants.add(grants.getFundedBy().getGrant().listIterator());
 				}
 			}
 		}
 		
-		for (ListIterator<Grant> listIterator : allGrants) {
-			while (listIterator.hasNext()){
-				Grant grant = listIterator.next();
-				
+		for (Ns1Object grant : allGrants) {
 				final Node grantsNode = rootNode.addNode(ScientistProfileHelper.GRANT_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
 				
 				final String type = ScientistProfileHelper.GRANT_TYPE_GRANT;
@@ -1025,45 +1004,67 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 						switch (field.getName()) {
 						
 						case "c-proposal-title":
-							final List<String> fundingSources = field.getItems().getItem();
-							grantsNode.setProperty(ScientistProfileHelper.PROPOSAL_TITLE, fundingSources.toArray(new String[fundingSources.size()]));
+							if (field.getItems() != null) {
+								final List<String> fundingSources = field.getItems().getItem();
+								grantsNode.setProperty(ScientistProfileHelper.PROPOSAL_TITLE, fundingSources.toArray(new String[fundingSources.size()]));
+							}
 							break;
 							
 						case "c-role-principal-investigator":
-                            final List<Person> principalPersonList = field.getPeople().getPerson();
-                            
-                            String[] principals = new String[principalPersonList.size()];
-                            
-                            for (int j = 0; j < principalPersonList.size(); j++) {
-                                Person person = principalPersonList.get(j);
-                                principals[j] =  person.getLastName() + " " + person.getInitials();
-                            }
-							grantsNode.setProperty(ScientistProfileHelper.ROLE_PRINCIPAL_INVESTIGATOR, field.getText());
+							if (field.getPeople() != null) {
+								final List<Person> principalPersonList = field.getPeople().getPerson();
+								
+								String[] principals = new String[principalPersonList.size()];
+								
+								for (int j = 0; j < principalPersonList.size(); j++) {
+									Person person = principalPersonList.get(j);
+									principals[j] =  person.getLastName() + " " + person.getInitials();
+								}
+								grantsNode.setProperty(ScientistProfileHelper.ROLE_PRINCIPAL_INVESTIGATOR, field.getText());
+							}
 							break;
 
 						case "c-role-co-investigator":
-                            final List<Person> coInvestigatorPersonList = field.getPeople().getPerson();
-                            
-                            String[] coInvestigators = new String[coInvestigatorPersonList.size()];
-                            
-                            for (int j = 0; j < coInvestigatorPersonList.size(); j++) {
-                                Person person = coInvestigatorPersonList.get(j);
-                                coInvestigators[j] =  person.getLastName() + " " + person.getInitials();
-                            }
-                            
-                            grantsNode.setProperty(ScientistProfileHelper.ROLE_CO_INVESTIGATOR, coInvestigators);
+							if (field.getPeople() != null ) {
+								final List<Person> coInvestigatorPersonList = field.getPeople().getPerson();
+								
+								String[] coInvestigators = new String[coInvestigatorPersonList.size()];
+								
+								for (int j = 0; j < coInvestigatorPersonList.size(); j++) {
+									Person person = coInvestigatorPersonList.get(j);
+									coInvestigators[j] =  person.getLastName() + " " + person.getInitials();
+								}
+								
+								grantsNode.setProperty(ScientistProfileHelper.ROLE_CO_INVESTIGATOR, coInvestigators);
+							}
                             break;
 							
 						case "c-funder-name":
-							grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME, field.getText());
+							if (field.getText() != null ) {
+								grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME, field.getText());
+							}
+							break;
+							
+						case "c-funder-name-other":
+							if (field.getText() != null ) {
+								grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME_OTHER, field.getText());
+							}
 							break;
 							
 						case "c-total-value-awarded":
-							grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().longValue());
+							if ( field.getMoney() != null ) {
+								if ( field.getMoney().getValue() != null )	{
+									grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().longValue());
+								}
+							}
 							break;
 							
 						case "c-value-to-nhm-awarded":
-							grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().longValue());
+							if ( field.getMoney() != null ) {
+								if ( field.getMoney().getValue() != null )	{
+									grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().longValue());
+								}
+							}
 							break;
 
 						case "c-end-date":
@@ -1098,7 +1099,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 						}
 					}
 				}
-			}
 		}
     }
     
