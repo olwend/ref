@@ -976,8 +976,8 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			int j = 0;
 			j = 5; 
 					
-			LOG.error("############# At least I should have something in FundedBy!########### ");
-			LOG.error("Stuff: " + grants.getFundedBy().getGrant().getObject().getRecords().getRecord().get(0).getNative().getField().get(2).getText());
+			//LOG.error("############# At least I should have something in FundedBy!########### ");
+			//LOG.error("Stuff: " + grants.getFundedBy().getGrant().getObject().getRecords().getRecord().get(0).getNative().getField().get(2).getText());
 		}
         
 		if(grants != null){

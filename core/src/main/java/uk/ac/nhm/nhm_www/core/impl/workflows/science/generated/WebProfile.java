@@ -611,13 +611,13 @@ public class WebProfile {
         }
         
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
+        @XmlType(namespace = "", propOrder = {
             	"grant"
             })
         public static class FundedBy {
         	
-            @XmlElement(namespace="grant")
-            protected WebProfile.Grants.PrimaryInvestigator.Grant grant;
+            
+            protected Ns1Object grant;
 
             /**
              * Gets the value of the grant property.
@@ -627,7 +627,7 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public WebProfile.Grants.PrimaryInvestigator.Grant getGrant() {
+            public Ns1Object getGrant() {
                 return grant;
             }
 
@@ -639,10 +639,12 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public void setGrant(WebProfile.Grants.PrimaryInvestigator.Grant value) {
+            public void setGrant(Ns1Object value) {
                 this.grant = value;
             }
         }
+        
+        
     }
 
     /**
