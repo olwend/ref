@@ -10,6 +10,10 @@
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 	final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
 	final Map<String, Set<Project>> projects = helper.getProjects();
+	final boolean displayProjects = helper.displayProjects(resource);
+	final boolean displayConsultancies = helper.displayConsultancies(resource);
+	final boolean displayPartnerships = helper.displayPartnerships(resource);
+	final boolean displayFieldworks = helper.displayFieldworks(resource);
 %>
 <div class="small-12 medium-8 large-8 columns">
 
@@ -17,16 +21,28 @@
 	<div id="projects" class="content science-profiles-detail-page--tabs-content-container">
 	
 		<%-- Projects --%>
-		<%= helper.getProjectsType(projects) %>
+		<% if ( displayProjects ) { %>
+			<h3>Other Projects</h3>
+			<%= helper.getProjects(projects) %>
+		<% } %>
 	
 		<%-- Consultancies --%>
-		<%= helper.getConsultancies(activities) %>
+		<% if ( displayConsultancies ) { %>
+			<h3>Consultancy</h3>
+			<%= helper.getConsultancies(activities) %>
+		<% } %>
 		
 		<%-- Partnerships --%>
-		<%= helper.getPartnerships(activities) %>
+		<% if ( displayPartnerships ) { %>
+			<h3>Partnership</h3>
+			<%= helper.getPartnerships(activities) %>
+		<% } %>
 		
 		<%-- Fieldworks --%>
-		<%= helper.getFieldworks(activities) %>
+		<% if ( displayFieldworks ) { %>
+			<h3>Fieldwork</h3>
+			<%= helper.getFieldworks(activities) %>
+		<% } %>
 			
 	</div>
 <% } %>

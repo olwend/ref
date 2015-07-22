@@ -1249,6 +1249,21 @@ public class ScientistProfileHelper {
 		return result.toString();
 	}
 	
+	public boolean displayConsultancies(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getConsultancies(activities));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
+	}
+	
 	public String getConsultancies(Map<String, Set<ProfessionalActivity>> activities){
 		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setConsultancies = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_CONSULTING); 
@@ -1263,6 +1278,21 @@ public class ScientistProfileHelper {
 		return result.toString();
 	}
 	
+	public boolean displayPartnerships(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getPartnerships(activities));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
+	}
+	
 	public String getPartnerships(Map<String, Set<ProfessionalActivity>> activities){
 		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setPartnerships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP); 
@@ -1275,6 +1305,21 @@ public class ScientistProfileHelper {
 			} 
 		} 
 		return result.toString();
+	}
+	
+	public boolean displayFieldworks(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getFieldworks(activities));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
 	}
 	
 	public String getFieldworks(Map<String, Set<ProfessionalActivity>> activities){
@@ -1319,9 +1364,15 @@ public class ScientistProfileHelper {
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
 		final Map<String, Set<Project>> projects = helper.getProjects();
+		
+		if (projects != null && !projects.isEmpty()) {
+			aux.append(helper.getProjects(projects));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
 
 		if (activities != null && !activities.isEmpty()) {
-			aux.append(helper.getProjectsType(projects));
 			aux.append(helper.getConsultancies(activities));
 			aux.append(helper.getPartnerships(activities));
 			aux.append(helper.getFieldworks(activities));
@@ -1392,12 +1443,28 @@ public class ScientistProfileHelper {
 		return result;
 	}
 	
-	public String getProjectsType(Map<String, Set<Project>> project){
+	public boolean displayProjects(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<Project>> projects = helper.getProjects();
+		
+		if (projects != null && !projects.isEmpty()) {
+			aux.append(helper.getProjects(projects));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		
+		return res;
+	}
+	
+	public String getProjects(Map<String, Set<Project>> project){
 		StringBuilder result = new StringBuilder(); 
-		Set<Project> setProjectsType = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
-		if (!setProjectsType.isEmpty()) { 
+		Set<Project> setProjects = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
+		if (!setProjects.isEmpty()) { 
 			result.append("<h3>Other projects</h3>");
-			for (final Project projectType: setProjectsType) { 
+			for (final Project projectType: setProjects) { 
 				result.append("<p>");
 				result.append(projectType.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
