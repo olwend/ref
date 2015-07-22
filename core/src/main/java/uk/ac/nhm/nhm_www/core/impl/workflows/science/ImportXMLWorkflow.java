@@ -963,15 +963,17 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	
     	final Grants aux = grants;
     	
-    	final WebProfile.Grants.PrimaryInvestigator primary = aux.getPrimaryInvestigator();
-    	final WebProfile.Grants.SecondaryInvestigator secondary = aux.getSecondaryInvestigator();
-    	final WebProfile.Grants.FundedBy fundedby = aux.getFundedBy();
+    	final Ns1Object primary = aux.getPrimaryInvestigator().getGrant();
+    	final Ns1Object secondary = aux.getSecondaryInvestigator().getGrant();
+    	final Ns1Object fundedby = aux.getFundedBy().getGrant();
     	
     	LOG.error("Scanning: " + uniqueName + "Stuff: " + grants.getFundedBy().getGrant());
     	
 		List<ListIterator<Grant>> allGrants = new ArrayList<ListIterator<Grant>>();
 		
 		if ( uniqueName.equals("tim-littlewood")){
+			
+			LOG.error("Trying Ns1Object stuff: " + grants.getFundedBy().getGrant().getObject().getRecords().getRecord().get(0).getNative().getField().get(1).getText());
 			
 			int j = 0;
 			j = 5; 
@@ -984,7 +986,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			if(grants.getPrimaryInvestigator() != null){
 				if(grants.getPrimaryInvestigator().getGrant() != null){
 					if (grants.getPrimaryInvestigator().getGrant() != null){
-						LOG.error("Inside third layer - Wasn't Null!! " + grants.getPrimaryInvestigator().getGrant());	
+						LOG.error("Found Primary - Wasn't Null!! " + grants.getPrimaryInvestigator().getGrant());	
 					}
 //					allGrants.add(grants.getPrimaryInvestigator().getGrant());
 				}
@@ -993,7 +995,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			if(grants.getSecondaryInvestigator() != null){
 				if(grants.getSecondaryInvestigator().getGrant() != null){
 					if (grants.getSecondaryInvestigator().getGrant() != null){
-						LOG.error("Inside third layer - Wasn't Null!! " + grants.getSecondaryInvestigator().getGrant());	
+						LOG.error("Found Secondary - Wasn't Null!! " + grants.getSecondaryInvestigator().getGrant());	
 					}
 //					allGrants.add(grants.getSecondaryInvestigator().getGrant());
 				}
@@ -1002,7 +1004,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			if(grants.getFundedBy() != null){
 				if(grants.getFundedBy().getGrant() != null){
 					if (grants.getFundedBy().getGrant() != null){
-						LOG.error("Inside third layer - Wasn't Null!! " + grants.getFundedBy().getGrant());	
+						LOG.error("Found FundedBy - Wasn't Null!! " + grants.getFundedBy().getGrant());	
 					}
 //					allGrants.add(grants.getFundedBy().getGrant().listIterator());
 				}

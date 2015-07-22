@@ -426,7 +426,7 @@ public class WebProfile {
         @XmlElement(name = "secondary-investigator", namespace="", required = true)
         protected WebProfile.Grants.SecondaryInvestigator secondaryInvestigator;
         @XmlElement(name = "funded-by", namespace="", required = true)
-        protected WebProfile.Grants.FundedBy fundedBy;
+        protected WebProfile.Projects.FundedBy fundedBy;
 
         /**
          * Gets the value of the primaryInvestigator property.
@@ -484,7 +484,7 @@ public class WebProfile {
          *     {@link WebProfile.Projects.FundedBy }
          *     
          */
-        public WebProfile.Grants.FundedBy getFundedBy() {
+        public WebProfile.Projects.FundedBy getFundedBy() {
             return fundedBy;
         }
 
@@ -496,7 +496,7 @@ public class WebProfile {
          *     {@link WebProfile.Projects.FundedBy }
          *     
          */
-        public void setFundedBy(WebProfile.Grants.FundedBy value) {
+        public void setFundedBy(WebProfile.Projects.FundedBy value) {
             this.fundedBy = value;
         }
 
@@ -609,41 +609,6 @@ public class WebProfile {
                 this.grant = value;
             }
         }
-        
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(namespace = "", propOrder = {
-            	"grant"
-            })
-        public static class FundedBy {
-        	
-            
-            protected Ns1Object grant;
-
-            /**
-             * Gets the value of the grant property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public Ns1Object getGrant() {
-                return grant;
-            }
-
-            /**
-             * Sets the value of the grant property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Ns1Object }
-             *     
-             */
-            public void setGrant(Ns1Object value) {
-                this.grant = value;
-            }
-        }
-        
         
     }
 
@@ -1118,19 +1083,49 @@ public class WebProfile {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
+        	"grant",
             "project"
         })
         public static class FundedBy {
         	
-        	@XmlElement(namespace = "", required = true)
+            @XmlElement(namespace = "")
+            protected Ns1Object grant;
+            
+           	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
-        	
+
+            /**
+             * Gets the value of the grant property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public Ns1Object getGrant() {
+                return grant;
+            }
+
+            /**
+             * Sets the value of the grant property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link Ns1Object }
+             *     
+             */
+            public void setGrant(Ns1Object value) {
+                this.grant = value;
+            }
+
         	public List<WebProfile.Projects.ChampionOf.Project> getProjects() {
                 if (project == null) { 
                 	project = new ArrayList<WebProfile.Projects.ChampionOf.Project>();
                 }
                 return this.project;
             }
+        	
+        	
 
         }
 
