@@ -51,9 +51,15 @@ public class ProjectType extends Project {
 			stringBuffer.append("<br>");
 		}
 		
+		// PrincipalInvestigator,_
+		if (this.name != null){
+			stringBuffer.append("Principal investigator: ");
+			stringBuffer.append("<br>");
+		}
+		
 		// FundingSource,_
 		if (this.fundingSource!= null){
-			stringBuffer.append(this.fundingSource);
+			stringBuffer.append("Funding: Museum development");
 			stringBuffer.append("<br>");
 		}
 		

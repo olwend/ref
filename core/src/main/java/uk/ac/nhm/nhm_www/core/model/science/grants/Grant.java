@@ -2,6 +2,8 @@ package uk.ac.nhm.nhm_www.core.model.science.grants;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Grant extends GrantTemplate {
 
 	private List<String> principalInvestigators;
@@ -10,11 +12,13 @@ public class Grant extends GrantTemplate {
 	private String funderNameOther;
 	private String totaAwarded;
 	private String nhmAwarded;
+	private String proposalTitle;
 
 	public Grant(String proposalTitle, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
 			String yearEndDate, String monthEndDate, String dayEndDate, List<String> principalsList, List<String> coInvestigatorsList, 
 			String funderName, String funderNameOther, String totalAwarded, String nhmAwarded) {
 		super(proposalTitle, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
+		this.proposalTitle = proposalTitle;
 		this.principalInvestigators = principalsList;
 		this.coInvestigators = coInvestigatorsList;
 		this.funderName = funderName;
@@ -35,6 +39,17 @@ public class Grant extends GrantTemplate {
 			stringBuffer.append(this.name);
 			stringBuffer.append(", ");
 		}
+		
+		// Editor NM, Editor NM (Eds)._
+		final List<String> principals = this.principalInvestigators;
+		if (principals != null && principals.size() > 0) {
+			String principalsString = StringUtils.join(principals.toArray(new String[principals.size()]), ", ");
+			principalsString = principalsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+			
+			stringBuffer.append(principalsString);
+			stringBuffer.append("<br/>");
+		}
+		
 		
 		// startYear - endYear. || startYear - on going.
 		if (this.yearsd != null){

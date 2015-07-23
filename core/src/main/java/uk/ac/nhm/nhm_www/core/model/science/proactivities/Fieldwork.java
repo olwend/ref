@@ -9,11 +9,15 @@ import org.apache.sling.commons.json.JSONObject;
 public class Fieldwork extends ProfessionalActivity {
 
 	private Organisation[] organisations;
+	private String department;
+	private String area;
 
 	public Fieldwork(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String organisation) {
+			String yearEndDate, String monthEndDate, String dayEndDate, String organisation, String fieldworkDepartment, String fieldworkAreaOrRegion) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		assignJSON(organisation);
+		this.department = fieldworkDepartment;
+		this.area = fieldworkAreaOrRegion;
 	}
 	
 	private void assignJSON(String aux) {
@@ -42,16 +46,13 @@ public class Fieldwork extends ProfessionalActivity {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
 		// <a href=url>Title</a>,_ 
-		if (this.title != null && !this.title.equals("")){
-			if (this.url != null) {
-				stringBuffer.append("<a href=\"");
-				stringBuffer.append(this.url);
-				stringBuffer.append("\">");
-			}
-			stringBuffer.append(this.title);
-			if (this.url != null) {
-				stringBuffer.append("</a>");
-			}
+		if (this.department != null && !this.department.equals("")){
+			stringBuffer.append(this.department);
+			stringBuffer.append("<br>");
+		}
+		
+		if (this.area != null && !this.area.equals("")){
+			stringBuffer.append(this.area);
 			stringBuffer.append("<br>");
 		}
 		

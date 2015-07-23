@@ -950,7 +950,22 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	if ( societyMembershipRole != null ){
 	                        		paNode.setProperty(ScientistProfileHelper.MEMBERSHIP_ROLE_ATTRIBUTE, societyMembershipRole);
 	                        	}
-	                        	break;  
+	                        	break;
+
+                        case "department":
+	                          	final String department = field.getText();
+	                          	if ( department != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE, department);
+	                          	}
+	                          	break;
+	                          	
+                        case "c-area-or-region":
+	                          	final String areaOrRegion = field.getText();
+	                          	if ( areaOrRegion != null ){
+	                          		paNode.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE, areaOrRegion);
+	                          	}
+	                          	break;
+	                          	
                     }
                 }
             }
@@ -1007,9 +1022,16 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 						switch (field.getName()) {
 						
 						case "c-proposal-title":
-							if (field.getItems() != null) {
-								final List<String> fundingSources = field.getItems().getItem();
-								grantsNode.setProperty(ScientistProfileHelper.PROPOSAL_TITLE, fundingSources.toArray(new String[fundingSources.size()]));
+							if (field.getText() != null) {
+								final String proposalTitle = field.getText().toString();
+								grantsNode.setProperty(ScientistProfileHelper.PROPOSAL_TITLE, proposalTitle);
+							}
+							break;
+							
+						case "c-role":
+							if (field.getText() != null) {
+								final String role = field.getText().toString();
+								grantsNode.setProperty(ScientistProfileHelper.ROLE, role);
 							}
 							break;
 							
@@ -1023,7 +1045,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 									Person person = principalPersonList.get(j);
 									principals[j] =  person.getLastName() + " " + person.getInitials();
 								}
-								grantsNode.setProperty(ScientistProfileHelper.ROLE_PRINCIPAL_INVESTIGATOR, field.getText());
+								grantsNode.setProperty(ScientistProfileHelper.ROLE_PRINCIPAL_INVESTIGATOR, principals);
 							}
 							break;
 
@@ -1042,7 +1064,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							}
                             break;
 							
-						case "c-funder-name":
+						case "c-funder-name":					//if "Other" >> use c-funder-name-other.getText() instead
 							if (field.getText() != null ) {
 								grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME, field.getText());
 							}

@@ -136,6 +136,7 @@ public class ScientistProfileHelper {
 	public static final String OFFICE_HELD_TYPE_ATTRIBUTE			= "officeHeldType";
 	public static final String OFFICE_OTHER_HELD_TYPE_ATTRIBUTE		= "officeOtherHeldType";
 	public static final String INTERNAL_OR_EXTERNAL_ATTRIBUTE		= "internalOrExternalPosition";
+	public static final String AREA_OR_REGION						= "areaOrRegion";
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  	= "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  	= "title";
@@ -163,6 +164,7 @@ public class ScientistProfileHelper {
 	
 	//Grants
 	public static final String PROPOSAL_TITLE				= "proposalTitle";
+	public static final String ROLE							= "role";
 	public static final String ROLE_PRINCIPAL_INVESTIGATOR	= "principalInvestigator";
 	public static final String ROLE_CO_INVESTIGATOR			= "coInvestigator";
 	public static final String FUNDER_NAME					= "funderName";
@@ -275,7 +277,7 @@ public class ScientistProfileHelper {
 	public static final String PROJECT_TYPE_PROJECT						= "Project";
 	
 	/* Grants */
-	public static final String GRANT_PREFIX_NODE_NAME 					= "project";
+	public static final String GRANT_PREFIX_NODE_NAME 					= "grant";
 	public static final String GRANT_NODE_NAME  						= "grants";
 	public static final String GRANT_CONTAINER_NODE_NAME  				= "container";
 	private static final String GRANT_NODE_PATH			  	= GRANT_NODE_NAME + "/" + GRANT_CONTAINER_NODE_NAME;
@@ -1046,8 +1048,11 @@ public class ScientistProfileHelper {
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK:
                     final String fieldworkOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    final String fieldworkDepartment = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
+                    final String fieldworkAreaOrRegion = childProperties.get(AREA_OR_REGION, String.class);
+                    
 					setFieldworks.add(new Fieldwork(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, fieldworkOrganisations));
+							yearEndDate, monthEndDate, dayEndDate, fieldworkOrganisations, fieldworkDepartment, fieldworkAreaOrRegion));
 					break;
 					
 				default:
@@ -1363,39 +1368,41 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
-	
-	public boolean displayProjectsTab(Resource resource){
-		boolean res = false;
-		StringBuilder aux = new StringBuilder();
-		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
-		final Map<String, Set<Project>> projects = helper.getProjects();
-		final Map<String, Set<Grant>> grants = helper.getGrants();
-		
-		if (grants != null && !grants.isEmpty()) {
-			aux.append(helper.getGrants(grants));
-			if (aux.length() > 0){
-				res = true;
-			}
-		}
-		
-		if (projects != null && !projects.isEmpty()) {
-			aux.append(helper.getProjects(projects));
-			if (aux.length() > 0){
-				res = true;
-			}
-		}
 
-		if (activities != null && !activities.isEmpty()) {
-			aux.append(helper.getConsultancies(activities));
-			aux.append(helper.getPartnerships(activities));
-			aux.append(helper.getFieldworks(activities));
-			if (aux.length() > 0){
+	
+	public boolean displayPublicationsTab(Resource resource) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Set<Publication> publications = helper.getPublications();
+		boolean res = false;
+		if (publications != null && !publications.isEmpty()) {
+			res = true;
+		}
+		return res;
+	}
+	
+	public boolean displayGroupsAndSpecialismsBox(Resource resource, SlingScriptHelper sling) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		boolean res = false;
+		if ( !res && helper.getSpecialisms() != null) {
+			res = true;
+		}
+		if ( !res && helper.hasGroup() ){
+			final ScientistsGroupsService groupService = sling.getService(ScientistsGroupsService.class);
+			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
+			if (!groupScientists.isEmpty()) {
 				res = true;
 			}
 		}
 		return res;
 	}
+	
+
+	
+	/*
+	 * ##################
+	 * #### PROJECTS ####
+	 * ##################
+	 */
 
 	private Map<String, Set<Project>> extractProjects(final String nodeName) {
 		final Map<String, Set<Project>> result = new TreeMap<String, Set<Project>>();
@@ -1457,6 +1464,21 @@ public class ScientistProfileHelper {
 		return result;
 	}
 	
+	
+	public String getProjects(Map<String, Set<Project>> project){
+		StringBuilder result = new StringBuilder(); 
+		Set<Project> setProjects = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
+		if (!setProjects.isEmpty()) { 
+			result.append("<h3>Other projects</h3>");
+			for (final Project projectType: setProjects) { 
+				result.append("<p>");
+				result.append(projectType.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
 	public boolean displayProjects(Resource resource){
 		boolean res = false;
 		StringBuilder aux = new StringBuilder();
@@ -1473,45 +1495,38 @@ public class ScientistProfileHelper {
 		return res;
 	}
 	
-	public String getProjects(Map<String, Set<Project>> project){
-		StringBuilder result = new StringBuilder(); 
-		Set<Project> setProjects = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
-		if (!setProjects.isEmpty()) { 
-			result.append("<h3>Other projects</h3>");
-			for (final Project projectType: setProjects) { 
-				result.append("<p>");
-				result.append(projectType.getHTMLContent(getLastName() + " " + getInitials()));
-				result.append("</p>");
-			} 
-		} 
-		return result.toString();
-	}
-	
-	public boolean displayPublicationsTab(Resource resource) {
-		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-		final Set<Publication> publications = helper.getPublications();
+	public boolean displayProjectsTab(Resource resource){
 		boolean res = false;
-		if (publications != null && !publications.isEmpty()) {
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+		
+		if ( displayGrants(resource) ){
 			res = true;
 		}
-		return res;
-	}
-	
-	public boolean displayGroupsAndSpecialismsBox(Resource resource, SlingScriptHelper sling) {
-		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-		boolean res = false;
-		if ( !res && helper.getSpecialisms() != null) {
+		
+		if ( displayProjects(resource) ) {
 			res = true;
 		}
-		if ( !res && helper.hasGroup() ){
-			final ScientistsGroupsService groupService = sling.getService(ScientistsGroupsService.class);
-			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
-			if (!groupScientists.isEmpty()) {
+
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getConsultancies(activities));
+			aux.append(helper.getPartnerships(activities));
+			aux.append(helper.getFieldworks(activities));
+			if (aux.length() > 0){
 				res = true;
 			}
 		}
+		
 		return res;
 	}
+	
+	
+	/*
+	 * ################
+	 * #### GRANTS ####
+	 * ################
+	 */
 	
 	private Map<String, Set<Grant>> extractGrants(final String nodeName) {
 		final Map<String, Set<Grant>> result = new TreeMap<String, Set<Grant>>();
@@ -1589,6 +1604,20 @@ public class ScientistProfileHelper {
 		return result;
 	}
 	
+	public String getGrants(Map<String, Set<Grant>> grant){
+		StringBuilder result = new StringBuilder(); 
+		Set<Grant> setGrants = getGrantSet(grant, ScientistProfileHelper.GRANT_TYPE_GRANT);
+		if (!setGrants.isEmpty()) { 
+			result.append("<h3>Grants</h3>");
+			for (final Grant grantType: setGrants) { 
+				result.append("<p>");
+				result.append(grantType.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
 	public boolean displayGrants(Resource resource){
 		boolean res = false;
 		StringBuilder aux = new StringBuilder();
@@ -1601,22 +1630,6 @@ public class ScientistProfileHelper {
 				res = true;
 			}
 		}
-		
 		return res;
 	}
-	
-	public String getGrants(Map<String, Set<Grant>> grant){
-		StringBuilder result = new StringBuilder(); 
-		Set<Grant> setGrants = getGrantSet(grant, ScientistProfileHelper.GRANT_TYPE_GRANT); 
-		if (!setGrants.isEmpty()) { 
-			result.append("<h3>Grants</h3>");
-			for (final Grant grantType: setGrants) { 
-				result.append("<p>");
-				result.append(grantType.getHTMLContent(getLastName() + " " + getInitials()));
-				result.append("</p>");
-			} 
-		} 
-		return result.toString();
-	}
-	
 }
