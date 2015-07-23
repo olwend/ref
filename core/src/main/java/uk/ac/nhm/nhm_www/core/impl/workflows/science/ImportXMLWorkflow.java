@@ -64,7 +64,6 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Record;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebAddress;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants;
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants.PrimaryInvestigator.Grant;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.ProfessionalActivities;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities;
@@ -961,8 +960,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     private void addGrants (final Node rootNode, final Grants grants, String uniqueName) throws Exception{
     	int i = 0;
     	
-    	final Grants aux = grants;
-    	
     	LOG.error("Scanning: " + uniqueName );
     	
 		List<Ns1Object> allGrants = new ArrayList<Ns1Object>();
@@ -971,14 +968,20 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			if(grants.getPrimaryInvestigator() != null){
 				if (grants.getPrimaryInvestigator().getGrant() != null){
 					LOG.error("Found Primary");	
-					allGrants.add(grants.getPrimaryInvestigator().getGrant());
+					for (Ns1Object ns1Object : grants.getPrimaryInvestigator().getGrant()) {
+						LOG.error("Adding a PrimaryInvestigator future Node!");
+						allGrants.add(ns1Object);
+					}
 				}
 			}
 			
 			if(grants.getSecondaryInvestigator() != null){
 				if (grants.getSecondaryInvestigator().getGrant() != null){
 					LOG.error("Found Secondary");	
-					allGrants.add(grants.getSecondaryInvestigator().getGrant());
+					for (Ns1Object ns1Object : grants.getSecondaryInvestigator().getGrant()) {
+						LOG.error("Adding a SecondaryInvestigator future Node!!");
+						allGrants.add(ns1Object);
+					}
 				}
 			}
 			
@@ -986,7 +989,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 				if (grants.getFundedBy().getGrant() != null){
 					LOG.error("Found FundedBy");	
 					for (Ns1Object ns1Object : grants.getFundedBy().getGrant()) {
-						LOG.error("Adding a ns1Object from Fundedby! :) ");
+						LOG.error("Adding a Funded By future Node!!");
 						allGrants.add(ns1Object);
 					}
 				}

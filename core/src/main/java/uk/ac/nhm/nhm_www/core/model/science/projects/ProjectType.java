@@ -6,8 +6,6 @@ import org.apache.sling.commons.json.JSONObject;
 
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Organisation;
 
-
-
 public class ProjectType extends Project {
 
 	private String fundingSource;
@@ -47,16 +45,16 @@ public class ProjectType extends Project {
 		
 		stringBuffer.append(" ");
 		
-		// FundingSource,_
-		if (this.fundingSource!= null){
-			stringBuffer.append(this.fundingSource);
-			stringBuffer.append(", ");
-		}
-		
 		// Name,_
 		if (this.name != null){
 			stringBuffer.append(this.name);
-			stringBuffer.append(", ");
+			stringBuffer.append("<br>");
+		}
+		
+		// FundingSource,_
+		if (this.fundingSource!= null){
+			stringBuffer.append(this.fundingSource);
+			stringBuffer.append("<br>");
 		}
 		
 		if ( collaborators != null ){
@@ -72,7 +70,7 @@ public class ProjectType extends Project {
 					if (this.url != null) {
 						stringBuffer.append("</a>");
 					}
-					stringBuffer.append(", ");
+					stringBuffer.append("<br>");
 				}
 				
 				// Organisation,_ 
@@ -84,13 +82,13 @@ public class ProjectType extends Project {
 				// City,_
 				if (collaborator.getCity() != null){
 					stringBuffer.append(collaborator.getCity() );
-					stringBuffer.append(", ");
+					stringBuffer.append("<br>");
 				}	
 				
 				// Country,_
 				if (collaborator.getCountry() != null){
 					stringBuffer.append(collaborator.getCountry());
-					stringBuffer.append(", ");
+					stringBuffer.append("<br>");
 				}
 			}
 		}

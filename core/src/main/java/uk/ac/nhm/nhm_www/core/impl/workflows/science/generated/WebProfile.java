@@ -523,9 +523,9 @@ public class WebProfile {
             })
         public static class PrimaryInvestigator {
 
-            @XmlElement(namespace="grant")
-            protected WebProfile.Grants.PrimaryInvestigator.Grant grant;
-
+           	@XmlElement(namespace = "")
+           	protected List<Ns1Object> grant;
+           	
             /**
              * Gets the value of the grant property.
              * 
@@ -534,7 +534,7 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public Ns1Object getGrant() {
+            public List<Ns1Object> getGrant() {
                 return grant;
             }
 
@@ -546,16 +546,8 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public void setGrant(WebProfile.Grants.PrimaryInvestigator.Grant value) {
+            public void setGrant(List<Ns1Object> value) {
                 this.grant = value;
-            }
-            
-        	@XmlAccessorType(XmlAccessType.FIELD)
-            @XmlType(name = "")
-            public static class Grant
-                extends Ns1Object
-            {
-
             }
         }
 
@@ -582,9 +574,9 @@ public class WebProfile {
             })
         public static class SecondaryInvestigator {
         	
-            @XmlElement(namespace="grant")
-            protected WebProfile.Grants.PrimaryInvestigator.Grant grant;
-
+           	@XmlElement(namespace = "")
+           	protected List<Ns1Object> grant;
+           	
             /**
              * Gets the value of the grant property.
              * 
@@ -593,7 +585,7 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public WebProfile.Grants.PrimaryInvestigator.Grant getGrant() {
+            public List<Ns1Object> getGrant() {
                 return grant;
             }
 
@@ -605,7 +597,7 @@ public class WebProfile {
              *     {@link Ns1Object }
              *     
              */
-            public void setGrant(WebProfile.Grants.PrimaryInvestigator.Grant value) {
+            public void setGrant(List<Ns1Object> value) {
                 this.grant = value;
             }
         }
@@ -1088,12 +1080,12 @@ public class WebProfile {
         })
         public static class FundedBy {
         	
-            @XmlElement(namespace = "")
-            protected List<Ns1Object> grant;
-            
            	@XmlElement(namespace = "", required = true)
             protected List<WebProfile.Projects.ChampionOf.Project> project;
 
+           	@XmlElement(namespace = "")
+           	protected List<Ns1Object> grant;
+           	
             /**
              * Gets the value of the grant property.
              * 

@@ -38,6 +38,7 @@ import uk.ac.nhm.nhm_www.core.model.science.WebSite;
 import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
+import uk.ac.nhm.nhm_www.core.model.science.grants.Grant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Committee;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Consultancy;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Editorship;
@@ -439,6 +440,10 @@ public class ScientistProfileHelper {
 	
 	public Map<String, Set<Project>> getProjects() {
 		return this.extractProjects(PROJECTS_NODE_PATH);
+	}
+	
+	public Map<String, Set<Grant>> getGrants() {
+		return this.extractGrants(GRANT_NODE_PATH);
 	}
 	
 	public Set<WebSite> getWebSites() {
@@ -1365,6 +1370,14 @@ public class ScientistProfileHelper {
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
 		final Map<String, Set<Project>> projects = helper.getProjects();
+		final Map<String, Set<Grant>> grants = helper.getGrants();
+		
+		if (grants != null && !grants.isEmpty()) {
+			aux.append(helper.getGrants(grants));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
 		
 		if (projects != null && !projects.isEmpty()) {
 			aux.append(helper.getProjects(projects));
@@ -1439,8 +1452,8 @@ public class ScientistProfileHelper {
 		return result;
 	}
 	
-	public Set<Project> getProjectSet(Map<String, Set<Project>> activities, String project){
-		Set<Project> result = activities.get(project);
+	public Set<Project> getProjectSet(Map<String, Set<Project>> projects, String project){
+		Set<Project> result = projects.get(project);
 		return result;
 	}
 	
@@ -1498,6 +1511,112 @@ public class ScientistProfileHelper {
 			}
 		}
 		return res;
+	}
+	
+	private Map<String, Set<Grant>> extractGrants(final String nodeName) {
+		final Map<String, Set<Grant>> result = new TreeMap<String, Set<Grant>>();
+		
+		Set<Grant> setGrants = new TreeSet<Grant>();
+		
+		final Resource projectResource = this.resource.getChild(nodeName);
+		
+		if (projectResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = projectResource.listChildren();
+		
+		while (children.hasNext()) {
+			final Resource child = children.next();
+			
+			if (child.getName().startsWith(GRANT_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				
+				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
+				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayStartDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String reportingDate;
+				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
+					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
+				} else {
+					reportingDate = "";
+				}
+				
+				final String proposalTitle = childProperties.get(PROPOSAL_TITLE, String.class);
+				final String[] principalInvestigator = childProperties.get(ROLE_PRINCIPAL_INVESTIGATOR, String[].class);
+				List<String> principalsList = new ArrayList<>();
+				if (principalInvestigator != null) {
+					//Collections.addAll(authorsSet, authors);
+					principalsList = Arrays.asList(principalInvestigator);
+				}
+				final String coInvestigator = childProperties.get(ROLE_CO_INVESTIGATOR, String.class);
+				List<String> coInvestigatorsList = new ArrayList<>();
+				if (coInvestigator != null) {
+					//Collections.addAll(authorsSet, authors);
+					coInvestigatorsList = Arrays.asList(coInvestigator);
+				}
+				final String funderName = childProperties.get(FUNDER_NAME, String.class);
+				final String funderNameOther = childProperties.get(FUNDER_NAME_OTHER, String.class);
+				final String totalAwarded = childProperties.get(TOTAL_VALUE_AWARDED, String.class);
+				final String nhmAwarded = childProperties.get(NHM_VALUE_AWARDED, String.class);
+				
+				
+//				Uncomment when more types of grants are present
+//				switch (type) {
+//				case GRANT_TYPE_GRANT:
+					setGrants.add(new Grant(proposalTitle, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, principalsList, coInvestigatorsList, funderName, 
+							funderNameOther, totalAwarded, nhmAwarded));
+//					break;
+//					
+//				default:
+//					break;
+//				}
+			}
+		}
+		
+		result.put(GRANT_TYPE_GRANT, setGrants);
+		
+		return result;
+	}
+	
+	public Set<Grant> getGrantSet(Map<String, Set<Grant>> grants, String grant){
+		Set<Grant> result = grants.get(grant);
+		return result;
+	}
+	
+	public boolean displayGrants(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<Grant>> grants = helper.getGrants();
+		
+		if (grants != null && !grants.isEmpty()) {
+			aux.append(helper.getGrants(grants));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		
+		return res;
+	}
+	
+	public String getGrants(Map<String, Set<Grant>> grant){
+		StringBuilder result = new StringBuilder(); 
+		Set<Grant> setGrants = getGrantSet(grant, ScientistProfileHelper.GRANT_TYPE_GRANT); 
+		if (!setGrants.isEmpty()) { 
+			result.append("<h3>Grants</h3>");
+			for (final Grant grantType: setGrants) { 
+				result.append("<p>");
+				result.append(grantType.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
 	}
 	
 }
