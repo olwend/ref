@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.jcr.ItemExistsException;
 import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
@@ -26,10 +27,12 @@ import javax.jcr.Value;
 import javax.jcr.ValueFormatException;
 import javax.jcr.lock.LockException;
 import javax.jcr.nodetype.ConstraintViolationException;
+import javax.jcr.nodetype.NoSuchNodeTypeException;
 import javax.jcr.version.VersionException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
@@ -40,6 +43,7 @@ import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.commons.json.JSONArray;
+import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,9 +70,10 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Grants;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.ProfessionalActivities;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities.Associated.Activity;
-import uk.ac.nhm.nhm_www.core.model.science.projects.Project;
+import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 
 import com.adobe.granite.workflow.WorkflowException;
@@ -1128,138 +1133,134 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     }
     
     private void addProjects (final Node rootNode, final Projects projects) throws Exception {
-    	
-    	int i = 0;
-    	
-		List<ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project>> allProjects = new ArrayList<ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project>>();
-        
+		List<ListIterator<Project>> allProjects = new ArrayList<ListIterator<Project>>();
 		
 		if(projects.getChampionOf().getProjects().listIterator() != null){
-			allProjects.add(projects.getChampionOf().getProjects().listIterator());
-		}
-		if(projects.getFundedBy().getProjects().listIterator() != null){
-			allProjects.add(projects.getFundedBy().getProjects().listIterator());
-		}
-		if(projects.getLeaderOf().getProjects().listIterator() != null){
-			allProjects.add(projects.getLeaderOf().getProjects().listIterator());
-		}
-		if(projects.getManagerOf().getProjects().listIterator() != null){
-			allProjects.add(projects.getManagerOf().getProjects().listIterator());
-		}
-		if(projects.getMemberOf().getProjects().listIterator() != null){
-			allProjects.add(projects.getMemberOf().getProjects().listIterator());
+			projectNodeTypeAssign(rootNode, projects.getChampionOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_CHAMPION);
 		}
 		if(projects.getResearcherOn().getProjects().listIterator() != null){
-			allProjects.add(projects.getResearcherOn().getProjects().listIterator());
+			projectNodeTypeAssign(rootNode, projects.getResearcherOn().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_RESEARCHER);
+		}
+		if(projects.getManagerOf().getProjects().listIterator() != null){
+			projectNodeTypeAssign(rootNode, projects.getManagerOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_MANAGER);
+		}
+		if(projects.getMemberOf().getProjects().listIterator() != null){
+			projectNodeTypeAssign(rootNode, projects.getMemberOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_MEMBER);
+		}
+		if(projects.getLeaderOf().getProjects().listIterator() != null){
+			projectNodeTypeAssign(rootNode, projects.getLeaderOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_LEADER);
+		}
+		if(projects.getFundedBy().getProjects().listIterator() != null){
+			projectNodeTypeAssign(rootNode, projects.getFundedBy().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_FUNDEDBY);
 		}
 		
-		
-		for (ListIterator<uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project> listIterator : allProjects) {
-			while (listIterator.hasNext()){
-				uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project project = listIterator.next();
-				
-				final Node projectsNode = rootNode.addNode(ScientistProfileHelper.PROJECTS_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
-				
-				// Setting up type of Project, although atm there's only one type : "1"
-				//final String type = resolveProfessionalActivityType (project.getObject().getTypeId().intValue());  
-				final String type = ScientistProfileHelper.PROJECT_TYPE_PROJECT;
-				projectsNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
-				
-				for (Record record: project.getObject().getRecords().getRecord()) {
-					for (Field field: record.getNative().getField()) {
-						switch (field.getName()) {
-						case "name":
-							projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
-							break;
+    }
+
+	private void projectNodeTypeAssign(final Node rootNode, ListIterator<Project> projects, String nodeType) throws Exception {
+		int i = 0;
+		while (projects.hasNext()){
+			uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project project = projects.next();
+			
+			final Node projectsNode = rootNode.addNode(ScientistProfileHelper.PROJECTS_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
+			
+			projectsNode.setProperty(ScientistProfileHelper.PROJECT_NODE_TYPE, nodeType);
+			final String type = ScientistProfileHelper.PROJECT_TYPE_PROJECT;
+			projectsNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
+			
+			for (Record record: project.getObject().getRecords().getRecord()) {
+				for (Field field: record.getNative().getField()) {
+					switch (field.getName()) {
+					case "name":
+						projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
+						break;
+						
+					case "c-external-collaborators":
+						final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
+						JSONArray jsonInstitutionsArray = new JSONArray(); 
+						
+						while(externalCollaborators.hasNext()) {
+							Address address = externalCollaborators.next();
+							List<java.lang.Object> lines = address.getContent();
 							
-						case "c-external-collaborators":
-							final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
-							JSONArray jsonInstitutionsArray = new JSONArray(); 
-							
-							while(externalCollaborators.hasNext()) {
-								Address address = externalCollaborators.next();
-								List<java.lang.Object> lines = address.getContent();
-								
-								JSONObject jsonAddress = new JSONObject();
-								for (final java.lang.Object object : lines) {
-									if (! (object instanceof Line)) {
-										continue;
-									}
-									final Line line = (Line) object;
-									switch (line.getType()) {
-									case "name":
-										if(line.getContent() != null){
-											jsonAddress.put("name", line.getContent());
-										}
-										break;
-									case "organisation":
-										if(line.getContent() != null){
-											jsonAddress.put("organisation", line.getContent());
-										}
-										break;
-									case "city":
-										if(line.getContent() != null){
-											jsonAddress.put("city", line.getContent());
-										}
-										break;
-									case "country":
-										if(line.getContent() != null){
-											jsonAddress.put("country", line.getContent());
-										}
-										break;
-									}
+							JSONObject jsonAddress = new JSONObject();
+							for (final java.lang.Object object : lines) {
+								if (! (object instanceof Line)) {
+									continue;
 								}
-								jsonInstitutionsArray.put(jsonAddress);
+								final Line line = (Line) object;
+								switch (line.getType()) {
+								case "name":
+									if(line.getContent() != null){
+										jsonAddress.put("name", line.getContent());
+									}
+									break;
+								case "organisation":
+									if(line.getContent() != null){
+										jsonAddress.put("organisation", line.getContent());
+									}
+									break;
+								case "city":
+									if(line.getContent() != null){
+										jsonAddress.put("city", line.getContent());
+									}
+									break;
+								case "country":
+									if(line.getContent() != null){
+										jsonAddress.put("country", line.getContent());
+									}
+									break;
+								}
 							}
-							final JSONObject collaborators = new JSONObject();
-							collaborators.put("collaborators", jsonInstitutionsArray);
-							projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
-							break;
-							
-						case "c-end-date":
-							final BigInteger endYear = field.getDate().getYear();
-							final BigInteger endMonth = field.getDate().getMonth();
-							final BigInteger endDay = field.getDate().getDay();
-							if ( endYear != null ){
-								projectsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-							}
-							if ( endMonth != null ){
-								projectsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-							}
-							if ( endDay != null ){
-								projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-							}
-							break;
-							
-						case "c-start-date":
-							final BigInteger startYear = field.getDate().getYear();
-							final BigInteger startMonth = field.getDate().getMonth();
-							final BigInteger startDay = field.getDate().getDay();
-							if ( startYear != null ){
-								projectsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-							}
-							if ( startMonth != null ){
-								projectsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-							}
-							if ( startDay != null ){
-								projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-							}
-							break;
-							
-						case "c-funding-source2":
-							final List<String> fundingSources = field.getItems().getItem();
-							projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
-							break;
-							
-						case "c-nhm-url1":
-							projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
-							break;
+							jsonInstitutionsArray.put(jsonAddress);
 						}
+						final JSONObject collaborators = new JSONObject();
+						collaborators.put("collaborators", jsonInstitutionsArray);
+						projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
+						break;
+						
+					case "c-end-date":
+						final BigInteger endYear = field.getDate().getYear();
+						final BigInteger endMonth = field.getDate().getMonth();
+						final BigInteger endDay = field.getDate().getDay();
+						if ( endYear != null ){
+							projectsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+						}
+						if ( endMonth != null ){
+							projectsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+						}
+						if ( endDay != null ){
+							projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+						}
+						break;
+						
+					case "c-start-date":
+						final BigInteger startYear = field.getDate().getYear();
+						final BigInteger startMonth = field.getDate().getMonth();
+						final BigInteger startDay = field.getDate().getDay();
+						if ( startYear != null ){
+							projectsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+						}
+						if ( startMonth != null ){
+							projectsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+						}
+						if ( startDay != null ){
+							projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+						}
+						break;
+						
+					case "c-funding-source2":
+						final List<String> fundingSources = field.getItems().getItem();
+						projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
+						break;
+						
+					case "c-nhm-url1":
+						projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
+						break;
 					}
 				}
 			}
 		}
-    }
+	}
     
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {
         //Get the contentPath node in the JCR

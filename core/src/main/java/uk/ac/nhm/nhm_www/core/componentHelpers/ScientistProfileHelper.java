@@ -52,7 +52,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Partnership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
-import uk.ac.nhm.nhm_www.core.model.science.projects.Project;
+import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectType;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 
@@ -275,6 +275,13 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK 	= "Fieldwork";
 	
 	public static final String PROJECT_TYPE_PROJECT						= "Project";
+	public static final String PROJECT_NODE_TYPE						= "nodeType";
+	public static final String PROJECT_NODETYPE_CHAMPION				= "Champion";
+	public static final String PROJECT_NODETYPE_RESEARCHER				= "Researcher";
+	public static final String PROJECT_NODETYPE_MANAGER					= "Manager";
+	public static final String PROJECT_NODETYPE_MEMBER					= "Member";
+	public static final String PROJECT_NODETYPE_LEADER					= "Leader";
+	public static final String PROJECT_NODETYPE_FUNDEDBY				= "Funded by";
 	
 	/* Grants */
 	public static final String GRANT_PREFIX_NODE_NAME 					= "grant";
@@ -440,7 +447,7 @@ public class ScientistProfileHelper {
 		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
 	}
 	
-	public Map<String, Set<Project>> getProjects() {
+	public Map<String, Set<ProjectTemplate>> getProjects() {
 		return this.extractProjects(PROJECTS_NODE_PATH);
 	}
 	
@@ -1404,10 +1411,10 @@ public class ScientistProfileHelper {
 	 * ##################
 	 */
 
-	private Map<String, Set<Project>> extractProjects(final String nodeName) {
-		final Map<String, Set<Project>> result = new TreeMap<String, Set<Project>>();
+	private Map<String, Set<ProjectTemplate>> extractProjects(final String nodeName) {
+		final Map<String, Set<ProjectTemplate>> result = new TreeMap<String, Set<ProjectTemplate>>();
 		
-		Set<Project> setProjects = new TreeSet<Project>();
+		Set<ProjectTemplate> setProjects = new TreeSet<ProjectTemplate>();
 		
 		final Resource projectResource = this.resource.getChild(nodeName);
 		
@@ -1423,6 +1430,7 @@ public class ScientistProfileHelper {
 			if (child.getName().startsWith(PROJECTS_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				
+				final String nodeType = childProperties.get(PROJECT_NODE_TYPE, String.class);
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
 				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
 				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
@@ -1445,7 +1453,7 @@ public class ScientistProfileHelper {
 //				switch (type) {
 //				case PROJECT_TYPE_PROJECT:
 					setProjects.add(new ProjectType(url, name, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, fundingSource, collaborator));
+							yearEndDate, monthEndDate, dayEndDate, fundingSource, collaborator, nodeType));
 //					break;
 //					
 //				default:
@@ -1459,18 +1467,18 @@ public class ScientistProfileHelper {
 		return result;
 	}
 	
-	public Set<Project> getProjectSet(Map<String, Set<Project>> projects, String project){
-		Set<Project> result = projects.get(project);
+	public Set<ProjectTemplate> getProjectSet(Map<String, Set<ProjectTemplate>> projects, String project){
+		Set<ProjectTemplate> result = projects.get(project);
 		return result;
 	}
 	
 	
-	public String getProjects(Map<String, Set<Project>> project){
+	public String getProjects(Map<String, Set<ProjectTemplate>> project){
 		StringBuilder result = new StringBuilder(); 
-		Set<Project> setProjects = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
+		Set<ProjectTemplate> setProjects = getProjectSet(project, ScientistProfileHelper.PROJECT_TYPE_PROJECT); 
 		if (!setProjects.isEmpty()) { 
 			result.append("<h3>Other projects</h3>");
-			for (final Project projectType: setProjects) { 
+			for (final ProjectTemplate projectType: setProjects) { 
 				result.append("<p>");
 				result.append(projectType.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
@@ -1483,7 +1491,7 @@ public class ScientistProfileHelper {
 		boolean res = false;
 		StringBuilder aux = new StringBuilder();
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-		final Map<String, Set<Project>> projects = helper.getProjects();
+		final Map<String, Set<ProjectTemplate>> projects = helper.getProjects();
 		
 		if (projects != null && !projects.isEmpty()) {
 			aux.append(helper.getProjects(projects));

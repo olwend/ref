@@ -6,15 +6,17 @@ import org.apache.sling.commons.json.JSONObject;
 
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Organisation;
 
-public class ProjectType extends Project {
+public class ProjectType extends ProjectTemplate {
 
 	private String fundingSource;
+	private String role;
 	private Collaborator[] collaborators;
 
 	public ProjectType(String url, String name, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String fundingSource, String collaborator) {
+			String yearEndDate, String monthEndDate, String dayEndDate, String fundingSource, String collaborator, String nodeType) {
 		super(url, name, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.fundingSource = fundingSource;
+		this.role = nodeType;
 		assignJSON(collaborator);
 	}
 	
@@ -52,9 +54,9 @@ public class ProjectType extends Project {
 		}
 		
 		// Role: NodeType,_
-		if (this.name != null){
+		if (this.role != null){
 			stringBuffer.append("Role: ");
-			stringBuffer.append(this.name);
+			stringBuffer.append(this.role);
 			stringBuffer.append("<br>");
 		}
 		
