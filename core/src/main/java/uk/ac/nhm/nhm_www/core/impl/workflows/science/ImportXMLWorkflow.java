@@ -782,7 +782,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	}
 	                        	break;
 
-                        case "organisation":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
+                        case "organisation":	
                             final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
                             JSONArray jsonOrganisationsArray = new JSONArray(); 
                             
@@ -827,7 +827,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             paNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
                             break;
                             
-                        case "institution":	// when it works, do EXACTLY the same for "institution" just copy paste and change this line to "institution"
+                        case "institution":	
                             final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
                             JSONArray jsonInstitutionsArray = new JSONArray(); 
                             
@@ -971,6 +971,221 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          	}
 	                          	break;
 	                          	
+                    }
+                }
+            }
+        }
+    }
+    
+    private String resolveTeachingActivityType (final int number) {
+        switch (number) {
+        	// Teaching Activities Tab
+	        case 23 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES;
+	        case 69 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_SUPERVISION;
+
+	        default: return "Teaching Activity";
+        }
+    }
+    
+    private void addTeachingActivities (final Node rootNode, final List<Activity> list) throws Exception {
+        int i  = 0;
+        
+        ListIterator<Activity> listIt = list.listIterator();
+        
+        while (listIt.hasNext()){
+        	Activity activity = listIt.next();
+
+            final Node taNode = rootNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
+            
+            // Setting up type of Teaching Activity
+            final String type = resolveTeachingActivityType (activity.getObject().getTypeId().intValue());  
+            taNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
+
+            for (Record record: activity.getObject().getRecords().getRecord()) {
+                for (Field field: record.getNative().getField()) {
+                    switch (field.getName()) {
+                        case "title":
+                        		taNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
+	                            break;
+                        case "url":
+	                            taNode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
+	                            break;
+                        case "end-date":
+	                        	final BigInteger endYear = field.getDate().getYear();
+	                        	final BigInteger endMonth = field.getDate().getMonth();
+	                        	final BigInteger endDay = field.getDate().getDay();
+	                        	if ( endYear != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+	                        	}
+	                        	if ( endMonth != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+	                        	}
+	                        	if ( endDay != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+	                        	}
+	                        	break;
+                        	
+                        case "start-date":
+	                        	final BigInteger startYear = field.getDate().getYear();
+	                        	final BigInteger startMonth = field.getDate().getMonth();
+	                        	final BigInteger startDay = field.getDate().getDay();
+	                        	if ( startYear != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+	                        	}
+	                        	if ( startMonth != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+	                        	}
+	                        	if ( startDay != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+	                        	}
+	                        	break;
+
+                        case "organisation":
+	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonOrganisationsArray = new JSONArray(); 
+	                            
+	                            while(organisationTypes.hasNext()) {
+	                            	Address address = organisationTypes.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            		
+	                            	}
+	                            	jsonOrganisationsArray.put(jsonAddress);
+								}
+	                            final JSONObject organisations = new JSONObject();
+	                            organisations.put("organisations", jsonOrganisationsArray);
+	                            taNode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
+	                            break;
+                            
+                        case "institution":	
+	                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonInstitutionsArray = new JSONArray(); 
+	                            
+	                            while(institutionTypes.hasNext()) {
+	                            	Address address = institutionTypes.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            	}
+	                            	jsonInstitutionsArray.put(jsonAddress);
+								}
+	                            final JSONObject institutions = new JSONObject();
+	                            institutions.put("organisations", jsonInstitutionsArray);
+	                            taNode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
+	                            break;
+                            
+                        case "c-course-level":
+	                          	final String committeeRole = field.getText();
+	                          	if ( committeeRole != null ){
+	                          		taNode.setProperty(ScientistProfileHelper.COMMITTEE_ROLE_ATTRIBUTE, committeeRole);
+	                          	}
+	                          	break;
+	                          	
+                        case "c-degree-type":
+	                        	final String degreeType = field.getText();
+	                        	if ( degreeType != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.DEGREE_TYPE_ATTRIBUTE, degreeType);
+	                        	}
+	                        	break;
+	                        	
+                        case "c-other-degree-type":
+	                        	final String otherDegreeType = field.getText();
+	                        	if ( otherDegreeType != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.OTHER_DEGREE_TYPE_ATTRIBUTE, otherDegreeType);
+	                        	}
+	                        	break;
+	                        	
+                        case "c-supervisory-role":
+	                        	final String supervisoryRole = field.getText();
+	                        	if ( supervisoryRole != null ){
+	                        		taNode.setProperty(ScientistProfileHelper.SUPERVISORY_ROLE_ATTRIBUTE, supervisoryRole);
+	                        	}
+	                        	break;
+
+                        case "person":
+	                        	final Person person = field.getPerson();
+	                        	if ( person != null ){
+	                        		String personString = person.getLastName() + " " + person.getInitials();
+	                        		taNode.setProperty(ScientistProfileHelper.PERSON_ATTRIBUTE, personString);
+	                        	}
+	                        	break;  
+	                        	
+                        case "co-contributors":
+	                        	final Person contributors = field.getPerson();
+	                        	if ( contributors != null ){
+	                        		String contributorsString = contributors.getLastName() + " " + contributors.getInitials();
+	                        		taNode.setProperty(ScientistProfileHelper.CO_CONTRIBUTORS_ATTRIBUTE, contributorsString);
+	                        	}
+	                        	break; 
+	                        	
+                        case "c-degree-subject":                       	
+                        	final String degreeSubject = field.getText();
+                        	if ( degreeSubject != null ){
+                        		taNode.setProperty(ScientistProfileHelper.DEGREE_SUBJECT_ATTRIBUTE, degreeSubject);
+                        	}
+                        	break; 
+	                        	
+                        case "c-funder":
+                        	final String funder = field.getText();
+                        	if ( funder != null ){
+                        		taNode.setProperty(ScientistProfileHelper.FUNDER_ATTRIBUTE, funder);
+                        	}
+                        	break; 
                     }
                 }
             }
@@ -1302,6 +1517,8 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         //      				|		 `- nonAcademicAppointments			(nt:unstructured)
         //      				|-- professionalActivities					(nt:unstructured)
         //      				|		 `- associated						(nt:unstructured)
+        //      				|-- teachingActivities						(nt:unstructured)
+        //      				|		 `- associated						(nt:unstructured)
         //      				|-- projects								(nt:unstructured)
         //      				|		 `- container						(nt:unstructured)
         //      				|-- grants									(nt:unstructured)
@@ -1343,6 +1560,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addProfessionalActivities(associated, activities);
+        
+        // Node : teachingActivities
+        final Node teachingActivities = jcrContentNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node teachingAssociated = teachingActivities.addNode(ScientistProfileHelper.ASSOCIATED_TEACHING_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        addTeachingActivities(teachingAssociated, webProfile.getTeachingActivities().getAssociated().getActivity());
         
         // Node : projects
         final Node projectsNode = jcrContentNode.addNode(ScientistProfileHelper.PROJECTS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);

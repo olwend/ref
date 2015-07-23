@@ -63,7 +63,6 @@ public class ScientistProfileHelper {
 	
     private static final Logger LOG = LoggerFactory.getLogger(ScientistProfileHelper.class);
     
-    
 	/* Information Nodes Structure */
 	public static final String PERSONAL_INFORMATION_NODE_NAME 	  = "personalInformation";
 	public static final String DEPARTAMENT_INFORMATION_NODE_NAME = "department";
@@ -154,6 +153,16 @@ public class ScientistProfileHelper {
 	public static final String THESIS_TYPE_ATTRIBUTE	  	= "thesisType";
 	public static final String PUBLISHER_URL_ATTRIBUTE	  	= "publisherURL";
 	public static final String PUBLISHER_LOCATION_ATTRIBUTE = "location";
+	
+	//Teaching Activities
+	public static final String COURSE_LEVEL_ATTRIBUTE 		= "courseLevel";
+	public static final String DEGREE_TYPE_ATTRIBUTE 		= "degreeType";
+	public static final String OTHER_DEGREE_TYPE_ATTRIBUTE 	= "otherDegreeType";
+	public static final String SUPERVISORY_ROLE_ATTRIBUTE 	= "supervisoryRole";
+	public static final String CO_CONTRIBUTORS_ATTRIBUTE 	= "coContributors";
+	public static final String PERSON_ATTRIBUTE			 	= "person";
+	public static final String DEGREE_SUBJECT_ATTRIBUTE	 	= "degreeSubject";
+	public static final String FUNDER_ATTRIBUTE			 	= "funder";
 	
 	
 	//Projects
@@ -264,6 +273,15 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 
+	/* Teaching Activities */
+	public  static final String TEACHING_ACTIVITIES_PREFIX_NODE_NAME 		= "teachingActivity";
+	public  static final String TEACHING_ACTIVITIES_NODE_NAME  				= "teachingActivities";
+	public  static final String ASSOCIATED_TEACHING_ACTIVITIES_NODE_NAME  	= "associated";
+	private static final String TEACHING_ACTIVITIES_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
+	
+	public static final String TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES		= "Taught Courses";
+	public static final String TEACHING_ACTIVITIES_TYPE_SUPERVISION			= "Supervision";
+	
 	/* Projects */
 	public static final String PROJECTS_PREFIX_NODE_NAME 				= "project";
 	public static final String PROJECTS_NODE_NAME  						= "projects";
