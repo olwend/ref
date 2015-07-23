@@ -1133,31 +1133,30 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     }
     
     private void addProjects (final Node rootNode, final Projects projects) throws Exception {
-		List<ListIterator<Project>> allProjects = new ArrayList<ListIterator<Project>>();
+		int i = 0;
 		
 		if(projects.getChampionOf().getProjects().listIterator() != null){
-			projectNodeTypeAssign(rootNode, projects.getChampionOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_CHAMPION);
+			i = projectNodeTypeAssign(i, rootNode, projects.getChampionOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_CHAMPION);
 		}
 		if(projects.getResearcherOn().getProjects().listIterator() != null){
-			projectNodeTypeAssign(rootNode, projects.getResearcherOn().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_RESEARCHER);
+			i = projectNodeTypeAssign(i, rootNode, projects.getResearcherOn().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_RESEARCHER);
 		}
 		if(projects.getManagerOf().getProjects().listIterator() != null){
-			projectNodeTypeAssign(rootNode, projects.getManagerOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_MANAGER);
+			i = projectNodeTypeAssign(i, rootNode, projects.getManagerOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_MANAGER);
 		}
 		if(projects.getMemberOf().getProjects().listIterator() != null){
-			projectNodeTypeAssign(rootNode, projects.getMemberOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_MEMBER);
+			i = projectNodeTypeAssign(i, rootNode, projects.getMemberOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_MEMBER);
 		}
 		if(projects.getLeaderOf().getProjects().listIterator() != null){
-			projectNodeTypeAssign(rootNode, projects.getLeaderOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_LEADER);
+			i = projectNodeTypeAssign(i, rootNode, projects.getLeaderOf().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_LEADER);
 		}
 		if(projects.getFundedBy().getProjects().listIterator() != null){
-			projectNodeTypeAssign(rootNode, projects.getFundedBy().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_FUNDEDBY);
+			i = projectNodeTypeAssign(i, rootNode, projects.getFundedBy().getProjects().listIterator(), ScientistProfileHelper.PROJECT_NODETYPE_FUNDEDBY);
 		}
-		
     }
 
-	private void projectNodeTypeAssign(final Node rootNode, ListIterator<Project> projects, String nodeType) throws Exception {
-		int i = 0;
+	private int projectNodeTypeAssign(int i, final Node rootNode, ListIterator<Project> projects, String nodeType) throws Exception {
+
 		while (projects.hasNext()){
 			uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project project = projects.next();
 			
@@ -1260,6 +1259,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 				}
 			}
 		}
+		return i;
 	}
     
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {

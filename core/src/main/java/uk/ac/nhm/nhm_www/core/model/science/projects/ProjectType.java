@@ -47,63 +47,62 @@ public class ProjectType extends ProjectTemplate {
 		
 		stringBuffer.append(" ");
 		
-		// Name,_
+		// Name
 		if (this.name != null){
 			stringBuffer.append(this.name);
 			stringBuffer.append("<br>");
 		}
 		
-		// Role: NodeType,_
+		// Role: NodeType
 		if (this.role != null){
 			stringBuffer.append("Role: ");
 			stringBuffer.append(this.role);
 			stringBuffer.append("<br>");
 		}
 		
-		// FundingSource,_
-		if (this.fundingSource!= null){
-			stringBuffer.append("Funding: Museum development");
-			stringBuffer.append("<br>");
-		}
+		// Funding: Museum development
+		stringBuffer.append("Funding: Museum development");
+		stringBuffer.append("<br>");
 		
-		if ( collaborators != null ){
-			for (Collaborator collaborator  : collaborators) {
-				// <a href=url>Name</a>,_ 
-				if (collaborator.getName() != null){
-					if (this.url != null) {
-						stringBuffer.append("<a href=\"");
-						stringBuffer.append(this.url);
-						stringBuffer.append("\">");
-					}
-					stringBuffer.append(collaborator.getName());
-					if (this.url != null) {
-						stringBuffer.append("</a>");
-					}
-					stringBuffer.append("<br>");
-				}
-				
-				// Organisation,_ 
-				if (collaborator.getOrganisation() != null){
-					stringBuffer.append(collaborator.getOrganisation());
-					stringBuffer.append("<br>");
-				}
-				
-				// City,_
-				if (collaborator.getCity() != null){
-					stringBuffer.append(collaborator.getCity() );
-					stringBuffer.append("<br>");
-				}	
-				
-				// Country,_
-				if (collaborator.getCountry() != null){
-					stringBuffer.append(collaborator.getCountry());
-					stringBuffer.append("<br>");
-				}
-			}
-		}
+//		if ( collaborators != null ){
+//			for (Collaborator collaborator  : collaborators) {
+//				// <a href=url>Name</a>,_ 
+//				if (collaborator.getName() != null){
+//					if (this.url != null) {
+//						stringBuffer.append("<a href=\"");
+//						stringBuffer.append(this.url);
+//						stringBuffer.append("\">");
+//					}
+//					stringBuffer.append(collaborator.getName());
+//					if (this.url != null) {
+//						stringBuffer.append("</a>");
+//					}
+//					stringBuffer.append("<br>");
+//				}
+//				
+//				// Organisation,_ 
+//				if (collaborator.getOrganisation() != null){
+//					stringBuffer.append(collaborator.getOrganisation());
+//					stringBuffer.append("<br>");
+//				}
+//				
+//				// City,_
+//				if (collaborator.getCity() != null){
+//					stringBuffer.append(collaborator.getCity() );
+//					stringBuffer.append("<br>");
+//				}	
+//				
+//				// Country,_
+//				if (collaborator.getCountry() != null){
+//					stringBuffer.append(collaborator.getCountry());
+//					stringBuffer.append("<br>");
+//				}
+//			}
+//		}
 		
 		// startYear - endYear. || startYear - on going.
 		if (this.yearsd != null){
+			stringBuffer.append("Dates: ");
 			if (this.yeared != null) {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");

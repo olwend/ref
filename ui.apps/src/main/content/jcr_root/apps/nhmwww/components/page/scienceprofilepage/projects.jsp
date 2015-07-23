@@ -1,5 +1,5 @@
 <%@page import="uk.ac.nhm.nhm_www.core.model.science.grants.Grant,
-				uk.ac.nhm.nhm_www.core.model.science.projects.Project,
+				uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate,
 				uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
 				uk.ac.nhm.nhm_www.core.model.science.Publication,
@@ -10,7 +10,7 @@
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 	final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
-	final Map<String, Set<Project>> projects = helper.getProjects();
+	final Map<String, Set<ProjectTemplate>> projects = helper.getProjects();
 	final Map<String, Set<Grant>> grants = helper.getGrants();
 %>
 <div class="small-12 medium-8 large-8 columns">

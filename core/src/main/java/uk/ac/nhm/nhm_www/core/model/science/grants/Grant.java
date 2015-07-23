@@ -45,6 +45,7 @@ public class Grant extends GrantTemplate {
 			String principalsString = StringUtils.join(principals.toArray(new String[principals.size()]), ", ");
 			principalsString = principalsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
+			stringBuffer.append("Principal investigator: ");
 			stringBuffer.append(principalsString);
 			stringBuffer.append("<br/>");
 		}
@@ -55,13 +56,19 @@ public class Grant extends GrantTemplate {
 			String coInvsString = StringUtils.join(coInvs.toArray(new String[coInvs.size()]), ", ");
 			coInvsString = coInvsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
+			stringBuffer.append("Co-investigator: ");
 			stringBuffer.append(coInvsString);
 			stringBuffer.append("<br/>");
 		}	
 		
 		// FunderName
 		if (this.funderName != null){
-			stringBuffer.append(this.funderName);
+			stringBuffer.append("Funding: ");
+			if ( this.funderName.equals("Other") && (this.funderNameOther != null && !this.funderNameOther.equals("") )  ){
+				stringBuffer.append(this.funderNameOther);
+			} else {
+				stringBuffer.append(this.funderName);
+			}
 			stringBuffer.append("<br>");
 		}
 		
@@ -72,12 +79,9 @@ public class Grant extends GrantTemplate {
 			
 			// NHMAwarded
 			if (this.nhmAwarded != null){
-				stringBuffer.append("(to Museum &pound");
+				stringBuffer.append(" (to Museum &pound");
 				stringBuffer.append(this.nhmAwarded);
-				stringBuffer.append(")");
-				stringBuffer.append("<br>");
-			} else {
-				stringBuffer.append("<br>");
+				stringBuffer.append(") ");
 			}
 			
 			stringBuffer.append("<br>");
@@ -85,6 +89,7 @@ public class Grant extends GrantTemplate {
 		
 		// startYear - endYear. || startYear - on going.
 		if (this.yearsd != null){
+			stringBuffer.append("Dates: ");
 			if (this.yeared != null) {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
