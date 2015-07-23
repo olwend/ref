@@ -27,20 +27,19 @@ public class Grant extends GrantTemplate {
 		this.nhmAwarded = nhmAwarded;
 	}
 	
-
 	@Override
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
 		stringBuffer.append(" ");
 		
-		// ProposalTitle,_
-		if (this.name != null){
-			stringBuffer.append(this.name);
-			stringBuffer.append(", ");
+		// ProposalTitle
+		if (this.proposalTitle != null){
+			stringBuffer.append(this.proposalTitle);
+			stringBuffer.append("<br>");
 		}
 		
-		// Editor NM, Editor NM (Eds)._
+		// Principal INV, Principal INV
 		final List<String> principals = this.principalInvestigators;
 		if (principals != null && principals.size() > 0) {
 			String principalsString = StringUtils.join(principals.toArray(new String[principals.size()]), ", ");
@@ -50,6 +49,39 @@ public class Grant extends GrantTemplate {
 			stringBuffer.append("<br/>");
 		}
 		
+		// CoInvestigator INV, CoInvestigator INV
+		final List<String> coInvs = this.coInvestigators;
+		if (coInvs != null && coInvs.size() > 0) {
+			String coInvsString = StringUtils.join(coInvs.toArray(new String[coInvs.size()]), ", ");
+			coInvsString = coInvsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+			
+			stringBuffer.append(coInvsString);
+			stringBuffer.append("<br/>");
+		}	
+		
+		// FunderName
+		if (this.funderName != null){
+			stringBuffer.append(this.funderName);
+			stringBuffer.append("<br>");
+		}
+		
+		// ValueAwarded
+		if (this.totaAwarded != null){
+			stringBuffer.append("Total value &pound");
+			stringBuffer.append(this.totaAwarded);
+			
+			// NHMAwarded
+			if (this.nhmAwarded != null){
+				stringBuffer.append("(to Museum &pound");
+				stringBuffer.append(this.nhmAwarded);
+				stringBuffer.append(")");
+				stringBuffer.append("<br>");
+			} else {
+				stringBuffer.append("<br>");
+			}
+			
+			stringBuffer.append("<br>");
+		}
 		
 		// startYear - endYear. || startYear - on going.
 		if (this.yearsd != null){

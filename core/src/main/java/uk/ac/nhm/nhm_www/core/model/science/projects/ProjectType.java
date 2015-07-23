@@ -51,9 +51,10 @@ public class ProjectType extends Project {
 			stringBuffer.append("<br>");
 		}
 		
-		// PrincipalInvestigator,_
+		// Role: NodeType,_
 		if (this.name != null){
-			stringBuffer.append("Principal investigator: ");
+			stringBuffer.append("Role: ");
+			stringBuffer.append(this.name);
 			stringBuffer.append("<br>");
 		}
 		
