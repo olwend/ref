@@ -5,10 +5,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.ImportXMLWorkflow;
 
 import com.day.cq.wcm.api.Page;
 
 public class DynamicPageHelper {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(DynamicPageHelper.class);
+	
 	private Resource resource;
 	private ValueMap properties;
 	private HttpServletRequest request;
@@ -17,12 +24,13 @@ public class DynamicPageHelper {
 	private String protocol;
 	private Boolean defaultLegacyCSS;
 	
-	public DynamicPageHelper(Resource resource,ValueMap properties, HttpServletRequest request)
-	{
+	public DynamicPageHelper(Resource resource,ValueMap properties, HttpServletRequest request)	{
+		
 //		this.image = getProperties().get("image", String.class);
 		setResource(resource);
 		setProperties(properties);
 		setRequest(request);
+		LOG.error("Scheme"  + request.getScheme());
 		init();
 	}
 
