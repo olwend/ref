@@ -54,6 +54,8 @@ public class DynamicPageHelper {
 		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
 		if(this.request != null) { 
 			this.protocol = request.getScheme();
+		} else {
+			LOG.error("request is null");
 		}
 		
 	}
