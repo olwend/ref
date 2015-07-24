@@ -54,6 +54,9 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectType;
+import uk.ac.nhm.nhm_www.core.model.science.teaching.Supervision;
+import uk.ac.nhm.nhm_www.core.model.science.teaching.TaughtCourse;
+import uk.ac.nhm.nhm_www.core.model.science.teaching.TeachingActivityTemplate;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 
 import com.day.cq.wcm.api.components.DropTarget;
@@ -457,22 +460,6 @@ public class ScientistProfileHelper {
 		return this.extractWorkExperiences(NON_ACADEMIC_HISTORY_NODE_PATH);
 	}
 	
-	public Set<Publication> getPublications() {
-		return this.extractPublications(PUBLICATIONS_NODE_PATH);
-	}
-	
-	public Map<String, Set<ProfessionalActivity>> getProfessionalActivities() {
-		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
-	}
-	
-	public Map<String, Set<ProjectTemplate>> getProjects() {
-		return this.extractProjects(PROJECTS_NODE_PATH);
-	}
-	
-	public Map<String, Set<Grant>> getGrants() {
-		return this.extractGrants(GRANT_NODE_PATH);
-	}
-	
 	public Set<WebSite> getWebSites() {
 		return this.extractWebsites(WEB_SITES_NODE_PATH);
 	}
@@ -612,6 +599,87 @@ public class ScientistProfileHelper {
 		}
 		
 		return result;
+	}
+	
+	private Set<WebSite> extractWebsites(final String nodeName) {
+		final Set<WebSite> result = new TreeSet<WebSite>(); 
+		
+		final Resource websitesResource = this.resource.getChild(nodeName);
+		
+		if (websitesResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = websitesResource.listChildren();
+		
+		while (children.hasNext()) {
+			final Resource child = children.next();
+			
+			if (child.getName().startsWith(WEB_SITE_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				
+				final WebSite website = new WebSite(childProperties.get(LABEL_ATTRIBUTE, String.class), childProperties.get(LINK_ATTRIBUTE, String.class), childProperties.get(TYPE_ATTRIBUTE, String.class));
+				
+				if (website.isValid()) {
+					result.add(website);
+				}
+			}
+		}
+		return result;
+	}
+	
+	private List<PhoneNumber> extractPhones(final String nodeName) {
+		final List<PhoneNumber> result = new ArrayList<PhoneNumber>(); 
+		
+		final Resource phonesResource = this.resource.getChild(nodeName);
+		
+		if (phonesResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = phonesResource.listChildren();
+		
+		while (children.hasNext()) {
+			final Resource child = children.next();
+			
+			if (child.getName().startsWith(PHONE_NUMBER_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				
+				final PhoneNumber phone = new PhoneNumber(childProperties.get(PHONE_ATTRIBUTE, String.class), childProperties.get(LABEL_ATTRIBUTE, String.class));
+				
+				if (phone.isValid()) {
+					result.add(phone);
+				}
+			}
+		}
+		return result;
+	}
+	
+	public boolean displayGroupsAndSpecialismsBox(Resource resource, SlingScriptHelper sling) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		boolean res = false;
+		if ( !res && helper.getSpecialisms() != null) {
+			res = true;
+		}
+		if ( !res && helper.hasGroup() ){
+			final ScientistsGroupsService groupService = sling.getService(ScientistsGroupsService.class);
+			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
+			if (!groupScientists.isEmpty()) {
+				res = true;
+			}
+		}
+		return res;
+	}
+	
+	
+	/*
+	 * ##################
+	 * ## Publications ##
+	 * ##################
+	 */
+	
+	public Set<Publication> getPublications() {
+		return this.extractPublications(PUBLICATIONS_NODE_PATH);
 	}
 	
 	private Set<Publication> extractPublications(final String nodeName) {
@@ -880,58 +948,25 @@ public class ScientistProfileHelper {
 		return result;
 	}
 	
-	private Set<WebSite> extractWebsites(final String nodeName) {
-		final Set<WebSite> result = new TreeSet<WebSite>(); 
-		
-		final Resource websitesResource = this.resource.getChild(nodeName);
-		
-		if (websitesResource == null) {
-			return result;
+	public boolean displayPublicationsTab(Resource resource) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Set<Publication> publications = helper.getPublications();
+		boolean res = false;
+		if (publications != null && !publications.isEmpty()) {
+			res = true;
 		}
-		
-		final Iterator<Resource> children = websitesResource.listChildren();
-		
-		while (children.hasNext()) {
-			final Resource child = children.next();
-			
-			if (child.getName().startsWith(WEB_SITE_PREFIX_NODE_NAME)) {
-				final ValueMap childProperties = child.adaptTo(ValueMap.class);
-				
-				final WebSite website = new WebSite(childProperties.get(LABEL_ATTRIBUTE, String.class), childProperties.get(LINK_ATTRIBUTE, String.class), childProperties.get(TYPE_ATTRIBUTE, String.class));
-				
-				if (website.isValid()) {
-					result.add(website);
-				}
-			}
-		}
-		return result;
+		return res;
 	}
 	
-	private List<PhoneNumber> extractPhones(final String nodeName) {
-		final List<PhoneNumber> result = new ArrayList<PhoneNumber>(); 
-		
-		final Resource phonesResource = this.resource.getChild(nodeName);
-		
-		if (phonesResource == null) {
-			return result;
-		}
-		
-		final Iterator<Resource> children = phonesResource.listChildren();
-		
-		while (children.hasNext()) {
-			final Resource child = children.next();
-			
-			if (child.getName().startsWith(PHONE_NUMBER_PREFIX_NODE_NAME)) {
-				final ValueMap childProperties = child.adaptTo(ValueMap.class);
-				
-				final PhoneNumber phone = new PhoneNumber(childProperties.get(PHONE_ATTRIBUTE, String.class), childProperties.get(LABEL_ATTRIBUTE, String.class));
-				
-				if (phone.isValid()) {
-					result.add(phone);
-				}
-			}
-		}
-		return result;
+	
+	/*
+	 * #############################
+	 * ## Professional Activities ##
+	 * #############################
+	 */
+	
+	public Map<String, Set<ProfessionalActivity>> getProfessionalActivities() {
+		return this.extractProfessionalActivities(PROFESSIONAL_ACTIVITIES_NODE_PATH);
 	}
 	
 	private Map<String, Set<ProfessionalActivity>> extractProfessionalActivities(final String nodeName) {
@@ -1393,41 +1428,17 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
-
 	
-	public boolean displayPublicationsTab(Resource resource) {
-		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-		final Set<Publication> publications = helper.getPublications();
-		boolean res = false;
-		if (publications != null && !publications.isEmpty()) {
-			res = true;
-		}
-		return res;
-	}
-	
-	public boolean displayGroupsAndSpecialismsBox(Resource resource, SlingScriptHelper sling) {
-		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
-		boolean res = false;
-		if ( !res && helper.getSpecialisms() != null) {
-			res = true;
-		}
-		if ( !res && helper.hasGroup() ){
-			final ScientistsGroupsService groupService = sling.getService(ScientistsGroupsService.class);
-			final Set<Scientist> groupScientists = groupService.getGroupScientists(resource);
-			if (!groupScientists.isEmpty()) {
-				res = true;
-			}
-		}
-		return res;
-	}
-	
-
 	
 	/*
 	 * ##################
-	 * #### PROJECTS ####
+	 * #### Projects ####
 	 * ##################
 	 */
+
+	public Map<String, Set<ProjectTemplate>> getProjects() {
+		return this.extractProjects(PROJECTS_NODE_PATH);
+	}
 
 	private Map<String, Set<ProjectTemplate>> extractProjects(final String nodeName) {
 		final Map<String, Set<ProjectTemplate>> result = new TreeMap<String, Set<ProjectTemplate>>();
@@ -1550,9 +1561,13 @@ public class ScientistProfileHelper {
 	
 	/*
 	 * ################
-	 * #### GRANTS ####
+	 * #### Grants ####
 	 * ################
 	 */
+	
+	public Map<String, Set<Grant>> getGrants() {
+		return this.extractGrants(GRANT_NODE_PATH);
+	}
 	
 	private Map<String, Set<Grant>> extractGrants(final String nodeName) {
 		final Map<String, Set<Grant>> result = new TreeMap<String, Set<Grant>>();
@@ -1652,6 +1667,142 @@ public class ScientistProfileHelper {
 		
 		if (grants != null && !grants.isEmpty()) {
 			aux.append(helper.getGrants(grants));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
+	}
+	
+	
+	/*
+	 * #########################
+	 * ## Teaching Activities ##
+	 * #########################
+	 */
+	
+	public Map<String, Set<TeachingActivityTemplate>> getTeachingActivities() {
+		return this.extractTeachingActivities(TEACHING_ACTIVITIES_NODE_PATH);
+	}
+	
+	private Map<String, Set<TeachingActivityTemplate>> extractTeachingActivities(final String nodeName) {
+		final Map<String, Set<TeachingActivityTemplate>> result = new TreeMap<String, Set<TeachingActivityTemplate>>();
+		
+		Set<TeachingActivityTemplate> setSupervisions = new TreeSet<TeachingActivityTemplate>();
+		Set<TeachingActivityTemplate> setTaughtCourses = new TreeSet<TeachingActivityTemplate>();
+		
+		
+		final Resource teachingActivitiesResource = this.resource.getChild(nodeName);
+		
+		if (teachingActivitiesResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = teachingActivitiesResource.listChildren();
+		
+		while (children.hasNext()) {
+			final Resource child = children.next();
+			
+			if (child.getName().startsWith(TEACHING_ACTIVITIES_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
+				
+				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
+				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
+				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthStartDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayStartDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String reportingDate;
+				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
+					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
+				} else {
+					reportingDate = "";
+				}
+				
+				switch (type) {
+				
+				case TEACHING_ACTIVITIES_TYPE_SUPERVISION:
+					final String degreeType = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String otherDegreeType = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String supervisoryRole = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String person= childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String coContributors= childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String degreeSubject = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					
+                    final String supervisionInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					
+                    final String funder = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+                    
+                    setSupervisions.add(new Supervision(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
+							degreeType, otherDegreeType, supervisoryRole, person, coContributors, degreeSubject, supervisionInstitution, funder));
+					break;	
+					
+				case TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES:
+                    final String courseLevel = childProperties.get(COURSE_LEVEL_ATTRIBUTE, String.class);
+                    final String taughtInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+                    
+					setTaughtCourses.add(new TaughtCourse(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							courseLevel, taughtInstitution));
+					break;
+
+				default:
+					break;
+				}
+			}
+		}
+		result.put(TEACHING_ACTIVITIES_TYPE_SUPERVISION, setSupervisions);
+		result.put(TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES, setTaughtCourses);
+
+		return result;
+	}
+	
+	public Set<TeachingActivityTemplate> getTeachingActivitySet(Map<String, Set<TeachingActivityTemplate>> activities, String teachingActivity){
+		Set<TeachingActivityTemplate> result = activities.get(teachingActivity);
+		return result;
+	}
+	
+	public String getSupervisions(Map<String, Set<TeachingActivityTemplate>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<TeachingActivityTemplate> setSupervision = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_SUPERVISION); 
+		if (!setSupervision.isEmpty()) { 
+			result.append("<h3>Supervision</h3>");
+			for (final TeachingActivityTemplate activity: setSupervision) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getTaughtCourses(Map<String, Set<TeachingActivityTemplate>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<TeachingActivityTemplate> setTaughtCourses = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES); 
+		if (!setTaughtCourses.isEmpty()) { 
+			result.append("<h3>Courses Taught</h3>");
+			for (final TeachingActivityTemplate activity: setTaughtCourses) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	
+	public boolean displayTeachingActivitiesTab(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<TeachingActivityTemplate>> activities = helper.getTeachingActivities();
+		
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getSupervisions(activities));
+			aux.append(helper.getTaughtCourses(activities));
+
 			if (aux.length() > 0){
 				res = true;
 			}

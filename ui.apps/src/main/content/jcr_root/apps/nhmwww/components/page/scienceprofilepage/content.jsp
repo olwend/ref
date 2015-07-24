@@ -8,6 +8,7 @@
     final boolean displayProfessionalActivitiesTab = helper.displayProfessionalActivitiesTab(resource);
     final boolean displayPublicationsTab = helper.displayPublicationsTab(resource);
     final boolean displayProjectsTab = helper.displayProjectsTab(resource);
+    final boolean displayTeachingActivitiesTab = helper.displayTeachingActivitiesTab(resource);
     String firstName = "";
     if(helper.getNickName() != null && !helper.getNickName().equals("")){
         firstName = helper.getNickName();
@@ -65,6 +66,10 @@
 					<% if (displayPublicationsTab) { %>
 						<li class="tab-title"><a href="#panel4">Publications</a></li> 
 					<% } %>
+					
+					<% if (displayTeachingActivitiesTab) { %>
+						<li class="tab-title"><a href="#panel5">Teaching Activities</a></li> 
+					<% } %>
 				</ul>
 				<div class="tabs-content">
 					<div class="content active" id="panel1">
@@ -83,6 +88,11 @@
 					<% if (displayPublicationsTab) { %>
 						<div class="content" id="panel4">
 							<cq:include script="publications.jsp" />
+						</div>
+					<% } %>
+					<% if (displayTeachingActivitiesTab) { %>
+						<div class="content" id="panel5">
+							<cq:include script="teachingactivities.jsp" />
 						</div>
 					<% } %>
 				</div>
@@ -116,6 +126,14 @@
 							<a href="#panel4c">Publications</a>
 							<div id="panel4c" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="publications.jsp" />
+							</div>
+						</dd>
+					<% } %>
+					<% if (displayTeachingActivitiesTab) { %>
+						<dd class="accordion-navigation">
+							<a href="#panel5d">Publications</a>
+							<div id="panel5d" class="content science-profiles-detail-page--accordion-content-container">
+								<cq:include script="teachingactivities.jsp" />
 							</div>
 						</dd>
 					<% } %>
