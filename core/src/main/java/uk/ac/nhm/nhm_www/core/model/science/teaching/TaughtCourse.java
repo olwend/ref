@@ -43,8 +43,6 @@ public class TaughtCourse extends TeachingActivityTemplate {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		// Course title [URL] Course level ['Other' course level:] Name of institution: Start date - End date.
-		
 		// <a href=url>CourseTitle</a>,_ 
 		if (this.title != null && !this.title.equals("")){
 			if (this.url != null) {

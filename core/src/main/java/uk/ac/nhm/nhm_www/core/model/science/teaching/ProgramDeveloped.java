@@ -52,15 +52,13 @@ public class ProgramDeveloped extends TeachingActivityTemplate {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		// Course title [URL] Course level ['Other' course level:] Name of institution: Start date - End date.
-		
 		// DegreeLevel,_ 
 		if (this.degreeLevel != null && !this.degreeLevel.equals("")){
 			stringBuffer.append(this.degreeLevel);
 			stringBuffer.append(", ");
 		}
 		
-		// Level,_ 
+		// Title,_ 
 		if (this.title != null && !this.title.equals("")){
 			stringBuffer.append(this.title);
 			stringBuffer.append(", ");

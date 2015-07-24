@@ -46,8 +46,6 @@ public class Examiner extends TeachingActivityTemplate {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		// Course title [URL] Course level ['Other' course level:] Name of institution: Start date - End date.
-		
 		// Role,_ 
 		if (this.role != null && !this.role.equals("")){
 			stringBuffer.append(this.role);
