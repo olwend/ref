@@ -80,13 +80,6 @@ public class Supervision extends TeachingActivityTemplate {
 			stringBuffer.append("<br>");
 		}
 		
-		/*
-		 * 
-Degree supervision
-Degree type {other degree type] Supervisory role: to Student name: Co-supervisors:
-Output title: Degree subject: Academic institution: Funder: Start date: End date:.
-		 */
-		
 		// Title,_ 
 		if (this.title != null && !this.title.equals("")){
 			stringBuffer.append(this.title);

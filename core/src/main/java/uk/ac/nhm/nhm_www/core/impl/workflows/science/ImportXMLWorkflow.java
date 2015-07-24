@@ -1312,6 +1312,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	// Teaching Activities Tab
         	case 69 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_SUPERVISION;
 	        case 23 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES;
+	        case 27 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_EXAMINER;
+	        case 25 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED;
+	        case 24 : return ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED;
 
 	        default: return "Teaching Activity";
         }
@@ -1320,26 +1323,25 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     private void addTeachingActivities (final Node rootNode, final TeachingActivities activities, final String uniqueName) throws Exception {
         int i  = 0;
         
-//    	LOG.error("Scanning: " + uniqueName );
+    	LOG.error("Scanning: " + uniqueName );
         
         List<Ns1Object> list = activities.getAssociated().getTeachingActivity();
         
         ListIterator<Ns1Object> listIt = list.listIterator();
         while (listIt.hasNext()){
         	Ns1Object activity = listIt.next();
-//        	LOG.error("Adding a teaching activity!");
 
             final Node teachingANode = rootNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
             
             // Setting up type of Teaching Activity
             final String type = resolveTeachingActivityType (activity.getObject().getTypeId().intValue());  
             teachingANode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
+        	LOG.error("Adding a teachingactivityType : " + type);
 
             for (Record record: activity.getObject().getRecords().getRecord()) {
                 for (Field field: record.getNative().getField()) {
                     switch (field.getName()) {
                         case "title":
-//                        		LOG.error("Title: " + field.getText());
                         		teachingANode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
 	                            break;
                         case "url":
@@ -1520,7 +1522,96 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	if ( funder != null ){
                         		teachingANode.setProperty(ScientistProfileHelper.FUNDER_ATTRIBUTE, funder);
                         	}
-                        	break; 
+                        	break;
+                        	
+                        case "c-examination-role":
+                        	final String examinationRole = field.getText();
+                        	if ( examinationRole != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, examinationRole);
+                        	}
+                        	break;
+                        	
+                        case "c-examination-level":
+                        	final String examinationLevel = field.getText();
+                        	if ( examinationLevel != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_LEVEL_ATTRIBUTE, examinationLevel);
+                        	}
+                        	break;
+                        	
+                        case "degree-level":
+                        	final String degreeLevel = field.getText();
+                        	if ( degreeLevel != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_LEVEL_ATTRIBUTE, degreeLevel);
+                        	}
+                        	break;
+                        	
+                        case "degree-type":
+                        	final String programDegreeType = field.getText();
+                        	if ( programDegreeType != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_TYPE_ATTRIBUTE, programDegreeType);
+                        	}
+                        	break;
+                        	
+                        case "partners":	
+                            final ListIterator<Address> partnersList = field.getAddresses().getAddress().listIterator();
+                            JSONArray jsonPartnersArray = new JSONArray(); 
+                            
+                            while(partnersList.hasNext()) {
+                            	Address address = partnersList.next();
+                            	List<java.lang.Object> lines = address.getContent();
+                            	
+                            	JSONObject jsonAddress = new JSONObject();
+                            	for (final java.lang.Object object : lines) {
+                            		if (! (object instanceof Line)) {
+                            			continue;
+                            		}
+                            		final Line line = (Line) object;
+                            		switch (line.getType()) {
+                            		case "name":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("name", line.getContent());
+                            			}
+                            			break;
+                            		case "organisation":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("organisation", line.getContent());
+                            			}
+                            			break;
+                            		case "city":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("city", line.getContent());
+                            			}
+                            			break;
+                            		case "country":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("country", line.getContent());
+                            			}
+                            			break;
+                            		}
+                            		
+                            	}
+                            	jsonPartnersArray.put(jsonAddress);
+							}
+                            final JSONObject partners = new JSONObject();
+                            partners.put("partners", jsonPartnersArray);
+                            teachingANode.setProperty(ScientistProfileHelper.PARTNER_ATTRIBUTE, partners.toString());
+                            break;
+                            
+                        case "release-date":
+                        	final BigInteger releaseYear = field.getDate().getYear();
+                        	final BigInteger releaseMonth = field.getDate().getMonth();
+                        	final BigInteger releaseDay = field.getDate().getDay();
+                        	if ( releaseYear != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_YEAR_NAME_ATTRIBUTE, releaseYear.longValue());
+                        	}
+                        	if ( releaseMonth != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_MONTH_NAME_ATTRIBUTE, releaseMonth.longValue());
+                        	}
+                        	if ( releaseDay != null ){
+                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_DAY_NAME_ATTRIBUTE, releaseDay.longValue());
+                        	}
+                        	break;
+
                     }
                 }
             }

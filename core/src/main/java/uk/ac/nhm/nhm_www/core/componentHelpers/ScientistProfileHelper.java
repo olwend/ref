@@ -54,6 +54,8 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectType;
+import uk.ac.nhm.nhm_www.core.model.science.teaching.Examiner;
+import uk.ac.nhm.nhm_www.core.model.science.teaching.ProgramDeveloped;
 import uk.ac.nhm.nhm_www.core.model.science.teaching.Supervision;
 import uk.ac.nhm.nhm_www.core.model.science.teaching.TaughtCourse;
 import uk.ac.nhm.nhm_www.core.model.science.teaching.TeachingActivityTemplate;
@@ -126,6 +128,9 @@ public class ScientistProfileHelper {
 	public static final String END_DATE_DAY_NAME_ATTRIBUTE			= "endDay";
 	public static final String END_DATE_MONTH_NAME_ATTRIBUTE		= "endMonth";
 	public static final String END_DATE_YEAR_NAME_ATTRIBUTE			= "endYear";
+	public static final String RELEASE_DATE_DAY_NAME_ATTRIBUTE		= "releaseDay";
+	public static final String RELEASE_DATE_MONTH_NAME_ATTRIBUTE	= "releaseMonth";
+	public static final String RELEASE_DATE_YEAR_NAME_ATTRIBUTE		= "releaseYear";
 	public static final String COMMITTEE_ROLE_ATTRIBUTE				= "committeeRole";
 	public static final String EDITORSHIP_ROLE_ATTRIBUTE			= "editorshipRole";
 	public static final String ADMINISTRATIVE_ROLE_ATTRIBUTE		= "administrativeRole";
@@ -166,7 +171,11 @@ public class ScientistProfileHelper {
 	public static final String PERSON_ATTRIBUTE			 	= "person";
 	public static final String DEGREE_SUBJECT_ATTRIBUTE	 	= "degreeSubject";
 	public static final String FUNDER_ATTRIBUTE			 	= "funder";
-	
+	public static final String EXAMINATION_ROLE_ATTRIBUTE	= "examinationRole";
+	public static final String EXAMINATION_LEVEL_ATTRIBUTE	= "examinationLevel";
+	public static final String DEGREE_LEVEL_ATTRIBUTE		= "degreeLevel";
+	public static final String PARTNER_ATTRIBUTE			= "partner";
+	public static final String RELEASE_DATE_ATTRIBUTE		= "releaseDate";
 	
 	//Projects
 	public static final String FUNDING_SOURCE_ATTRIBUTE		= "fundingSource";
@@ -280,10 +289,13 @@ public class ScientistProfileHelper {
 	public  static final String TEACHING_ACTIVITIES_PREFIX_NODE_NAME 		= "teachingActivity";
 	public  static final String TEACHING_ACTIVITIES_NODE_NAME  				= "teachingActivities";
 	public  static final String ASSOCIATED_TEACHING_ACTIVITIES_NODE_NAME  	= "associated";
-	private static final String TEACHING_ACTIVITIES_NODE_PATH			  	= PROFESSIONAL_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME;
+	private static final String TEACHING_ACTIVITIES_NODE_PATH			  	= TEACHING_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_TEACHING_ACTIVITIES_NODE_NAME;
 	
-	public static final String TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES		= "Taught Courses";
 	public static final String TEACHING_ACTIVITIES_TYPE_SUPERVISION			= "Supervision";
+	public static final String TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES		= "Taught Courses";
+	public static final String TEACHING_ACTIVITIES_TYPE_EXAMINER			= "Examiner";
+	public static final String TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED	= "Program Developed";
+	public static final String TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED	= "Courses Developed";
 	
 	/* Projects */
 	public static final String PROJECTS_PREFIX_NODE_NAME 				= "project";
@@ -1691,7 +1703,6 @@ public class ScientistProfileHelper {
 		Set<TeachingActivityTemplate> setSupervisions = new TreeSet<TeachingActivityTemplate>();
 		Set<TeachingActivityTemplate> setTaughtCourses = new TreeSet<TeachingActivityTemplate>();
 		
-		
 		final Resource teachingActivitiesResource = this.resource.getChild(nodeName);
 		
 		if (teachingActivitiesResource == null) {
@@ -1703,10 +1714,13 @@ public class ScientistProfileHelper {
 		while (children.hasNext()) {
 			final Resource child = children.next();
 			
+			LOG.error("Accessing Teaching Activities from " + nodeName + "and the child name is : " + child.getName().toString());
+			
 			if (child.getName().startsWith(TEACHING_ACTIVITIES_PREFIX_NODE_NAME)) {
+				LOG.error("It does start with teachingActivitiesXXX");
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
-				
+				LOG.error("type is : " + type);
 				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
 				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
@@ -1725,16 +1739,15 @@ public class ScientistProfileHelper {
 				switch (type) {
 				
 				case TEACHING_ACTIVITIES_TYPE_SUPERVISION:
-					final String degreeType = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-					final String otherDegreeType = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-					final String supervisoryRole = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-					final String person= childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-					final String coContributors= childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-					final String degreeSubject = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-					
+					final String degreeType = childProperties.get(DEGREE_TYPE_ATTRIBUTE, String.class);
+					final String otherDegreeType = childProperties.get(OTHER_DEGREE_TYPE_ATTRIBUTE, String.class);
+					final String supervisoryRole = childProperties.get(SUPERVISORY_ROLE_ATTRIBUTE, String.class);
+					final String person = childProperties.get(PERSON_ATTRIBUTE, String.class);
+					final String coContributors= childProperties.get(CO_CONTRIBUTORS_ATTRIBUTE, String.class);
+					final String degreeSubject = childProperties.get(DEGREE_SUBJECT_ATTRIBUTE, String.class);
                     final String supervisionInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 					
-                    final String funder = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+                    final String funder = childProperties.get(FUNDER_ATTRIBUTE, String.class);
                     
                     setSupervisions.add(new Supervision(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							degreeType, otherDegreeType, supervisoryRole, person, coContributors, degreeSubject, supervisionInstitution, funder));
@@ -1747,6 +1760,47 @@ public class ScientistProfileHelper {
 					setTaughtCourses.add(new TaughtCourse(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							courseLevel, taughtInstitution));
 					break;
+					
+				case TEACHING_ACTIVITIES_TYPE_EXAMINER:
+                    final String examinationRole = childProperties.get(EXAMINATION_ROLE_ATTRIBUTE, String.class);
+                    final String examinationLevel = childProperties.get(EXAMINATION_LEVEL_ATTRIBUTE, String.class);
+                    final String examinationInstitution = childProperties.get(EXAMINATION_LEVEL_ATTRIBUTE, String.class);
+                    
+					setTaughtCourses.add(new Examiner(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							examinationRole, examinationLevel, examinationInstitution));
+					break;
+					
+				case TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED:
+                    final String programDegreeLevel = childProperties.get(DEGREE_LEVEL_ATTRIBUTE, String.class);
+                    final String programPartners = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    final String programDegreeType = childProperties.get(DEGREE_TYPE_ATTRIBUTE, String.class);
+    				final String yearReleaseDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+    				final String monthReleaseDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+    				final String dayReleaseDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+                    
+					setTaughtCourses.add(new ProgramDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							programDegreeType, programDegreeLevel, programPartners, dayReleaseDate, monthReleaseDate, yearReleaseDate));
+					break;
+					
+                	/*
+                	 * Examination: pauk
+                	 * 	c-examination-role
+                	 * 	examination-level
+                	 * 	institution
+                	 * 	sed
+                	 * 
+                	 * Program Developed ejc
+                	 * 	degree-level
+                	 * 	title
+                	 * 	partners
+                	 * 	degree-type
+                	 * 	release-date
+                	 * 
+                	 * Courses Developed suzaw
+                	 *	
+                	 * Training	davio
+                	 * 
+                	 */
 
 				default:
 					break;
@@ -1761,12 +1815,16 @@ public class ScientistProfileHelper {
 	
 	public Set<TeachingActivityTemplate> getTeachingActivitySet(Map<String, Set<TeachingActivityTemplate>> activities, String teachingActivity){
 		Set<TeachingActivityTemplate> result = activities.get(teachingActivity);
+		LOG.error("size is: " + result.size());
 		return result;
 	}
 	
 	public String getSupervisions(Map<String, Set<TeachingActivityTemplate>> activities){
 		StringBuilder result = new StringBuilder(); 
+		LOG.error("gettingSupervisions");
+		LOG.error("The map has : " + activities.size());
 		Set<TeachingActivityTemplate> setSupervision = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_SUPERVISION); 
+		LOG.error("set Size " + setSupervision.size());
 		if (!setSupervision.isEmpty()) { 
 			result.append("<h3>Supervision</h3>");
 			for (final TeachingActivityTemplate activity: setSupervision) { 
@@ -1780,7 +1838,10 @@ public class ScientistProfileHelper {
 	
 	public String getTaughtCourses(Map<String, Set<TeachingActivityTemplate>> activities){
 		StringBuilder result = new StringBuilder(); 
-		Set<TeachingActivityTemplate> setTaughtCourses = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES); 
+		LOG.error("gettingTaughtCourses");
+		LOG.error("The map has : " + activities.size());
+		Set<TeachingActivityTemplate> setTaughtCourses = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES);
+		LOG.error("set Size " + setTaughtCourses.size());
 		if (!setTaughtCourses.isEmpty()) { 
 			result.append("<h3>Courses Taught</h3>");
 			for (final TeachingActivityTemplate activity: setTaughtCourses) { 
@@ -1792,9 +1853,8 @@ public class ScientistProfileHelper {
 		return result.toString();
 	}
 	
-	
 	public boolean displayTeachingActivitiesTab(Resource resource){
-		boolean res = false;
+		boolean res = true;
 		StringBuilder aux = new StringBuilder();
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Map<String, Set<TeachingActivityTemplate>> activities = helper.getTeachingActivities();
