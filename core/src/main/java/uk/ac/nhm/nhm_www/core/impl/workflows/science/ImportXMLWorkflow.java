@@ -1316,32 +1316,18 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	        default: return "Teaching Activity";
         }
     }
-//    private void addProfessionalActivities (final Node rootNode, final ProfessionalActivities activities) throws Exception {
-//        int i  = 0;
-//        
-//        ListIterator<Activity> listIt = activities.getAssociated().getActivity().listIterator();
+
     private void addTeachingActivities (final Node rootNode, final TeachingActivities activities, final String uniqueName) throws Exception {
         int i  = 0;
         
-    	LOG.error("Scanning: " + uniqueName );
+//    	LOG.error("Scanning: " + uniqueName );
         
-    	if (uniqueName.equals("adrian-glover")){
-    		int j=5;
-    		j++;
-    		LOG.error("Adrian should have teaching activities!" + j);
-    	}
-    	
-        List<Activity> list = activities.getAssociated().getActivity();
+        List<Ns1Object> list = activities.getAssociated().getTeachingActivity();
         
-        if (list.size() > 0) {
-			LOG.error("He has Teaching Activities!");	
-        }
-        
-        
-        ListIterator<Activity> listIt = list.listIterator();
+        ListIterator<Ns1Object> listIt = list.listIterator();
         while (listIt.hasNext()){
-        	Activity activity = listIt.next();
-        	LOG.error("Adding a teaching activity!");
+        	Ns1Object activity = listIt.next();
+//        	LOG.error("Adding a teaching activity!");
 
             final Node teachingANode = rootNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
             
@@ -1353,7 +1339,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                 for (Field field: record.getNative().getField()) {
                     switch (field.getName()) {
                         case "title":
-                        		LOG.error("##########Title: " + field.getText());
+//                        		LOG.error("Title: " + field.getText());
                         		teachingANode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
 	                            break;
                         case "url":

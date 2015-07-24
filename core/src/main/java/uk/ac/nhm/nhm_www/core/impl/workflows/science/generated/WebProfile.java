@@ -1699,7 +1699,7 @@ public class WebProfile {
     public static class TeachingActivities {
 
         @XmlElement(namespace = "", required = true)
-        protected WebProfile.TeachingActivities.Associated associated;
+        protected AssociatedClass associated;
 
         /**
          * Gets the value of the associated property.
@@ -1709,7 +1709,7 @@ public class WebProfile {
          *     {@link WebProfile.TeachingActivities.Associated }
          *     
          */
-        public WebProfile.TeachingActivities.Associated getAssociated() {
+        public AssociatedClass getAssociated() {
             return associated;
         }
 
@@ -1721,7 +1721,7 @@ public class WebProfile {
          *     {@link WebProfile.TeachingActivities.Associated }
          *     
          */
-        public void setAssociated(WebProfile.TeachingActivities.Associated value) {
+        public void setAssociated(AssociatedClass value) {
             this.associated = value;
         }
 
