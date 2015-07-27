@@ -1892,7 +1892,7 @@ public class ScientistProfileHelper {
 	}
 	
 	public boolean displayTeachingActivitiesTab(Resource resource){
-		boolean res = true;
+		boolean res = false;
 		StringBuilder aux = new StringBuilder();
 		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 		final Map<String, Set<TeachingActivityTemplate>> activities = helper.getTeachingActivities();
