@@ -9,6 +9,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Institution;
 public class ProgramDeveloped extends TeachingActivityTemplate {
 
 	private Institution[] institutions;
+	private PartnerOrganisation[] partners;
 	private String degreeType;
 	private String degreeLevel;
 	private String dayReleaseDate;
@@ -17,14 +18,15 @@ public class ProgramDeveloped extends TeachingActivityTemplate {
 
 	public ProgramDeveloped(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
 			String yearEndDate, String monthEndDate, String dayEndDate, String programDegreeType, String programDegreeLevel, String programPartners, 
-			String dayReleaseDate, String monthReleaseDate, String yearReleaseDate) {
+			String dayReleaseDate, String monthReleaseDate, String yearReleaseDate, String institution) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.degreeType = programDegreeType;
 		this.degreeLevel = programDegreeLevel;
 		this.dayReleaseDate = dayReleaseDate;
 		this.monthReleaseDate = monthReleaseDate;
 		this.yearReleaseDate = yearReleaseDate;
-		assignJSON(programPartners);
+		assignJSON(institution);
+		assignPartners(programPartners);
 	}
 	
 	private void assignJSON(String aux) {
@@ -47,6 +49,27 @@ public class ProgramDeveloped extends TeachingActivityTemplate {
 			this.institutions = null;
 		}
 	}
+	
+	private void assignPartners(String aux) {
+		try {
+			if (aux == null){
+				return;
+			}
+			final JSONObject jsonObject = new JSONObject(aux);
+			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
+			
+			this.partners = new PartnerOrganisation[jsonArray.length()];
+			
+			for (int i = 0; i < jsonArray.length(); i++) {
+				final JSONObject organisationJson = jsonArray.getJSONObject(i);
+				
+				final PartnerOrganisation partner = new PartnerOrganisation(organisationJson);
+				this.partners[i] = partner;
+			}
+		} catch (final JSONException e) {
+			this.partners = null;
+		}
+	}
 
 	@Override
 	public String getHTMLContent(String currentAuthor) {
@@ -64,6 +87,7 @@ public class ProgramDeveloped extends TeachingActivityTemplate {
 			stringBuffer.append(", ");
 		}
 		
+		// Institutions_
 		if ( institutions != null ){
 			for (Institution institution : institutions) {
 				// InstitutionName,_ 
@@ -80,6 +104,29 @@ public class ProgramDeveloped extends TeachingActivityTemplate {
 					if (institution.getCountry() != null){
 						stringBuffer.append(", ");
 						stringBuffer.append(institution.getCountry());
+					}
+				}
+				stringBuffer.append("<br>");
+			}
+		}
+		
+		// PartnerOrganisations_
+		if ( partners != null ){
+			for (PartnerOrganisation partner : partners) {
+				// InstitutionName,_ 
+				if (partner.getOrganisation() != null){
+					stringBuffer.append(partner.getOrganisation());
+				}
+				
+				// City,_
+				if (partner.getCity() != null){
+					stringBuffer.append(", ");
+					stringBuffer.append(partner.getCity() );
+					
+					// Country,_
+					if (partner.getCountry() != null){
+						stringBuffer.append(", ");
+						stringBuffer.append(partner.getCountry());
 					}
 				}
 				stringBuffer.append("<br>");

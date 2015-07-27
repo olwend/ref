@@ -1776,14 +1776,15 @@ public class ScientistProfileHelper {
 					
 				case TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED:
                     final String programDegreeLevel = childProperties.get(DEGREE_LEVEL_ATTRIBUTE, String.class);
-                    final String programPartners = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    final String programPartners = childProperties.get(PARTNER_ATTRIBUTE, String.class);
                     final String programDegreeType = childProperties.get(DEGREE_TYPE_ATTRIBUTE, String.class);
-    				final String yearReleaseDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
-    				final String monthReleaseDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
-    				final String dayReleaseDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+    				final String yearReleaseDate = childProperties.get(RELEASE_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+    				final String monthReleaseDate = childProperties.get(RELEASE_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+    				final String dayReleaseDate = childProperties.get(RELEASE_DATE_DAY_NAME_ATTRIBUTE, String.class);
+                    final String programDevelopedInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
                     
 					setProgramDeveloped.add(new ProgramDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							programDegreeType, programDegreeLevel, programPartners, dayReleaseDate, monthReleaseDate, yearReleaseDate));
+							programDegreeType, programDegreeLevel, programPartners, dayReleaseDate, monthReleaseDate, yearReleaseDate, programDevelopedInstitution));
 					break;
 					
 				case TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED:
@@ -1792,18 +1793,15 @@ public class ScientistProfileHelper {
 					if (coursesDevelopedCoContributors != null) {
 						coContributorsList = Arrays.asList(coursesDevelopedCoContributors);
 					}
-                    final String coursesDevelopedInstitution = childProperties.get(INSTITUTION_ATTRIBUTE, String.class);
-    				final String coursesDevelopedYearReleaseDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
-    				final String coursesDevelopedMonthReleaseDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
-    				final String coursesDevelopedDayReleaseDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+                    final String coursesDevelopedInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+    				final String coursesDevelopedYearReleaseDate = childProperties.get(RELEASE_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+    				final String coursesDevelopedMonthReleaseDate = childProperties.get(RELEASE_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+    				final String coursesDevelopedDayReleaseDate = childProperties.get(RELEASE_DATE_DAY_NAME_ATTRIBUTE, String.class);
                     
-					setProgramDeveloped.add(new CourseDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+					setCourseDeveloped.add(new CourseDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							coContributorsList, coursesDevelopedInstitution, coursesDevelopedDayReleaseDate, coursesDevelopedMonthReleaseDate, coursesDevelopedYearReleaseDate));
 					break;
 					
-					
-					
-
 				default:
 					break;
 				}
@@ -1815,22 +1813,17 @@ public class ScientistProfileHelper {
 		result.put(TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED, setProgramDeveloped);
 		result.put(TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED, setCourseDeveloped);
 		
-
 		return result;
 	}
 	
 	public Set<TeachingActivityTemplate> getTeachingActivitySet(Map<String, Set<TeachingActivityTemplate>> activities, String teachingActivity){
 		Set<TeachingActivityTemplate> result = activities.get(teachingActivity);
-		LOG.error("size is: " + result.size());
 		return result;
 	}
 	
 	public String getSupervisions(Map<String, Set<TeachingActivityTemplate>> activities){
 		StringBuilder result = new StringBuilder(); 
-		LOG.error("gettingSupervisions");
-		LOG.error("The map has : " + activities.size());
 		Set<TeachingActivityTemplate> setSupervision = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_SUPERVISION); 
-		LOG.error("set Size " + setSupervision.size());
 		if (!setSupervision.isEmpty()) { 
 			result.append("<h3>Supervision</h3>");
 			for (final TeachingActivityTemplate activity: setSupervision) { 
@@ -1844,13 +1837,52 @@ public class ScientistProfileHelper {
 	
 	public String getTaughtCourses(Map<String, Set<TeachingActivityTemplate>> activities){
 		StringBuilder result = new StringBuilder(); 
-		LOG.error("gettingTaughtCourses");
-		LOG.error("The map has : " + activities.size());
 		Set<TeachingActivityTemplate> setTaughtCourses = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES);
-		LOG.error("set Size " + setTaughtCourses.size());
 		if (!setTaughtCourses.isEmpty()) { 
 			result.append("<h3>Courses Taught</h3>");
 			for (final TeachingActivityTemplate activity: setTaughtCourses) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getExaminer(Map<String, Set<TeachingActivityTemplate>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<TeachingActivityTemplate> setExaminer = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_EXAMINER);
+		if (!setExaminer.isEmpty()) { 
+			result.append("<h3>Examiner</h3>");
+			for (final TeachingActivityTemplate activity: setExaminer) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getProgramDeveloped(Map<String, Set<TeachingActivityTemplate>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<TeachingActivityTemplate> setProgramDeveloped = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED);
+		if (!setProgramDeveloped.isEmpty()) { 
+			result.append("<h3>Program Developed</h3>");
+			for (final TeachingActivityTemplate activity: setProgramDeveloped) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getCourseDeveloped(Map<String, Set<TeachingActivityTemplate>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<TeachingActivityTemplate> setCourseDeveloped = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED);
+		if (!setCourseDeveloped.isEmpty()) { 
+			result.append("<h3>Course Developed</h3>");
+			for (final TeachingActivityTemplate activity: setCourseDeveloped) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
@@ -1868,6 +1900,9 @@ public class ScientistProfileHelper {
 		if (activities != null && !activities.isEmpty()) {
 			aux.append(helper.getSupervisions(activities));
 			aux.append(helper.getTaughtCourses(activities));
+			aux.append((helper.getExaminer(activities)));
+			aux.append(helper.getProgramDeveloped(activities));
+			aux.append(helper.getCourseDeveloped(activities));
 
 			if (aux.length() > 0){
 				res = true;

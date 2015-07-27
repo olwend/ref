@@ -1530,10 +1530,17 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	}
 	                        	break;
                         	
-                        case "c-examination-role":
+                        case "examination-role":
 	                        	final String examinationRole = field.getText();
 	                        	if ( examinationRole != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, examinationRole);
+	                        	}
+	                        	break;
+	                        	
+                        case "c-examination-role":
+	                        	final String cExaminationRole = field.getText();
+	                        	if ( cExaminationRole != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, cExaminationRole);
 	                        	}
 	                        	break;
                         	

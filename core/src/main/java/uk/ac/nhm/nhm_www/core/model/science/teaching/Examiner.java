@@ -9,7 +9,6 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Institution;
 public class Examiner extends TeachingActivityTemplate {
 
 	private Institution[] institutions;
-	private String courseLevel;
 	private String role;
 	private String level;
 
@@ -47,12 +46,12 @@ public class Examiner extends TeachingActivityTemplate {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
 		// Role,_ 
-		if (this.role != null && !this.role.equals("")){
+		if (this.role != null){
 			stringBuffer.append(this.role);
-			stringBuffer.append(", ");
 			
 			// Level,_ 
-			if (this.level != null && !this.level.equals("")){
+			if (this.level != null){
+				stringBuffer.append(", ");
 				stringBuffer.append(this.level);
 			}
 			stringBuffer.append("<br>");
@@ -70,11 +69,11 @@ public class Examiner extends TeachingActivityTemplate {
 					stringBuffer.append(", ");
 					stringBuffer.append(institution.getCity() );
 					
-					// Country,_
-					if (institution.getCountry() != null){
-						stringBuffer.append(", ");
-						stringBuffer.append(institution.getCountry());
-					}
+				}
+				// Country,_
+				if (institution.getCountry() != null){
+					stringBuffer.append(", ");
+					stringBuffer.append(institution.getCountry());
 				}
 				stringBuffer.append("<br>");
 			}

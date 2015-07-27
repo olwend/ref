@@ -62,6 +62,7 @@ public class Supervision extends TeachingActivityTemplate {
 				stringBuffer.append(this.otherDegreeType);
 			} else {
 				stringBuffer.append(this.degreeType);
+				stringBuffer.append(" ");
 			}
 		}
 		

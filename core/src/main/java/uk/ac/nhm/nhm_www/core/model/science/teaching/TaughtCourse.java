@@ -57,6 +57,7 @@ public class TaughtCourse extends TeachingActivityTemplate {
 			
 			// CourseLevel,_ 
 			if (this.courseLevel != null && !this.courseLevel.equals("")){
+				stringBuffer.append(" ");
 				stringBuffer.append(this.courseLevel);
 			}
 			stringBuffer.append("<br>");

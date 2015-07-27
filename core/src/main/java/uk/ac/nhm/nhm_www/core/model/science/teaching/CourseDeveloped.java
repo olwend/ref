@@ -70,21 +70,6 @@ public class CourseDeveloped extends TeachingActivityTemplate {
 			stringBuffer.append(", ");
 		}
 		
-		
-		// releaseDay / releaseMonth / releaseYear
-		if (this.yearReleaseDate != null){
-			if (this.monthReleaseDate != null){
-				if ( this.dayReleaseDate != null) {
-					stringBuffer.append(this.dayReleaseDate);
-					stringBuffer.append("/");
-				}
-				stringBuffer.append(this.monthReleaseDate);
-				stringBuffer.append("/");
-			}
-			stringBuffer.append(this.yearReleaseDate);
-			stringBuffer.append("<br>");
-		}
-		
 		if ( institutions != null ){
 			for (Institution institution : institutions) {
 				// InstitutionName,_ 
@@ -105,6 +90,20 @@ public class CourseDeveloped extends TeachingActivityTemplate {
 				}
 				stringBuffer.append("<br>");
 			}
+		}
+		
+		// releaseDay / releaseMonth / releaseYear
+		if (this.yearReleaseDate != null){
+			if (this.monthReleaseDate != null){
+				if ( this.dayReleaseDate != null) {
+					stringBuffer.append(this.dayReleaseDate);
+					stringBuffer.append("/");
+				}
+				stringBuffer.append(this.monthReleaseDate);
+				stringBuffer.append("/");
+			}
+			stringBuffer.append(this.yearReleaseDate);
+			stringBuffer.append("<br>");
 		}
 		
 		return stringBuffer.toString();

@@ -13,11 +13,20 @@
 <% if (activities != null && !activities.isEmpty()) { %>
 	<div id="teachingactivities" class="content science-profiles-detail-page--tabs-content-container">
 	
-		<%-- Courses Taught --%>
+		<%-- Taught Courses --%>
 		<%= helper.getTaughtCourses(activities) %>
 			
 		<%-- Supervisions --%>
 		<%= helper.getSupervisions(activities) %>
+		
+		<%-- Examiner --%>
+		<%= helper.getExaminer(activities) %>
+		
+		<%-- Program Developed --%>
+		<%= helper.getProgramDeveloped(activities) %>
+		
+		<%-- Courses developed --%>
+		<%= helper.getCourseDeveloped(activities) %>
 		
 	</div>
 <% } %>
