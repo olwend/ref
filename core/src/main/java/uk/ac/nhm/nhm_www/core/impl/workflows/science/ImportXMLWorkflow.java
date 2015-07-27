@@ -1501,116 +1501,122 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		teachingANode.setProperty(ScientistProfileHelper.PERSON_ATTRIBUTE, personString);
 	                        	}
 	                        	break;  
+                            
+						case "co-contributors":
+								if (field.getPeople() != null) {
+									final List<Person> coContributorsPersonList = field.getPeople().getPerson();
+									
+									String[] coContributors = new String[coContributorsPersonList.size()];
+									
+									for (int j = 0; j < coContributorsPersonList.size(); j++) {
+										Person coContributor = coContributorsPersonList.get(j);
+										coContributors[j] =  coContributor.getLastName() + " " + coContributor.getInitials();
+									}
+									teachingANode.setProperty(ScientistProfileHelper.CO_CONTRIBUTORS_ATTRIBUTE, coContributors);
+								}
+								break;
 	                        	
-                        case "co-contributors":
-	                        	final Person contributors = field.getPerson();
-	                        	if ( contributors != null ){
-	                        		String contributorsString = contributors.getLastName() + " " + contributors.getInitials();
-	                        		teachingANode.setProperty(ScientistProfileHelper.CO_CONTRIBUTORS_ATTRIBUTE, contributorsString);
+                        case "c-degree-subject":                       	
+	                        	final String degreeSubject = field.getText();
+	                        	if ( degreeSubject != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_SUBJECT_ATTRIBUTE, degreeSubject);
 	                        	}
 	                        	break; 
 	                        	
-                        case "c-degree-subject":                       	
-                        	final String degreeSubject = field.getText();
-                        	if ( degreeSubject != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_SUBJECT_ATTRIBUTE, degreeSubject);
-                        	}
-                        	break; 
-	                        	
                         case "c-funder":
-                        	final String funder = field.getText();
-                        	if ( funder != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.FUNDER_ATTRIBUTE, funder);
-                        	}
-                        	break;
+	                        	final String funder = field.getText();
+	                        	if ( funder != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.FUNDER_ATTRIBUTE, funder);
+	                        	}
+	                        	break;
                         	
                         case "c-examination-role":
-                        	final String examinationRole = field.getText();
-                        	if ( examinationRole != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, examinationRole);
-                        	}
-                        	break;
+	                        	final String examinationRole = field.getText();
+	                        	if ( examinationRole != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, examinationRole);
+	                        	}
+	                        	break;
                         	
                         case "c-examination-level":
-                        	final String examinationLevel = field.getText();
-                        	if ( examinationLevel != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_LEVEL_ATTRIBUTE, examinationLevel);
-                        	}
-                        	break;
+	                        	final String examinationLevel = field.getText();
+	                        	if ( examinationLevel != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_LEVEL_ATTRIBUTE, examinationLevel);
+	                        	}
+	                        	break;
                         	
                         case "degree-level":
-                        	final String degreeLevel = field.getText();
-                        	if ( degreeLevel != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_LEVEL_ATTRIBUTE, degreeLevel);
-                        	}
-                        	break;
+	                        	final String degreeLevel = field.getText();
+	                        	if ( degreeLevel != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_LEVEL_ATTRIBUTE, degreeLevel);
+	                        	}
+	                        	break;
                         	
                         case "degree-type":
-                        	final String programDegreeType = field.getText();
-                        	if ( programDegreeType != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_TYPE_ATTRIBUTE, programDegreeType);
-                        	}
-                        	break;
+	                        	final String programDegreeType = field.getText();
+	                        	if ( programDegreeType != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_TYPE_ATTRIBUTE, programDegreeType);
+	                        	}
+	                        	break;
                         	
                         case "partners":	
-                            final ListIterator<Address> partnersList = field.getAddresses().getAddress().listIterator();
-                            JSONArray jsonPartnersArray = new JSONArray(); 
-                            
-                            while(partnersList.hasNext()) {
-                            	Address address = partnersList.next();
-                            	List<java.lang.Object> lines = address.getContent();
-                            	
-                            	JSONObject jsonAddress = new JSONObject();
-                            	for (final java.lang.Object object : lines) {
-                            		if (! (object instanceof Line)) {
-                            			continue;
-                            		}
-                            		final Line line = (Line) object;
-                            		switch (line.getType()) {
-                            		case "name":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("name", line.getContent());
-                            			}
-                            			break;
-                            		case "organisation":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("organisation", line.getContent());
-                            			}
-                            			break;
-                            		case "city":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("city", line.getContent());
-                            			}
-                            			break;
-                            		case "country":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("country", line.getContent());
-                            			}
-                            			break;
-                            		}
-                            		
-                            	}
-                            	jsonPartnersArray.put(jsonAddress);
-							}
-                            final JSONObject partners = new JSONObject();
-                            partners.put("partners", jsonPartnersArray);
-                            teachingANode.setProperty(ScientistProfileHelper.PARTNER_ATTRIBUTE, partners.toString());
-                            break;
+	                            final ListIterator<Address> partnersList = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonPartnersArray = new JSONArray(); 
+	                            
+	                            while(partnersList.hasNext()) {
+	                            	Address address = partnersList.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            		
+	                            	}
+	                            	jsonPartnersArray.put(jsonAddress);
+								}
+	                            final JSONObject partners = new JSONObject();
+	                            partners.put("partners", jsonPartnersArray);
+	                            teachingANode.setProperty(ScientistProfileHelper.PARTNER_ATTRIBUTE, partners.toString());
+	                            break;
                             
                         case "release-date":
-                        	final BigInteger releaseYear = field.getDate().getYear();
-                        	final BigInteger releaseMonth = field.getDate().getMonth();
-                        	final BigInteger releaseDay = field.getDate().getDay();
-                        	if ( releaseYear != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_YEAR_NAME_ATTRIBUTE, releaseYear.longValue());
-                        	}
-                        	if ( releaseMonth != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_MONTH_NAME_ATTRIBUTE, releaseMonth.longValue());
-                        	}
-                        	if ( releaseDay != null ){
-                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_DAY_NAME_ATTRIBUTE, releaseDay.longValue());
-                        	}
-                        	break;
+	                        	final BigInteger releaseYear = field.getDate().getYear();
+	                        	final BigInteger releaseMonth = field.getDate().getMonth();
+	                        	final BigInteger releaseDay = field.getDate().getDay();
+	                        	if ( releaseYear != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_YEAR_NAME_ATTRIBUTE, releaseYear.longValue());
+	                        	}
+	                        	if ( releaseMonth != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_MONTH_NAME_ATTRIBUTE, releaseMonth.longValue());
+	                        	}
+	                        	if ( releaseDay != null ){
+	                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_DAY_NAME_ATTRIBUTE, releaseDay.longValue());
+	                        	}
+	                        	break;
 
                     }
                 }

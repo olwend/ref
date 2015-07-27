@@ -54,6 +54,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectType;
+import uk.ac.nhm.nhm_www.core.model.science.teaching.CourseDeveloped;
 import uk.ac.nhm.nhm_www.core.model.science.teaching.Examiner;
 import uk.ac.nhm.nhm_www.core.model.science.teaching.ProgramDeveloped;
 import uk.ac.nhm.nhm_www.core.model.science.teaching.Supervision;
@@ -1702,6 +1703,9 @@ public class ScientistProfileHelper {
 		
 		Set<TeachingActivityTemplate> setSupervisions = new TreeSet<TeachingActivityTemplate>();
 		Set<TeachingActivityTemplate> setTaughtCourses = new TreeSet<TeachingActivityTemplate>();
+		Set<TeachingActivityTemplate> setExaminer = new TreeSet<TeachingActivityTemplate>();
+		Set<TeachingActivityTemplate> setProgramDeveloped = new TreeSet<TeachingActivityTemplate>();
+		Set<TeachingActivityTemplate> setCourseDeveloped = new TreeSet<TeachingActivityTemplate>();
 		
 		final Resource teachingActivitiesResource = this.resource.getChild(nodeName);
 		
@@ -1766,7 +1770,7 @@ public class ScientistProfileHelper {
                     final String examinationLevel = childProperties.get(EXAMINATION_LEVEL_ATTRIBUTE, String.class);
                     final String examinationInstitution = childProperties.get(EXAMINATION_LEVEL_ATTRIBUTE, String.class);
                     
-					setTaughtCourses.add(new Examiner(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+					setExaminer.add(new Examiner(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							examinationRole, examinationLevel, examinationInstitution));
 					break;
 					
@@ -1778,29 +1782,27 @@ public class ScientistProfileHelper {
     				final String monthReleaseDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
     				final String dayReleaseDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
                     
-					setTaughtCourses.add(new ProgramDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+					setProgramDeveloped.add(new ProgramDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							programDegreeType, programDegreeLevel, programPartners, dayReleaseDate, monthReleaseDate, yearReleaseDate));
 					break;
 					
-                	/*
-                	 * Examination: pauk
-                	 * 	c-examination-role
-                	 * 	examination-level
-                	 * 	institution
-                	 * 	sed
-                	 * 
-                	 * Program Developed ejc
-                	 * 	degree-level
-                	 * 	title
-                	 * 	partners
-                	 * 	degree-type
-                	 * 	release-date
-                	 * 
-                	 * Courses Developed suzaw
-                	 *	
-                	 * Training	davio
-                	 * 
-                	 */
+				case TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED:
+					final String[] coursesDevelopedCoContributors = childProperties.get(CO_CONTRIBUTORS_ATTRIBUTE, String[].class);
+					List<String> coContributorsList = new ArrayList<>();
+					if (coursesDevelopedCoContributors != null) {
+						coContributorsList = Arrays.asList(coursesDevelopedCoContributors);
+					}
+                    final String coursesDevelopedInstitution = childProperties.get(INSTITUTION_ATTRIBUTE, String.class);
+    				final String coursesDevelopedYearReleaseDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+    				final String coursesDevelopedMonthReleaseDate = childProperties.get(START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+    				final String coursesDevelopedDayReleaseDate = childProperties.get(START_DATE_DAY_NAME_ATTRIBUTE, String.class);
+                    
+					setProgramDeveloped.add(new CourseDeveloped(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
+							coContributorsList, coursesDevelopedInstitution, coursesDevelopedDayReleaseDate, coursesDevelopedMonthReleaseDate, coursesDevelopedYearReleaseDate));
+					break;
+					
+					
+					
 
 				default:
 					break;
@@ -1809,6 +1811,10 @@ public class ScientistProfileHelper {
 		}
 		result.put(TEACHING_ACTIVITIES_TYPE_SUPERVISION, setSupervisions);
 		result.put(TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES, setTaughtCourses);
+		result.put(TEACHING_ACTIVITIES_TYPE_EXAMINER, setExaminer);
+		result.put(TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED, setProgramDeveloped);
+		result.put(TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED, setCourseDeveloped);
+		
 
 		return result;
 	}
