@@ -196,9 +196,9 @@ function saveSearchTerms() {
 		ignoreURL = true;
 	}
 	
-//	if (collectionsGroup != 'All') {
-//		ignoreURL = true;
-//	}
+	if (collectionsGroup != 'All') {
+		ignoreURL = true;
+	}
 	
 	if (!ignoreURL){
 		aux = $.getUrlVar('name');
@@ -224,17 +224,17 @@ function saveSearchTerms() {
 				departmentDivision = aux;
 			}
 		}
-//		aux = $.getUrlVar('collection');
-//		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-//			loadCollectionsFromURL = true;
-//			collectionsGroup = aux;
-//		} else {
-//			aux = $.getUrlVar('group');
-//			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-//				loadCollectionsFromURL = true;
-//				collectionsGroup = aux;
-//			}
-//		}
+		aux = $.getUrlVar('collection');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadCollectionsFromURL = true;
+			collectionsGroup = aux;
+		} else {
+			aux = $.getUrlVar('group');
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadCollectionsFromURL = true;
+				collectionsGroup = aux;
+			}
+		}
 	}
 }
 
