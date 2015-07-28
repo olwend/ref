@@ -173,8 +173,8 @@ function saveSearchTerms() {
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
 	
-	$collectionGroupSelected = $("#collection option:selected");
-	collectionsGroup = $collectionGroupSelected.val();
+//	$collectionGroupSelected = $("#collection option:selected");
+//	collectionsGroup = $collectionGroupSelected.val();
 	
 	// #######################################
 	// #### Should URL Parameters be used ####
@@ -196,9 +196,9 @@ function saveSearchTerms() {
 		ignoreURL = true;
 	}
 	
-	if (collectionsGroup != 'All') {
-		ignoreURL = true;
-	}
+//	if (collectionsGroup != 'All') {
+//		ignoreURL = true;
+//	}
 	
 	if (!ignoreURL){
 		aux = $.getUrlVar('name');
@@ -224,17 +224,17 @@ function saveSearchTerms() {
 				departmentDivision = aux;
 			}
 		}
-		aux = $.getUrlVar('collection');
-		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-			loadCollectionsFromURL = true;
-			collectionsGroup = aux;
-		} else {
-			aux = $.getUrlVar('group');
-			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-				loadCollectionsFromURL = true;
-				collectionsGroup = aux;
-			}
-		}
+//		aux = $.getUrlVar('collection');
+//		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+//			loadCollectionsFromURL = true;
+//			collectionsGroup = aux;
+//		} else {
+//			aux = $.getUrlVar('group');
+//			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+//				loadCollectionsFromURL = true;
+//				collectionsGroup = aux;
+//			}
+//		}
 	}
 }
 
@@ -325,23 +325,23 @@ function searchFunc(maxResults) {
 		}
 	}
 
-	if(loadCollectionsFromURL && !ignoreURL) {		
-		var $collection = document.getElementById("collection");
-		$collection.value = decodeURIComponent(collectionsGroup);
-		$collectionGroupSelected = $("#collection option:selected");
-	}
-	
-	if (collectionsGroup != "All") {
-		if ($collectionGroupSelected.hasClass("collection")) {
-			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
-		}
-		
-		if ($collectionGroupSelected.hasClass("group")) {
-			var collection = $collectionGroupSelected.data("collection");
-			var group = $collectionGroupSelected.data("group");
-			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
-		}
-	}
+//	if(loadCollectionsFromURL && !ignoreURL) {		
+//		var $collection = document.getElementById("collection");
+//		$collection.value = decodeURIComponent(collectionsGroup);
+//		$collectionGroupSelected = $("#collection option:selected");
+//	}
+//	
+//	if (collectionsGroup != "All") {
+//		if ($collectionGroupSelected.hasClass("collection")) {
+//			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
+//		}
+//		
+//		if ($collectionGroupSelected.hasClass("group")) {
+//			var collection = $collectionGroupSelected.data("collection");
+//			var group = $collectionGroupSelected.data("group");
+//			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
+//		}
+//	}
 	
 	if (nodes.length < maxResults) {
 		$("#show-more").hide();
