@@ -1839,7 +1839,7 @@ public class ScientistProfileHelper {
 		StringBuilder result = new StringBuilder(); 
 		Set<TeachingActivityTemplate> setTaughtCourses = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_TAUGHT_COURSES);
 		if (!setTaughtCourses.isEmpty()) { 
-			result.append("<h3>Courses Taught</h3>");
+			result.append("<h3>Courses taught</h3>");
 			for (final TeachingActivityTemplate activity: setTaughtCourses) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1867,7 +1867,7 @@ public class ScientistProfileHelper {
 		StringBuilder result = new StringBuilder(); 
 		Set<TeachingActivityTemplate> setProgramDeveloped = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_PROGRAM_DEVELOPED);
 		if (!setProgramDeveloped.isEmpty()) { 
-			result.append("<h3>Program Developed</h3>");
+			result.append("<h3>Program developed</h3>");
 			for (final TeachingActivityTemplate activity: setProgramDeveloped) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
@@ -1881,7 +1881,7 @@ public class ScientistProfileHelper {
 		StringBuilder result = new StringBuilder(); 
 		Set<TeachingActivityTemplate> setCourseDeveloped = getTeachingActivitySet(activities, ScientistProfileHelper.TEACHING_ACTIVITIES_TYPE_COURSES_DEVELOPED);
 		if (!setCourseDeveloped.isEmpty()) { 
-			result.append("<h3>Course Developed</h3>");
+			result.append("<h3>Course developed</h3>");
 			for (final TeachingActivityTemplate activity: setCourseDeveloped) { 
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));

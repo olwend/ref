@@ -62,8 +62,8 @@ public class Supervision extends TeachingActivityTemplate {
 				stringBuffer.append(this.otherDegreeType);
 			} else {
 				stringBuffer.append(this.degreeType);
-				stringBuffer.append(" ");
 			}
+			stringBuffer.append(" ");
 		}
 		
 		// SupervisoryRole to Person NM_<br>
@@ -76,7 +76,7 @@ public class Supervision extends TeachingActivityTemplate {
 		
 		// Co supervisor(s) Person NM
 		if (this.coContributors != null ){
-			stringBuffer.append("Co supervisor(s) ");
+			stringBuffer.append("Co supervisor(s): ");
 			stringBuffer.append(this.coContributors);
 			stringBuffer.append("<br>");
 		}
@@ -109,13 +109,14 @@ public class Supervision extends TeachingActivityTemplate {
 						stringBuffer.append(institution.getCountry());
 					}
 				}
-				stringBuffer.append(" ");
+				stringBuffer.append("<br>");
 			}
 		}
 		
 		if ( this.funder != null ){
-			stringBuffer.append("Funded by ");
+			stringBuffer.append("Funding: ");
 			stringBuffer.append(this.funder);
+			stringBuffer.append("<br>");
 		}
 		
 		// startDay / startMonth / startYear - endDay / endMonth / endYear. || startDay / starthMonth / startYear - on going.

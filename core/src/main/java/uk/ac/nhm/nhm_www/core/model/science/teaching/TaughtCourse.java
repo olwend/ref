@@ -43,6 +43,12 @@ public class TaughtCourse extends TeachingActivityTemplate {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
+		// CourseLevel,_ 
+		if (this.courseLevel != null && !this.courseLevel.equals("")){
+			stringBuffer.append(this.courseLevel);
+			stringBuffer.append(": ");
+		}
+		
 		// <a href=url>CourseTitle</a>,_ 
 		if (this.title != null && !this.title.equals("")){
 			if (this.url != null) {
@@ -53,12 +59,6 @@ public class TaughtCourse extends TeachingActivityTemplate {
 			stringBuffer.append(this.title);
 			if (this.url != null) {
 				stringBuffer.append("</a>");
-			}
-			
-			// CourseLevel,_ 
-			if (this.courseLevel != null && !this.courseLevel.equals("")){
-				stringBuffer.append(" ");
-				stringBuffer.append(this.courseLevel);
 			}
 			stringBuffer.append("<br>");
 		}
