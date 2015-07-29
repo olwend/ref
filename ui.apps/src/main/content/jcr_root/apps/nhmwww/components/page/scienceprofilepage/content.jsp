@@ -68,7 +68,7 @@
 					<% } %>
 					
 					<% if (displayTeachingActivitiesTab) { %>
-						<li class="tab-title"><a href="#panel5">Teaching Activities</a></li> 
+						<li class="tab-title"><a href="#panel5">Teaching activities</a></li> 
 					<% } %>
 				</ul>
 				<div class="tabs-content">
@@ -115,7 +115,7 @@
 					<% } %>
 					<% if (displayProfessionalActivitiesTab) { %>
 						<dd class="accordion-navigation">
-							<a href="#panel3b">Professional Activities</a>
+							<a href="#panel3b">Professional activities</a>
 							<div id="panel3b" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="professionalactivities.jsp" />
 							</div>
@@ -131,7 +131,7 @@
 					<% } %>
 					<% if (displayTeachingActivitiesTab) { %>
 						<dd class="accordion-navigation">
-							<a href="#panel5d">Publications</a>
+							<a href="#panel5d">Teaching activities</a>
 							<div id="panel5d" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="teachingactivities.jsp" />
 							</div>
