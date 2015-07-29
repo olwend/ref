@@ -1,0 +1,178 @@
+/* Dino Directory */
+div#page-container {
+  width: 940px !important;
+  /* had to add !important due to another stylesheet (wide-modifications.css) also having !important */
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+#page-body {
+  padding: 0;
+}
+
+.nhm-breadcrumb {
+  text-align: left;
+}
+
+.main-footer .framed-wrapper {
+  text-align: left;
+}
+.main-footer .footer-utility legend, .main-footer .footer-utility .errors {
+  color: #fff;
+}
+
+#page-body .dino-home h1 {
+  background-size: contain;
+  height: 555px;
+  width: 627px !important;
+}
+
+#dino p {
+  font-size: 14.6px;
+}
+#dino #dino-wrap h2 {
+  padding-top: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #a73333;
+  font-size: 24.3333px;
+  font-weight: bold;
+}
+#dino #dino-wrap h2 span {
+  color: #fff;
+  font-size: 23px;
+}
+#dino #dino-wrap .dino-card h2 {
+  font-weight: normal;
+  font-size: 23px;
+}
+#dino #dino-wrap .dino-card .dino-card-link {
+  background-position: 96% 50%;
+}
+#dino #dino-wrap .dino-wide h2 {
+  font-size: 15px;
+  color: #434343;
+}
+#dino #dino-wrap h3 {
+  font-size: 17.0333px;
+  font-weight: bold;
+  color: #a73333;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+#dino #dino-wrap table {
+  border-collapse: initial;
+  border-spacing: 2px;
+}
+#dino #dino-wrap .sorted {
+  width: 135px;
+}
+#dino #dino-wrap .sortable {
+  width: 226px;
+}
+#dino #dino-wrap .dino-gallery li {
+  box-sizing: initial;
+}
+#dino #dino-wrap .dino-gallery a:hover {
+  color: #a73333;
+}
+#dino #dino-wrap .dino-gallery p {
+  font-size: 13px;
+  color: #a73333;
+}
+#dino #dino-wrap #row, #dino #dino-wrap #time {
+  font-size: 12.1667px;
+}
+#dino #dino-wrap #row th, #dino #dino-wrap #time th {
+  padding: 10px 9px;
+}
+#dino #dino-wrap #row td, #dino #dino-wrap #time td {
+  padding: 8px;
+}
+#dino #dino-wrap #row td a, #dino #dino-wrap #row td a:hover, #dino #dino-wrap #time td a, #dino #dino-wrap #time td a:hover {
+  color: #a73333;
+}
+#dino #dino-wrap .atoz a {
+  font-size: 13.3833px;
+  padding: 10px 8px;
+}
+#dino #dino-wrap .continent-caption {
+  font-size: 12.1667px;
+}
+#dino #dino-wrap .dino-list {
+  box-sizing: initial;
+}
+#dino #dino-wrap .dino-list a {
+  font-size: 12.1667px;
+  color: #a73333;
+}
+#dino #dino-wrap .country-list li a {
+  font-size: 13.3833px;
+}
+#dino #dino-wrap #body-map a span {
+  font-size: 12.1667px;
+}
+#dino #dino-wrap .recordset-nav-pages {
+  font-size: 12.1667px;
+}
+#dino #dino-wrap .dino-facts dt, #dino #dino-wrap .dino-facts dd {
+  font-size: 14.6px;
+}
+#dino #dino-wrap .dino-facts dd {
+  margin-bottom: 3px;
+}
+#dino #dino-wrap .dino-facts .length {
+  margin-top: 3px;
+}
+
+.dino-navsub .not-a-link a {
+  cursor: initial;
+}
+.dino-navsub span a:hover {
+  color: #4e4e4e;
+}
+.dino-navsub ul {
+  padding-left: 0;
+}
+.dino-navsub ul li a {
+  color: #a73333;
+}
+.dino-navsub ul li a:hover {
+  color: #a73333;
+}
+
+#column-a h1 {
+  font-size: 29.2px;
+  color: #a73333;
+  font-weight: bold;
+}
+#column-a h2 {
+  padding-top: 0;
+}
+#column-a h4 {
+  font-size: 14.6px;
+  color: #a73333;
+  font-weight: bold;
+}
+
+.what-panel .column-b h4 {
+  font-size: 14.6px;
+  color: #a73333;
+  font-weight: bold;
+}
+.what-panel .column-b ul {
+  font-size: 12.1667px;
+}
+.what-panel .column-b ul a {
+  color: #a73333;
+}
+
+.dino-media .enlarge {
+  display: none !important;
+  /*Used important to override any js styling from lightbox*/
+}
+
+/*# sourceMappingURL=nhm-legacy-dino-directory.css.map */
