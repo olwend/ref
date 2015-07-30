@@ -75,6 +75,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 #dino #dino-wrap .dino-gallery li {
   box-sizing: initial;
+  width: 115px;
+}
+#dino #dino-wrap .dino-gallery li a img {
+  height: 105px !important;
+  width: 105px !important;
 }
 #dino #dino-wrap .dino-gallery a:hover {
   color: #a73333;
@@ -89,8 +94,11 @@ h1, h2, h3, h4, h5, h6 {
 #dino #dino-wrap #row th, #dino #dino-wrap #time th {
   padding: 10px 9px;
 }
+#dino #dino-wrap #row [class*="span"], #dino #dino-wrap #time [class*="span"] {
+  margin-left: 0px;
+}
 #dino #dino-wrap #row td, #dino #dino-wrap #time td {
-  padding: 8px;
+  padding: 8px 0 8px 20px;
 }
 #dino #dino-wrap #row td a, #dino #dino-wrap #row td a:hover, #dino #dino-wrap #time td a, #dino #dino-wrap #time td a:hover {
   color: #a73333;
@@ -175,4 +183,4 @@ h1, h2, h3, h4, h5, h6 {
   /*Used important to override any js styling from lightbox*/
 }
 
-/*# sourceMappingURL=nhm-legacy-dino-directory.css.map */
+/*# sourceMappingURL=nhm-legacy-dinodirectory.css.map */
