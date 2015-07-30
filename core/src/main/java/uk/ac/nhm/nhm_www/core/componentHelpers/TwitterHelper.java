@@ -51,6 +51,13 @@ public class TwitterHelper extends HelperBase {
 			
 			else if (this.widgetId.equals("nhm-tring"))
 			{return "535468327502888960";}
+			
+			else if (this.widgetId.equals("nhm-journal-systematic-palaentology"))
+			{return "483645576722911233";}
+			
+			else if (this.widgetId.equals("nhm-filming"))
+			{return "570240166699495424";}
+
 		}
 		return null;
 	}

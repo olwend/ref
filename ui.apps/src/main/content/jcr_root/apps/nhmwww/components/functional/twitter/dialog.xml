@@ -61,6 +61,14 @@
                             jcr:primaryType="nt:unstructured"
                             text="@NHM_Tring"
                             value="nhm-tring"/>
+                        <o13
+                            jcr:primaryType="nt:unstructured"
+                            text="@JournalSystPal"
+                            value="nhm-journal-systematic-palaentology"/> 
+                        <o14
+                            jcr:primaryType="nt:unstructured"
+                            text="@Filming_at_NHM"
+                            value="nhm-filming"/>
                     </options>
                 </widgetid>
                 <height
