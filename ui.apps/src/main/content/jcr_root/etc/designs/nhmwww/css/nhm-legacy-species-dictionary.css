@@ -1,0 +1,19 @@
+div#page-container {
+  width: 1160px !important;
+}
+
+.title {
+  margin-bottom: 1.2em;
+}
+
+#nav-content {
+  margin-right: 0;
+}
+#nav-content ul li {
+  font-size: 12px;
+}
+#nav-content ul li a {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=nhm-legacy-species-dictionary.css.map */
