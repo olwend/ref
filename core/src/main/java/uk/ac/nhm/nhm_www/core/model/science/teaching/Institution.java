@@ -1,4 +1,4 @@
-package uk.ac.nhm.nhm_www.core.model.science.proactivities;
+package uk.ac.nhm.nhm_www.core.model.science.teaching;
 
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;

@@ -1,15 +1,15 @@
-package uk.ac.nhm.nhm_www.core.model.science.proactivities;
+package uk.ac.nhm.nhm_www.core.model.science.teaching;
 
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 
-public class Institution {
+public class PartnerOrganisation {
 	protected String name;
 	protected String organisation;
 	protected String city;
 	protected String country;
 
-	public Institution(JSONObject jsonObject) {
+	public PartnerOrganisation(JSONObject jsonObject) {
 		try {
 			this.name = jsonObject.getString("name");
 		} catch (JSONException e) {

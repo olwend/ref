@@ -88,14 +88,14 @@
 				</div>
 				<%-- <div class="small-12 medium-12 large-12 columns">
 					<select id="collection" class="mb-0">
-						<option value="All" selected="selected">Collections</option>--%>
+						<option value="All" selected="selected">Collections</option>
 						<%-- Collection: FakeFilter_Research --%>
-						<%-- <option class="collection" id="Research" value="Research">FakeFilter F:Research</option>
-						<option class="group" id="Purvis Lab" value="Purvis Lab" data-collection="Research" data-group="Purvis Lab">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Research, G:Purvis Lab</option> --%> <%--Botany / Algae --%>
+						<%-- <option class="collection" id="Research" value="Research">FakeFilter F:Research</option> --%>
+						<%-- <option class="group" id="Purvis Lab" value="Purvis Lab" data-collection="Research" data-group="Purvis Lab">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Research, G:Purvis Lab</option>--%> <%--Botany / Algae --%>
 					
 						<%-- Collection: FakeFilter_Collections --%>
-						<%-- <option class="collection" id="Collections" value="Collections">FakeFilter F:Collections</option>
-						<option class="group" id="Curator" value="Curator" data-collection="Collections" data-group="Curator">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Collections, G:Curator</option> --%> <%--Botany / Algae --%>
+						<%-- <option class="collection" id="Collections" value="Collections">FakeFilter F:Collections</option> --%>
+						<%-- <option class="group" id="Curator" value="Curator" data-collection="Collections" data-group="Curator">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter F:Collections, G:Curator</option> --%> <%--Botany / Algae --%>
 	
 					    <%-- Collection: Botany --%>
 					    <%-- <option class="collection" id="Botany" value="Botany">Botany collections</option>
@@ -156,8 +156,8 @@
 					
 					    <%-- Collection: Molecular --%>
 					    <%-- <option class="collection" id="Molecular" value="Molecular">Molecular collections</option>
-					</select>
-				</div>--%>
+					</select> 
+				</div> --%>
 			</li>
 			<li>
 				<div class="small-12 medium-12 large-12 columns directory-search-button--container">

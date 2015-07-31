@@ -50,10 +50,10 @@ import javax.xml.bind.annotation.XmlType;
     "activity",
     "teachingActivity"
 })
-public class Associated {
+public class AssociatedClass {
 
     @XmlElement(namespace = "", required = true)
-    protected List<Associated.Activity> activity;
+    protected List<AssociatedClass.Activity> activity;
     @XmlElement(name = "teaching-activity", namespace = "", required = true)
     protected List<Ns1Object> teachingActivity;
 
@@ -75,13 +75,13 @@ public class Associated {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Associated.Activity }
+     * {@link AssociatedClass.Activity }
      * 
      * 
      */
-    public List<Associated.Activity> getActivity() {
+    public List<AssociatedClass.Activity> getActivity() {
         if (activity == null) {
-            activity = new ArrayList<Associated.Activity>();
+            activity = new ArrayList<AssociatedClass.Activity>();
         }
         return this.activity;
     }
