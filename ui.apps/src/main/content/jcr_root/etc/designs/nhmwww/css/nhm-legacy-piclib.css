@@ -1,58 +1,116 @@
-.legacy-css p, .legacy-css input, .legacy-css select, .legacy-css textarea, .legacy-css ol, .legacy-css ul, .legacy-css li {
-  font-size: 1em;
-}
-.legacy-css a {
+a {
   font-weight: normal;
   border-bottom: none;
 }
-.legacy-css a:hover {
+a:hover {
   border-bottom-width: 1px;
 }
-.legacy-css h5 {
+a:link, a:visited {
+  color: #000;
+}
+
+h1, h2, h3, h4, h5, h6, .button {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin: 0 10px 10px;
+}
+
+h5 {
   color: #000177;
 }
-.legacy-css #searchNavContainer {
+
+p {
+  font-size: 1em;
+  line-height: 1.2em;
+  margin: 0 10px 10px;
+}
+
+.global-header-info .global-header-info__item {
+  font-size: 16px;
+}
+
+#searchNavContainer {
   width: 940px;
 }
-.legacy-css #searchNavContainer label {
-  font-size: 12px;
+#searchNavContainer #row1 {
+  margin-bottom: 5px;
 }
-.legacy-css #searchBox #txtkeys1searchnav {
+#searchNavContainer #row2 {
+  padding-top: 0 !important;
+}
+#searchNavContainer #row2 a {
+  font-weight: bold;
+  color: #000177;
+}
+#searchNavContainer label {
+  font-size: 12px;
+  color: #000;
+}
+
+#searchBox #txtkeys1searchnav {
   float: left;
-  font-size: 110%;
+  font-size: 13.38px;
   height: 30px;
 }
-.legacy-css #resultsPer select {
+
+#resultsPer select {
   float: left;
   width: 60px;
   height: 1.5rem;
 }
-.legacy-css #resultsPer label {
+#resultsPer label {
   float: left;
   padding-top: 2px;
 }
-.legacy-css #searchHistory {
+
+#searchHistory {
   width: 130px;
 }
-.legacy-css #searchHistory select {
+#searchHistory select {
   height: 1.5rem;
 }
-.legacy-css #p7IRMdv_1 a {
+
+#p7IRMdv_1 a {
   border-bottom: none;
 }
-.legacy-css .p7IRMdesc {
+
+#collections-menu a {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.p7TMM04 ul ul a:link, .p7TMM04 ul ul a:visited {
+  width: 100%;
+}
+
+.p7IRMdesc {
   background-color: rgba(0, 1, 119, 0.8);
 }
-.legacy-css .p7IRMdesc p {
+.p7IRMdesc p {
   font-size: 1em;
 }
-.legacy-css #contactInfo {
+
+#contactInfo {
   border-top-right-radius: 15px;
 }
-.legacy-css #channelsContainer h3 {
+
+#channelsContainer h3 {
   font-size: 1.4em;
 }
-.legacy-css #channelsContainer a:hover {
+#channelsContainer a:hover {
   border-bottom: none;
 }
 
@@ -62,10 +120,12 @@
 
 body {
   font-size: 76%;
+  color: #000;
 }
 
 #page-body {
   padding-left: 14px;
+  padding-top: 0;
 }
 
 #page-container {
@@ -77,58 +137,26 @@ body {
   width: 100%;
 }
 
-#tabnavContainer {
-  padding: 12px 14px;
-  max-width: 1160px;
-  width: 100%;
+.breadcrumb {
+  margin-bottom: 10px;
 }
-#tabnavContainer h2 {
-  padding-bottom: 5px;
-  font-size: 2.8em;
-}
-#tabnavContainer h2 a:hover {
-  text-decoration: none;
-  border-bottom: none;
-}
-#tabnavContainer #tabnav {
-  position: relative;
-  float: left;
-  padding-top: 8px;
-  margin-left: 8%;
-  left: 0;
-}
-#tabnavContainer #tabnav a {
-  font-size: 0.95em;
-}
-#tabnavContainer #tabnav a:hover {
-  color: #dddded;
-  text-decoration: underline;
-  background: none;
-}
-#tabnavContainer #contact {
-  padding-top: 17px;
-}
-
-.nhm-breadcrumb, .register-signin {
-  font-size: 1.2em;
-}
-.nhm-breadcrumb a, .register-signin a {
+.breadcrumb .nhm-breadcrumb a, .breadcrumb .register-signin a {
   color: #d5d5d5;
 }
-.nhm-breadcrumb a:hover, .register-signin a:hover {
+.breadcrumb .nhm-breadcrumb a:hover, .breadcrumb .register-signin a:hover {
   color: #d5d5d5;
 }
-.nhm-breadcrumb a:visited, .register-signin a:visited {
+.breadcrumb .nhm-breadcrumb a:visited, .breadcrumb .register-signin a:visited {
   color: #d5d5d5;
 }
-
-.nhm-breadcrumb {
+.breadcrumb .nhm-breadcrumb {
   text-align: left;
   float: left;
+  font-size: 1.2em;
 }
-
-.register-signin {
+.breadcrumb .register-signin {
   float: right;
+  font-size: 1em;
 }
 
 .main-footer .framed-wrapper {
@@ -143,9 +171,236 @@ body {
 .main-footer .footer-nav label {
   font-size: 14px;
 }
+.main-footer .footer-info p {
+  font-size: 12.8px;
+}
+
+div#feedback-bar p {
+  font-size: 16px;
+}
 
 .contact-us .title-bar {
   background-color: #000177;
+}
+
+#tabnavContainer h2 {
+  line-height: 28px;
+}
+
+.column {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#column-a h2 {
+  font-size: 1.4em;
+}
+
+a.point-right {
+  background-repeat: no-repeat;
+}
+
+.panel-footer {
+  width: 100% !important;
+}
+
+#utility-toolbox ul {
+  margin-bottom: 10px;
+}
+#utility-toolbox ul li {
+  font-size: 10.95px;
+  font-weight: bold;
+}
+
+fieldset legend {
+  color: #fff;
+}
+
+#resultsPageHeader #browseToPageNum input[type="text"] {
+  height: 18px;
+  width: 25px !important;
+  padding: 0 0 0 3px;
+  margin: 0 4px;
+}
+
+#browseToPageNum2 input[type="text"] {
+  height: 18px;
+  width: 25px !important;
+  padding: 0 0 0 3px;
+  margin: 2px 4px 0 4px;
+}
+#browseToPageNum2 td {
+  padding-right: 5px;
+  vertical-align: middle;
+}
+
+#leftColumn #previewCtrls a {
+  color: #000177;
+  font-size: 12.1667px;
+  font-weight: bold;
+}
+#leftColumn #pageNav {
+  padding: 0;
+}
+#leftColumn #pageNav a {
+  font-weight: bold;
+}
+
+#rightColumn #descriptionContainer, #rightColumn #previewKeywordsContainer, #rightColumn #searchSelected {
+  width: 440px;
+}
+#rightColumn #descriptionContainer ul, #rightColumn #previewKeywordsContainer ul {
+  font-size: 1em;
+}
+
+#panel-one .collection h3 a {
+  color: #000177;
+  font-weight: bold;
+}
+
+.panel-content h4 {
+  font-size: 14.6px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.panel-content h5 {
+  font-size: 12.1667px;
+  margin-left: 10px;
+}
+.panel-content h6 {
+  font-size: 12.1667px;
+  margin-left: 10px;
+}
+.panel-content ul {
+  font-size: 12.1667px;
+}
+.panel-content a {
+  color: #000177;
+  font-weight: bold;
+}
+.panel-content .tab-panel h4 {
+  font-size: 14.6px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.panel-content .tab-panel ul.tabs li {
+  font-size: 13.3833px;
+}
+.panel-content .tab-panel ul.tabs li a {
+  font-weight: bold;
+}
+.panel-content .panel-gallery h6 {
+  padding: 0;
+  margin-top: 8px 0 4px 10px;
+}
+.panel-content .panel-gallery h6 a {
+  font-weight: bold;
+}
+
+.tab-panel ul.tabs {
+  line-height: 15px;
+}
+.tab-panel ul.tabs li {
+  font-size: 13.3883px;
+}
+.tab-panel ul.tabs li a {
+  font-weight: bold;
+}
+.tab-panel .tab-content h4 {
+  font-size: 14.6px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.tab-panel .tab-content h6 {
+  font-size: 12.1667px;
+  margin-left: 10px;
+}
+.tab-panel #tsTabContent7 ol {
+  font-size: 12.1667px;
+}
+.tab-panel #tsTabContent7 ol li {
+  list-style: decimal;
+}
+.tab-panel #tsTabContent7 ul {
+  font-size: 12.1667px;
+}
+.tab-panel #tsTabContent7 ul li {
+  list-style: none;
+  padding-top: 0;
+}
+
+#primaryContent h2 {
+  font-size: 17.0333px;
+}
+#primaryContent h4 {
+  font-weight: bold;
+}
+#primaryContent ul {
+  margin-left: 24px;
+}
+#primaryContent .button {
+  font-size: 12.1667px;
+  font-weight: bold;
+  padding: 10px 30px;
+  background-color: #000177;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out 0s;
+  -moz-transition: all 300ms ease-out 0s;
+  -o-transition: all 300ms ease-out 0s;
+  transition: all 300ms ease-out 0s;
+}
+#primaryContent .button:hover {
+  color: #000177;
+  background-color: #dddded;
+}
+#primaryContent input[type="text"], #primaryContent input[type="password"], #primaryContent select {
+  padding: 0 5px;
+  margin: 0;
+  height: 20px;
+  width: 170px;
+  font-size: 12.1667px;
+  box-shadow: none;
+  background-color: #fff;
+}
+#primaryContent td, #primaryContent th {
+  padding: 3px 5px 3px 3px;
+}
+#primaryContent #idrememberme {
+  margin-top: 3px;
+}
+#primaryContent .forms label {
+  font-size: 12.1667px;
+}
+#primaryContent .forms #idagree {
+  margin-top: 2px;
+}
+#primaryContent .forms label[for="idagree"] a {
+  color: #000177;
+  font-weight: bold;
+}
+
+#utilities ol {
+  font-size: 10.95px;
+}
+#utilities ol li {
+  list-style: inherit;
+}
+
+#resultsDescription2 a {
+  font-weight: bold;
+  color: #000177;
+}
+
+.shadedInfoLight ul {
+  line-height: 16px;
+}
+.shadedInfoLight ul li {
+  font-size: 13px;
+  list-style: square;
+}
+
+#ImageGrid td a img {
+  max-height: 120px;
 }
 
 /*# sourceMappingURL=nhm-legacy-piclib.css.map */
