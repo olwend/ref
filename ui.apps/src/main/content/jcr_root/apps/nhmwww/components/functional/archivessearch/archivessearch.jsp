@@ -35,7 +35,7 @@
 		</ul>
 		<div id="primo-search-bar">
 			<form id="PrimoSearchForm" name="PrimoSearchForm" method="post"
-				action="http://primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search">
+				action="//primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search">
 				<input name="vl(freeText0)" class="primo-search-style"
 					id="primo-searchq" accesskey="s" placeholder="Enter search terms..."
 					size="60" type="text"> <input name="mode" value="Basic"
@@ -46,7 +46,7 @@
 					onclick="javascript:document.getElementById('PrimoSearchForm').submit();">
 			</form>
 			<div class="advanced">
-				<a href="http://primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&ct=AdvancedSearch&fn=search&vid=44NHM_V1">
+				<a href="//primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&ct=AdvancedSearch&fn=search&vid=44NHM_V1">
 					Advanced search
 				</a>
 			</div>
