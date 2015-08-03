@@ -19,7 +19,7 @@
           import="uk.ac.nhm.nhm_www.core.componentHelpers.HelperBase"%><%
 %>
 <cq:defineObjects />
-<cq:includeClientLib categories="uk.ac.nhm.archivesprimo-search"/>
+<cq:includeClientLib categories="uk.ac.nhm.archivessearch"/>
 
 <%  HelperBase helper = new HelperBase(); %>
 
