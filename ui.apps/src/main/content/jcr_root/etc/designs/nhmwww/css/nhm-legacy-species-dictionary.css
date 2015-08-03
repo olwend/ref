@@ -6,14 +6,34 @@ div#page-container {
   margin-bottom: 1.2em;
 }
 
-#nav-content {
+.legacy-css#page-body {
+  color: #000000;
+}
+.legacy-css #nav-content {
   margin-right: 0;
 }
-#nav-content ul li {
+.legacy-css #nav-content ul li {
   font-size: 12px;
 }
-#nav-content ul li a {
+.legacy-css #nav-content ul li a {
   font-weight: bold;
+}
+.legacy-css #utilities dl {
+  font-size: 0.9em;
+  margin: 0 10px 10px;
+}
+.legacy-css #column-a .panel-intro p {
+  font-size: 12px;
+}
+.legacy-css #column-a .banner p {
+  font-size: 12px;
+}
+.legacy-css #column-a .panel-content {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.legacy-css #column-a .panel-content h4 {
+  color: #015b28;
 }
 
 /*# sourceMappingURL=nhm-legacy-species-dictionary.css.map */
