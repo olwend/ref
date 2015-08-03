@@ -5,7 +5,7 @@
 	background-image:
 		url(/etc/designs/nhmwww/img/archivessearch/form-image3.jpg);
 	background-repeat: no-repeat;
-	width: 940px;
+	width: 1160px; /* was 940px */
 	height: 261px;
 	display: block;
 	margin-bottom: 20px;
@@ -13,9 +13,9 @@
 }
 
 .primo-search {
-	margin: 40px 0 0 190px;
+	margin: 40px auto; /* was 40px 0 0 190px */
 	padding: 24px 10px 10px 16px;
-	width: 560px;
+	width: 585px; /* was 560px */
 	position: relative;
 	background-image: url(/etc/designs/nhmwww/img/archivessearch/bg1.png);
 	background-repeat: no-repeat;
@@ -28,6 +28,7 @@
 
 .primo-search .advanced {
 	padding: 5px 0 0 0;
+	clear: both;
 }
 
 .primo-search a {
@@ -55,29 +56,33 @@
 }
 
 .primo-search-title {
-	width: 940px;
-	height: 35px;
+	width: 1160px; /* was 940px */
+	height: 40px; /* was 35px */
 	position: relative;
 	background-image: url(/etc/designs/nhmwww/img/archivessearch/bg2-70.png);
 	background-repeat: repeat;
-	margin: 0 0 0 0;
+	margin: 0;
 	padding: 5px 0 0 0;
-	font-size: 1.6em;
+/* 	font-size: 1.6em; */
 	font-family: Arial, Sans-Serif;
 	color: #ffffff;
 }
 
 .primo-search-title p {
-	margin-top: 3px;
+	margin: 3px 10px 0 10px;
+	font-size: 19px;
 }
 
 .primo-search-style {
-	width: 82%;
+	width: 88.5% !important; /* added important to override Foundation form styles */
+	height: 27px !important; /* added important to override Foundation form styles */
+	margin: 0 !important; /* added important to override Foundation form styles */
 	font-size: 12px;
 	color: #000000; /* #9ca2a9 */
 	border: solid 1px #fff;
-	padding: 5px;
+	padding: 5px !important; /* added important to override Foundation form styles */
 	background: #fff;
+	float: left;
 }
 
 /* input box placeholder text */
@@ -100,7 +105,7 @@
 }
 
 #primo-search-bar {
-	width: 560px;
+	width: 555px; /* was 560px */
 	height: 100px;
 	font-size: 12px;
 	color: #9ca2a9;
@@ -148,6 +153,10 @@ ul.primo-search-options li a {
 	user-drag: none;
 }
 
+ul.primo-search-options li a:hover {
+	color: #FFFFFF;
+}
+
 .primo-search .selected a {
 	background: #323232;
 	color: #FFFFFF;
@@ -187,6 +196,7 @@ ul.primo-search-options li.selected a {
 	font-size: 12px;
 	font-weight: bold;
 	cursor: pointer;
+	margin-left: 3px;
 }
 
 .primo-search input[type=button]:hover {
