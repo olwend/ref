@@ -236,9 +236,9 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 			DynamicPageHelper helper = new DynamicPageHelper(page);
 			String pageTitle = page.getPath().replace("/content/nhmwww/en/home", "");
 			object.put("path", pageTitle);
-			LOG.error("page path from HTTPS: " + page.getPath());
 			object.put("title", PageUtils.getPageTitle(page));
 			object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
+			LOG.error("introduction:  " + helper.getPageIntroduction());
 			object.put("page-introduction", helper.getPageIntroduction());
 			object.put("keywords", PageUtils.getPageKeywords(page));
 			object.put("description", PageUtils.EncodeMetaDescription(PageUtils.getPageDescription(page)));
