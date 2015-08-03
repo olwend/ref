@@ -22,6 +22,12 @@ div#page-container {
   font-size: 0.9em;
   margin: 0 10px 10px;
 }
+.legacy-css #utilities ul li {
+  font-size: 11px;
+}
+.legacy-css #column-a {
+  width: 520px;
+}
 .legacy-css #column-a .panel-intro p {
   font-size: 12px;
 }
@@ -34,6 +40,15 @@ div#page-container {
 }
 .legacy-css #column-a .panel-content h4 {
   color: #015b28;
+}
+.legacy-css #column-a fieldset {
+  border: none;
+}
+.legacy-css #column-a fieldset legend {
+  background: none;
+}
+.legacy-css a.point-right {
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=nhm-legacy-species-dictionary.css.map */
