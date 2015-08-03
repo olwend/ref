@@ -37,7 +37,7 @@
 			<form id="PrimoSearchForm" name="PrimoSearchForm" method="post"
 				action="http://primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search">
 				<input name="vl(freeText0)" class="primo-search-style"
-					id="primo-searchq" accesskey="s" placeholder="Enter search terms"
+					id="primo-searchq" accesskey="s" placeholder="Enter search terms..."
 					size="60" type="text"> <input name="mode" value="Basic"
 					type="hidden"> <input name="tab" value="default_tab"
 					type="hidden"> <input name="vid" value="44NHM_V1"
