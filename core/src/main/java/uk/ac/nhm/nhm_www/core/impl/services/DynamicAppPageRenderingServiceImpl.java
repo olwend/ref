@@ -238,8 +238,7 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 			object.put("path", pageTitle);
 			object.put("title", PageUtils.getPageTitle(page));
 			object.put("section", resolver.map(request, PageUtils.getPageSection(page)));
-			LOG.error("introduction:  " + helper.getPageIntroduction());
-			object.put("page-introduction", helper.getPageIntroduction());
+			object.put("page-introduction", removeLinks(helper.getPageIntroduction()));
 			object.put("keywords", PageUtils.getPageKeywords(page));
 			object.put("description", PageUtils.EncodeMetaDescription(PageUtils.getPageDescription(page)));
 		}
@@ -247,6 +246,10 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 			LOG.error(e.getMessage());
 		}
 		return object;
+	}
+	
+	private String removeLinks(final String text) {
+		return text.replaceAll("<a([^>]+)>(.+?)</a>", "");
 	}
 	
 	
