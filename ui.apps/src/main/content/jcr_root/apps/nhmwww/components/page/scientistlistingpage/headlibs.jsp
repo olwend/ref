@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles-desktop.css"%>" />
         <![endif]-->
         <!--[if gt IE 8]><!-->
+        <cq:includeClientLib css="nhmwww.main.normalize" />
+        <cq:includeClientLib css="nhmwww.main.foundation" />
         <cq:includeClientLib css="nhmwww.main" />       
         <!--<![endif]-->
         <cq:includeClientLib js="cq.jquery" />
