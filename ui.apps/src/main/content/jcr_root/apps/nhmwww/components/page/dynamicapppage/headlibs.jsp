@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
         <!--[if lte IE 8]>
+        <link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/normalize.css"%>" />
+        <link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/nhm-foundation.css"%>" />
 		<link rel="stylesheet" href="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/css/styles-desktop.css"%>" />
         <![endif]-->
         <!--[if gt IE 8]><!-->
