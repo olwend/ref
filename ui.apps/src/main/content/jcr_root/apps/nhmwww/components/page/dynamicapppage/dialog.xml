@@ -76,6 +76,10 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Picture library"
 		                            value="piclib"/>    
+	                            <o9
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Lepidopteran Hostplants"
+		                            value="lep-hosts"/> 
 		                    </options>
 		                </legacyApp>
                     </items>
