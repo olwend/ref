@@ -252,7 +252,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-list__item">
-                                    <a href="/research-curation/news-events/seminars/index.html" class="events">
+                                    <a href="/content/nhmwww/en/home/our-science/science-events.html" class="events">
                                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_calendar.svg" data-svg-title="icon__events-calendar" data-alt="Newspaper" data-base-color="#357900" data-hover-color="#357900" data-stroke-width="3" data-hover-state="yes" data-fallback="/etc/designs/nhmwww/img/icons/nav-calendar.png"></i>
                                         Science events
                                     </a>
@@ -282,7 +282,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-list__item">
-                                    <a href="/research-curation/training/index.html" class="students">
+                                    <a href="/content/nhmwww/en/home/our-science/courses-and-students.html" class="students">
                                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_service_courses.svg" data-svg-title="icon__students" data-alt="Students" data-base-color="#357900" data-hover-color="#357900" data-stroke-width="3" data-hover-state="yes" data-fallback="/etc/designs/nhmwww/img/icons/nav-student.png"></i>
                                         Courses and students
                                     </a>
