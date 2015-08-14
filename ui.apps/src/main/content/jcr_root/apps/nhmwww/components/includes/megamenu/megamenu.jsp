@@ -22,7 +22,7 @@
                                        
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="/content/nhmwww/en/home/visit/exhibitions.html">Exhibitions</a>
+                                        <a href="/content/nhmwww/en/home/visit/exhibitions.html">Exhibitions and attractions</a>
                                     </li>
                                     <!-- <li class="nav-list__item">
                                         <a href="#">Getting here</a>
