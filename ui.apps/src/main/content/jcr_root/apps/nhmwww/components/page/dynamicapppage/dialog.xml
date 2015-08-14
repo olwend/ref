@@ -80,6 +80,26 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Lepidopteran Hostplants"
 		                            value="lep-hosts"/> 
+		                        <o10
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Chaclcidoids"
+		                            value="chalcidoids"/>
+		                        <o11
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="ButMoth"
+		                            value="butmoth"/>
+		                        <o12
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Bumblebees of the World"
+		                            value="bombus"/>
+		                        <o13
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Cockayne Collection"
+		                            value="cockayne"/>
+		                        <o14
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Lepidopter Names Index"
+		                            value="lepindex"/>
 		                    </options>
 		                </legacyApp>
                     </items>
