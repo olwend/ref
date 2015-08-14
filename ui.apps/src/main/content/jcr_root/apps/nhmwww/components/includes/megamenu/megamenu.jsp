@@ -196,7 +196,7 @@
                                         <a href="/content/nhmwww/en/home/schools.html">Schools home</a>
                                     </li>
                                     <li class="nav-list__item first">
-                                        <a href="/education/school-activities/index.html">Things to do</a>
+                                        <a href="/content/nhmwww/en/home/schools/things-to-do-schools.html">Things to do</a>
                                     </li>
                                     <li class="nav-list__item first">
                                         <a href="/content/nhmwww/en/home/schools/essential-information-schools.html">Essential information</a>
