@@ -98,7 +98,7 @@
 		                            value="cockayne"/>
 		                        <o14
 	                            	jcr:primaryType="nt:unstructured"
-		                            text="Lepidopter Names Index"
+		                            text="Lepidoptera Names Index"
 		                            value="lepindex"/>
 		                    </options>
 		                </legacyApp>
