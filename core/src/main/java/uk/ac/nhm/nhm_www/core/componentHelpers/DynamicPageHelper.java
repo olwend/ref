@@ -57,13 +57,11 @@ public class DynamicPageHelper {
 			LOG.error("request is null");
 		}
 		
-		//Theo 17/08/15 - temporary fix for Legacy CSS checkbox - needs refactor
-		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", false);
-//		if(getProperties().get("defaultLegacyCSS") != null) {
-//			defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
-//		} else {
-//			defaultLegacyCSS = false;
-//		}
+		if(getProperties().get("defaultLegacyCSS") != null) {
+			this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", false);
+		} else {
+			this.defaultLegacyCSS = false;
+		}
 	}
 
 	public Resource getResource() {
