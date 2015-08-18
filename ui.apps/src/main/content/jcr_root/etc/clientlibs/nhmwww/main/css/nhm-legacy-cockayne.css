@@ -106,8 +106,14 @@ div#page-container {
   background-color: #fff;
   margin-bottom: 0;
 }
-#microsite-body #search #taxon .mainInputWidth {
+#microsite-body #search .mainInputWidth {
   width: 55%;
+}
+#microsite-body #search #countryID, #microsite-body #search #countyID {
+  margin-bottom: 5px;
+}
+#microsite-body #search label[for="countyID"], #microsite-body #search label[for="locality"] {
+  clear: both;
 }
 #microsite-body #search .multiInline label {
   width: auto;
@@ -132,6 +138,7 @@ div#page-container {
 }
 #microsite-body #sexes p {
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 #microsite-body .images img {
   max-width: none;
