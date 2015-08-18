@@ -6,6 +6,36 @@ a:hover {
   border-bottom-width: 1px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+picLib
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin: 0 10px 10px;
+}
+
+h5 {
+  color: #000177;
+}
+
+p {
+  font-size: 1em;
+  margin: 0 10px 10px;
+}
+
 .global-header-info .global-header-info__item {
   font-size: 16px;
 }
@@ -55,11 +85,6 @@ body {
 #page-container {
   border: none;
   width: 100%;
-}
-
-div#page-container {
-  /* had to add !important due to another stylesheet (wide-modifications.css) also having !important */
-  border: none;
 }
 
 .row {
