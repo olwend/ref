@@ -51,7 +51,6 @@ public class DynamicPageHelper {
 			legacyApp = getProperties().get("legacy-app", String.class);
 		}
 		setLegacyApp(legacyApp);
-		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
 		if(this.request != null) { 
 			this.protocol = request.getScheme();
 		} else {
@@ -59,11 +58,12 @@ public class DynamicPageHelper {
 		}
 		
 		//Theo 17/08/15 - temporary fix for Legacy CSS checkbox - needs refactor
-		if(getProperties().get("defaultLegacyCSS") != null) {
-			defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
-		} else {
-			defaultLegacyCSS = false;
-		}
+		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", false);
+//		if(getProperties().get("defaultLegacyCSS") != null) {
+//			defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
+//		} else {
+//			defaultLegacyCSS = false;
+//		}
 	}
 
 	public Resource getResource() {
