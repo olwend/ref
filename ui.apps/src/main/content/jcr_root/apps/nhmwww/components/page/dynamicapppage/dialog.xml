@@ -21,7 +21,7 @@
                     <items jcr:primaryType="cq:WidgetCollection">
                         <introduction
                             jcr:primaryType="cq:Widget"
-                            hideLabel="{Boolean}false"
+                            hideLabel="{Boolean}true"
                             name="./pageIntroduction"
                             xtype="richtext">
                             <rtePlugins
