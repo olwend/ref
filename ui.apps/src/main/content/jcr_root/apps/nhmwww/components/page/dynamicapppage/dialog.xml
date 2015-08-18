@@ -50,7 +50,7 @@
 		                            value=""/>
 		                        <o2
 		                            jcr:primaryType="nt:unstructured"
-		                            text="Contact-us from"
+		                            text="Contact Us form"
 		                            value="contact-us-form"/>
 		                        <o3
 		                        	jcr:primaryType="nt:unstructured"
@@ -82,7 +82,7 @@
 		                            value="lep-hosts"/> 
 		                        <o10
 	                            	jcr:primaryType="nt:unstructured"
-		                            text="Chaclcidoids"
+		                            text="Universal Chalcidoidea Database"
 		                            value="chalcidoidea"/>
 		                        <o11
 	                            	jcr:primaryType="nt:unstructured"
