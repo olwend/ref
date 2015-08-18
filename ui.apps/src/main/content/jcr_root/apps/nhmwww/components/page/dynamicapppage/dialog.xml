@@ -83,7 +83,7 @@
 		                        <o10
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Chaclcidoids"
-		                            value="chalcidoids"/>
+		                            value="chalcidoidea"/>
 		                        <o11
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="ButMoth"
