@@ -5,38 +5,6 @@ a {
 a:hover {
   border-bottom-width: 1px;
 }
-a:link, a:visited {
-  color: #000;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-h1, h2, h3 {
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 2em;
-  margin-bottom: 0;
-  padding-bottom: 5px;
-  width: 100%;
-}
-
-h3 {
-  font-size: 1.4em;
-  margin: 0 10px 10px;
-}
-
-h5 {
-  color: #000177;
-}
-
-p {
-  font-size: 1em;
-  margin: 0 10px 10px;
-}
 
 .global-header-info .global-header-info__item {
   font-size: 16px;
@@ -67,16 +35,11 @@ p {
   font-size: 12.8px;
 }
 
-.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
-  width: 100%;
-}
-
 div#feedback-bar p {
   font-size: 16px;
 }
 
 body {
-  font-size: 76%;
   color: #565656;
 }
 
@@ -95,7 +58,6 @@ body {
 }
 
 div#page-container {
-  width: 940px !important;
   /* had to add !important due to another stylesheet (wide-modifications.css) also having !important */
   border: none;
 }
