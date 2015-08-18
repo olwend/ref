@@ -76,4 +76,8 @@ div#page-container {
   text-align: left;
 }
 
+.nhm-cookie-notify {
+  display: none;
+}
+
 /*# sourceMappingURL=nhm-legacy-global.css.map */
