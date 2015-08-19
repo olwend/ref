@@ -104,6 +104,10 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="UK Species"
 		                            value="species-dictionary"/>
+		                        <o16
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Echinoid Directory"
+		                            value="echinoids"/>
 		                    </options>
 		                </legacyApp>
                     </items>
