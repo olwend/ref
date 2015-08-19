@@ -53,6 +53,14 @@ div#page-container {
   top: -0.5em;
 }
 
+td[colspan="2"] img {
+  height: 10px;
+}
+
+.button {
+  font-size: 12.1667px;
+}
+
 html > body #microsite-nav-backToSection {
   margin-left: 110px;
 }
@@ -158,6 +166,15 @@ hr {
   font-size: 12.1667px;
   padding-top: 2px;
   padding-bottom: 3px;
+}
+
+.dataTable_ms table {
+  border-collapse: initial;
+  border-spacing: 1px;
+}
+
+#frame-e, #detailFrame {
+  height: 340px;
 }
 
 /*# sourceMappingURL=nhm-legacy-lepidoptera.css.map */
