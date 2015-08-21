@@ -79,7 +79,7 @@ html > body #microsite-nav-backToSection {
 
 #microsite-head h1, #microsite-head h2 {
   text-align: center;
-  clear: none;
+  clear: none !important;
 }
 #microsite-head h1 {
   margin-top: 0;
@@ -97,6 +97,7 @@ html > body #microsite-nav-backToSection {
 #microsite-body table td hr {
   border-color: #015b28;
   margin: 0;
+  height: auto;
 }
 #microsite-body table td .accent1 {
   padding: 7px 6px 10px 5px;
@@ -128,6 +129,7 @@ html > body #microsite-nav-backToSection {
 }
 #microsite-body table td a img {
   padding-top: 4px;
+  float: right;
 }
 #microsite-body h3 {
   margin: 0 0 10px 0;
@@ -195,6 +197,11 @@ html > body #microsite-nav-backToSection {
 #microsite-body .collapseParas td {
   padding-bottom: 5px;
 }
+#microsite-body .galleryTable_ms img {
+  float: none;
+  padding-top: 0;
+  max-height: none;
+}
 #microsite-body .tabPanel .tabs a {
   font-weight: bold;
   color: #000;
@@ -202,10 +209,31 @@ html > body #microsite-nav-backToSection {
 #microsite-body .tabPanel .tabHeader p {
   padding-bottom: 0;
   margin-left: 0;
+  text-align: left;
+}
+#microsite-body .tabPanel .tabHeader select {
+  padding: 0;
+  height: auto;
+  margin-bottom: 0;
+}
+#microsite-body img {
+  max-width: initial;
+  max-height: 100%;
 }
 
 .superFamily img {
   vertical-align: middle;
+}
+
+.tabContent .ucdRefTable img {
+  max-width: initial;
+}
+.tabContent h5 {
+  margin-bottom: 0;
+}
+
+div.superFamily {
+  top: -38px !important;
 }
 
 /*# sourceMappingURL=nhm-legacy-chalcidoidea.css.map */
