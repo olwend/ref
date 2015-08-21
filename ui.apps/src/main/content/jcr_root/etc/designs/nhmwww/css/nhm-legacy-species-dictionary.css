@@ -4,6 +4,12 @@ div#page-container {
 div#page-container .title {
   margin-bottom: 20px;
 }
+div#page-container .title h1 {
+  font-size: 2.8em;
+  margin: 0;
+  font-weight: bold;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+}
 
 #page-body {
   width: 940px;
@@ -147,6 +153,9 @@ div#page-container .title {
 }
 #page-body .column .panel .panel-content .form-right .button-search {
   margin-top: 0;
+}
+#page-body .column .panel .browse-hierarchy ul li {
+  background-image: none;
 }
 #page-body .column .panel .recordset-navigation .recordset-nav-pages label, #page-body .column .panel .recordset-navigation .recordset-results-per-page label {
   font-size: 12.1667px;
