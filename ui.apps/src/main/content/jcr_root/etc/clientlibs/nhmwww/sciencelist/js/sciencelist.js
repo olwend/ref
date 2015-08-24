@@ -332,14 +332,40 @@ function searchFunc(maxResults) {
 	}
 	
 	if (collectionsGroup != "All") {
+		
+		/** New Implementation **/
+			//  Looking for [collection="Research"][group="Vertebrates, Birds"] || [collection="Collections"][group="Vertebrates, Birds"] 
+			nodes = nodes.filter('[collection="Collections"]');
+			//  Looking for [collection="Collections"][group="Vertebrates, Birds"] 
+			var group = $collectionGroupSelected.data("group");
+			if ($collectionGroupSelected.hasClass("group")) {
+				// [group="Vertebrates, Birds"] 
+				
+				var query = group.toLowerCase();
+				var queryRegex = new RegExp( '(?=.*\\b' + query.split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+				nodes = nodes.filter(function(){
+					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+			        if ( regex.test( $thisCollectionsGroup ) ) {
+			            return true;
+			        }
+			        return false;
+				});
+			}
+			
+			
+		
+		/** New Implementation **/
+		
 		if ($collectionGroupSelected.hasClass("collection")) {
-			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
+//			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]"); 					// Should be = "Collections" always
+			nodes = nodes.filter('[collection="Collections"]');
 		}
 		
 		if ($collectionGroupSelected.hasClass("group")) {
 			var collection = $collectionGroupSelected.data("collection");
 			var group = $collectionGroupSelected.data("group");
-			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
+//			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");		// Should be = "Collections" always
+			nodes = nodes.filter("[group=" + '"' + group + '"' + '][collection="Collections"]');		// Should be = "Collections" always
 		}
 	}
 	
