@@ -108,6 +108,22 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Echinoid Directory"
 		                            value="echinoids"/>
+		                        <o17
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Lichen ID Guide"
+		                            value="lichenid"/>
+		                        <o18
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="The Catalogue of Meteorites"
+		                            value="metcat"/>
+		                        <o19
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Microbiology Video collection"
+		                            value="protistvideo"/>
+		                        <o20
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Richard Spruce collection"
+		                            value="spruce"/>
 		                    </options>
 		                </legacyApp>
                     </items>
