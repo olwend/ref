@@ -113,7 +113,7 @@
 					    <option class="group" id="Siphonaptera" value="Siphonaptera" data-group="Siphonaptera">&nbsp;&nbsp;&nbsp;&nbsp;Siphonaptera collections</option>
 					    <option class="group" id="Diptera" value="Diptera" data-group="Diptera">&nbsp;&nbsp;&nbsp;&nbsp;Diptera collections</option>
 					    <option class="group" id="Hemiptera" value="Hemiptera" data-group="Hemiptera">&nbsp;&nbsp;&nbsp;&nbsp;Hemiptera collections</option>
-					    <option class="group" id="Phthiraptera, Thysanoptera, and Psocoptera" value="Phthiraptera, Thysanoptera, and Psocoptera" data-group="Phthiraptera, Thysanoptera, and Psocoptera">&nbsp;&nbsp;&nbsp;&nbsp;Phthiraptera, Thysanoptera, and Psocoptera collections</option>
+					    <option class="group" id="Phthiraptera, Thysanoptera and Psocoptera" value="Phthiraptera, Thysanoptera and Psocoptera" data-group="Phthiraptera, Thysanoptera and Psocoptera">&nbsp;&nbsp;&nbsp;&nbsp;Phthiraptera, Thysanoptera, and Psocoptera collections</option>
 					    <option class="group" id="Odonata, Neuroptera and associated collections" value="Odonata, Neuroptera and associated collections" data-group="Odonata, Neuroptera and associated collections">&nbsp;&nbsp;&nbsp;&nbsp;Odonata, Neuroptera and associated collections</option>
 					    <option class="group" id="Apterygota" value="Apterygota" data-group="Apterygota">&nbsp;&nbsp;&nbsp;&nbsp;Apterygota collections</option>
 					    <option class="group" id="Arachnida" value="Arachnida" data-group="Arachnida">&nbsp;&nbsp;&nbsp;&nbsp;Arachnida collections</option>

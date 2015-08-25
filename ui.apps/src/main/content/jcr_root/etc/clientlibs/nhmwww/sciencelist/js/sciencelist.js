@@ -338,35 +338,74 @@ function searchFunc(maxResults) {
 			nodes = nodes.filter('[collection="Collections"]');
 			//  Looking for [collection="Collections"][group="Vertebrates, Birds"] 
 			var group = $collectionGroupSelected.data("group");
+
 			if ($collectionGroupSelected.hasClass("group")) {
 				// [group="Vertebrates, Birds"] 
-				
 				var query = group.toLowerCase();
 				var queryRegex = new RegExp( '(?=.*\\b' + query.split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+				
 				nodes = nodes.filter(function(){
 					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
-			        if ( regex.test( $thisCollectionsGroup ) ) {
+					console.log($thisCollectionsGroup);
+			        if ( queryRegex.test( $thisCollectionsGroup ) ) {
 			            return true;
 			        }
 			        return false;
 				});
 			}
 			
-			
-		
+			if ($collectionGroupSelected.hasClass("collection")) {
+				// [group="Vertebrates, Birds"] 
+				var queryRegex;
+				
+				switch (collectionsGroup) {
+				case "Botany":
+					var botany = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British and Irish Herbarium", "Historical collections" ];
+					queryRegex = generateRegexFromArray(botany);
+					break;
+				case "Entomology":
+					var entomology = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
+					                   "Phthiraptera, Thysanoptera and Psocoptera", "Odonata, Neuroptera and associated collections", 
+					                   "Apterygota", "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical collections" ];
+					queryRegex = generateRegexFromArray(entomology);
+					break;
+				case "Zoology":
+					var zoology = [ "Invertebrates", "Vertebrates", "Birds", "Fishes", "Amphbians", "Reptiles", "Mammals" ];
+					queryRegex = generateRegexFromArray(zoology);
+					break;
+				case "Palaeontology":
+					var palaeontology = [ "Anthropology", "Micropalaeontology", "Fossil invertebrate", "Fossil vertebrate", "Palaeobotany" ];
+					queryRegex = generateRegexFromArray(palaeontology);
+					break;
+				case "Mineralogy":
+					var mineralogy = [ "Meteorite", "Mineral", "Gemstone", "Ocean bottom deposit", "Ores", "Petrology" ];
+					queryRegex = generateRegexFromArray(mineralogy);
+					break;
+				}
+				queryRegex = new RegExp( '(?=.*\\b(birds)|(vertebrates)\\b)', 'i' );
+				
+				nodes = nodes.filter(function(){
+					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+					console.log($thisCollectionsGroup);
+			        if ( queryRegex.test( $thisCollectionsGroup ) ) {
+			            return true;
+			        }
+			        return false;
+				});
+			}
 		/** New Implementation **/
-		
-		if ($collectionGroupSelected.hasClass("collection")) {
-//			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]"); 					// Should be = "Collections" always
-			nodes = nodes.filter('[collection="Collections"]');
-		}
-		
-		if ($collectionGroupSelected.hasClass("group")) {
-			var collection = $collectionGroupSelected.data("collection");
-			var group = $collectionGroupSelected.data("group");
-//			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");		// Should be = "Collections" always
-			nodes = nodes.filter("[group=" + '"' + group + '"' + '][collection="Collections"]');		// Should be = "Collections" always
-		}
+			
+//		if ($collectionGroupSelected.hasClass("collection")) {
+////			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]"); 					// Should be = "Collections" always
+//			nodes = nodes.filter('[collection="Collections"]');
+//		}
+//		
+//		if ($collectionGroupSelected.hasClass("group")) {
+//			var collection = $collectionGroupSelected.data("collection");
+//			var group = $collectionGroupSelected.data("group");
+////			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");		// Should be = "Collections" always
+//			nodes = nodes.filter("[group=" + '"' + group + '"' + '][collection="Collections"]');							// Should be = "Collections" always
+//		}
 	}
 	
 	if (nodes.length < maxResults) {
@@ -381,6 +420,17 @@ function searchFunc(maxResults) {
 	nodes.addClass("directory-search--result");
 	
 	tableColors();
+}
+
+function generateRegexFromArray(arrayToRegex){
+//    // This will match text that has all the words present
+//    for ( var i = 0; i < arrayToRegex.length; i++ ) {
+//    	// regex += new RegExp( '(?=.*\\b' + arrayToRegex[i].split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+//    }
+
+	// This will match text that has at least one of the words present
+    var regex = new RegExp( '(?=.*\\b(' + arrayToRegex.join(')|(') +  ')\\b)', 'i' ) ;
+    return regex;
 }
 
 function populateOptions() {
