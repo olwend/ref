@@ -54,7 +54,13 @@
 				
 				<%-- Email --%>
 				<% String emailPartial = email.replaceAll("@(.*)",""); %>
-				<span class="science-profiles-detail-page--personal--label">Contact:</span> <a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=<%=helper.getNickName()%>+<%=helper.getLastName()%>"> email</a> <br>
+				<span class="science-profiles-detail-page--personal--label">Contact:</span> <a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=
+				<% if (helper.getNickName() != null ) { %>
+					<%=helper.getNickName()%> 
+				<% } else { %> 
+					<%=helper.getFirstName() %> 
+				<% } %>
+				+<%=helper.getLastName()%>"> email</a> <br>
 				
 				<%-- Phones --%><% 
 				final List<PhoneNumber> phones = helper.getPhones();
