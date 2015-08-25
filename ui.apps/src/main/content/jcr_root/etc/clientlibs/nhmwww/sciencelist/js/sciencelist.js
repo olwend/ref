@@ -355,43 +355,47 @@ function searchFunc(maxResults) {
 			}
 			
 			if ($collectionGroupSelected.hasClass("collection")) {
-				// [group="Vertebrates, Birds"] 
-				var queryRegex;
+				// [group="Vertebrates, Birds"]
+				var aux;
 				
 				switch (collectionsGroup) {
 				case "Botany":
-					var botany = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British and Irish Herbarium", "Historical collections" ];
-					queryRegex = generateRegexFromArray(botany);
+					aux = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British and Irish Herbarium", "Historical collections" ];
 					break;
 				case "Entomology":
-					var entomology = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
+					aux = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
 					                   "Phthiraptera, Thysanoptera and Psocoptera", "Odonata, Neuroptera and associated collections", 
 					                   "Apterygota", "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical collections" ];
-					queryRegex = generateRegexFromArray(entomology);
 					break;
 				case "Zoology":
-					var zoology = [ "Invertebrates", "Vertebrates", "Birds", "Fishes", "Amphbians", "Reptiles", "Mammals" ];
-					queryRegex = generateRegexFromArray(zoology);
+					aux = [ "Invertebrates", "Vertebrates", "Birds", "Fishes", "Amphbians", "Reptiles", "Mammals" ];
 					break;
 				case "Palaeontology":
-					var palaeontology = [ "Anthropology", "Micropalaeontology", "Fossil invertebrate", "Fossil vertebrate", "Palaeobotany" ];
-					queryRegex = generateRegexFromArray(palaeontology);
+					aux = [ "Anthropology", "Micropalaeontology", "Fossil invertebrate", "Fossil vertebrate", "Palaeobotany" ];
 					break;
 				case "Mineralogy":
-					var mineralogy = [ "Meteorite", "Mineral", "Gemstone", "Ocean bottom deposit", "Ores", "Petrology" ];
-					queryRegex = generateRegexFromArray(mineralogy);
+					aux = [ "Meteorite", "Mineral", "Gemstone", "Ocean bottom deposit", "Ores", "Petrology" ];
 					break;
 				}
-				queryRegex = new RegExp( '(?=.*\\b(birds)|(vertebrates)\\b)', 'i' );
 				
-				nodes = nodes.filter(function(){
-					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
-					console.log($thisCollectionsGroup);
-			        if ( queryRegex.test( $thisCollectionsGroup ) ) {
-			            return true;
-			        }
-			        return false;
-				});
+//				queryRegex = new RegExp( '(?=.*\\b(birds)|(vertebrates)\\b)', 'i' );
+				
+				if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+					for ( var i = 0; i < aux.length; i++ ) {
+						aux[i] = aux[i].split(' ').join('\\b|\\b');
+					}
+					
+					var queryRegex = new RegExp( '(?=.*\\b' + aux.join('\\b|\\b') +  '\\b)', '' ) ;
+					
+					nodes = nodes.filter(function(){
+						var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+						console.log($thisCollectionsGroup);
+						if ( queryRegex.test( $thisCollectionsGroup ) ) {
+							return true;
+						}
+						return false;
+					});
+				} 
 			}
 		/** New Implementation **/
 			
@@ -420,17 +424,6 @@ function searchFunc(maxResults) {
 	nodes.addClass("directory-search--result");
 	
 	tableColors();
-}
-
-function generateRegexFromArray(arrayToRegex){
-//    // This will match text that has all the words present
-//    for ( var i = 0; i < arrayToRegex.length; i++ ) {
-//    	// regex += new RegExp( '(?=.*\\b' + arrayToRegex[i].split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
-//    }
-
-	// This will match text that has at least one of the words present
-    var regex = new RegExp( '(?=.*\\b(' + arrayToRegex.join(')|(') +  ')\\b)', 'i' ) ;
-    return regex;
 }
 
 function populateOptions() {
