@@ -286,6 +286,19 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_PUBLICATION	= "Review Referee Publication";
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 
+	/* Impact and Outreach */
+	public  static final String IMPACT_AND_OUTREACH_ACTIVITY_PREFIX_NODE_NAME 			= "impactAndOutreachActivity";
+	public  static final String IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME  				= "impactAndOutreachActivities";
+	public  static final String ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME  	= "associated";
+	private static final String IMPACT_AND_OUTREACH_NODE_PATH			  				= IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME;
+	
+	public  static final String PROFESSIONAL_ACTIVITY_TYPE_AWARD						= "Award";
+	public  static final String PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION		= "ResearPresentation";
+	public  static final String PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION			= "GuestPresentation";
+	public  static final String PROFESSIONAL_ACTIVITY_TYPE_INTERNAL_EXTERNAL			= "InternalExternalImpactOutreach";
+	public  static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST				= "MediaBroadcaster";
+	public  static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW				= "MediaInterview";
+	
 	/* Teaching Activities */
 	public  static final String TEACHING_ACTIVITIES_PREFIX_NODE_NAME 		= "teachingActivity";
 	public  static final String TEACHING_ACTIVITIES_NODE_NAME  				= "teachingActivities";
@@ -971,7 +984,6 @@ public class ScientistProfileHelper {
 		return res;
 	}
 	
-	
 	/*
 	 * #############################
 	 * ## Professional Activities ##
@@ -985,19 +997,28 @@ public class ScientistProfileHelper {
 	private Map<String, Set<ProfessionalActivity>> extractProfessionalActivities(final String nodeName) {
 		final Map<String, Set<ProfessionalActivity>> result = new TreeMap<String, Set<ProfessionalActivity>>();
 		
-		Set<ProfessionalActivity> setCommittees = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setEditorships = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setEventsAdministration = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setEventsParticipation = new TreeSet<ProfessionalActivity>();
+		// Professional Activities Tab
 		Set<ProfessionalActivity> setPositions = new TreeSet<ProfessionalActivity>(); // External then Internal
 		Set<ProfessionalActivity> setFellowships = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setCommittees = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setMemberships = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setEditorships = new TreeSet<ProfessionalActivity>();	
 		Set<ProfessionalActivity> setReviewPublications = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setReviewGrants = new TreeSet<ProfessionalActivity>();
-		Set<ProfessionalActivity> setMemberships = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setEventsParticipation = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setEventsAdministration = new TreeSet<ProfessionalActivity>();
+
+		// Projects Tab
 		Set<ProfessionalActivity> setConsultancies = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setPartnerships = new TreeSet<ProfessionalActivity>();
 		Set<ProfessionalActivity> setFieldworks = new TreeSet<ProfessionalActivity>();
 		
+		// Impact and Outreach Tab
+		Set<ProfessionalActivity> setAward = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setResearchPresentation = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setGuestPresentation = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setMediaBroadcast = new TreeSet<ProfessionalActivity>();
+		Set<ProfessionalActivity> setMediaInterview = new TreeSet<ProfessionalActivity>();
 		
 		final Resource professionalActivitiesResource = this.resource.getChild(nodeName);
 		
@@ -1013,7 +1034,6 @@ public class ScientistProfileHelper {
 			if (child.getName().startsWith(PROFESSIONAL_ACTIVITIES_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
-				
 				final String url = childProperties.get(URL_ATTRIBUTE, String.class);
 				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 				final String yearStartDate = childProperties.get(START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
@@ -1033,7 +1053,6 @@ public class ScientistProfileHelper {
 				
 				case PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION:
                     final String inOrExInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-
 					final String internalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
 					final String officeHeldType = childProperties.get(OFFICE_HELD_TYPE_ATTRIBUTE, String.class);
 					final String officeOtherHeldType = childProperties.get(OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, String.class);
@@ -1043,14 +1062,12 @@ public class ScientistProfileHelper {
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
                     final String fellowshipOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
-                    
 					setFellowships.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							fellowshipOrganisations));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES:
                 	final String committeeInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-                	
                 	final String committeeRole = childProperties.get(COMMITTEE_ROLE_ATTRIBUTE, String.class);
 					setCommittees.add(new Committee(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							committeeRole, committeeInstitution));
@@ -1058,7 +1075,6 @@ public class ScientistProfileHelper {
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP:
                     final String membershipInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-                    
                     final String membershipRole = childProperties.get(MEMBERSHIP_ROLE_ATTRIBUTE, String.class);
                     setMemberships.add(new Membership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
                     		membershipRole, membershipInstitution));
@@ -1075,21 +1091,18 @@ public class ScientistProfileHelper {
 					final String publication = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
 					final String publicationType = childProperties.get(PUBLICATION_TYPE_ATTRIBUTE, String.class);
 					final String reviewType = childProperties.get(REVIEW_TYPE_ATTRIBUTE, String.class);
-					
 					setReviewPublications.add(new ReviewerOrRefereePublication(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							publication, publicationType, reviewType));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT:
                     final String grantOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
-                   
 					setReviewGrants.add(new ReviewerOrRefereeGrant(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							grantOrganisations));
 					break;
 					
                 case PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION:
 			        final String eventOrganisationsInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-			        
                     final String eventOrganisationsRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
                     final String eventOrganisationsType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
                     setEventsAdministration.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
@@ -1098,7 +1111,6 @@ public class ScientistProfileHelper {
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION:
                 	final String eventParticipationInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
-                	
 					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
 					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
 					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
@@ -1111,22 +1123,44 @@ public class ScientistProfileHelper {
 							yearEndDate, monthEndDate, dayEndDate, consultingOrganisations));
 					break;
 					
-					
 				case PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP:
                     final String partnershipOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
 					setPartnerships.add(new Partnership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, partnershipOrganisations));
 					break;
 					
-					
 				case PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK:
                     final String fieldworkOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
                     final String fieldworkDepartment = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
                     final String fieldworkAreaOrRegion = childProperties.get(AREA_OR_REGION, String.class);
-                    
 					setFieldworks.add(new Fieldwork(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, fieldworkOrganisations, fieldworkDepartment, fieldworkAreaOrRegion));
 					break;
+					
+//				case PROFESSIONAL_ACTIVITY_TYPE_AWARD:
+//					setAward.add(new Award(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+//							yearEndDate, monthEndDate, dayEndDate));
+//					break;
+//					
+//				case PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION:
+//					setAward.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+//							yearEndDate, monthEndDate, dayEndDate));
+//					break;
+//					
+//				case PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION:
+//					setAward.add(new GuestPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+//							yearEndDate, monthEndDate, dayEndDate));
+//					break;
+//					
+//				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST:
+//					setAward.add(new MediaBroadcast(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+//							yearEndDate, monthEndDate, dayEndDate));
+//					break;
+//					
+//				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW:
+//					setAward.add(new MediaInterview(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+//							yearEndDate, monthEndDate, dayEndDate));
+//					break;
 					
 				default:
 					break;

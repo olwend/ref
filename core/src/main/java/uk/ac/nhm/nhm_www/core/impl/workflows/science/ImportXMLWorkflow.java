@@ -739,6 +739,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	case 39 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_CONSULTING;
         	case 66 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP;
         	case 54 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK;
+        	
+        	// Impact and Outreach Tab
+        	case 48 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_AWARD;
+        	case 75 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION;
+        	case 30 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION;
+//        	case 36 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION;
+        	case 46 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST;
+        	case 47 : return ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW;
 	        default: return "Professional Activity";
         }
     }
@@ -800,93 +808,93 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        	break;
 
                         case "organisation":	
-                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
-                            JSONArray jsonOrganisationsArray = new JSONArray(); 
-                            
-                            while(organisationTypes.hasNext()) {
-                            	Address address = organisationTypes.next();
-                            	List<java.lang.Object> lines = address.getContent();
-                            	
-                            	JSONObject jsonAddress = new JSONObject();
-                            	for (final java.lang.Object object : lines) {
-                            		if (! (object instanceof Line)) {
-                            			continue;
-                            		}
-                            		final Line line = (Line) object;
-                            		switch (line.getType()) {
-                            		case "name":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("name", line.getContent());
-                            			}
-                            			break;
-                            		case "organisation":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("organisation", line.getContent());
-                            			}
-                            			break;
-                            		case "city":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("city", line.getContent());
-                            			}
-                            			break;
-                            		case "country":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("country", line.getContent());
-                            			}
-                            			break;
-                            		}
-                            		
-                            	}
-                            	jsonOrganisationsArray.put(jsonAddress);
-							}
-                            final JSONObject organisations = new JSONObject();
-                            organisations.put("organisations", jsonOrganisationsArray);
-                            professionalANode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
-                            break;
+	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonOrganisationsArray = new JSONArray(); 
+	                            
+	                            while(organisationTypes.hasNext()) {
+	                            	Address address = organisationTypes.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            		
+	                            	}
+	                            	jsonOrganisationsArray.put(jsonAddress);
+								}
+	                            final JSONObject organisations = new JSONObject();
+	                            organisations.put("organisations", jsonOrganisationsArray);
+	                            professionalANode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
+	                            break;
                             
                         case "institution":	
-                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
-                            JSONArray jsonInstitutionsArray = new JSONArray(); 
-                            
-                            while(institutionTypes.hasNext()) {
-                            	Address address = institutionTypes.next();
-                            	List<java.lang.Object> lines = address.getContent();
-                            	
-                            	JSONObject jsonAddress = new JSONObject();
-                            	for (final java.lang.Object object : lines) {
-                            		if (! (object instanceof Line)) {
-                            			continue;
-                            		}
-                            		final Line line = (Line) object;
-                            		switch (line.getType()) {
-                            		case "name":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("name", line.getContent());
-                            			}
-                            			break;
-                            		case "organisation":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("organisation", line.getContent());
-                            			}
-                            			break;
-                            		case "city":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("city", line.getContent());
-                            			}
-                            			break;
-                            		case "country":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("country", line.getContent());
-                            			}
-                            			break;
-                            		}
-                            	}
-                            	jsonInstitutionsArray.put(jsonAddress);
-							}
-                            final JSONObject institutions = new JSONObject();
-                            institutions.put("organisations", jsonInstitutionsArray);
-                            professionalANode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
-                            break;
+	                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonInstitutionsArray = new JSONArray(); 
+	                            
+	                            while(institutionTypes.hasNext()) {
+	                            	Address address = institutionTypes.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            	}
+	                            	jsonInstitutionsArray.put(jsonAddress);
+								}
+	                            final JSONObject institutions = new JSONObject();
+	                            institutions.put("organisations", jsonInstitutionsArray);
+	                            professionalANode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
+	                            break;
                             
                         case "c-committee-roles":
 	                          	final String committeeRole = field.getText();
@@ -987,14 +995,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          		professionalANode.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE, areaOrRegion);
 	                          	}
 	                          	break;
-	                          	
                     }
                 }
             }
         }
     }
     
-	
 	
 	/*
 	 * ##################
@@ -1043,91 +1049,91 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 				for (Field field: record.getNative().getField()) {
 					switch (field.getName()) {
 					case "name":
-						projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
-						break;
+							projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
+							break;
 						
 					case "c-external-collaborators":
-						final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
-						JSONArray jsonInstitutionsArray = new JSONArray(); 
-						
-						while(externalCollaborators.hasNext()) {
-							Address address = externalCollaborators.next();
-							List<java.lang.Object> lines = address.getContent();
+							final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
+							JSONArray jsonInstitutionsArray = new JSONArray(); 
 							
-							JSONObject jsonAddress = new JSONObject();
-							for (final java.lang.Object object : lines) {
-								if (! (object instanceof Line)) {
-									continue;
+							while(externalCollaborators.hasNext()) {
+								Address address = externalCollaborators.next();
+								List<java.lang.Object> lines = address.getContent();
+								
+								JSONObject jsonAddress = new JSONObject();
+								for (final java.lang.Object object : lines) {
+									if (! (object instanceof Line)) {
+										continue;
+									}
+									final Line line = (Line) object;
+									switch (line.getType()) {
+									case "name":
+										if(line.getContent() != null){
+											jsonAddress.put("name", line.getContent());
+										}
+										break;
+									case "organisation":
+										if(line.getContent() != null){
+											jsonAddress.put("organisation", line.getContent());
+										}
+										break;
+									case "city":
+										if(line.getContent() != null){
+											jsonAddress.put("city", line.getContent());
+										}
+										break;
+									case "country":
+										if(line.getContent() != null){
+											jsonAddress.put("country", line.getContent());
+										}
+										break;
+									}
 								}
-								final Line line = (Line) object;
-								switch (line.getType()) {
-								case "name":
-									if(line.getContent() != null){
-										jsonAddress.put("name", line.getContent());
-									}
-									break;
-								case "organisation":
-									if(line.getContent() != null){
-										jsonAddress.put("organisation", line.getContent());
-									}
-									break;
-								case "city":
-									if(line.getContent() != null){
-										jsonAddress.put("city", line.getContent());
-									}
-									break;
-								case "country":
-									if(line.getContent() != null){
-										jsonAddress.put("country", line.getContent());
-									}
-									break;
-								}
+								jsonInstitutionsArray.put(jsonAddress);
 							}
-							jsonInstitutionsArray.put(jsonAddress);
-						}
-						final JSONObject collaborators = new JSONObject();
-						collaborators.put("collaborators", jsonInstitutionsArray);
-						projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
-						break;
+							final JSONObject collaborators = new JSONObject();
+							collaborators.put("collaborators", jsonInstitutionsArray);
+							projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
+							break;
 						
 					case "c-end-date":
-						final BigInteger endYear = field.getDate().getYear();
-						final BigInteger endMonth = field.getDate().getMonth();
-						final BigInteger endDay = field.getDate().getDay();
-						if ( endYear != null ){
-							projectsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-						}
-						if ( endMonth != null ){
-							projectsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-						}
-						if ( endDay != null ){
-							projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-						}
-						break;
-						
+							final BigInteger endYear = field.getDate().getYear();
+							final BigInteger endMonth = field.getDate().getMonth();
+							final BigInteger endDay = field.getDate().getDay();
+							if ( endYear != null ){
+								projectsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+							}
+							if ( endMonth != null ){
+								projectsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+							}
+							if ( endDay != null ){
+								projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+							}
+							break;
+							
 					case "c-start-date":
-						final BigInteger startYear = field.getDate().getYear();
-						final BigInteger startMonth = field.getDate().getMonth();
-						final BigInteger startDay = field.getDate().getDay();
-						if ( startYear != null ){
-							projectsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-						}
-						if ( startMonth != null ){
-							projectsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-						}
-						if ( startDay != null ){
-							projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-						}
-						break;
+							final BigInteger startYear = field.getDate().getYear();
+							final BigInteger startMonth = field.getDate().getMonth();
+							final BigInteger startDay = field.getDate().getDay();
+							if ( startYear != null ){
+								projectsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+							}
+							if ( startMonth != null ){
+								projectsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+							}
+							if ( startDay != null ){
+								projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+							}
+							break;
 						
 					case "c-funding-source2":
-						final List<String> fundingSources = field.getItems().getItem();
-						projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
-						break;
+							final List<String> fundingSources = field.getItems().getItem();
+							projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
+							break;
 						
 					case "c-nhm-url1":
-						projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
-						break;
+							projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
+							break;
 					}
 				}
 			}
@@ -1671,6 +1677,8 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         //      				|		 `- nonAcademicAppointments			(nt:unstructured)
         //      				|-- professionalActivities					(nt:unstructured)
         //      				|		 `- associated						(nt:unstructured)
+        //      				|-- impactAndOutreach						(nt:unstructured)
+        //      				|		 `- associated						(nt:unstructured)
         //      				|-- teachingActivities						(nt:unstructured)
         //      				|		 `- associated						(nt:unstructured)
         //      				|-- projects								(nt:unstructured)
@@ -1713,7 +1721,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         // Node : professionalActivities
         final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-        addProfessionalActivities(associated, activities);
+        addProfessionalActivities(associated, activities);  
+        
+        // Node : impactAndOutreach
+        final Node impactAndOutreach = jcrContentNode.addNode(ScientistProfileHelper.IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        final Node impactAssociated = impactAndOutreach.addNode(ScientistProfileHelper.ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+        addProfessionalActivities(impactAssociated, activities);
         
         // Node : teachingActivities
         final Node teachingActivities = jcrContentNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
