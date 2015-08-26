@@ -356,7 +356,9 @@ function searchFunc(maxResults) {
 			
 			if ($collectionGroupSelected.hasClass("collection")) {
 				
-				var queryRegex = new RegExp( '(?=.*\\b(amphibians)|(mammals)\\b)', 'i' );
+				zoology = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
+				
+				var queryRegex = new RegExp( '(?=.*\\b(' + zoology.join(")|(") + ')\\b)', 'i' );
 				
 				nodes = nodes.filter(function() {
 					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
@@ -365,7 +367,7 @@ function searchFunc(maxResults) {
 					}
 				});
 			}
-
+		/** New Implementation **/
 	}
 	
 	if (nodes.length < maxResults) {
