@@ -715,7 +715,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         }
     }
     
-	
 	/*
 	 * #############################
 	 * ## Professional Activities ##
@@ -1007,7 +1006,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	 * #### Projects ####
 	 * ##################
 	 */
-    
+
     private void addProjects (final Node rootNode, final Projects projects) throws Exception {
 		int i = 0;
 		
@@ -1035,31 +1034,31 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 
 		while (projects.hasNext()){
 			uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project project = projects.next();
-			
+
 			final Node projectsNode = rootNode.addNode(ScientistProfileHelper.PROJECTS_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
-			
+
 			projectsNode.setProperty(ScientistProfileHelper.PROJECT_NODE_TYPE, nodeType);
 			final String type = ScientistProfileHelper.PROJECT_TYPE_PROJECT;
 			projectsNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
-			
+
             final String reportingDate = project.getObject().getReportingDate1();
             projectsNode.setProperty(ScientistProfileHelper.REPORTING_DATE_ATTRIBUTE, reportingDate);
-			
+
 			for (Record record: project.getObject().getRecords().getRecord()) {
 				for (Field field: record.getNative().getField()) {
 					switch (field.getName()) {
 					case "name":
 							projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
 							break;
-						
+
 					case "c-external-collaborators":
 							final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
 							JSONArray jsonInstitutionsArray = new JSONArray(); 
-							
+
 							while(externalCollaborators.hasNext()) {
 								Address address = externalCollaborators.next();
 								List<java.lang.Object> lines = address.getContent();
-								
+
 								JSONObject jsonAddress = new JSONObject();
 								for (final java.lang.Object object : lines) {
 									if (! (object instanceof Line)) {
@@ -1095,7 +1094,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							collaborators.put("collaborators", jsonInstitutionsArray);
 							projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
 							break;
-						
+
 					case "c-end-date":
 							final BigInteger endYear = field.getDate().getYear();
 							final BigInteger endMonth = field.getDate().getMonth();
@@ -1110,7 +1109,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 								projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
 							}
 							break;
-							
+
 					case "c-start-date":
 							final BigInteger startYear = field.getDate().getYear();
 							final BigInteger startMonth = field.getDate().getMonth();
@@ -1125,12 +1124,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 								projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 							}
 							break;
-						
+
 					case "c-funding-source2":
 							final List<String> fundingSources = field.getItems().getItem();
 							projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
 							break;
-						
+
 					case "c-nhm-url1":
 							projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
 							break;
@@ -1147,14 +1146,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	 * #### Grants ####
 	 * ################
 	 */
-	
+
     private void addGrants (final Node rootNode, final Grants grants, String uniqueName) throws Exception{
     	int i = 0;
-    	
+
 //    	LOG.error("Scanning: " + uniqueName );
-    	
+
 		List<Ns1Object> allGrants = new ArrayList<Ns1Object>();
-        
+
 		if(grants != null){
 			if(grants.getPrimaryInvestigator() != null){
 				if (grants.getPrimaryInvestigator().getGrant() != null){
@@ -1165,7 +1164,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 					}
 				}
 			}
-			
+
 			if(grants.getSecondaryInvestigator() != null){
 				if (grants.getSecondaryInvestigator().getGrant() != null){
 //					LOG.error("Found Secondary");	
@@ -1175,7 +1174,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 					}
 				}
 			}
-			
+
 			if(grants.getFundedBy() != null){
 				if (grants.getFundedBy().getGrant() != null){
 //					LOG.error("Found FundedBy");	
@@ -1186,34 +1185,34 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 				}
 			}
 		}
-		
+
 		for (Ns1Object grant : allGrants) {
 				final Node grantsNode = rootNode.addNode(ScientistProfileHelper.GRANT_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
-				
+
 				final String type = ScientistProfileHelper.GRANT_TYPE_GRANT;
 				grantsNode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
-				
+
 	            final String reportingDate = grant.getObject().getReportingDate1();
 	            grantsNode.setProperty(ScientistProfileHelper.REPORTING_DATE_ATTRIBUTE, reportingDate);
-				
+
 				for (Record record: grant.getObject().getRecords().getRecord()) {
 					for (Field field: record.getNative().getField()) {
 						switch (field.getName()) {
-						
+
 						case "c-proposal-title":
 							if (field.getText() != null) {
 								final String proposalTitle = field.getText().toString();
 								grantsNode.setProperty(ScientistProfileHelper.PROPOSAL_TITLE, proposalTitle);
 							}
 							break;
-							
+
 						case "c-role":
 							if (field.getText() != null) {
 								final String role = field.getText().toString();
 								grantsNode.setProperty(ScientistProfileHelper.ROLE, role);
 							}
 							break;
-							
+
 						case "c-role-principal-investigator":
 							if (field.getPeople() != null) {
 								final List<Person> principalPersonList = field.getPeople().getPerson();
@@ -1231,14 +1230,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 						case "c-role-co-investigator":
 							if (field.getPeople() != null ) {
 								final List<Person> coInvestigatorPersonList = field.getPeople().getPerson();
-								
+
 								String[] coInvestigators = new String[coInvestigatorPersonList.size()];
-								
+
 								for (int j = 0; j < coInvestigatorPersonList.size(); j++) {
 									Person person = coInvestigatorPersonList.get(j);
 									coInvestigators[j] =  person.getLastName() + " " + person.getInitials();
 								}
-								
+
 								grantsNode.setProperty(ScientistProfileHelper.ROLE_CO_INVESTIGATOR, coInvestigators);
 							}
                             break;
@@ -1248,13 +1247,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 								grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME, field.getText());
 							}
 							break;
-							
+
 						case "c-funder-name-other":
 							if (field.getText() != null ) {
 								grantsNode.setProperty(ScientistProfileHelper.FUNDER_NAME_OTHER, field.getText());
 							}
 							break;
-							
+
 						case "c-total-value-awarded":
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
@@ -1262,7 +1261,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 								}
 							}
 							break;
-							
+
 						case "c-value-to-nhm-awarded":
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
@@ -1285,7 +1284,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 								grantsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
 							}
 							break;
-							
+
 						case "c-start-date":
 							final BigInteger startYear = field.getDate().getYear();
 							final BigInteger startMonth = field.getDate().getMonth();
@@ -1306,7 +1305,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		}
     }
 
-	
+
 	/*
 	 * #########################
 	 * ## Teaching Activities ##
@@ -1332,13 +1331,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     	LOG.error("Scanning: " + uniqueName );
         
         List<Ns1Object> list = activities.getAssociated().getTeachingActivity();
-        
+
         ListIterator<Ns1Object> listIt = list.listIterator();
         while (listIt.hasNext()){
         	Ns1Object activity = listIt.next();
 
             final Node teachingANode = rootNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
-            
+
             // Setting up type of Teaching Activity
             final String type = resolveTeachingActivityType (activity.getObject().getTypeId().intValue());  
             teachingANode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
@@ -1367,7 +1366,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		teachingANode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
 	                        	}
 	                        	break;
-                        	
+
                         case "start-date":
 	                        	final BigInteger startYear = field.getDate().getYear();
 	                        	final BigInteger startMonth = field.getDate().getMonth();
@@ -1386,11 +1385,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "organisation":
 	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
 	                            JSONArray jsonOrganisationsArray = new JSONArray(); 
-	                            
+
 	                            while(organisationTypes.hasNext()) {
 	                            	Address address = organisationTypes.next();
 	                            	List<java.lang.Object> lines = address.getContent();
-	                            	
+
 	                            	JSONObject jsonAddress = new JSONObject();
 	                            	for (final java.lang.Object object : lines) {
 	                            		if (! (object instanceof Line)) {
@@ -1419,7 +1418,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            			}
 	                            			break;
 	                            		}
-	                            		
 	                            	}
 	                            	jsonOrganisationsArray.put(jsonAddress);
 								}
@@ -1427,15 +1425,15 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            organisations.put("organisations", jsonOrganisationsArray);
 	                            teachingANode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
 	                            break;
-                            
+
                         case "institution":	
 	                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
 	                            JSONArray jsonInstitutionsArray = new JSONArray(); 
-	                            
+
 	                            while(institutionTypes.hasNext()) {
 	                            	Address address = institutionTypes.next();
 	                            	List<java.lang.Object> lines = address.getContent();
-	                            	
+
 	                            	JSONObject jsonAddress = new JSONObject();
 	                            	for (final java.lang.Object object : lines) {
 	                            		if (! (object instanceof Line)) {
@@ -1471,28 +1469,28 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            institutions.put("organisations", jsonInstitutionsArray);
 	                            teachingANode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
 	                            break;
-                            
+
                         case "c-course-level":
 	                          	final String committeeRole = field.getText();
 	                          	if ( committeeRole != null ){
 	                          		teachingANode.setProperty(ScientistProfileHelper.COURSE_LEVEL_ATTRIBUTE, committeeRole);
 	                          	}
 	                          	break;
-	                          	
+
                         case "c-degree-type":
 	                        	final String degreeType = field.getText();
 	                        	if ( degreeType != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_TYPE_ATTRIBUTE, degreeType);
 	                        	}
 	                        	break;
-	                        	
+
                         case "c-other-degree-type":
 	                        	final String otherDegreeType = field.getText();
 	                        	if ( otherDegreeType != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.OTHER_DEGREE_TYPE_ATTRIBUTE, otherDegreeType);
 	                        	}
 	                        	break;
-	                        	
+
                         case "c-supervisory-role":
 	                        	final String supervisoryRole = field.getText();
 	                        	if ( supervisoryRole != null ){
@@ -1507,7 +1505,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                        		teachingANode.setProperty(ScientistProfileHelper.PERSON_ATTRIBUTE, personString);
 	                        	}
 	                        	break;  
-                            
+
 						case "co-contributors":
 								if (field.getPeople() != null) {
 									final List<Person> coContributorsPersonList = field.getPeople().getPerson();
@@ -1521,64 +1519,64 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 									teachingANode.setProperty(ScientistProfileHelper.CO_CONTRIBUTORS_ATTRIBUTE, coContributors);
 								}
 								break;
-	                        	
+
                         case "c-degree-subject":                       	
 	                        	final String degreeSubject = field.getText();
 	                        	if ( degreeSubject != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_SUBJECT_ATTRIBUTE, degreeSubject);
 	                        	}
 	                        	break; 
-	                        	
+
                         case "c-funder":
 	                        	final String funder = field.getText();
 	                        	if ( funder != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.FUNDER_ATTRIBUTE, funder);
 	                        	}
 	                        	break;
-                        	
+
                         case "examination-role":
 	                        	final String examinationRole = field.getText();
 	                        	if ( examinationRole != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, examinationRole);
 	                        	}
 	                        	break;
-	                        	
+
                         case "c-examination-role":
 	                        	final String cExaminationRole = field.getText();
 	                        	if ( cExaminationRole != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_ROLE_ATTRIBUTE, cExaminationRole);
 	                        	}
 	                        	break;
-                        	
+
                         case "c-examination-level":
 	                        	final String examinationLevel = field.getText();
 	                        	if ( examinationLevel != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.EXAMINATION_LEVEL_ATTRIBUTE, examinationLevel);
 	                        	}
 	                        	break;
-                        	
+
                         case "degree-level":
 	                        	final String degreeLevel = field.getText();
 	                        	if ( degreeLevel != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_LEVEL_ATTRIBUTE, degreeLevel);
 	                        	}
 	                        	break;
-                        	
+
                         case "degree-type":
 	                        	final String programDegreeType = field.getText();
 	                        	if ( programDegreeType != null ){
 	                        		teachingANode.setProperty(ScientistProfileHelper.DEGREE_TYPE_ATTRIBUTE, programDegreeType);
 	                        	}
 	                        	break;
-                        	
+
                         case "partners":	
 	                            final ListIterator<Address> partnersList = field.getAddresses().getAddress().listIterator();
 	                            JSONArray jsonPartnersArray = new JSONArray(); 
-	                            
+
 	                            while(partnersList.hasNext()) {
 	                            	Address address = partnersList.next();
 	                            	List<java.lang.Object> lines = address.getContent();
-	                            	
+
 	                            	JSONObject jsonAddress = new JSONObject();
 	                            	for (final java.lang.Object object : lines) {
 	                            		if (! (object instanceof Line)) {
@@ -1607,7 +1605,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            			}
 	                            			break;
 	                            		}
-	                            		
 	                            	}
 	                            	jsonPartnersArray.put(jsonAddress);
 								}
@@ -1615,7 +1612,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            partners.put("partners", jsonPartnersArray);
 	                            teachingANode.setProperty(ScientistProfileHelper.PARTNER_ATTRIBUTE, partners.toString());
 	                            break;
-                            
+
                         case "release-date":
 	                        	final BigInteger releaseYear = field.getDate().getYear();
 	                        	final BigInteger releaseMonth = field.getDate().getMonth();
@@ -1636,16 +1633,16 @@ public class ImportXMLWorkflow implements WorkflowProcess {
             }
         }
     }
-    
+
     private void processFile (final WebProfile webProfile, final String imagePath) throws Exception {
         //Get the contentPath node in the JCR
         Node rootNode = session.getNode(contentPath);
-        
+
         // ############################
         // ## Getting the WebProfile ##
         // ############################
         final Ns1Object profile = webProfile.getProfile();
-        
+
         // ############################
         // ## Building the Node Name ##
         // ############################
@@ -1656,10 +1653,10 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         } else {
         	firstNameOutput = profile.getObject().getFirstName();
         }
-        
+
         // Node Name
         final String uniqueName = firstNameOutput.toLowerCase() + "-" + profile.getObject().getLastName().toLowerCase(); 
-        
+
         // ####################
         // ## Page Structure ##
         // ####################
@@ -1689,10 +1686,10 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         //      				|		 `- authored						(nt:unstructured)
         //      				 `- image									(nt:unstructured)
         //
-        
+
         // Node : e.g: andy-purvis
         final Node profileNode = rootNode.addNode(uniqueName, "cq:Page");
-        
+
         // Node : jcr:content
         final Node jcrContentNode = profileNode.addNode(JcrConstants.JCR_CONTENT, "cq:PageContent");
         jcrContentNode.setProperty("sling:resourceType", SCIENCE_PROFILE_PAGE_RESOURCE_TYPE);
@@ -1710,29 +1707,29 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         		}
         	}
         }
-        
+
         // Node : department
         final Node department = jcrContentNode.addNode(ScientistProfileHelper.DEPARTAMENT_INFORMATION_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         setDepartment (department, profile);  
-        
+
         // Node : professional
         processRecords (jcrContentNode, profile.getObject().getRecords().getRecord());
-        
+
         // Node : professionalActivities
         final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addProfessionalActivities(associated, activities);  
-        
+
         // Node : impactAndOutreach
         final Node impactAndOutreach = jcrContentNode.addNode(ScientistProfileHelper.IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node impactAssociated = impactAndOutreach.addNode(ScientistProfileHelper.ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addProfessionalActivities(impactAssociated, activities);
-        
+
         // Node : teachingActivities
         final Node teachingActivities = jcrContentNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node teachingAssociated = teachingActivities.addNode(ScientistProfileHelper.ASSOCIATED_TEACHING_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addTeachingActivities(teachingAssociated, webProfile.getTeachingActivities(), uniqueName);
-        
+
         // Node : projects
         final Node projectsNode = jcrContentNode.addNode(ScientistProfileHelper.PROJECTS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node projects = projectsNode.addNode(ScientistProfileHelper.PROJECTS_CONTAINER_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
@@ -1742,7 +1739,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         final Node grantsNode = jcrContentNode.addNode(ScientistProfileHelper.GRANT_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node grants = grantsNode.addNode(ScientistProfileHelper.GRANT_CONTAINER_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addGrants(grants, webProfile.getGrants(), uniqueName);
-        
+
         // Node : publications
         final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node authored = publications.addNode(ScientistProfileHelper.AUTHORED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
@@ -1755,11 +1752,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	imageNode.setProperty("sling:resourceType", "foundation/components/image");
         }
     }
-            
+
 	/**
 	 * Private Functions
 	 */
-	
+
 	//Save the uploaded file into the AEM DAM using AssetManager API
 	private Asset writeToDam(InputStream is, String fileName, String mymeType,WebProfile profile) {
 		try {
@@ -1772,10 +1769,10 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		    ModifiableValueMap map = metadataRes.adaptTo(ModifiableValueMap.class);
 		    map.put("dc:title", profile.getProfile().getObject().getTitle() +" " + profile.getProfile().getObject().getFirstName()+" "+profile.getProfile().getObject().getLastName());
 		    resourceResolver.commit();
-		    
+
 		    //assetMgr.createRevision(asset, "Metadata-title", "updating metadata title");
 		    // Return the asset that was stored
-		    
+
 		    return asset;
 		}
 		catch(Exception e) {
@@ -1783,5 +1780,4 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		}
 		return null;
 	}
-
 }
