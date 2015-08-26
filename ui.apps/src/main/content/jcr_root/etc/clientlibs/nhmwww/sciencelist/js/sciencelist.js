@@ -356,7 +356,7 @@ function searchFunc(maxResults) {
 			
 			if ($collectionGroupSelected.hasClass("collection")) {
 				
-				var queryRegex = new RegExp( '(?=.*\\b(birds)|(vertebrates)\\b)', 'i' );
+				var queryRegex = new RegExp( '(?=.*\\b(amphibians)|(mammals)\\b)', 'i' );
 				
 				nodes = nodes.filter(function() {
 					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
