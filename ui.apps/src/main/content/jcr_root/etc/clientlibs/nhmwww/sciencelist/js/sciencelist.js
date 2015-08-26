@@ -335,60 +335,62 @@ function searchFunc(maxResults) {
 	
 	if (collectionsGroup != "All") {
 		
-		/** New Implementation **/
-			nodes = nodes.filter('[collection="Collections"]');
-			var group = $collectionGroupSelected.data("group");
+		nodes = nodes.filter('[collection="Collections"]');
+		var group = $collectionGroupSelected.data("group");
 
-			if ($collectionGroupSelected.hasClass("group")) {
-				var query = group.toLowerCase();
-				var queryRegex = new RegExp( '(?=.*\\b' + query.split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
-				
-				nodes = nodes.filter(function(){
-					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
-			        if ( queryRegex.test( $thisCollectionsGroup ) ) {
-			            return true;
-			        }
-			        return false;
-				});
+		if ($collectionGroupSelected.hasClass("group")) {
+			var query = group.toLowerCase();
+			var queryRegex = new RegExp( '(?=.*\\b' + query.split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+			
+			nodes = nodes.filter(function(){
+				var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+		        if ( queryRegex.test( $thisCollectionsGroup ) ) {
+		            return true;
+		        }
+		        return false;
+			});
+		}
+		
+		if ($collectionGroupSelected.hasClass("collection")) {
+			
+			var parentGroup;
+			
+			switch (collectionsGroup) {
+			case "Botany":
+				parentGroup = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British", "Irish", "Herbarium", "Historical" ];
+				break;
+			case "Entomology":
+				parentGroup = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
+				        "Phthiraptera", "Thysanoptera", "Psocoptera", "Odonata",  "Neuroptera", "Apterygota",
+				        "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical" ];
+				break;
+			case "Zoology":
+				parentGroup = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
+				break;
+			case "Palaeontology":
+				parentGroup = [ "Anthropology", "Micropalaeontology", "Fossil", "invertebrate", "vertebrate", "Palaeobotany" ];
+				break;
+			case "Mineralogy":
+				parentGroup = [ "Meteorite", "Mineral", "Gemstone", "Ocean", "bottom",  "deposit", "Ores", "Petrology" ];
+				break;
+			default:
+				parentGroup = [];
+				break;
 			}
 			
-			if ($collectionGroupSelected.hasClass("collection")) {
-				
-				var parentGroup;
-				
-				switch (collectionsGroup) {
-				case "Botany":
-					parentGroup = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British", "Irish", "Herbarium", "Historical" ];
-					break;
-				case "Entomology":
-					parentGroup = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
-					        "Phthiraptera", "Thysanoptera", "Psocoptera", "Odonata",  "Neuroptera", "Apterygota",
-					        "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical" ];
-					break;
-				case "Zoology":
-					parentGroup = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
-					break;
-				case "Palaeontology":
-					parentGroup = [ "Anthropology", "Micropalaeontology", "Fossil", "invertebrate", "vertebrate", "Palaeobotany" ];
-					break;
-				case "Mineralogy":
-					parentGroup = [ "Meteorite", "Mineral", "Gemstone", "Ocean", "bottom",  "deposit", "Ores", "Petrology" ];
-					break;
-				default:
-					parentGroup = [];
-					break;
-				}
-				
-				var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")\\b|\\b(") + ')\\b)', 'i' );
-				
-				nodes = nodes.filter(function() {
-					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
-					if ( queryRegex.test ( $thisCollectionsGroup )) {
-						return true;
-					}
-				});
+			for ( var i = 0; i < aux.length; i++ ) {
+				aux[i] = aux[i].split(' ').join('\\b|\\b');
 			}
-		/** New Implementation **/
+			
+			var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")\\b|\\b(") + ')\\b)', 'i' );
+			
+			nodes = nodes.filter(function() {
+				var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+				if ( queryRegex.test ( $thisCollectionsGroup )) {
+					return true;
+				}
+			});
+		}
 	}
 	
 	if (nodes.length < maxResults) {
