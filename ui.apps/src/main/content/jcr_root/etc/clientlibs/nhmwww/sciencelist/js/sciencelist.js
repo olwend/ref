@@ -355,8 +355,14 @@ function searchFunc(maxResults) {
 			}
 			
 			if ($collectionGroupSelected.hasClass("collection")) {
+				
+				var queryRegex = new RegExp( '(?=.*\\b(birds)|(vertebrates)\\b)', 'i' );
+				
 				nodes = nodes.filter(function() {
-					return true;
+					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+					if ( queryRegex.test ( $thisCollectionsGroup )) {
+						return true;
+					}
 				});
 			}
 
