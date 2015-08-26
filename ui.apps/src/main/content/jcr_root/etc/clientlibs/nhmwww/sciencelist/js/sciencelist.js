@@ -356,9 +356,23 @@ function searchFunc(maxResults) {
 			
 			if ($collectionGroupSelected.hasClass("collection")) {
 				
-				zoology = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
+				var parentGroup;
 				
-				var queryRegex = new RegExp( '(?=.*\\b(' + zoology.join(")|(") + ')\\b)', 'i' );
+				switch (collectionsGroup) {
+				case "Entomology":
+					parentGroup = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
+					        "Phthiraptera", "Thysanoptera", "Psocoptera", "Odonata",  "Neuroptera", "Apterygota",
+					        "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical" ];
+					break;
+				case "Zoology":
+					parentGroup = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
+					break;
+				default:
+					parentGroup = [];
+					break;
+				}
+				
+				var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")|(") + ')\\b)', 'i' );
 				
 				nodes = nodes.filter(function() {
 					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
