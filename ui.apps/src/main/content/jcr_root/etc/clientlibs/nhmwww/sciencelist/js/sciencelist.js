@@ -334,13 +334,10 @@ function searchFunc(maxResults) {
 	if (collectionsGroup != "All") {
 		
 		/** New Implementation **/
-			//  Looking for [collection="Research"][group="Vertebrates, Birds"] || [collection="Collections"][group="Vertebrates, Birds"] 
 			nodes = nodes.filter('[collection="Collections"]');
-			//  Looking for [collection="Collections"][group="Vertebrates, Birds"] 
 			var group = $collectionGroupSelected.data("group");
 
 			if ($collectionGroupSelected.hasClass("group")) {
-				// [group="Vertebrates, Birds"] 
 				var query = group.toLowerCase();
 				var queryRegex = new RegExp( '(?=.*\\b' + query.split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
 				
