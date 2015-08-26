@@ -201,6 +201,8 @@ function saveSearchTerms() {
 	}
 	
 	if (!ignoreURL){
+		var aux; 
+		
 		aux = $.getUrlVar('name');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			name = aux;
