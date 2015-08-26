@@ -359,6 +359,9 @@ function searchFunc(maxResults) {
 				var parentGroup;
 				
 				switch (collectionsGroup) {
+				case "Botany":
+					parentGroup = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British", "Irish", "Herbarium", "Historical" ];
+					break;
 				case "Entomology":
 					parentGroup = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
 					        "Phthiraptera", "Thysanoptera", "Psocoptera", "Odonata",  "Neuroptera", "Apterygota",
@@ -366,6 +369,12 @@ function searchFunc(maxResults) {
 					break;
 				case "Zoology":
 					parentGroup = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
+					break;
+				case "Palaeontology":
+					parentGroup = [ "Anthropology", "Micropalaeontology", "Fossil", "invertebrate", "vertebrate", "Palaeobotany" ];
+					break;
+				case "Mineralogy":
+					parentGroup = [ "Meteorite", "Mineral", "Gemstone", "Ocean", "bottom",  "deposit", "Ores", "Petrology" ];
 					break;
 				default:
 					parentGroup = [];
