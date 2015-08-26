@@ -127,8 +127,8 @@
 					    <option class="group" id="Invertebrates" value="Invertebrates" data-group="Invertebrates">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates collections</option>
 					    <option class="group" id="Vertebrates" value="Vertebrates" data-group="Vertebrates">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrates collections</option>
 					    <option class="group" id="Birds" value="Birds" data-group="Birds">&nbsp;&nbsp;&nbsp;&nbsp;Birds collections</option>
-					    <option class="group" id="Fishes" value="Fishes" data-group="Fishes">&nbsp;&nbsp;&nbsp;&nbsp;Fishes collections</option>
-					    <option class="group" id="Amphbians" value="Amphbians" data-group="Amphbians">&nbsp;&nbsp;&nbsp;&nbsp;Amphbians collections</option>
+					    <option class="group" id="Fish" value="Fish" data-group="Fish">&nbsp;&nbsp;&nbsp;&nbsp;Fishes collections</option>
+					    <option class="group" id="Amphibians" value="Amphibians" data-group="Amphibians">&nbsp;&nbsp;&nbsp;&nbsp;Amphbians collections</option>
 					    <option class="group" id="Reptiles" value="Reptiles" data-group="Reptiles">&nbsp;&nbsp;&nbsp;&nbsp;Reptiles collections</option>
 					    <option class="group" id="Mammals" value="Mammals" data-group="Mammals">&nbsp;&nbsp;&nbsp;&nbsp;Mammals collections</option>
 					
