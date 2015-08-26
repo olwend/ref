@@ -346,7 +346,6 @@ function searchFunc(maxResults) {
 				
 				nodes = nodes.filter(function(){
 					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
-					console.log($thisCollectionsGroup);
 			        if ( queryRegex.test( $thisCollectionsGroup ) ) {
 			            return true;
 			        }
@@ -381,7 +380,7 @@ function searchFunc(maxResults) {
 					break;
 				}
 				
-				var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")|(") + ')\\b)', 'i' );
+				var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")\\b|\\b(") + ')\\b)', 'i' );
 				
 				nodes = nodes.filter(function() {
 					var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
