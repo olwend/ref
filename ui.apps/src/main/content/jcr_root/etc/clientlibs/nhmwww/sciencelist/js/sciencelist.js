@@ -355,61 +355,11 @@ function searchFunc(maxResults) {
 			}
 			
 			if ($collectionGroupSelected.hasClass("collection")) {
-				// [group="Vertebrates, Birds"]
-				var aux;
-				
-				switch (collectionsGroup) {
-				case "Botany":
-					aux = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British and Irish Herbarium", "Historical collections" ];
-					break;
-				case "Entomology":
-					aux = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
-					                   "Phthiraptera, Thysanoptera and Psocoptera", "Odonata, Neuroptera and associated collections", 
-					                   "Apterygota", "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical collections" ];
-					break;
-				case "Zoology":
-					aux = [ "Invertebrates", "Vertebrates", "Birds", "Fishes", "Amphbians", "Reptiles", "Mammals" ];
-					break;
-				case "Palaeontology":
-					aux = [ "Anthropology", "Micropalaeontology", "Fossil invertebrate", "Fossil vertebrate", "Palaeobotany" ];
-					break;
-				case "Mineralogy":
-					aux = [ "Meteorite", "Mineral", "Gemstone", "Ocean bottom deposit", "Ores", "Petrology" ];
-					break;
-				}
-				
-//				queryRegex = new RegExp( '(?=.*\\b(birds)|(vertebrates)\\b)', 'i' );
-				
-				if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-					for ( var i = 0; i < aux.length; i++ ) {
-						aux[i] = aux[i].split(' ').join('\\b|\\b');
-					}
-					
-					var queryRegex = new RegExp( '(?=.*\\b' + aux.join('\\b|\\b') +  '\\b)', '' ) ;
-					
-					nodes = nodes.filter(function(){
-						var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
-						console.log($thisCollectionsGroup);
-						if ( queryRegex.test( $thisCollectionsGroup ) ) {
-							return true;
-						}
-						return false;
-					});
-				} 
+				nodes = nodes.filter(function() {
+					return true;
+				});
 			}
-		/** New Implementation **/
-			
-//		if ($collectionGroupSelected.hasClass("collection")) {
-////			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]"); 					// Should be = "Collections" always
-//			nodes = nodes.filter('[collection="Collections"]');
-//		}
-//		
-//		if ($collectionGroupSelected.hasClass("group")) {
-//			var collection = $collectionGroupSelected.data("collection");
-//			var group = $collectionGroupSelected.data("group");
-////			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");		// Should be = "Collections" always
-//			nodes = nodes.filter("[group=" + '"' + group + '"' + '][collection="Collections"]');							// Should be = "Collections" always
-//		}
+
 	}
 	
 	if (nodes.length < maxResults) {
