@@ -125,6 +125,70 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Richard Spruce collection"
 		                            value="spruce"/>
+		                        <o21
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="The MacGillivray Art Collection"
+		                            value="macgillivray"/>
+		                        <o22
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="The Linnaean Plant Name Typification Project"
+		                            value="linnaeantypification"/>
+		                        <o23
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Sloane Herbarium"
+		                            value="sloaneherbarium"/>  
+		                        <o24
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Clifford Herbarium"
+		                            value="cliffordherbarium"/>
+		                        <o25
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Plant diversity in Paraguay"
+		                            value="paraguay"/>
+		                        <o26
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Hermann Herbarium"
+		                            value="hermannherbarium"/>  
+		                        <o27
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Clayton Herbarium"
+		                            value="claytonherbarium"/>
+		                        <o28
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Former British Petroleum microfossil database"
+		                            value="bpmicrofossil"/>
+		                        <o29
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Tropical Land Snail Diversity"
+		                            value="tropicallandsnails"/>  
+		                        <o30
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Duxbury Database"
+		                            value="duxbury"/>
+		                        <o31
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Coffee and Biodiversity Conservation in El Salvador"
+		                            value="elsalvadorcoffee"/>
+		                        <o32
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Former Aberystwyth Microfossil Collection"
+		                            value="aberystwythmicrofossil"/>  
+		                        <o33
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Bird Types"
+		                            value="birdtypespecimens"/>
+		                        <o34
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Moss Type Specimens"
+		                            value="mosstypes"/>
+		                        <o35
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="The Endeavour Botanical Illustrations"
+		                            value="endeavour"/>
+		                        <o36
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="Linnaeus's Butterfly Type Specimens"
+		                            value="linntypes"/>
 		                    </options>
 		                </legacyApp>
                     </items>
