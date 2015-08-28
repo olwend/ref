@@ -160,7 +160,7 @@
 		                        <o29
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Tropical Land Snail Diversity"
-		                            value="tropicallandsnails"/>  
+		                            value="tropical-snails"/>  
 		                        <o30
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Duxbury Database"
