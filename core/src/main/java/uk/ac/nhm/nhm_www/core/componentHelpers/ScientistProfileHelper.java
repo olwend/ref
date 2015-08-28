@@ -39,6 +39,7 @@ import uk.ac.nhm.nhm_www.core.model.science.Webpage;
 import uk.ac.nhm.nhm_www.core.model.science.WebsitePublicationType;
 import uk.ac.nhm.nhm_www.core.model.science.WorkExperience;
 import uk.ac.nhm.nhm_www.core.model.science.grants.Grant;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.Award;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Committee;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Consultancy;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Editorship;
@@ -144,7 +145,13 @@ public class ScientistProfileHelper {
 	public static final String OFFICE_HELD_TYPE_ATTRIBUTE			= "officeHeldType";
 	public static final String OFFICE_OTHER_HELD_TYPE_ATTRIBUTE		= "officeOtherHeldType";
 	public static final String INTERNAL_OR_EXTERNAL_ATTRIBUTE		= "internalOrExternalPosition";
-	public static final String AREA_OR_REGION						= "areaOrRegion";
+	public static final String AREA_OR_REGION_ATTRIBUTE				= "areaOrRegion";
+	public static final String EVENT_NAME_ATTRIBUTE					= "eventName";
+	public static final String INVITED_ATTRIBUTE					= "invited";
+	public static final String KEYNOTE_ATTRIBUTE					= "keynote";
+	public static final String DESCRIPTION_ATTRIBUTE				= "description";
+	public static final String INTERVIEWER_NAME_ATTRIBUTE			= "interviewerName";
+	
 	
 	public static final String PUBLISHER_ATTRIBUTE 	   	  	= "publisher";
 	public static final String TITLE_ATTRIBUTE 		   	  	= "title";
@@ -287,11 +294,7 @@ public class ScientistProfileHelper {
 	public static final String PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT			= "Review Referee Grant";
 
 	/* Impact and Outreach */
-	public  static final String IMPACT_AND_OUTREACH_ACTIVITY_PREFIX_NODE_NAME 			= "impactAndOutreachActivity";
-	public  static final String IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME  				= "impactAndOutreachActivities";
-	public  static final String ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME  	= "associated";
-	private static final String IMPACT_AND_OUTREACH_NODE_PATH			  				= IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME + "/" + ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME;
-	
+
 	public  static final String PROFESSIONAL_ACTIVITY_TYPE_AWARD						= "Award";
 	public  static final String PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION		= "ResearPresentation";
 	public  static final String PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION			= "GuestPresentation";
@@ -1132,16 +1135,17 @@ public class ScientistProfileHelper {
 				case PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK:
                     final String fieldworkOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
                     final String fieldworkDepartment = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
-                    final String fieldworkAreaOrRegion = childProperties.get(AREA_OR_REGION, String.class);
+                    final String fieldworkAreaOrRegion = childProperties.get(AREA_OR_REGION_ATTRIBUTE, String.class);
 					setFieldworks.add(new Fieldwork(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, fieldworkOrganisations, fieldworkDepartment, fieldworkAreaOrRegion));
 					break;
 
-//				case PROFESSIONAL_ACTIVITY_TYPE_AWARD:
-//					setAward.add(new Award(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-//							yearEndDate, monthEndDate, dayEndDate));
-//					break;
-//					
+				case PROFESSIONAL_ACTIVITY_TYPE_AWARD:
+			        final String awardInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					setAward.add(new Award(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, awardInstitution));
+					break;
+					
 //				case PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION:
 //					setAward.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 //							yearEndDate, monthEndDate, dayEndDate));
@@ -1167,7 +1171,8 @@ public class ScientistProfileHelper {
 				}
 			}
 		}
-
+		
+		//Professional Activities Tab
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION, setPositions);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP, setFellowships);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES, setCommittees);
@@ -1177,10 +1182,19 @@ public class ScientistProfileHelper {
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT, setReviewGrants);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_ADMINISTRATION, setEventsAdministration);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION, setEventsParticipation);
+		
+		//Projects Tab
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_CONSULTING, setConsultancies);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP, setPartnerships);
 		result.put(PROFESSIONAL_ACTIVITY_TYPE_FIELDWORK, setFieldworks);
-
+		
+		//Impact and Outreach Tab
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_AWARD, setAward);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION, setResearchPresentation);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION, setGuestPresentation);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST, setMediaBroadcast);
+		result.put(PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW, setMediaInterview);
+		
 		return result;
 	}
 

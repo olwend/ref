@@ -994,6 +994,48 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          		professionalANode.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE, areaOrRegion);
 	                          	}
 	                          	break;
+	                          	
+                        case "event-name":
+	                          	final String eventName = field.getText();
+	                          	if ( eventName != null ){
+	                          		professionalANode.setProperty(ScientistProfileHelper.EVENT_NAME_ATTRIBUTE, eventName);
+	                          	}
+	                          	break;
+	                          	
+                        case "invited":
+	                          	final String invited = field.getText();
+	                          	if ( invited != null ){
+	                          		professionalANode.setProperty(ScientistProfileHelper.INVITED_ATTRIBUTE, invited);
+	                          	}
+	                          	break;
+	                          	
+                        case "keynote":
+	                          	final String keynote = field.getText();
+	                          	if ( keynote != null ){
+	                          		professionalANode.setProperty(ScientistProfileHelper.KEYNOTE_ATTRIBUTE, keynote);
+	                          	}
+	                          	break;	        
+	                          	
+                        case "description":
+	                          	final String description = field.getText();
+	                          	if ( description != null ){
+	                          		professionalANode.setProperty(ScientistProfileHelper.DESCRIPTION_ATTRIBUTE, description);
+	                          	}
+	                          	break;	
+	                          	
+                        case "c-interviewer-name":
+								if (field.getPeople() != null) {
+									final List<Person> interviewersList = field.getPeople().getPerson();
+									
+									String[] interviewers = new String[interviewersList.size()];
+									
+									for (int j = 0; j < interviewersList.size(); j++) {
+										Person person = interviewersList.get(j);
+										interviewers[j] =  person.getLastName() + " " + person.getInitials();
+									}
+									professionalANode.setProperty(ScientistProfileHelper.INTERVIEWER_NAME_ATTRIBUTE, interviewers);
+								}
+								break;
                     }
                 }
             }
@@ -1674,8 +1716,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         //      				|		 `- nonAcademicAppointments			(nt:unstructured)
         //      				|-- professionalActivities					(nt:unstructured)
         //      				|		 `- associated						(nt:unstructured)
-        //      				|-- impactAndOutreach						(nt:unstructured)
-        //      				|		 `- associated						(nt:unstructured)
         //      				|-- teachingActivities						(nt:unstructured)
         //      				|		 `- associated						(nt:unstructured)
         //      				|-- projects								(nt:unstructured)
@@ -1719,11 +1759,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         final Node professionalActivities = jcrContentNode.addNode(ScientistProfileHelper.PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         final Node associated = professionalActivities.addNode(ScientistProfileHelper.ASSOCIATED_PROFESSIONAL_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
         addProfessionalActivities(associated, activities);  
-
-        // Node : impactAndOutreach
-        final Node impactAndOutreach = jcrContentNode.addNode(ScientistProfileHelper.IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-        final Node impactAssociated = impactAndOutreach.addNode(ScientistProfileHelper.ASSOCIATED_IMPACT_AND_OUTREACH_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
-        addProfessionalActivities(impactAssociated, activities);
 
         // Node : teachingActivities
         final Node teachingActivities = jcrContentNode.addNode(ScientistProfileHelper.TEACHING_ACTIVITIES_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
