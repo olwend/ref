@@ -6,14 +6,14 @@ import org.apache.sling.commons.json.JSONObject;
 
 
 
-public class ResearchPresentation extends ProfessionalActivity {
+public class GuestPresentation extends ProfessionalActivity {
 
 	private Institution[] institutions;
 	private String invited;
 	private String keynote;
 	private String eventName;
 
-	public ResearchPresentation(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
+	public GuestPresentation(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
 			String yearEndDate, String monthEndDate, String dayEndDate, String invited, String keynote, String eventName, String rpresentationInstitutions) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.invited = invited;

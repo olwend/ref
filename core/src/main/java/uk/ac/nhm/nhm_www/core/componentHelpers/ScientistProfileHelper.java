@@ -51,6 +51,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosi
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Partnership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.ResearchPresentation;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereeGrant;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ReviewerOrRefereePublication;
 import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
@@ -1059,12 +1060,14 @@ public class ScientistProfileHelper {
 					final String internalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
 					final String officeHeldType = childProperties.get(OFFICE_HELD_TYPE_ATTRIBUTE, String.class);
 					final String officeOtherHeldType = childProperties.get(OFFICE_OTHER_HELD_TYPE_ATTRIBUTE, String.class);
+					
 					setPositions.add(new InternalOrExternalPosition(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							internalOrExternal, officeHeldType, officeOtherHeldType, inOrExInstitution));
 					break;	
 
 				case PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP:
                     final String fellowshipOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    
 					setFellowships.add(new Fellowship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							fellowshipOrganisations));
 					break;
@@ -1072,6 +1075,7 @@ public class ScientistProfileHelper {
 				case PROFESSIONAL_ACTIVITY_TYPE_COMMITTEES:
                 	final String committeeInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
                 	final String committeeRole = childProperties.get(COMMITTEE_ROLE_ATTRIBUTE, String.class);
+                	
 					setCommittees.add(new Committee(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							committeeRole, committeeInstitution));
 					break;
@@ -1079,6 +1083,7 @@ public class ScientistProfileHelper {
 				case PROFESSIONAL_ACTIVITY_TYPE_MEMBERSHIP:
                     final String membershipInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
                     final String membershipRole = childProperties.get(MEMBERSHIP_ROLE_ATTRIBUTE, String.class);
+                    
                     setMemberships.add(new Membership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
                     		membershipRole, membershipInstitution));
                     break; 
@@ -1086,6 +1091,7 @@ public class ScientistProfileHelper {
 				case PROFESSIONAL_ACTIVITY_TYPE_EDITORSHIP:
 					final String editorialRole = childProperties.get(EDITORSHIP_ROLE_ATTRIBUTE, String.class);
 					final String editorialPublisher = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
+					
 					setEditorships.add(new Editorship(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							editorialRole, editorialPublisher));
 					break;
@@ -1094,12 +1100,14 @@ public class ScientistProfileHelper {
 					final String publication = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
 					final String publicationType = childProperties.get(PUBLICATION_TYPE_ATTRIBUTE, String.class);
 					final String reviewType = childProperties.get(REVIEW_TYPE_ATTRIBUTE, String.class);
+					
 					setReviewPublications.add(new ReviewerOrRefereePublication(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							publication, publicationType, reviewType));
 					break;
 
 				case PROFESSIONAL_ACTIVITY_TYPE_REVIEW_REFEREE_GRANT:
                     final String grantOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    
 					setReviewGrants.add(new ReviewerOrRefereeGrant(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate,
 							grantOrganisations));
 					break;
@@ -1108,6 +1116,7 @@ public class ScientistProfileHelper {
 			        final String eventOrganisationsInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
                     final String eventOrganisationsRole = childProperties.get(ADMINISTRATIVE_ROLE_ATTRIBUTE, String.class);
                     final String eventOrganisationsType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+                    
                     setEventsAdministration.add(new EventAdministration(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
                                         eventOrganisationsRole, eventOrganisationsType, eventOrganisationsInstitution));
                     break;  	
@@ -1116,18 +1125,21 @@ public class ScientistProfileHelper {
                 	final String eventParticipationInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
 					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
+					
 					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							eventParticipationRoles, eventParticipationType, eventParticipationInstitution));
 					break;	
 
 				case PROFESSIONAL_ACTIVITY_TYPE_CONSULTING:
                     final String consultingOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    
 					setConsultancies.add(new Consultancy(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, consultingOrganisations));
 					break;
 
 				case PROFESSIONAL_ACTIVITY_TYPE_PARTNERSHIP:
                     final String partnershipOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
+                    
 					setPartnerships.add(new Partnership(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, partnershipOrganisations));
 					break;
@@ -1136,35 +1148,47 @@ public class ScientistProfileHelper {
                     final String fieldworkOrganisations = childProperties.get(ORGANISATION_ATTRIBUTE, String.class);
                     final String fieldworkDepartment = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
                     final String fieldworkAreaOrRegion = childProperties.get(AREA_OR_REGION_ATTRIBUTE, String.class);
+                    
 					setFieldworks.add(new Fieldwork(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, fieldworkOrganisations, fieldworkDepartment, fieldworkAreaOrRegion));
 					break;
 
 				case PROFESSIONAL_ACTIVITY_TYPE_AWARD:
-			        final String awardInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+			        final String awardInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+			        
 					setAward.add(new Award(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, awardInstitution));
+							yearEndDate, monthEndDate, dayEndDate, awardInstitutions));
 					break;
 					
-//				case PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION:
-//					setAward.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-//							yearEndDate, monthEndDate, dayEndDate));
-//					break;
-//					
-//				case PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION:
-//					setAward.add(new GuestPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-//							yearEndDate, monthEndDate, dayEndDate));
-//					break;
-//					
-//				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST:
-//					setAward.add(new MediaBroadcast(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-//							yearEndDate, monthEndDate, dayEndDate));
-//					break;
-//					
-//				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW:
-//					setAward.add(new MediaInterview(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-//							yearEndDate, monthEndDate, dayEndDate));
-//					break;
+				case PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION:
+					final String invited = childProperties.get(INVITED_ATTRIBUTE, String.class);
+					final String keynote = childProperties.get(KEYNOTE_ATTRIBUTE, String.class);
+					final String eventName = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
+					final String rpresentationInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					
+					setAward.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, invited, keynote, eventName, rpresentationInstitutions));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION:
+					final String invited = childProperties.get(INVITED_ATTRIBUTE, String.class);
+					final String keynote = childProperties.get(KEYNOTE_ATTRIBUTE, String.class);
+					final String eventName = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
+					final String rpresentationInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					
+					setAward.add(new GuestPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST:
+					setAward.add(new MediaBroadcast(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate));
+					break;
+					
+				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW:
+					setAward.add(new MediaInterview(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate));
+					break;
 
 				default:
 					break;
@@ -1977,6 +2001,55 @@ public class ScientistProfileHelper {
 		} 
 		return result.toString();
 	}
+	
+	public String getResearchPresentation(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setResearchPresentation = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION); 
+		if (!setResearchPresentation.isEmpty()) { 
+			result.append("<h3>Invited and keynote speaker</h3>");
+			for (final ProfessionalActivity activity: setResearchPresentation) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getGuestPresentation(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setGuestPresentation = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION); 
+		if (!setGuestPresentation.isEmpty()) { 
+			result.append("<h3>Guest lectures</h3>");
+			for (final ProfessionalActivity activity: setGuestPresentation) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getMedia(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setMediaBroadcast = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST);
+		Set<ProfessionalActivity> setMediaInterview = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW); 
+		if (!setMediaBroadcast.isEmpty() || !setMediaInterview.isEmpty()) { 
+			result.append("<h3>Media</h3>");
+			for (final ProfessionalActivity activity: setMediaBroadcast) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+			
+			for (final ProfessionalActivity activity: setMediaInterview) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
 
 	public boolean displayImpactAndOutreachTab(Resource resource){
 		boolean res = false;
@@ -1986,11 +2059,14 @@ public class ScientistProfileHelper {
 
 		if (activities != null && !activities.isEmpty()) {
 			aux.append(helper.getAwards(activities));
+			aux.append(helper.getResearchPresentation(activities));
+			aux.append(helper.getGuestPresentation(activities));
+			aux.append(helper.getMedia(activities));
+			
 			if (aux.length() > 0){
 				res = true;
 			}
 		}
 		return res;
 	}
-
 }

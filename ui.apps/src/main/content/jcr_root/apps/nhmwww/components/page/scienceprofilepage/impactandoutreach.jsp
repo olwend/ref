@@ -16,11 +16,18 @@
 		<%-- Awards --%>
 		<%= helper.getAwards(activities) %>
 
-		<%-- Internal Positions --%>
-		<%-- <%= helper.getIorEPositions(activities, false) --%>
+		<%= helper.getResearchPresentation(activities) %>
 		
-		<%-- External Positions --%>
-		<%-- <%= helper.getIorEPositions(activities, true) %> --%>
+		<%= helper.getGuestPresentation(activities) %>
+		
+		<%-- Public Engagement --%>
+			<%-- Internal Activities --%>
+			<%-- <%= helper.getIorEPositions(activities, false) --%>
+			
+			<%-- External Activities --%>
+			<%-- <%= helper.getIorEPositions(activities, true) %> --%>
+		
+		<%= helper.getMedia(activities) %>
 		
 	</div>
 <% } %>
