@@ -5,11 +5,12 @@ import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 
 
-public class Award extends ProfessionalActivity {
+
+public class ResearchPresentation extends ProfessionalActivity {
 
 	private Institution[] institutions;
 
-	public Award(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
+	public ResearchPresentation(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
 			String yearEndDate, String monthEndDate, String dayEndDate, String awardInstitutions) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		assignJSON(awardInstitutions);

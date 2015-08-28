@@ -1957,4 +1957,40 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
+	
+	/*
+	 * #########################
+	 * ## Impact and Outreach ##
+	 * #########################
+	 */
+	
+	public String getAwards(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		Set<ProfessionalActivity> setAwards = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_AWARD); 
+		if (!setAwards.isEmpty()) { 
+			result.append("<h3>Awards</h3>");
+			for (final ProfessionalActivity activity: setAwards) { 
+				result.append("<p>");
+				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+				result.append("</p>");
+			} 
+		} 
+		return result.toString();
+	}
+
+	public boolean displayImpactAndOutreachTab(Resource resource){
+		boolean res = false;
+		StringBuilder aux = new StringBuilder();
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Map<String, Set<ProfessionalActivity>> activities = helper.getProfessionalActivities();
+
+		if (activities != null && !activities.isEmpty()) {
+			aux.append(helper.getAwards(activities));
+			if (aux.length() > 0){
+				res = true;
+			}
+		}
+		return res;
+	}
+
 }
