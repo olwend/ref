@@ -1,254 +1,54 @@
 div#page-container {
   width: 1160px !important;
 }
-div#page-container .title {
-  margin-bottom: 20px;
-}
-div#page-container .title h1 {
-  font-size: 2.8em;
-  margin: 0;
-  font-weight: bold;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+
+.title {
+  margin-bottom: 1.2em;
 }
 
-#page-body {
-  width: 940px;
-  margin: 0 auto;
-  min-height: 550px;
+.legacy-css#page-body {
+  color: #000000;
 }
-#page-body p {
-  font-size: 12.1667px;
+.legacy-css #nav-content {
+  margin-right: 0;
 }
-#page-body ul#nav-content-level1 {
-  border-top: 0;
+.legacy-css #nav-content ul li {
+  font-size: 12px;
 }
-#page-body .column {
-  padding: 0;
-}
-#page-body .column .panel ul {
-  font-size: 12.1667px;
-  line-height: 1.3;
-}
-#page-body .column .panel h2 {
-  font-size: 17.0333px;
-  padding-bottom: 5px;
-}
-#page-body .column .panel .panel-intro h4 {
-  font-size: 14.6px;
-  color: #015b28;
-  margin-left: 10px;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-#page-body .column .panel .results h6 {
-  font-size: 12.1667px;
-  margin-bottom: 0;
-}
-#page-body .column .panel .results h6 a {
-  color: #015b28;
+.legacy-css #nav-content ul li a {
   font-weight: bold;
 }
-#page-body .column .panel .results img {
-  margin-top: 4px;
+.legacy-css #utilities dl {
+  font-size: 0.9em;
+  margin: 0 10px 10px;
 }
-#page-body .column .panel .results .item-details dt {
-  margin-bottom: 0;
-  padding-right: 5px;
+.legacy-css #utilities ul li {
+  font-size: 11px;
 }
-#page-body .column .panel .panel-content ul li a {
-  color: #015b28;
+.legacy-css #column-a {
+  width: 520px;
 }
-#page-body .column .panel .panel-content ul li img {
+.legacy-css #column-a .panel-intro p {
+  font-size: 12px;
+}
+.legacy-css #column-a .banner p {
+  font-size: 12px;
+}
+.legacy-css #column-a .panel-content {
   padding-right: 10px;
+  padding-left: 10px;
 }
-#page-body .column .panel .panel-content h3 {
-  font-size: 17.0333px;
+.legacy-css #column-a .panel-content h4 {
   color: #015b28;
-  margin-bottom: 0;
 }
-#page-body .column .panel .panel-content h4 {
-  font-size: 14.6px;
-  font-weight: bold;
-  color: #015b28;
-  margin-left: 10px;
-  padding-bottom: 0;
-}
-#page-body .column .panel .panel-content fieldset {
+.legacy-css #column-a fieldset {
   border: none;
-  padding: 0;
 }
-#page-body .column .panel .panel-content fieldset legend {
+.legacy-css #column-a fieldset legend {
   background: none;
-  font-size: 12.1667px;
-  padding: 0 0 0 10px;
 }
-#page-body .column .panel .panel-content fieldset label {
-  font-size: 12.1667px;
-  width: 125px;
-}
-#page-body .column .panel .panel-content fieldset select, #page-body .column .panel .panel-content fieldset input {
-  background-color: #fff;
-  height: auto;
-  padding: 0;
-  font-size: 12.1667px;
-  box-shadow: none;
-  margin-bottom: 10px;
-}
-#page-body .column .panel .panel-content fieldset input {
-  padding: 1px 5px;
-}
-#page-body .column .panel .panel-content fieldset #name-match {
-  width: 105px;
-}
-#page-body .column .panel .panel-content fieldset #name-value {
-  width: 180px;
-  display: inline;
-}
-#page-body .column .panel .panel-content fieldset #name-rank, #page-body .column .panel .panel-content fieldset #name-group, #page-body .column .panel .panel-content fieldset #members-rank, #page-body .column .panel .panel-content fieldset #members-taxon, #page-body .column .panel .panel-content fieldset #common-name, #page-body .column .panel .panel-content fieldset #common-group {
-  width: 289px;
-}
-#page-body .column .panel .panel-content fieldset .button-search {
-  padding: 3px 15px;
-  margin-right: 25px;
-  margin-top: 10px;
-}
-#page-body .column .panel .panel-content dl dt {
-  margin-bottom: 0;
-}
-#page-body .column .panel .panel-content dt {
-  margin-right: 5px;
-}
-#page-body .column .panel .panel-content .results a.plus {
+.legacy-css a.point-right {
   background-repeat: no-repeat;
-  background-position: left center;
-  margin-left: 10px;
-  padding-left: 15px;
-}
-#page-body .column .panel .panel-content .results .foldout-toggle {
-  display: block;
-  clear: right;
-}
-#page-body .column .panel .panel-content .results .foldout {
-  padding-bottom: 10px;
-}
-#page-body .column .panel .panel-content #command #sortBy {
-  width: 289px;
-}
-#page-body .column .panel .panel-content #command .btn-search {
-  padding: 3px 15px;
-  margin-right: 25px;
-  margin-top: 10px;
-}
-#page-body .column .panel .panel-content .form-left {
-  width: 310px;
-}
-#page-body .column .panel .panel-content .form-left #titleOrOwner, #page-body .column .panel .panel-content .form-left #sortBy {
-  width: 50%;
-}
-#page-body .column .panel .panel-content .form-right {
-  width: 400px;
-}
-#page-body .column .panel .panel-content .form-right #category {
-  width: 62.5%;
-}
-#page-body .column .panel .panel-content .form-right .button-search {
-  margin-top: 0;
-}
-#page-body .column .panel .browse-hierarchy ul li {
-  background-image: none;
-}
-#page-body .column .panel .recordset-navigation .recordset-nav-pages label, #page-body .column .panel .recordset-navigation .recordset-results-per-page label {
-  font-size: 12.1667px;
-  width: 107px;
-  padding-left: 0;
-  margin-top: 2px;
-}
-#page-body .column .panel .recordset-navigation .recordset-nav-pages input, #page-body .column .panel .recordset-navigation .recordset-nav-pages select, #page-body .column .panel .recordset-navigation .recordset-results-per-page input, #page-body .column .panel .recordset-navigation .recordset-results-per-page select {
-  background-color: #fff;
-  height: auto;
-  padding: 0;
-  font-size: 12.1667px;
-  box-shadow: none;
-  padding: 1px;
-  width: 26px;
-}
-#page-body .column .panel .recordset-navigation .recordset-nav-pages select, #page-body .column .panel .recordset-navigation .recordset-results-per-page select {
-  width: 50px;
-}
-#page-body .column .panel .index a {
-  color: #015b28;
-}
-#page-body .column .panel .index a.plus {
-  background-repeat: no-repeat;
-  background-position: left center;
-  margin-left: 10px;
-  padding-left: 15px;
-}
-#page-body .column .panel .index .foldout-toggle, #page-body .column .panel .index .foldout {
-  float: right;
-  clear: right;
-  text-align: right;
-}
-#page-body .column .panel .index ul {
-  padding-bottom: 10px;
-  margin-right: 0;
-}
-#page-body .column .panel .panel-footer .print-version {
-  background-repeat: no-repeat;
-  font-size: 12.1667px;
-}
-#page-body .column .panel .panel-footer .print-version:hover {
-  color: #fff;
-}
-#page-body #utilities p {
-  font-size: 10.95px;
-}
-#page-body #utilities dl {
-  font-size: 10.95px;
-  padding: 0 10px;
-  margin-bottom: 0;
-}
-#page-body #utilities dt {
-  padding-right: 5px;
-  margin: 0;
-}
-#page-body #utilities dd a {
-  color: #015b28;
-}
-#page-body #utilities h5 {
-  font-size: 13.1333px;
-  color: #015b28;
-}
-#page-body #utilities a.point-right {
-  background-repeat: no-repeat;
-  font-size: 10.95px;
-  color: #015b28;
-}
-#page-body #utilities ul {
-  font-size: 10.95px;
-  margin-bottom: 0;
-}
-#page-body #utility-language ul {
-  margin-bottom: 0;
-}
-#page-body #utility-language ul li {
-  font-size: 10.95px;
-}
-#page-body #utility-help a {
-  color: #015b28;
-}
-#page-body #column-c {
-  margin-right: 0;
-}
-
-#nav-content #nav-content-level1 {
-  font-size: 12.1667px;
-}
-#nav-content #nav-content-level1 li {
-  font-size: 12.1667px;
-}
-#nav-content #nav-content-level1 a {
-  font-weight: bold;
 }
 
 /*# sourceMappingURL=nhm-legacy-species-dictionary.css.map */
