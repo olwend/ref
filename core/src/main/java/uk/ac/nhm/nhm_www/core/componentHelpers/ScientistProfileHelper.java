@@ -47,7 +47,9 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventAdministration;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.EventParticipation;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fellowship;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fieldwork;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.GuestPresentation;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.MediaBroadcast;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Partnership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;
@@ -1166,28 +1168,36 @@ public class ScientistProfileHelper {
 					final String eventName = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
 					final String rpresentationInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 					
-					setAward.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+					setResearchPresentation.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, invited, keynote, eventName, rpresentationInstitutions));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION:
-					final String invited = childProperties.get(INVITED_ATTRIBUTE, String.class);
-					final String keynote = childProperties.get(KEYNOTE_ATTRIBUTE, String.class);
-					final String eventName = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
-					final String rpresentationInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String invitedGuest = childProperties.get(INVITED_ATTRIBUTE, String.class);
+					final String keynoteGuest = childProperties.get(KEYNOTE_ATTRIBUTE, String.class);
+					final String eventNameGuest = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
+					final String guestInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 					
-					setAward.add(new GuestPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate));
+					setGuestPresentation.add(new GuestPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, invitedGuest, keynoteGuest, eventNameGuest, guestInstitutions));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST:
-					setAward.add(new MediaBroadcast(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate));
+					final String descriptionBroadcast = childProperties.get(DESCRIPTION_ATTRIBUTE, String.class);
+					final String departmentBroadcast = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
+					final String interviewerNameBroadcast = childProperties.get(INTERVIEWER_NAME_ATTRIBUTE, String.class);
+					
+					setMediaBroadcast.add(new MediaBroadcast(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, descriptionBroadcast, departmentBroadcast, interviewerNameBroadcast));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW:
-					setAward.add(new MediaInterview(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate));
+					final String descriptionInterview = childProperties.get(DESCRIPTION_ATTRIBUTE, String.class);
+					final String departmentInterview = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
+					final String interviewerNameInterview = childProperties.get(INTERVIEWER_NAME_ATTRIBUTE, String.class);
+					
+					setMediaInterview.add(new MediaInterview(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
+							yearEndDate, monthEndDate, dayEndDate, descriptionInterview, departmentInterview, interviewerNameInterview));
 					break;
 
 				default:
