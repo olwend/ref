@@ -67,16 +67,15 @@ public class MediaInterview extends ProfessionalActivity {
 					stringBuffer.append("/");
 				}
 				stringBuffer.append(this.yeared);
-				stringBuffer.append(".");
+				stringBuffer.append(". ");
 			} else {
-				stringBuffer.append(".");
+				stringBuffer.append(". ");
 			}
 		}
 		
 		// URL,_ 
 		if (this.url != null){
 			stringBuffer.append(this.url);
-			stringBuffer.append(".");
 		}
 		
 		return stringBuffer.toString();

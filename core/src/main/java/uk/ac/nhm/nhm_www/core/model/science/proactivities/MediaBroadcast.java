@@ -48,7 +48,7 @@ public class MediaBroadcast extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
-		// startYear - endYear. || startYear - on going.
+		// startYear - endYear. || startYear - on going._
 		if (this.yearsd != null){
 			if(this.daysd != null && this.monthsd != null) {
 				stringBuffer.append(this.daysd);
@@ -66,16 +66,15 @@ public class MediaBroadcast extends ProfessionalActivity {
 					stringBuffer.append("/");
 				}
 				stringBuffer.append(this.yeared);
-				stringBuffer.append(".");
+				stringBuffer.append(". ");
 			} else {
-				stringBuffer.append(".");
+				stringBuffer.append(". ");
 			}
 		}
 		
 		// URL,_ 
 		if (this.url != null){
 			stringBuffer.append(this.url);
-			stringBuffer.append(".");
 		}
 		
 		return stringBuffer.toString();

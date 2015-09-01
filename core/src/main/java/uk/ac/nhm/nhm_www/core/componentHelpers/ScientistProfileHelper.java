@@ -1270,7 +1270,7 @@ public class ScientistProfileHelper {
 		} 
 		return result.toString();
 	}
-
+	
 	public String getFellowships(Map<String, Set<ProfessionalActivity>> activities){
 		StringBuilder result = new StringBuilder(); 
 		Set<ProfessionalActivity> setFellowships = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_FELLOWSHIP); 
