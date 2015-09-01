@@ -50,6 +50,7 @@ import uk.ac.nhm.nhm_www.core.model.science.proactivities.Fieldwork;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.GuestPresentation;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.InternalOrExternalPosition;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.MediaBroadcast;
+import uk.ac.nhm.nhm_www.core.model.science.proactivities.MediaInterview;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Membership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.Partnership;
 import uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity;

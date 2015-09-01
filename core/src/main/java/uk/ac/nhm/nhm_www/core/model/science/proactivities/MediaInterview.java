@@ -6,15 +6,16 @@ import org.apache.sling.commons.json.JSONObject;
 
 
 
-public class MediaBroadcast extends ProfessionalActivity {
+public class MediaInterview extends ProfessionalActivity {
 	private String description;
 	private String department;
 	private String interviewerName;
 
-	public MediaBroadcast(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
+	public MediaInterview(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
 			String yearEndDate, String monthEndDate, String dayEndDate, String description, String department, String interviewerName) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.description = description;
+		this.department = department;
 		this.interviewerName = interviewerName;
 	}
 	
@@ -36,11 +37,11 @@ public class MediaBroadcast extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
-		// Department,_ 
-		if (this.department != null){
+		// Department,_
+		if ( this.department != null ){
 			stringBuffer.append(this.department);
 			stringBuffer.append(", ");
-		}		
+		}
 		
 		// InterviewerName,_ 
 		if (this.interviewerName != null){
