@@ -143,7 +143,7 @@
 		                            value="cliffordherbarium"/>
 		                        <o25
 	                            	jcr:primaryType="nt:unstructured"
-		                            text="Plant diversity in Paraguay"
+		                            text="Plant Diversity in Paraguay"
 		                            value="paraguay"/>
 		                        <o26
 	                            	jcr:primaryType="nt:unstructured"
@@ -155,7 +155,7 @@
 		                            value="claytonherbarium"/>
 		                        <o28
 	                            	jcr:primaryType="nt:unstructured"
-		                            text="Former British Petroleum microfossil database"
+		                            text="Former British Petroleum Microfossil Database"
 		                            value="bpmicrofossil"/>
 		                        <o29
 	                            	jcr:primaryType="nt:unstructured"
@@ -189,6 +189,10 @@
 	                            	jcr:primaryType="nt:unstructured"
 		                            text="Linnaeus's Butterfly Type Specimens"
 		                            value="linntypes"/>
+	                            <o37
+	                            	jcr:primaryType="nt:unstructured"
+		                            text="The First Fleet Artwork Collection"
+		                            value="firstfleet"/>
 		                    </options>
 		                </legacyApp>
                     </items>
