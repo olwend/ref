@@ -16,12 +16,12 @@
                                     <li><a href="/about-us/news.html">News</a></li>
                                     <li><a href="/content/nhmwww/en/home/press-office.html">Press office</a></li>
                                     <li><a href="/content/nhmwww/en/home/business-services.html">Business services</a></li>
-                                    <li><a href="/about-us/jobs-volunteering-internships/index.html">Careers</a></li>
+									<li><a href="/content/nhmwww/en/home/about-us/careers.html">Careers</a></li>
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>
                                 </div>
                                 <div class="columns large-6 medium-6 small-6">
-                                	<li><a href="/my-nhm/privacy-policy/index.html">Privacy policy</a></li>
-                                	<li><a href="/about-us/website-help/terms-of-use/index.html">Terms and conditions</a></li>
+                                	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
+                                	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
                                     <li>Follow us</li>
 										<ul class="small-block-grid-3 icon-list">
