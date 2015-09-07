@@ -89,13 +89,7 @@
 				<div class="small-12 medium-12 large-12 columns">
 					<select id="collection" class="mb-0">
 						<option value="All" selected="selected">Collections</option>
-						<%-- Collection: FakeFilter_Collections --%>
-						<option class="collection" id="Collections" value="Collections">FakeFilter F:Collections</option>
-						<option class="group" id="Curator" value="Curator" data-group="Curator">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter G:Curator</option> <%-- Botany / Algae --%>
-						<option class="group" id="Bird-Vertebrates" value="Bird-Vertebrates" data-group="Vertebrates, Birds">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter G:Vertebrates, Birds</option> <%-- Vertebrates, Birds --%>
-						<option class="group" id="Insects-Hymenoptera" value="Insects-Hymenoptera" data-group="Insects, Hymenoptera">&nbsp;&nbsp;&nbsp;&nbsp;FakeFilter G:Insects, Hymenoptera</option> <%--Insects, Hymenoptera--%>
-	
-					    <%-- Collection: Botany --%>
+						<%-- Collection: Botany --%>
 					    <option class="collection" id="Botany" value="Botany">Botany collections</option>
 					    <option class="group" id="Algae" value="Algae" data-group="Algae">&nbsp;&nbsp;&nbsp;&nbsp;Algae collections</option>
 					    <option class="group" id="Diatoms" value="Diatoms" data-group="Diatoms">&nbsp;&nbsp;&nbsp;&nbsp;Diatoms collections</option>
