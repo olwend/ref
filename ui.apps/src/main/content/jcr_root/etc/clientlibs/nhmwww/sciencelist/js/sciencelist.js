@@ -378,8 +378,8 @@ function searchFunc(maxResults) {
 				break;
 			}
 			
-			for ( var i = 0; i < aux.length; i++ ) {
-				aux[i] = aux[i].split(' ').join('\\b|\\b');
+			for ( var i = 0; i < parentGroup.length; i++ ) {
+				parentGroup[i] = parentGroup[i].split(' ').join('\\b|\\b');
 			}
 			
 			var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")\\b|\\b(") + ')\\b)', 'i' );
