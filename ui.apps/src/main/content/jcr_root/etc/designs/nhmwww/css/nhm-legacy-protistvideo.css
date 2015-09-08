@@ -46,7 +46,8 @@ div#page-container {
 #page-body {
   width: 940px;
   margin: 0 auto;
-  min-height: 550px;
+  min-height: 600px;
+  /* added to fix the sticky nav being buggy */
 }
 
 .sticky-logo a {
