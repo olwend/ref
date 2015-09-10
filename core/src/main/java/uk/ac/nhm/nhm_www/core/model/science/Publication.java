@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.xalan.xsltc.compiler.util.IntType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,11 +24,11 @@ public abstract class Publication implements Comparable<Publication> {
 	
 	private String reportingDate;
 	
-	public Publication(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
+	public Publication(final String title, final List<String> authorsList, boolean favorite, final String publicationYear,
 			final String href, final String reportingDate) {
 		this.authors = authorsList;
 		this.title = title;
-		this.publicationYear = publicationYear;
+		this.publicationYear = Integer.parseInt(publicationYear);
 		this.favorite = favorite;
 		this.href = href;
 		//this.reportingDate = reportingDate;

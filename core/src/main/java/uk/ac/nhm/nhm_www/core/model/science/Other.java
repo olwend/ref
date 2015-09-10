@@ -10,26 +10,26 @@ import org.apache.commons.lang3.StringUtils;
 public class Other extends Publication{
 	
 	private boolean confidential;
-	private int publicationMonth;
-	private int publicationDay;
+	private String publicationMonth;
+	private String publicationDay;
 	private String publisherURL;
 	private String journalName;
-	private int volume;
-	private int issue;
+	private String volume;
+	private String issue;
 	private List<String> editors;
 	private String publisher;
 	private String publishingPlace;
-	private int beginPage;
-	private int endPage;
-	private int page;
+	private String beginPage;
+	private String endPage;
+	private String page;
 	private String doiLink;
 	private String doiText;
 	private String bookTitle;
 
-	public Other(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, boolean confidential, int publicationMonth, int publicationDay, 
-			String publisherURL, String journalName, int volume, int issue, List<String> editors, String publisher, 
-			String publishingPlace, int beginPage, int endPage, int page, String doiLink, String doiText, String bookTitle) {
+	public Other(final String title, final List<String> authorsList, final  boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, boolean confidential, String publicationMonth, String publicationDay, 
+			String publisherURL, String journalName, String volume, String issue, List<String> editors, String publisher, 
+			String publishingPlace, String beginPage, String endPage, String page, String doiLink, String doiText, String bookTitle) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.confidential = confidential;
 		this.publicationMonth = publicationMonth;
@@ -99,9 +99,9 @@ public class Other extends Publication{
 			// (Year) || (Year, Month) || (Year, Day Month)
 			stringBuffer.append(" (");
 			stringBuffer.append(this.getPublicationYear());
-			if (this.publicationDay > 0){
+			if (this.publicationDay != null ){
 				stringBuffer.append(", " + this.publicationDay);
-				if (this.publicationMonth > 0 ){
+				if (this.publicationMonth != null  ){
 					stringBuffer.append(" " + this.publicationMonth);
 				}
 			}
@@ -132,13 +132,13 @@ public class Other extends Publication{
 			}
 			
 			// <b>Volume</b>
-			if (this.volume > 0) {
+			if (this.volume != null ) {
 				stringBuffer.append("<b>");
 				stringBuffer.append(this.volume);
 				stringBuffer.append("</b> ");
 				
 				// (Issue) :_
-				if (this.issue > 0) {
+				if (this.issue != null ) {
 					stringBuffer.append("(");
 					stringBuffer.append(this.issue);
 					stringBuffer.append(")");
@@ -148,7 +148,7 @@ public class Other extends Publication{
 			
 			// Editor NM, Editor NM (Eds)._
 			final List<String> editors = this.editors;
-			if (editors != null && editors.size() > 0) {
+			if (editors != null && editors.size() > 0 ) {
 				String editorsString = StringUtils.join(editors.toArray(new String[editors.size()]), ", ");
 				editorsString = editorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 				
@@ -181,13 +181,13 @@ public class Other extends Publication{
 			}
 			
 			// PagesBegin-PagesEnd._ || PageCount._
-			if (this.beginPage > 0 && this.endPage > 0) {
+			if (this.beginPage != null  && this.endPage != null ) {
 				stringBuffer.append(this.beginPage);
 				stringBuffer.append(" - ");
 				stringBuffer.append(this.endPage);
 				stringBuffer.append(". ");
 			} else {
-				if (this.page > 0) {
+				if (this.page != null ) {
 					stringBuffer.append(this.page);
 					stringBuffer.append(". ");
 				}
@@ -215,19 +215,19 @@ public class Other extends Publication{
 		this.confidential = confidential;
 	}
 
-	public int getPublicationMonth() {
+	public String getPublicationMonth() {
 		return publicationMonth;
 	}
 
-	public void setPublicationMonth(int publicationMonth) {
+	public void setPublicationMonth(String publicationMonth) {
 		this.publicationMonth = publicationMonth;
 	}
 
-	public int getPublicationDay() {
+	public String getPublicationDay() {
 		return publicationDay;
 	}
 
-	public void setPublicationDay(int publicationDay) {
+	public void setPublicationDay(String publicationDay) {
 		this.publicationDay = publicationDay;
 	}
 
@@ -247,19 +247,19 @@ public class Other extends Publication{
 		this.journalName = journalName;
 	}
 
-	public int getVolume() {
+	public String getVolume() {
 		return volume;
 	}
 
-	public void setVolume(int volume) {
+	public void setVolume(String volume) {
 		this.volume = volume;
 	}
 
-	public int getIssue() {
+	public String getIssue() {
 		return issue;
 	}
 
-	public void setIssue(int issue) {
+	public void setIssue(String issue) {
 		this.issue = issue;
 	}
 
@@ -287,27 +287,27 @@ public class Other extends Publication{
 		this.publishingPlace = publishingPlace;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 
-	public int getPage() {
+	public String getPage() {
 		return page;
 	}
 
-	public void setPage(int page) {
+	public void setPage(String page) {
 		this.page = page;
 	}
 

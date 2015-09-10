@@ -12,8 +12,8 @@ public class WebsitePublicationType extends Publication{
 	private String publishingPlace;
 	private String publisherURL;
 
-	public WebsitePublicationType(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String publisher, String publisherURL, String publishingPlace){
+	public WebsitePublicationType(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href,	final String reportingDate, String publisher, String publisherURL, String publishingPlace){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.publisher = publisher;
 		this.publisherURL = publisherURL;
