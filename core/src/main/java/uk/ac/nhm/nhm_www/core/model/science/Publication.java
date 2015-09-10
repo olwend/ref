@@ -5,21 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.xalan.xsltc.compiler.util.IntType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class Publication implements Comparable<Publication> {
 	private static final Logger LOG = LoggerFactory.getLogger(Publication.class);
-	
 	private List<String> authors;
-	
 	private String title;
-	
-	private int publicationYear;
-	
+	private String publicationYear;
 	private boolean favorite;
-	
 	private String href;
 	
 	private String reportingDate;
@@ -28,7 +22,7 @@ public abstract class Publication implements Comparable<Publication> {
 			final String href, final String reportingDate) {
 		this.authors = authorsList;
 		this.title = title;
-		this.publicationYear = Integer.parseInt(publicationYear);
+		this.publicationYear = publicationYear;
 		this.favorite = favorite;
 		this.href = href;
 		//this.reportingDate = reportingDate;
@@ -59,7 +53,7 @@ public abstract class Publication implements Comparable<Publication> {
 		
 	}
 
-	public int getPublicationYear() {
+	public String getPublicationYear() {
 		return publicationYear;
 	}
 
