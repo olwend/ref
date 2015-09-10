@@ -1297,17 +1297,23 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							break;
 
 						case "c-total-value-awarded":
+//							if ( uniqueName.equals("chris-stringer")){
+//								LOG.error("Grant value in String is : >>" + field.getMoney().getValue().toString() + "<< longValue is : >>" + field.getMoney().getValue().longValue());
+//							}
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
-									grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().longValue());
+									grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().toString());
 								}
 							}
 							break;
 
 						case "c-value-to-nhm-awarded":
+//							if ( uniqueName.equals("chris-stringer")){
+//								LOG.error("Grant value in String is : >>" + field.getMoney().getValue().toString() + "<< longValue is : >>" + field.getMoney().getValue().longValue());
+//							}
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
-									grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().longValue());
+									grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().toString());
 								}
 							}
 							break;
@@ -1371,6 +1377,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         int i  = 0;
         
     	LOG.error("Scanning: " + uniqueName );
+    	
+//    	if ( uniqueName.equals("chris-stringer")){ 
+//    		String warnMe = ">>>>>>>>>>>>>############beWarned############<<<<<<<<<<<<";
+//    		LOG.error(warnMe);
+//    	}
         
         List<Ns1Object> list = activities.getAssociated().getTeachingActivity();
 
@@ -1383,7 +1394,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
             // Setting up type of Teaching Activity
             final String type = resolveTeachingActivityType (activity.getObject().getTypeId().intValue());  
             teachingANode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
-        	LOG.error("Adding a teachingactivityType : " + type);
+//        	LOG.error("Adding a teachingactivityType : " + type);
 
             for (Record record: activity.getObject().getRecords().getRecord()) {
                 for (Field field: record.getNative().getField()) {
