@@ -50,8 +50,8 @@ div#page-container {
   /* added to fix the sticky nav being buggy */
 }
 
-.sticky-logo a {
-  top: -0.5em;
+.sticky-logo .ir {
+  line-height: 30px;
 }
 
 #microsite-body h2 {
@@ -68,8 +68,11 @@ div#page-container {
   margin-left: 0;
   padding-bottom: 0 !important;
 }
-#microsite-body p a:hover {
+#microsite-body p a:hover, #microsite-body p a:visited, #microsite-body p a:focus {
   color: #228900;
+}
+#microsite-body input[type="radio"] {
+  margin-bottom: 0;
 }
 #microsite-body .imageRight img {
   margin-top: 5px;
