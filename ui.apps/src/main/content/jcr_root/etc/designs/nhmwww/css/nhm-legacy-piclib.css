@@ -9,7 +9,7 @@ a:link, a:visited {
   color: #000;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .button {
   font-family: Arial,Helvetica,sans-serif;
 }
 
@@ -34,6 +34,7 @@ h5 {
 
 p {
   font-size: 1em;
+  line-height: 1.2em;
   margin: 0 10px 10px;
 }
 
@@ -44,8 +45,19 @@ p {
 #searchNavContainer {
   width: 940px;
 }
+#searchNavContainer #row1 {
+  margin-bottom: 5px;
+}
+#searchNavContainer #row2 {
+  padding-top: 0 !important;
+}
+#searchNavContainer #row2 a {
+  font-weight: bold;
+  color: #000177;
+}
 #searchNavContainer label {
   font-size: 12px;
+  color: #000;
 }
 
 #searchBox #txtkeys1searchnav {
@@ -108,11 +120,14 @@ p {
 
 body {
   font-size: 76%;
+  color: #000;
+  font-family: arial, helvetica, sans-serif;
 }
 
 #page-body {
   padding-left: 14px;
   padding-top: 0;
+  margin-bottom: 10px;
 }
 
 #page-container {
@@ -171,7 +186,6 @@ div#feedback-bar p {
 }
 
 #tabnavContainer h2 {
-  font-family: Arial,Helvetica,sans-serif;
   line-height: 28px;
 }
 
@@ -180,15 +194,22 @@ div#feedback-bar p {
   padding-right: 0;
 }
 
+#column-a h2 {
+  font-size: 1.4em;
+}
+
 a.point-right {
   background-repeat: no-repeat;
 }
 
 .panel-footer {
-  width: 490px;
+  width: 100% !important;
 }
 
-#utility-toolbox li {
+#utility-toolbox ul {
+  margin-bottom: 10px;
+}
+#utility-toolbox ul li {
   font-size: 10.95px;
   font-weight: bold;
 }
@@ -198,14 +219,32 @@ fieldset legend {
 }
 
 #resultsPageHeader #browseToPageNum input[type="text"] {
-  height: 13px;
-  padding: 0;
-  margin-bottom: 0;
+  height: 18px;
+  width: 25px !important;
+  padding: 0 0 0 3px;
+  margin: 0 4px;
+}
+
+#browseToPageNum2 input[type="text"] {
+  height: 18px;
+  width: 25px !important;
+  padding: 0 0 0 3px;
+  margin: 2px 4px 0 4px;
+}
+#browseToPageNum2 td {
+  padding-right: 5px;
+  vertical-align: middle;
 }
 
 #leftColumn #previewCtrls a {
   color: #000177;
   font-size: 12.1667px;
+  font-weight: bold;
+}
+#leftColumn #pageNav {
+  padding: 0;
+}
+#leftColumn #pageNav a {
   font-weight: bold;
 }
 
@@ -214,6 +253,156 @@ fieldset legend {
 }
 #rightColumn #descriptionContainer ul, #rightColumn #previewKeywordsContainer ul {
   font-size: 1em;
+}
+
+#panel-one .collection h3 a {
+  color: #000177;
+  font-weight: bold;
+}
+
+.panel-content h4 {
+  font-size: 14.6px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.panel-content h5 {
+  font-size: 12.1667px;
+  margin-left: 10px;
+}
+.panel-content h6 {
+  font-size: 12.1667px;
+  margin-left: 10px;
+}
+.panel-content ul {
+  font-size: 12.1667px;
+}
+.panel-content a {
+  color: #000177;
+  font-weight: bold;
+}
+.panel-content .tab-panel h4 {
+  font-size: 14.6px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.panel-content .tab-panel ul.tabs li {
+  font-size: 13.3833px;
+}
+.panel-content .tab-panel ul.tabs li a {
+  font-weight: bold;
+}
+.panel-content .panel-gallery h6 {
+  padding: 0;
+  margin-top: 8px 0 4px 10px;
+}
+.panel-content .panel-gallery h6 a {
+  font-weight: bold;
+}
+
+.tab-panel ul.tabs {
+  line-height: 15px;
+}
+.tab-panel ul.tabs li {
+  font-size: 13.3883px;
+}
+.tab-panel ul.tabs li a {
+  font-weight: bold;
+}
+.tab-panel .tab-content h4 {
+  font-size: 14.6px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.tab-panel .tab-content h6 {
+  font-size: 12.1667px;
+  margin-left: 10px;
+}
+.tab-panel #tsTabContent7 ol {
+  font-size: 12.1667px;
+}
+.tab-panel #tsTabContent7 ol li {
+  list-style: decimal;
+}
+.tab-panel #tsTabContent7 ul {
+  font-size: 12.1667px;
+}
+.tab-panel #tsTabContent7 ul li {
+  list-style: none;
+  padding-top: 0;
+}
+
+#primaryContent h2 {
+  font-size: 17.0333px;
+}
+#primaryContent h4 {
+  font-weight: bold;
+}
+#primaryContent ul {
+  margin-left: 24px;
+}
+#primaryContent .button {
+  font-size: 12.1667px;
+  font-weight: bold;
+  padding: 10px 30px;
+  background-color: #000177;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out 0s;
+  -moz-transition: all 300ms ease-out 0s;
+  -o-transition: all 300ms ease-out 0s;
+  transition: all 300ms ease-out 0s;
+}
+#primaryContent .button:hover {
+  color: #000177;
+  background-color: #dddded;
+}
+#primaryContent input[type="text"], #primaryContent input[type="password"], #primaryContent select {
+  padding: 0 5px;
+  margin: 0;
+  height: 20px;
+  width: 170px;
+  font-size: 12.1667px;
+  box-shadow: none;
+  background-color: #fff;
+}
+#primaryContent td, #primaryContent th {
+  padding: 3px 5px 3px 3px;
+}
+#primaryContent #idrememberme {
+  margin-top: 3px;
+}
+#primaryContent .forms label {
+  font-size: 12.1667px;
+}
+#primaryContent .forms #idagree {
+  margin-top: 2px;
+}
+#primaryContent .forms label[for="idagree"] a {
+  color: #000177;
+  font-weight: bold;
+}
+
+#utilities ol {
+  font-size: 10.95px;
+}
+#utilities ol li {
+  list-style: inherit;
+}
+
+#resultsDescription2 a {
+  font-weight: bold;
+  color: #000177;
+}
+
+.shadedInfoLight ul {
+  line-height: 16px;
+}
+.shadedInfoLight ul li {
+  font-size: 13px;
+  list-style: square;
+}
+
+#ImageGrid td a img {
+  max-height: 120px;
 }
 
 /*# sourceMappingURL=nhm-legacy-piclib.css.map */
