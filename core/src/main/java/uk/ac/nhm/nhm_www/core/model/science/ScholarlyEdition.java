@@ -10,16 +10,16 @@ import org.apache.commons.lang3.StringUtils;
 public class ScholarlyEdition extends Publication{
 	
 	private String publisherURL;
-	private int beginPage;
-	private int endPage;
-	private int page;
+	private String beginPage;
+	private String endPage;
+	private String page;
 	private String doiLink;
 	private String doiText;
 	private String publisher;
 
-	public ScholarlyEdition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String scholarlyPublisherURL, int scholarlyBeginPage, int scholarlyEndPage, 
-			int scholarlyPage, String scholarlydoiText, String scholarlydoiLink, String scholarlyPublisher){
+	public ScholarlyEdition(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, String scholarlyPublisherURL, String scholarlyBeginPage, String scholarlyEndPage, 
+			String scholarlyPage, String scholarlydoiText, String scholarlydoiLink, String scholarlyPublisher){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.publisherURL = scholarlyPublisherURL;
 		this.beginPage = scholarlyBeginPage;
@@ -96,13 +96,13 @@ public class ScholarlyEdition extends Publication{
 		stringBuffer.append(" : ");		
 		
 		// PagesBegin-PagesEnd._ || PageCount._
-		if (this.beginPage > 0 && this.endPage > 0) {
+		if (this.beginPage != null && this.endPage != null) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
-			if (this.page > 0) {
+			if (this.page != null) {
 				stringBuffer.append(this.page);
 				stringBuffer.append(". ");
 			}
@@ -129,27 +129,27 @@ public class ScholarlyEdition extends Publication{
 		this.publisherURL = publisherURL;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 
-	public int getPage() {
+	public String getPage() {
 		return page;
 	}
 
-	public void setPage(int page) {
+	public void setPage(String page) {
 		this.page = page;
 	}
 
