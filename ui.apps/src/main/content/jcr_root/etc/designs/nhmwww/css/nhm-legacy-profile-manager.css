@@ -27,6 +27,9 @@ div#page-container {
 .legacy-css .row {
   width: 100%;
 }
+.legacy-css .column .panel-content fieldset legend {
+  color: #565656;
+}
 .legacy-css #column-a {
   width: 670px;
   min-height: 460px;
@@ -79,6 +82,9 @@ div#page-container {
 }
 .legacy-css #column-c .nature-plus h4 {
   padding-left: 10px;
+}
+.legacy-css #column-c fieldset legend {
+  color: #565656;
 }
 .legacy-css #column-c #accountForm fieldset, .legacy-css #column-c form fieldset {
   padding: 25px 25px 15px 25px;
@@ -139,12 +145,12 @@ div#page-container {
 .legacy-css .column-fix {
   float: right !important;
 }
-.legacy-css .column-fix .panel {
-  width: 34.3% !important;
-}
 .legacy-css .nso-sso #panel-one h2 {
   padding: 10px;
+  margin-top: 17px;
   background-color: #eee;
+  background-image: none;
+  color: #565656;
 }
 
 .main-footer .framed-wrapper {
