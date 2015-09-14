@@ -51,13 +51,17 @@ public class DynamicPageHelper {
 			legacyApp = getProperties().get("legacy-app", String.class);
 		}
 		setLegacyApp(legacyApp);
-		this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", true);
 		if(this.request != null) { 
 			this.protocol = request.getScheme();
 		} else {
 			LOG.error("request is null");
 		}
 		
+		if(getProperties().get("defaultLegacyCSS") != null) {
+			this.defaultLegacyCSS = getProperties().get("defaultLegacyCSS", false);
+		} else {
+			this.defaultLegacyCSS = false;
+		}
 	}
 
 	public Resource getResource() {

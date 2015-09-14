@@ -7,33 +7,28 @@
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
 
 	final Set<Publication> publications = helper.getPublications();
-%>
-<%
-	if (publications != null) {
-		boolean hasFavorites = false;
-		int count = 0;
-		for (final Publication publication:publications) {
-			if (publication.isFavorite()) {
-				if (!hasFavorites) {
-					hasFavorites = true;
-%>
-	<div class="large-12 medium-12 columns aside-box about-us large4-padding highlight-publications">  
-    	<h3>Highlighted publications</h3>
-<%	
-				}
-%>
-		<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), true) %></p>
-<%			
+%><%
+if (publications != null) {
+	boolean hasFavorites = false;
+	int count = 0;
+	for (final Publication publication:publications) {
+		if (publication.isFavorite()) { %>
+		<% if (!hasFavorites) { 	hasFavorites = true; %>
+		<div class="hti-wrapper">
+			<div class="small-12 medium-12 large-12 columns hti-box hti-box__light-grey mb-20 highlight-publications">  
+		    	<div class="hti-box--text-wrapper">
+		    		<h3>Highlighted publications</h3>
+			<% } %>
+			<p><%= publication.getHTMLContent(helper.getLastName() + " " + helper.getInitials(), true) %></p> <%			
 				count++;
-				if (count >= 6) {
-					break;
-				}
+			if (count >= 6) {
+				break;
 			}
 		}
-		if (hasFavorites) {
-%>
-	</div>
-<%		
-	}
-}
-%>
+	} %>
+	<% if (hasFavorites) { %>
+				</div>
+			</div>
+		</div>
+	<% } %>
+<% } %>
