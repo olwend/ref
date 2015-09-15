@@ -1187,18 +1187,22 @@ public class ScientistProfileHelper {
 					final String descriptionBroadcast = childProperties.get(DESCRIPTION_ATTRIBUTE, String.class);
 					final String departmentBroadcast = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
 					final String interviewerNameBroadcast = childProperties.get(INTERVIEWER_NAME_ATTRIBUTE, String.class);
+					final String urlLabelBroadcast = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
 					
 					setMediaBroadcast.add(new MediaBroadcast(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, descriptionBroadcast, departmentBroadcast, interviewerNameBroadcast));
+							yearEndDate, monthEndDate, dayEndDate, descriptionBroadcast, departmentBroadcast, interviewerNameBroadcast,
+							urlLabelBroadcast));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW:
 					final String descriptionInterview = childProperties.get(DESCRIPTION_ATTRIBUTE, String.class);
 					final String departmentInterview = childProperties.get(DEPARTMENT_ATTRIBUTE, String.class);
 					final String interviewerNameInterview = childProperties.get(INTERVIEWER_NAME_ATTRIBUTE, String.class);
+					final String urlLabelArticle = childProperties.get(C_TEXT_1_ATTRIBUTE, String.class);
 					
 					setMediaInterview.add(new MediaInterview(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, descriptionInterview, departmentInterview, interviewerNameInterview));
+							yearEndDate, monthEndDate, dayEndDate, descriptionInterview, departmentInterview, interviewerNameInterview, 
+							urlLabelArticle));
 					break;
 
 				default:

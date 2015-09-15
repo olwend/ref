@@ -10,13 +10,16 @@ public class MediaInterview extends ProfessionalActivity {
 	private String description;
 	private String department;
 	private String interviewerName;
+	private String urlLabel;
 
 	public MediaInterview(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String description, String department, String interviewerName) {
+			String yearEndDate, String monthEndDate, String dayEndDate, String description, String department, String interviewerName, 
+			String urlLabelArticle) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.description = description;
 		this.department = department;
 		this.interviewerName = interviewerName;
+		this.urlLabel = urlLabelArticle;
 	}
 	
 	@Override
@@ -73,9 +76,13 @@ public class MediaInterview extends ProfessionalActivity {
 			}
 		}
 		
-		// URL,_ 
-		if (this.url != null){
+		// URLLabel,_ 
+		if (this.urlLabel != null && this.url != null){
+			stringBuffer.append("<a href=\"");
 			stringBuffer.append(this.url);
+			stringBuffer.append("\">");
+			stringBuffer.append(this.urlLabel);
+			stringBuffer.append("</a>");
 		}
 		
 		return stringBuffer.toString();
