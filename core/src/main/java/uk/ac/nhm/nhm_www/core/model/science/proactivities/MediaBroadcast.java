@@ -1,11 +1,5 @@
 package uk.ac.nhm.nhm_www.core.model.science.proactivities;
 
-import org.apache.sling.commons.json.JSONArray;
-import org.apache.sling.commons.json.JSONException;
-import org.apache.sling.commons.json.JSONObject;
-
-
-
 public class MediaBroadcast extends ProfessionalActivity {
 	private String description;
 	private String department;
