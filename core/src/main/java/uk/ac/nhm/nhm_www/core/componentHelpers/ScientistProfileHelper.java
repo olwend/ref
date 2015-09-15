@@ -2048,12 +2048,14 @@ public class ScientistProfileHelper {
 		if (!setMediaBroadcast.isEmpty() || !setMediaInterview.isEmpty()) { 
 			result.append("<h3>Media</h3>");
 			for (final ProfessionalActivity activity: setMediaBroadcast) { 
+				result.append("<h4>Broadcasts</h4>");
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
 			} 
 			
-			for (final ProfessionalActivity activity: setMediaInterview) { 
+			for (final ProfessionalActivity activity: setMediaInterview) {
+				result.append("<h4>Articles</h4>");
 				result.append("<p>");
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
