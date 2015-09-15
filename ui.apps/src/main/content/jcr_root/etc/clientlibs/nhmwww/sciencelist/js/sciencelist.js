@@ -6,7 +6,7 @@ var autoKeywords = "";
 var $elementSelected;
 var departmentDivision = "";
 
-var $collectionGroupSelected;;
+var $collectionGroupSelected;
 var collectionsGroup = "";
 
 var loadDepartmentFromURL = false;
