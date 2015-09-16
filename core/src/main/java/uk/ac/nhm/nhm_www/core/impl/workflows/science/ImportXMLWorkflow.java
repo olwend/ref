@@ -56,7 +56,6 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.NonAcademicEmploy
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.NonAcademicEmployments;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Ns1Object;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.OrganisationDefinedData;
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Pagination;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Person;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.PhoneNumber;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Record;
@@ -70,7 +69,6 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Teachi
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities.Associated.Activity;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
 import uk.ac.nhm.nhm_www.core.xmlvalidation.XMLDateFieldValidator;
-import uk.ac.nhm.nhm_www.core.xmlvalidation.XMLMoneyFieldValidator;
 import uk.ac.nhm.nhm_www.core.xmlvalidation.XMLPaginationFieldValidator;
 
 import com.adobe.granite.workflow.WorkflowException;
@@ -97,7 +95,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     
     private XMLDateFieldValidator dateValidator = new XMLDateFieldValidator();
     private XMLPaginationFieldValidator paginationValidator = new XMLPaginationFieldValidator();
-    private XMLMoneyFieldValidator moneyValidator = new XMLMoneyFieldValidator();
 
     private Session session;
     
@@ -1312,27 +1309,17 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							break;
 							
 						case "c-total-value-awarded":
-//							if ( uniqueName.equals("chris-stringer")){
-//								LOG.error("Grant value in String is : >>" + field.getMoney().getValue().toString() + "<< longValue is : >>" + field.getMoney().getValue().longValue());
-//							}
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
-	                        		if ( moneyValidator.validate(field) ){
-	                        			grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().toString());
-	                        		}
+                        			grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().toString());
 								}
 							}
 							break;
 							
 						case "c-value-to-nhm-awarded":
-//							if ( uniqueName.equals("chris-stringer")){
-//								LOG.error("Grant value in String is : >>" + field.getMoney().getValue().toString() + "<< longValue is : >>" + field.getMoney().getValue().longValue());
-//							}
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
-	                        		if ( moneyValidator.validate(field) ){
-	                        			grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().toString());
-	                        		}
+                        			grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().toString());
 								}
 							}
 							break;
