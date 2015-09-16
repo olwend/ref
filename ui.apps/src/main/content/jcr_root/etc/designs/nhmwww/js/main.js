@@ -232,21 +232,53 @@ jQuery(document).ready(function() {
 	                totalSlides = carousel.find('li').length,
 	                prev = carousel.closest('.lSSlideOuter').find('.lSPrev'),
 	                next = carousel.closest('.lSSlideOuter').find('.lSNext');
-	            if(currentSlide===1){
-	                prev.fadeOut(100);
-	                next.fadeIn(100);
+
+	            if (currentSlide===1){
+                    if (jQuery(window).width() < 1025) {
+                        prev.css("display", "none");
+                        next.css("display", "none");
+                    } else {
+                        prev.fadeOut(100);
+                        next.fadeIn(100);
+
+                    }
+
 	            } else if (currentSlide===totalSlides){
-	                prev.fadeIn(100);
-	                next.fadeOut(100);
+                    if (jQuery(window).width() < 1025) {
+                        prev.css("display", "none");
+                        next.css("display", "none");
+                    } else {
+                        prev.fadeIn(100);
+                        next.fadeOut(100);
+                    }
+
 	            } else {
-	                prev.fadeIn(100);
-	                next.fadeIn(100); 
+                    if (jQuery(window).width() < 1025) {
+                        prev.css("display", "none");
+                        next.css("display", "none");
+                    } else {
+                    	prev.fadeIn(100);
+                    	next.fadeIn(100);
+                    }
+
 	            }
 	        },
+
             onSliderLoad: function(){ 
                 var width = $this.closest('.carousel-wrapper').width(),
                     thumbWidth = Math.ceil((width/items)-(items));
                 sliderOuter.find('.lSGallery').find('li').css('min-width', thumbWidth+"px").css('max-width', thumbWidth+"px");
+
+                prev = carousel.closest('.lSSlideOuter').find('.lSPrev'),
+                next = carousel.closest('.lSSlideOuter').find('.lSNext');
+
+                if (jQuery(window).width() < 1025) {
+                    prev.css("display", "none");
+                    next.css("display", "none");
+                } else {
+                    prev.fadeOut(100);
+                    next.fadeIn(100);
+                }
             }
         });
 
