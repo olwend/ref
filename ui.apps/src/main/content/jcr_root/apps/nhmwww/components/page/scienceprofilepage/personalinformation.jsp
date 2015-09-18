@@ -56,11 +56,11 @@
 				<% String emailPartial = email.replaceAll("@(.*)",""); %>
 				<span class="science-profiles-detail-page--personal--label">Contact:</span> <a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=
 				<% if (helper.getNickName() != null ) { %>
-					<%=helper.getNickName()%> 
-				<% } else { %> 
-					<%=helper.getFirstName() %> 
+					<%=helper.getNickName()%>+<%=helper.getLastName()%>
+				<% } else { %>
+					<%=helper.getFirstName()%>+<%=helper.getLastName()%>
 				<% } %>
-				+<%=helper.getLastName()%>"> email</a> <br>
+				"> email</a> <br>
 				
 				<%-- Phones --%><% 
 				final List<PhoneNumber> phones = helper.getPhones();
