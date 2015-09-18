@@ -80,24 +80,25 @@ public class EventParticipation extends ProfessionalActivity {
 		stringBuffer.append("");
 		
 		boolean correctEvent = eventParticipationTypeMatchesRequestedProfessionalActivity();
-		boolean correctVisibility = true;
+		boolean restrictedVisibility = false;
 		
 		if (!this.ignoreInternalExternalParameter) {
-			correctVisibility = eventParticipationVisibilityMatchesRequestedVisibility(); 
+			restrictedVisibility = eventParticipationVisibilityMatchesRequestedVisibility(); 
 		}
 		
-		if (correctEvent && correctVisibility){
-			
+		if (correctEvent){
+
 			stringBuffer.append("<p>");
-			
-			// ParticipationRole, ParticipationRole,_
-			final String[] roles = this.roles;
-			String rolesString = StringUtils.EMPTY;
-			if (this.roles!= null){
-				rolesString = StringUtils.join(roles, ", ");
-				stringBuffer.append(rolesString);
-				stringBuffer.append(", ");
-			}
+			if ( !restrictedVisibility ){
+				// ParticipationRole, ParticipationRole,_
+				final String[] roles = this.roles;
+				String rolesString = StringUtils.EMPTY;
+				if (this.roles!= null){
+					rolesString = StringUtils.join(roles, ", ");
+					stringBuffer.append(rolesString);
+					stringBuffer.append(", ");
+				}
+			} 
 			
 			// <a href=url>EventTitle</a>,_
 			if (this.title != null){
@@ -106,19 +107,23 @@ public class EventParticipation extends ProfessionalActivity {
 					stringBuffer.append(this.url);
 					stringBuffer.append("\">");
 				}
-				stringBuffer.append(this.title);
-				if (this.url != null) {
-					stringBuffer.append("</a>");
+				if ( !restrictedVisibility ){
+					stringBuffer.append(this.title);
+					if (this.url != null) {
+						stringBuffer.append("</a>");
+					}
 				}
 				stringBuffer.append(", ");
 			}
-			
-			// (EventType),_
-			if (this.eventType != null){
-				stringBuffer.append("(");
-				stringBuffer.append(eventType);
-				stringBuffer.append("), ");
-			}
+
+			if ( !restrictedVisibility ){
+				// (EventType),_
+				if (this.eventType != null){
+					stringBuffer.append("(");
+					stringBuffer.append(eventType);
+					stringBuffer.append("), ");
+				}				
+			}					
 			
 			if ( institutions != null ){
 				for (Institution institution  : institutions) {
@@ -150,14 +155,24 @@ public class EventParticipation extends ProfessionalActivity {
 					stringBuffer.append(this.yeared);
 					stringBuffer.append(".");
 				} else {
-					stringBuffer.append(this.yearsd);
-					stringBuffer.append(" - ");
-					stringBuffer.append("on going");
-					stringBuffer.append(".");
+					if ( !restrictedVisibility ){
+						stringBuffer.append(this.yearsd);
+						stringBuffer.append(" - ");
+						stringBuffer.append("on going");
+						stringBuffer.append(".");
+					} else {
+						stringBuffer.append(this.yearsd);
+						if(this.monthsd != null){
+							stringBuffer.append(this.monthsd);
+							if (this.daysd != null){
+								stringBuffer.append(this.daysd);
+							}
+						}
+						stringBuffer.append(".");
+					}
 				}
 			}
 			stringBuffer.append("</p>");
-			
 		}
 		return stringBuffer.toString();
 	}
@@ -173,7 +188,6 @@ public class EventParticipation extends ProfessionalActivity {
 				}
 			}
 		}
-		
 		return res;
 	}
 	
@@ -181,10 +195,9 @@ public class EventParticipation extends ProfessionalActivity {
 		boolean res = false;
 		if (!this.ignoreInternalExternalParameter) {
 			if (this.internalOrExternal.equals(this.internalOrExternalParameter)) {
-						res = true;
+				res = true;
 			}
 		}
-		
 		return res;
 	}
 }
