@@ -2,6 +2,12 @@
 <%@ page session="false" %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta property="og:url" content="http://localhost:4502" />
+    <meta property="og:title" content="This is the Discover social media title" />
+    <meta property="og:description" content="This is the Discover social media description" />
+    <meta property="og:image" content="http://localhost:4502/content/dam/nhmwww/discover/xmas-tree-worm-1080.jpg"/>
+        
 	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
         <!--[if lte IE 8]>
