@@ -17,15 +17,15 @@ public class BookChapter extends Publication{
 	
 	private List<String> editors;
 	private String bookTitle;
-	private int beginPage;
-	private int endPage;
+	private String beginPage;
+	private String endPage;
 	private String publisher;
 	private String place;
-	private int page;
+	private String page;
 	
-	public BookChapter(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final List<String> bookEditorsSet, final String bookTitle, final int beginPage,
-			final int endPage, int page, final String publisher, final String place) {
+	public BookChapter(final String title, final List<String> authorsList, boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, final List<String> bookEditorsSet, final String bookTitle, final String beginPage,
+			final String endPage, String page, final String publisher, final String place) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
 		this.page = page;
@@ -124,13 +124,13 @@ public class BookChapter extends Publication{
 		}
 		
 		// PagesBegin-PagesEnd.
-		if (this.beginPage > 0 && this.endPage > 0) {
+		if (this.beginPage != null && this.endPage != null) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
-			if (this.page > 0) {
+			if (this.page != null) {
 				stringBuffer.append(this.page);
 				stringBuffer.append(". ");
 			}
@@ -157,19 +157,19 @@ public class BookChapter extends Publication{
 		this.bookTitle = bookTitle;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 
@@ -189,11 +189,11 @@ public class BookChapter extends Publication{
 		this.place = place;
 	}
 
-	public int getPage() {
+	public String getPage() {
 		return page;
 	}
 
-	public void setPage(int page) {
+	public void setPage(String page) {
 		this.page = page;
 	}
 	

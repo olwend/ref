@@ -11,8 +11,8 @@ public class Software extends Publication{
 	private String doiText;
 	private String doiLink;
 	
-	public Software(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String doiTxt, String doiURL){
+	public Software(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href,	final String reportingDate, String doiTxt, String doiURL){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.doiText = doiTxt;
 		this.doiLink = doiURL;

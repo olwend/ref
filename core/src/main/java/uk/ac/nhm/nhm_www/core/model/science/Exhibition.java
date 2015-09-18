@@ -10,17 +10,17 @@ public class Exhibition extends Publication{
 	
 	private String location;
 	private String publisherURL;
-	private int startDay;
-	private int startMonth;
-	private int startYear;
-	private int endDay;
-	private int endMonth;
-	private int endYear;
+	private String startDay;
+	private String startMonth;
+	private String startYear;
+	private String endDay;
+	private String endMonth;
+	private String endYear;
 
-	public Exhibition(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String exhibitionLocation, String exhibitionPublisherURL, 
-			int startExhibitionDay, int startExhibitionMonth, int startExhibitionYear, int endExhibitionDay, int endExhibitionMonth, 
-			int endExhibitionYear){
+	public Exhibition(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, String exhibitionLocation, String exhibitionPublisherURL, 
+			String startExhibitionDay, String startExhibitionMonth, String startExhibitionYear, String endExhibitionDay, String endExhibitionMonth, 
+			String endExhibitionYear){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.location = exhibitionLocation;
 		this.publisherURL = exhibitionPublisherURL;
@@ -97,7 +97,7 @@ public class Exhibition extends Publication{
 		stringBuffer.append(". ");
 		
 		// Start Date - Finish Date, Year._
-		if (this.startDay > 0 && this.startMonth > 0 && this.startYear > 0 && this.endDay > 0 && this.endMonth > 0 && this.endYear > 0 ){
+		if (this.startDay != null && this.startMonth != null && this.startYear != null && this.endDay != null && this.endMonth != null && this.endYear != null ){
 			stringBuffer.append(this.startDay);
 			
 			if ( this.startMonth != this.endMonth){
