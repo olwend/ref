@@ -16,17 +16,16 @@
 		<%-- Awards --%>
 		<%= helper.getAwards(activities) %>
 
+		<%-- Invited and keynote speaker --%>
 		<%= helper.getResearchPresentation(activities) %>
 		
+		<%-- Guest lectures --%>
 		<%= helper.getGuestPresentation(activities) %>
 		
 		<%-- Public Engagement --%>
-			<%-- Internal Activities --%>
-			<%-- <%= helper.getIorEPositions(activities, false) --%>
-			
-			<%-- External Activities --%>
-			<%-- <%= helper.getIorEPositions(activities, true) %> --%>
+		<%= helper.getImpactEventsParticipation(activities) %>
 		
+		<%-- Media Broadcast and Articles --%>
 		<%= helper.getMedia(activities) %>
 		
 	</div>

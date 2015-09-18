@@ -7,6 +7,8 @@ import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
+
 
 public class EventParticipation extends ProfessionalActivity {
 	
@@ -14,15 +16,19 @@ public class EventParticipation extends ProfessionalActivity {
 
 	private Institution[] institutions;
 	private String eventType;
+	private String internalOrExternal;
 	private String[] roles;
-
-	private String[] eventParticipationType;
+	private String[] eventTypeParameters;
+	private String internalOrExternalParameter;
+	private boolean ignoreInternalExternalParameter;
 
 	public EventParticipation(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String[] roles, String eventType, String eventParticipationInstitution) {
+			String yearEndDate, String monthEndDate, String dayEndDate, String[] roles, String eventType, String eventParticipationInstitution, 
+			String internalOrExternal) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.roles = roles;
 		this.eventType = eventType;
+		this.internalOrExternal = internalOrExternal;
 		assignJSON(eventParticipationInstitution);
 	}
 	
@@ -49,10 +55,18 @@ public class EventParticipation extends ProfessionalActivity {
 	
 	@Override
 	public String getFilteredHTMLContent(String currentAuthor, String[] parameters) {
-		this.eventParticipationType = new String[parameters.length];
+		this.eventTypeParameters = new String[parameters.length];
+		
+		if ( parameters[0].equals(ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL) ||
+				parameters[0].equals(ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL)) {
+			this.internalOrExternalParameter = parameters[0];
+			this.ignoreInternalExternalParameter = false;
+		} else {
+			this.ignoreInternalExternalParameter = true;
+		}
 		
 		for(int i = 0; i < parameters.length; i++){
-			this.eventParticipationType[i] = parameters[i];
+			this.eventTypeParameters[i] = parameters[i];
 		}
 		
 		return super.getFilteredHTMLContent(currentAuthor, parameters);
@@ -65,9 +79,14 @@ public class EventParticipation extends ProfessionalActivity {
 		
 		stringBuffer.append("");
 		
-		boolean displayEvent = eventParticipationTypeMatchesRequestedProfessionalActivity();
+		boolean correctEvent = eventParticipationTypeMatchesRequestedProfessionalActivity();
+		boolean correctVisibility = true;
 		
-		if (displayEvent){
+		if (!this.ignoreInternalExternalParameter) {
+			correctVisibility = eventParticipationVisibilityMatchesRequestedVisibility(); 
+		}
+		
+		if (correctEvent && correctVisibility){
 			
 			stringBuffer.append("<p>");
 			
@@ -146,12 +165,23 @@ public class EventParticipation extends ProfessionalActivity {
 	public boolean eventParticipationTypeMatchesRequestedProfessionalActivity() {
 		boolean res = false;
 		if (this.eventType != null) {
-			for (String aux : this.eventParticipationType) {
+			for (String aux : this.eventTypeParameters) {
 				if (!res){
 					if (aux.equals(this.eventType)){
 						res = true;
 					}
 				}
+			}
+		}
+		
+		return res;
+	}
+	
+	public boolean eventParticipationVisibilityMatchesRequestedVisibility() {
+		boolean res = false;
+		if (!this.ignoreInternalExternalParameter) {
+			if (this.internalOrExternal.equals(this.internalOrExternalParameter)) {
+						res = true;
 			}
 		}
 		

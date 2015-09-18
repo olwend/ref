@@ -305,6 +305,7 @@ public class ScientistProfileHelper {
 	public  static final String PROFESSIONAL_ACTIVITY_TYPE_INTERNAL_EXTERNAL			= "InternalExternalImpactOutreach";
 	public  static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST				= "MediaBroadcaster";
 	public  static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW				= "MediaInterview";
+	public  static final String PROFESSIONAL_ACTIVITY_PARAMETER_PUBLIC_ENGAGEMENT		= "Public Engagement";
 	
 	/* Teaching Activities */
 	public  static final String TEACHING_ACTIVITIES_PREFIX_NODE_NAME 		= "teachingActivity";
@@ -1057,7 +1058,7 @@ public class ScientistProfileHelper {
 				}
 
 				switch (type) {
-
+				
 				case PROFESSIONAL_ACTIVITY_TYPE_EXTERNAL_INTERNAL_POSITION:
                     final String inOrExInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 					final String internalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
@@ -1127,10 +1128,12 @@ public class ScientistProfileHelper {
 				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION:
                 	final String eventParticipationInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
 					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
+					final String eventParticipationInternalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
 					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
 					
+					
 					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							eventParticipationRoles, eventParticipationType, eventParticipationInstitution));
+							eventParticipationRoles, eventParticipationType, eventParticipationInstitution, eventParticipationInternalOrExternal));
 					break;	
 
 				case PROFESSIONAL_ACTIVITY_TYPE_CONSULTING:
@@ -2041,6 +2044,53 @@ public class ScientistProfileHelper {
 				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
 				result.append("</p>");
 			} 
+		} 
+		return result.toString();
+	}
+	
+	public String getImpactEventsParticipation(Map<String, Set<ProfessionalActivity>> activities){
+		StringBuilder result = new StringBuilder(); 
+		String externalActivities = getPublicEngagement(activities, true);
+		String internalActivities = getPublicEngagement(activities, false); 
+		if ( (!externalActivities.isEmpty() || !externalActivities.equals("")) && (!internalActivities.isEmpty() || !internalActivities.equals("")) ){
+			result.append("<h3>Public Engagement</h3>");
+			result.append(externalActivities);
+			result.append(internalActivities);
+		} 
+		return result.toString();	
+	}
+	
+	public String getPublicEngagement(Map<String, Set<ProfessionalActivity>> activities, boolean externalPosition){
+		StringBuilder result = new StringBuilder(); 
+		StringBuilder aux = new StringBuilder(); 
+		Set<ProfessionalActivity> setPositions = getProfessionalActivitySet(activities, PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION);
+		if (!setPositions.isEmpty()){ 
+			if (externalPosition){
+				for (final ProfessionalActivity activity: setPositions) { 
+					String[] parameters = {
+							PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL, 
+							PROFESSIONAL_ACTIVITY_PARAMETER_PUBLIC_ENGAGEMENT
+					};
+					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+
+				} 
+				if (aux.length() > 0) { 
+					result.append("<h3>External activities</h3>");
+					result.append(aux);
+				} 
+			} else {
+				for (final ProfessionalActivity activity: setPositions) {
+					String[] parameters = {
+							PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL, 
+							PROFESSIONAL_ACTIVITY_PARAMETER_PUBLIC_ENGAGEMENT
+					};
+					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
+				}
+				if (aux.length() > 0) {
+					result.append("<h3>Internal activities</h3>");
+					result.append(aux);
+				}
+			}
 		} 
 		return result.toString();
 	}
