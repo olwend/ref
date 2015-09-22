@@ -299,13 +299,16 @@ public class ScientistProfileHelper {
 
 	/* Impact and Outreach */
 
-	public  static final String PROFESSIONAL_ACTIVITY_TYPE_AWARD						= "Award";
-	public  static final String PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION		= "ResearPresentation";
-	public  static final String PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION			= "GuestPresentation";
-	public  static final String PROFESSIONAL_ACTIVITY_TYPE_INTERNAL_EXTERNAL			= "InternalExternalImpactOutreach";
-	public  static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST				= "MediaBroadcaster";
-	public  static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW				= "MediaInterview";
-	public  static final String PROFESSIONAL_ACTIVITY_PARAMETER_PUBLIC_ENGAGEMENT		= "Public Engagement";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_AWARD						= "Award";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION		= "ResearPresentation";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION		= "GuestPresentation";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_INTERNAL_EXTERNAL			= "InternalExternalImpactOutreach";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST			= "MediaBroadcaster";
+	public static final String PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW			= "MediaInterview";
+	public static final String PROFESSIONAL_ACTIVITY_PARAMETER_PUBLIC_ENGAGEMENT	= "Public Engagement";
+	public static final String EVENT_START_DATE_DAY_NAME_ATTRIBUTE					= "eStartDay";
+	public static final String EVENT_START_DATE_MONTH_NAME_ATTRIBUTE				= "eStartMonth";
+	public static final String EVENT_START_DATE_YEAR_NAME_ATTRIBUTE					= "eStartYear";
 	
 	/* Teaching Activities */
 	public  static final String TEACHING_ACTIVITIES_PREFIX_NODE_NAME 		= "teachingActivity";
@@ -1130,10 +1133,13 @@ public class ScientistProfileHelper {
 					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
 					final String eventParticipationInternalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
 					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
-					
+					final String eventYearStartDate = childProperties.get(EVENT_START_DATE_YEAR_NAME_ATTRIBUTE, String.class);
+					final String eventMonthStartDate = childProperties.get(EVENT_START_DATE_MONTH_NAME_ATTRIBUTE, String.class);
+					final String eventDayStartDate = childProperties.get(EVENT_START_DATE_DAY_NAME_ATTRIBUTE, String.class);
 					
 					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
-							eventParticipationRoles, eventParticipationType, eventParticipationInstitution, eventParticipationInternalOrExternal));
+							eventParticipationRoles, eventParticipationType, eventParticipationInstitution, eventParticipationInternalOrExternal, 
+							eventYearStartDate, eventMonthStartDate, eventDayStartDate));
 					break;	
 
 				case PROFESSIONAL_ACTIVITY_TYPE_CONSULTING:
@@ -2054,8 +2060,12 @@ public class ScientistProfileHelper {
 		String internalActivities = getPublicEngagement(activities, false); 
 		if ( (!externalActivities.isEmpty() || !externalActivities.equals("")) && (!internalActivities.isEmpty() || !internalActivities.equals("")) ){
 			result.append("<h3>Public Engagement</h3>");
-			result.append(externalActivities);
-			result.append(internalActivities);
+			if ( !externalActivities.isEmpty() || !externalActivities.equals("") ){
+				result.append(externalActivities);
+			}
+			if ( !internalActivities.isEmpty() || !internalActivities.equals("") ) {
+				result.append(internalActivities);
+			}
 		} 
 		return result.toString();	
 	}
@@ -2072,10 +2082,9 @@ public class ScientistProfileHelper {
 							PROFESSIONAL_ACTIVITY_PARAMETER_PUBLIC_ENGAGEMENT
 					};
 					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
-
 				} 
 				if (aux.length() > 0) { 
-					result.append("<h3>External activities</h3>");
+					result.append("<h4>External activities</h4>");
 					result.append(aux);
 				} 
 			} else {
@@ -2087,7 +2096,7 @@ public class ScientistProfileHelper {
 					aux.append(activity.getFilteredHTMLContent(getLastName() + " " + getInitials(), parameters));
 				}
 				if (aux.length() > 0) {
-					result.append("<h3>Internal activities</h3>");
+					result.append("<h4>Internal activities</h4>");
 					result.append(aux);
 				}
 			}
@@ -2129,6 +2138,7 @@ public class ScientistProfileHelper {
 			aux.append(helper.getResearchPresentation(activities));
 			aux.append(helper.getGuestPresentation(activities));
 			aux.append(helper.getMedia(activities));
+			aux.append(helper.getImpactEventsParticipation(activities));
 			
 			if (aux.length() > 0){
 				res = true;

@@ -1036,6 +1036,23 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 									professionalANode.setProperty(ScientistProfileHelper.INTERVIEWER_NAME_ATTRIBUTE, interviewers);
 								}
 								break;
+								
+                        case "event-start-date":
+                        	final BigInteger eStartYear = field.getDate().getYear();
+                        	final BigInteger eStartMonth = field.getDate().getMonth();
+                        	final BigInteger eStartDay = field.getDate().getDay();
+                        	if ( eStartYear != null ){
+                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_YEAR_NAME_ATTRIBUTE, eStartYear.longValue());
+                        	}
+                        	if ( eStartMonth != null ){
+                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_MONTH_NAME_ATTRIBUTE, eStartMonth.longValue());
+                        	}
+                        	if ( eStartDay != null ){
+                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_DAY_NAME_ATTRIBUTE, eStartDay.longValue());
+                        	}
+                        	break;
+								
+								
                     }
                 }
             }
