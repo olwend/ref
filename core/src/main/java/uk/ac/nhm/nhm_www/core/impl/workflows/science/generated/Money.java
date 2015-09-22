@@ -8,7 +8,9 @@
 
 package uk.ac.nhm.nhm_www.core.impl.workflows.science.generated;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -45,7 +47,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Money {
 
     @XmlValue
-    protected BigInteger value;
+    protected BigDecimal value;
     @XmlAttribute(name = "iso-currency", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -56,10 +58,10 @@ public class Money {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link BigDecimal }
      *     
      */
-    public BigInteger getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
@@ -68,10 +70,10 @@ public class Money {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link BigDecimal }
      *     
      */
-    public void setValue(BigInteger value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 

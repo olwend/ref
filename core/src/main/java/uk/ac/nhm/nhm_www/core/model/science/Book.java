@@ -3,7 +3,6 @@ package uk.ac.nhm.nhm_www.core.model.science;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -11,21 +10,21 @@ public class Book extends Publication{
 	private List<String> editors;
 	private String publisher;
 	private String place;
-	private int page;
-	private int beginPage;
-	private int endPage;
+	private String pageCount;
+	private String beginPage;
+	private String endPage;
 	
-	public Book(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
+	public Book(final String title, final List<String> authorsList, boolean favorite, final String publicationYear,
 			final String href, final String reportingDate, final List<String> editorsSet, final String publisher, final String place,
-			final int page, int beginPage, int endPage) {
+			final String page, String beginPage, String endPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
 		this.beginPage = beginPage;
 		this.endPage = endPage;
+		this.pageCount = page;
 		this.editors = editorsSet;
 		this.publisher = publisher;
 		this.place = place;
-		this.page = page;
 	}
 
 	@Override
@@ -110,14 +109,14 @@ public class Book extends Publication{
 		}
 		
 		// PagesBegin - PagesEnd._ || PageCount._
-		if (this.beginPage > 0 && this.endPage > 0) {
+		if (this.beginPage != null && this.endPage != null) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
-			if (this.page > 0) {
-				stringBuffer.append(this.page);
+			if (this.pageCount != null) {
+				stringBuffer.append(this.pageCount);
 				stringBuffer.append(". ");
 			}
 		}
@@ -149,27 +148,27 @@ public class Book extends Publication{
 		this.place = place;
 	}
 
-	public int getPage() {
-		return page;
+	public String getPage() {
+		return pageCount;
 	}
 
-	public void setPage(int page) {
-		this.page = page;
+	public void setPage(String page) {
+		this.pageCount = page;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 	

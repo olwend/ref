@@ -64,10 +64,6 @@ p {
   font-size: 12.8px;
 }
 
-.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
-  width: 100%;
-}
-
 div#feedback-bar p {
   font-size: 16px;
 }
@@ -90,12 +86,6 @@ body {
   width: 100%;
 }
 
-div#page-container {
-  width: 940px !important;
-  /* had to add !important due to another stylesheet (wide-modifications.css) also having !important */
-  border: none;
-}
-
 .row {
   margin-bottom: 0;
   width: 100%;
@@ -108,6 +98,14 @@ div#page-container {
 
 .nhm-breadcrumb {
   text-align: left;
+}
+
+#nhm-cookie-notify {
+  display: none;
+}
+
+#page-container {
+  top: 0 !important;
 }
 
 /*# sourceMappingURL=nhm-legacy-global.css.map */

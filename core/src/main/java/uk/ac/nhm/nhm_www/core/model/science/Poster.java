@@ -12,8 +12,8 @@ public class Poster extends Publication{
 	private String nameOfConference;
 	private String city;
 
-	public Poster(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String posterNameOfConference, String posterCity) {
+	public Poster(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, String posterNameOfConference, String posterCity) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.nameOfConference = posterNameOfConference;
 		this.city = posterCity;

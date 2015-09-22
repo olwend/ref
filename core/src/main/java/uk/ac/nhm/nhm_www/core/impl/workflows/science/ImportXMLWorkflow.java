@@ -11,14 +11,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 import java.util.TreeSet;
 
 import javax.activation.MimetypesFileTypeMap;
-import javax.jcr.ItemExistsException;
 import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
@@ -27,12 +25,10 @@ import javax.jcr.Value;
 import javax.jcr.ValueFormatException;
 import javax.jcr.lock.LockException;
 import javax.jcr.nodetype.ConstraintViolationException;
-import javax.jcr.nodetype.NoSuchNodeTypeException;
 import javax.jcr.version.VersionException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
@@ -43,7 +39,6 @@ import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.commons.json.JSONArray;
-import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,7 +56,6 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.NonAcademicEmploy
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.NonAcademicEmployments;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Ns1Object;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.OrganisationDefinedData;
-import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Pagination;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Person;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.PhoneNumber;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Record;
@@ -73,8 +67,9 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projec
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.Projects.ChampionOf.Project;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.WebProfile.TeachingActivities.Associated.Activity;
-import uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate;
 import uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService;
+import uk.ac.nhm.nhm_www.core.xmlvalidation.XMLDateFieldValidator;
+import uk.ac.nhm.nhm_www.core.xmlvalidation.XMLPaginationFieldValidator;
 
 import com.adobe.granite.workflow.WorkflowException;
 import com.adobe.granite.workflow.WorkflowSession;
@@ -97,6 +92,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
     private static final String SCIENCE_PROFILE_PAGE_RESOURCE_TYPE = "nhmwww/components/page/scienceprofilepage";
     private static final String TYPE_PRIVACITY_PUBLIC = "public";
     private static final String DOI_TEXT = "doi";
+    
+    private XMLDateFieldValidator dateValidator = new XMLDateFieldValidator();
+    private XMLPaginationFieldValidator paginationValidator = new XMLPaginationFieldValidator();
 
     private Session session;
     
@@ -581,44 +579,71 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                             publicationsNode.setProperty(ScientistProfileHelper.TITLE_ATTRIBUTE, field.getText());
                             break;
                         case "publication-date":
-                            publicationsNode.setProperty(ScientistProfileHelper.PUBLICATION_DATE_ATTRIBUTE, field.getDate().getYear().longValue());
-                            final BigInteger publicationMonth = field.getDate().getMonth();
-                            final BigInteger publicationDay = field.getDate().getDay();
-                            if ( publicationMonth != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.PUBLICATION_MONTH_ATTRIBUTE, publicationMonth.longValue());
-                            }
-                            if ( publicationDay != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.PUBLICATION_DAY_ATTRIBUTE, publicationDay.longValue());
-                            }
+                        	final BigInteger publicationYear = field.getDate().getYear();
+                        	if ( publicationYear!= null ) {
+                        		if ( dateValidator.validate(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.PUBLICATION_DATE_ATTRIBUTE, publicationYear.longValue());
+                        		}
+                        	}
+                        	
+                        	final BigInteger publicationMonth = field.getDate().getMonth();
+                        	if ( publicationMonth != null ){
+                        		if ( dateValidator.validateMonth(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.PUBLICATION_MONTH_ATTRIBUTE, publicationMonth.longValue());
+                        		}
+                        	}
+                        	
+                        	final BigInteger publicationDay = field.getDate().getDay();
+                        	if ( publicationDay != null ){
+                        		if ( dateValidator.validateDay(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.PUBLICATION_DAY_ATTRIBUTE, publicationDay.longValue());
+                        		}
+                        	}
                             break;
                             
                         case "finish-date":
-                        	final BigInteger finishYear = field.getDate().getMonth();
-                            final BigInteger finishMonth = field.getDate().getMonth();
-                            final BigInteger finishDay = field.getDate().getDay();
-                            if ( finishYear != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.END_YEAR_ATTRIBUTE, finishYear.longValue());
-                            }
+                        	final BigInteger finishYear = field.getDate().getYear();
+                        	if ( finishYear != null ){
+                        		if ( dateValidator.validate(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.END_YEAR_ATTRIBUTE, finishYear.longValue());
+                        		}
+                        	}
+
+                        	final BigInteger finishMonth = field.getDate().getMonth();
                             if ( finishMonth != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.END_MONTH_ATTRIBUTE, finishMonth.longValue());
+                        		if ( dateValidator.validateMonth(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.END_MONTH_ATTRIBUTE, finishMonth.longValue());
+                        		}
                             }
+                            
+                            final BigInteger finishDay = field.getDate().getDay();
                             if ( finishDay != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.END_DAY_ATTRIBUTE, finishDay.longValue());
+                        		if ( dateValidator.validateDay(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.END_DAY_ATTRIBUTE, finishDay.longValue());
+                        		}
                             }
                             break;
                             
                         case "start-date":
-                        	final BigInteger startYear = field.getDate().getMonth();
-                            final BigInteger startMonth = field.getDate().getMonth();
-                            final BigInteger startDay = field.getDate().getDay();
+                        	final BigInteger startYear = field.getDate().getYear();
                             if ( startYear != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.START_YEAR_ATTRIBUTE, startYear.longValue());
+                        		if ( dateValidator.validate(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.START_YEAR_ATTRIBUTE, startYear.longValue());
+                        		}
                             }
+                            
+                            final BigInteger startMonth = field.getDate().getMonth();
                             if ( startMonth != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.START_MONTH_ATTRIBUTE, startMonth.longValue());
+                        		if ( dateValidator.validateMonth(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.START_MONTH_ATTRIBUTE, startMonth.longValue());
+                        		}
                             }
+                            
+                            final BigInteger startDay = field.getDate().getDay();
                             if ( startDay != null ){
-                            	publicationsNode.setProperty(ScientistProfileHelper.START_DAY_ATTRIBUTE, startDay.longValue());
+                        		if ( dateValidator.validateDay(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.START_DAY_ATTRIBUTE, startDay.longValue());
+                        		}
                             }
                             break;
                             
@@ -656,18 +681,21 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         	publicationsNode.setProperty(ScientistProfileHelper.ISSUE_ATTRIBUTE, field.getText());
                         	break;
                         case "pagination":
-                        	final Pagination pagination = field.getPagination();
-                        	final String startPage = pagination.getBeginPage();
-                        	final String endPage = pagination.getEndPage();
-                        	final BigInteger pageCount = pagination.getPageCount();
+                        	final String startPage = field.getPagination().getBeginPage();
                         	if (startPage != null) {
                         		publicationsNode.setProperty(ScientistProfileHelper.START_PAGE_ATTRIBUTE, startPage);
                         	}
+                        	
+                        	final String endPage = field.getPagination().getEndPage();
                         	if (endPage != null) {
                         		publicationsNode.setProperty(ScientistProfileHelper.END_PAGE_ATTRIBUTE, endPage);
                         	}
+                        	
+                        	final BigInteger pageCount = field.getPagination().getPageCount();
                         	if (pageCount != null) {
-                        		publicationsNode.setProperty(ScientistProfileHelper.PAGE_COUNT_ATTRIBUTE, pageCount.intValue());
+                        		if ( paginationValidator.validate(field) ){
+                        			publicationsNode.setProperty(ScientistProfileHelper.PAGE_COUNT_ATTRIBUTE, pageCount.intValue());
+                        		}
                         	}
                         	break;
                         case DOI_TEXT:
@@ -771,122 +799,138 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            break;
                         case "end-date":
 	                        	final BigInteger endYear = field.getDate().getYear();
-	                        	final BigInteger endMonth = field.getDate().getMonth();
-	                        	final BigInteger endDay = field.getDate().getDay();
-	                        	if ( endYear != null ){
-	                        		professionalANode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-	                        	}
-	                        	if ( endMonth != null ){
-	                        		professionalANode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-	                        	}
-	                        	if ( endDay != null ){
-	                        		professionalANode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-	                        	}
-	                        	break;
-                        	
+	                            if ( endYear != null ){
+	                        		if ( dateValidator.validate(field) ){
+	                        			professionalANode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger endMonth = field.getDate().getMonth();
+	                            if ( endMonth != null ){
+	                        		if ( dateValidator.validateMonth(field) ){
+	                        			professionalANode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger endDay = field.getDate().getDay();
+	                            if ( endDay != null ){
+	                        		if ( dateValidator.validateDay(field) ){
+	                        			professionalANode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+	                        		}
+	                            }
+	                            break;
+                        
                         case "start-date":
 	                        	final BigInteger startYear = field.getDate().getYear();
-	                        	final BigInteger startMonth = field.getDate().getMonth();
-	                        	final BigInteger startDay = field.getDate().getDay();
-	                        	if ( startYear != null ){
-	                        		professionalANode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-	                        	}
-	                        	if ( startMonth != null ){
-	                        		professionalANode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-	                        	}
-	                        	if ( startDay != null ){
-	                        		professionalANode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-	                        	}
-	                        	break;
+	                            if ( startYear != null ){
+	                        		if ( dateValidator.validate(field) ){
+	                        			professionalANode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger startMonth = field.getDate().getMonth();
+	                            if ( startMonth != null ){
+	                        		if ( dateValidator.validateMonth(field) ){
+	                        			professionalANode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger startDay = field.getDate().getDay();
+	                            if ( startDay != null ){
+	                        		if ( dateValidator.validateDay(field) ){
+	                        			professionalANode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+	                        		}
+	                            }
+	                            break;
 
                         case "organisation":	
-                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
-                            JSONArray jsonOrganisationsArray = new JSONArray(); 
-                            
-                            while(organisationTypes.hasNext()) {
-                            	Address address = organisationTypes.next();
-                            	List<java.lang.Object> lines = address.getContent();
-                            	
-                            	JSONObject jsonAddress = new JSONObject();
-                            	for (final java.lang.Object object : lines) {
-                            		if (! (object instanceof Line)) {
-                            			continue;
-                            		}
-                            		final Line line = (Line) object;
-                            		switch (line.getType()) {
-                            		case "name":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("name", line.getContent());
-                            			}
-                            			break;
-                            		case "organisation":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("organisation", line.getContent());
-                            			}
-                            			break;
-                            		case "city":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("city", line.getContent());
-                            			}
-                            			break;
-                            		case "country":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("country", line.getContent());
-                            			}
-                            			break;
-                            		}
-                            		
-                            	}
-                            	jsonOrganisationsArray.put(jsonAddress);
-							}
-                            final JSONObject organisations = new JSONObject();
-                            organisations.put("organisations", jsonOrganisationsArray);
-                            professionalANode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
-                            break;
+	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonOrganisationsArray = new JSONArray(); 
+	                            
+	                            while(organisationTypes.hasNext()) {
+	                            	Address address = organisationTypes.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            		
+	                            	}
+	                            	jsonOrganisationsArray.put(jsonAddress);
+								}
+	                            final JSONObject organisations = new JSONObject();
+	                            organisations.put("organisations", jsonOrganisationsArray);
+	                            professionalANode.setProperty(ScientistProfileHelper.ORGANISATION_ATTRIBUTE, organisations.toString());
+	                            break;
                             
                         case "institution":	
-                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
-                            JSONArray jsonInstitutionsArray = new JSONArray(); 
-                            
-                            while(institutionTypes.hasNext()) {
-                            	Address address = institutionTypes.next();
-                            	List<java.lang.Object> lines = address.getContent();
-                            	
-                            	JSONObject jsonAddress = new JSONObject();
-                            	for (final java.lang.Object object : lines) {
-                            		if (! (object instanceof Line)) {
-                            			continue;
-                            		}
-                            		final Line line = (Line) object;
-                            		switch (line.getType()) {
-                            		case "name":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("name", line.getContent());
-                            			}
-                            			break;
-                            		case "organisation":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("organisation", line.getContent());
-                            			}
-                            			break;
-                            		case "city":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("city", line.getContent());
-                            			}
-                            			break;
-                            		case "country":
-                            			if(line.getContent() != null){
-                            				jsonAddress.put("country", line.getContent());
-                            			}
-                            			break;
-                            		}
-                            	}
-                            	jsonInstitutionsArray.put(jsonAddress);
-							}
-                            final JSONObject institutions = new JSONObject();
-                            institutions.put("organisations", jsonInstitutionsArray);
-                            professionalANode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
-                            break;
+	                            final ListIterator<Address> institutionTypes = field.getAddresses().getAddress().listIterator();
+	                            JSONArray jsonInstitutionsArray = new JSONArray(); 
+	                            
+	                            while(institutionTypes.hasNext()) {
+	                            	Address address = institutionTypes.next();
+	                            	List<java.lang.Object> lines = address.getContent();
+	                            	
+	                            	JSONObject jsonAddress = new JSONObject();
+	                            	for (final java.lang.Object object : lines) {
+	                            		if (! (object instanceof Line)) {
+	                            			continue;
+	                            		}
+	                            		final Line line = (Line) object;
+	                            		switch (line.getType()) {
+	                            		case "name":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("name", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "organisation":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("organisation", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "city":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("city", line.getContent());
+	                            			}
+	                            			break;
+	                            		case "country":
+	                            			if(line.getContent() != null){
+	                            				jsonAddress.put("country", line.getContent());
+	                            			}
+	                            			break;
+	                            		}
+	                            	}
+	                            	jsonInstitutionsArray.put(jsonAddress);
+								}
+	                            final JSONObject institutions = new JSONObject();
+	                            institutions.put("organisations", jsonInstitutionsArray);
+	                            professionalANode.setProperty(ScientistProfileHelper.INSTITUTION_ORGANISATIONS_ATTRIBUTE, institutions.toString());
+	                            break;
                             
                         case "c-committee-roles":
 	                          	final String committeeRole = field.getText();
@@ -987,7 +1031,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          		professionalANode.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE, areaOrRegion);
 	                          	}
 	                          	break;
-	                          	
                     }
                 }
             }
@@ -1043,91 +1086,107 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 				for (Field field: record.getNative().getField()) {
 					switch (field.getName()) {
 					case "name":
-						projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
-						break;
+							projectsNode.setProperty(ScientistProfileHelper.NAME_ATTRIBUTE, field.getText());
+							break;
 						
 					case "c-external-collaborators":
-						final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
-						JSONArray jsonInstitutionsArray = new JSONArray(); 
-						
-						while(externalCollaborators.hasNext()) {
-							Address address = externalCollaborators.next();
-							List<java.lang.Object> lines = address.getContent();
+							final ListIterator<Address> externalCollaborators = field.getAddresses().getAddress().listIterator();
+							JSONArray jsonInstitutionsArray = new JSONArray(); 
 							
-							JSONObject jsonAddress = new JSONObject();
-							for (final java.lang.Object object : lines) {
-								if (! (object instanceof Line)) {
-									continue;
+							while(externalCollaborators.hasNext()) {
+								Address address = externalCollaborators.next();
+								List<java.lang.Object> lines = address.getContent();
+								
+								JSONObject jsonAddress = new JSONObject();
+								for (final java.lang.Object object : lines) {
+									if (! (object instanceof Line)) {
+										continue;
+									}
+									final Line line = (Line) object;
+									switch (line.getType()) {
+									case "name":
+										if(line.getContent() != null){
+											jsonAddress.put("name", line.getContent());
+										}
+										break;
+									case "organisation":
+										if(line.getContent() != null){
+											jsonAddress.put("organisation", line.getContent());
+										}
+										break;
+									case "city":
+										if(line.getContent() != null){
+											jsonAddress.put("city", line.getContent());
+										}
+										break;
+									case "country":
+										if(line.getContent() != null){
+											jsonAddress.put("country", line.getContent());
+										}
+										break;
+									}
 								}
-								final Line line = (Line) object;
-								switch (line.getType()) {
-								case "name":
-									if(line.getContent() != null){
-										jsonAddress.put("name", line.getContent());
-									}
-									break;
-								case "organisation":
-									if(line.getContent() != null){
-										jsonAddress.put("organisation", line.getContent());
-									}
-									break;
-								case "city":
-									if(line.getContent() != null){
-										jsonAddress.put("city", line.getContent());
-									}
-									break;
-								case "country":
-									if(line.getContent() != null){
-										jsonAddress.put("country", line.getContent());
-									}
-									break;
-								}
+								jsonInstitutionsArray.put(jsonAddress);
 							}
-							jsonInstitutionsArray.put(jsonAddress);
-						}
-						final JSONObject collaborators = new JSONObject();
-						collaborators.put("collaborators", jsonInstitutionsArray);
-						projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
-						break;
+							final JSONObject collaborators = new JSONObject();
+							collaborators.put("collaborators", jsonInstitutionsArray);
+							projectsNode.setProperty(ScientistProfileHelper.EXTERNAL_COLLABORATORS, collaborators.toString());
+							break;
 						
-					case "c-end-date":
-						final BigInteger endYear = field.getDate().getYear();
-						final BigInteger endMonth = field.getDate().getMonth();
-						final BigInteger endDay = field.getDate().getDay();
-						if ( endYear != null ){
-							projectsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-						}
-						if ( endMonth != null ){
-							projectsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-						}
-						if ( endDay != null ){
-							projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-						}
-						break;
-						
-					case "c-start-date":
-						final BigInteger startYear = field.getDate().getYear();
-						final BigInteger startMonth = field.getDate().getMonth();
-						final BigInteger startDay = field.getDate().getDay();
-						if ( startYear != null ){
-							projectsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-						}
-						if ( startMonth != null ){
-							projectsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-						}
-						if ( startDay != null ){
-							projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-						}
-						break;
+                    case "c-end-date":
+	                    	final BigInteger endYear = field.getDate().getYear();
+	                        if ( endYear != null ){
+	                    		if ( dateValidator.validate(field) ){
+	                    			projectsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+	                    		}
+	                        }
+	                        
+	                        final BigInteger endMonth = field.getDate().getMonth();
+	                        if ( endMonth != null ){
+	                    		if ( dateValidator.validateMonth(field) ){
+	                    			projectsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+	                    		}
+	                        }
+	                        
+	                        final BigInteger endDay = field.getDate().getDay();
+	                        if ( endDay != null ){
+	                    		if ( dateValidator.validateDay(field) ){
+	                    			projectsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+	                    		}
+	                        }
+	                        break;
+                
+	                case "c-start-date":
+	                    	final BigInteger startYear = field.getDate().getYear();
+	                        if ( startYear != null ){
+	                    		if ( dateValidator.validate(field) ){
+	                    			projectsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+	                    		}
+	                        }
+	                        
+	                        final BigInteger startMonth = field.getDate().getMonth();
+	                        if ( startMonth != null ){
+	                    		if ( dateValidator.validateMonth(field) ){
+	                    			projectsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+	                    		}
+	                        }
+	                        
+	                        final BigInteger startDay = field.getDate().getDay();
+	                        if ( startDay != null ){
+	                    		if ( dateValidator.validateDay(field) ){
+	                    			projectsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+	                    		}
+	                        }
+	                        break;
 						
 					case "c-funding-source2":
-						final List<String> fundingSources = field.getItems().getItem();
-						projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
-						break;
+							final List<String> fundingSources = field.getItems().getItem();
+							projectsNode.setProperty(ScientistProfileHelper.FUNDING_SOURCE_ATTRIBUTE, fundingSources.toArray(new String[fundingSources.size()]));
+							break;
 						
 					case "c-nhm-url1":
-						projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
-						break;
+							projectsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
+							break;
 					}
 				}
 			}
@@ -1252,7 +1311,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 						case "c-total-value-awarded":
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
-									grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().longValue());
+                        			grantsNode.setProperty(ScientistProfileHelper.TOTAL_VALUE_AWARDED, field.getMoney().getValue().toString());
 								}
 							}
 							break;
@@ -1260,40 +1319,56 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 						case "c-value-to-nhm-awarded":
 							if ( field.getMoney() != null ) {
 								if ( field.getMoney().getValue() != null )	{
-									grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().longValue());
+                        			grantsNode.setProperty(ScientistProfileHelper.NHM_VALUE_AWARDED, field.getMoney().getValue().toString());
 								}
 							}
 							break;
 
-						case "c-end-date":
-							final BigInteger endYear = field.getDate().getYear();
-							final BigInteger endMonth = field.getDate().getMonth();
-							final BigInteger endDay = field.getDate().getDay();
-							if ( endYear != null ){
-								grantsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-							}
-							if ( endMonth != null ){
-								grantsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-							}
-							if ( endDay != null ){
-								grantsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-							}
-							break;
-							
-						case "c-start-date":
-							final BigInteger startYear = field.getDate().getYear();
-							final BigInteger startMonth = field.getDate().getMonth();
-							final BigInteger startDay = field.getDate().getDay();
-							if ( startYear != null ){
-								grantsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-							}
-							if ( startMonth != null ){
-								grantsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-							}
-							if ( startDay != null ){
-								grantsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-							}
-							break;
+                        case "c-end-date":
+                        	final BigInteger endYear = field.getDate().getYear();
+                            if ( endYear != null ){
+                        		if ( dateValidator.validate(field) ){
+                        			grantsNode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+                        		}
+                            }
+                            
+                            final BigInteger endMonth = field.getDate().getMonth();
+                            if ( endMonth != null ){
+                        		if ( dateValidator.validateMonth(field) ){
+                        			grantsNode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+                        		}
+                            }
+                            
+                            final BigInteger endDay = field.getDate().getDay();
+                            if ( endDay != null ){
+                        		if ( dateValidator.validateDay(field) ){
+                        			grantsNode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+                        		}
+                            }
+                            break;
+                    
+                        case "c-start-date":
+                        	final BigInteger startYear = field.getDate().getYear();
+                            if ( startYear != null ){
+                        		if ( dateValidator.validate(field) ){
+                        			grantsNode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+                        		}
+                            }
+                            
+                            final BigInteger startMonth = field.getDate().getMonth();
+                            if ( startMonth != null ){
+                        		if ( dateValidator.validateMonth(field) ){
+                        			grantsNode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+                        		}
+                            }
+                            
+                            final BigInteger startDay = field.getDate().getDay();
+                            if ( startDay != null ){
+                        		if ( dateValidator.validateDay(field) ){
+                        			grantsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+                        		}
+                            }
+                            break;
 						}
 					}
 				}
@@ -1322,8 +1397,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 
     private void addTeachingActivities (final Node rootNode, final TeachingActivities activities, final String uniqueName) throws Exception {
         int i  = 0;
-        
+
     	LOG.error("Scanning: " + uniqueName );
+    	
+//    	if ( uniqueName.equals("chris-stringer")){ 
+//    		String warnMe = ">>>>>>>>>>>>>############beWarned############<<<<<<<<<<<<";
+//    		LOG.error(warnMe);
+//    	}
         
         List<Ns1Object> list = activities.getAssociated().getTeachingActivity();
         
@@ -1336,7 +1416,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
             // Setting up type of Teaching Activity
             final String type = resolveTeachingActivityType (activity.getObject().getTypeId().intValue());  
             teachingANode.setProperty(ScientistProfileHelper.TYPE_ATTRIBUTE, type);
-        	LOG.error("Adding a teachingactivityType : " + type);
 
             for (Record record: activity.getObject().getRecords().getRecord()) {
                 for (Field field: record.getNative().getField()) {
@@ -1347,36 +1426,74 @@ public class ImportXMLWorkflow implements WorkflowProcess {
                         case "url":
 	                            teachingANode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
 	                            break;
-                        case "end-date":
+                        case "c-end-date":
 	                        	final BigInteger endYear = field.getDate().getYear();
-	                        	final BigInteger endMonth = field.getDate().getMonth();
-	                        	final BigInteger endDay = field.getDate().getDay();
-	                        	if ( endYear != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
-	                        	}
-	                        	if ( endMonth != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
-	                        	}
-	                        	if ( endDay != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
-	                        	}
-	                        	break;
-                        	
-                        case "start-date":
+	                            if ( endYear != null ){
+	                        		if ( dateValidator.validate(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.END_DATE_YEAR_NAME_ATTRIBUTE, endYear.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger endMonth = field.getDate().getMonth();
+	                            if ( endMonth != null ){
+	                        		if ( dateValidator.validateMonth(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.END_DATE_MONTH_NAME_ATTRIBUTE, endMonth.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger endDay = field.getDate().getDay();
+	                            if ( endDay != null ){
+	                        		if ( dateValidator.validateDay(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.END_DATE_DAY_NAME_ATTRIBUTE, endDay.longValue());
+	                        		}
+	                            }
+	                            break;
+	                    
+	                    case "c-start-date":
 	                        	final BigInteger startYear = field.getDate().getYear();
-	                        	final BigInteger startMonth = field.getDate().getMonth();
-	                        	final BigInteger startDay = field.getDate().getDay();
-	                        	if ( startYear != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
-	                        	}
-	                        	if ( startMonth != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
-	                        	}
-	                        	if ( startDay != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
-	                        	}
-	                        	break;
-
+	                            if ( startYear != null ){
+	                        		if ( dateValidator.validate(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.START_DATE_YEAR_NAME_ATTRIBUTE, startYear.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger startMonth = field.getDate().getMonth();
+	                            if ( startMonth != null ){
+	                        		if ( dateValidator.validateMonth(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.START_DATE_MONTH_NAME_ATTRIBUTE, startMonth.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger startDay = field.getDate().getDay();
+	                            if ( startDay != null ){
+	                        		if ( dateValidator.validateDay(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
+	                        		}
+	                            }
+	                            break;
+	                    
+	                    case "release-date":
+	                        	final BigInteger releaseYear = field.getDate().getYear();
+	                            if ( releaseYear != null ){
+	                        		if ( dateValidator.validate(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_YEAR_NAME_ATTRIBUTE, releaseYear.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger releaseMonth = field.getDate().getMonth();
+	                            if ( releaseMonth != null ){
+	                        		if ( dateValidator.validateMonth(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_MONTH_NAME_ATTRIBUTE, releaseMonth.longValue());
+	                        		}
+	                            }
+	                            
+	                            final BigInteger releaseDay = field.getDate().getDay();
+	                            if ( releaseDay != null ){
+	                        		if ( dateValidator.validateDay(field) ){
+	                        			teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_DAY_NAME_ATTRIBUTE, releaseDay.longValue());
+	                        		}
+	                            }
+	                            break;
                         case "organisation":
 	                            final ListIterator<Address> organisationTypes = field.getAddresses().getAddress().listIterator();
 	                            JSONArray jsonOrganisationsArray = new JSONArray(); 
@@ -1609,22 +1726,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                            partners.put("partners", jsonPartnersArray);
 	                            teachingANode.setProperty(ScientistProfileHelper.PARTNER_ATTRIBUTE, partners.toString());
 	                            break;
-                            
-                        case "release-date":
-	                        	final BigInteger releaseYear = field.getDate().getYear();
-	                        	final BigInteger releaseMonth = field.getDate().getMonth();
-	                        	final BigInteger releaseDay = field.getDate().getDay();
-	                        	if ( releaseYear != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_YEAR_NAME_ATTRIBUTE, releaseYear.longValue());
-	                        	}
-	                        	if ( releaseMonth != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_MONTH_NAME_ATTRIBUTE, releaseMonth.longValue());
-	                        	}
-	                        	if ( releaseDay != null ){
-	                        		teachingANode.setProperty(ScientistProfileHelper.RELEASE_DATE_DAY_NAME_ATTRIBUTE, releaseDay.longValue());
-	                        	}
-	                        	break;
-
                     }
                 }
             }
