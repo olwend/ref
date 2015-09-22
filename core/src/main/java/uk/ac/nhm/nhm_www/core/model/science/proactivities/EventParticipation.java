@@ -82,8 +82,6 @@ public class EventParticipation extends ProfessionalActivity {
 	public String getHTMLContent(String currentAuthor) {
 		final StringBuffer stringBuffer = new StringBuffer();
 		
-		stringBuffer.append("");
-		
 		boolean correctEvent = eventParticipationTypeMatchesRequestedProfessionalActivity();
 		boolean eventIsPublicEngagement = false;
 		
@@ -93,8 +91,10 @@ public class EventParticipation extends ProfessionalActivity {
 		
 		if (correctEvent){
 			if (!eventIsPublicEngagement) {
-				stringBuffer.append("<p>");
+				
+				
 				if (ignoreInternalExternalParameter) {
+					stringBuffer.append("<p>");
 					// ParticipationRole, ParticipationRole,_
 					final String[] roles = this.roles;
 					String rolesString = StringUtils.EMPTY;
@@ -173,8 +173,9 @@ public class EventParticipation extends ProfessionalActivity {
 							}
 						}
 					}
+					stringBuffer.append("</p>");
 				}
-				stringBuffer.append("</p>");
+				
 			} else {
 				stringBuffer.append("<p>");
 				// Title,_
