@@ -92,90 +92,91 @@ public class EventParticipation extends ProfessionalActivity {
 		}
 		
 		if (correctEvent){
-			stringBuffer.append("<p>");
-
-			if (!eventIsPublicEngagement && ignoreInternalExternalParameter) {
-				
-				// ParticipationRole, ParticipationRole,_
-				final String[] roles = this.roles;
-				String rolesString = StringUtils.EMPTY;
-				if (this.roles!= null){
-					rolesString = StringUtils.join(roles, ", ");
-					stringBuffer.append(rolesString);
-					stringBuffer.append(", ");
-				}
-				
-				// <a href=url>EventTitle</a>,_
-				if (this.title != null){
-					if (this.url != null) {
-						stringBuffer.append("<a href=\"");
-						stringBuffer.append(this.url);
-						stringBuffer.append("\">");
+			if (!eventIsPublicEngagement) {
+				stringBuffer.append("<p>");
+				if (ignoreInternalExternalParameter) {
+					// ParticipationRole, ParticipationRole,_
+					final String[] roles = this.roles;
+					String rolesString = StringUtils.EMPTY;
+					if (this.roles!= null){
+						rolesString = StringUtils.join(roles, ", ");
+						stringBuffer.append(rolesString);
+						stringBuffer.append(", ");
 					}
-					stringBuffer.append(this.title);
-					if (this.url != null) {
-						stringBuffer.append("</a>");
-					}
-					stringBuffer.append(", ");
-				}
-				
-				// (EventType),_
-				if (this.eventType != null){
-					stringBuffer.append("(");
-					stringBuffer.append(eventType);
-					stringBuffer.append("), ");
-				}				
-				
-				// Institutions
-				if ( institutions != null ){
-					for (Institution institution  : institutions) {
-						// <a href=url>InstitutionName</a>,_ 
-						if (institution.getOrganisation() != null){
-							stringBuffer.append(institution.getOrganisation());
-							stringBuffer.append(", ");
+					
+					// <a href=url>EventTitle</a>,_
+					if (this.title != null){
+						if (this.url != null) {
+							stringBuffer.append("<a href=\"");
+							stringBuffer.append(this.url);
+							stringBuffer.append("\">");
 						}
-						
-						// City,_
-						if (institution.getCity() != null){
-							stringBuffer.append(institution.getCity() );
-							stringBuffer.append(", ");
-						}	
-						
-						// Country,_
-						if (institution.getCountry() != null){
-							stringBuffer.append(institution.getCountry());
-							stringBuffer.append(", ");
+						stringBuffer.append(this.title);
+						if (this.url != null) {
+							stringBuffer.append("</a>");
+						}
+						stringBuffer.append(", ");
+					}
+					
+					// (EventType),_
+					if (this.eventType != null){
+						stringBuffer.append("(");
+						stringBuffer.append(eventType);
+						stringBuffer.append("), ");
+					}				
+					
+					// Institutions
+					if ( institutions != null ){
+						for (Institution institution  : institutions) {
+							// <a href=url>InstitutionName</a>,_ 
+							if (institution.getOrganisation() != null){
+								stringBuffer.append(institution.getOrganisation());
+								stringBuffer.append(", ");
+							}
+							
+							// City,_
+							if (institution.getCity() != null){
+								stringBuffer.append(institution.getCity() );
+								stringBuffer.append(", ");
+							}	
+							
+							// Country,_
+							if (institution.getCountry() != null){
+								stringBuffer.append(institution.getCountry());
+								stringBuffer.append(", ");
+							}
 						}
 					}
-				}
-				
-				// startYear - endYear. || startYear - on going.
-				if (this.yearsd != null){
-					if (this.yeared != null) {
-						stringBuffer.append(this.yearsd);
-						stringBuffer.append(" - ");
-						stringBuffer.append(this.yeared);
-						stringBuffer.append(".");
-					} else {
-						if ( !eventIsPublicEngagement ){
+					
+					// startYear - endYear. || startYear - on going.
+					if (this.yearsd != null){
+						if (this.yeared != null) {
 							stringBuffer.append(this.yearsd);
 							stringBuffer.append(" - ");
-							stringBuffer.append("on going");
+							stringBuffer.append(this.yeared);
 							stringBuffer.append(".");
 						} else {
-							stringBuffer.append(this.yearsd);
-							if(this.monthsd != null){
-								stringBuffer.append(this.monthsd);
-								if (this.daysd != null){
-									stringBuffer.append(this.daysd);
+							if ( !eventIsPublicEngagement ){
+								stringBuffer.append(this.yearsd);
+								stringBuffer.append(" - ");
+								stringBuffer.append("on going");
+								stringBuffer.append(".");
+							} else {
+								stringBuffer.append(this.yearsd);
+								if(this.monthsd != null){
+									stringBuffer.append(this.monthsd);
+									if (this.daysd != null){
+										stringBuffer.append(this.daysd);
+									}
 								}
+								stringBuffer.append(".");
 							}
-							stringBuffer.append(".");
 						}
 					}
 				}
+				stringBuffer.append("</p>");
 			} else {
-				
+				stringBuffer.append("<p>");
 				// Title,_
 				if (this.title != null){
 					stringBuffer.append(this.title);
@@ -231,8 +232,8 @@ public class EventParticipation extends ProfessionalActivity {
 						stringBuffer.append(".");
 					}
 				}
+				stringBuffer.append("</p>");
 			}
-			stringBuffer.append("</p>");
 		}
 		return stringBuffer.toString();
 	}
