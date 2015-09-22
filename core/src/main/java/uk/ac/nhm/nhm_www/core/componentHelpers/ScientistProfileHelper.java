@@ -2058,7 +2058,7 @@ public class ScientistProfileHelper {
 		StringBuilder result = new StringBuilder(); 
 		String externalActivities = getPublicEngagement(activities, true);
 		String internalActivities = getPublicEngagement(activities, false); 
-		if ( (!externalActivities.isEmpty() || !externalActivities.equals("")) && (!internalActivities.isEmpty() || !internalActivities.equals("")) ){
+		if ( (!externalActivities.isEmpty() || !externalActivities.equals("")) || (!internalActivities.isEmpty() || !internalActivities.equals("")) ){
 			result.append("<h3>Public Engagement</h3>");
 			if ( !externalActivities.isEmpty() || !externalActivities.equals("") ){
 				result.append(externalActivities);
@@ -2110,19 +2110,24 @@ public class ScientistProfileHelper {
 		Set<ProfessionalActivity> setMediaInterview = getProfessionalActivitySet(activities, ScientistProfileHelper.PROFESSIONAL_ACTIVITY_TYPE_MEDIA_INTERVIEW); 
 		if (!setMediaBroadcast.isEmpty() || !setMediaInterview.isEmpty()) { 
 			result.append("<h3>Media</h3>");
-			for (final ProfessionalActivity activity: setMediaBroadcast) { 
-				result.append("<h4>Broadcasts</h4>");
-				result.append("<p>");
-				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
-				result.append("</p>");
-			} 
 			
-			for (final ProfessionalActivity activity: setMediaInterview) {
+			if (!setMediaBroadcast.isEmpty() ){
+				result.append("<h4>Broadcasts</h4>");
+				for (final ProfessionalActivity activity: setMediaBroadcast) { 
+					result.append("<p>");
+					result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+					result.append("</p>");
+				} 
+			}
+
+			if (!setMediaInterview.isEmpty()){
 				result.append("<h4>Articles</h4>");
-				result.append("<p>");
-				result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
-				result.append("</p>");
-			} 
+				for (final ProfessionalActivity activity: setMediaInterview) {
+					result.append("<p>");
+					result.append(activity.getHTMLContent(getLastName() + " " + getInitials()));
+					result.append("</p>");
+				} 
+			}
 		} 
 		return result.toString();
 	}
