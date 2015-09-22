@@ -1,3 +1,50 @@
+body {
+  color: #000;
+  font-size: 12.1667px;
+}
+
+a:hover {
+  border-bottom-width: 0;
+}
+
+#frame-b {
+  height: 95px !important;
+}
+
+.dataTable_ms h4 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+#frame-e, #detailFrame {
+  height: 340px !important;
+}
+
+.button {
+  margin-bottom: 0;
+}
+
+select {
+  height: initial;
+  padding: 0;
+}
+
+select[name="genusMembers"] {
+  width: 328px !important;
+}
+
+table {
+  border-collapse: initial;
+  border-spacing: 1px;
+}
+
+.tabs li {
+  padding-top: 4px !important;
+}
+.tabs li a {
+  font-weight: bold;
+}
+
 #page-header {
   padding-bottom: 0 !important;
 }
@@ -35,22 +82,19 @@
   font-size: 17.6px;
 }
 
-body {
-  color: #000;
-}
-
 div#page-container {
   width: 100% !important;
 }
 
 #page-body {
   width: 940px;
-  margin: 0 auto;
-  min-height: 550px;
+  margin: 0 auto 20px auto;
+  min-height: 600px;
+  /* added to fix the sticky nav being buggy */
 }
 
-.sticky-logo a {
-  top: -0.5em;
+.sticky-logo .ir {
+  line-height: 30px;
 }
 
 td[colspan="2"] img {
@@ -65,6 +109,19 @@ html > body #microsite-nav-backToSection {
   margin-left: 110px;
 }
 
+#microsite-head h1 {
+  color: #015b28;
+}
+#microsite-head .textmenu ul {
+  font-size: 12.1667px;
+}
+#microsite-head .textmenu ul a {
+  color: #015b28;
+}
+#microsite-head .textmenu ul a:hover, #microsite-head .textmenu ul a:visited, #microsite-head .textmenu ul a:focus {
+  color: #015b28;
+}
+
 #microsite-body h2 {
   padding-bottom: 0;
 }
@@ -73,15 +130,45 @@ html > body #microsite-nav-backToSection {
 }
 #microsite-body h3 {
   margin-left: 0;
+  color: #015b28;
 }
 #microsite-body h4 {
   font-weight: bold;
+  color: #015b28;
+  font-size: 14.6px;
+  margin-bottom: 0;
 }
 #microsite-body h4 a {
   font-weight: bold;
 }
 #microsite-body p {
   margin-left: 0;
+  margin-right: 0;
+}
+#microsite-body p a {
+  color: #015b28;
+}
+#microsite-body p a:hover, #microsite-body p a:visited, #microsite-body p a:focus {
+  color: #015b28;
+}
+#microsite-body ul {
+  font-size: 12.1667px;
+}
+#microsite-body ul a {
+  color: #015b28;
+}
+#microsite-body ul a:hover, #microsite-body ul a:visited, #microsite-body ul a:focus {
+  color: #015b28;
+}
+#microsite-body ol {
+  font-size: 12.1667px;
+}
+#microsite-body ol li {
+  list-style: inherit;
+}
+#microsite-body table {
+  border-collapse: initial;
+  border-spacing: 1px;
 }
 #microsite-body td[colspan="2"] a {
   font-weight: bold;
@@ -156,7 +243,6 @@ hr {
 #dbNavButtons_down td a, #dbNavButtons_up td a {
   font-size: 12.1667px;
   margin-bottom: 0;
-  padding-bottom: 2px;
 }
 #dbNavButtons_down td a:hover, #dbNavButtons_up td a:hover {
   border-bottom: 0;
@@ -168,13 +254,4 @@ hr {
   padding-bottom: 3px;
 }
 
-.dataTable_ms table {
-  border-collapse: initial;
-  border-spacing: 1px;
-}
-
-#frame-e, #detailFrame {
-  height: 340px;
-}
-
-/*# sourceMappingURL=nhm-legacy-lepidoptera.css.map */
+/*# sourceMappingURL=nhm-legacy-lepindex.css.map */
