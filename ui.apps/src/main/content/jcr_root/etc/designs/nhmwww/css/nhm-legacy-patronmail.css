@@ -53,8 +53,8 @@ h1 {
   text-align: left;
 }
 
-.row {
-  margin-bottom: 0;
+.title {
+  margin-bottom: 1.2em;
 }
 
 #nav-content {
@@ -95,6 +95,12 @@ ul#nav-content-level1 li a {
 }
 .main-footer .footer-utility legend, .main-footer .footer-utility .errors {
   color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
 }
 
 /*# sourceMappingURL=nhm-legacy-patronmail.css.map */

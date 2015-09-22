@@ -32,7 +32,7 @@ import com.day.cq.wcm.api.PageManager;
 @Service(value = StaffProfileService.class)
 @Properties({
         @Property(name = "service.description", value = "Returns the complete top level list of staff profiles for the staff profile search page"),
-        @Property(name = "queryLimit", intValue = 200, description = "Query Limit"),
+        @Property(name = "queryLimit", intValue = 500, description = "Query Limit"),
         @Property(name = "jcrPath", value = "/content", description = "JCR Path where the staff profiles are located.")
         
 })
@@ -42,16 +42,12 @@ public class StaffProfileService {
     private static final Logger LOG = LoggerFactory.getLogger(StaffProfileService.class);
     
     @Activate
-    protected void activate(final ComponentContext componentContext) throws Exception
-    {
+    protected void activate(final ComponentContext componentContext) throws Exception {
         loadProperties(componentContext);
     }
-
     
-    public List<StaffProfile> getStaffProfile (final Resource resource) throws Exception
-    {
-        try
-        {
+    public List<StaffProfile> getStaffProfile (final Resource resource) throws Exception {
+        try {
             final List<StaffProfile> profileList = new ArrayList<StaffProfile>();
             
             final ResourceResolver resourceResolver = resource.getResourceResolver();
@@ -76,39 +72,33 @@ public class StaffProfileService {
             }
             
             return profileList;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             LOG.error("StaffProfile Get Exception: ", e);
             throw e;
         }
     }
     
-    private String getQuery()
-    {
+    private String getQuery() {
         return "SELECT * FROM [nt:unstructured] as S WHERE ISDESCENDANTNODE (S, '" + jcrPath + "') AND NAME () = 'personalInformation'";
     }
     
-    private void loadProperties(final ComponentContext componentContext)
-    {
-        try
-        {
+    private void loadProperties(final ComponentContext componentContext) {
+        try {
             queryLimit = (Integer) componentContext.getProperties().get("queryLimit");
             jcrPath = componentContext.getProperties().get("jcrPath").toString();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             LOG.error("StaffProfile loadProperties Exception: ", e);
         }
     }
     
-    public class StaffProfile
-    {
+    public class StaffProfile {
     	private final String imagePath;
         private final String firstName;
         private final String lastName;
         private final String department;
         private final String division;
+        private final String collection;
+        private final String collectionGroup;
         private final String job;
         private final String[] specialisms;
         private final String url;
@@ -118,8 +108,7 @@ public class StaffProfileService {
          * @param url
          * @throws Exception
          */
-        public StaffProfile (Node node, String url) throws Exception
-        {
+        public StaffProfile (Node node, String url) throws Exception {
         	imagePath = node.getParent().getPath() + "/image";
         	
         	if(node.hasProperty("knownAs")){
@@ -131,6 +120,7 @@ public class StaffProfileService {
             //division = node.getProperty("department").getString();
             final Node departmentNode = node.getParent().getNode("department");
             department = departmentNode.getProperty("name").getString();
+            
             String textDivision = departmentNode.getProperty("division").getString();
             if (textDivision.startsWith("LS ") || textDivision.startsWith("ES ")) {
             	division = textDivision.substring(3);
@@ -138,6 +128,18 @@ public class StaffProfileService {
             	division = textDivision;
             }
             job = departmentNode.getProperty("position").getString();
+            
+            if (departmentNode.hasProperty("function")) {
+            	collection = departmentNode.getProperty("function").getString();
+            } else {
+            	collection = "#Empty#";
+            }
+            
+            if (departmentNode.hasProperty("groupName") && departmentNode.getProperty("groupName").getString() != null ) {
+            	collectionGroup = departmentNode.getProperty("groupName").getString();
+            } else {
+            	collectionGroup = "#Empty#";
+            }
             
             if (node.hasProperty("specialisms")) {
             
@@ -156,13 +158,19 @@ public class StaffProfileService {
             this.url = url; 
         }
         
-        public String getFirstName()
-        {
+        public String getCollection() {
+			return collection;
+		}
+
+		public String getCollectionGroup() {
+			return collectionGroup;
+		}
+
+		public String getFirstName() {
             return firstName;
         }
         
-        public String getLastName()
-        {
+        public String getLastName() {
             return lastName;
         }
         
@@ -170,18 +178,15 @@ public class StaffProfileService {
         	return department;
         }
         
-        public String getDivision()
-        {
+        public String getDivision() {
             return division;
         }
         
-        public String getJob()
-        {
+        public String getJob() {
             return job;
         }
         
-        public String getUrl()
-        {
+        public String getUrl() {
             return url;
         }
         
@@ -197,5 +202,4 @@ public class StaffProfileService {
         	return imagePath;
         }
     }
-    
 }

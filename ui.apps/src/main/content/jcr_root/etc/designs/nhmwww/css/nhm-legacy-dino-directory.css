@@ -68,10 +68,13 @@ h1, h2, h3, h4, h5, h6 {
   border-spacing: 2px;
 }
 #dino #dino-wrap .sorted {
-  width: 135px;
+  min-width: 167px;
 }
 #dino #dino-wrap .sortable {
-  width: 226px;
+  min-width: 215px;
+}
+#dino #dino-wrap .sortable a {
+  font-weight: bold;
 }
 #dino #dino-wrap .dino-gallery li {
   box-sizing: initial;
@@ -88,6 +91,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 13px;
   color: #a73333;
 }
+#dino #dino-wrap #time .timeline {
+  width: initial;
+}
+#dino #dino-wrap #time td {
+  min-width: 167px;
+}
 #dino #dino-wrap #row, #dino #dino-wrap #time {
   font-size: 12.1667px;
 }
@@ -95,10 +104,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 9px;
 }
 #dino #dino-wrap #row [class*="span"], #dino #dino-wrap #time [class*="span"] {
-  margin-left: 0px;
+  margin-left: 0;
 }
 #dino #dino-wrap #row td, #dino #dino-wrap #time td {
-  padding: 8px 0 8px 20px;
+  padding: 8px 0 8px 15px;
 }
 #dino #dino-wrap #row td a, #dino #dino-wrap #row td a:hover, #dino #dino-wrap #time td a, #dino #dino-wrap #time td a:hover {
   color: #a73333;

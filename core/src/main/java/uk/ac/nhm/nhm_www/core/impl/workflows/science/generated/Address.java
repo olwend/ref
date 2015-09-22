@@ -10,10 +10,12 @@ package uk.ac.nhm.nhm_www.core.impl.workflows.science.generated;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -51,7 +53,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "address")
 public class Address {
 
-    @XmlElementRef(name = "line", namespace = "http://www.symplectic.co.uk/publications/api", type = Line.class, required = false)
+	@XmlElementRefs({
+		@XmlElementRef(name = "line", namespace = "http://www.symplectic.co.uk/publications/api", type = Line.class, required = false)
+	})
     @XmlMixed
     protected List<java.lang.Object> content;
     @XmlAttribute(name = "iso-country-code")

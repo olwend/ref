@@ -2,6 +2,13 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import javax.jcr.AccessDeniedException;
+import javax.jcr.ItemNotFoundException;
+import javax.jcr.Node;
+
+import javax.jcr.RepositoryException;
+
 //import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -13,6 +20,7 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.model.CarouselElement;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
+import uk.ac.nhm.nhm_www.core.utils.NodeUtils;
 
 import com.day.cq.wcm.api.PageManager;
 
@@ -30,12 +38,15 @@ public class CarouselHelper extends HelperBase {
 	private PageManager pageManager;
 	private Resource resource;
 	private ResourceResolver resourceResolver;
+	private Node parentNode;
 	private String carouselType;
+	private String carouselRow;
+	
 	private boolean heading = false;
 
 	protected static final Logger logger = LoggerFactory.getLogger(CarouselHelper.class);
 	
-	public CarouselHelper(Resource resource, PageManager pageManager, ResourceResolver resourceResolver) throws JSONException
+	public CarouselHelper(Resource resource, PageManager pageManager, ResourceResolver resourceResolver) throws JSONException, AccessDeniedException, ItemNotFoundException, RepositoryException
 	{
 		this.helperFactory = new HelperFactory(resource);
 		this.pageManager = pageManager;
@@ -46,13 +57,13 @@ public class CarouselHelper extends HelperBase {
 		
 	}
 	
-	public CarouselHelper(ValueMap properties) throws JSONException
+	public CarouselHelper(ValueMap properties) throws JSONException, AccessDeniedException, ItemNotFoundException, RepositoryException
 	{
 		this.properties = properties;
 		init();
 	}
 	
-	private void init() throws JSONException
+	private void init() throws JSONException, AccessDeniedException, ItemNotFoundException, RepositoryException
 	
 	{
 		if (this.properties.get("title", String.class) != null) {
@@ -77,6 +88,11 @@ public class CarouselHelper extends HelperBase {
 		if (this.properties.get("thumbnails") != null) {
 				this.hasThumbnails = this.properties.get("thumbnails",false);			
 		}
+		
+		this.parentNode = this.resource.getParent().adaptTo(Node.class); // 1 = parent node
+		this.carouselRow = NodeUtils.getRowType(parentNode).name().toLowerCase();
+			
+		
 
 		
 		elements = new ArrayList<CarouselElement>();
@@ -215,6 +231,16 @@ public class CarouselHelper extends HelperBase {
 		this.carouselType = carouselType;
 	}
 	
+	
+	
+	public String getCarouselRow() {
+		return carouselRow;
+	}
+
+	public void setCarouselRow(String carouselRow) {
+		this.carouselRow = carouselRow;
+	}
+
 	public String getNewWindowHtml() {
 		if (this.newwindow)
 		{	

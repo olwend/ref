@@ -114,8 +114,12 @@
 	} else {
 		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, "/content/hnmwww/en/home") + ".html";
 	}
-	String pathForSignup = currentPage.getPath();
-
+	String pathForSignup = "";
+	if(currentPage != null) {
+		pathForSignup = currentPage.getPath();
+	} else {
+        pathForSignup = pageManager.getPage("/content/nhmwww/en/home/visit").getPath();
+	}
 	int startIndex = 0;
 	if(myExternalizedUrl.startsWith("https")) {
 		startIndex = 8;
