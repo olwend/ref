@@ -6,7 +6,7 @@ var autoKeywords = "";
 var $elementSelected;
 var departmentDivision = "";
 
-var $collectionGroupSelected;;
+var $collectionGroupSelected;
 var collectionsGroup = "";
 
 var loadDepartmentFromURL = false;
@@ -173,8 +173,8 @@ function saveSearchTerms() {
 	$elementSelected = $("#division option:selected");
 	departmentDivision = $elementSelected.val();
 	
-//	$collectionGroupSelected = $("#collection option:selected");
-//	collectionsGroup = $collectionGroupSelected.val();
+	$collectionGroupSelected = $("#collection option:selected");
+	collectionsGroup = $collectionGroupSelected.val();
 	
 	// #######################################
 	// #### Should URL Parameters be used ####
@@ -196,11 +196,13 @@ function saveSearchTerms() {
 		ignoreURL = true;
 	}
 	
-//	if (collectionsGroup != 'All') {
-//		ignoreURL = true;
-//	}
+	if (collectionsGroup != 'All') {
+		ignoreURL = true;
+	}
 	
 	if (!ignoreURL){
+		var aux; 
+		
 		aux = $.getUrlVar('name');
 		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
 			name = aux;
@@ -224,17 +226,17 @@ function saveSearchTerms() {
 				departmentDivision = aux;
 			}
 		}
-//		aux = $.getUrlVar('collection');
-//		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-//			loadCollectionsFromURL = true;
-//			collectionsGroup = aux;
-//		} else {
-//			aux = $.getUrlVar('group');
-//			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
-//				loadCollectionsFromURL = true;
-//				collectionsGroup = aux;
-//			}
-//		}
+		aux = $.getUrlVar('collection');
+		if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+			loadCollectionsFromURL = true;
+			collectionsGroup = aux;
+		} else {
+			aux = $.getUrlVar('group');
+			if (!(typeof aux === 'undefined' || aux === null || aux === '')) {
+				loadCollectionsFromURL = true;
+				collectionsGroup = aux;
+			}
+		}
 	}
 }
 
@@ -325,23 +327,71 @@ function searchFunc(maxResults) {
 		}
 	}
 
-//	if(loadCollectionsFromURL && !ignoreURL) {		
-//		var $collection = document.getElementById("collection");
-//		$collection.value = decodeURIComponent(collectionsGroup);
-//		$collectionGroupSelected = $("#collection option:selected");
-//	}
-//	
-//	if (collectionsGroup != "All") {
-//		if ($collectionGroupSelected.hasClass("collection")) {
-//			nodes = nodes.filter("[collection=" + '"' + $collectionGroupSelected.val() + '"' + "]");
-//		}
-//		
-//		if ($collectionGroupSelected.hasClass("group")) {
-//			var collection = $collectionGroupSelected.data("collection");
-//			var group = $collectionGroupSelected.data("group");
-//			nodes = nodes.filter("[group=" + '"' + group + '"' + "][collection=" + '"' + collection + '"' + "]");	
-//		}
-//	}
+	if(loadCollectionsFromURL && !ignoreURL) {		
+		var $collection = document.getElementById("collection");
+		$collection.value = decodeURIComponent(collectionsGroup);
+		$collectionGroupSelected = $("#collection option:selected");
+	}
+	
+	if (collectionsGroup != "All") {
+		
+		nodes = nodes.filter('[collection="Collections"]');
+		var group = $collectionGroupSelected.data("group");
+
+		if ($collectionGroupSelected.hasClass("group")) {
+			var query = group.toLowerCase();
+			var queryRegex = new RegExp( '(?=.*\\b' + query.split(' ').join('\\b)(?=.*\\b') + '\\b)', 'i' );
+			
+			nodes = nodes.filter(function(){
+				var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+		        if ( queryRegex.test( $thisCollectionsGroup ) ) {
+		            return true;
+		        }
+		        return false;
+			});
+		}
+		
+		if ($collectionGroupSelected.hasClass("collection")) {
+			
+			var parentGroup;
+			
+			switch (collectionsGroup) {
+			case "Botany":
+				parentGroup = [ "Algae", "Diatoms", "Lichens", "Bryophytes", "Ferns", "British", "Irish", "Herbarium", "Historical" ];
+				break;
+			case "Entomology":
+				parentGroup = [ "Hymenoptera", "Coleoptera", "Lepidoptera", "Siphonaptera", "Diptera", "Hemiptera", 
+				        "Phthiraptera", "Thysanoptera", "Psocoptera", "Odonata",  "Neuroptera", "Apterygota",
+				        "Arachnida", "Myriapoda", "Onychophora", "Tardigrada", "Historical" ];
+				break;
+			case "Zoology":
+				parentGroup = [ "Invertebrates", "Vertebrates", "Birds", "Fish", "Amphibians", "Reptiles", "Mammals" ];
+				break;
+			case "Palaeontology":
+				parentGroup = [ "Anthropology", "Micropalaeontology", "Fossil", "invertebrate", "vertebrate", "Palaeobotany" ];
+				break;
+			case "Mineralogy":
+				parentGroup = [ "Meteorite", "Mineral", "Gemstone", "Ocean", "bottom",  "deposit", "Ores", "Petrology" ];
+				break;
+			default:
+				parentGroup = [];
+				break;
+			}
+			
+			for ( var i = 0; i < parentGroup.length; i++ ) {
+				parentGroup[i] = parentGroup[i].split(' ').join('\\b|\\b');
+			}
+			
+			var queryRegex = new RegExp( '(?=.*\\b(' + parentGroup.join(")\\b|\\b(") + ')\\b)', 'i' );
+			
+			nodes = nodes.filter(function() {
+				var $thisCollectionsGroup = $(this).attr("group").toLowerCase();
+				if ( queryRegex.test ( $thisCollectionsGroup )) {
+					return true;
+				}
+			});
+		}
+	}
 	
 	if (nodes.length < maxResults) {
 		$("#show-more").hide();

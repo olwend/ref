@@ -69,6 +69,10 @@
                             jcr:primaryType="nt:unstructured"
                             text="@Filming_at_NHM"
                             value="nhm-filming"/>
+                        <o15
+                            jcr:primaryType="nt:unstructured"
+                            text="@NHM_IceRink"
+                            value="nhm-ice-rink"/>
                     </options>
                 </widgetid>
                 <height

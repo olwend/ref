@@ -114,7 +114,7 @@ public class PageUtils {
 	}
 
 	public static String getPageDescription(Page page) {
-		return page.getDescription();
+		return page.getDescription() != null ? page.getDescription() : "";
 	}
 	
 	
