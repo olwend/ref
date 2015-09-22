@@ -9,17 +9,17 @@ import org.apache.commons.lang3.StringUtils;
 
 public class JournalArticle extends Publication{
 	private String journalName;
-	private int volume;
-	private int issue;
-	private int beginPage;
-	private int endPage;
+	private String volume;
+	private String issue;
+	private String beginPage;
+	private String endPage;
 	private String doiText;
 	private String doiLink;
-	private int page;
+	private String page;
 	
-	public JournalArticle(final String title, final List<String> authorsList, boolean favorite, final int publicationYear,
-			final String href, final String reportingDate, final String journalName, final int volume, final int issue,
-			final int paginationBeginPage, final int paginationEndPage, int page, final String doiText,
+	public JournalArticle(final String title, final List<String> authorsList, boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, final String journalName, final String volume, final String issue,
+			final String paginationBeginPage, final String paginationEndPage, String page, final String doiText,
 			final String doiLink) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		
@@ -95,13 +95,13 @@ public class JournalArticle extends Publication{
 		stringBuffer.append(", ");
 		
 		// <b>Volume</b>
-		if (this.volume > 0) {
+		if (this.volume != null) {
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
 			stringBuffer.append("</b> ");
 			
 			// (Issue) :_
-			if (this.issue > 0) {
+			if (this.issue != null) {
 				stringBuffer.append("(");
 				stringBuffer.append(this.issue);
 				stringBuffer.append(")");
@@ -110,13 +110,13 @@ public class JournalArticle extends Publication{
 		}
 		
 		// PagesBegin-PagesEnd.
-		if (this.beginPage > 0 && this.endPage > 0) {
+		if (this.beginPage != null && this.endPage != null) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
-			if (this.page > 0) {
+			if (this.page != null) {
 				stringBuffer.append(this.page);
 				stringBuffer.append(". ");
 			}
@@ -143,35 +143,35 @@ public class JournalArticle extends Publication{
 		this.journalName = journalName;
 	}
 
-	public int getVolume() {
+	public String getVolume() {
 		return volume;
 	}
 
-	public void setVolume(int volume) {
+	public void setVolume(String volume) {
 		this.volume = volume;
 	}
 
-	public int getIssue() {
+	public String getIssue() {
 		return issue;
 	}
 
-	public void setIssue(int issue) {
+	public void setIssue(String issue) {
 		this.issue = issue;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 
@@ -191,11 +191,11 @@ public class JournalArticle extends Publication{
 		this.doiLink = doiLink;
 	}
 
-	public int getPage() {
+	public String getPage() {
 		return page;
 	}
 
-	public void setPage(int page) {
+	public void setPage(String page) {
 		this.page = page;
 	}
 	

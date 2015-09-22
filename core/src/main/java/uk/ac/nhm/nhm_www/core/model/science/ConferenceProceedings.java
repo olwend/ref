@@ -14,26 +14,26 @@ public class ConferenceProceedings extends Publication{
 	private List<String> editors;
 	private String publisher;
 	private String publishingPlace;
-	private int beginPage;
-	private int endPage;
-	private int page;
+	private String beginPage;
+	private String endPage;
+	private String page;
 	private String doiLink;
 	private String doiText;
-	private int volume;
-	private int issue;
+	private String volume;
+	private String issue;
 	private String publishedProceedings;
-	private int startYear;
-	private int startMonth;
-	private int startDay;
-	private int endYear;
-	private int endMonth;
-	private int endDay;
+	private String startYear;
+	private String startMonth;
+	private String startDay;
+	private String endYear;
+	private String endMonth;
+	private String endDay;
 
-	public ConferenceProceedings(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
+	public ConferenceProceedings(final String title, final  List<String> authorsList, final  boolean favorite, final String publicationYear,
 			final  String href,	final String reportingDate, final  String conferenceName, String conferencePublisherURL, List<String> conferenceEditorsSet,
-			String conferencePublisher, String conferencePublishingPlace, int conferenceBeginPage, int conferenceEndPage, int conferencePage, 
-			String conferenceDoiText, String conferenceDoiLink, int conferenceVolume, int conferenceIssue, String conferencePublishedProceedings, 
-			int startConferenceYear, int startConferenceMonth, int startConferenceDay, int endConferenceYear, int endConferenceMonth, int endConferenceDay) {
+			String conferencePublisher, String conferencePublishingPlace, String conferenceBeginPage, String conferenceEndPage, String conferencePage, 
+			String conferenceDoiText, String conferenceDoiLink, String conferenceVolume, String conferenceIssue, String conferencePublishedProceedings, 
+			String startConferenceYear, String startConferenceMonth, String startConferenceDay, String endConferenceYear, String endConferenceMonth, String endConferenceDay) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.conferenceName = conferenceName;
 		this.publisherURL = conferencePublisherURL;
@@ -151,7 +151,7 @@ public class ConferenceProceedings extends Publication{
 		}
 		
 		// Start Date - Finish Date, Year._
-		if (this.startDay > 0 && this.startMonth > 0 && this.startYear > 0 && this.endDay > 0 && this.endMonth > 0 && this.endYear > 0 ){
+		if (this.startDay!= null && this.startMonth!= null && this.startYear!= null && this.endDay!= null && this.endMonth!= null && this.endYear!= null ){
 			stringBuffer.append(this.startDay);
 			
 			if ( this.startMonth != this.endMonth){
@@ -177,13 +177,13 @@ public class ConferenceProceedings extends Publication{
 		}
 
 		// <b>Volume</b>
-		if (this.volume > 0) {
+		if (this.volume!= null) {
 			stringBuffer.append("<b>");
 			stringBuffer.append(this.volume);
 			stringBuffer.append("</b> ");
 			
 			// (Issue) :_
-			if (this.issue > 0) {
+			if (this.issue!= null) {
 				stringBuffer.append("(");
 				stringBuffer.append(this.issue);
 				stringBuffer.append(")");
@@ -204,13 +204,13 @@ public class ConferenceProceedings extends Publication{
 		}
 		
 		// PagesBegin-PagesEnd._ || PageCount._
-		if (this.beginPage > 0 && this.endPage > 0) {
+		if (this.beginPage!= null && this.endPage!= null) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
-			if (this.page > 0) {
+			if (this.page!= null) {
 				stringBuffer.append(this.page);
 				stringBuffer.append(". ");
 			}
@@ -277,27 +277,27 @@ public class ConferenceProceedings extends Publication{
 		this.publishingPlace = publishingPlace;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 
-	public int getPage() {
+	public String getPage() {
 		return page;
 	}
 
-	public void setPage(int page) {
+	public void setPage(String page) {
 		this.page = page;
 	}
 
@@ -317,19 +317,19 @@ public class ConferenceProceedings extends Publication{
 		this.doiText = doiText;
 	}
 
-	public int getVolume() {
+	public String getVolume() {
 		return volume;
 	}
 
-	public void setVolume(int volume) {
+	public void setVolume(String volume) {
 		this.volume = volume;
 	}
 
-	public int getIssue() {
+	public String getIssue() {
 		return issue;
 	}
 
-	public void setIssue(int issue) {
+	public void setIssue(String issue) {
 		this.issue = issue;
 	}
 	
