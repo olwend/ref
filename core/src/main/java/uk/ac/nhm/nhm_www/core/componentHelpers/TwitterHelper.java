@@ -19,44 +19,61 @@ public class TwitterHelper extends HelperBase {
 		
 		if (this.widgetId !=null)
 		{
-			if (this.widgetId.equals("homepage"))
-			{return "532208252889464835";}
-			
-			else if (this.widgetId.equals("visit-us"))
-			{return "532209756673277952";}
-			
-			else if (this.widgetId.equals("our-science"))
-			{return "345479384238530560";}
-			
-			else if (this.widgetId.equals("museum"))
-			{return "345224080041070593";}
-			
-			else if (this.widgetId.equals("london"))
-			{return "532202770846060545";}
-			
-			else if (this.widgetId.equals("visiting"))
-			{return "532203702992388096";}
-			
-			else if (this.widgetId.equals("events"))
-			{return "363242570119270400";}
-			
-			else if (this.widgetId.equals("library"))
-			{return "532213370254929920";}
+			if (this.widgetId.equals("homepage")) {
+				return "532208252889464835";
+			}
 
-			else if (this.widgetId.equals("nhm-id"))
-			{return "535099551150256128";}
-			
-			else if (this.widgetId.equals("nhm-wpy"))
-			{return "535468768726876160";}
-			
-			else if (this.widgetId.equals("nhm-tring"))
-			{return "535468327502888960";}
-			
-			else if (this.widgetId.equals("nhm-journal-systematic-palaentology"))
-			{return "483645576722911233";}
-			
-			else if (this.widgetId.equals("nhm-filming"))
-			{return "570240166699495424";}
+			else if (this.widgetId.equals("visit-us")) {
+				return "532209756673277952";
+			}
+
+			else if (this.widgetId.equals("our-science")) {
+				return "345479384238530560";
+			}
+
+			else if (this.widgetId.equals("museum")) {
+				return "345224080041070593";
+			}
+
+			else if (this.widgetId.equals("london")) {
+				return "532202770846060545";
+			}
+
+			else if (this.widgetId.equals("visiting")) {
+				return "532203702992388096";
+			}
+
+			else if (this.widgetId.equals("events")) {
+				return "363242570119270400";
+			}
+
+			else if (this.widgetId.equals("library")) {
+				return "532213370254929920";
+			}
+
+			else if (this.widgetId.equals("nhm-id")) {
+				return "535099551150256128";
+			}
+
+			else if (this.widgetId.equals("nhm-wpy")) {
+				return "535468768726876160";
+			}
+
+			else if (this.widgetId.equals("nhm-tring")) {
+				return "535468327502888960";
+			}
+
+			else if (this.widgetId.equals("nhm-journal-systematic-palaentology")) {
+				return "483645576722911233";
+			}
+
+			else if (this.widgetId.equals("nhm-filming")) {
+				return "570240166699495424";
+			}
+
+			else if (this.widgetId.equals("nhm-ice-rink")) {
+				return "629292203337228288";
+			}
 
 		}
 		return null;
