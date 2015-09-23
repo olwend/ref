@@ -736,7 +736,7 @@ public class ScientistProfileHelper {
 			if (child.getName().startsWith(PUBLICATION_PREFIX_NODE_NAME)) {
 				final ValueMap childProperties = child.adaptTo(ValueMap.class);
 				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
-				final int publicationYear = childProperties.get(PUBLICATION_DATE_ATTRIBUTE, -1);
+				final String publicationYear = childProperties.get(PUBLICATION_DATE_ATTRIBUTE, String.class);
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
 				final boolean favorite = childProperties.get(FAVORITE_ATTRIBUTE, false);
 				final String[] authors = childProperties.get(AUTHORS_ATTRIBUTE, String[].class);
@@ -764,9 +764,9 @@ public class ScientistProfileHelper {
 					}
 					final String publisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String place	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final int bookBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int bookEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int page	   	   = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String bookBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String bookEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String page	   	   = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					result.add(new Book(title, authorsList, favorite, publicationYear, link, reportingDate, editorsSet, publisher, place, 
 							page, bookBeginPage, bookEndPage));
 					break;
@@ -781,9 +781,9 @@ public class ScientistProfileHelper {
 					}
 					final String bookPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String bookPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final int beginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int endPage   = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int chapterpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String beginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String endPage   = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String chapterpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String bookTitle = childProperties.get(BOOK_TITLE_ATTRIBUTE, String.class);
 					result.add(new BookChapter(title, authorsList, favorite, publicationYear, link, reportingDate, bookEditorsSet, bookTitle, 
 							beginPage, endPage, chapterpage, bookPublisher, bookPlace));
@@ -800,21 +800,21 @@ public class ScientistProfileHelper {
 					final String conferencePublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String conferencePublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
 					final String conferencePublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final int conferenceBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int conferenceEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int conferencePage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String conferenceBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String conferenceEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String conferencePage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String conferenceDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String conferenceDoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
 					final String conferenceName = childProperties.get(CONFERENCE_NAME_ATTRIBUTE, String.class);
-					final int conferenceVolume = childProperties.get(VOLUME_ATTRIBUTE, -1);
-					final int conferenceIssue = childProperties.get(ISSUE_ATTRIBUTE, -1);
+					final String conferenceVolume = childProperties.get(VOLUME_ATTRIBUTE, String.class);
+					final String conferenceIssue = childProperties.get(ISSUE_ATTRIBUTE, String.class);
 					final String conferencePublishedProceedings = childProperties.get(JOURNAL_NAME_ATTRIBUTE, String.class);
-					final int startConferenceYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
-					final int startConferenceMonth= childProperties.get(START_MONTH_ATTRIBUTE, -1);
-					final int startConferenceDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
-					final int endConferenceYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
-					final int endConferenceMonth= childProperties.get(START_MONTH_ATTRIBUTE, -1);
-					final int endConferenceDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
+					final String startConferenceYear = childProperties.get(START_YEAR_ATTRIBUTE, String.class);
+					final String startConferenceMonth= childProperties.get(START_MONTH_ATTRIBUTE, String.class);
+					final String startConferenceDay = childProperties.get(START_DAY_ATTRIBUTE, String.class);
+					final String endConferenceYear = childProperties.get(START_YEAR_ATTRIBUTE, String.class);
+					final String endConferenceMonth= childProperties.get(START_MONTH_ATTRIBUTE, String.class);
+					final String endConferenceDay = childProperties.get(START_DAY_ATTRIBUTE, String.class);
 					result.add(new ConferenceProceedings(title, authorsList, favorite, publicationYear, link, reportingDate, conferenceName, conferencePublisherURL,
 							conferenceEditorsSet, conferencePublisher, conferencePublishingPlace, conferenceBeginPage, conferenceEndPage, conferencePage,
 							conferenceDoiText, conferenceDoiLink, conferenceVolume, conferenceIssue, conferencePublishedProceedings, startConferenceYear, 
@@ -831,23 +831,23 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_INTERNET_PUBLICATION:
 					final String publisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
 					final String internetPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
-					final int internetBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int internetEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int internetPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
-					final int iPublicationMonth = childProperties.get(PUBLICATION_MONTH_ATTRIBUTE, -1);
-					final int iPublicationDay = childProperties.get(PUBLICATION_DAY_ATTRIBUTE, -1);
+					final String internetBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String internetEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String internetPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
+					final String iPublicationMonth = childProperties.get(PUBLICATION_MONTH_ATTRIBUTE, String.class);
+					final String iPublicationDay = childProperties.get(PUBLICATION_DAY_ATTRIBUTE, String.class);
 					result.add(new InternetPublication(title, authorsList, favorite, publicationYear, iPublicationMonth, iPublicationDay, link, 
 							reportingDate, internetPublisher, publisherURL, internetBeginPage, internetEndPage, internetPage));
 					break;
 
 				case PUBLICATION_TYPE_ARTICLE:
-					final int articleBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int articleEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int journalpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String articleBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String articleEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String journalpage	= childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String doiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String doiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
-					final int volume = childProperties.get(VOLUME_ATTRIBUTE, -1);
-					final int issue = childProperties.get(ISSUE_ATTRIBUTE, -1);
+					final String volume = childProperties.get(VOLUME_ATTRIBUTE, String.class);
+					final String issue = childProperties.get(ISSUE_ATTRIBUTE, String.class);
 					final String journalName = childProperties.get(JOURNAL_NAME_ATTRIBUTE, String.class);
 					result.add(new JournalArticle(title, authorsList, favorite, publicationYear, link, reportingDate, journalName, volume, issue, 
 							articleBeginPage, articleEndPage, journalpage, doiText, doiLink));
@@ -855,13 +855,13 @@ public class ScientistProfileHelper {
 
 				case PUBLICATION_TYPE_NEWSPAPER_OR_MAGAZINE:
 					final String newsmagPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
-					final int newsmagBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int newsmagEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int newsmagPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String newsmagBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String newsmagEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String newsmagPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String newsmagDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String newsmagDoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
-					final int newsmagVolume = childProperties.get(VOLUME_ATTRIBUTE, -1);
-					final int newsmagIssue = childProperties.get(ISSUE_ATTRIBUTE, -1);
+					final String newsmagVolume = childProperties.get(VOLUME_ATTRIBUTE, String.class);
+					final String newsmagIssue = childProperties.get(ISSUE_ATTRIBUTE, String.class);
 					result.add(new NewspaperMagazine(title, authorsList, favorite, publicationYear, link, reportingDate, newsmagPublisherURL,
 							newsmagBeginPage, newsmagEndPage, newsmagPage, newsmagDoiLink, newsmagDoiText, newsmagVolume, newsmagIssue));
 					break;
@@ -877,16 +877,16 @@ public class ScientistProfileHelper {
 					final String otherPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String otherPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
 					final String otherPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final int otherBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int otherEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int otherPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String otherBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String otherEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String otherPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String otherDoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String otherDoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
-					final int otherVolume = childProperties.get(VOLUME_ATTRIBUTE, -1);
-					final int otherIssue = childProperties.get(ISSUE_ATTRIBUTE, -1);
+					final String otherVolume = childProperties.get(VOLUME_ATTRIBUTE, String.class);
+					final String otherIssue = childProperties.get(ISSUE_ATTRIBUTE, String.class);
 					final String otherJournalName = childProperties.get(JOURNAL_NAME_ATTRIBUTE, String.class);
-					final int otherPublicationMonth = childProperties.get(PUBLICATION_MONTH_ATTRIBUTE, -1);
-					final int otherPublicationDay = childProperties.get(PUBLICATION_DAY_ATTRIBUTE, -1);
+					final String otherPublicationMonth = childProperties.get(PUBLICATION_MONTH_ATTRIBUTE, String.class);
+					final String otherPublicationDay = childProperties.get(PUBLICATION_DAY_ATTRIBUTE, String.class);
 					final String otherBookTitle = childProperties.get(BOOK_TITLE_ATTRIBUTE, String.class);
 					final boolean otherConfidential = childProperties.get(CONFIDENTIAL_ATTRIBUTE, false);
 					result.add(new Other(title, authorsList, favorite, publicationYear, link, reportingDate, otherConfidential, 
@@ -904,9 +904,9 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_REPORT:
 					final String reportPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String reportPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final int reportBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int reportEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int reportPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String reportBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String reportEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String reportPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final boolean confidential = childProperties.get(CONFIDENTIAL_ATTRIBUTE, false);
 					result.add(new Report(title, authorsList, favorite, publicationYear, link, reportingDate, confidential, reportBeginPage, reportEndPage, 
 							reportPublisher, reportPublishingPlace, reportPage));
@@ -915,9 +915,9 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_SCHOLARLY_EDITION:
 					final String scholarlyPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String scholarlyPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
-					final int scholarlyBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int scholarlyEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int scholarlyPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String scholarlyBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String scholarlyEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String scholarlyPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String scholarlydoiText = childProperties.get(DOI_TEXT_ATTRIBUTE, String.class);
 					final String scholarlydoiLink = childProperties.get(DOI_LINK_ATTRIBUTE, String.class);
 					result.add(new ScholarlyEdition(title, authorsList, favorite, publicationYear, link, reportingDate, scholarlyPublisherURL, 
@@ -938,9 +938,9 @@ public class ScientistProfileHelper {
 					}
 					final String thesisPublisher = childProperties.get(PUBLISHER_ATTRIBUTE, String.class);
 					final String thesisPublishingPlace	   = childProperties.get(PLACE_ATTRIBUTE, String.class);
-					final int thesisBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, -1);
-					final int thesisEndPage = childProperties.get(END_PAGE_ATTRIBUTE, -1);
-					final int thesisPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, -1);
+					final String thesisBeginPage = childProperties.get(START_PAGE_ATTRIBUTE, String.class);
+					final String thesisEndPage = childProperties.get(END_PAGE_ATTRIBUTE, String.class);
+					final String thesisPage = childProperties.get(PAGE_COUNT_ATTRIBUTE, String.class);
 					final String thesisType = childProperties.get(THESIS_TYPE_ATTRIBUTE, String.class);
 					result.add(new ThesisDissertation(title, authorsList, favorite, publicationYear, link, reportingDate, supervisorsSet, thesisType, 
 							thesisPublisher, thesisPublishingPlace, thesisBeginPage, thesisEndPage, thesisPage));
@@ -965,12 +965,12 @@ public class ScientistProfileHelper {
 				case PUBLICATION_TYPE_EXHIBITION:
 					final String exhibitionPublisherURL = childProperties.get(PUBLISHER_URL_ATTRIBUTE, String.class);
 					final String exhibitionLocation = childProperties.get(PUBLISHER_LOCATION_ATTRIBUTE, String.class);
-					final int startExhibitionYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
-					final int startExhibitionMonth= childProperties.get(START_MONTH_ATTRIBUTE, -1);
-					final int startExhibitionDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
-					final int endExhibitionYear = childProperties.get(START_YEAR_ATTRIBUTE, -1);
-					final int endExhibitionMonth = childProperties.get(START_MONTH_ATTRIBUTE, -1);
-					final int endExhibitionDay = childProperties.get(START_DAY_ATTRIBUTE, -1);
+					final String startExhibitionYear = childProperties.get(START_YEAR_ATTRIBUTE, String.class);
+					final String startExhibitionMonth= childProperties.get(START_MONTH_ATTRIBUTE, String.class);
+					final String startExhibitionDay = childProperties.get(START_DAY_ATTRIBUTE, String.class);
+					final String endExhibitionYear = childProperties.get(START_YEAR_ATTRIBUTE, String.class);
+					final String endExhibitionMonth = childProperties.get(START_MONTH_ATTRIBUTE, String.class);
+					final String endExhibitionDay = childProperties.get(START_DAY_ATTRIBUTE, String.class);
 					result.add(new Exhibition(title, authorsList, favorite, publicationYear, link, reportingDate, 
 							exhibitionLocation, exhibitionPublisherURL, startExhibitionDay, startExhibitionMonth, startExhibitionYear,
 							endExhibitionDay, endExhibitionMonth, endExhibitionYear));
