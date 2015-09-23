@@ -174,6 +174,7 @@ public class EventParticipation extends ProfessionalActivity {
 					// Title,_
 					if (this.title != null) {
 						stringBuffer.append(this.title);
+						stringBuffer.append(", ");
 					}
 					
 					// Institutions
