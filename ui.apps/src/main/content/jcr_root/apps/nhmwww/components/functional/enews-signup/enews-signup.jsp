@@ -15,15 +15,14 @@
   from Adobe Systems Incorporated.
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page session="false"
-	import="uk.ac.nhm.nhm_www.core.componentHelpers.HelperBase"%>
+<%@page session="false" import="uk.ac.nhm.nhm_www.core.componentHelpers.ENewsSignupHelper"%>
 <%
 %>
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.enews-signup" />
 
-<%  HelperBase helper = new HelperBase(); %>
-
+<%  ENewsSignupHelper helper = new ENewsSignupHelper(properties); %>
+<h2><%=helper.getTitle()%></h2>
 <form method="get"
 	action="http://www.nhm.ac.uk//jcr:content.newslettersignup.html"
 	novalidate="novalidate">
