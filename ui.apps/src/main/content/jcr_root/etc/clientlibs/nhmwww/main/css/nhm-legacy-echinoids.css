@@ -149,6 +149,9 @@ div#container blockquote p {
   display: inline-block;
   width: 25%;
 }
+#container #ech-stat-container .mainIndex input[name="email"] {
+  width: 100%;
+}
 #container #ech-stat-container .mainIndex dl {
   font-size: 12.1667px;
 }
@@ -161,6 +164,9 @@ div#container blockquote p {
 #container #ech-stat-container .mainIndex .glossary img {
   height: auto;
   max-width: 620px;
+}
+#container #ech-data-container {
+  margin-bottom: 5px;
 }
 #container #ech-data-container p {
   margin-bottom: 10px;
@@ -207,6 +213,30 @@ div#container blockquote p {
 }
 #container #ech-stat-container-special #main img {
   width: 232px;
+}
+#container #ech-data-header label {
+  display: inline;
+  font-size: 12.1667px;
+}
+#container #ech-data-header #input-rank {
+  width: 24%;
+  height: auto;
+  padding: 1px 3px;
+  font-size: 12.1667px;
+}
+#container #ech-data-header label[for="input-name"], #container #ech-data-header label[for="input-authorship"] {
+  margin-left: 7px;
+}
+#container #ech-data-header #input-name, #container #ech-data-header #input-authorship {
+  display: inline-block;
+  width: 26%;
+  padding: 3px 2px;
+}
+#container #ech-data-header #input-synonomy {
+  max-width: 678px;
+}
+#container #ech-image-container input[type="file"] {
+  width: 20%;
 }
 #container .echGallery td {
   padding-bottom: 15px;
