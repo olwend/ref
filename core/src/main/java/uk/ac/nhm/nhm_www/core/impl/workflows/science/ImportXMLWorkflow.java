@@ -1047,14 +1047,14 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	                          	break;
 	                          	
                         case "invited":
-	                          	final String invited = field.getText();
+	                          	final Boolean invited = field.isBoolean();
 	                          	if ( invited != null ){
 	                          		professionalANode.setProperty(ScientistProfileHelper.INVITED_ATTRIBUTE, invited);
 	                          	}
 	                          	break;
 	                          	
                         case "keynote":
-	                          	final String keynote = field.getText();
+	                          	final Boolean keynote = field.isBoolean();
 	                          	if ( keynote != null ){
 	                          		professionalANode.setProperty(ScientistProfileHelper.KEYNOTE_ATTRIBUTE, keynote);
 	                          	}
@@ -1082,19 +1082,63 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 								break;
 								
                         case "event-start-date":
-                        	final BigInteger eStartYear = field.getDate().getYear();
-                        	final BigInteger eStartMonth = field.getDate().getMonth();
-                        	final BigInteger eStartDay = field.getDate().getDay();
-                        	if ( eStartYear != null ){
-                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_YEAR_NAME_ATTRIBUTE, eStartYear.longValue());
-                        	}
-                        	if ( eStartMonth != null ){
-                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_MONTH_NAME_ATTRIBUTE, eStartMonth.longValue());
-                        	}
-                        	if ( eStartDay != null ){
-                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_DAY_NAME_ATTRIBUTE, eStartDay.longValue());
-                        	}
-                        	break;
+	                        	final BigInteger eStartYear = field.getDate().getYear();
+	                        	final BigInteger eStartMonth = field.getDate().getMonth();
+	                        	final BigInteger eStartDay = field.getDate().getDay();
+	                        	if ( eStartYear != null ){
+	                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_YEAR_NAME_ATTRIBUTE, eStartYear.longValue());
+	                        	}
+	                        	if ( eStartMonth != null ){
+	                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_MONTH_NAME_ATTRIBUTE, eStartMonth.longValue());
+	                        	}
+	                        	if ( eStartDay != null ){
+	                        		professionalANode.setProperty(ScientistProfileHelper.EVENT_START_DATE_DAY_NAME_ATTRIBUTE, eStartDay.longValue());
+	                        	}
+	                        	break;
+
+                        case "location":	
+                            final ListIterator<Address> location = field.getAddresses().getAddress().listIterator();
+                            JSONArray locationArray = new JSONArray(); 
+                            
+                            while(location.hasNext()) {
+                            	Address address = location.next();
+                            	List<java.lang.Object> lines = address.getContent();
+                            	
+                            	JSONObject jsonAddress = new JSONObject();
+                            	for (final java.lang.Object object : lines) {
+                            		if (! (object instanceof Line)) {
+                            			continue;
+                            		}
+                            		final Line line = (Line) object;
+                            		switch (line.getType()) {
+                            		case "name":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("name", line.getContent());
+                            			}
+                            			break;
+                            		case "organisation":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("organisation", line.getContent());
+                            			}
+                            			break;
+                            		case "city":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("city", line.getContent());
+                            			}
+                            			break;
+                            		case "country":
+                            			if(line.getContent() != null){
+                            				jsonAddress.put("country", line.getContent());
+                            			}
+                            			break;
+                            		}
+                            	}
+                            	locationArray.put(jsonAddress);
+							}
+                            final JSONObject locations = new JSONObject();
+                            locations.put("organisations", locationArray);
+                            professionalANode.setProperty(ScientistProfileHelper.LOCATION_ORGANISATIONS_ATTRIBUTE, locations.toString());
+                            break;
                     }
                 }
             }

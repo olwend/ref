@@ -11,6 +11,7 @@ public class MediaBroadcast extends ProfessionalActivity {
 			String urlLabelBroadcast) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.description = description;
+		this.department = department;
 		this.interviewerName = interviewerName;
 		this.urlLabel = urlLabelBroadcast;
 	}

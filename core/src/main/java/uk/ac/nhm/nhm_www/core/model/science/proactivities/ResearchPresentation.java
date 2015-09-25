@@ -8,18 +8,18 @@ import org.apache.sling.commons.json.JSONObject;
 
 public class ResearchPresentation extends ProfessionalActivity {
 
-	private Institution[] institutions;
-	private String invited;
-	private String keynote;
+	private Location[] locations;
+	private Boolean invited;
+	private Boolean keynote;
 	private String eventName;
 
 	public ResearchPresentation(String url, String title, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
-			String yearEndDate, String monthEndDate, String dayEndDate, String invited, String keynote, String eventName, String rpresentationInstitutions) {
+			String yearEndDate, String monthEndDate, String dayEndDate, Boolean invited, Boolean keynote, String eventName, String rpresentationLocations) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.invited = invited;
 		this.keynote = keynote;
 		this.eventName = eventName;
-		assignJSON(rpresentationInstitutions);
+		assignJSON(rpresentationLocations);
 	}
 	
 	private void assignJSON(String aux) {
@@ -30,16 +30,16 @@ public class ResearchPresentation extends ProfessionalActivity {
 			final JSONObject jsonObject = new JSONObject(aux);
 			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
 			
-			this.institutions = new Institution[jsonArray.length()];
+			this.locations = new Location[jsonArray.length()];
 			
 			for (int i = 0; i < jsonArray.length(); i++) {
-				final JSONObject organisationJson = jsonArray.getJSONObject(i);
+				final JSONObject locationJson = jsonArray.getJSONObject(i);
 				
-				final Institution institution = new Institution(organisationJson);
-				this.institutions[i] = institution;
+				final Location location = new Location(locationJson);
+				this.locations[i] = location;
 			}
 		} catch (final JSONException e) {
-			this.institutions = null;
+			this.locations = null;
 		}
 	}
 
@@ -51,7 +51,7 @@ public class ResearchPresentation extends ProfessionalActivity {
 		
 		// Invited/Keynote speaker,_
 		if ( this.invited != null || this.keynote != null){
-			if ( Boolean.parseBoolean(this.invited) == true || Boolean.parseBoolean(this.keynote) == true ){
+			if ( this.invited == true || this.keynote == true ){
 				stringBuffer.append("Invited speaker, ");
 			}
 		}
@@ -68,32 +68,30 @@ public class ResearchPresentation extends ProfessionalActivity {
 			stringBuffer.append(", ");
 		}
 		
-		// Institution,_
-		if ( institutions != null ){
-			for (Institution institution  : institutions) {
-				// <a href=url>InstitutionName</a>,_ 
-				if (institution.getOrganisation() != null){
-					if (this.url != null) {
-						stringBuffer.append("<a href=\"");
-						stringBuffer.append(this.url);
-						stringBuffer.append("\">");
-					}
-					stringBuffer.append(institution.getOrganisation());
-					if (this.url != null) {
-						stringBuffer.append("</a>");
-					}
+		// Location,_
+		if ( locations != null ){
+			for (Location location  : locations) {
+				// Name,_ 
+				if (location.getName() != null){
+					stringBuffer.append(location.getName());
+					stringBuffer.append(", ");
+				}
+				
+				// Organisation,_ 
+				if (location.getOrganisation() != null){
+					stringBuffer.append(location.getOrganisation());
 					stringBuffer.append(", ");
 				}
 				
 				// City,_
-				if (institution.getCity() != null){
-					stringBuffer.append(institution.getCity() );
+				if (location.getCity() != null){
+					stringBuffer.append(location.getCity() );
 					stringBuffer.append(", ");
 				}	
 				
 				// Country,_
-				if (institution.getCountry() != null){
-					stringBuffer.append(institution.getCountry());
+				if (location.getCountry() != null){
+					stringBuffer.append(location.getCountry());
 					stringBuffer.append(", ");
 				}
 			}

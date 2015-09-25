@@ -11,8 +11,7 @@ import uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper;
 
 public class EventParticipation extends ProfessionalActivity {
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(EventParticipation.class);
+	private static final Logger LOG = LoggerFactory.getLogger(EventParticipation.class);
 
 	private Institution[] institutions;
 	private String eventType;
@@ -68,10 +67,8 @@ public class EventParticipation extends ProfessionalActivity {
 			String[] parameters) {
 		this.eventTypeParameters = new String[parameters.length];
 
-		if (parameters[0]
-				.equals(ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL)
-				|| parameters[0]
-						.equals(ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL)) {
+		if (parameters[0].equals(ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_EXTERNAL)
+				|| parameters[0].equals(ScientistProfileHelper.PROFESSIONAL_ACTIVITY_PARAMETER_INTERNAL)) {
 			this.internalOrExternalParameter = parameters[0];
 			this.ignoreInternalExternalParameter = false;
 		} else {
