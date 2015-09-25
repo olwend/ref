@@ -51,7 +51,9 @@ public class GuestPresentation extends ProfessionalActivity {
 		
 		// Invited/Keynote speaker,_
 		if ( this.invited != null || this.keynote != null){
-			if ( this.invited == true || this.keynote == true ){
+			if ( this.keynote == true ){
+				stringBuffer.append("Keynote speaker, ");
+			} else if ( this.invited == true ) {
 				stringBuffer.append("Invited speaker, ");
 			}
 		}
@@ -65,7 +67,7 @@ public class GuestPresentation extends ProfessionalActivity {
 		// EventName,_ 
 		if (this.eventName != null){
 			stringBuffer.append(this.eventName);
-			stringBuffer.append(", ");
+			stringBuffer.append(": ");
 		}
 		
 		// Location,_
