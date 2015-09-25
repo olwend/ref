@@ -13,6 +13,7 @@ public class EventParticipation extends ProfessionalActivity {
 
 	private static final Logger LOG = LoggerFactory.getLogger(EventParticipation.class);
 
+	private Location[] locations;
 	private Institution[] institutions;
 	private String eventType;
 	private String internalOrExternal;
@@ -25,10 +26,11 @@ public class EventParticipation extends ProfessionalActivity {
 	private String eventDayStartDate;
 	private boolean isPublicEngagement;
 
+
 	public EventParticipation(String url, String title,	final String reportingDate, String yearStartDate,
 			String monthStartDate, String dayStartDate, String yearEndDate,	String monthEndDate, String dayEndDate, 
 			String[] roles,	String eventType, String eventParticipationInstitution,	String internalOrExternal, 
-			String eventYearStartDate, String eventMonthStartDate, String eventDayStartDate) {
+			String eventYearStartDate, String eventMonthStartDate, String eventDayStartDate, String eventParticipationLocations) {
 		super(url, title, reportingDate, yearStartDate, monthStartDate,	dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.roles = roles;
 		this.eventType = eventType;
@@ -37,6 +39,28 @@ public class EventParticipation extends ProfessionalActivity {
 		this.eventMonthStartDate = eventMonthStartDate;
 		this.eventDayStartDate = eventDayStartDate;
 		assignJSON(eventParticipationInstitution);
+		assignLocationJSON(eventParticipationLocations);
+	}
+	
+	private void assignLocationJSON(String aux) {
+		try {
+			if (aux == null){
+				return;
+			}
+			final JSONObject jsonObject = new JSONObject(aux);
+			final JSONArray jsonArray = jsonObject.getJSONArray("organisations");
+			
+			this.locations = new Location[jsonArray.length()];
+			
+			for (int i = 0; i < jsonArray.length(); i++) {
+				final JSONObject locationJson = jsonArray.getJSONObject(i);
+				
+				final Location location = new Location(locationJson);
+				this.locations[i] = location;
+			}
+		} catch (final JSONException e) {
+			this.locations = null;
+		}
 	}
 
 	private void assignJSON(String inOrExInstitution) {
@@ -174,24 +198,30 @@ public class EventParticipation extends ProfessionalActivity {
 						stringBuffer.append(", ");
 					}
 					
-					// Institutions
-					if (institutions != null) {
-						for (Institution institution : institutions) {
-							// <a href=url>InstitutionName</a>,_
-							if (institution.getOrganisation() != null) {
-								stringBuffer.append(institution.getOrganisation());
+					// Location,_
+					if ( locations != null ){
+						for (Location location  : locations) {
+							// Name,_ 
+							if (location.getName() != null){
+								stringBuffer.append(location.getName());
+								stringBuffer.append(", ");
+							}
+							
+							// Organisation,_ 
+							if (location.getOrganisation() != null){
+								stringBuffer.append(location.getOrganisation());
 								stringBuffer.append(", ");
 							}
 							
 							// City,_
-							if (institution.getCity() != null) {
-								stringBuffer.append(institution.getCity());
+							if (location.getCity() != null){
+								stringBuffer.append(location.getCity() );
 								stringBuffer.append(", ");
-							}
+							}	
 							
 							// Country,_
-							if (institution.getCountry() != null) {
-								stringBuffer.append(institution.getCountry());
+							if (location.getCountry() != null){
+								stringBuffer.append(location.getCountry());
 								stringBuffer.append(", ");
 							}
 						}
