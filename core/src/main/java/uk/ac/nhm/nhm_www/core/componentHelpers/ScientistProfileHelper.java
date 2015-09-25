@@ -109,6 +109,7 @@ public class ScientistProfileHelper {
 	public static final String ORGANISATION_ATTRIBUTE 	  = "organisation";
 	public static final String CITY_ATTRIBUTE			  = "city";
 	public static final String COUNTRY_ATTRIBUTE 		  = "country";
+	public static final String LOCATION_ORGANISATIONS_ATTRIBUTE		= "locationOrganisations";
 	public static final String INSTITUTION_ORGANISATIONS_ATTRIBUTE	= "institutionOrganisations";
 	public static final String INSTITUTION_CITIES_ATTRIBUTE			= "institutionCities";
 	public static final String INSTITUTION_COUNTRIES_ATTRIBUTE 		= "institutionCountries";
@@ -1130,6 +1131,7 @@ public class ScientistProfileHelper {
 
 				case PROFESSIONAL_ACTIVITY_TYPE_EVENT_PARTICIPATION:
                 	final String eventParticipationInstitution = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String eventParticipationLocations = childProperties.get(LOCATION_ORGANISATIONS_ATTRIBUTE, String.class);
 					final String[] eventParticipationRoles = childProperties.get(PARTICIPATION_ROLES_ATTRIBUTE, String[].class);
 					final String eventParticipationInternalOrExternal = childProperties.get(INTERNAL_OR_EXTERNAL_ATTRIBUTE, String.class);
 					final String eventParticipationType = childProperties.get(EVENT_TYPE_ATTRIBUTE, String.class);
@@ -1139,7 +1141,7 @@ public class ScientistProfileHelper {
 					
 					setEventsParticipation.add(new EventParticipation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							eventParticipationRoles, eventParticipationType, eventParticipationInstitution, eventParticipationInternalOrExternal, 
-							eventYearStartDate, eventMonthStartDate, eventDayStartDate));
+							eventYearStartDate, eventMonthStartDate, eventDayStartDate, eventParticipationLocations));
 					break;	
 
 				case PROFESSIONAL_ACTIVITY_TYPE_CONSULTING:
@@ -1173,23 +1175,23 @@ public class ScientistProfileHelper {
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_RESEARCH_PRESENTATION:
-					final String invited = childProperties.get(INVITED_ATTRIBUTE, String.class);
-					final String keynote = childProperties.get(KEYNOTE_ATTRIBUTE, String.class);
+					final Boolean invited = childProperties.get(INVITED_ATTRIBUTE, Boolean.class);
+					final Boolean keynote = childProperties.get(KEYNOTE_ATTRIBUTE, Boolean.class);
 					final String eventName = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
-					final String rpresentationInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String rpresentationLocations = childProperties.get(LOCATION_ORGANISATIONS_ATTRIBUTE, String.class);
 					
 					setResearchPresentation.add(new ResearchPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, invited, keynote, eventName, rpresentationInstitutions));
+							yearEndDate, monthEndDate, dayEndDate, invited, keynote, eventName, rpresentationLocations));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_GUEST_PRESENTATION:
-					final String invitedGuest = childProperties.get(INVITED_ATTRIBUTE, String.class);
-					final String keynoteGuest = childProperties.get(KEYNOTE_ATTRIBUTE, String.class);
+					final Boolean invitedGuest = childProperties.get(INVITED_ATTRIBUTE, Boolean.class);
+					final Boolean keynoteGuest = childProperties.get(KEYNOTE_ATTRIBUTE, Boolean.class);
 					final String eventNameGuest = childProperties.get(EVENT_NAME_ATTRIBUTE, String.class);
-					final String guestInstitutions = childProperties.get(INSTITUTION_ORGANISATIONS_ATTRIBUTE, String.class);
+					final String guestLocations = childProperties.get(LOCATION_ORGANISATIONS_ATTRIBUTE, String.class);
 					
 					setGuestPresentation.add(new GuestPresentation(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate,
-							yearEndDate, monthEndDate, dayEndDate, invitedGuest, keynoteGuest, eventNameGuest, guestInstitutions));
+							yearEndDate, monthEndDate, dayEndDate, invitedGuest, keynoteGuest, eventNameGuest, guestLocations));
 					break;
 					
 				case PROFESSIONAL_ACTIVITY_TYPE_MEDIA_BROADCAST:
