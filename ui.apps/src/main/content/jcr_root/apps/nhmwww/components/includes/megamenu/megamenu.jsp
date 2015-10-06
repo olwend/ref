@@ -113,18 +113,16 @@
                                 </div>
                                 <div class="dropdown-section dropdown-section--thumb">
                                     <li class="nav-list__item">
-
-                                        <div class="mega-thumb">
-                
-                                            <img src="/etc/designs/nhmwww/img/megamenu/cta-header-take-part.jpg" alt="Get involved with nature">
-           
-                                            <div class="mega-thumb-caption take-part">
-                                                    <p>
-                                                       Get involved with nature 
-                                                    </p>
-                                            </div>
-                                        </div>
-                                      
+	                                    <a href="/content/nhmwww/en/home/take-part.html">
+	                                        <div class="mega-thumb">
+		                                        <img src="/etc/designs/nhmwww/img/megamenu/cta-header-take-part.jpg" alt="Get involved with nature">
+	                                            <div class="mega-thumb-caption take-part">
+	                                                   <p>
+	                                                      Get involved with nature 
+	                                                   </p>
+	                                            </div>
+	                                        </div>
+	                                    </a>
                                     </li>
                                 </div>
                             </ul>
@@ -172,17 +170,19 @@
                                 </div>
                                
                                  <div class="dropdown-section dropdown-section--thumb">
-                                    <li class="nav-list__item">
-                                 <div class="mega-thumb">
-                                        <img src="/etc/designs/nhmwww/img/megamenu/cta-header-support-us.jpg" alt="Support our vital work">
-                                            <div class="mega-thumb-caption support-us">
+                                 	<li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us.html">
+	                                 		<div class="mega-thumb">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-support-us.jpg" alt="Support our vital work">
+                                        		<div class="mega-thumb-caption support-us">
                                                     <p>
                                                        Support our vital work 
                                                     </p>
-                                            </div>
-                                        </div>
-                                        </li>  
-                                </div>
+                                            	</div>
+	                                        </div>
+	                                   	</a>
+                                   	</li>  
+                               	</div>
                             </ul>
                         </li>
                         <li class="nav-list__item">
@@ -216,19 +216,19 @@
                                     </div>
                                 
                                   <div class="dropdown-section dropdown-section--thumb">
-                                    <li class="nav-list__item">
-                                 <div class="mega-thumb">
-                                        <img src="/etc/designs/nhmwww/img/megamenu/cta-header-schools.jpg" alt="Plan your school visit">
-                                            <div class="mega-thumb-caption schools">
+                                  	<li class="nav-list__item">
+                                  		<a href="/content/nhmwww/en/home/schools.html">
+                                  			<div class="mega-thumb">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-schools.jpg" alt="Plan your school visit">
+	                                        	<div class="mega-thumb-caption schools">
                                                     <p>
                                                        Plan your school visit
                                                     </p>
-                                            </div>
-                                        </div>
-                                        
-                                        </li>  
+	                                            </div>
+	                                        </div>
+	                                   	</a>
+                                   	</li>  
                                 </div>
-                                
                             </ul>
                         </li>
                         <li class="nav-list__item has-children">
