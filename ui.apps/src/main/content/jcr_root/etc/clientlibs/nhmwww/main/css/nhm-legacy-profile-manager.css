@@ -12,13 +12,33 @@ div#page-container {
   border: none;
 }
 #page-container #page-body {
-  padding: 0 0 1px 15px;
   max-width: 1160px;
   margin: 0 auto;
+  min-height: 600px;
+  background: none;
+}
+@media screen and (max-width: 1160px) {
+  #page-container #page-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (max-width: 785px) {
+  #page-container #page-body {
+    min-height: 0;
+  }
 }
 
+.profile-manager h1, .profile-manager h2 {
+  font-family: "Elysio-Thin",Helvetica,Arial,sans-serif;
+}
 .profile-manager h1 {
   text-align: left;
+  font-size: 2.8em;
+  margin-bottom: 3px;
+}
+.profile-manager h2 {
+  font-size: 2.4em;
 }
 .profile-manager p {
   font-size: 16px;
@@ -27,12 +47,36 @@ div#page-container {
 .legacy-css .row {
   width: 100%;
 }
+.legacy-css .column .panel-content .left, .legacy-css .column .panel-content .right {
+  margin: 0 10px 10px;
+}
 .legacy-css .column .panel-content fieldset legend {
   color: #565656;
 }
+.legacy-css .column .panel-content #registrationForm label {
+  margin-left: 0;
+}
+.legacy-css .column .panel-content #registrationForm .submit-button {
+  width: 190px;
+}
 .legacy-css #column-a {
-  width: 670px;
-  min-height: 460px;
+  margin-bottom: 1.2em;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media screen and (max-width: 785px) {
+  .legacy-css #column-a {
+    min-height: 0;
+  }
+}
+.legacy-css #column-a .panel {
+  background-color: #f2f2f2;
+}
+.legacy-css #column-a .panel h2 {
+  background-color: #00385d;
+  color: #fff;
+  padding: 5px 5px 5px 15px;
+  margin-top: 0;
 }
 .legacy-css #column-a .panel-content {
   font-size: 16px;
@@ -44,18 +88,55 @@ div#page-container {
   width: 48%;
   margin-right: 4%;
 }
+@media screen and (max-width: 700px) {
+  .legacy-css #column-a .panel-content .personal-details {
+    width: 100%;
+    margin-right: 0;
+    border-right: none;
+    float: none;
+  }
+}
 .legacy-css #column-a .panel-content .personal-details a.point-right {
   background-image: none;
   text-align: left;
 }
+.legacy-css #column-a .panel-content p {
+  margin-left: 0;
+}
 .legacy-css #column-a .panel-content .personal-pword {
   width: 48%;
+}
+@media screen and (max-width: 700px) {
+  .legacy-css #column-a .panel-content .personal-pword {
+    width: 100%;
+    float: none;
+  }
+}
+.legacy-css #column-a #fm1 {
+  padding: 10px;
 }
 .legacy-css #nav-content-level1 li {
   font-size: 12px;
 }
-.legacy-css div#utilities {
-  width: 240px !important;
+.legacy-css .secondary-nav-wrapper #nav-content-level1 li {
+  font-size: 1.4em;
+}
+@media screen and (max-width: 785px) {
+  .legacy-css .headertextimage {
+    margin-top: 0 !important;
+  }
+}
+.legacy-css .GreyBox {
+  padding: 0 0 1em 1.5em;
+}
+@media screen and (max-width: 767px) {
+  .legacy-css .GreyBox {
+    padding: 0;
+  }
+}
+.legacy-css #utilities {
+  clear: both;
+  margin-bottom: 1.2em;
 }
 .legacy-css #utilities #utility-help {
   padding: 10px;
@@ -66,28 +147,77 @@ div#page-container {
 .legacy-css #utilities p {
   padding: 0 0 10px 0;
   margin: 0;
-  font-size: 12px;
 }
 .legacy-css #column-c {
   float: left;
   margin: 0;
   max-width: 940px;
   width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.legacy-css #column-c .panel {
+  background-color: #f2f2f2;
+  margin-bottom: 1.2em;
+  max-width: 360px;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .legacy-css #column-c .panel {
+    margin-bottom: 0;
+  }
+}
+.legacy-css #column-c .panel ul {
+  margin: 0 10px 10px 20px;
+}
+.legacy-css #column-c #panel-one {
+  max-width: 100%;
+  padding: 10px;
 }
 .legacy-css #column-c #panel-one p {
-  margin: 5px 0 10px 10px;
+  margin: 0 0 10px 10px;
 }
 .legacy-css #column-c #panel-one h4 {
   margin-left: 10px;
 }
+.legacy-css #column-c .nature-plus, .legacy-css #column-c .business-centre, .legacy-css #column-c .about-us {
+  margin-bottom: 1.2em;
+}
+.legacy-css #column-c .nature-plus h2, .legacy-css #column-c .business-centre h2, .legacy-css #column-c .about-us h2 {
+  background-image: none;
+  padding: 5px 5px 8px 15px;
+  color: #fff;
+  margin-top: 0;
+  font-size: 1.6em;
+}
+.legacy-css #column-c .nature-plus ul li, .legacy-css #column-c .business-centre ul li, .legacy-css #column-c .about-us ul li {
+  background-repeat: no-repeat;
+  background-position: left 0.6em;
+  padding-left: 15px;
+}
+.legacy-css #column-c .nature-plus h3, .legacy-css #column-c .nature-plus h4, .legacy-css #column-c .nature-plus a {
+  color: #228900;
+}
 .legacy-css #column-c .nature-plus h4 {
   padding-left: 10px;
+  font-size: 1.2em;
+}
+.legacy-css #column-c .business-centre a {
+  color: #000177;
+}
+.legacy-css #column-c .about-us a {
+  color: #377fbd;
 }
 .legacy-css #column-c fieldset legend {
   color: #565656;
 }
 .legacy-css #column-c #accountForm fieldset, .legacy-css #column-c form fieldset {
   padding: 25px 25px 15px 25px;
+}
+@media screen and (max-width: 1170px) {
+  .legacy-css #column-c #accountForm fieldset, .legacy-css #column-c form fieldset {
+    padding: 15px 15px 15px 15px;
+  }
 }
 .legacy-css #column-c #accountForm fieldset #vacancyMonitorLocation, .legacy-css #column-c #accountForm fieldset #vacancyMonitorEmploymentType, .legacy-css #column-c #accountForm fieldset #vacancyMonitorBusinessType, .legacy-css #column-c form fieldset #vacancyMonitorLocation, .legacy-css #column-c form fieldset #vacancyMonitorEmploymentType, .legacy-css #column-c form fieldset #vacancyMonitorBusinessType {
   width: 41%;
@@ -97,32 +227,42 @@ div#page-container {
 }
 .legacy-css #column-c #accountForm label, .legacy-css #column-c form label {
   font-size: 16px;
-  width: 27%;
+  width: 35%;
   height: 37px;
   line-height: 37px;
   line-height: 1.5\0;
   /* IE8 fix */
   text-align: left;
   padding: 0;
-  margin-left: 5%;
+}
+@media screen and (max-width: 1170px) {
+  .legacy-css #column-c #accountForm label, .legacy-css #column-c form label {
+    width: 100%;
+    float: none;
+  }
 }
 .legacy-css #column-c #accountForm input, .legacy-css #column-c form input {
-  width: 63%;
+  width: 65%;
   font-size: 16px;
   margin-bottom: 15px;
 }
+@media screen and (max-width: 1170px) {
+  .legacy-css #column-c #accountForm input, .legacy-css #column-c form input {
+    width: 100%;
+  }
+}
 .legacy-css #column-c #accountForm select, .legacy-css #column-c form select {
-  width: 15%;
+  width: 90px;
   font-size: 16px;
 }
 .legacy-css #column-c #accountForm input[type=submit], .legacy-css #column-c form input[type=submit] {
-  width: 25%;
+  width: 190px;
   height: 40px;
-  margin-left: 40%;
+  margin-left: 3%;
   margin-top: 20px;
 }
 .legacy-css #column-c #accountForm label[for="natureGroup"], .legacy-css #column-c form label[for="natureGroup"] {
-  line-height: 25px;
+  line-height: 18px;
 }
 .legacy-css #column-c #accountForm label[for="natureGroup"] .required, .legacy-css #column-c form label[for="natureGroup"] .required {
   margin-left: -13px;
@@ -142,6 +282,26 @@ div#page-container {
 .legacy-css #column-c #accountForm #standardTerms, .legacy-css #column-c form #standardTerms {
   width: 2%;
 }
+.legacy-css #column-c #fm1 #username, .legacy-css #column-c #fm1 #password {
+  width: 100%;
+}
+.legacy-css #column-c #fm1 .rememberMe #rememberMe {
+  width: initial;
+}
+.legacy-css #column-c #fm1 .rememberMe label[for="rememberMe"] {
+  width: initial;
+}
+.legacy-css #column-c #fm1 .buttons .main {
+  height: initial;
+  margin-left: 0;
+  margin-top: 0;
+  width: initial;
+  margin-bottom: 5px;
+}
+.legacy-css #column-c #fm1 .buttons input[type="reset"] {
+  width: initial;
+  margin-bottom: 5px;
+}
 .legacy-css .column-fix {
   float: right !important;
 }
@@ -153,19 +313,13 @@ div#page-container {
   color: #565656;
 }
 
-.main-footer .framed-wrapper {
-  text-align: left;
-}
-.main-footer .footer-utility legend, .main-footer .footer-utility .errors {
-  color: #fff;
-}
-
-.nhm-breadcrumb {
-  text-align: left;
-}
-
 .row .GreyBox {
   background-color: initial;
+}
+
+.secondary-nav-wrapper .side-nav li {
+  list-style: none;
+  font-size: 1.125em;
 }
 
 .main-footer .framed-wrapper {
@@ -183,9 +337,8 @@ div#page-container {
   padding: 0;
 }
 
-.secondary-nav-wrapper .side-nav li {
-  list-style: none;
-  font-size: 1.125em;
+.nhm-breadcrumb {
+  text-align: left;
 }
 
 /*# sourceMappingURL=nhm-legacy-profile-manager.css.map */
