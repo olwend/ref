@@ -1,0 +1,270 @@
+body {
+  color: #000;
+  font-size: 12.1667px;
+}
+
+#page-header {
+  padding-bottom: 0 !important;
+}
+
+.nav-list.level-1 > .nav-list__item > a {
+  font-size: 22px;
+}
+
+.nav-list__item p {
+  margin-left: 0;
+  margin-right: 0;
+}
+.nav-list__item a {
+  font-size: 20px;
+}
+
+.dropdown-section p {
+  font-size: 14.4px;
+}
+
+.mega-thumb-caption p {
+  font-size: 24px;
+}
+
+.nav-list.level-2.share .nav-list__item h4 {
+  font-size: 18px;
+  color: #222;
+}
+
+.breadcrumb {
+  font-size: 14px;
+}
+
+.main-footer .footer-nav li, .main-footer .footer-utility p {
+  font-size: 17.6px;
+}
+
+div#page-container {
+  width: 100% !important;
+}
+
+#page-body {
+  width: 940px;
+  margin: 0 auto 10px auto;
+  min-height: 600px;
+  /* added to fix the sticky nav being buggy */
+}
+
+.sticky-logo a {
+  top: -0.5em;
+}
+
+input[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+#microsite-head, #microsite-body, .dbNavContainer, .collapseParas {
+  width: 744px !important;
+}
+
+#microsite-head h1, #microsite-head h2 {
+  text-align: center;
+  clear: none !important;
+}
+#microsite-head h1 {
+  font-size: 24.3333px;
+  margin-top: 0;
+  color: #015b28;
+}
+#microsite-head ul {
+  font-size: 12.1667px;
+}
+#microsite-head ul a {
+  color: #015b28;
+}
+
+#page-body a:link, #page-body a:visited {
+  color: #015b28;
+}
+#page-body a:hover {
+  border-bottom-width: 0;
+}
+
+html > body #microsite-nav-backToSection {
+  margin-left: 98px;
+}
+
+#nav-breadcrumbs-menu a:link, #nav-breadcrumbs-menu a:visited {
+  color: #000;
+}
+
+#microsite-body p {
+  margin: 0;
+}
+#microsite-body ul, #microsite-body ol {
+  font-size: 12.1667px;
+}
+#microsite-body ol li {
+  list-style: inherit;
+}
+#microsite-body .index td {
+  padding-bottom: 10px;
+}
+#microsite-body table td h4 {
+  margin-bottom: 0;
+}
+#microsite-body table td h4 a {
+  font-weight: bold;
+}
+#microsite-body table td hr {
+  border-color: #015b28;
+  margin: 0;
+  height: auto;
+}
+#microsite-body table td .accent1 {
+  padding: 7px 6px 10px 5px;
+}
+#microsite-body table td .accent1 input[type="text"] {
+  box-shadow: none;
+  height: auto;
+  padding: 1px 3px;
+  margin: 0;
+  font-size: 12.1667px;
+}
+#microsite-body table td .accent1 td {
+  padding-bottom: 0;
+}
+#microsite-body table td .accent1 input[type="submit"] {
+  height: 20px;
+  width: 30px;
+  margin-top: 4px;
+  margin-right: 5px;
+}
+#microsite-body table td .accent1 select {
+  margin: 0;
+  height: initial;
+  padding: 0 3px;
+}
+#microsite-body table td .accent1 .background input[type="submit"] {
+  margin-top: 0;
+  margin-right: 0;
+}
+#microsite-body table td a img {
+  padding-top: 4px;
+  float: right;
+}
+#microsite-body h3 {
+  margin: 0 0 10px 0;
+  padding-bottom: 0;
+  color: #015b28;
+}
+#microsite-body #ucd-table-key td {
+  padding-bottom: 3px;
+}
+#microsite-body .searchTable_ms td {
+  padding: 2px 2px 2px 5px;
+}
+#microsite-body .searchTable_ms select {
+  background-color: #fff;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+#microsite-body .searchTable_ms input[type="text"] {
+  box-shadow: none;
+  height: auto;
+  padding: 1px 3px;
+  margin: 0;
+  display: inline;
+}
+#microsite-body .searchTable_ms select[name^=HOSTFAMILY] {
+  width: 243px !important;
+}
+#microsite-body .searchTable_ms img {
+  height: 3px;
+  width: 50px;
+}
+#microsite-body .searchTable_ms input[type="submit"] {
+  padding: 1px 5px;
+}
+#microsite-body blockquote {
+  padding-top: 0;
+}
+#microsite-body form td {
+  padding-bottom: 4px;
+}
+#microsite-body .dbNavContainer {
+  border-collapse: initial;
+  border-spacing: 1px;
+}
+#microsite-body .dbNavContainer .button {
+  margin: 0;
+  color: #fff;
+  font-size: 12.1667px;
+  padding-top: 2px;
+}
+#microsite-body .dbNavContainer a img {
+  padding-top: 0;
+  margin-left: 2px;
+}
+#microsite-body .dataTable_ms {
+  border-collapse: initial;
+  border-spacing: 1px;
+}
+#microsite-body #dbNavButtons_down .button {
+  margin: 0;
+  color: #fff;
+  font-size: 12.1667px;
+  padding-top: 2px;
+}
+#microsite-body .collapseParas td {
+  padding-bottom: 5px;
+}
+#microsite-body .galleryTable_ms img {
+  float: none;
+  padding-top: 0;
+  max-height: none;
+}
+#microsite-body .tabPanel .tabs a {
+  font-weight: bold;
+  color: #000;
+}
+#microsite-body .tabPanel .tabHeader p {
+  padding-bottom: 0;
+  margin-left: 0;
+  text-align: left;
+}
+#microsite-body .tabPanel .tabHeader select {
+  padding: 0;
+  height: auto;
+  margin-bottom: 0;
+}
+#microsite-body img {
+  max-width: initial;
+  max-height: 100%;
+}
+#microsite-body .data-table {
+  margin-bottom: 20px;
+}
+#microsite-body .data-table blockquote {
+  border-left: none;
+  color: #000;
+  margin-bottom: 10px;
+}
+#microsite-body .data-table blockquote p {
+  color: #000;
+}
+
+.superFamily img {
+  vertical-align: middle;
+}
+
+.tabContent .ucdRefTable img {
+  max-width: initial;
+}
+.tabContent h5 {
+  margin-bottom: 0;
+}
+
+div.superFamily {
+  top: -38px !important;
+}
+
+/*# sourceMappingURL=nhm-legacy-chalcidoidea.css.map */

@@ -10,16 +10,16 @@ import org.apache.commons.lang3.StringUtils;
 public class InternetPublication extends Publication{
 	
 	private String publisher;
-	private int beginPage;
-	private int endPage;
-	private int page;
-	private int publicationMonth;
-	private int publicationDay;
+	private String beginPage;
+	private String endPage;
+	private String page;
+	private String publicationMonth;
+	private String publicationDay;
 	private String publisherURL;
 
-	public InternetPublication(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			int iPublicationMonth, int iPublicationDay, final  String href,	final String reportingDate, String internetPublisher, 
-			String publisherURL, int internetBeginPage, int internetEndPage, int internetPage) {
+	public InternetPublication(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			String iPublicationMonth, String iPublicationDay, final  String href,	final String reportingDate, String internetPublisher, 
+			String publisherURL, String internetBeginPage, String internetEndPage, String internetPage) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.publicationMonth = iPublicationMonth;
 		this.publicationDay = iPublicationDay;
@@ -78,9 +78,9 @@ public class InternetPublication extends Publication{
 		// (Year) || (Year, Month) || (Year, Day Month)
 		stringBuffer.append(" (");
 		stringBuffer.append(this.getPublicationYear());
-		if (this.publicationDay > 0){
+		if (this.publicationDay != null){
 			stringBuffer.append(", " + this.publicationDay);
-			if (this.publicationMonth > 0 ){
+			if (this.publicationMonth != null ){
 				stringBuffer.append(" " + this.publicationMonth);
 			}
 		}
@@ -111,13 +111,13 @@ public class InternetPublication extends Publication{
 		}
 		
 		// PagesBegin-PagesEnd._ || PageCount._
-		if (this.beginPage > 0 && this.endPage > 0) {
+		if (this.beginPage != null && this.endPage != null) {
 			stringBuffer.append(this.beginPage);
 			stringBuffer.append(" - ");
 			stringBuffer.append(this.endPage);
 			stringBuffer.append(". ");
 		} else {
-			if (this.page > 0) {
+			if (this.page != null) {
 				stringBuffer.append(this.page);
 				stringBuffer.append(". ");
 			}
@@ -134,43 +134,43 @@ public class InternetPublication extends Publication{
 		this.publisher = publisher;
 	}
 
-	public int getBeginPage() {
+	public String getBeginPage() {
 		return beginPage;
 	}
 
-	public void setBeginPage(int beginPage) {
+	public void setBeginPage(String beginPage) {
 		this.beginPage = beginPage;
 	}
 
-	public int getEndPage() {
+	public String getEndPage() {
 		return endPage;
 	}
 
-	public void setEndPage(int endPage) {
+	public void setEndPage(String endPage) {
 		this.endPage = endPage;
 	}
 
-	public int getPage() {
+	public String getPage() {
 		return page;
 	}
 
-	public void setPage(int page) {
+	public void setPage(String page) {
 		this.page = page;
 	}
 
-	public int getPublicationMonth() {
+	public String getPublicationMonth() {
 		return publicationMonth;
 	}
 
-	public void setPublicationMonth(int publicationMonth) {
+	public void setPublicationMonth(String publicationMonth) {
 		this.publicationMonth = publicationMonth;
 	}
 
-	public int getPublicationDay() {
+	public String getPublicationDay() {
 		return publicationDay;
 	}
 
-	public void setPublicationDay(int publicationDay) {
+	public void setPublicationDay(String publicationDay) {
 		this.publicationDay = publicationDay;
 	}
 

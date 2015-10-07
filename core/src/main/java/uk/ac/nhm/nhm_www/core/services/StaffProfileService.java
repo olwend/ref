@@ -32,7 +32,7 @@ import com.day.cq.wcm.api.PageManager;
 @Service(value = StaffProfileService.class)
 @Properties({
         @Property(name = "service.description", value = "Returns the complete top level list of staff profiles for the staff profile search page"),
-        @Property(name = "queryLimit", intValue = 200, description = "Query Limit"),
+        @Property(name = "queryLimit", intValue = 500, description = "Query Limit"),
         @Property(name = "jcrPath", value = "/content", description = "JCR Path where the staff profiles are located.")
         
 })
