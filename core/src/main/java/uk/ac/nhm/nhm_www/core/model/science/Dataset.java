@@ -12,8 +12,8 @@ public class Dataset extends Publication{
 	private Object doiText;
 	private String publisherURL;
 
-	public Dataset(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String datasetDoiText, String datasetDoiURL, String datasetPublisherURL) {
+	public Dataset(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href,	final String reportingDate, String datasetDoiText, String datasetDoiURL, String datasetPublisherURL) {
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.doiText = doiText;
 		this.doiLink = doiLink;

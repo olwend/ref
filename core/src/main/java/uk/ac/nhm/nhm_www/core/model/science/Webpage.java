@@ -13,8 +13,8 @@ public class Webpage extends Publication{
 	private String publisherURL;
 	private String publishingPlace;
 
-	public Webpage(final String title, final  List<String> authorsList, final  boolean favorite, final  int publicationYear,
-			final  String href,	final String reportingDate, String webpagePublisher, String webpagePublisherURL, String webpagePublishingPlace){
+	public Webpage(final String title, final List<String> authorsList, final boolean favorite, final String publicationYear,
+			final String href, final String reportingDate, String webpagePublisher, String webpagePublisherURL, String webpagePublishingPlace){
 		super(title, authorsList, favorite, publicationYear, href, reportingDate);
 		this.publisher = webpagePublisher;
 		this.publisherURL = webpagePublisherURL;

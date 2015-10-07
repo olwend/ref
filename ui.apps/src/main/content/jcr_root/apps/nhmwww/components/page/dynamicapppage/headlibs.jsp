@@ -35,6 +35,7 @@
         <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/plugins.js"%>"></script>
         <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/main.js"%>"></script>
+        <script src="<%= helper.getProtocol() + hostPort + currentDesign.getPath() + "/js/dynamicapps-legacy-global.js"%>"></script>
 
         <script>dataLayer = [];</script>
 		<script type="text/javascript">var switchTo5x=true;</script>
