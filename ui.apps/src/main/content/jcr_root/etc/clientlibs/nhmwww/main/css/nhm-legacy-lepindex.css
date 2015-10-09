@@ -7,6 +7,10 @@ a:hover {
   border-bottom-width: 0;
 }
 
+td[colspan="2"] img {
+  height: 10px;
+}
+
 #frame-b {
   height: 95px !important;
 }
@@ -97,10 +101,6 @@ div#page-container {
   line-height: 30px;
 }
 
-td[colspan="2"] img {
-  height: 10px;
-}
-
 .button {
   font-size: 12.1667px;
 }
@@ -172,6 +172,9 @@ html > body #microsite-nav-backToSection {
 }
 #microsite-body td[colspan="2"] a {
   font-weight: bold;
+}
+#microsite-body td[colspan="2"] .pageTable img {
+  height: 17px;
 }
 
 #microsite-nav-local-menu {
@@ -246,6 +249,7 @@ hr {
 }
 #dbNavButtons_down td a:hover, #dbNavButtons_up td a:hover {
   border-bottom: 0;
+  color: #fff;
 }
 
 #dbNavButtons_up td a {
