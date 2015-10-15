@@ -15,32 +15,34 @@
   from Adobe Systems Incorporated.
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page session="false"
-	import="uk.ac.nhm.nhm_www.core.componentHelpers.ENewsSignupHelper"%>
-<%
-	
-%>
+<%@page session="false" import="uk.ac.nhm.nhm_www.core.componentHelpers.ENewsSignupHelper"%>
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.enews-signup" />
 
 <%
 	ENewsSignupHelper helper = new ENewsSignupHelper(properties);
+	DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(
+			resource, properties, request);
 %>
 <h2><%=helper.getTitle()%></h2>
 <div class="newslettersignup">
-	<form method="get"
-		action="http://www.nhm.ac.uk//jcr:content.newslettersignup.html"
-		novalidate="novalidate">
-		<div class="form-field firstname">
-			<label for="name">Full name</label> <input type="text" name="name"
-				class="item-input">
-		</div>
-		<div class="form-field email">
-			<label for="email">Email address</label> <input type="text"
-				name="email" class="item-input">
-		</div>
-		<input type="text" name="question" class="question">
-		<button class="submit arrow">Sign up</button>
-		<div class="errors"></div>
-	</form>
+	<form
+		action="<%=dynamicPageHelper.getProtocol() + hostPort
+					+ pathForSignup%>/jcr:content.newslettersignup.html"
+		method="get">
+		<form method="get"
+			action="http://www.nhm.ac.uk//jcr:content.newslettersignup.html"
+			novalidate="novalidate">
+			<div class="form-field firstname">
+				<label for="name">Full name</label> <input type="text" name="name"
+					class="item-input">
+			</div>
+			<div class="form-field email">
+				<label for="email">Email address</label> <input type="text"
+					name="email" class="item-input">
+			</div>
+			<input type="text" name="question" class="question">
+			<button class="submit arrow">Sign up</button>
+			<div class="errors"></div>
+		</form>
 </div>

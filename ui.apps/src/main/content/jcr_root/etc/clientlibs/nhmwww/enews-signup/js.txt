@@ -1,2 +1,1 @@
 #base=js
-primo-search.js
