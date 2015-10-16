@@ -26,7 +26,7 @@
 	DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
 %>
 <h2><%=helper.getTitle()%></h2>
-<div class="newslettersignup">
+<div class="js-enews-signup">
 	<form
 		action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
 		method="get">
