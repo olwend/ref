@@ -8,7 +8,7 @@ public class ENewsSignupHelper extends HelperBase {
 	 * Provide a default data protection statement
 	 */
 	private String dataProtection = "By providing your details, you agree that the Natural History Museum may contact you by email with news and information about our activities, events, products and services."
-			+ "<p>Data protection</p>"
+			+ "<p><b>Data protection</b></p>"
 			+ "The Natural History Museum will use your personal information in accordance with the Data Protection Act 1998. We will use it to provide the service(s) requested, improve our understanding of"
 			+ "our target audiences and supporters, and, if you agree, to send you news and information as set out above. For more information,"
 			+ " please see our <a href=\"http://www.nhm.ac.uk/my-nhm/privacy-statement/index.html\">privacy policy</a>.";
