@@ -17,7 +17,8 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
 	import="uk.ac.nhm.nhm_www.core.componentHelpers.ENewsSignupHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+<%@page
+	import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.enews-signup" />
 
@@ -26,6 +27,13 @@
 	DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
 %>
 <h2><%=helper.getTitle()%></h2>
+<%
+	if (helper.getDescription() != null) {
+%>
+<p><%=helper.getDescription()%></p>
+<%
+	}
+%>
 <div class="js-enews-signup">
 	<form
 		action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
@@ -38,8 +46,9 @@
 			<label for="email">Email address</label> <input type="text"
 				name="email" class="item-input">
 		</div>
-		<input type="text" name="question" class="question">
-		<input type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
+		<input type="text" name="question" class="question"> <input
+			type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
+		<p><%=helper.getDataProtection()%></p>
 		<button class="submit arrow">Sign up</button>
 		<div class="errors"></div>
 	</form>
