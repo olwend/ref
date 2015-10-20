@@ -39,6 +39,7 @@
 				name="email" class="item-input">
 		</div>
 		<input type="text" name="question" class="question">
+		<input type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
 		<button class="submit arrow">Sign up</button>
 		<div class="errors"></div>
 	</form>
