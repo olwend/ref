@@ -217,7 +217,7 @@
                                   	<li class="nav-list__item">
                                   		<a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-image-1">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-schools.jpg" alt="Christmas Boutique">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Christmas Boutique">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
                                                        Christmas Boutique
