@@ -185,8 +185,49 @@
                                	</div>
                             </ul>
                         </li>
-                        <li class="nav-list__item">
+                        <li class="nav-list__item has-children shop">
                             <a href="http://www.nhmshop.co.uk">Shop</a>
+                            <ul class="nav-list level-2">
+                                <div class="dropdown-section">
+                                	<li class="nav-list__item mobile touchonly first">
+                                        <a href="http://www.nhmshop.co.uk">Shop home</a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/prints.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-prints-wpy&utm_content=meganav-link-1">Wildlife Photographer of the Year 2015 prints</a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-2">Dinosaur toys</a>
+                                       
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-souvenirs&utm_content=meganav-link-3">Museum souvenirs</a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas shop</a>
+                                    </li>
+                                </div>
+                                
+                                <div class="dropdown-section">
+                                    <p></p>
+                                    <p class="nav-callout tablet desktop">
+                                        Thousands of gifts inspired by the natural world, with free next-day UK delivery for orders over £50. All sales support the Museum's work.</p>
+                                    </div>
+                                
+                                  <div class="dropdown-section dropdown-section--thumb">
+                                  	<li class="nav-list__item">
+                                  		<a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-image-1">
+                                  			<div class="mega-thumb">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-schools.jpg" alt="Christmas Boutique">
+	                                        	<div class="mega-thumb-caption shop">
+                                                    <p>
+                                                       Christmas Boutique
+                                                    </p>
+	                                            </div>
+	                                        </div>
+	                                   	</a>
+                                   	</li>  
+                                </div>
+                            </ul>
                         </li>
                         <li class="nav-list__item has-children schools">
                             <a href="/content/nhmwww/en/home/schools.html">Schools</a>
