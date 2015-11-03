@@ -203,14 +203,14 @@
                                         <a href="http://www.nhmshop.co.uk/souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-souvenirs&utm_content=meganav-link-3">Museum souvenirs</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas shop</a>
+                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas</a>
                                     </li>
                                 </div>
                                 
                                 <div class="dropdown-section">
                                     <p></p>
                                     <p class="nav-callout tablet desktop">
-                                        Thousands of gifts inspired by the natural world, with free next-day UK delivery for orders over £50. All sales support the Museum's work.</p>
+                                        Thousands of gifts inspired by the natural world, with free next-day UK delivery when you spend £50 or more on gifts from the Museum collection. All sales support the Museum's work.</p>
                                     </div>
                                 
                                   <div class="dropdown-section dropdown-section--thumb">
@@ -220,7 +220,7 @@
 	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Christmas Boutique">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Christmas Boutique
+                                                       Christmas boutique
                                                     </p>
 	                                            </div>
 	                                        </div>
