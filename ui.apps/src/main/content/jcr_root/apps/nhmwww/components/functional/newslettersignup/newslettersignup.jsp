@@ -18,6 +18,7 @@
                                     <li><a href="/content/nhmwww/en/home/business-services.html">Business services</a></li>
 									<li><a href="/content/nhmwww/en/home/about-us/careers.html">Careers</a></li>
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>
+                                    <li><a href="/content/nhmwww/en/home/business-services/touring-exhibitions.html">Touring Exhibitions</a></li>
                                 </div>
                                 <div class="columns large-6 medium-6 small-6">
                                 	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
