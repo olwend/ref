@@ -200,7 +200,7 @@
                                        
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-souvenirs&utm_content=meganav-link-3">Museum souvenirs</a>
+                                        <a href="http://www.nhmshop.co.uk/latest-offers.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-nhm-meganav-link&utm_content=meganav-link-3">Latest offers</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas</a>
@@ -210,17 +210,28 @@
                                 <div class="dropdown-section">
                                     <p></p>
                                     <p class="nav-callout tablet desktop">
-                                        Thousands of gifts inspired by the natural world, with free next-day UK delivery when you spend £50 or more on gifts from the Museum collection. All sales support the Museum's work.</p>
+                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. Order by 23 December for Christmas delivery. All sales support the Museum.</p>
+                                        <br/>
+									<li class="nav-list__item">
+                                        <ul class="nav-list level-3">
+                                            <li>
+                                                <a class="nav-button arrow" data-gtm="CTA" href="https://www.nhmshop.co.uk/">Shop now
+                                            </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                        	
+                                        
                                     </div>
                                 
                                   <div class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
                                   		<a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-image-1">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Christmas Boutique">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Buy Christmas gifts now">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Christmas boutique
+                                                       Buy Christmas gifts now
                                                     </p>
 	                                            </div>
 	                                        </div>
