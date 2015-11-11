@@ -176,19 +176,20 @@ public class ScientistProfileHelper {
 	public static final String PUBLISHER_LOCATION_ATTRIBUTE = "location";
 	
 	//Teaching Activities
-	public static final String COURSE_LEVEL_ATTRIBUTE 		= "courseLevel";
-	public static final String DEGREE_TYPE_ATTRIBUTE 		= "degreeType";
-	public static final String OTHER_DEGREE_TYPE_ATTRIBUTE 	= "otherDegreeType";
-	public static final String SUPERVISORY_ROLE_ATTRIBUTE 	= "supervisoryRole";
-	public static final String CO_CONTRIBUTORS_ATTRIBUTE 	= "coContributors";
-	public static final String PERSON_ATTRIBUTE			 	= "person";
-	public static final String DEGREE_SUBJECT_ATTRIBUTE	 	= "degreeSubject";
-	public static final String FUNDER_ATTRIBUTE			 	= "funder";
-	public static final String EXAMINATION_ROLE_ATTRIBUTE	= "examinationRole";
-	public static final String EXAMINATION_LEVEL_ATTRIBUTE	= "examinationLevel";
-	public static final String DEGREE_LEVEL_ATTRIBUTE		= "degreeLevel";
-	public static final String PARTNER_ATTRIBUTE			= "partner";
-	public static final String RELEASE_DATE_ATTRIBUTE		= "releaseDate";
+	public static final String COURSE_LEVEL_ATTRIBUTE 				= "courseLevel";
+	public static final String DEGREE_TYPE_ATTRIBUTE 				= "degreeType";
+	public static final String OTHER_DEGREE_TYPE_ATTRIBUTE 			= "otherDegreeType";
+	public static final String SUPERVISORY_ROLE_ATTRIBUTE 			= "supervisoryRole";
+	public static final String CO_CONTRIBUTORS_ATTRIBUTE 			= "coContributors";
+	public static final String PERSON_ATTRIBUTE			 			= "person";
+	public static final String DEGREE_SUBJECT_ATTRIBUTE	 			= "degreeSubject";
+	public static final String FUNDER_ATTRIBUTE			 			= "funder";
+	public static final String EXAMINATION_ROLE_ATTRIBUTE			= "examinationRole";
+	public static final String EXAMINATION_LEVEL_ATTRIBUTE			= "examinationLevel";
+	public static final String EXAMINATION_INSTITUTIONS_ATTRIBUTE 	= "institutionOrganisations";
+	public static final String DEGREE_LEVEL_ATTRIBUTE				= "degreeLevel";
+	public static final String PARTNER_ATTRIBUTE					= "partner";
+	public static final String RELEASE_DATE_ATTRIBUTE				= "releaseDate";
 	
 	//Projects
 	public static final String FUNDING_SOURCE_ATTRIBUTE		= "fundingSource";
@@ -1865,7 +1866,7 @@ public class ScientistProfileHelper {
 				case TEACHING_ACTIVITIES_TYPE_EXAMINER:
                     final String examinationRole = childProperties.get(EXAMINATION_ROLE_ATTRIBUTE, String.class);
                     final String examinationLevel = childProperties.get(EXAMINATION_LEVEL_ATTRIBUTE, String.class);
-                    final String examinationInstitution = childProperties.get(EXAMINATION_LEVEL_ATTRIBUTE, String.class);
+                    final String examinationInstitution = childProperties.get(EXAMINATION_INSTITUTIONS_ATTRIBUTE, String.class);
 
 					setExaminer.add(new Examiner(url, title, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate, 
 							examinationRole, examinationLevel, examinationInstitution));
