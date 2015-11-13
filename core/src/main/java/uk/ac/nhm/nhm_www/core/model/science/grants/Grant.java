@@ -46,8 +46,8 @@ public class Grant extends GrantTemplate {
 			String principalsString = StringUtils.join(principals.toArray(new String[principals.size()]), ", ");
 			principalsString = principalsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
-			stringBuffer.append("Principal investigator: ");
-			stringBuffer.append(principalsString);
+			stringBuffer.append("Role: Principal investigator");
+			//stringBuffer.append(principalsString);
 			stringBuffer.append("<br/>");
 		}
 		
@@ -57,8 +57,8 @@ public class Grant extends GrantTemplate {
 			String coInvsString = StringUtils.join(coInvs.toArray(new String[coInvs.size()]), ", ");
 			coInvsString = coInvsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
-			stringBuffer.append("Co-investigator: ");
-			stringBuffer.append(coInvsString);
+			stringBuffer.append("Role: Co-investigator");
+			//stringBuffer.append(coInvsString);
 			stringBuffer.append("<br/>");
 		}	
 		
