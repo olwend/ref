@@ -215,7 +215,7 @@
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
                                             <li>
-                                                <a class="nav-button arrow" data-gtm="CTA" href="https://www.nhmshop.co.uk/">Shop now
+                                                <a class="nav-button arrow" data-gtm="CTA" href="http://www.nhmshop.co.uk?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm&utm_content=shop-now-button">Shop now
                                             </a>
                                             </li>
                                         </ul>
