@@ -46,6 +46,8 @@ public class JournalArticle extends Publication{
 		// We store the author name with a single initial	e.g: Ouvrard D
 		String firstInitial = normalizeName(author, true);
 		
+		String surname = getSurname(author);
+		
 		Iterator<String> authorsIt = authors.iterator();
 		List<String> processedAuthors = new ArrayList<String>();
 		
@@ -63,18 +65,20 @@ public class JournalArticle extends Publication{
 //		LOG.error("This is the list of authors parsed: " + authorsString);
 //		LOG.error("Current Author: " + currentAuthor);
 //		LOG.error("First Initial Author: " + firstInitial);
-		if (authorsString.contains(currentAuthor)) {
-			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-		} else if (authorsString.contains(firstInitial)) {
-			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+		
+		//Use regular expression to find full author name including all intials
+		//Replace with same string in HTML bold tags
+		if (authorsString.contains(surname)) {
+			authorsString = authorsString.replaceAll(surname + "[A-Z]*", "<b>$0</b>");
 		}
+
 		//Remove name delimiters placed there by the normalizer
 		authorsString = authorsString.replaceAll("#", "");
 		
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a Journal Article Publication####");
+		//stringBuffer.append("####This is a Journal Article Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

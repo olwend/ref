@@ -66,6 +66,7 @@ public class ConferenceProceedings extends Publication{
 		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
 		String currentAuthor = normalizeName(author, false);
 		String firstInitial = normalizeName(currentAuthor, true);
+		String surname = getSurname(author);
 		
 		Iterator<String> authorsIt = authors.iterator();
 		List<String> processedAuthors = new ArrayList<String>();
@@ -84,11 +85,13 @@ public class ConferenceProceedings extends Publication{
 //		LOG.error("This is the list of authors parsed: " + authorsString);
 //		LOG.error("Current Author: " + currentAuthor);
 //		LOG.error("First Initial Author: " + firstInitial);
-		if (authorsString.contains(currentAuthor)) {
-			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
-		} else if (authorsString.contains(firstInitial)) {
-			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+		
+		//Use regular expression to find full author name including all intials
+		//Replace with same string in HTML bold tags
+		if (authorsString.contains(surname)) {
+			authorsString = authorsString.replaceAll(surname + "[A-Z]*", "<b>$0</b>");
 		}
+		
 		//Remove name delimiters placed there by the normalizer
 		authorsString = authorsString.replaceAll("#", "");
 		
