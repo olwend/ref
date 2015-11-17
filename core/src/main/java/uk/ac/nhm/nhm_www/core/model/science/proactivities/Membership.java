@@ -53,8 +53,8 @@ public class Membership extends ProfessionalActivity {
 		
 		if ( institutions != null ){
 			for (Institution institution  : institutions) {
-				// <a href=url>InstitutionName</a>,_ 
-				if (institution.getOrganisation() != null){
+
+				if (institution.getOrganisation() != null) {
 					if (this.url != null) {
 						stringBuffer.append("<a href=\"");
 						stringBuffer.append(this.url);
@@ -64,19 +64,39 @@ public class Membership extends ProfessionalActivity {
 					if (this.url != null) {
 						stringBuffer.append("</a>");
 					}
-					stringBuffer.append(", ");
+					if (institution.getCity() != null || institution.getCountry() != null || this.yearsd != null) {
+						stringBuffer.append(", ");
+					}
 				}
-				
+				else if (institution.getName() != null) {
+					if (this.url != null) {
+						stringBuffer.append("<a href=\"");
+						stringBuffer.append(this.url);
+						stringBuffer.append("\">");
+					}
+					stringBuffer.append(institution.getName());
+					if (this.url != null) {
+						stringBuffer.append("</a>");
+					}
+					if (institution.getCity() != null || institution.getCountry() != null || this.yearsd != null) {
+						stringBuffer.append(", ");
+					}
+				}
+
 				// City,_
 				if (institution.getCity() != null){
 					stringBuffer.append(institution.getCity() );
-					stringBuffer.append(", ");
-				}	
-				
+					if (institution.getCountry() != null || this.yearsd != null) {
+						stringBuffer.append(", ");
+					}
+				}
+
 				// Country,_
 				if (institution.getCountry() != null){
 					stringBuffer.append(institution.getCountry());
-					stringBuffer.append(", ");
+					if (this.yearsd != null) {
+						stringBuffer.append(", ");
+					}
 				}
 			}
 		}
@@ -87,14 +107,14 @@ public class Membership extends ProfessionalActivity {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
 				stringBuffer.append(this.yeared);
-				stringBuffer.append(".");
 			} else {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
 				stringBuffer.append("on going");
-				stringBuffer.append(".");
 			}
 		}
+		
+		stringBuffer.append(".");
 		
 		return stringBuffer.toString();
 	}
