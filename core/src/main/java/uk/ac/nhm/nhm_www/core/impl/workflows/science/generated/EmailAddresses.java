@@ -8,6 +8,9 @@
 
 package uk.ac.nhm.nhm_www.core.impl.workflows.science.generated;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,7 +45,7 @@ import javax.xml.bind.annotation.XmlType;
 public class EmailAddresses {
 
     @XmlElement(name = "email-address", required = true)
-    protected EmailAddress emailAddress;
+    protected List<EmailAddress> emailAddress;
 
     /**
      * Gets the value of the emailAddress property.
@@ -52,20 +55,11 @@ public class EmailAddresses {
      *     {@link EmailAddress }
      *     
      */
-    public EmailAddress getEmailAddress() {
-        return emailAddress;
-    }
-
-    /**
-     * Sets the value of the emailAddress property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EmailAddress }
-     *     
-     */
-    public void setEmailAddress(EmailAddress value) {
-        this.emailAddress = value;
+    public List<EmailAddress> getEmailAddress() {
+    	if (emailAddress == null) {
+    		emailAddress = new ArrayList<EmailAddress>();
+        }
+        return this.emailAddress;
     }
 
 }
