@@ -238,7 +238,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         personalInfo.setProperty(ScientistProfileHelper.ARRIVE_DATE_ATTRIBUTE, ns1.getObject().getArriveDate());
         personalInfo.setProperty(ScientistProfileHelper.POSITION_ATTRIBUTE	 , ns1.getObject().getPosition());
         personalInfo.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE , ns1.getObject().getDepartment());
-        //personalInfo.setProperty(ScientistProfileHelper.EMAIL_ATTRIBUTE	 	 , ns1.getObject().getEmailAddress().getContent().get(0).toString());
         
         final List<Field> fields = ns1.getObject().getRecords().getRecord().get(0).getNative().getField();
         
