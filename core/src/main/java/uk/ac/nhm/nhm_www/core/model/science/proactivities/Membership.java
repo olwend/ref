@@ -64,11 +64,12 @@ public class Membership extends ProfessionalActivity {
 					if (this.url != null) {
 						stringBuffer.append("</a>");
 					}
-					if (institution.getCity() != null || institution.getCountry() != null || this.yearsd != null) {
+					if (institution.getName() != null || institution.getCity() != null || institution.getCountry() != null || this.yearsd != null) {
 						stringBuffer.append(", ");
 					}
 				}
-				else if (institution.getName() != null) {
+
+				if (institution.getName() != null) {
 					if (this.url != null) {
 						stringBuffer.append("<a href=\"");
 						stringBuffer.append(this.url);
