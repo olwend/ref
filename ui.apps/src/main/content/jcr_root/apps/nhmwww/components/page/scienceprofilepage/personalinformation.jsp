@@ -56,22 +56,39 @@
 				<%-- Email addresses --%>
 				<% final List<EmailAddress> emails = helper.getEmails();
 				if (emails != null && !emails.isEmpty()) {
-					if(emails.size() == 1) { %>
-						<span class="science-profiles-detail-page--personal--label">Contact:</span> 
-						
-						<%if(emails.get(0).getType().equals("work")) {%>
-							<a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=
-							<%=emails.get(0).getEmailAddress().replace("@nhm.ac.uk", "")%>
-							&business_title=
-							"> email</a> <br>
+					String otherWork = "";
+					int count = 0;
+					for(EmailAddress e : emails) {
+						if(e.getType().equals("work")) {
+							if(e.getEmailAddress().contains("@nhm.ac.uk")) {%>
+								<span class="science-profiles-detail-page--personal--label">Contact:</span> 
+								<a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=
+								<%=e.getEmailAddress().replace("@nhm.ac.uk", "")%>
+								&business_title=
+								<% if (helper.getNickName() != null ) { %>
+				                    <%=helper.getNickName()%>+<%=helper.getLastName()%>
+				                <% } else { %>
+				                    <%=helper.getFirstName()%>+<%=helper.getLastName()%>
+				                <% } %>
+								"> email</a> <br>
+							<%}
+							else {
+								otherWork = otherWork + e.getEmailAddress() + ", ";
+								count++;
+							}
+						}
+					}
+					if(!otherWork.equals(null)) {
+						if(count > 1) {%>							
+							<span class="science-profiles-detail-page--personal--label">Other emails:</span>
 						<%}
-						else {
-							emails.get(0).getEmailAddress();
-						}%>
-						
+						else {%>
+							<span class="science-profiles-detail-page--personal--label">Other email:</span>
+						<%}%>
+						<%=otherWork.replaceAll(", $", "") %>
+						<br>
 					<%}
-				}%>
-				
+				}%>				
 				
 				<%-- Phones --%><% 
 				final List<PhoneNumber> phones = helper.getPhones();
