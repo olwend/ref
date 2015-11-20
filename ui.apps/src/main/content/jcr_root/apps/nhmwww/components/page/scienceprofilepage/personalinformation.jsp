@@ -78,7 +78,7 @@
 							}
 						}
 					}
-					if(!otherWork.equals(null)) {
+					if(!otherWork.equals("")) {
 						if(count > 1) {%>							
 							<span class="science-profiles-detail-page--personal--label">Other emails:</span>
 						<%}
