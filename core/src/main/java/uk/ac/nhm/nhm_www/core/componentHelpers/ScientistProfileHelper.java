@@ -20,6 +20,7 @@ import uk.ac.nhm.nhm_www.core.model.science.Book;
 import uk.ac.nhm.nhm_www.core.model.science.BookChapter;
 import uk.ac.nhm.nhm_www.core.model.science.ConferenceProceedings;
 import uk.ac.nhm.nhm_www.core.model.science.Dataset;
+import uk.ac.nhm.nhm_www.core.model.science.EmailAddress;
 import uk.ac.nhm.nhm_www.core.model.science.Exhibition;
 import uk.ac.nhm.nhm_www.core.model.science.InternetPublication;
 import uk.ac.nhm.nhm_www.core.model.science.JournalArticle;
@@ -215,6 +216,9 @@ public class ScientistProfileHelper {
 	private static final String LASTNAME_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + LASTNAME_ATTRIBUTE;
 	private static final String NICKNAME_ATTRIBUTE_NAME    	  = PERSONAL_INFORMATION_NODE_NAME + "/" + KNOWS_AS_ATTRIBUTE;
 	private static final String EMAIL_ATTRIBUTE_NAME 	   	  = PERSONAL_INFORMATION_NODE_NAME + "/" + EMAIL_ATTRIBUTE;
+	public static final String EMAIL_ADDRESS_PREFIX_NODE_NAME = "emailaddress";
+	public static final String EMAIL_ADDRESSES_NODE_NAME	  = "emailaddresses";
+	private static final String EMAIL_ADDRESSES_NODE_PATH 	  = PERSONAL_INFORMATION_NODE_NAME + "/" + EMAIL_ADDRESSES_NODE_NAME;
 	private static final String STATEMENT_ATTRIBUTE_NAME   	  = PERSONAL_INFORMATION_NODE_NAME + "/" + STATEMENT_ATTRIBUTE;
 	private static final String PHONE_ATTRIBUTE_NAME	   	  = PERSONAL_INFORMATION_NODE_NAME + "/" + PHONE_ATTRIBUTE;
 	private static final String SPECIALISMS_ATTRIBUTE_NAME 	  = PERSONAL_INFORMATION_NODE_NAME + "/" + SPECIALISMS_ATTRIBUTE;
@@ -561,6 +565,10 @@ public class ScientistProfileHelper {
 		return this.extractPhones(PHONE_NUMBERS_NODE_PATH);
 	}
 	
+	public List<EmailAddress> getEmails() {
+		return this.extractEmails(EMAIL_ADDRESSES_NODE_PATH);
+	}
+	
 	public boolean hasGroup() {
 		return this.properties.get(GROUP_PATH_ATTRIBUTE_NAME, String.class) != null;
 	}
@@ -664,6 +672,33 @@ public class ScientistProfileHelper {
 				}
 			}
 		}
+		return result;
+	}
+	
+	private List<EmailAddress> extractEmails(final String nodeName) {
+		final List<EmailAddress> result = new ArrayList<EmailAddress>();
+		
+		final Resource emailsResource = this.resource.getChild(nodeName);
+		
+		if(emailsResource == null) {
+			return result;
+		}
+		
+		final Iterator<Resource> children = emailsResource.listChildren();
+		
+		while(children.hasNext()) {
+			final Resource child = children.next();
+			
+			if(child.getName().startsWith(EMAIL_ADDRESS_PREFIX_NODE_NAME)) {
+				final ValueMap childProperties = child.adaptTo(ValueMap.class);
+				
+				final EmailAddress email = new EmailAddress(childProperties.get(EMAIL_ATTRIBUTE, String.class), childProperties.get(LABEL_ATTRIBUTE, String.class));
+				
+				//TODO - validation
+				result.add(email);
+			}
+		}
+		
 		return result;
 	}
 	

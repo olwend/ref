@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.jcr.ItemExistsException;
 import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
@@ -49,6 +50,7 @@ import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.AcademicAppointme
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Address;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degree;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Degrees;
+import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.EmailAddress;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Field;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Line;
 import uk.ac.nhm.nhm_www.core.impl.workflows.science.generated.Link;
@@ -236,7 +238,6 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         personalInfo.setProperty(ScientistProfileHelper.ARRIVE_DATE_ATTRIBUTE, ns1.getObject().getArriveDate());
         personalInfo.setProperty(ScientistProfileHelper.POSITION_ATTRIBUTE	 , ns1.getObject().getPosition());
         personalInfo.setProperty(ScientistProfileHelper.DEPARTMENT_ATTRIBUTE , ns1.getObject().getDepartment());
-        personalInfo.setProperty(ScientistProfileHelper.EMAIL_ATTRIBUTE	 	 , ns1.getObject().getEmailAddress().getContent().get(0).toString());
         
         final List<Field> fields = ns1.getObject().getRecords().getRecord().get(0).getNative().getField();
         
@@ -244,6 +245,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         	switch (field.getName()) {
         		case "personal-websites":
         			this.setWebsitesAndBlog(personalInfo, field);
+        			break;
+        		case "email-addresses":
+        			this.addEmails(personalInfo, field);
         			break;
         		case "phone-numbers":
         			this.addPhones(personalInfo, field);
@@ -253,6 +257,24 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         			break;
         	}
         }
+    }
+    
+    private void addEmails(final Node personalInfo, final Field emailField) throws ItemExistsException, PathNotFoundException, VersionException, ConstraintViolationException, LockException, RepositoryException {
+    	final Node emailAddressesNode = personalInfo.addNode(ScientistProfileHelper.EMAIL_ADDRESSES_NODE_NAME);
+    	final List<EmailAddress> emailAddresses = emailField.getEmailAddresses().getEmailAddress();
+    	
+    	int count = 0;
+    	
+    	for(final EmailAddress emailAddress : emailAddresses) {
+    		if(emailAddress != null && TYPE_PRIVACITY_PUBLIC.equals(emailAddress.getPrivacy())) {
+    			String address = emailAddress.getAddress();
+    			String type = emailAddress.getType();
+    			
+    			final Node emailAddressNode = emailAddressesNode.addNode(ScientistProfileHelper.EMAIL_ADDRESS_PREFIX_NODE_NAME + "_" + count++);
+    			emailAddressNode.setProperty(ScientistProfileHelper.EMAIL_ATTRIBUTE, address);
+    			emailAddressNode.setProperty(ScientistProfileHelper.LABEL_ATTRIBUTE, type);
+    		}
+    	}
     }
     
     private void addPhones(final Node personalInfo, final Field phoneField) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException {

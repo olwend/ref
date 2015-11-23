@@ -10,10 +10,12 @@ package uk.ac.nhm.nhm_www.core.impl.workflows.science.generated;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
@@ -47,17 +49,24 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+    "address",
+    "type"
 })
 @XmlRootElement(name = "email-address")
 public class EmailAddress {
 
-    @XmlElementRefs({
-        @XmlElementRef(name = "address", namespace = "http://www.symplectic.co.uk/publications/api", type = Address.class, required = false),
-        @XmlElementRef(name = "type", namespace = "http://www.symplectic.co.uk/publications/api", type = JAXBElement.class, required = false)
-    })
-    @XmlMixed
-    protected List<java.lang.Object> content;
+//    @XmlElementRefs({
+//        @XmlElementRef(name = "address", namespace = "http://www.symplectic.co.uk/publications/api", type = Address.class, required = false),
+//        @XmlElementRef(name = "type", namespace = "http://www.symplectic.co.uk/publications/api", type = JAXBElement.class, required = false)
+//    })
+//    @XmlMixed
+//    protected List<java.lang.Object> content;
+	@XmlElement(required = true)
+    protected String address;
+    @XmlElement(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NCName")
+    protected String type;
     @XmlAttribute(name = "privacy")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -87,13 +96,29 @@ public class EmailAddress {
      * 
      * 
      */
-    public List<java.lang.Object> getContent() {
-        if (content == null) {
-            content = new ArrayList<java.lang.Object>();
-        }
-        return this.content;
-    }
+//    public List<java.lang.Object> getContent() {
+//        if (content == null) {
+//            content = new ArrayList<java.lang.Object>();
+//        }
+//        return this.content;
+//    }
 
+    public String getAddress() {
+    	return address;
+    }
+    
+    public void setAddress(String address) {
+    	this.address = address;
+    }
+    
+    public String getType() {
+    	return type;
+    }
+    
+    public void setType(String type) {
+    	this.type = type;
+    }
+    
     /**
      * Gets the value of the privacy property.
      * 
