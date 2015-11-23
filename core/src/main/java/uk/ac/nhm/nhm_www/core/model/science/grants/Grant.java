@@ -107,12 +107,12 @@ public class Grant extends GrantTemplate {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
 				stringBuffer.append(this.yeared);
-				stringBuffer.append(".");
+				//stringBuffer.append(".");
 			} else {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
 				stringBuffer.append("on going");
-				stringBuffer.append(".");
+				//stringBuffer.append(".");
 			}
 		}
 		

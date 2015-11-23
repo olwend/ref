@@ -1437,7 +1437,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							}
 							break;
 							
-						case "c-end-date":
+						case "end-date":
 							final BigInteger endYear = field.getDate().getYear();
 							final BigInteger endMonth = field.getDate().getMonth();
 							final BigInteger endDay = field.getDate().getDay();
@@ -1452,7 +1452,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							}
 							break;
 
-						case "c-start-date":
+						case "start-date":
 							final BigInteger startYear = field.getDate().getYear();
 							final BigInteger startMonth = field.getDate().getMonth();
 							final BigInteger startDay = field.getDate().getDay();
