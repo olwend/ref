@@ -7830,4 +7830,121 @@ a.button-cta {
   background-color: rgba(78, 134, 178, 0.95);
 }
 
+/** WR-638 enews signup component **/
+.button__enews-signup {
+  padding: 0.6em 2em;
+  margin-bottom: 0;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+
+.visit .button__enews-signup {
+  background-color: #A1164E;
+}
+.visit .button__enews-signup:hover {
+  background-color: rgba(161, 22, 78, 0.75);
+}
+.visit .button__enews-signup:focus {
+  background-color: rgba(161, 22, 78, 0.75);
+}
+
+.take-part .button__enews-signup {
+  background-color: #BF491F;
+}
+.take-part .button__enews-signup:hover {
+  background-color: rgba(191, 73, 31, 0.75);
+}
+.take-part .button__enews-signup:focus {
+  background-color: rgba(191, 73, 31, 0.75);
+}
+
+.support-us .button__enews-signup {
+  background-color: #7F206E;
+}
+.support-us .button__enews-signup:hover {
+  background-color: rgba(127, 32, 110, 0.75);
+}
+.support-us .button__enews-signup:focus {
+  background-color: rgba(127, 32, 110, 0.75);
+}
+
+.schools .button__enews-signup {
+  background-color: #0983BB;
+}
+.schools .button__enews-signup:hover {
+  background-color: rgba(9, 131, 187, 0.75);
+}
+.schools .button__enews-signup:focus {
+  background-color: rgba(9, 131, 187, 0.75);
+}
+
+.our-science .button__enews-signup {
+  background-color: #357900;
+}
+.our-science .button__enews-signup:hover {
+  background-color: rgba(53, 121, 0, 0.75);
+}
+.our-science .button__enews-signup:focus {
+  background-color: rgba(53, 121, 0, 0.75);
+}
+
+.discover .button__enews-signup {
+  background-color: #565656;
+}
+.discover .button__enews-signup:hover {
+  background-color: rgba(86, 86, 86, 0.75);
+}
+.discover .button__enews-signup:focus {
+  background-color: rgba(86, 86, 86, 0.75);
+}
+
+.about-us .button__enews-signup {
+  background-color: #0B5C7B;
+}
+.about-us .button__enews-signup:hover {
+  background-color: rgba(11, 92, 123, 0.75);
+}
+.about-us .button__enews-signup:focus {
+  background-color: rgba(11, 92, 123, 0.75);
+}
+
+.contact-us .button__enews-signup {
+  background-color: #808080;
+}
+.contact-us .button__enews-signup:hover {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+.contact-us .button__enews-signup:focus {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+
+.business-services .button__enews-signup {
+  background-color: #253480;
+}
+.business-services .button__enews-signup:hover {
+  background-color: rgba(37, 52, 128, 0.75);
+}
+.business-services .button__enews-signup:focus {
+  background-color: rgba(37, 52, 128, 0.75);
+}
+
+.press-office .button__enews-signup {
+  background-color: #107E5E;
+}
+.press-office .button__enews-signup:hover {
+  background-color: rgba(16, 126, 94, 0.75);
+}
+.press-office .button__enews-signup:focus {
+  background-color: rgba(16, 126, 94, 0.75);
+}
+
+.account .button__enews-signup {
+  background-color: #00385D;
+}
+.account .button__enews-signup:hover {
+  background-color: rgba(0, 56, 93, 0.75);
+}
+.account .button__enews-signup:focus {
+  background-color: rgba(0, 56, 93, 0.75);
+}
+
 /*# sourceMappingURL=styles.css.map */
