@@ -9,6 +9,12 @@ public class Institution {
 	protected String city;
 	protected String country;
 
+	@Override
+	public String toString() {
+		return "Institution [name=" + name + ", organisation=" + organisation
+				+ ", city=" + city + ", country=" + country + "]";
+	}
+
 	public Institution(JSONObject jsonObject) {
 		try {
 			this.name = jsonObject.getString("name");

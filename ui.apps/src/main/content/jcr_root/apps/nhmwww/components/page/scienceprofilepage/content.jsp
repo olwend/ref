@@ -70,7 +70,7 @@
 					<% } %>
 					
 					<% if (displayTeachingActivitiesTab) { %>
-						<li class="tab-title"><a href="#panel5">Teaching activities</a></li> 
+						<li class="tab-title"><a href="#panel5">Teaching and students</a></li> 
 					<% } %>
 					
 					<% if (displayImpactAndOutreach) { %>
@@ -142,7 +142,7 @@
 					<% } %>
 					<% if (displayTeachingActivitiesTab) { %>
 						<dd class="accordion-navigation">
-							<a href="#panel5d">Teaching activities</a>
+							<a href="#panel5d">Teaching and students</a>
 							<div id="panel5d" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="teachingactivities.jsp" />
 							</div>

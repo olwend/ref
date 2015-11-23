@@ -116,5 +116,16 @@ public abstract class Publication implements Comparable<Publication> {
 		//We surround it with # to delimit the beginning and the end of the name.
 		return "#" + ret + "#";
 	}
+    
+    /**
+     * Returns the surname and first initial of a given author
+     * @param fullName	the name of the author
+     * @return			the surname and first initial of the author
+     */
+    public static String getSurname(String fullName) {
+    	List<String> nameList = new ArrayList(Arrays.asList(fullName.split(" ")));
+    	String surname = nameList.get(0) + " " + nameList.get(1).charAt(0);
+    	return surname;
+    }
 
 }

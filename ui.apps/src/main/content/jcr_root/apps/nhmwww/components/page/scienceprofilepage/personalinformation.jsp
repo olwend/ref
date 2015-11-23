@@ -1,5 +1,6 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page import="uk.ac.nhm.nhm_www.core.model.science.PhoneNumber,
+				uk.ac.nhm.nhm_www.core.model.science.EmailAddress,
 				uk.ac.nhm.nhm_www.core.model.science.WebSite,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
 				java.util.List,
@@ -52,15 +53,42 @@
 				<span class="science-profiles-detail-page--personal--label">Division:</span> 
 					<%= division %> <br>
 				
-				<%-- Email --%>
-				<% String emailPartial = email.replaceAll("@(.*)",""); %>
-				<span class="science-profiles-detail-page--personal--label">Contact:</span> <a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=<%=emailPartial%>&business_title=
-				<% if (helper.getNickName() != null ) { %>
-					<%=helper.getNickName()%>+<%=helper.getLastName()%>
-				<% } else { %>
-					<%=helper.getFirstName()%>+<%=helper.getLastName()%>
-				<% } %>
-				"> email</a> <br>
+				<%-- Email addresses --%>
+				<% final List<EmailAddress> emails = helper.getEmails();
+				if (emails != null && !emails.isEmpty()) {
+					String otherWork = "";
+					int count = 0;
+					for(EmailAddress e : emails) {
+						if(e.getType().equals("work")) {
+							if(e.getEmailAddress().contains("@nhm.ac.uk")) {%>
+								<span class="science-profiles-detail-page--personal--label">Contact:</span> 
+								<a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=
+								<%=e.getEmailAddress().replace("@nhm.ac.uk", "")%>
+								&business_title=
+								<% if (helper.getNickName() != null ) { %>
+				                    <%=helper.getNickName()%>+<%=helper.getLastName()%>
+				                <% } else { %>
+				                    <%=helper.getFirstName()%>+<%=helper.getLastName()%>
+				                <% } %>
+								"> email</a> <br>
+							<%}
+							else {
+								otherWork = otherWork + e.getEmailAddress() + ", ";
+								count++;
+							}
+						}
+					}
+					if(!otherWork.equals("")) {
+						if(count > 1) {%>							
+							<span class="science-profiles-detail-page--personal--label">Other emails:</span>
+						<%}
+						else {%>
+							<span class="science-profiles-detail-page--personal--label">Other email:</span>
+						<%}%>
+						<%=otherWork.replaceAll(", $", "") %>
+						<br>
+					<%}
+				}%>				
 				
 				<%-- Phones --%><% 
 				final List<PhoneNumber> phones = helper.getPhones();

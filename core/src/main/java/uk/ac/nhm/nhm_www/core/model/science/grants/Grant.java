@@ -44,22 +44,34 @@ public class Grant extends GrantTemplate {
 		final List<String> principals = this.principalInvestigators;
 		if (principals != null && principals.size() > 0) {
 			String principalsString = StringUtils.join(principals.toArray(new String[principals.size()]), ", ");
-			principalsString = principalsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
-			stringBuffer.append("Principal investigator: ");
-			stringBuffer.append(principalsString);
-			stringBuffer.append("<br/>");
+			if(principalsString.contains(currentAuthor)) {
+				//principalsString = principalsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+				stringBuffer.append("Role: Principal investigator");
+				stringBuffer.append("<br/>");
+			}
+			else {
+				stringBuffer.append("Role: Principal investigator");
+				stringBuffer.append(principalsString);
+				stringBuffer.append("<br/>");
+			}
 		}
 		
 		// CoInvestigator INV, CoInvestigator INV
 		final List<String> coInvs = this.coInvestigators;
 		if (coInvs != null && coInvs.size() > 0) {
 			String coInvsString = StringUtils.join(coInvs.toArray(new String[coInvs.size()]), ", ");
-			coInvsString = coInvsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 			
-			stringBuffer.append("Co-investigator: ");
-			stringBuffer.append(coInvsString);
-			stringBuffer.append("<br/>");
+			if(coInvsString.contains(currentAuthor)) {
+				//coInvsString = coInvsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
+				stringBuffer.append("Role: Co-investigator");
+				stringBuffer.append("<br/>");
+			}
+			else {
+				stringBuffer.append("Co-investigator: ");
+				stringBuffer.append(coInvsString);
+				stringBuffer.append("<br/>");
+			}
 		}	
 		
 		// FunderName
@@ -95,12 +107,12 @@ public class Grant extends GrantTemplate {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
 				stringBuffer.append(this.yeared);
-				stringBuffer.append(".");
+				//stringBuffer.append(".");
 			} else {
 				stringBuffer.append(this.yearsd);
 				stringBuffer.append(" - ");
 				stringBuffer.append("on going");
-				stringBuffer.append(".");
+				//stringBuffer.append(".");
 			}
 		}
 		
