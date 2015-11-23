@@ -93,6 +93,7 @@ public class ScientistProfileHelper {
 	public static final String END_DATE_ATTRIBUTE 		  = "endDate";
 	public static final String END_PAGE_ATTRIBUTE 		  = "endPage";
 	public static final String INITIALS_ATTRIBUTE		  = "initials";
+	public static final String PREFERRED_ATTRIBUTE		  = "isPreferred";
 	public static final String FAVORITE_ATTRIBUTE 		  = "isFavourite";
 	public static final String FIRSTNAME_ATTRIBUTE		  = "firstName";
 	public static final String FROM_ATTRIBUTE 			  = "from";
@@ -775,6 +776,7 @@ public class ScientistProfileHelper {
 				final String title = childProperties.get(TITLE_ATTRIBUTE, String.class);
 				final String publicationYear = childProperties.get(PUBLICATION_DATE_ATTRIBUTE, String.class);
 				final String type = childProperties.get(TYPE_ATTRIBUTE, String.class);
+				//final boolean preferred = childProperties.get(PREFERRED_ATTRIBUTE, false);
 				final boolean favorite = childProperties.get(FAVORITE_ATTRIBUTE, false);
 				final String[] authors = childProperties.get(AUTHORS_ATTRIBUTE, String[].class);
 				final String reportingDate;
