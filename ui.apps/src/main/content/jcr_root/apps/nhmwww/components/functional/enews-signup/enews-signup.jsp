@@ -49,7 +49,7 @@
 			</div>
 			<input type="text" name="question" class="question"> <input
 				type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
-			<h4><%=helper.getDataProtection()%></h4>
+			<p><%=helper.getDataProtection()%></p>
 			<button class="button__enews-signup">Sign up</button>
 			<div class="errors"></div>
 		</form>
