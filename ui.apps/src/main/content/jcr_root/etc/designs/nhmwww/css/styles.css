@@ -7846,6 +7846,13 @@ a.button-cta {
   border-bottom-color: #565656;
   color: #565656;
 }
+.enews-signup-form-container form {
+  margin-bottom: 0;
+}
+.enews-signup-form-container .errors {
+  margin-top: 10px;
+  color: #A1164E;
+}
 
 .button__enews-signup {
   padding: 0.6em 2em;
