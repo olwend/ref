@@ -6204,14 +6204,21 @@ h6 {
 
 @media screen and (min-width: 1024px) {
   .global-header-info {
-    right: 2px;
-    width: 49%;
+    right: 9px;
+    width: 32%;
   }
 }
 @media screen and (min-width: 1160px) {
   .global-header-info {
-    right: -50px;
-    width: 46%;
+    right: -55px;
+  }
+}
+.global-header-info .global-header-info__item--last {
+  padding-right: 0;
+}
+@media screen and (min-width: 768px) {
+  .global-header-info .global-header-info__item--last {
+    padding-right: 20px;
   }
 }
 
