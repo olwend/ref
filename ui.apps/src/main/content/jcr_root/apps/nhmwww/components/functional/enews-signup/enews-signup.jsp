@@ -35,23 +35,23 @@
 <%
 	}
 %>
-	<div class="js-enews-signup enews-signup-form-container">
-		<form
-			action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
-			method="get">
-			<div class="form-field firstname">
-				<label for="name">Full name</label> <input type="text" name="name"
-					class="item-input">
-			</div>
-			<div class="form-field email">
-				<label for="email">Email address</label> <input type="text"
-					name="email" class="item-input">
-			</div>
-			<input type="text" name="question" class="question"> <input
-				type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
-			<p><%=helper.getDataProtection()%></p>
-			<button class="button__enews-signup">Sign up</button>
-			<div class="errors"></div>
-		</form>
-	</div>
+</div>
+<div class="js-enews-signup enews-signup-form-container">
+	<form
+		action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
+		method="get">
+		<div class="form-field firstname">
+			<label for="name">Full name</label> <input type="text" name="name"
+				class="item-input">
+		</div>
+		<div class="form-field email">
+			<label for="email">Email address</label> <input type="text"
+				name="email" class="item-input">
+		</div>
+		<input type="text" name="question" class="question"> <input
+			type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
+		<p><%=helper.getDataProtection()%></p>
+		<button class="button__enews-signup">Sign up</button>
+		<div class="errors"></div>
+	</form>
 </div>
