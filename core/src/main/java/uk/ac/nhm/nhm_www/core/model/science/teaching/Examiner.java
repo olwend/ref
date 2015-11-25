@@ -56,8 +56,9 @@ public class Examiner extends TeachingActivityTemplate {
 			}
 			stringBuffer.append("<br>");
 		}
-		
+
 		if ( institutions != null ){
+
 			for (Institution institution : institutions) {
 				// InstitutionName,_ 
 				if (institution.getOrganisation() != null){

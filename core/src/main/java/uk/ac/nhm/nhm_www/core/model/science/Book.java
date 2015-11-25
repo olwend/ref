@@ -37,6 +37,7 @@ public class Book extends Publication{
 		// First we normalize the author's name e.g: 
 		// Ouvrard D N M  || OUVRARD DNM >> will become Ouvrard DNM
 		String currentAuthor = normalizeName(author, false);
+		String surname = getSurname(author);
 		String firstInitial = normalizeName(currentAuthor, true);
 		
 		Iterator<String> authorsIt = authors.iterator();
@@ -56,18 +57,24 @@ public class Book extends Publication{
 		//		LOG.error("This is the list of authors parsed: " + authorsString);
 		//		LOG.error("Current Author: " + currentAuthor);
 		//		LOG.error("First Initial Author: " + firstInitial);
-		if (authorsString.contains(currentAuthor)) {
+			
+		
+		/*if (authorsString.contains(currentAuthor)) {
 			authorsString = authorsString.replaceAll(currentAuthor, "<b>" + currentAuthor + "</b>");
 		} else if (authorsString.contains(firstInitial)) {
-			authorsString = authorsString.replaceAll(firstInitial, "<b>" + currentAuthor + "</b>");
+			authorsString = authorsString.replaceAll(firstInitial, "<b>" + firstInitial + "</b>");
+		} else*/ 
+		if (authorsString.contains(surname)) {
+			authorsString = authorsString.replaceAll(surname + "[A-Z]*", "<b>$0</b>");
 		}
+		
 		//Remove name delimiters placed there by the normalizer
 		authorsString = authorsString.replaceAll("#", "");
 		
 //		LOG.error("After being replaced: " + authorsString);
 		
 		final StringBuffer stringBuffer = new StringBuffer();
-//		stringBuffer.append("####This is a Book Publication####");
+		//stringBuffer.append("####This is a Book Publication####");
 		
 		// Author NM, Author NM
 		stringBuffer.append(authorsString);

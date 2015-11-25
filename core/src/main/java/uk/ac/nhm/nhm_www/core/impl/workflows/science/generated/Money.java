@@ -58,7 +58,7 @@ public class Money {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link BigDecimal }
      *     
      */
     public BigDecimal getValue() {
@@ -70,7 +70,7 @@ public class Money {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link BigDecimal }
      *     
      */
     public void setValue(BigDecimal value) {

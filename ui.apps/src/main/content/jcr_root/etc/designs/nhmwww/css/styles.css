@@ -7808,4 +7808,26 @@ a.button-cta {
   list-style-type: none !important;
 }
 
+.nav-list.level-2 .dropdown-section--thumb .nav-list__item a {
+  padding: 0;
+  font-size: 100%;
+}
+
+/** WR-680 retail megamenu **/
+.nav-list.level-1 > .nav-list__item {
+  background-color: #ffffff;
+  padding-bottom: 0;
+}
+.nav-list.level-1 > .nav-list__item.selected {
+  background-color: #000000;
+  color: #ffffff;
+}
+.nav-list.level-1 > .nav-list__item.shop {
+  overflow: visible;
+}
+
+.mega-thumb-caption.shop {
+  background-color: rgba(78, 134, 178, 0.95);
+}
+
 /*# sourceMappingURL=styles.css.map */

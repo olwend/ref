@@ -9,6 +9,8 @@
     final boolean displayPublicationsTab = helper.displayPublicationsTab(resource);
     final boolean displayProjectsTab = helper.displayProjectsTab(resource);
     final boolean displayTeachingActivitiesTab = helper.displayTeachingActivitiesTab(resource);
+    final boolean displayImpactAndOutreach = helper.displayImpactAndOutreachTab(resource);
+    
     String firstName = "";
     if(helper.getNickName() != null && !helper.getNickName().equals("")){
         firstName = helper.getNickName();
@@ -68,7 +70,11 @@
 					<% } %>
 					
 					<% if (displayTeachingActivitiesTab) { %>
-						<li class="tab-title"><a href="#panel5">Teaching activities</a></li> 
+						<li class="tab-title"><a href="#panel5">Teaching and students</a></li> 
+					<% } %>
+					
+					<% if (displayImpactAndOutreach) { %>
+						<li class="tab-title"><a href="#panel6">Impact and outreach</a></li> 
 					<% } %>
 				</ul>
 				<div class="tabs-content">
@@ -93,6 +99,11 @@
 					<% if (displayTeachingActivitiesTab) { %>
 						<div class="content" id="panel5">
 							<cq:include script="teachingactivities.jsp" />
+						</div>
+					<% } %>
+					<% if (displayImpactAndOutreach) { %>
+						<div class="content" id="panel6">
+							<cq:include script="impactandoutreach.jsp" />
 						</div>
 					<% } %>
 				</div>
@@ -131,9 +142,17 @@
 					<% } %>
 					<% if (displayTeachingActivitiesTab) { %>
 						<dd class="accordion-navigation">
-							<a href="#panel5d">Teaching activities</a>
+							<a href="#panel5d">Teaching and students</a>
 							<div id="panel5d" class="content science-profiles-detail-page--accordion-content-container">
 								<cq:include script="teachingactivities.jsp" />
+							</div>
+						</dd>
+					<% } %>
+					<% if (displayImpactAndOutreach) { %>
+						<dd class="accordion-navigation">
+							<a href="#panel6e">Impact and outreach</a>
+							<div id="panel6e" class="content science-profiles-detail-page--accordion-content-container">
+								<cq:include script="impactandoutreach.jsp" />
 							</div>
 						</dd>
 					<% } %>

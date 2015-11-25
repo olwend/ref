@@ -113,18 +113,16 @@
                                 </div>
                                 <div class="dropdown-section dropdown-section--thumb">
                                     <li class="nav-list__item">
-
-                                        <div class="mega-thumb">
-                
-                                            <img src="/etc/designs/nhmwww/img/megamenu/cta-header-take-part.jpg" alt="Get involved with nature">
-           
-                                            <div class="mega-thumb-caption take-part">
-                                                    <p>
-                                                       Get involved with nature 
-                                                    </p>
-                                            </div>
-                                        </div>
-                                      
+	                                    <a href="/content/nhmwww/en/home/take-part.html">
+	                                        <div class="mega-thumb">
+		                                        <img src="/etc/designs/nhmwww/img/megamenu/cta-header-take-part.jpg" alt="Get involved with nature">
+	                                            <div class="mega-thumb-caption take-part">
+	                                                   <p>
+	                                                      Get involved with nature 
+	                                                   </p>
+	                                            </div>
+	                                        </div>
+	                                    </a>
                                     </li>
                                 </div>
                             </ul>
@@ -172,21 +170,75 @@
                                 </div>
                                
                                  <div class="dropdown-section dropdown-section--thumb">
-                                    <li class="nav-list__item">
-                                 <div class="mega-thumb">
-                                        <img src="/etc/designs/nhmwww/img/megamenu/cta-header-support-us.jpg" alt="Support our vital work">
-                                            <div class="mega-thumb-caption support-us">
+                                 	<li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us.html">
+	                                 		<div class="mega-thumb">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-support-us.jpg" alt="Support our vital work">
+                                        		<div class="mega-thumb-caption support-us">
                                                     <p>
                                                        Support our vital work 
                                                     </p>
-                                            </div>
-                                        </div>
-                                        </li>  
-                                </div>
+                                            	</div>
+	                                        </div>
+	                                   	</a>
+                                   	</li>  
+                               	</div>
                             </ul>
                         </li>
-                        <li class="nav-list__item">
+                        <li class="nav-list__item has-children shop">
                             <a href="http://www.nhmshop.co.uk">Shop</a>
+                            <ul class="nav-list level-2">
+                                <div class="dropdown-section">
+                                	<li class="nav-list__item mobile touchonly first">
+                                        <a href="http://www.nhmshop.co.uk">Shop home</a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/prints.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-prints-wpy&utm_content=meganav-link-1">Wildlife Photographer of the Year 2015 prints</a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-2">Dinosaur toys</a>
+                                       
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/latest-offers.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-nhm-meganav-link&utm_content=meganav-link-3">Latest offers</a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas</a>
+                                    </li>
+                                </div>
+                                
+                                <div class="dropdown-section">
+                                    <p></p>
+                                    <p class="nav-callout tablet desktop">
+                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. Order by 23 December for Christmas delivery. All sales support the Museum.</p>
+                                        <br/>
+									<li class="nav-list__item">
+                                        <ul class="nav-list level-3">
+                                            <li>
+                                                <a class="nav-button arrow" data-gtm="CTA" href="http://www.nhmshop.co.uk?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm&utm_content=shop-now-button">Shop now
+                                            </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                        	
+                                        
+                                    </div>
+                                
+                                  <div class="dropdown-section dropdown-section--thumb">
+                                  	<li class="nav-list__item">
+                                  		<a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-image-1">
+                                  			<div class="mega-thumb">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Buy Christmas gifts now">
+	                                        	<div class="mega-thumb-caption shop">
+                                                    <p>
+                                                       Buy Christmas gifts now
+                                                    </p>
+	                                            </div>
+	                                        </div>
+	                                   	</a>
+                                   	</li>  
+                                </div>
+                            </ul>
                         </li>
                         <li class="nav-list__item has-children schools">
                             <a href="/content/nhmwww/en/home/schools.html">Schools</a>
@@ -216,19 +268,19 @@
                                     </div>
                                 
                                   <div class="dropdown-section dropdown-section--thumb">
-                                    <li class="nav-list__item">
-                                 <div class="mega-thumb">
-                                        <img src="/etc/designs/nhmwww/img/megamenu/cta-header-schools.jpg" alt="Plan your school visit">
-                                            <div class="mega-thumb-caption schools">
+                                  	<li class="nav-list__item">
+                                  		<a href="/content/nhmwww/en/home/schools.html">
+                                  			<div class="mega-thumb">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-schools.jpg" alt="Plan your school visit">
+	                                        	<div class="mega-thumb-caption schools">
                                                     <p>
                                                        Plan your school visit
                                                     </p>
-                                            </div>
-                                        </div>
-                                        
-                                        </li>  
+	                                            </div>
+	                                        </div>
+	                                   	</a>
+                                   	</li>  
                                 </div>
-                                
                             </ul>
                         </li>
                         <li class="nav-list__item has-children">

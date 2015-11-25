@@ -230,28 +230,71 @@ jQuery(document).ready(function() {
 	        onAfterSlide: function(){
 	            var currentSlide = carousel.getCurrentSlideCount(),
 	                totalSlides = carousel.find('li').length,
+	                // set variable names for the previous and next arrows
 	                prev = carousel.closest('.lSSlideOuter').find('.lSPrev'),
 	                next = carousel.closest('.lSSlideOuter').find('.lSNext');
-	            if(currentSlide===1){
-	                prev.fadeOut(100);
-	                next.fadeIn(100);
-	            } else if (currentSlide===totalSlides){
-	                prev.fadeIn(100);
-	                next.fadeOut(100);
-	            } else {
-	                prev.fadeIn(100);
-	                next.fadeIn(100); 
-	            }
-	        },
-            onSliderLoad: function(){ 
-                var width = $this.closest('.carousel-wrapper').width(),
-                    thumbWidth = Math.ceil((width/items)-(items));
-                sliderOuter.find('.lSGallery').find('li').css('min-width', thumbWidth+"px").css('max-width', thumbWidth+"px");
-            }
-        });
 
-        var sliderOuter = carousel.closest('.lSSlideOuter');
-        sliderOuter.find('.lSAction').addClass('desktop'); 
+	            // if the current slide is the first slide    
+	            if (currentSlide===1){
+	            	// and if the window width is less than 1025px       			
+	            	if (jQuery(window).width() < 1025) {
+	              		//hide the previous/next arrows
+	              		prev.css("display", "none");
+	              		next.css("display", "none");
+	              	} else {
+	              		// else fade them in/out
+	              		prev.fadeOut(100);
+	              		next.fadeIn(100);
+	              	}
+	            } else if (currentSlide===totalSlides){ // else if current slide is the last slide
+	            	// and if the window width is less than 1025px
+	            	if (jQuery(window).width() < 1025) {
+	                	// hide the previous/next arrows
+	                	prev.css("display", "none");
+	                	next.css("display", "none");
+	                } else {
+	                	// else fade them in/out
+	                	prev.fadeIn(100);
+	                	next.fadeOut(100);
+	                }
+	              } else { // else for all other slides
+		            // if window width is less than 1025px
+		            if (jQuery(window).width() < 1025) {
+	                // hide the previous/next arrows
+	                prev.css("display", "none");
+	                next.css("display", "none");
+	              } else {
+	                // else fade them in/out
+	                prev.fadeIn(100);
+	                next.fadeIn(100);
+	              }
+	            }
+	          },
+
+	          onSliderLoad: function(){
+	          	var width = $this.closest('.carousel-wrapper').width(),
+	          	thumbWidth = Math.ceil((width/items)-(items));
+	          	sliderOuter.find('.lSGallery').find('li').css('min-width', thumbWidth+"px").css('max-width', thumbWidth+"px");
+
+              // set variable names for the previous and next arrows
+              prev = carousel.closest('.lSSlideOuter').find('.lSPrev'),
+              next = carousel.closest('.lSSlideOuter').find('.lSNext');
+
+              // if the window width is less than 1025px
+              if (jQuery(window).width() < 1025) {
+              // hide the previous/next arrows
+              prev.css("display", "none");
+              next.css("display", "none");
+            } else {
+            // else fade them in/out
+            prev.fadeOut(100);
+            next.fadeIn(100);
+          }
+        }
+      });
+
+      var sliderOuter = carousel.closest('.lSSlideOuter');
+      sliderOuter.find('.lSAction').addClass('desktop'); 
 
     });    
     
