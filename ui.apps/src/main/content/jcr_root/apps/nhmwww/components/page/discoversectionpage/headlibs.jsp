@@ -1,7 +1,7 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@ page session="false" %>
     <meta charset="ISO-8859-1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
         <!--[if lte IE 8]>
