@@ -65,10 +65,8 @@
 								<a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=
 								<%=e.getEmailAddress().replace("@nhm.ac.uk", "")%>
 								&business_title=
-								<% if (helper.getNickName() != null ) { %>
-				                    <%=helper.getNickName()%>+<%=helper.getLastName()%>
-				                <% } else { %>
-				                    <%=helper.getFirstName()%>+<%=helper.getLastName()%>
+								<% if (helper.getNickName() != null ) { %><%=helper.getNickName().trim()%>+<%=helper.getLastName()%>
+				                <% } else { %><%=helper.getFirstName().trim()%>+<%=helper.getLastName()%>
 				                <% } %>
 								"> email</a> <br>
 							<%}
