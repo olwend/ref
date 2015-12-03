@@ -27,7 +27,7 @@
 		<div class="hti-wrapper">
 			<div class="
 				<% if (displayGroupsAndSpecialisms) { %>
-					small-12 medium-5 large-6 
+					small-12 medium-5 large-6
 				<% } else { %>
 					small-12 medium-5 large-4 
 				<% } %>
@@ -103,8 +103,10 @@
 							<div class="phone-number end columns" data-equalizer-watch>
 								<% for (final PhoneNumber phone : phones) { %>
 								<div>
-									<strong><%= phone.getLabel() %>:</strong>
-									<%= phone.getPhone() %></div>
+									<%if(!phone.getLabel().equals("mobile")) {%>
+										<strong><%= phone.getLabel() %>:</strong>
+										<%= phone.getPhone() %></div>
+									<%} %>
 								<% } %>
 							</div>
 						</div> <% 
