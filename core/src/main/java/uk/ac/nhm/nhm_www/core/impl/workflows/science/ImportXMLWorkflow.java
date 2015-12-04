@@ -1475,6 +1475,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							grantsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 						}
 						break;
+						
+					case "c-nhm-url":
+						if(field.getText() != null) {
+							grantsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
+						}
+						break;
 					}
 				}
 			}
