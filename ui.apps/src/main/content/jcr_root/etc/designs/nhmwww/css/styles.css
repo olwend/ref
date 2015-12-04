@@ -2,434 +2,7 @@
 STYLESHEET COMPILED USING SASS
 CSS files should not be edited directly, as those edits will be overridden next time SASS is compiled.
 */
-.visit h1, .visit h2,
-.take-part h1,
-.take-part h2,
-.schools h1,
-.schools h2,
-.our-science h1,
-.our-science h2,
-.about-us h1,
-.about-us h2,
-.support-us h1,
-.support-us h2,
-.discover h1,
-.discover h2,
-.press-office h1,
-.press-office h2,
-.working h1,
-.working h2,
-.business-services h1,
-.business-services h2,
-.contact-us h1,
-.contact-us h2,
-.shop h1,
-.shop h2 {
-  padding-bottom: 10px;
-}
-.visit h4,
-.take-part h4,
-.schools h4,
-.our-science h4,
-.about-us h4,
-.support-us h4,
-.discover h4,
-.press-office h4,
-.working h4,
-.business-services h4,
-.contact-us h4,
-.shop h4 {
-  color: #000000;
-  font-weight: bold;
-}
-.visit .GreyBox,
-.take-part .GreyBox,
-.schools .GreyBox,
-.our-science .GreyBox,
-.about-us .GreyBox,
-.support-us .GreyBox,
-.discover .GreyBox,
-.press-office .GreyBox,
-.working .GreyBox,
-.business-services .GreyBox,
-.contact-us .GreyBox,
-.shop .GreyBox {
-  padding: 1.0em;
-  background-color: #eeeeee;
-}
-@media screen and (min-width: 1024px) {
-  .visit .GreyBox,
-  .take-part .GreyBox,
-  .schools .GreyBox,
-  .our-science .GreyBox,
-  .about-us .GreyBox,
-  .support-us .GreyBox,
-  .discover .GreyBox,
-  .press-office .GreyBox,
-  .working .GreyBox,
-  .business-services .GreyBox,
-  .contact-us .GreyBox,
-  .shop .GreyBox {
-    padding: 1.5em;
-  }
-}
-.visit .GreyBox p,
-.take-part .GreyBox p,
-.schools .GreyBox p,
-.our-science .GreyBox p,
-.about-us .GreyBox p,
-.support-us .GreyBox p,
-.discover .GreyBox p,
-.press-office .GreyBox p,
-.working .GreyBox p,
-.business-services .GreyBox p,
-.contact-us .GreyBox p,
-.shop .GreyBox p {
-  margin-bottom: 0px;
-}
-@media screen and (min-width: 1160px) {
-  .visit .GreyBox,
-  .take-part .GreyBox,
-  .schools .GreyBox,
-  .our-science .GreyBox,
-  .about-us .GreyBox,
-  .support-us .GreyBox,
-  .discover .GreyBox,
-  .press-office .GreyBox,
-  .working .GreyBox,
-  .business-services .GreyBox,
-  .contact-us .GreyBox,
-  .shop .GreyBox {
-    padding: 2.0em;
-  }
-}
-.visit .GreyBox p,
-.take-part .GreyBox p,
-.schools .GreyBox p,
-.our-science .GreyBox p,
-.about-us .GreyBox p,
-.support-us .GreyBox p,
-.discover .GreyBox p,
-.press-office .GreyBox p,
-.working .GreyBox p,
-.business-services .GreyBox p,
-.contact-us .GreyBox p,
-.shop .GreyBox p {
-  margin-bottom: 0px;
-}
-.visit .BlackBox,
-.take-part .BlackBox,
-.schools .BlackBox,
-.our-science .BlackBox,
-.about-us .BlackBox,
-.support-us .BlackBox,
-.discover .BlackBox,
-.press-office .BlackBox,
-.working .BlackBox,
-.business-services .BlackBox,
-.contact-us .BlackBox,
-.shop .BlackBox {
-  padding: 1.0em;
-  background-color: #000;
-}
-@media screen and (min-width: 768px) {
-  .visit .BlackBox,
-  .take-part .BlackBox,
-  .schools .BlackBox,
-  .our-science .BlackBox,
-  .about-us .BlackBox,
-  .support-us .BlackBox,
-  .discover .BlackBox,
-  .press-office .BlackBox,
-  .working .BlackBox,
-  .business-services .BlackBox,
-  .contact-us .BlackBox,
-  .shop .BlackBox {
-    padding: 1.0em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .visit .BlackBox,
-  .take-part .BlackBox,
-  .schools .BlackBox,
-  .our-science .BlackBox,
-  .about-us .BlackBox,
-  .support-us .BlackBox,
-  .discover .BlackBox,
-  .press-office .BlackBox,
-  .working .BlackBox,
-  .business-services .BlackBox,
-  .contact-us .BlackBox,
-  .shop .BlackBox {
-    padding: 2.0em;
-  }
-}
-.visit .BlackBox a,
-.take-part .BlackBox a,
-.schools .BlackBox a,
-.our-science .BlackBox a,
-.about-us .BlackBox a,
-.support-us .BlackBox a,
-.discover .BlackBox a,
-.press-office .BlackBox a,
-.working .BlackBox a,
-.business-services .BlackBox a,
-.contact-us .BlackBox a,
-.shop .BlackBox a {
-  color: #aaaaaa;
-}
-.visit .BlackBox p,
-.take-part .BlackBox p,
-.schools .BlackBox p,
-.our-science .BlackBox p,
-.about-us .BlackBox p,
-.support-us .BlackBox p,
-.discover .BlackBox p,
-.press-office .BlackBox p,
-.working .BlackBox p,
-.business-services .BlackBox p,
-.contact-us .BlackBox p,
-.shop .BlackBox p {
-  color: #FFF;
-}
-@media screen and (min-width: 768px) {
-  .visit .feature-box,
-  .take-part .feature-box,
-  .schools .feature-box,
-  .our-science .feature-box,
-  .about-us .feature-box,
-  .support-us .feature-box,
-  .discover .feature-box,
-  .press-office .feature-box,
-  .working .feature-box,
-  .business-services .feature-box,
-  .contact-us .feature-box,
-  .shop .feature-box {
-    padding: 2.0em;
-  }
-}
-.visit .feature-box h2, .visit .feature-box h3, .visit .feature-box a, .visit .feature-box p, .visit .feature-box li,
-.take-part .feature-box h2,
-.take-part .feature-box h3,
-.take-part .feature-box a,
-.take-part .feature-box p,
-.take-part .feature-box li,
-.schools .feature-box h2,
-.schools .feature-box h3,
-.schools .feature-box a,
-.schools .feature-box p,
-.schools .feature-box li,
-.our-science .feature-box h2,
-.our-science .feature-box h3,
-.our-science .feature-box a,
-.our-science .feature-box p,
-.our-science .feature-box li,
-.about-us .feature-box h2,
-.about-us .feature-box h3,
-.about-us .feature-box a,
-.about-us .feature-box p,
-.about-us .feature-box li,
-.support-us .feature-box h2,
-.support-us .feature-box h3,
-.support-us .feature-box a,
-.support-us .feature-box p,
-.support-us .feature-box li,
-.discover .feature-box h2,
-.discover .feature-box h3,
-.discover .feature-box a,
-.discover .feature-box p,
-.discover .feature-box li,
-.press-office .feature-box h2,
-.press-office .feature-box h3,
-.press-office .feature-box a,
-.press-office .feature-box p,
-.press-office .feature-box li,
-.working .feature-box h2,
-.working .feature-box h3,
-.working .feature-box a,
-.working .feature-box p,
-.working .feature-box li,
-.business-services .feature-box h2,
-.business-services .feature-box h3,
-.business-services .feature-box a,
-.business-services .feature-box p,
-.business-services .feature-box li,
-.contact-us .feature-box h2,
-.contact-us .feature-box h3,
-.contact-us .feature-box a,
-.contact-us .feature-box p,
-.contact-us .feature-box li,
-.shop .feature-box h2,
-.shop .feature-box h3,
-.shop .feature-box a,
-.shop .feature-box p,
-.shop .feature-box li {
-  color: #ffffff;
-}
-.visit .aside-box,
-.take-part .aside-box,
-.schools .aside-box,
-.our-science .aside-box,
-.about-us .aside-box,
-.support-us .aside-box,
-.discover .aside-box,
-.press-office .aside-box,
-.working .aside-box,
-.business-services .aside-box,
-.contact-us .aside-box,
-.shop .aside-box {
-  padding: 1.0em;
-  background-color: #eeeeee;
-}
-.visit .aside-box h2, .visit .aside-box h3, .visit .aside-box a, .visit .aside-box p, .visit .aside-box li,
-.take-part .aside-box h2,
-.take-part .aside-box h3,
-.take-part .aside-box a,
-.take-part .aside-box p,
-.take-part .aside-box li,
-.schools .aside-box h2,
-.schools .aside-box h3,
-.schools .aside-box a,
-.schools .aside-box p,
-.schools .aside-box li,
-.our-science .aside-box h2,
-.our-science .aside-box h3,
-.our-science .aside-box a,
-.our-science .aside-box p,
-.our-science .aside-box li,
-.about-us .aside-box h2,
-.about-us .aside-box h3,
-.about-us .aside-box a,
-.about-us .aside-box p,
-.about-us .aside-box li,
-.support-us .aside-box h2,
-.support-us .aside-box h3,
-.support-us .aside-box a,
-.support-us .aside-box p,
-.support-us .aside-box li,
-.discover .aside-box h2,
-.discover .aside-box h3,
-.discover .aside-box a,
-.discover .aside-box p,
-.discover .aside-box li,
-.press-office .aside-box h2,
-.press-office .aside-box h3,
-.press-office .aside-box a,
-.press-office .aside-box p,
-.press-office .aside-box li,
-.working .aside-box h2,
-.working .aside-box h3,
-.working .aside-box a,
-.working .aside-box p,
-.working .aside-box li,
-.business-services .aside-box h2,
-.business-services .aside-box h3,
-.business-services .aside-box a,
-.business-services .aside-box p,
-.business-services .aside-box li,
-.contact-us .aside-box h2,
-.contact-us .aside-box h3,
-.contact-us .aside-box a,
-.contact-us .aside-box p,
-.contact-us .aside-box li,
-.shop .aside-box h2,
-.shop .aside-box h3,
-.shop .aside-box a,
-.shop .aside-box p,
-.shop .aside-box li {
-  color: #565656;
-}
-@media screen and (min-width: 1024px) {
-  .visit .aside-box,
-  .take-part .aside-box,
-  .schools .aside-box,
-  .our-science .aside-box,
-  .about-us .aside-box,
-  .support-us .aside-box,
-  .discover .aside-box,
-  .press-office .aside-box,
-  .working .aside-box,
-  .business-services .aside-box,
-  .contact-us .aside-box,
-  .shop .aside-box {
-    padding: 2.0em;
-  }
-}
-.visit .bottom-banner h2,
-.take-part .bottom-banner h2,
-.schools .bottom-banner h2,
-.our-science .bottom-banner h2,
-.about-us .bottom-banner h2,
-.support-us .bottom-banner h2,
-.discover .bottom-banner h2,
-.press-office .bottom-banner h2,
-.working .bottom-banner h2,
-.business-services .bottom-banner h2,
-.contact-us .bottom-banner h2,
-.shop .bottom-banner h2 {
-  padding-bottom: 0;
-  margin-bottom: 0.2rem;
-}
-.visit .bottom-banner > div.large-4,
-.take-part .bottom-banner > div.large-4,
-.schools .bottom-banner > div.large-4,
-.our-science .bottom-banner > div.large-4,
-.about-us .bottom-banner > div.large-4,
-.support-us .bottom-banner > div.large-4,
-.discover .bottom-banner > div.large-4,
-.press-office .bottom-banner > div.large-4,
-.working .bottom-banner > div.large-4,
-.business-services .bottom-banner > div.large-4,
-.contact-us .bottom-banner > div.large-4,
-.shop .bottom-banner > div.large-4 {
-  position: relative;
-  left: 1em;
-}
-.visit .bottom-banner > div.large-4 .info-tout__action,
-.take-part .bottom-banner > div.large-4 .info-tout__action,
-.schools .bottom-banner > div.large-4 .info-tout__action,
-.our-science .bottom-banner > div.large-4 .info-tout__action,
-.about-us .bottom-banner > div.large-4 .info-tout__action,
-.support-us .bottom-banner > div.large-4 .info-tout__action,
-.discover .bottom-banner > div.large-4 .info-tout__action,
-.press-office .bottom-banner > div.large-4 .info-tout__action,
-.working .bottom-banner > div.large-4 .info-tout__action,
-.business-services .bottom-banner > div.large-4 .info-tout__action,
-.contact-us .bottom-banner > div.large-4 .info-tout__action,
-.shop .bottom-banner > div.large-4 .info-tout__action {
-  border: none !important;
-}
-@media screen and (min-width: 768px) {
-  .visit .bottom-banner,
-  .take-part .bottom-banner,
-  .schools .bottom-banner,
-  .our-science .bottom-banner,
-  .about-us .bottom-banner,
-  .support-us .bottom-banner,
-  .discover .bottom-banner,
-  .press-office .bottom-banner,
-  .working .bottom-banner,
-  .business-services .bottom-banner,
-  .contact-us .bottom-banner,
-  .shop .bottom-banner {
-    padding: 1.0em 1.5em;
-  }
-  .visit .bottom-banner > div.large-4,
-  .take-part .bottom-banner > div.large-4,
-  .schools .bottom-banner > div.large-4,
-  .our-science .bottom-banner > div.large-4,
-  .about-us .bottom-banner > div.large-4,
-  .support-us .bottom-banner > div.large-4,
-  .discover .bottom-banner > div.large-4,
-  .press-office .bottom-banner > div.large-4,
-  .working .bottom-banner > div.large-4,
-  .business-services .bottom-banner > div.large-4,
-  .contact-us .bottom-banner > div.large-4,
-  .shop .bottom-banner > div.large-4 {
-    left: 1.5em;
-  }
-}
-
+/** LEGACY SECTIONS PARTIAL (PHASED OUT) **/
 .home h1, .home a, .home a:hover {
   color: #A1164E;
 }
@@ -544,6 +117,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .home a {
   color: #565656;
+}
+
+.visit h1, .visit h2 {
+  padding-bottom: 10px;
+}
+.visit h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.visit .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .visit .GreyBox {
+    padding: 1.5em;
+  }
+}
+.visit .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .visit .GreyBox {
+    padding: 2.0em;
+  }
+}
+.visit .GreyBox p {
+  margin-bottom: 0px;
+}
+.visit .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .visit .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .visit .BlackBox {
+    padding: 2.0em;
+  }
+}
+.visit .BlackBox a {
+  color: #aaaaaa;
+}
+.visit .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .visit .feature-box {
+    padding: 2.0em;
+  }
+}
+.visit .feature-box h2, .visit .feature-box h3, .visit .feature-box a, .visit .feature-box p, .visit .feature-box li {
+  color: #ffffff;
+}
+.visit .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.visit .aside-box h2, .visit .aside-box h3, .visit .aside-box a, .visit .aside-box p, .visit .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .visit .aside-box {
+    padding: 2.0em;
+  }
+}
+.visit .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.visit .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.visit .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .visit .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .visit .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
 }
 
 .visit h1, .visit a, .visit a:hover {
@@ -712,6 +372,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #f4f4f4;
 }
 
+.take-part h1, .take-part h2 {
+  padding-bottom: 10px;
+}
+.take-part h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.take-part .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .take-part .GreyBox {
+    padding: 1.5em;
+  }
+}
+.take-part .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .take-part .GreyBox {
+    padding: 2.0em;
+  }
+}
+.take-part .GreyBox p {
+  margin-bottom: 0px;
+}
+.take-part .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .take-part .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .take-part .BlackBox {
+    padding: 2.0em;
+  }
+}
+.take-part .BlackBox a {
+  color: #aaaaaa;
+}
+.take-part .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .take-part .feature-box {
+    padding: 2.0em;
+  }
+}
+.take-part .feature-box h2, .take-part .feature-box h3, .take-part .feature-box a, .take-part .feature-box p, .take-part .feature-box li {
+  color: #ffffff;
+}
+.take-part .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.take-part .aside-box h2, .take-part .aside-box h3, .take-part .aside-box a, .take-part .aside-box p, .take-part .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .take-part .aside-box {
+    padding: 2.0em;
+  }
+}
+.take-part .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.take-part .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.take-part .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .take-part .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .take-part .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .take-part h1, .take-part a, .take-part a:hover {
   color: #BF491F;
 }
@@ -832,6 +579,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
+.about-us h1, .about-us h2 {
+  padding-bottom: 10px;
+}
+.about-us h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.about-us .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .about-us .GreyBox {
+    padding: 1.5em;
+  }
+}
+.about-us .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .about-us .GreyBox {
+    padding: 2.0em;
+  }
+}
+.about-us .GreyBox p {
+  margin-bottom: 0px;
+}
+.about-us .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .about-us .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .about-us .BlackBox {
+    padding: 2.0em;
+  }
+}
+.about-us .BlackBox a {
+  color: #aaaaaa;
+}
+.about-us .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .about-us .feature-box {
+    padding: 2.0em;
+  }
+}
+.about-us .feature-box h2, .about-us .feature-box h3, .about-us .feature-box a, .about-us .feature-box p, .about-us .feature-box li {
+  color: #ffffff;
+}
+.about-us .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.about-us .aside-box h2, .about-us .aside-box h3, .about-us .aside-box a, .about-us .aside-box p, .about-us .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .about-us .aside-box {
+    padding: 2.0em;
+  }
+}
+.about-us .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.about-us .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.about-us .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .about-us .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .about-us .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .about-us h1, .about-us a, .about-us a:hover {
   color: #0B5C7B;
 }
@@ -941,6 +775,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   font-weight: normal;
 }
 
+.schools h1, .schools h2 {
+  padding-bottom: 10px;
+}
+.schools h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.schools .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .schools .GreyBox {
+    padding: 1.5em;
+  }
+}
+.schools .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .schools .GreyBox {
+    padding: 2.0em;
+  }
+}
+.schools .GreyBox p {
+  margin-bottom: 0px;
+}
+.schools .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .schools .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .schools .BlackBox {
+    padding: 2.0em;
+  }
+}
+.schools .BlackBox a {
+  color: #aaaaaa;
+}
+.schools .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .schools .feature-box {
+    padding: 2.0em;
+  }
+}
+.schools .feature-box h2, .schools .feature-box h3, .schools .feature-box a, .schools .feature-box p, .schools .feature-box li {
+  color: #ffffff;
+}
+.schools .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.schools .aside-box h2, .schools .aside-box h3, .schools .aside-box a, .schools .aside-box p, .schools .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .schools .aside-box {
+    padding: 2.0em;
+  }
+}
+.schools .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.schools .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.schools .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .schools .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .schools .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .schools h1, .schools a, .schools a:hover {
   color: #0983BB;
 }
@@ -1045,6 +966,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .schools .accordion .accordion-navigation.active > a:hover,
 .schools .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+.our-science h1, .our-science h2 {
+  padding-bottom: 10px;
+}
+.our-science h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.our-science .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .our-science .GreyBox {
+    padding: 1.5em;
+  }
+}
+.our-science .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .our-science .GreyBox {
+    padding: 2.0em;
+  }
+}
+.our-science .GreyBox p {
+  margin-bottom: 0px;
+}
+.our-science .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .our-science .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .our-science .BlackBox {
+    padding: 2.0em;
+  }
+}
+.our-science .BlackBox a {
+  color: #aaaaaa;
+}
+.our-science .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .our-science .feature-box {
+    padding: 2.0em;
+  }
+}
+.our-science .feature-box h2, .our-science .feature-box h3, .our-science .feature-box a, .our-science .feature-box p, .our-science .feature-box li {
+  color: #ffffff;
+}
+.our-science .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.our-science .aside-box h2, .our-science .aside-box h3, .our-science .aside-box a, .our-science .aside-box p, .our-science .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .our-science .aside-box {
+    padding: 2.0em;
+  }
+}
+.our-science .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.our-science .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.our-science .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .our-science .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .our-science .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
 }
 
 .our-science h1, .our-science a, .our-science a:hover {
@@ -1200,6 +1208,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
+.support-us h1, .support-us h2 {
+  padding-bottom: 10px;
+}
+.support-us h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.support-us .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .support-us .GreyBox {
+    padding: 1.5em;
+  }
+}
+.support-us .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .support-us .GreyBox {
+    padding: 2.0em;
+  }
+}
+.support-us .GreyBox p {
+  margin-bottom: 0px;
+}
+.support-us .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .support-us .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .support-us .BlackBox {
+    padding: 2.0em;
+  }
+}
+.support-us .BlackBox a {
+  color: #aaaaaa;
+}
+.support-us .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .support-us .feature-box {
+    padding: 2.0em;
+  }
+}
+.support-us .feature-box h2, .support-us .feature-box h3, .support-us .feature-box a, .support-us .feature-box p, .support-us .feature-box li {
+  color: #ffffff;
+}
+.support-us .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.support-us .aside-box h2, .support-us .aside-box h3, .support-us .aside-box a, .support-us .aside-box p, .support-us .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .support-us .aside-box {
+    padding: 2.0em;
+  }
+}
+.support-us .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.support-us .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.support-us .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .support-us .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .support-us .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .support-us h1, .support-us a, .support-us a:hover {
   color: #7F206E;
 }
@@ -1304,6 +1399,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .support-us .accordion .accordion-navigation.active > a:hover,
 .support-us .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+.discover h1, .discover h2 {
+  padding-bottom: 10px;
+}
+.discover h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.discover .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .discover .GreyBox {
+    padding: 1.5em;
+  }
+}
+.discover .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .discover .GreyBox {
+    padding: 2.0em;
+  }
+}
+.discover .GreyBox p {
+  margin-bottom: 0px;
+}
+.discover .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .discover .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .discover .BlackBox {
+    padding: 2.0em;
+  }
+}
+.discover .BlackBox a {
+  color: #aaaaaa;
+}
+.discover .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .discover .feature-box {
+    padding: 2.0em;
+  }
+}
+.discover .feature-box h2, .discover .feature-box h3, .discover .feature-box a, .discover .feature-box p, .discover .feature-box li {
+  color: #ffffff;
+}
+.discover .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.discover .aside-box h2, .discover .aside-box h3, .discover .aside-box a, .discover .aside-box p, .discover .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .discover .aside-box {
+    padding: 2.0em;
+  }
+}
+.discover .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.discover .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.discover .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .discover .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .discover .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
 }
 
 .discover h1, .discover a, .discover a:hover {
@@ -1412,6 +1594,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
+.press-office h1, .press-office h2 {
+  padding-bottom: 10px;
+}
+.press-office h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.press-office .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .press-office .GreyBox {
+    padding: 1.5em;
+  }
+}
+.press-office .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .press-office .GreyBox {
+    padding: 2.0em;
+  }
+}
+.press-office .GreyBox p {
+  margin-bottom: 0px;
+}
+.press-office .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .press-office .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .press-office .BlackBox {
+    padding: 2.0em;
+  }
+}
+.press-office .BlackBox a {
+  color: #aaaaaa;
+}
+.press-office .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .press-office .feature-box {
+    padding: 2.0em;
+  }
+}
+.press-office .feature-box h2, .press-office .feature-box h3, .press-office .feature-box a, .press-office .feature-box p, .press-office .feature-box li {
+  color: #ffffff;
+}
+.press-office .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.press-office .aside-box h2, .press-office .aside-box h3, .press-office .aside-box a, .press-office .aside-box p, .press-office .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .press-office .aside-box {
+    padding: 2.0em;
+  }
+}
+.press-office .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.press-office .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.press-office .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .press-office .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .press-office .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .press-office h1, .press-office a, .press-office a:hover {
   color: #107E5E;
 }
@@ -1516,6 +1785,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .press-office .accordion .accordion-navigation.active > a:hover,
 .press-office .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+.working h1, .working h2 {
+  padding-bottom: 10px;
+}
+.working h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.working .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .working .GreyBox {
+    padding: 1.5em;
+  }
+}
+.working .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .working .GreyBox {
+    padding: 2.0em;
+  }
+}
+.working .GreyBox p {
+  margin-bottom: 0px;
+}
+.working .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .working .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .working .BlackBox {
+    padding: 2.0em;
+  }
+}
+.working .BlackBox a {
+  color: #aaaaaa;
+}
+.working .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .working .feature-box {
+    padding: 2.0em;
+  }
+}
+.working .feature-box h2, .working .feature-box h3, .working .feature-box a, .working .feature-box p, .working .feature-box li {
+  color: #ffffff;
+}
+.working .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.working .aside-box h2, .working .aside-box h3, .working .aside-box a, .working .aside-box p, .working .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .working .aside-box {
+    padding: 2.0em;
+  }
+}
+.working .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.working .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.working .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .working .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .working .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
 }
 
 .working h1, .working a, .working a:hover {
@@ -1624,6 +1980,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
+.business-services h1, .business-services h2 {
+  padding-bottom: 10px;
+}
+.business-services h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.business-services .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .business-services .GreyBox {
+    padding: 1.5em;
+  }
+}
+.business-services .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .business-services .GreyBox {
+    padding: 2.0em;
+  }
+}
+.business-services .GreyBox p {
+  margin-bottom: 0px;
+}
+.business-services .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .business-services .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .business-services .BlackBox {
+    padding: 2.0em;
+  }
+}
+.business-services .BlackBox a {
+  color: #aaaaaa;
+}
+.business-services .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .business-services .feature-box {
+    padding: 2.0em;
+  }
+}
+.business-services .feature-box h2, .business-services .feature-box h3, .business-services .feature-box a, .business-services .feature-box p, .business-services .feature-box li {
+  color: #ffffff;
+}
+.business-services .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.business-services .aside-box h2, .business-services .aside-box h3, .business-services .aside-box a, .business-services .aside-box p, .business-services .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .business-services .aside-box {
+    padding: 2.0em;
+  }
+}
+.business-services .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.business-services .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.business-services .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .business-services .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .business-services .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .business-services h1, .business-services a, .business-services a:hover {
   color: #253480;
 }
@@ -1728,6 +2171,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .accordion .accordion-navigation.active > a:hover,
 .business-services .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+.contact-us h1, .contact-us h2 {
+  padding-bottom: 10px;
+}
+.contact-us h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.contact-us .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .contact-us .GreyBox {
+    padding: 1.5em;
+  }
+}
+.contact-us .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .contact-us .GreyBox {
+    padding: 2.0em;
+  }
+}
+.contact-us .GreyBox p {
+  margin-bottom: 0px;
+}
+.contact-us .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .contact-us .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .contact-us .BlackBox {
+    padding: 2.0em;
+  }
+}
+.contact-us .BlackBox a {
+  color: #aaaaaa;
+}
+.contact-us .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .contact-us .feature-box {
+    padding: 2.0em;
+  }
+}
+.contact-us .feature-box h2, .contact-us .feature-box h3, .contact-us .feature-box a, .contact-us .feature-box p, .contact-us .feature-box li {
+  color: #ffffff;
+}
+.contact-us .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.contact-us .aside-box h2, .contact-us .aside-box h3, .contact-us .aside-box a, .contact-us .aside-box p, .contact-us .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .contact-us .aside-box {
+    padding: 2.0em;
+  }
+}
+.contact-us .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.contact-us .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.contact-us .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .contact-us .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .contact-us .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
 }
 
 .contact-us h1, .contact-us a, .contact-us a:hover {
@@ -1836,6 +2366,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
+.shop h1, .shop h2 {
+  padding-bottom: 10px;
+}
+.shop h4 {
+  color: #000000;
+  font-weight: bold;
+}
+.shop .GreyBox {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .shop .GreyBox {
+    padding: 1.5em;
+  }
+}
+.shop .GreyBox p {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 1160px) {
+  .shop .GreyBox {
+    padding: 2.0em;
+  }
+}
+.shop .GreyBox p {
+  margin-bottom: 0px;
+}
+.shop .BlackBox {
+  padding: 1.0em;
+  background-color: #000;
+}
+@media screen and (min-width: 768px) {
+  .shop .BlackBox {
+    padding: 1.0em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .shop .BlackBox {
+    padding: 2.0em;
+  }
+}
+.shop .BlackBox a {
+  color: #aaaaaa;
+}
+.shop .BlackBox p {
+  color: #FFF;
+}
+@media screen and (min-width: 768px) {
+  .shop .feature-box {
+    padding: 2.0em;
+  }
+}
+.shop .feature-box h2, .shop .feature-box h3, .shop .feature-box a, .shop .feature-box p, .shop .feature-box li {
+  color: #ffffff;
+}
+.shop .aside-box {
+  padding: 1.0em;
+  background-color: #eeeeee;
+}
+.shop .aside-box h2, .shop .aside-box h3, .shop .aside-box a, .shop .aside-box p, .shop .aside-box li {
+  color: #565656;
+}
+@media screen and (min-width: 1024px) {
+  .shop .aside-box {
+    padding: 2.0em;
+  }
+}
+.shop .bottom-banner h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+}
+.shop .bottom-banner > div.large-4 {
+  position: relative;
+  left: 1em;
+}
+.shop .bottom-banner > div.large-4 .info-tout__action {
+  border: none !important;
+}
+@media screen and (min-width: 768px) {
+  .shop .bottom-banner {
+    padding: 1.0em 1.5em;
+  }
+  .shop .bottom-banner > div.large-4 {
+    left: 1.5em;
+  }
+}
+
 .shop h1, .shop a, .shop a:hover {
   color: #808080;
 }
@@ -1940,6 +2557,25 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .shop .accordion .accordion-navigation.active > a:hover,
 .shop .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+.shop {
+  background: #f4f4f4;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+.shop .shop-slider-wrapper {
+  width: 300px;
+  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .shop .shop-slider-wrapper .lSNext {
+    right: 20px;
+  }
+}
+.shop .lSSlideOuter,
+.shop .lSSlideWrapper {
+  overflow: visible;
 }
 
 .account h1, .account a, .account a:hover {
@@ -2048,7 +2684,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
-/** Base **/
+/** REFACTOR FOUNDATION **/
+/** LEGACY BASE PARTIAL **/
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -2086,6 +2723,7 @@ p {
   }
 }
 
+/** LEGACY TYPOGRAPHY PARTIAL **/
 h1 {
   font-size: 1.8em;
   line-height: 1em;
@@ -2151,6 +2789,41 @@ h5 {
   }
 }
 
+.text ul {
+  padding-left: 1.5em;
+}
+.text ul li {
+  font-size: 1.125em;
+  list-style: disc outside;
+  margin-bottom: 0.5em;
+}
+
+.intro-text {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.4em;
+  padding-bottom: 2%;
+  /* 
+  &.take-part{color:$take-part-color;}
+  &.discover{color:$discover-color;}
+  &.support-us{color:$support-us-color;}
+  &.shop { color:$shop-color;}
+  &.schools{color:$schools-color;}
+  &.our-science{color:$our-science-color;}
+  &.about-us{color:$about-us-color;}
+  &.press-office{color:$news-press-color;}
+  &.working-with-us{color:$working-with-us-color;}
+  &.business-services{color:$business-services-color;}
+  &.contact-us{color:$contact-us-color;}
+  */
+}
+@media screen and (min-width: 768px) {
+  .intro-text {
+    font-size: 1.8em;
+    line-height: 1.2em;
+  }
+}
+
+/** LEGACY LAYOUT PARTIAL **/
 /** Grid **/
 .row,
 .full-width,
@@ -2209,6 +2882,53 @@ h5 {
   position: relative;
 }
 
+.large4-margin.large-4 {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .large4-margin {
+    margin-left: 3%;
+    margin-top: 0;
+  }
+  .large4-margin.large-4 {
+    width: 31.33333%;
+  }
+}
+.large4-margin:first-child {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.large6-margin.large-6 {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .large6-margin {
+    margin-left: 3%;
+    margin-top: 0;
+  }
+  .large6-margin.large-6 {
+    width: 48.5%;
+  }
+}
+.large6-margin:first-child {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+@media only screen and (min-width: 64.063em) {
+  .row2cells21 .large-8.medium-8.columns,
+  .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
+}
+@media only screen and (min-width: 48em) {
+  .row2cells21 .large-8.medium-8.columns,
+  .row2cells12 .large-8.medium-8.columns {
+    width: 64.94254%;
+  }
+}
+/** LEGACY FOOTER COMPONENT PARTIAL **/
 .main-footer {
   padding: 2.5em 0;
   background: #565656;
@@ -2407,6 +3127,7 @@ h5 {
   }
 }
 
+/** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
 .cf:before,
 .cf:after {
@@ -2460,6 +3181,20 @@ h5 {
     display: block;
   }
 }
+.ir {
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+
+.paddingTB {
+  padding: 10px 0px;
+}
+
+/** LEGACY MISC PARTIAL **/
 i.ico {
   display: inline-block;
   *vertical-align: auto;
@@ -2495,6 +3230,38 @@ input.question {
   display: none;
 }
 
+.expandable {
+  margin: 1.25em 0;
+  padding: 1em 5%;
+  background-color: #565656;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url("/etc/designs/nhmwww/img/icons/plus.png");
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  color: #fff;
+  font-size: 0.95em;
+}
+.expandable:hover {
+  color: #fff;
+}
+.expandable.open {
+  background-image: url("/etc/designs/nhmwww/img/icons/minus.png");
+}
+
+.thumbnail-scroll {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .thumbnail-scroll {
+    display: block;
+    position: absolute;
+    bottom: 94px;
+    width: 100%;
+  }
+}
+
+/** LEGACY NAVIGATION PARTIAL (RENAMED FROM _NAVIGATION.SCSS) **/
+/*** _MEGAMENU.SCSS, FORMERLY _NAVIGATION.SCSS ***/
 .global-header {
   position: relative;
   z-index: 99999;
@@ -3326,6 +4093,195 @@ input.question {
   background-size: 15px 15px;
 }
 
+.subnav {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 45px;
+}
+.subnav.fixed {
+  position: fixed;
+  top: 48px;
+  width: 100%;
+  background: #fff;
+  z-index: 99998;
+}
+.subnav .row {
+  margin-bottom: 0;
+  text-align: center;
+}
+.subnav .subnav__item {
+  width: 16%;
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  padding: 10px 0;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+.subnav .subnav__item a {
+  display: block;
+  color: #565656;
+}
+.subnav .subnav__item a:hover {
+  color: #2a6cd9;
+  text-decoration: none;
+}
+.subnav .subnav__item.active a {
+  color: #2a6cd9;
+}
+
+/* Adding this to override the sharing icons *****************************/
+.st_email_large .stButton .stLarge {
+  background-image: url(/etc/designs/nhmwww/img/icons/mobile-email.png) !important;
+  background-repeat: no-repeat;
+}
+
+.st_twitter_large .stButton .stLarge {
+  background-image: url(/etc/designs/nhmwww/img/icons/mobile-twitter.png) !important;
+  background-repeat: no-repeat;
+}
+
+.st_facebook_large .stButton .stLarge {
+  background-image: url(/etc/designs/nhmwww/img/icons/mobile-facebook.png) !important;
+  background-repeat: no-repeat;
+}
+
+.st_googleplus_large .stButton .stLarge {
+  background-image: url(/etc/designs/nhmwww/img/icons/mobile-gplus.png) !important;
+  background-repeat: no-repeat;
+}
+
+.st_pinterest_large .stButton .stLarge {
+  background-image: url(/etc/designs/nhmwww/img/icons/mobile-pinterest.png) !important;
+  background-repeat: no-repeat;
+}
+
+.stButton .stLarge:hover {
+  opacity: 1 !important;
+  background-position: 0px 0px !important;
+}
+
+li.nav-list__item.first.cf h4 {
+  padding-bottom: 7%;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-list.level-2.share {
+    right: 0px !important;
+  }
+}
+.nav-list.level-2.share,
+.nav-list.level-2.search {
+  width: 65% !important;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-list.level-2.share,
+  .nav-list.level-2.search {
+    width: 55% !important;
+  }
+}
+span.st_email_large {
+  padding-right: 9%;
+}
+
+span.st_facebook_large {
+  padding-right: 9%;
+}
+
+span.st_twitter_large {
+  padding-right: 9%;
+}
+
+span.st_googleplus_large {
+  padding-right: 9%;
+}
+
+.share-icons {
+  width: 23% !important;
+}
+
+.mega-thumb {
+  position: relative;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .mega-thumb {
+    margin-right: 10px;
+  }
+}
+.mega-thumb img {
+  width: 100%;
+}
+
+/* THUMB CAPTIONS *******************************************/
+.mega-thumb-caption {
+  position: static;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 0.5em 1em 1em 1em;
+}
+.mega-thumb-caption p {
+  color: #ffffff;
+  font-size: 1em;
+  line-height: 1.3em;
+  margin-bottom: 0;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .mega-thumb-caption p {
+    font-size: 1.3em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .mega-thumb-caption p {
+    font-size: 1.5em;
+  }
+}
+.mega-thumb-caption.visit {
+  background-color: rgba(161, 22, 78, 0.95);
+}
+.mega-thumb-caption.take-part {
+  background-color: rgba(191, 73, 31, 0.95);
+}
+.mega-thumb-caption.our-science {
+  background-color: rgba(53, 121, 0, 0.95);
+}
+.mega-thumb-caption.support-us {
+  background-color: rgba(127, 32, 110, 0.95);
+}
+.mega-thumb-caption.schools {
+  background-color: rgba(9, 131, 187, 0.95);
+}
+@media screen and (min-width: 768px) {
+  .mega-thumb-caption {
+    width: 80%;
+    position: absolute;
+  }
+  .mega-thumb-caption.visit {
+    background-color: rgba(161, 22, 78, 0.95);
+  }
+  .mega-thumb-caption.take-part {
+    background-color: rgba(191, 73, 31, 0.95);
+  }
+  .mega-thumb-caption.our-science {
+    background-color: rgba(53, 121, 0, 0.95);
+  }
+  .mega-thumb-caption.support-us {
+    background-color: rgba(127, 32, 110, 0.95);
+  }
+  .mega-thumb-caption.schools {
+    background-color: rgba(9, 131, 187, 0.95);
+  }
+}
+
+/** LEGACY COMPONENTS PARTIAL (PHASED OUT) **/
+/** LEGACY ARROW PARTIAL **/
 .arrow {
   position: relative;
   background-position: 95% center;
@@ -3340,6 +4296,18 @@ input.question {
   top: 15px;
 }
 
+.link-arrow {
+  position: relative;
+}
+.link-arrow .ico {
+  position: absolute;
+  width: 8px;
+  height: 13px;
+  top: 0;
+  right: 0;
+}
+
+/** LEGACY BOTTOM-BANNER PARTIAL **/
 .bottom-banner {
   padding: 1.0em;
 }
@@ -3352,50 +4320,13 @@ input.question {
   color: #ffffff;
 }
 
-.link-arrow {
-  position: relative;
-}
-.link-arrow .ico {
-  position: absolute;
-  width: 8px;
-  height: 13px;
-  top: 0;
-  right: 0;
-}
-
-.expandable {
-  margin: 1.25em 0;
-  padding: 1em 5%;
-  background-color: #565656;
-  background-color: rgba(0, 0, 0, 0.7);
-  background-image: url("/etc/designs/nhmwww/img/icons/plus.png");
-  background-repeat: no-repeat;
-  background-position: 95% center;
-  color: #fff;
-  font-size: 0.95em;
-}
-.expandable:hover {
-  color: #fff;
-}
-.expandable.open {
-  background-image: url("/etc/designs/nhmwww/img/icons/minus.png");
-}
-
+/** LEGACY CAROUSEL PARTIAL **/
 .foundation5image {
   position: relative;
 }
 .foundation5image .caption h2 {
   margin-bottom: 0.2rem;
   padding-bottom: 0;
-}
-
-.text ul {
-  padding-left: 1.5em;
-}
-.text ul li {
-  font-size: 1.125em;
-  list-style: disc outside;
-  margin-bottom: 0.5em;
 }
 
 .caption {
@@ -3410,6 +4341,234 @@ input.question {
   margin-bottom: 0;
 }
 
+.carousel .caption-outer-wrapper {
+  width: 100%;
+  position: static;
+  bottom: 0;
+  left: 0;
+}
+@media screen and (min-width: 768px) {
+  .carousel .caption-outer-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+.carousel .caption {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 1em 1.5em;
+}
+
+.carousel-wrapper {
+  max-width: 100%;
+  margin-bottom: 1.5em;
+}
+.carousel-wrapper .carousel {
+  margin-bottom: 4px;
+  margin-left: 0;
+}
+.carousel-wrapper .carousel li {
+  position: relative;
+}
+.carousel-wrapper .carousel li iframe {
+  display: block;
+  max-width: 100%;
+}
+.carousel-wrapper .carousel [data-type="video"] .caption {
+  display: none;
+}
+.carousel-wrapper .lSGallery {
+  width: 9999px !important;
+  background: #f4f4f4;
+}
+.carousel-wrapper .lSGallery:hover + .lSAction {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+.carousel-wrapper .lSAction {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.carousel-wrapper .lSSlideWrapper:hover .lSAction {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+.promo {
+  padding: 0 10px 10px;
+}
+@media screen and (min-width: 768px) {
+  .promo {
+    padding: 0px;
+  }
+}
+.promo img {
+  width: 100%;
+}
+
+.promo-link {
+  background-color: #2a6cd9;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 20px;
+}
+.promo-link:hover {
+  color: #fff;
+}
+
+/** LEGACY IMAGE-INFO PARTIAL **/
+.image-info {
+  width: 68px;
+  height: 68px;
+  background-position: 20px 20px;
+  cursor: pointer;
+}
+.image-info .ico {
+  float: left;
+  height: 28px;
+  width: 28px;
+}
+.image-info p {
+  display: none;
+  padding: 0 8% 0 16%;
+  background: transparent url("/etc/designs/nhmwww/img/x.png") no-repeat top right;
+}
+@media screen and (min-width: 768px) {
+  .image-info p {
+    padding: 0 6% 0 12%;
+  }
+}
+.image-info.open {
+  width: auto;
+  max-width: 455px;
+  height: auto;
+  min-height: 68px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.image-info.open p {
+  display: block;
+}
+
+/** LEGACY LINK-WITH-ICON PARTIAL **/
+.link-with-icon {
+  margin: 1em 0;
+  background-color: #2a6cd9;
+}
+.link-with-icon.microscope {
+  position: relative;
+}
+.link-with-icon.microscope .ico {
+  position: absolute;
+  width: 26px;
+  left: 28px;
+  bottom: 23px;
+  height: 39px;
+}
+@media screen and (min-width: 768px) {
+  .link-with-icon.microscope .ico {
+    bottom: 21px;
+    left: 0;
+    width: 28px;
+    height: 42px;
+  }
+}
+.link-with-icon.microscope .arrow .ico {
+  left: auto;
+  top: auto;
+  width: 24px;
+  height: 35px;
+}
+@media screen and (min-width: 768px) {
+  .link-with-icon.microscope .arrow .ico {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    width: 8px;
+    height: 13px;
+  }
+}
+.link-with-icon a {
+  display: block;
+  padding: 30px 18%;
+  color: #fff;
+  font-size: 1.125em;
+}
+@media screen and (min-width: 768px) {
+  .link-with-icon {
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  .link-with-icon a {
+    padding-left: 10%;
+    color: #2a6cd9;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1em;
+    display: inline-block;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    padding-right: 1em;
+    background-image: url("/etc/designs/nhmwww/img/arrows/small-right-arrow.png");
+    background-size: auto;
+    background-position: right center;
+  }
+}
+
+/** LEGACY SECTION-LINK PARTIAL **/
+.section-link {
+  min-height: 24px;
+  padding: 3px 0 0 36px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+}
+.section-link .ico-arrow {
+  position: absolute;
+  top: 8px;
+  right: -14px;
+  width: 8px;
+  height: 13px;
+}
+@media screen and (min-width: 768px) {
+  .section-link {
+    display: inline-block;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    position: relative;
+    left: 2em;
+    top: -0.5em;
+    font-size: 14px;
+  }
+}
+.section-link.calendar {
+  padding-left: 0;
+}
+.section-link.calendar .ico-cal {
+  margin-right: 10px;
+  width: 23px;
+  height: 22px;
+}
+.section-link.cart {
+  position: relative;
+}
+.section-link.cart .ico {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 24px;
+}
+
+/** LEGACY HERO PARTIAL **/
 .hero .caption-outer-wrapper {
   position: static;
   width: 100%;
@@ -3476,196 +4635,6 @@ input.question {
   .hero .caption h2 {
     font-size: 1.8333em;
   }
-}
-
-.carousel .caption-outer-wrapper {
-  width: 100%;
-  position: static;
-  bottom: 0;
-  left: 0;
-}
-@media screen and (min-width: 768px) {
-  .carousel .caption-outer-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-.carousel .caption {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
-  padding: 1em 1.5em;
-}
-
-.image-info {
-  width: 68px;
-  height: 68px;
-  background-position: 20px 20px;
-  cursor: pointer;
-}
-.image-info .ico {
-  float: left;
-  height: 28px;
-  width: 28px;
-}
-.image-info p {
-  display: none;
-  padding: 0 8% 0 16%;
-  background: transparent url("/etc/designs/nhmwww/img/x.png") no-repeat top right;
-}
-@media screen and (min-width: 768px) {
-  .image-info p {
-    padding: 0 6% 0 12%;
-  }
-}
-.image-info.open {
-  width: auto;
-  max-width: 455px;
-  height: auto;
-  min-height: 68px;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-.image-info.open p {
-  display: block;
-}
-
-.caption--cta {
-  background: #2a6cd9;
-  background: rgba(42, 108, 217, 0.9);
-}
-.caption--cta h4 {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  color: #fff;
-  line-height: 1.6;
-  margin: 0px;
-}
-.caption--cta a {
-  position: relative;
-}
-@media screen and (min-width: 768px) {
-  .caption--cta a {
-    display: inline;
-    color: #fff;
-  }
-  .caption--cta a .ico {
-    display: block;
-    position: absolute;
-    width: 7px;
-    height: 20px;
-    bottom: 5px;
-    right: -14px;
-  }
-}
-
-.link-with-icon {
-  margin: 1em 0;
-  background-color: #2a6cd9;
-}
-.link-with-icon.microscope {
-  position: relative;
-}
-.link-with-icon.microscope .ico {
-  position: absolute;
-  width: 26px;
-  left: 28px;
-  bottom: 23px;
-  height: 39px;
-}
-@media screen and (min-width: 768px) {
-  .link-with-icon.microscope .ico {
-    bottom: 21px;
-    left: 0;
-    width: 28px;
-    height: 42px;
-  }
-}
-.link-with-icon.microscope .arrow .ico {
-  left: auto;
-  top: auto;
-  width: 24px;
-  height: 35px;
-}
-@media screen and (min-width: 768px) {
-  .link-with-icon.microscope .arrow .ico {
-    position: absolute;
-    top: 32px;
-    right: 0;
-    width: 8px;
-    height: 13px;
-  }
-}
-.link-with-icon a {
-  display: block;
-  padding: 30px 18%;
-  color: #fff;
-  font-size: 1.125em;
-}
-@media screen and (min-width: 768px) {
-  .link-with-icon {
-    margin: 0;
-    background-color: #f4f4f4;
-  }
-  .link-with-icon a {
-    padding-left: 10%;
-    color: #2a6cd9;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 1em;
-    display: inline-block;
-    *vertical-align: auto;
-    zoom: 1;
-    *display: inline;
-    padding-right: 1em;
-    background-image: url("/etc/designs/nhmwww/img/arrows/small-right-arrow.png");
-    background-size: auto;
-    background-position: right center;
-  }
-}
-
-.section-link {
-  min-height: 24px;
-  padding: 3px 0 0 36px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: normal;
-  font-size: 18px;
-}
-.section-link .ico-arrow {
-  position: absolute;
-  top: 8px;
-  right: -14px;
-  width: 8px;
-  height: 13px;
-}
-@media screen and (min-width: 768px) {
-  .section-link {
-    display: inline-block;
-    *vertical-align: auto;
-    zoom: 1;
-    *display: inline;
-    position: relative;
-    left: 2em;
-    top: -0.5em;
-    font-size: 14px;
-  }
-}
-.section-link.calendar {
-  padding-left: 0;
-}
-.section-link.calendar .ico-cal {
-  margin-right: 10px;
-  width: 23px;
-  height: 22px;
-}
-.section-link.cart {
-  position: relative;
-}
-.section-link.cart .ico {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 28px;
-  height: 24px;
 }
 
 .hero {
@@ -3835,45 +4804,7 @@ input.question {
   }
 }
 
-.subnav {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 45px;
-}
-.subnav.fixed {
-  position: fixed;
-  top: 48px;
-  width: 100%;
-  background: #fff;
-  z-index: 99998;
-}
-.subnav .row {
-  margin-bottom: 0;
-  text-align: center;
-}
-.subnav .subnav__item {
-  width: 16%;
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  padding: 10px 0;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1;
-}
-.subnav .subnav__item a {
-  display: block;
-  color: #565656;
-}
-.subnav .subnav__item a:hover {
-  color: #2a6cd9;
-  text-decoration: none;
-}
-.subnav .subnav__item.active a {
-  color: #2a6cd9;
-}
-
+/** LEGACY 3-CTA-GROUP PARTIAL **/
 .info-actions {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   padding: 0px;
@@ -3889,6 +4820,36 @@ input.question {
   }
   .info-actions .info-actions--buttons .info-tout__action:first-child {
     margin-bottom: 1em;
+  }
+}
+
+/** LEGACY CTABUTTON PARTIAL **/
+.caption--cta {
+  background: #2a6cd9;
+  background: rgba(42, 108, 217, 0.9);
+}
+.caption--cta h4 {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0px;
+}
+.caption--cta a {
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .caption--cta a {
+    display: inline;
+    color: #fff;
+  }
+  .caption--cta a .ico {
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 20px;
+    bottom: 5px;
+    right: -14px;
   }
 }
 
@@ -4114,6 +5075,75 @@ input.question {
   }
 }
 
+/* THUMB CAPTIONS *******************************************/
+.thumb-caption {
+  max-height: 150px;
+  position: static;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1em;
+  padding-left: 2em;
+}
+.thumb-caption p {
+  color: #ffffff;
+  font-size: 1em;
+  line-height: 1.3em;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .thumb-caption p {
+    font-size: 1.3em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .thumb-caption p {
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .thumb-caption {
+    max-width: 70%;
+    position: absolute;
+  }
+}
+
+/* THUMB CTAs *******************************************/
+.info-tout__action.tickets.thumb-cta {
+  width: 70%;
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+}
+
+.home-thumb-left {
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .home-thumb-left {
+    margin-right: 10px;
+  }
+}
+
+.home-thumb-right {
+  position: relative;
+  margin-top: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .home-thumb-right {
+    margin-left: 10px;
+    margin-top: 0;
+  }
+}
+
+.home-thumb-left img,
+.home-thumb-right img {
+  width: 100%;
+}
+
+/** LEGACY EVENTS SUMMARY PARTIAL **/
 .info-sidebar {
   padding: 25px 0px 0px 2em;
 }
@@ -4212,6 +5242,24 @@ input.question {
   font-size: 13px;
 }
 
+ul.info-sidebar-box-visit {
+  padding-left: 10%;
+}
+ul.info-sidebar-box-visit li {
+  position: relative;
+  padding: 0;
+}
+ul.info-sidebar-box-visit li .ico {
+  display: inline-block;
+  float: left;
+  zoom: 1;
+  width: 45px;
+  height: 50px;
+  content: "";
+  padding-right: 5px;
+}
+
+/** LEGACY QUOTE SLIDER PARTIAL **/
 .quote-slider-bar {
   display: none;
   color: #2a6cd9;
@@ -4294,59 +5342,7 @@ input.question {
   }
 }
 
-.carousel-wrapper {
-  max-width: 100%;
-  margin-bottom: 1.5em;
-}
-.carousel-wrapper .carousel {
-  margin-bottom: 4px;
-  margin-left: 0;
-}
-.carousel-wrapper .carousel li {
-  position: relative;
-}
-.carousel-wrapper .carousel li iframe {
-  display: block;
-  max-width: 100%;
-}
-.carousel-wrapper .carousel [data-type="video"] .caption {
-  display: none;
-}
-.carousel-wrapper .lSGallery {
-  width: 9999px !important;
-  background: #f4f4f4;
-}
-.carousel-wrapper .lSGallery:hover + .lSAction {
-  filter: alpha(opacity=100);
-  opacity: 1;
-}
-.carousel-wrapper .lSAction {
-  zoom: 1;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-}
-.carousel-wrapper .lSSlideWrapper:hover .lSAction {
-  filter: alpha(opacity=100);
-  opacity: 1;
-}
-
-.thumbnail-scroll {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .thumbnail-scroll {
-    display: block;
-    position: absolute;
-    bottom: 94px;
-    width: 100%;
-  }
-}
-
+/** LEGACY FEATURE-COMPONENT PARTIAL **/
 .feature {
   padding-top: 25px;
 }
@@ -4421,6 +5417,7 @@ input.question {
   margin: 2em 0 0;
 }
 
+/** LEGACY FEED-ENTRY PARTIAL **/
 .feed-entry {
   padding: 0px 5px;
   margin-bottom: 20px;
@@ -4564,25 +5561,7 @@ input.question {
   height: 19px;
 }
 
-.shop {
-  background: #f4f4f4;
-  padding-bottom: 20px;
-  overflow: hidden;
-}
-.shop .shop-slider-wrapper {
-  width: 300px;
-  margin: auto;
-}
-@media screen and (min-width: 768px) {
-  .shop .shop-slider-wrapper .lSNext {
-    right: 20px;
-  }
-}
-.shop .lSSlideOuter,
-.shop .lSSlideWrapper {
-  overflow: visible;
-}
-
+/** LEGACY SHOP-ENTRY PARTIAL **/
 .shop__entry {
   text-align: center;
 }
@@ -4602,59 +5581,36 @@ input.question {
   color: #2a6cd9;
 }
 
-.promo {
-  padding: 0 10px 10px;
-}
-@media screen and (min-width: 768px) {
-  .promo {
-    padding: 0px;
-  }
-}
-.promo img {
-  width: 100%;
-}
-
-.promo-link {
-  background-color: #2a6cd9;
-  color: #ffffff;
-  font-size: 18px;
-  padding: 20px;
-}
-.promo-link:hover {
-  color: #fff;
-}
-
-.about-us a.promo-link {
-  color: #ffffff;
-}
-
-/******ADDED BY VAL**********/
-/* PADDINGS + MARGINGS */
-.paddingTB {
-  padding: 10px 0px;
-}
-
+/** LEGACY HEADERTEXTIMAGE PARTIAL **/
 .GreyBG {
   background-color: #eeeeee;
 }
 
-ul.info-sidebar-box-visit {
-  padding-left: 10%;
-}
-ul.info-sidebar-box-visit li {
-  position: relative;
-  padding: 0;
-}
-ul.info-sidebar-box-visit li .ico {
-  display: inline-block;
-  float: left;
-  zoom: 1;
-  width: 45px;
-  height: 50px;
-  content: "";
-  padding-right: 5px;
+.headertextimage h2 {
+  color: #000;
+  font-size: 1.8333em;
 }
 
+/** LEGACY ASIDEBOX PARTIAL **/
+.AsideBox {
+  background-color: #eeeeee;
+}
+.AsideBox h2 {
+  color: #A1164E !important;
+  padding: 20px 0px 0.2em 10% !important;
+  font-size: 2em;
+}
+.AsideBox p {
+  margin-bottom: 0px;
+  line-height: 1.5;
+}
+@media screen and (min-width: 768px) {
+  .AsideBox h2 {
+    font-size: 2em;
+  }
+}
+
+/** LEGACY IFRAME PARTIAL **/
 /* iframe *******************************************/
 figure {
   height: 0;
@@ -4676,74 +5632,7 @@ iframe.youtubeplayer {
   /*height: 100%;*/
 }
 
-/* THUMB CAPTIONS *******************************************/
-.thumb-caption {
-  max-height: 150px;
-  position: static;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 1em;
-  padding-left: 2em;
-}
-.thumb-caption p {
-  color: #ffffff;
-  font-size: 1em;
-  line-height: 1.3em;
-  margin-bottom: 0;
-}
-@media screen and (min-width: 768px) {
-  .thumb-caption p {
-    font-size: 1.3em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .thumb-caption p {
-    font-size: 1.5em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .thumb-caption {
-    max-width: 70%;
-    position: absolute;
-  }
-}
-
-/* THUMB CTAs *******************************************/
-.info-tout__action.tickets.thumb-cta {
-  width: 70%;
-  position: absolute;
-  bottom: 5%;
-  right: 0;
-}
-
-.home-thumb-left {
-  position: relative;
-}
-@media screen and (min-width: 768px) {
-  .home-thumb-left {
-    margin-right: 10px;
-  }
-}
-
-.home-thumb-right {
-  position: relative;
-  margin-top: 1.5em;
-}
-@media screen and (min-width: 768px) {
-  .home-thumb-right {
-    margin-left: 10px;
-    margin-top: 0;
-  }
-}
-
-.home-thumb-left img,
-.home-thumb-right img {
-  width: 100%;
-}
-
+/** LEGACY TITLE-BAR PARTIAL **/
 .row.title {
   margin-bottom: 0px;
   margin-top: 0.4em;
@@ -4753,77 +5642,7 @@ iframe.youtubeplayer {
   padding-bottom: 0em;
 }
 
-/* Adding this to override the sharing icons *****************************/
-.st_email_large .stButton .stLarge {
-  background-image: url(/etc/designs/nhmwww/img/icons/mobile-email.png) !important;
-  background-repeat: no-repeat;
-}
-
-.st_twitter_large .stButton .stLarge {
-  background-image: url(/etc/designs/nhmwww/img/icons/mobile-twitter.png) !important;
-  background-repeat: no-repeat;
-}
-
-.st_facebook_large .stButton .stLarge {
-  background-image: url(/etc/designs/nhmwww/img/icons/mobile-facebook.png) !important;
-  background-repeat: no-repeat;
-}
-
-.st_googleplus_large .stButton .stLarge {
-  background-image: url(/etc/designs/nhmwww/img/icons/mobile-gplus.png) !important;
-  background-repeat: no-repeat;
-}
-
-.st_pinterest_large .stButton .stLarge {
-  background-image: url(/etc/designs/nhmwww/img/icons/mobile-pinterest.png) !important;
-  background-repeat: no-repeat;
-}
-
-.stButton .stLarge:hover {
-  opacity: 1 !important;
-  background-position: 0px 0px !important;
-}
-
-li.nav-list__item.first.cf h4 {
-  padding-bottom: 7%;
-}
-
-@media screen and (min-width: 768px) {
-  .nav-list.level-2.share {
-    right: 0px !important;
-  }
-}
-.nav-list.level-2.share,
-.nav-list.level-2.search {
-  width: 65% !important;
-}
-
-@media screen and (min-width: 768px) {
-  .nav-list.level-2.share,
-  .nav-list.level-2.search {
-    width: 55% !important;
-  }
-}
-span.st_email_large {
-  padding-right: 9%;
-}
-
-span.st_facebook_large {
-  padding-right: 9%;
-}
-
-span.st_twitter_large {
-  padding-right: 9%;
-}
-
-span.st_googleplus_large {
-  padding-right: 9%;
-}
-
-.share-icons {
-  width: 23% !important;
-}
-
+/** LEGACY ACCORDION PARTIAL **/
 .accordion .accordion-navigation > a,
 .accordion dd > a {
   background: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png") 97% center no-repeat #EEE;
@@ -4841,159 +5660,7 @@ span.st_googleplus_large {
   background: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png") 97% center no-repeat #E3E3E3;
 }
 
-.large4-margin.large-4 {
-  width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .large4-margin {
-    margin-left: 3%;
-    margin-top: 0;
-  }
-  .large4-margin.large-4 {
-    width: 31.33333%;
-  }
-}
-.large4-margin:first-child {
-  margin-left: 0;
-  margin-top: 0;
-}
-
-.large6-margin.large-6 {
-  width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .large6-margin {
-    margin-left: 3%;
-    margin-top: 0;
-  }
-  .large6-margin.large-6 {
-    width: 48.5%;
-  }
-}
-.large6-margin:first-child {
-  margin-left: 0;
-  margin-top: 0;
-}
-
-.intro-text {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.4em;
-  padding-bottom: 2%;
-  /* 
-  &.take-part{color:$take-part-color;}
-  &.discover{color:$discover-color;}
-  &.support-us{color:$support-us-color;}
-  &.shop { color:$shop-color;}
-  &.schools{color:$schools-color;}
-  &.our-science{color:$our-science-color;}
-  &.about-us{color:$about-us-color;}
-  &.press-office{color:$news-press-color;}
-  &.working-with-us{color:$working-with-us-color;}
-  &.business-services{color:$business-services-color;}
-  &.contact-us{color:$contact-us-color;}
-  */
-}
-@media screen and (min-width: 768px) {
-  .intro-text {
-    font-size: 1.8em;
-    line-height: 1.2em;
-  }
-}
-
-.mega-thumb {
-  position: relative;
-  position: relative;
-}
-@media screen and (min-width: 768px) {
-  .mega-thumb {
-    margin-right: 10px;
-  }
-}
-.mega-thumb img {
-  width: 100%;
-}
-
-@media only screen and (min-width: 64.063em) {
-  .row2cells21 .large-8.medium-8.columns,
-  .row2cells12 .large-8.medium-8.columns {
-    width: 64.94254%;
-  }
-}
-@media only screen and (min-width: 48em) {
-  .row2cells21 .large-8.medium-8.columns,
-  .row2cells12 .large-8.medium-8.columns {
-    width: 64.94254%;
-  }
-}
-/* THUMB CAPTIONS *******************************************/
-.mega-thumb-caption {
-  position: static;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 0.5em 1em 1em 1em;
-}
-.mega-thumb-caption p {
-  color: #ffffff;
-  font-size: 1em;
-  line-height: 1.3em;
-  margin-bottom: 0;
-  padding: 0;
-}
-@media screen and (min-width: 768px) {
-  .mega-thumb-caption p {
-    font-size: 1.3em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .mega-thumb-caption p {
-    font-size: 1.5em;
-  }
-}
-.mega-thumb-caption.visit {
-  background-color: rgba(161, 22, 78, 0.95);
-}
-.mega-thumb-caption.take-part {
-  background-color: rgba(191, 73, 31, 0.95);
-}
-.mega-thumb-caption.our-science {
-  background-color: rgba(53, 121, 0, 0.95);
-}
-.mega-thumb-caption.support-us {
-  background-color: rgba(127, 32, 110, 0.95);
-}
-.mega-thumb-caption.schools {
-  background-color: rgba(9, 131, 187, 0.95);
-}
-@media screen and (min-width: 768px) {
-  .mega-thumb-caption {
-    width: 80%;
-    position: absolute;
-  }
-  .mega-thumb-caption.visit {
-    background-color: rgba(161, 22, 78, 0.95);
-  }
-  .mega-thumb-caption.take-part {
-    background-color: rgba(191, 73, 31, 0.95);
-  }
-  .mega-thumb-caption.our-science {
-    background-color: rgba(53, 121, 0, 0.95);
-  }
-  .mega-thumb-caption.support-us {
-    background-color: rgba(127, 32, 110, 0.95);
-  }
-  .mega-thumb-caption.schools {
-    background-color: rgba(9, 131, 187, 0.95);
-  }
-}
-
-.headertextimage h2 {
-  color: #000;
-  font-size: 1.8333em;
-}
-
+/** LEGACY BREADCRUMB PARTIAL **/
 .breadcrumb {
   background-color: #000000;
   color: #fff;
@@ -5010,6 +5677,7 @@ span.st_googleplus_large {
   margin-bottom: 0;
 }
 
+/** LEGACY DISCOVER-PUBLICATION **/
 .discover-image-caption-icon i.svg-ico {
   height: 40px;
   width: 40px;
@@ -5023,6 +5691,7 @@ span.st_googleplus_large {
   width: 30px;
 }
 
+/** LEGACY FEEDBACK-BAR **/
 #feedback-bar i.svg-ico {
   height: 40px;
   width: 40px;
@@ -5119,6 +5788,8 @@ div#feedback-bar p a:hover {
   speak: none;
 }
 
+/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) **/
+/*** _EVENT-SLIDER.SCSS, FORMERLY _EVENTS.SCSS ***/
 .event-slider li {
   float: left;
   width: 33%;
@@ -5217,6 +5888,7 @@ div#feedback-bar p a:hover {
   height: 16px;
 }
 
+/** LEGACY LIGHTSLIDER (VENDOR) PARTIAL **/
 /** /!!! Core CSS !!!/**/
 .lSSlideOuter {
   overflow: hidden;
@@ -5292,6 +5964,8 @@ div#feedback-bar p a:hover {
 }
 
 /** /!!! End of core CSS !!!/**/
+/** LEGACY LIGHTSLIDER (CUSTOM) PARTIAL **/
+/*** _LIGHTSLIDER.SCSS (CUSTOM), FORMERLY _SLIDER.SCSS ***/
 /* Pager */
 .lSSlideOuter .lSPager {
   margin: 10px 0 0;
@@ -5471,15 +6145,9 @@ div#feedback-bar p a:hover {
   float: right !important;
 }
 
-.ir {
-  display: block;
-  text-indent: -999em;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  text-align: left;
-  direction: ltr;
-}
-
+/** LEGACY HELPERS PARTIAL - MERGED WITH LEGACY UTILITIES PARTIAL **/
+/** LEGACY SEARCH RESULTS PARTIAL (RENAMED FROM _SEARCH-RESULTS.SCSS) **/
+/*** _GOOGLE-SEARCH-RESULTS.SCSS, FORMERLY _SEARCH-RESULTS.SCSS ***/
 .gcsc-branding-text,
 .gcsc-branding-clickable {
   display: none;
@@ -5577,6 +6245,7 @@ table.gssb_c {
   z-index: 99999 !important;
 }
 
+/** LEGACY PROFILES PARTIAL **/
 .main-section.science-profile {
   /*Form*/
   /*Profiles*/
@@ -5647,332 +6316,36 @@ table.gssb_c {
   padding: 2.0em;
 }
 
+/** FIXES PARTIAL (PHASED OUT) **/
+/** REFACTOR UTILITIES PARTIAL **/
+.pr-0 {
+  padding-right: 0;
+}
+
+.pr-10 {
+  padding-right: 0.65em;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-20 {
+  margin-bottom: 1.2em;
+}
+
+.mt-32 {
+  margin-top: 2em;
+}
+
+/** REFACTOR-BASE PARTIAL **/
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 16px;
   color: #565656;
 }
 
-.visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .account .title-bar, .press-office .title-bar {
-  padding: 0.5em 0.75em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.visit .title-bar h1, .take-part .title-bar h1, .support-us .title-bar h1, .schools .title-bar h1, .our-science .title-bar h1, .discover .title-bar h1, .about-us .title-bar h1, .contact-us .title-bar h1, .business-services .title-bar h1, .account .title-bar h1, .press-office .title-bar h1 {
-  padding: 0;
-  color: #ffffff !important;
-}
-.visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .account .title-bar p, .press-office .title-bar p {
-  color: #ffffff;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-@media screen and (min-width: 768px) {
-  .visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .account .title-bar, .press-office .title-bar {
-    padding: 1em 1.5em;
-  }
-  .visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .account .title-bar p, .press-office .title-bar p {
-    font-size: 1.25em;
-  }
-}
-
-.visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .account .GreyBox, .press-office .GreyBox {
-  padding: 0.5em 0.75em;
-}
-@media screen and (min-width: 768px) {
-  .visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .account .GreyBox, .press-office .GreyBox {
-    padding: 1em 1.5em;
-  }
-}
-.visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .account .GreyBox p, .press-office .GreyBox p {
-  font-size: 1.125em;
-  margin-bottom: 1.2em;
-}
-
-.home h3, .home h4, .home h5 {
-  color: #565656;
-}
-
-.feature-box a:hover {
-  color: #ffffff;
-}
-
-.visit .title-bar {
-  background-color: #A1164E;
-}
-.visit h4 {
-  font-weight: normal;
-}
-.visit h3, .visit h4, .visit h5 {
-  color: #565656;
-}
-.visit .carousel .caption {
-  background-color: #A1164E;
-  background-color: rgba(161, 22, 78, 0.9);
-}
-.visit .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.take-part .title-bar {
-  background-color: #BF491F;
-}
-.take-part h4 {
-  font-weight: normal;
-}
-.take-part h3, .take-part h4, .take-part h5 {
-  color: #565656;
-}
-.take-part .carousel .caption {
-  background-color: #BF491F;
-  background-color: rgba(191, 73, 31, 0.9);
-}
-.take-part .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.support-us .title-bar {
-  background-color: #7F206E;
-}
-.support-us h4 {
-  font-weight: normal;
-}
-.support-us h3, .support-us h4, .support-us h5 {
-  color: #565656;
-}
-.support-us .carousel .caption {
-  background-color: #7F206E;
-  background-color: rgba(127, 32, 110, 0.9);
-}
-.support-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.schools .title-bar {
-  background-color: #0983BB;
-}
-.schools h4 {
-  font-weight: normal;
-}
-.schools h3, .schools h4, .schools h5 {
-  color: #565656;
-}
-.schools .carousel .caption {
-  background-color: #0983BB;
-  background-color: rgba(9, 131, 187, 0.9);
-}
-.schools .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.our-science .title-bar {
-  background-color: #357900;
-}
-.our-science h4 {
-  font-weight: normal;
-}
-.our-science h3, .our-science h4, .our-science h5 {
-  color: #565656;
-}
-.our-science .carousel .caption {
-  background-color: #357900;
-  background-color: rgba(53, 121, 0, 0.9);
-}
-.our-science .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.discover .title-bar {
-  background-color: #565656;
-  margin-bottom: 1.2em;
-}
-.discover h4 {
-  font-weight: normal;
-}
-.discover h3, .discover h4, .discover h5 {
-  color: #565656;
-}
-.discover .carousel .caption {
-  background-color: #107B5E;
-  background-color: rgba(16, 123, 94, 0.9);
-}
-.discover .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.about-us .title-bar {
-  background-color: #0B5C7B;
-}
-.about-us h4 {
-  font-weight: normal;
-}
-.about-us h3, .about-us h4, .about-us h5 {
-  color: #565656;
-}
-.about-us .carousel .caption {
-  background-color: #0B5C7B;
-  background-color: rgba(11, 92, 123, 0.9);
-}
-.about-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.contact-us .title-bar {
-  background-color: #808080;
-}
-.contact-us h4 {
-  font-weight: normal;
-}
-.contact-us h3, .contact-us h4, .contact-us h5 {
-  color: #565656;
-}
-.contact-us .carousel .caption {
-  background-color: #808080;
-  background-color: rgba(128, 128, 128, 0.9);
-}
-.contact-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.business-services .title-bar {
-  background-color: #253480;
-}
-.business-services h4 {
-  font-weight: normal;
-}
-.business-services h3, .business-services h4, .business-services h5 {
-  color: #565656;
-}
-.business-services .carousel .caption {
-  background-color: #253480;
-  background-color: rgba(37, 52, 128, 0.9);
-}
-.business-services .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.account .title-bar {
-  background-color: #00385D;
-}
-.account h4 {
-  font-weight: normal;
-}
-.account h3, .account h4, .account h5 {
-  color: #565656;
-}
-.account .carousel .caption {
-  background-color: #00385D;
-  background-color: rgba(0, 56, 93, 0.9);
-}
-.account .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.content-page .title-bar {
-  margin-bottom: 1.2em;
-}
-
-/** this makes the title bar flush with screen edge, keeps gutter for content. **/
-.title .row.title-bar {
-  width: 100%;
-}
-
-.content-page .title-bar {
-  margin-bottom: 1.2em;
-}
-
-.carousel .caption {
-  padding: 0.5em 0.75em;
-}
-.carousel .caption p {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 0.9em;
-}
-@media screen and (min-width: 768px) {
-  .carousel .caption {
-    padding: 1em 1.5em !important;
-  }
-  .carousel .caption p {
-    font-size: 1.15em;
-  }
-}
-
-.hero {
-  margin-bottom: 0;
-}
-.hero .caption {
-  height: 142px;
-}
-@media screen and (min-width: 480px) {
-  .hero .caption {
-    height: 100px;
-  }
-}
-@media screen and (min-width: 640px) {
-  .hero .caption {
-    height: 85px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .hero .caption {
-    height: auto;
-  }
-}
-
-.thumb-caption {
-  padding: 0.5em 0.75em;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-}
-@media screen and (min-width: 768px) {
-  .thumb-caption {
-    padding: 1em 1.5em;
-  }
-}
-
-.visit.thumb-caption, .visit .thumb-caption, .our-science.thumb-caption, .our-science .thumb-caption {
-  opacity: 0.9 !important;
-}
-
-.ctabutton .home-thumb-right {
-  margin-top: 0;
-  margin-left: 0;
-}
-.ctabutton .home-thumb-right h2 {
-  padding: 0 0.5em;
-  font-size: 2em;
-}
-@media screen and (min-width: 768px) {
-  .ctabutton .home-thumb-right h2 {
-    font-size: 2.2em;
-  }
-}
-@media screen and (min-width: 1160px) {
-  .ctabutton .home-thumb-right h2 {
-    font-size: 2.4em;
-  }
-}
-
+/** REFACTOR-TYPOGRAPHY PARTIAL **/
 h1 {
   font-size: 2em;
 }
@@ -6021,15 +6394,6 @@ h6 {
   font-weight: bold;
 }
 
-.text {
-  padding: 0 0.75em;
-}
-@media screen and (min-width: 768px) {
-  .text {
-    padding: 0 1.5em;
-  }
-}
-
 .intro-text {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   line-height: 35px;
@@ -6037,6 +6401,176 @@ h6 {
 @media screen and (min-width: 1160px) {
   .intro-text {
     font-size: 1.8em;
+  }
+}
+
+.pagesummarytext {
+  padding: 0 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .pagesummarytext {
+    padding: 0 1.5em;
+  }
+}
+
+.list__no-bullet {
+  margin-left: 0 !important;
+}
+.list__no-bullet li {
+  list-style-type: none !important;
+}
+
+/** REFACTOR-PLACEHOLDERS PARTIAL **/
+.visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .account .title-bar, .press-office .title-bar {
+  padding: 0.5em 0.75em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.visit .title-bar h1, .take-part .title-bar h1, .support-us .title-bar h1, .schools .title-bar h1, .our-science .title-bar h1, .discover .title-bar h1, .about-us .title-bar h1, .contact-us .title-bar h1, .business-services .title-bar h1, .account .title-bar h1, .press-office .title-bar h1 {
+  padding: 0;
+  color: #ffffff !important;
+}
+.visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .account .title-bar p, .press-office .title-bar p {
+  color: #ffffff;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .account .title-bar, .press-office .title-bar {
+    padding: 1em 1.5em;
+  }
+  .visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .account .title-bar p, .press-office .title-bar p {
+    font-size: 1.25em;
+  }
+}
+
+.visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .account .GreyBox, .press-office .GreyBox {
+  padding: 0.5em 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .account .GreyBox, .press-office .GreyBox {
+    padding: 1em 1.5em;
+  }
+}
+.visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .account .GreyBox p, .press-office .GreyBox p {
+  font-size: 1.125em;
+  margin-bottom: 1.2em;
+}
+
+/** REFACTOR-LAYOUT PARTIAL **/
+.row {
+  max-width: rem-calc(1160);
+}
+
+/** REFACTOR-HERO PARTIAL **/
+/** This needs to be reviewed. A Hero is a row system, whereas a caption should belong to a component **/
+.hero {
+  margin-bottom: 0;
+}
+.hero .caption {
+  height: 142px;
+}
+@media screen and (min-width: 480px) {
+  .hero .caption {
+    height: 100px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .hero .caption {
+    height: 85px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero .caption {
+    height: auto;
+  }
+}
+
+/** REFACTOR-HTI-FEATUREBOX PARTIAL **/
+/** this has likely been superseded by HTI-BOX__FEATURE-BOX **/
+.feature-box a:hover {
+  color: #ffffff;
+}
+
+/** REFACTOR-TITLE-BAR PARTIAL **/
+/** this makes the title bar flush with screen edge, keeps gutter for content. **/
+.title .row.title-bar {
+  width: 100%;
+}
+
+.content-page .title-bar {
+  margin-bottom: 1.2em;
+}
+
+.science-profiles-detail-page .title-bar {
+  margin-bottom: 1.2em;
+}
+
+/** REFACTOR-CAROUSEL PARTIAL **/
+.carousel .caption {
+  padding: 0.5em 0.75em;
+}
+.carousel .caption p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+}
+@media screen and (min-width: 768px) {
+  .carousel .caption {
+    padding: 1em 1.5em !important;
+  }
+  .carousel .caption p {
+    font-size: 1.15em;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .carousel-wrapper a:hover {
+    text-decoration: none;
+  }
+}
+
+.carousel .caption {
+  background-color: #107E5E;
+  background-color: rgba(16, 126, 94, 0.9);
+}
+.carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+/** REFACTOR-CTABUTTON PARTIAL **/
+.thumb-caption {
+  padding: 0.5em 0.75em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .thumb-caption {
+    padding: 1em 1.5em;
+  }
+}
+
+.visit.thumb-caption, .visit .thumb-caption, .our-science.thumb-caption, .our-science .thumb-caption {
+  opacity: 0.9 !important;
+}
+
+.ctabutton .home-thumb-right {
+  margin-top: 0;
+  margin-left: 0;
+}
+.ctabutton .home-thumb-right h2 {
+  padding: 0 0.5em;
+  font-size: 2em;
+}
+@media screen and (min-width: 768px) {
+  .ctabutton .home-thumb-right h2 {
+    font-size: 2.2em;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .ctabutton .home-thumb-right h2 {
+    font-size: 2.4em;
   }
 }
 
@@ -6113,6 +6647,18 @@ h6 {
   }
 }
 
+/** REFACTOR-TEXT-COMPONENT PARTIAL **/
+.text {
+  padding: 0 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .text {
+    padding: 0 1.5em;
+  }
+}
+
+/** REFACTOR-BOTTOM-BANNER PARTIAL **/
+/** this may be part of CTABUTTON **/
 .bottom-banner h2 {
   font-size: 1.5em;
 }
@@ -6127,6 +6673,7 @@ h6 {
   }
 }
 
+/** REFACTOR-EVENTS-SUMMARY **/
 @media screen and (min-width: 768px) {
   .info-sidebar li {
     padding-left: 24%;
@@ -6143,20 +6690,7 @@ h6 {
   }
 }
 
-.discover h1 {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 2em;
-  line-height: 1.3;
-}
-@media screen and (min-width: 768px) {
-  .discover h1 {
-    font-size: 2.7em;
-  }
-}
-.discover .intro-text {
-  color: #565656;
-}
-
+/** REFACTOR-DISCOVER-ELEMENT PARTIAL **/
 .discover-element .element-title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #000000;
@@ -6171,6 +6705,7 @@ h6 {
   font-size: 1em;
 }
 
+/** REFACTOR-DISCOVER-RELATED PARTIAL **/
 .discoverrelated .discover h3 {
   padding-top: 0.5em !important;
   padding-left: 0.75em !important;
@@ -6179,6 +6714,7 @@ h6 {
   font-size: 1em;
 }
 
+/** REFACTOR-DISCOVER-PUBLICATION PARTIAL **/
 .discoverpublication h1 {
   padding: 0 0.5em !important;
 }
@@ -6196,6 +6732,7 @@ h6 {
   }
 }
 
+/** REFACTOR-MEGAMENU PARTIAL **/
 .global-nav-menu .errors {
   clear: both;
   color: #A1164E;
@@ -6242,6 +6779,30 @@ h6 {
   }
 }
 
+/** WR-409 **/
+.nav-list.level-2 .dropdown-section--thumb .nav-list__item a {
+  padding: 0;
+  font-size: 100%;
+}
+
+/** WR-680 **/
+.nav-list.level-1 > .nav-list__item {
+  background-color: #ffffff;
+  padding-bottom: 0;
+}
+.nav-list.level-1 > .nav-list__item.selected {
+  background-color: #000000;
+  color: #ffffff;
+}
+.nav-list.level-1 > .nav-list__item.shop {
+  overflow: visible;
+}
+
+.mega-thumb-caption.shop {
+  background-color: rgba(78, 134, 178, 0.95);
+}
+
+/** REFACTOR-EVENT-SLIDER PARTIAL **/
 .event-slider-wrapper h4 {
   padding: 0.5em;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
@@ -6261,6 +6822,7 @@ h6 {
   font-size: 1em;
 }
 
+/** REFACTOR-ACCORDION PARTIAL **/
 .accordion .accordion-navigation,
 .accordion dd {
   clear: both;
@@ -6277,6 +6839,12 @@ h6 {
   }
 }
 
+.science-profiles-detail-page .accordion-navigation a {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.125em;
+}
+
+/** REFACTOR-FOOTER PARTIAL **/
 .main-footer .footer-nav .icon-list li {
   padding: 0.8em 0.8em 0 0;
   width: 30%;
@@ -6306,6 +6874,31 @@ h6 {
   display: inline;
 }
 
+/** overrides Foundation forms styles **/
+.main-footer label {
+  color: #ffffff;
+}
+.main-footer fieldset legend {
+  background: none;
+  font-weight: normal;
+  padding: 0;
+}
+.main-footer .footer-utility input {
+  height: auto !important;
+}
+.main-footer .footer-utility input[type="submit"] {
+  border: 2px solid #fff;
+  margin: 0.4em 0 0;
+  padding: 0.9em 0.3em 1em 1em;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-utility input[type="submit"] {
+    border-width: 1px;
+    padding: 0.7em 0.3em 0.7em 1em;
+  }
+}
+
+/** REFACTOR-FEEDBACK-BAR PARTIAL **/
 div#feedback-bar {
   background-color: #000000;
   opacity: 0.9;
@@ -6336,38 +6929,592 @@ div#feedback-bar .span11 {
   }
 }
 
-.sponsors-grid {
-  margin-top: 2.1em;
-  padding: 1em 1.5em;
-  border-top: 1px solid #CCCCCC;
+/** PRESS OFFICE PARTIAL (PHASED OUT) **/
+/** HOME THEME PARTIAL **/
+.home h3, .home h4, .home h5 {
+  color: #565656;
 }
 
-.pagesummarytext {
-  padding: 0 0.75em;
+/** VISIT THEME PARTIAL **/
+.visit .title-bar {
+  background-color: #A1164E;
 }
-@media screen and (min-width: 768px) {
-  .pagesummarytext {
-    padding: 0 1.5em;
-  }
+.visit h4 {
+  font-weight: normal;
 }
-
-@media screen and (min-width: 320px) {
-  .carousel-wrapper a:hover {
-    text-decoration: none;
-  }
+.visit h3, .visit h4, .visit h5 {
+  color: #565656;
 }
-
-.carousel .caption {
-  background-color: #107E5E;
-  background-color: rgba(16, 126, 94, 0.9);
+.visit .carousel .caption {
+  background-color: #A1164E;
+  background-color: rgba(161, 22, 78, 0.9);
 }
-.carousel .caption h2 {
+.visit .carousel .caption h2 {
   color: #ffffff;
   padding-bottom: 0;
   margin-top: 0;
 }
 
-/***** PRESS OFFICE *****/
+.visit .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(161, 22, 78, 0.1);
+}
+.visit .secondary-nav-wrapper .side-nav li a {
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li a:hover {
+  color: #A1164E;
+  background-color: rgba(161, 22, 78, 0.25);
+}
+.visit .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(161, 22, 78, 0.25);
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(161, 22, 78, 0.25);
+}
+.visit .secondary-nav-wrapper .side-nav li.selected a {
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #A1164E;
+}
+
+.visit .linklist--container--header a {
+  color: #A1164E;
+}
+.visit .linklist--link-items li a:hover {
+  border-bottom-color: #A1164E;
+}
+.visit .linklist--column--header a {
+  color: #A1164E;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.visit .ctabutton--inside-hti--cta-text {
+  color: #A1164E;
+}
+.visit .hti-box__feature-box {
+  background-color: #A1164E;
+}
+
+/** TAKE-PART THEME PARTIAL **/
+.take-part .title-bar {
+  background-color: #BF491F;
+}
+.take-part h4 {
+  font-weight: normal;
+}
+.take-part h3, .take-part h4, .take-part h5 {
+  color: #565656;
+}
+.take-part .carousel .caption {
+  background-color: #BF491F;
+  background-color: rgba(191, 73, 31, 0.9);
+}
+.take-part .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.take-part .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(191, 73, 31, 0.1);
+}
+.take-part .secondary-nav-wrapper .side-nav li a {
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li a:hover {
+  color: #BF491F;
+  background-color: rgba(191, 73, 31, 0.25);
+}
+.take-part .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(191, 73, 31, 0.25);
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(191, 73, 31, 0.25);
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected a {
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #BF491F;
+}
+
+.take-part .linklist--container--header a {
+  color: #BF491F;
+}
+.take-part .linklist--link-items li a:hover {
+  border-bottom-color: #BF491F;
+}
+.take-part .linklist--column--header a {
+  color: #BF491F;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.take-part .ctabutton--inside-hti--cta-text {
+  color: #BF491F;
+}
+.take-part .hti-box__feature-box {
+  background-color: #BF491F;
+}
+
+/** SUPPORT-US THEME PARTIAL **/
+.support-us .title-bar {
+  background-color: #7F206E;
+}
+.support-us h4 {
+  font-weight: normal;
+}
+.support-us h3, .support-us h4, .support-us h5 {
+  color: #565656;
+}
+.support-us .carousel .caption {
+  background-color: #7F206E;
+  background-color: rgba(127, 32, 110, 0.9);
+}
+.support-us .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.support-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(127, 32, 110, 0.1);
+}
+.support-us .secondary-nav-wrapper .side-nav li a {
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #7F206E;
+  background-color: rgba(127, 32, 110, 0.25);
+}
+.support-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(127, 32, 110, 0.25);
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(127, 32, 110, 0.25);
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #7F206E;
+}
+
+.support-us .linklist--container--header a {
+  color: #7F206E;
+}
+.support-us .linklist--link-items li a:hover {
+  border-bottom-color: #7F206E;
+}
+.support-us .linklist--column--header a {
+  color: #7F206E;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.support-us .ctabutton--inside-hti--cta-text {
+  color: #7F206E;
+}
+.support-us .hti-box__feature-box {
+  background-color: #7F206E;
+}
+
+/** SCHOOLS THEME PARTIAL **/
+.schools .title-bar {
+  background-color: #0983BB;
+}
+.schools h4 {
+  font-weight: normal;
+}
+.schools h3, .schools h4, .schools h5 {
+  color: #565656;
+}
+.schools .carousel .caption {
+  background-color: #0983BB;
+  background-color: rgba(9, 131, 187, 0.9);
+}
+.schools .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.schools .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(9, 131, 187, 0.1);
+}
+.schools .secondary-nav-wrapper .side-nav li a {
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li a:hover {
+  color: #0983BB;
+  background-color: rgba(9, 131, 187, 0.25);
+}
+.schools .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(9, 131, 187, 0.25);
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(9, 131, 187, 0.25);
+}
+.schools .secondary-nav-wrapper .side-nav li.selected a {
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #0983BB;
+}
+
+.schools .linklist--container--header a {
+  color: #0983BB;
+}
+.schools .linklist--link-items li a:hover {
+  border-bottom-color: #0983BB;
+}
+.schools .linklist--column--header a {
+  color: #0983BB;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.schools .ctabutton--inside-hti--cta-text {
+  color: #0983BB;
+}
+.schools .hti-box__feature-box {
+  background-color: #0983BB;
+}
+
+/** OUR-SCIENCE THEME PARTIAL **/
+.our-science .title-bar {
+  background-color: #357900;
+}
+.our-science h4 {
+  font-weight: normal;
+}
+.our-science h3, .our-science h4, .our-science h5 {
+  color: #565656;
+}
+.our-science .carousel .caption {
+  background-color: #357900;
+  background-color: rgba(53, 121, 0, 0.9);
+}
+.our-science .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.our-science .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(53, 121, 0, 0.1);
+}
+.our-science .secondary-nav-wrapper .side-nav li a {
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li a:hover {
+  color: #357900;
+  background-color: rgba(53, 121, 0, 0.25);
+}
+.our-science .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(53, 121, 0, 0.25);
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(53, 121, 0, 0.25);
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected a {
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #357900;
+}
+
+.our-science .linklist--container--header a {
+  color: #357900;
+}
+.our-science .linklist--link-items li a:hover {
+  border-bottom-color: #357900;
+}
+.our-science .linklist--column--header a {
+  color: #357900;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.our-science .ctabutton--inside-hti--cta-text {
+  color: #357900;
+}
+.our-science .hti-box__feature-box {
+  background-color: #357900;
+}
+
+/** DISCOVER THEME PARTIAL **/
+.discover .title-bar {
+  background-color: #565656;
+  margin-bottom: 1.2em;
+}
+.discover h4 {
+  font-weight: normal;
+}
+.discover h3, .discover h4, .discover h5 {
+  color: #565656;
+}
+.discover .carousel .caption {
+  background-color: #107B5E;
+  background-color: rgba(16, 123, 94, 0.9);
+}
+.discover .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.discover h1 {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.3;
+}
+@media screen and (min-width: 768px) {
+  .discover h1 {
+    font-size: 2.7em;
+  }
+}
+.discover .intro-text {
+  color: #565656;
+}
+
+/** ABOUT-US THEME PARTIAL **/
+.about-us .title-bar {
+  background-color: #0B5C7B;
+}
+.about-us h4 {
+  font-weight: normal;
+}
+.about-us h3, .about-us h4, .about-us h5 {
+  color: #565656;
+}
+.about-us .carousel .caption {
+  background-color: #0B5C7B;
+  background-color: rgba(11, 92, 123, 0.9);
+}
+.about-us .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.about-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(11, 92, 123, 0.1);
+}
+.about-us .secondary-nav-wrapper .side-nav li a {
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #0B5C7B;
+  background-color: rgba(11, 92, 123, 0.25);
+}
+.about-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(11, 92, 123, 0.25);
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(11, 92, 123, 0.25);
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #0B5C7B;
+}
+
+.about-us .linklist--container--header a {
+  color: #0B5C7B;
+}
+.about-us .linklist--link-items li a:hover {
+  border-bottom-color: #0B5C7B;
+}
+.about-us .linklist--column--header a {
+  color: #0B5C7B;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.about-us .ctabutton--inside-hti--cta-text {
+  color: #0B5C7B;
+}
+.about-us .hti-box__feature-box {
+  background-color: #0B5C7B;
+}
+
+.about-us a.promo-link {
+  color: #ffffff;
+}
+
+/** CONTACT-US THEME PARTIAL **/
+.contact-us .title-bar {
+  background-color: #808080;
+}
+.contact-us h4 {
+  font-weight: normal;
+}
+.contact-us h3, .contact-us h4, .contact-us h5 {
+  color: #565656;
+}
+.contact-us .carousel .caption {
+  background-color: #808080;
+  background-color: rgba(128, 128, 128, 0.9);
+}
+.contact-us .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.contact-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.contact-us .secondary-nav-wrapper .side-nav li a {
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #808080;
+  background-color: rgba(128, 128, 128, 0.25);
+}
+.contact-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(128, 128, 128, 0.25);
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(128, 128, 128, 0.25);
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #808080;
+}
+
+.contact-us .linklist--container--header a {
+  color: #808080;
+}
+.contact-us .linklist--link-items li a:hover {
+  border-bottom-color: #808080;
+}
+.contact-us .linklist--column--header a {
+  color: #808080;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.contact-us .ctabutton--inside-hti--cta-text {
+  color: #808080;
+}
+.contact-us .hti-box__feature-box {
+  background-color: #808080;
+}
+
+/** BUSINESS-SERVICES THEME PARTIAL **/
+.business-services .title-bar {
+  background-color: #253480;
+}
+.business-services h4 {
+  font-weight: normal;
+}
+.business-services h3, .business-services h4, .business-services h5 {
+  color: #565656;
+}
+.business-services .carousel .caption {
+  background-color: #253480;
+  background-color: rgba(37, 52, 128, 0.9);
+}
+.business-services .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.business-services .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(37, 52, 128, 0.1);
+}
+.business-services .secondary-nav-wrapper .side-nav li a {
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li a:hover {
+  color: #253480;
+  background-color: rgba(37, 52, 128, 0.25);
+}
+.business-services .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(37, 52, 128, 0.25);
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(37, 52, 128, 0.25);
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected a {
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #253480;
+}
+
+.business-services .linklist--container--header a {
+  color: #253480;
+}
+.business-services .linklist--link-items li a:hover {
+  border-bottom-color: #253480;
+}
+.business-services .linklist--column--header a {
+  color: #253480;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.business-services .ctabutton--inside-hti--cta-text {
+  color: #253480;
+}
+.business-services .hti-box__feature-box {
+  background-color: #253480;
+}
+
+/** ACCOUNT THEME PARTIAL **/
+.account .title-bar {
+  background-color: #00385D;
+}
+.account h4 {
+  font-weight: normal;
+}
+.account h3, .account h4, .account h5 {
+  color: #565656;
+}
+.account .carousel .caption {
+  background-color: #00385D;
+  background-color: rgba(0, 56, 93, 0.9);
+}
+.account .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.account .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(0, 56, 93, 0.1);
+}
+.account .secondary-nav-wrapper .side-nav li a {
+  color: #00385D;
+}
+.account .secondary-nav-wrapper .side-nav li a:hover {
+  color: #00385D;
+  background-color: rgba(0, 56, 93, 0.25);
+}
+.account .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(0, 56, 93, 0.25);
+  color: #00385D;
+}
+.account .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(0, 56, 93, 0.25);
+}
+.account .secondary-nav-wrapper .side-nav li.selected a {
+  color: #00385D;
+}
+.account .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #00385D;
+}
+
+/** PRESS OFFICE THEME PARTIAL **/
 .press-office {
   /** h3 here is the title of the press release tiles component, not HTI **/
 }
@@ -6390,6 +7537,55 @@ div#feedback-bar .span11 {
 }
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
+}
+
+.press-office .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(16, 126, 94, 0.1);
+}
+.press-office .secondary-nav-wrapper .side-nav li a {
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li a:hover {
+  color: #107E5E;
+  background-color: rgba(16, 126, 94, 0.25);
+}
+.press-office .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(16, 126, 94, 0.25);
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(16, 126, 94, 0.25);
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected a {
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #107E5E;
+}
+
+.press-office .linklist--container--header a {
+  color: #107E5E;
+}
+.press-office .linklist--link-items li a:hover {
+  border-bottom-color: #107E5E;
+}
+.press-office .linklist--column--header a {
+  color: #107E5E;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.press-office .ctabutton--inside-hti--cta-text {
+  color: #107E5E;
+}
+.press-office .hti-box__feature-box {
+  background-color: #107E5E;
+}
+
+/** REFACTOR-SPONSORS-GRID PARTIAL **/
+.sponsors-grid {
+  margin-top: 2.1em;
+  padding: 1em 1.5em;
+  border-top: 1px solid #CCCCCC;
 }
 
 .feed--item--content-wrapper {
@@ -6470,6 +7666,16 @@ div#feedback-bar .span11 {
   color: #565656;
 }
 
+.more-results-text__directory-search-results {
+  font-size: 1.3em;
+}
+@media screen and (min-width: 768px) {
+  .more-results-text__directory-search-results {
+    font-size: 1.4em;
+  }
+}
+
+/** SECONDARY NAV PARTIAL **/
 /**** SECONDARY NAV ****/
 .secondary-nav-wrapper {
   margin: 1.3em 0;
@@ -6511,246 +7717,7 @@ div#feedback-bar .span11 {
   text-decoration: none;
 }
 
-.visit .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(161, 22, 78, 0.1);
-}
-.visit .secondary-nav-wrapper .side-nav li a {
-  color: #A1164E;
-}
-.visit .secondary-nav-wrapper .side-nav li a:hover {
-  color: #A1164E;
-  background-color: rgba(161, 22, 78, 0.25);
-}
-.visit .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(161, 22, 78, 0.25);
-  color: #A1164E;
-}
-.visit .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(161, 22, 78, 0.25);
-}
-.visit .secondary-nav-wrapper .side-nav li.selected a {
-  color: #A1164E;
-}
-.visit .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #A1164E;
-}
-
-.take-part .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(191, 73, 31, 0.1);
-}
-.take-part .secondary-nav-wrapper .side-nav li a {
-  color: #BF491F;
-}
-.take-part .secondary-nav-wrapper .side-nav li a:hover {
-  color: #BF491F;
-  background-color: rgba(191, 73, 31, 0.25);
-}
-.take-part .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(191, 73, 31, 0.25);
-  color: #BF491F;
-}
-.take-part .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(191, 73, 31, 0.25);
-}
-.take-part .secondary-nav-wrapper .side-nav li.selected a {
-  color: #BF491F;
-}
-.take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #BF491F;
-}
-
-.support-us .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(127, 32, 110, 0.1);
-}
-.support-us .secondary-nav-wrapper .side-nav li a {
-  color: #7F206E;
-}
-.support-us .secondary-nav-wrapper .side-nav li a:hover {
-  color: #7F206E;
-  background-color: rgba(127, 32, 110, 0.25);
-}
-.support-us .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(127, 32, 110, 0.25);
-  color: #7F206E;
-}
-.support-us .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(127, 32, 110, 0.25);
-}
-.support-us .secondary-nav-wrapper .side-nav li.selected a {
-  color: #7F206E;
-}
-.support-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #7F206E;
-}
-
-.about-us .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(11, 92, 123, 0.1);
-}
-.about-us .secondary-nav-wrapper .side-nav li a {
-  color: #0B5C7B;
-}
-.about-us .secondary-nav-wrapper .side-nav li a:hover {
-  color: #0B5C7B;
-  background-color: rgba(11, 92, 123, 0.25);
-}
-.about-us .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(11, 92, 123, 0.25);
-  color: #0B5C7B;
-}
-.about-us .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(11, 92, 123, 0.25);
-}
-.about-us .secondary-nav-wrapper .side-nav li.selected a {
-  color: #0B5C7B;
-}
-.about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0B5C7B;
-}
-
-.our-science .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(53, 121, 0, 0.1);
-}
-.our-science .secondary-nav-wrapper .side-nav li a {
-  color: #357900;
-}
-.our-science .secondary-nav-wrapper .side-nav li a:hover {
-  color: #357900;
-  background-color: rgba(53, 121, 0, 0.25);
-}
-.our-science .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(53, 121, 0, 0.25);
-  color: #357900;
-}
-.our-science .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(53, 121, 0, 0.25);
-}
-.our-science .secondary-nav-wrapper .side-nav li.selected a {
-  color: #357900;
-}
-.our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #357900;
-}
-
-.schools .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(9, 131, 187, 0.1);
-}
-.schools .secondary-nav-wrapper .side-nav li a {
-  color: #0983BB;
-}
-.schools .secondary-nav-wrapper .side-nav li a:hover {
-  color: #0983BB;
-  background-color: rgba(9, 131, 187, 0.25);
-}
-.schools .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(9, 131, 187, 0.25);
-  color: #0983BB;
-}
-.schools .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(9, 131, 187, 0.25);
-}
-.schools .secondary-nav-wrapper .side-nav li.selected a {
-  color: #0983BB;
-}
-.schools .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0983BB;
-}
-
-.contact-us .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(128, 128, 128, 0.1);
-}
-.contact-us .secondary-nav-wrapper .side-nav li a {
-  color: #808080;
-}
-.contact-us .secondary-nav-wrapper .side-nav li a:hover {
-  color: #808080;
-  background-color: rgba(128, 128, 128, 0.25);
-}
-.contact-us .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(128, 128, 128, 0.25);
-  color: #808080;
-}
-.contact-us .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(128, 128, 128, 0.25);
-}
-.contact-us .secondary-nav-wrapper .side-nav li.selected a {
-  color: #808080;
-}
-.contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #808080;
-}
-
-.business-services .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(37, 52, 128, 0.1);
-}
-.business-services .secondary-nav-wrapper .side-nav li a {
-  color: #253480;
-}
-.business-services .secondary-nav-wrapper .side-nav li a:hover {
-  color: #253480;
-  background-color: rgba(37, 52, 128, 0.25);
-}
-.business-services .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(37, 52, 128, 0.25);
-  color: #253480;
-}
-.business-services .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(37, 52, 128, 0.25);
-}
-.business-services .secondary-nav-wrapper .side-nav li.selected a {
-  color: #253480;
-}
-.business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #253480;
-}
-
-.press-office .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(16, 126, 94, 0.1);
-}
-.press-office .secondary-nav-wrapper .side-nav li a {
-  color: #107E5E;
-}
-.press-office .secondary-nav-wrapper .side-nav li a:hover {
-  color: #107E5E;
-  background-color: rgba(16, 126, 94, 0.25);
-}
-.press-office .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(16, 126, 94, 0.25);
-  color: #107E5E;
-}
-.press-office .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(16, 126, 94, 0.25);
-}
-.press-office .secondary-nav-wrapper .side-nav li.selected a {
-  color: #107E5E;
-}
-.press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #107E5E;
-}
-
-.account .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(0, 56, 93, 0.1);
-}
-.account .secondary-nav-wrapper .side-nav li a {
-  color: #00385D;
-}
-.account .secondary-nav-wrapper .side-nav li a:hover {
-  color: #00385D;
-  background-color: rgba(0, 56, 93, 0.25);
-}
-.account .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(0, 56, 93, 0.25);
-  color: #00385D;
-}
-.account .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(0, 56, 93, 0.25);
-}
-.account .secondary-nav-wrapper .side-nav li.selected a {
-  color: #00385D;
-}
-.account .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #00385D;
-}
-
+/** LINK LIST PARTIAL **/
 .linklist--container {
   padding: 0.5em 0.75em;
   margin-bottom: 1.2em;
@@ -6829,96 +7796,7 @@ div#feedback-bar .span11 {
   color: #565656;
 }
 
-.visit .linklist--container--header a {
-  color: #A1164E;
-}
-.visit .linklist--link-items li a:hover {
-  border-bottom-color: #A1164E;
-}
-.visit .linklist--column--header a {
-  color: #A1164E;
-}
-
-.take-part .linklist--container--header a {
-  color: #BF491F;
-}
-.take-part .linklist--link-items li a:hover {
-  border-bottom-color: #BF491F;
-}
-.take-part .linklist--column--header a {
-  color: #BF491F;
-}
-
-.support-us .linklist--container--header a {
-  color: #7F206E;
-}
-.support-us .linklist--link-items li a:hover {
-  border-bottom-color: #7F206E;
-}
-.support-us .linklist--column--header a {
-  color: #7F206E;
-}
-
-.about-us .linklist--container--header a {
-  color: #0B5C7B;
-}
-.about-us .linklist--link-items li a:hover {
-  border-bottom-color: #0B5C7B;
-}
-.about-us .linklist--column--header a {
-  color: #0B5C7B;
-}
-
-.our-science .linklist--container--header a {
-  color: #357900;
-}
-.our-science .linklist--link-items li a:hover {
-  border-bottom-color: #357900;
-}
-.our-science .linklist--column--header a {
-  color: #357900;
-}
-
-.schools .linklist--container--header a {
-  color: #0983BB;
-}
-.schools .linklist--link-items li a:hover {
-  border-bottom-color: #0983BB;
-}
-.schools .linklist--column--header a {
-  color: #0983BB;
-}
-
-.contact-us .linklist--container--header a {
-  color: #808080;
-}
-.contact-us .linklist--link-items li a:hover {
-  border-bottom-color: #808080;
-}
-.contact-us .linklist--column--header a {
-  color: #808080;
-}
-
-.business-services .linklist--container--header a {
-  color: #253480;
-}
-.business-services .linklist--link-items li a:hover {
-  border-bottom-color: #253480;
-}
-.business-services .linklist--column--header a {
-  color: #253480;
-}
-
-.press-office .linklist--container--header a {
-  color: #107E5E;
-}
-.press-office .linklist--link-items li a:hover {
-  border-bottom-color: #107E5E;
-}
-.press-office .linklist--column--header a {
-  color: #107E5E;
-}
-
+/** HEADERTEXTIMAGE (ORIGINAL AEM INCLUDE) PARTIAL **/
 a.button-cta {
   display: inline-block;
   padding: 5px 10px;
@@ -7004,6 +7882,8 @@ a.button-cta {
   overflow: auto;
 }
 
+/** HEADERTEXTIMAGE PARTIAL (FORMERLY HTI-UPDATE) **/
+/** _REFACTOR-HEADERTEXTIMAGE.SCSS, FORMERLY _HTI-UPDATE.SCSS **/
 .hti-box {
   padding-bottom: 1em;
   /** this can eventually apply to generic ctabutton only **/
@@ -7093,69 +7973,6 @@ a.button-cta {
 }
 
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.visit .ctabutton--inside-hti--cta-text {
-  color: #A1164E;
-}
-.visit .hti-box__feature-box {
-  background-color: #A1164E;
-}
-
-.take-part .ctabutton--inside-hti--cta-text {
-  color: #BF491F;
-}
-.take-part .hti-box__feature-box {
-  background-color: #BF491F;
-}
-
-.support-us .ctabutton--inside-hti--cta-text {
-  color: #7F206E;
-}
-.support-us .hti-box__feature-box {
-  background-color: #7F206E;
-}
-
-.about-us .ctabutton--inside-hti--cta-text {
-  color: #0B5C7B;
-}
-.about-us .hti-box__feature-box {
-  background-color: #0B5C7B;
-}
-
-.our-science .ctabutton--inside-hti--cta-text {
-  color: #357900;
-}
-.our-science .hti-box__feature-box {
-  background-color: #357900;
-}
-
-.schools .ctabutton--inside-hti--cta-text {
-  color: #0983BB;
-}
-.schools .hti-box__feature-box {
-  background-color: #0983BB;
-}
-
-.contact-us .ctabutton--inside-hti--cta-text {
-  color: #808080;
-}
-.contact-us .hti-box__feature-box {
-  background-color: #808080;
-}
-
-.business-services .ctabutton--inside-hti--cta-text {
-  color: #253480;
-}
-.business-services .hti-box__feature-box {
-  background-color: #253480;
-}
-
-.press-office .ctabutton--inside-hti--cta-text {
-  color: #107E5E;
-}
-.press-office .hti-box__feature-box {
-  background-color: #107E5E;
-}
-
 /**overrides headertextimage.scss **/
 .headertextimage .hti-padding {
   margin-bottom: 1.2em;
@@ -7199,6 +8016,7 @@ a.button-cta {
   }
 }
 
+/** GRAND SUMMARY PARTIAL **/
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
@@ -7344,6 +8162,7 @@ a.button-cta {
   color: #ffffff !important;
 }
 
+/** GRAND SUMMARY CTABUTTON PARTIAL **/
 /** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
 .grand-summary--wrapper .ctabutton {
   padding: 1.1em 0.95em;
@@ -7367,29 +8186,9 @@ a.button-cta {
   font-size: 2em;
 }
 
-.main-footer label {
-  color: #ffffff;
-}
-.main-footer fieldset legend {
-  background: none;
-  font-weight: normal;
-  padding: 0;
-}
-.main-footer .footer-utility input {
-  height: auto !important;
-}
-.main-footer .footer-utility input[type="submit"] {
-  border: 2px solid #fff;
-  margin: 0.4em 0 0;
-  padding: 0.9em 0.3em 1em 1em;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="submit"] {
-    border-width: 1px;
-    padding: 0.7em 0.3em 0.7em 1em;
-  }
-}
-
+/** FOOTER PARTIAL - MERGED **/
+/** SCIENCE PROFILES SEARCH RESULTS PARTIAL **/
+/** _REFACTOR-DIRECTORY-SEARCH-RESULTS-GRID, FORMERLY _SCIENCE-PROFILES-SEARCH-RESULTS.SCSS **/
 .directory-search-results--sort-results-up::after {
   background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-up.png");
   background-position: right center;
@@ -7514,23 +8313,7 @@ a.button-cta {
   }
 }
 
-.more-results-text__directory-search-results {
-  font-size: 1.3em;
-}
-@media screen and (min-width: 768px) {
-  .more-results-text__directory-search-results {
-    font-size: 1.4em;
-  }
-}
-
-.pr-10 {
-  padding-right: 0.65em;
-}
-
-.mb-0 {
-  margin-bottom: 0;
-}
-
+/** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;
 }
@@ -7699,27 +8482,9 @@ a.button-cta {
   background-color: #565656;
 }
 
-.mt-32 {
-  margin-top: 2em;
-}
-
-.mb-20 {
-  margin-bottom: 1.2em;
-}
-
-.pr-0 {
-  padding-right: 0;
-}
-
-.science-profiles-detail-page .title-bar {
-  margin-bottom: 1.2em;
-}
+/** SCIENCE PROFILES DETAIL PAGE PARTIAL **/
 .science-profiles-detail-page .hti-wrapper .columns {
   padding-right: 0;
-}
-.science-profiles-detail-page .accordion-navigation a {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.125em;
 }
 
 .science-profiles-detail-page--personal-group h2 {
@@ -7806,35 +8571,6 @@ a.button-cta {
 
 .science-profiles-detail-page--accordion-content-container {
   padding: 0.5em !important;
-}
-
-.list__no-bullet {
-  margin-left: 0 !important;
-}
-.list__no-bullet li {
-  list-style-type: none !important;
-}
-
-.nav-list.level-2 .dropdown-section--thumb .nav-list__item a {
-  padding: 0;
-  font-size: 100%;
-}
-
-/** WR-680 retail megamenu **/
-.nav-list.level-1 > .nav-list__item {
-  background-color: #ffffff;
-  padding-bottom: 0;
-}
-.nav-list.level-1 > .nav-list__item.selected {
-  background-color: #000000;
-  color: #ffffff;
-}
-.nav-list.level-1 > .nav-list__item.shop {
-  overflow: visible;
-}
-
-.mega-thumb-caption.shop {
-  background-color: rgba(78, 134, 178, 0.95);
 }
 
 /*# sourceMappingURL=styles.css.map */
