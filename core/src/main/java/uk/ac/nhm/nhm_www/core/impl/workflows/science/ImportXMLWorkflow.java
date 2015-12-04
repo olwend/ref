@@ -1532,7 +1532,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 					case "url":
 						teachingANode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
 						break;
-					case "c-end-date":
+					case "end-date":
 						final BigInteger endYear = field.getDate().getYear();
 						final BigInteger endMonth = field.getDate().getMonth();
 						final BigInteger endDay = field.getDate().getDay();
