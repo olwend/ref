@@ -41,12 +41,12 @@
 } %>
 
 <%	if(helper.isActivated()) {	%>
-<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>" <%if(helper.getAddPadding()) { %> data-equalizer <%} else {%> data-equalizer-watch <%} %>>
+<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>">
 	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
 			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>
 						<% if (helper.hasImagePositionSwitched()) { %> medium-<%=helper.getImageColumnsSize() %> large-<%=helper.getImageColumnsSize() %> <% } %>" 
-						data-equalizer-watch>
+						>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
 				<% } %>
