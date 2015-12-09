@@ -113,7 +113,6 @@ public class TaughtCourse extends TeachingActivityTemplate {
                 else {
                     stringBuffer.append(" - ");
                     stringBuffer.append("on going");
-                    stringBuffer.append(".");
                 }
             }
             stringBuffer.append(".");
