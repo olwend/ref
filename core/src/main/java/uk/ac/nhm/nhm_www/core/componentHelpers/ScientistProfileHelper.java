@@ -1743,6 +1743,7 @@ public class ScientistProfileHelper {
 				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
 				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
 				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String nhmURL = childProperties.get(NHM_URL, String.class);
 				final String reportingDate;
 				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
 					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
@@ -1774,7 +1775,7 @@ public class ScientistProfileHelper {
 //				case GRANT_TYPE_GRANT:
 					setGrants.add(new Grant(proposalTitle, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, principalsList, coInvestigatorsList, funderName, 
-							funderNameOther, totalAwarded, nhmAwarded));
+							funderNameOther, totalAwarded, nhmAwarded, nhmURL));
 //					break;
 //					
 //				default:

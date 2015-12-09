@@ -24,7 +24,13 @@ public class ProjectType extends ProjectTemplate {
 		
 		// Name
 		if (this.name != null){
+			if(this.url != null) {
+				stringBuffer.append("<a href=" + url + ">");
+			}
 			stringBuffer.append(this.name);
+			if(this.url != null) {
+				stringBuffer.append("</a>");
+			}
 			stringBuffer.append("<br>");
 		}
 		
