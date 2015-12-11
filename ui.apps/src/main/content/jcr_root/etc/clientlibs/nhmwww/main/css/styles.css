@@ -6317,27 +6317,6 @@ table.gssb_c {
 }
 
 /** FIXES PARTIAL (PHASED OUT) **/
-/** REFACTOR UTILITIES PARTIAL **/
-.pr-0 {
-  padding-right: 0;
-}
-
-.pr-10 {
-  padding-right: 0.65em;
-}
-
-.mb-0 {
-  margin-bottom: 0;
-}
-
-.mb-20 {
-  margin-bottom: 1.2em;
-}
-
-.mt-32 {
-  margin-top: 2em;
-}
-
 /** REFACTOR-BASE PARTIAL **/
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -6384,6 +6363,10 @@ h3 {
   }
 }
 
+h3, h4, h5 {
+  color: #565656;
+}
+
 h5 {
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
 }
@@ -6420,40 +6403,61 @@ h6 {
   list-style-type: none !important;
 }
 
+/** REFACTOR UTILITIES PARTIAL **/
+.pr-0 {
+  padding-right: 0;
+}
+
+.pr-10 {
+  padding-right: 0.65em;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-20 {
+  margin-bottom: 1.2em;
+}
+
+.mt-32 {
+  margin-top: 2em;
+}
+
 /** REFACTOR-PLACEHOLDERS PARTIAL **/
-.visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .account .title-bar, .press-office .title-bar {
+.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
   padding: 0.5em 0.75em;
   margin-top: 0;
   margin-bottom: 0;
 }
-.visit .title-bar h1, .take-part .title-bar h1, .support-us .title-bar h1, .schools .title-bar h1, .our-science .title-bar h1, .discover .title-bar h1, .about-us .title-bar h1, .contact-us .title-bar h1, .business-services .title-bar h1, .account .title-bar h1, .press-office .title-bar h1 {
+.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .discover .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
   padding: 0;
   color: #ffffff !important;
 }
-.visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .account .title-bar p, .press-office .title-bar p {
+.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
   color: #ffffff;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .visit .title-bar, .take-part .title-bar, .support-us .title-bar, .schools .title-bar, .our-science .title-bar, .discover .title-bar, .about-us .title-bar, .contact-us .title-bar, .business-services .title-bar, .account .title-bar, .press-office .title-bar {
+  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
     padding: 1em 1.5em;
   }
-  .visit .title-bar p, .take-part .title-bar p, .support-us .title-bar p, .schools .title-bar p, .our-science .title-bar p, .discover .title-bar p, .about-us .title-bar p, .contact-us .title-bar p, .business-services .title-bar p, .account .title-bar p, .press-office .title-bar p {
+  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
     font-size: 1.25em;
   }
 }
 
-.visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .account .GreyBox, .press-office .GreyBox {
+.about-us .GreyBox, .account .GreyBox, .business-services .GreyBox, .contact-us .GreyBox, .discover .GreyBox, .our-science .GreyBox, .press-office .GreyBox, .schools .GreyBox, .support-us .GreyBox, .take-part .GreyBox, .visit .GreyBox {
   padding: 0.5em 0.75em;
 }
 @media screen and (min-width: 768px) {
-  .visit .GreyBox, .take-part .GreyBox, .support-us .GreyBox, .schools .GreyBox, .our-science .GreyBox, .discover .GreyBox, .about-us .GreyBox, .contact-us .GreyBox, .business-services .GreyBox, .account .GreyBox, .press-office .GreyBox {
+  .about-us .GreyBox, .account .GreyBox, .business-services .GreyBox, .contact-us .GreyBox, .discover .GreyBox, .our-science .GreyBox, .press-office .GreyBox, .schools .GreyBox, .support-us .GreyBox, .take-part .GreyBox, .visit .GreyBox {
     padding: 1em 1.5em;
   }
 }
-.visit .GreyBox p, .take-part .GreyBox p, .support-us .GreyBox p, .schools .GreyBox p, .our-science .GreyBox p, .discover .GreyBox p, .about-us .GreyBox p, .contact-us .GreyBox p, .business-services .GreyBox p, .account .GreyBox p, .press-office .GreyBox p {
+.about-us .GreyBox p, .account .GreyBox p, .business-services .GreyBox p, .contact-us .GreyBox p, .discover .GreyBox p, .our-science .GreyBox p, .press-office .GreyBox p, .schools .GreyBox p, .support-us .GreyBox p, .take-part .GreyBox p, .visit .GreyBox p {
   font-size: 1.125em;
   margin-bottom: 1.2em;
 }
@@ -6487,24 +6491,42 @@ h6 {
   }
 }
 
-/** REFACTOR-HTI-FEATUREBOX PARTIAL **/
-/** this has likely been superseded by HTI-BOX__FEATURE-BOX **/
-.feature-box a:hover {
-  color: #ffffff;
+/** REFACTOR-ACCORDION PARTIAL **/
+.accordion .accordion-navigation,
+.accordion dd {
+  clear: both;
+  margin-bottom: 1.2em !important;
+}
+.accordion .accordion-navigation > a,
+.accordion dd > a {
+  padding: 1em 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .accordion .accordion-navigation > a,
+  .accordion dd > a {
+    padding: 1em 1.5em;
+  }
 }
 
-/** REFACTOR-TITLE-BAR PARTIAL **/
-/** this makes the title bar flush with screen edge, keeps gutter for content. **/
-.title .row.title-bar {
-  width: 100%;
+.science-profiles-detail-page .accordion-navigation a {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.125em;
 }
 
-.content-page .title-bar {
-  margin-bottom: 1.2em;
+/** REFACTOR-BOTTOM-BANNER PARTIAL **/
+/** this may be part of CTABUTTON **/
+.bottom-banner h2 {
+  font-size: 1.5em;
 }
-
-.science-profiles-detail-page .title-bar {
-  margin-bottom: 1.2em;
+@media screen and (min-width: 768px) {
+  .bottom-banner h2 {
+    font-size: 1.75em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .bottom-banner h2 {
+    font-size: 1.8em;
+  }
 }
 
 /** REFACTOR-CAROUSEL PARTIAL **/
@@ -6647,46 +6669,298 @@ h6 {
   }
 }
 
-/** REFACTOR-TEXT-COMPONENT PARTIAL **/
-.text {
-  padding: 0 0.75em;
+/** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
+.directory-search {
+  padding: 1.5em 1.5em 1em 1.5em;
 }
-@media screen and (min-width: 768px) {
-  .text {
-    padding: 0 1.5em;
-  }
+.directory-search.row {
+  width: 100%;
+}
+.directory-search a {
+  color: #B7B7B7;
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+.directory-search a:hover {
+  color: #B7B7B7;
+}
+.directory-search select {
+  background-image: url(/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
+  padding-left: 1em;
 }
 
-/** REFACTOR-BOTTOM-BANNER PARTIAL **/
-/** this may be part of CTABUTTON **/
-.bottom-banner h2 {
-  font-size: 1.5em;
+.directory-search--label {
+  color: #ffffff;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
 }
 @media screen and (min-width: 768px) {
-  .bottom-banner h2 {
-    font-size: 1.75em;
+  .directory-search--label {
+    font-size: 1em;
   }
 }
 @media screen and (min-width: 1024px) {
-  .bottom-banner h2 {
+  .directory-search--label {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .directory-search--label {
+    margin-bottom: 0.6em;
+  }
+}
+
+.directory-search--fields-block-grid li {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .directory-search--fields-block-grid li:last-child {
+    padding-right: 0;
+  }
+}
+
+.directory-search-button--container {
+  position: relative;
+  border: 4px solid #ffffff;
+  padding: 1.5em 1em;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-button--container {
+    padding-top: 1.95em;
+    margin-top: 2.25em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-button--container {
+    padding-top: 1.5em;
+    margin-top: 2.6em;
+    margin-bottom: 0;
+  }
+}
+.directory-search-button--container .ico {
+  position: absolute;
+}
+.directory-search-button--container .ico.directory-search-button--icon {
+  top: -12px;
+  left: -3%;
+  width: 63%;
+  height: 50px;
+}
+@media screen and (min-width: 480px) {
+  .directory-search-button--container .ico.directory-search-button--icon {
+    top: -9px;
+    left: -4%;
+    width: 58%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .directory-search-button--container .ico.directory-search-button--icon {
+    top: -11px;
+    left: -8%;
+    width: 68%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-button--container .ico.directory-search-button--icon {
+    width: 63%;
+    top: -8px;
+    left: -3px;
+  }
+}
+.directory-search-button--container .ico.directory-search-button--arrow {
+  top: -5px;
+  right: -8px;
+  width: 33%;
+  height: 40px;
+}
+@media screen and (min-width: 480px) {
+  .directory-search-button--container .ico.directory-search-button--arrow {
+    top: -3px;
+    width: 28%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .directory-search-button--container .ico.directory-search-button--arrow {
+    top: -11px;
+    right: -17%;
+    width: 35%;
+    height: 54px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-button--container .ico.directory-search-button--arrow {
+    top: -8px;
+    right: 0;
+    width: 30%;
+  }
+}
+
+.directory-search-button--text {
+  position: relative;
+  left: 60%;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  color: #ffffff;
+  text-decoration: none;
+}
+@media screen and (min-width: 480px) {
+  .directory-search-button--text {
+    left: 86%;
     font-size: 1.8em;
   }
 }
-
-/** REFACTOR-EVENTS-SUMMARY **/
 @media screen and (min-width: 768px) {
-  .info-sidebar li {
-    padding-left: 24%;
+  .directory-search-button--text {
+    top: 2px;
+    left: 54%;
+    font-size: 1.3em;
   }
 }
 @media screen and (min-width: 1024px) {
-  .info-sidebar li {
-    padding-left: 18%;
+  .directory-search-button--text {
+    left: 58%;
+    font-size: 1.75em;
   }
 }
 @media screen and (min-width: 1160px) {
-  .info-sidebar li {
-    padding-left: 16%;
+  .directory-search-button--text {
+    left: 68%;
+  }
+}
+
+.directory-search__science-profiles {
+  background-color: #565656;
+}
+
+/** SCIENCE PROFILES SEARCH RESULTS PARTIAL **/
+/** _REFACTOR-DIRECTORY-SEARCH-RESULTS-GRID, FORMERLY _SCIENCE-PROFILES-SEARCH-RESULTS.SCSS **/
+.directory-search-results--sort-results-up::after {
+  background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-up.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  content: " ";
+  display: inline-block;
+  height: 9px;
+  width: 15px;
+}
+
+.directory-search-results--sort-results-down::after {
+  background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-down.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  content: " ";
+  display: inline-block;
+  height: 9px;
+  width: 15px;
+}
+
+.directory-search-results--table {
+  color: #000000;
+  margin-bottom: 2em;
+}
+.directory-search-results--table .row {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--table .row {
+    width: 98%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--table .row {
+    width: 100%;
+  }
+}
+.directory-search-results--table .row .row {
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--table .row .row {
+    width: 100%;
+  }
+}
+
+.directory-search-results--row {
+  padding: 1em 1.5em 1em 1em;
+  background-color: #eeeeee;
+  border-bottom: 1px solid #ffffff;
+  font-size: 1em;
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--row {
+    padding: 2.2em;
+  }
+}
+
+.directory-search-results--row-header {
+  cursor: pointer;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-header {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--row-header {
+    font-size: 1.2em;
+  }
+}
+
+.directory-search-results--row-content {
+  padding-right: 0.9em;
+  color: #565656;
+  font-size: 0.95em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content {
+    font-size: 0.9em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .directory-search-results--row-content {
+    font-size: 1em;
+  }
+}
+
+.directory-search-results--row-content--name {
+  font-size: 1.2em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content--name {
+    font-size: 1em;
+  }
+}
+
+.directory-search-results--row-content--job-title {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content--job-title {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1em;
+  }
+}
+
+.directory-search-results--row-content--label {
+  font-weight: bold;
+  float: left;
+  margin-right: 0.25em;
+}
+@media screen and (min-width: 768px) {
+  .directory-search-results--row-content--label {
+    font-weight: normal;
+    float: none;
   }
 }
 
@@ -6730,6 +7004,49 @@ h6 {
   .discoverpublication .introduction {
     padding: 0 1.5em;
   }
+}
+
+/** REFACTOR-EVENT-SLIDER PARTIAL **/
+.event-slider-wrapper h4 {
+  padding: 0.5em;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.6em;
+  color: #565656;
+}
+@media screen and (min-width: 768px) {
+  .event-slider-wrapper h4 {
+    padding: 0.5em 0.75em;
+    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  }
+}
+
+.event-slider li h4 {
+  padding: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+/** REFACTOR-EVENTS-SUMMARY **/
+@media screen and (min-width: 768px) {
+  .info-sidebar li {
+    padding-left: 24%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .info-sidebar li {
+    padding-left: 18%;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .info-sidebar li {
+    padding-left: 16%;
+  }
+}
+
+/** REFACTOR-HTI-FEATUREBOX PARTIAL **/
+/** this has likely been superseded by HTI-BOX__FEATURE-BOX **/
+.feature-box a:hover {
+  color: #ffffff;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/
@@ -6800,48 +7117,6 @@ h6 {
 
 .mega-thumb-caption.shop {
   background-color: rgba(78, 134, 178, 0.95);
-}
-
-/** REFACTOR-EVENT-SLIDER PARTIAL **/
-.event-slider-wrapper h4 {
-  padding: 0.5em;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.6em;
-  color: #565656;
-}
-@media screen and (min-width: 768px) {
-  .event-slider-wrapper h4 {
-    padding: 0.5em 0.75em;
-    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  }
-}
-
-.event-slider li h4 {
-  padding: 0;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1em;
-}
-
-/** REFACTOR-ACCORDION PARTIAL **/
-.accordion .accordion-navigation,
-.accordion dd {
-  clear: both;
-  margin-bottom: 1.2em !important;
-}
-.accordion .accordion-navigation > a,
-.accordion dd > a {
-  padding: 1em 0.75em;
-}
-@media screen and (min-width: 768px) {
-  .accordion .accordion-navigation > a,
-  .accordion dd > a {
-    padding: 1em 1.5em;
-  }
-}
-
-.science-profiles-detail-page .accordion-navigation a {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.125em;
 }
 
 /** REFACTOR-FOOTER PARTIAL **/
@@ -6929,663 +7204,14 @@ div#feedback-bar .span11 {
   }
 }
 
-/** PRESS OFFICE PARTIAL (PHASED OUT) **/
-/** HOME THEME PARTIAL **/
-.home h3, .home h4, .home h5 {
-  color: #565656;
-}
-
-/** VISIT THEME PARTIAL **/
-.visit .title-bar {
-  background-color: #A1164E;
-}
-.visit h4 {
-  font-weight: normal;
-}
-.visit h3, .visit h4, .visit h5 {
-  color: #565656;
-}
-.visit .carousel .caption {
-  background-color: #A1164E;
-  background-color: rgba(161, 22, 78, 0.9);
-}
-.visit .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.visit .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(161, 22, 78, 0.1);
-}
-.visit .secondary-nav-wrapper .side-nav li a {
-  color: #A1164E;
-}
-.visit .secondary-nav-wrapper .side-nav li a:hover {
-  color: #A1164E;
-  background-color: rgba(161, 22, 78, 0.25);
-}
-.visit .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(161, 22, 78, 0.25);
-  color: #A1164E;
-}
-.visit .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(161, 22, 78, 0.25);
-}
-.visit .secondary-nav-wrapper .side-nav li.selected a {
-  color: #A1164E;
-}
-.visit .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #A1164E;
-}
-
-.visit .linklist--container--header a {
-  color: #A1164E;
-}
-.visit .linklist--link-items li a:hover {
-  border-bottom-color: #A1164E;
-}
-.visit .linklist--column--header a {
-  color: #A1164E;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.visit .ctabutton--inside-hti--cta-text {
-  color: #A1164E;
-}
-.visit .hti-box__feature-box {
-  background-color: #A1164E;
-}
-
-/** TAKE-PART THEME PARTIAL **/
-.take-part .title-bar {
-  background-color: #BF491F;
-}
-.take-part h4 {
-  font-weight: normal;
-}
-.take-part h3, .take-part h4, .take-part h5 {
-  color: #565656;
-}
-.take-part .carousel .caption {
-  background-color: #BF491F;
-  background-color: rgba(191, 73, 31, 0.9);
-}
-.take-part .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.take-part .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(191, 73, 31, 0.1);
-}
-.take-part .secondary-nav-wrapper .side-nav li a {
-  color: #BF491F;
-}
-.take-part .secondary-nav-wrapper .side-nav li a:hover {
-  color: #BF491F;
-  background-color: rgba(191, 73, 31, 0.25);
-}
-.take-part .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(191, 73, 31, 0.25);
-  color: #BF491F;
-}
-.take-part .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(191, 73, 31, 0.25);
-}
-.take-part .secondary-nav-wrapper .side-nav li.selected a {
-  color: #BF491F;
-}
-.take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #BF491F;
-}
-
-.take-part .linklist--container--header a {
-  color: #BF491F;
-}
-.take-part .linklist--link-items li a:hover {
-  border-bottom-color: #BF491F;
-}
-.take-part .linklist--column--header a {
-  color: #BF491F;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.take-part .ctabutton--inside-hti--cta-text {
-  color: #BF491F;
-}
-.take-part .hti-box__feature-box {
-  background-color: #BF491F;
-}
-
-/** SUPPORT-US THEME PARTIAL **/
-.support-us .title-bar {
-  background-color: #7F206E;
-}
-.support-us h4 {
-  font-weight: normal;
-}
-.support-us h3, .support-us h4, .support-us h5 {
-  color: #565656;
-}
-.support-us .carousel .caption {
-  background-color: #7F206E;
-  background-color: rgba(127, 32, 110, 0.9);
-}
-.support-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.support-us .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(127, 32, 110, 0.1);
-}
-.support-us .secondary-nav-wrapper .side-nav li a {
-  color: #7F206E;
-}
-.support-us .secondary-nav-wrapper .side-nav li a:hover {
-  color: #7F206E;
-  background-color: rgba(127, 32, 110, 0.25);
-}
-.support-us .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(127, 32, 110, 0.25);
-  color: #7F206E;
-}
-.support-us .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(127, 32, 110, 0.25);
-}
-.support-us .secondary-nav-wrapper .side-nav li.selected a {
-  color: #7F206E;
-}
-.support-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #7F206E;
-}
-
-.support-us .linklist--container--header a {
-  color: #7F206E;
-}
-.support-us .linklist--link-items li a:hover {
-  border-bottom-color: #7F206E;
-}
-.support-us .linklist--column--header a {
-  color: #7F206E;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.support-us .ctabutton--inside-hti--cta-text {
-  color: #7F206E;
-}
-.support-us .hti-box__feature-box {
-  background-color: #7F206E;
-}
-
-/** SCHOOLS THEME PARTIAL **/
-.schools .title-bar {
-  background-color: #0983BB;
-}
-.schools h4 {
-  font-weight: normal;
-}
-.schools h3, .schools h4, .schools h5 {
-  color: #565656;
-}
-.schools .carousel .caption {
-  background-color: #0983BB;
-  background-color: rgba(9, 131, 187, 0.9);
-}
-.schools .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.schools .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(9, 131, 187, 0.1);
-}
-.schools .secondary-nav-wrapper .side-nav li a {
-  color: #0983BB;
-}
-.schools .secondary-nav-wrapper .side-nav li a:hover {
-  color: #0983BB;
-  background-color: rgba(9, 131, 187, 0.25);
-}
-.schools .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(9, 131, 187, 0.25);
-  color: #0983BB;
-}
-.schools .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(9, 131, 187, 0.25);
-}
-.schools .secondary-nav-wrapper .side-nav li.selected a {
-  color: #0983BB;
-}
-.schools .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0983BB;
-}
-
-.schools .linklist--container--header a {
-  color: #0983BB;
-}
-.schools .linklist--link-items li a:hover {
-  border-bottom-color: #0983BB;
-}
-.schools .linklist--column--header a {
-  color: #0983BB;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.schools .ctabutton--inside-hti--cta-text {
-  color: #0983BB;
-}
-.schools .hti-box__feature-box {
-  background-color: #0983BB;
-}
-
-/** OUR-SCIENCE THEME PARTIAL **/
-.our-science .title-bar {
-  background-color: #357900;
-}
-.our-science h4 {
-  font-weight: normal;
-}
-.our-science h3, .our-science h4, .our-science h5 {
-  color: #565656;
-}
-.our-science .carousel .caption {
-  background-color: #357900;
-  background-color: rgba(53, 121, 0, 0.9);
-}
-.our-science .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.our-science .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(53, 121, 0, 0.1);
-}
-.our-science .secondary-nav-wrapper .side-nav li a {
-  color: #357900;
-}
-.our-science .secondary-nav-wrapper .side-nav li a:hover {
-  color: #357900;
-  background-color: rgba(53, 121, 0, 0.25);
-}
-.our-science .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(53, 121, 0, 0.25);
-  color: #357900;
-}
-.our-science .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(53, 121, 0, 0.25);
-}
-.our-science .secondary-nav-wrapper .side-nav li.selected a {
-  color: #357900;
-}
-.our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #357900;
-}
-
-.our-science .linklist--container--header a {
-  color: #357900;
-}
-.our-science .linklist--link-items li a:hover {
-  border-bottom-color: #357900;
-}
-.our-science .linklist--column--header a {
-  color: #357900;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.our-science .ctabutton--inside-hti--cta-text {
-  color: #357900;
-}
-.our-science .hti-box__feature-box {
-  background-color: #357900;
-}
-
-/** DISCOVER THEME PARTIAL **/
-.discover .title-bar {
-  background-color: #565656;
-  margin-bottom: 1.2em;
-}
-.discover h4 {
-  font-weight: normal;
-}
-.discover h3, .discover h4, .discover h5 {
-  color: #565656;
-}
-.discover .carousel .caption {
-  background-color: #107B5E;
-  background-color: rgba(16, 123, 94, 0.9);
-}
-.discover .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.discover h1 {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 2em;
-  line-height: 1.3;
-}
-@media screen and (min-width: 768px) {
-  .discover h1 {
-    font-size: 2.7em;
-  }
-}
-.discover .intro-text {
-  color: #565656;
-}
-
-/** ABOUT-US THEME PARTIAL **/
-.about-us .title-bar {
-  background-color: #0B5C7B;
-}
-.about-us h4 {
-  font-weight: normal;
-}
-.about-us h3, .about-us h4, .about-us h5 {
-  color: #565656;
-}
-.about-us .carousel .caption {
-  background-color: #0B5C7B;
-  background-color: rgba(11, 92, 123, 0.9);
-}
-.about-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.about-us .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(11, 92, 123, 0.1);
-}
-.about-us .secondary-nav-wrapper .side-nav li a {
-  color: #0B5C7B;
-}
-.about-us .secondary-nav-wrapper .side-nav li a:hover {
-  color: #0B5C7B;
-  background-color: rgba(11, 92, 123, 0.25);
-}
-.about-us .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(11, 92, 123, 0.25);
-  color: #0B5C7B;
-}
-.about-us .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(11, 92, 123, 0.25);
-}
-.about-us .secondary-nav-wrapper .side-nav li.selected a {
-  color: #0B5C7B;
-}
-.about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0B5C7B;
-}
-
-.about-us .linklist--container--header a {
-  color: #0B5C7B;
-}
-.about-us .linklist--link-items li a:hover {
-  border-bottom-color: #0B5C7B;
-}
-.about-us .linklist--column--header a {
-  color: #0B5C7B;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.about-us .ctabutton--inside-hti--cta-text {
-  color: #0B5C7B;
-}
-.about-us .hti-box__feature-box {
-  background-color: #0B5C7B;
-}
-
-.about-us a.promo-link {
-  color: #ffffff;
-}
-
-/** CONTACT-US THEME PARTIAL **/
-.contact-us .title-bar {
-  background-color: #808080;
-}
-.contact-us h4 {
-  font-weight: normal;
-}
-.contact-us h3, .contact-us h4, .contact-us h5 {
-  color: #565656;
-}
-.contact-us .carousel .caption {
-  background-color: #808080;
-  background-color: rgba(128, 128, 128, 0.9);
-}
-.contact-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.contact-us .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(128, 128, 128, 0.1);
-}
-.contact-us .secondary-nav-wrapper .side-nav li a {
-  color: #808080;
-}
-.contact-us .secondary-nav-wrapper .side-nav li a:hover {
-  color: #808080;
-  background-color: rgba(128, 128, 128, 0.25);
-}
-.contact-us .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(128, 128, 128, 0.25);
-  color: #808080;
-}
-.contact-us .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(128, 128, 128, 0.25);
-}
-.contact-us .secondary-nav-wrapper .side-nav li.selected a {
-  color: #808080;
-}
-.contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #808080;
-}
-
-.contact-us .linklist--container--header a {
-  color: #808080;
-}
-.contact-us .linklist--link-items li a:hover {
-  border-bottom-color: #808080;
-}
-.contact-us .linklist--column--header a {
-  color: #808080;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.contact-us .ctabutton--inside-hti--cta-text {
-  color: #808080;
-}
-.contact-us .hti-box__feature-box {
-  background-color: #808080;
-}
-
-/** BUSINESS-SERVICES THEME PARTIAL **/
-.business-services .title-bar {
-  background-color: #253480;
-}
-.business-services h4 {
-  font-weight: normal;
-}
-.business-services h3, .business-services h4, .business-services h5 {
-  color: #565656;
-}
-.business-services .carousel .caption {
-  background-color: #253480;
-  background-color: rgba(37, 52, 128, 0.9);
-}
-.business-services .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.business-services .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(37, 52, 128, 0.1);
-}
-.business-services .secondary-nav-wrapper .side-nav li a {
-  color: #253480;
-}
-.business-services .secondary-nav-wrapper .side-nav li a:hover {
-  color: #253480;
-  background-color: rgba(37, 52, 128, 0.25);
-}
-.business-services .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(37, 52, 128, 0.25);
-  color: #253480;
-}
-.business-services .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(37, 52, 128, 0.25);
-}
-.business-services .secondary-nav-wrapper .side-nav li.selected a {
-  color: #253480;
-}
-.business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #253480;
-}
-
-.business-services .linklist--container--header a {
-  color: #253480;
-}
-.business-services .linklist--link-items li a:hover {
-  border-bottom-color: #253480;
-}
-.business-services .linklist--column--header a {
-  color: #253480;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.business-services .ctabutton--inside-hti--cta-text {
-  color: #253480;
-}
-.business-services .hti-box__feature-box {
-  background-color: #253480;
-}
-
-/** ACCOUNT THEME PARTIAL **/
-.account .title-bar {
-  background-color: #00385D;
-}
-.account h4 {
-  font-weight: normal;
-}
-.account h3, .account h4, .account h5 {
-  color: #565656;
-}
-.account .carousel .caption {
-  background-color: #00385D;
-  background-color: rgba(0, 56, 93, 0.9);
-}
-.account .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
-.account .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(0, 56, 93, 0.1);
-}
-.account .secondary-nav-wrapper .side-nav li a {
-  color: #00385D;
-}
-.account .secondary-nav-wrapper .side-nav li a:hover {
-  color: #00385D;
-  background-color: rgba(0, 56, 93, 0.25);
-}
-.account .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(0, 56, 93, 0.25);
-  color: #00385D;
-}
-.account .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(0, 56, 93, 0.25);
-}
-.account .secondary-nav-wrapper .side-nav li.selected a {
-  color: #00385D;
-}
-.account .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #00385D;
-}
-
-/** PRESS OFFICE THEME PARTIAL **/
-.press-office {
-  /** h3 here is the title of the press release tiles component, not HTI **/
-}
-.press-office h3 {
+.pressreleaselistfeed h3 {
   padding-bottom: 10px;
   padding-left: 0.5em;
-  color: #107E5E;
-}
-.press-office .title-bar {
-  background-color: #107E5E;
-}
-.press-office .feature-box a {
-  color: #ffffff;
-}
-.press-office .feature-box h3 {
-  padding-left: 0;
-}
-.press-office .aside-box h3 {
-  padding-left: 0;
-}
-.press-office .event-slider-wrapper h4 {
-  color: #107E5E;
 }
 
-.press-office .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(16, 126, 94, 0.1);
-}
-.press-office .secondary-nav-wrapper .side-nav li a {
-  color: #107E5E;
-}
-.press-office .secondary-nav-wrapper .side-nav li a:hover {
-  color: #107E5E;
-  background-color: rgba(16, 126, 94, 0.25);
-}
-.press-office .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(16, 126, 94, 0.25);
-  color: #107E5E;
-}
-.press-office .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(16, 126, 94, 0.25);
-}
-.press-office .secondary-nav-wrapper .side-nav li.selected a {
-  color: #107E5E;
-}
-.press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #107E5E;
-}
-
-.press-office .linklist--container--header a {
-  color: #107E5E;
-}
-.press-office .linklist--link-items li a:hover {
-  border-bottom-color: #107E5E;
-}
-.press-office .linklist--column--header a {
-  color: #107E5E;
-}
-
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
-.press-office .ctabutton--inside-hti--cta-text {
-  color: #107E5E;
-}
-.press-office .hti-box__feature-box {
-  background-color: #107E5E;
-}
-
-/** REFACTOR-SPONSORS-GRID PARTIAL **/
-.sponsors-grid {
-  margin-top: 2.1em;
-  padding: 1em 1.5em;
-  border-top: 1px solid #CCCCCC;
+.pressreleasetilefeed h3 {
+  padding-bottom: 10px;
+  padding-left: 0.5em;
 }
 
 .feed--item--content-wrapper {
@@ -7655,145 +7281,174 @@ div#feedback-bar .span11 {
   }
 }
 
-.more-results {
-  clear: both;
-  text-align: center;
+/** GRAND SUMMARY PARTIAL **/
+/** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
+.grand-summary--wrapper {
+  background-color: #f4f4f4;
 }
-.more-results a {
-  color: #565656;
-}
-.more-results a:hover {
-  color: #565656;
-}
-
-.more-results-text__directory-search-results {
-  font-size: 1.3em;
+.grand-summary--wrapper .row {
+  margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
-  .more-results-text__directory-search-results {
-    font-size: 1.4em;
+  .grand-summary--wrapper .row .row {
+    margin: 0;
+  }
+}
+.grand-summary--wrapper.grand-summary--exhibition {
+  padding-bottom: 1.5em;
+}
+
+.grand-summary--exhibition-details-grid {
+  padding-top: 0.75em;
+  padding-left: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--exhibition-details-grid {
+    padding-top: 1.5em;
   }
 }
 
-/** SECONDARY NAV PARTIAL **/
-/**** SECONDARY NAV ****/
-.secondary-nav-wrapper {
-  margin: 1.3em 0;
-  clear: both;
+.grand-summary--exhibition-details-grid li:first-child {
+  padding-right: 1em;
 }
 @media screen and (min-width: 768px) {
-  .secondary-nav-wrapper {
-    margin: 0 0 1.3em 0;
+  .grand-summary--exhibition-details-grid li:first-child {
+    padding-left: 1em;
   }
 }
-.secondary-nav-wrapper .side-nav {
-  padding: 0;
+
+.grand-summary--exhibition-details-grid li:last-child {
+  padding-right: 0;
 }
-.secondary-nav-wrapper .side-nav li {
-  margin-bottom: 0.3em;
-  border: none;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1em;
+
+.grand-summary--exhibition-details-grid li {
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.grand-summary--wrapper .info-sidebar {
+  margin-top: 1.5em;
+  margin-left: 0;
+  padding-top: 0;
+  padding-left: 0;
 }
 @media screen and (min-width: 768px) {
-  .secondary-nav-wrapper .side-nav li {
-    font-size: 1.2em;
+  .grand-summary--wrapper .info-sidebar {
+    margin-top: 0;
   }
 }
 @media screen and (min-width: 1024px) {
-  .secondary-nav-wrapper .side-nav li {
-    font-size: 1.4em;
+  .grand-summary--wrapper .info-sidebar {
+    padding-left: 2em;
   }
 }
-.secondary-nav-wrapper .side-nav li a {
-  color: #107E5E;
-  padding: 1em 1.5em;
-}
-.secondary-nav-wrapper .side-nav li a:hover {
-  color: #107E5E;
-  text-decoration: none;
-}
-.secondary-nav-wrapper .side-nav li.selected a:hover {
-  text-decoration: none;
+
+@media screen and (min-width: 768px) {
+  .grand-summary--wrapper .info-sidebar li:first-child {
+    margin-top: 0;
+  }
 }
 
-/** LINK LIST PARTIAL **/
-.linklist--container {
-  padding: 0.5em 0.75em;
-  margin-bottom: 1.2em;
+.grand-summary--wrapper .info-sidebar li {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 0.75em;
+}
+
+.grand-summary--wrapper .info-sidebar li .ico {
+  position: relative;
+  width: 12%;
+}
+
+.grand-summary--caption-container .caption {
+  padding: 0;
+  height: auto;
 }
 @media screen and (min-width: 768px) {
-  .linklist--container {
-    padding: 1em 1.5em;
+  .grand-summary--caption-container .caption {
+    padding-bottom: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-container .caption.grand-summary--exhibition {
+    height: 132px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grand-summary--caption-container .caption.grand-summary--exhibition {
+    height: 142px;
   }
 }
 
-.linklist--container__white {
+.grand-summary--caption-title--container {
+  padding: 1em 1.5em 0.2em 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-title--container {
+    padding-top: 0.75em;
+  }
+}
+
+.grand-summary--caption-title {
+  font-size: 1.8em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.grand-summary--caption-description--container {
+  padding: 0 1em 0.75em 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container {
+    padding-bottom: 0;
+    padding-left: 1.5em;
+  }
+}
+.grand-summary--caption-description--container p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1em !important;
+}
+@media screen and (min-width: 768px) {
+  .grand-summary--caption-description--container p {
+    font-size: 1.15em !important;
+  }
+}
+
+.grand-summary--caption-date--container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.6em 0.6em 0.6em 1.5em;
+}
+
+.grand-summary--caption-date {
+  margin: 0;
+  padding: 0 !important;
+  font-size: 1.5em;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  color: #ffffff !important;
+}
+
+/** GRAND SUMMARY CTABUTTON PARTIAL **/
+/** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
+.grand-summary--wrapper .ctabutton {
+  padding: 1.1em 0.95em;
+  border: 3px solid #565656;
   background-color: #ffffff;
 }
-
-.linklist--container__grey {
-  background-color: #eeeeee;
+.grand-summary--wrapper .ctabutton:hover h3 {
+  text-decoration: underline;
 }
-
-.linklist--column--no-header {
-  padding-top: 0px;
+.grand-summary--wrapper .ctabutton .svg-ico {
+  height: 40px;
+  top: 30%;
+  width: 100%;
 }
-@media screen and (min-width: 768px) {
-  .linklist--column--no-header {
-    padding-top: 5.625em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .linklist--column--no-header {
-    padding-top: 3.438em;
-  }
-}
-
-.linklist--container--header {
-  padding-bottom: 0 !important;
-  margin-bottom: 0.4em;
-}
-.linklist--container--header a {
+.grand-summary--wrapper .ctabutton--cta-text {
   color: #565656;
-}
-
-.linklist--container--description p {
+  padding-bottom: 0;
   margin-bottom: 0;
-}
-
-.linklist--column-container li {
-  padding-bottom: 0;
-}
-@media screen and (min-width: 768px) {
-  .linklist--column-container li {
-    padding-bottom: 1.25em;
-  }
-}
-
-.linklist--link-items {
-  margin-left: 0;
-}
-.linklist--link-items li {
-  padding-bottom: 0;
-  margin-bottom: 0.6em;
-}
-.linklist--link-items li a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #000000;
-  border-bottom: 1px dotted #000000;
-}
-.linklist--link-items li a:hover {
-  border-bottom-style: solid;
-  text-decoration: none;
-}
-
-.linklist--column--header {
-  margin-top: 0.7em;
-  margin-bottom: 0.1em;
-  padding-bottom: 0;
-  color: #565656;
+  margin-left: 0.3em;
+  font-family: "Elysio-Regular";
+  font-size: 2em;
 }
 
 /** HEADERTEXTIMAGE (ORIGINAL AEM INCLUDE) PARTIAL **/
@@ -8016,470 +7671,146 @@ a.button-cta {
   }
 }
 
-/** GRAND SUMMARY PARTIAL **/
-/** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
-.grand-summary--wrapper {
-  background-color: #f4f4f4;
-}
-.grand-summary--wrapper .row {
-  margin-bottom: 0;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--wrapper .row .row {
-    margin: 0;
-  }
-}
-.grand-summary--wrapper.grand-summary--exhibition {
-  padding-bottom: 1.5em;
-}
-
-.grand-summary--exhibition-details-grid {
-  padding-top: 0.75em;
-  padding-left: 1.5em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--exhibition-details-grid {
-    padding-top: 1.5em;
-  }
-}
-
-.grand-summary--exhibition-details-grid li:first-child {
-  padding-right: 1em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--exhibition-details-grid li:first-child {
-    padding-left: 1em;
-  }
-}
-
-.grand-summary--exhibition-details-grid li:last-child {
-  padding-right: 0;
-}
-
-.grand-summary--exhibition-details-grid li {
-  padding-bottom: 0;
-  padding-left: 0;
-}
-
-.grand-summary--wrapper .info-sidebar {
-  margin-top: 1.5em;
-  margin-left: 0;
-  padding-top: 0;
-  padding-left: 0;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--wrapper .info-sidebar {
-    margin-top: 0;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grand-summary--wrapper .info-sidebar {
-    padding-left: 2em;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .grand-summary--wrapper .info-sidebar li:first-child {
-    margin-top: 0;
-  }
-}
-
-.grand-summary--wrapper .info-sidebar li {
-  padding-top: 0;
-  padding-left: 0;
-  padding-right: 0;
-  margin-top: 0.75em;
-}
-
-.grand-summary--wrapper .info-sidebar li .ico {
-  position: relative;
-  width: 12%;
-}
-
-.grand-summary--caption-container .caption {
-  padding: 0;
-  height: auto;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-container .caption {
-    padding-bottom: 1em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 132px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 142px;
-  }
-}
-
-.grand-summary--caption-title--container {
-  padding: 1em 1.5em 0.2em 1.5em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-title--container {
-    padding-top: 0.75em;
-  }
-}
-
-.grand-summary--caption-title {
-  font-size: 1.8em;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-}
-
-.grand-summary--caption-description--container {
-  padding: 0 1em 0.75em 1.5em;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-description--container {
-    padding-bottom: 0;
-    padding-left: 1.5em;
-  }
-}
-.grand-summary--caption-description--container p {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1em !important;
-}
-@media screen and (min-width: 768px) {
-  .grand-summary--caption-description--container p {
-    font-size: 1.15em !important;
-  }
-}
-
-.grand-summary--caption-date--container {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.6em 0.6em 0.6em 1.5em;
-}
-
-.grand-summary--caption-date {
-  margin: 0;
-  padding: 0 !important;
-  font-size: 1.5em;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-  color: #ffffff !important;
-}
-
-/** GRAND SUMMARY CTABUTTON PARTIAL **/
-/** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
-.grand-summary--wrapper .ctabutton {
-  padding: 1.1em 0.95em;
-  border: 3px solid #565656;
-  background-color: #ffffff;
-}
-.grand-summary--wrapper .ctabutton:hover h3 {
-  text-decoration: underline;
-}
-.grand-summary--wrapper .ctabutton .svg-ico {
-  height: 40px;
-  top: 30%;
-  width: 100%;
-}
-.grand-summary--wrapper .ctabutton--cta-text {
-  color: #565656;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  margin-left: 0.3em;
-  font-family: "Elysio-Regular";
-  font-size: 2em;
-}
-
-/** FOOTER PARTIAL - MERGED **/
-/** SCIENCE PROFILES SEARCH RESULTS PARTIAL **/
-/** _REFACTOR-DIRECTORY-SEARCH-RESULTS-GRID, FORMERLY _SCIENCE-PROFILES-SEARCH-RESULTS.SCSS **/
-.directory-search-results--sort-results-up::after {
-  background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-up.png");
-  background-position: right center;
-  background-repeat: no-repeat;
-  content: " ";
-  display: inline-block;
-  height: 9px;
-  width: 15px;
-}
-
-.directory-search-results--sort-results-down::after {
-  background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-down.png");
-  background-position: right center;
-  background-repeat: no-repeat;
-  content: " ";
-  display: inline-block;
-  height: 9px;
-  width: 15px;
-}
-
-.directory-search-results--table {
-  color: #000000;
-  margin-bottom: 2em;
-}
-.directory-search-results--table .row {
-  margin-bottom: 0;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--table .row {
-    width: 98%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-results--table .row {
-    width: 100%;
-  }
-}
-.directory-search-results--table .row .row {
-  margin: 0;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--table .row .row {
-    width: 100%;
-  }
-}
-
-.directory-search-results--row {
-  padding: 1em 1.5em 1em 1em;
-  background-color: #eeeeee;
-  border-bottom: 1px solid #ffffff;
-  font-size: 1em;
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-results--row {
-    padding: 2.2em;
-  }
-}
-
-.directory-search-results--row-header {
-  cursor: pointer;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 0.9em;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--row-header {
-    font-size: 1em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-results--row-header {
-    font-size: 1.2em;
-  }
-}
-
-.directory-search-results--row-content {
-  padding-right: 0.9em;
-  color: #565656;
-  font-size: 0.95em;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--row-content {
-    font-size: 0.9em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-results--row-content {
-    font-size: 1em;
-  }
-}
-
-.directory-search-results--row-content--name {
-  font-size: 1.2em;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--row-content--name {
-    font-size: 1em;
-  }
-}
-
-.directory-search-results--row-content--job-title {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.25em;
-  line-height: 1.2em;
-  margin-bottom: 0.5em;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--row-content--job-title {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 1em;
-  }
-}
-
-.directory-search-results--row-content--label {
-  font-weight: bold;
-  float: left;
-  margin-right: 0.25em;
-}
-@media screen and (min-width: 768px) {
-  .directory-search-results--row-content--label {
-    font-weight: normal;
-    float: none;
-  }
-}
-
-/** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
-.directory-search {
-  padding: 1.5em 1.5em 1em 1.5em;
-}
-.directory-search.row {
-  width: 100%;
-}
-.directory-search a {
-  color: #B7B7B7;
-  font-size: 0.9em;
-  text-decoration: underline;
-}
-.directory-search a:hover {
-  color: #B7B7B7;
-}
-.directory-search select {
-  background-image: url(/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
-  padding-left: 1em;
-}
-
-.directory-search--label {
-  color: #ffffff;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.2em;
-  margin-bottom: 0.2em;
-}
-@media screen and (min-width: 768px) {
-  .directory-search--label {
-    font-size: 1em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search--label {
-    font-size: 1.2em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .directory-search--label {
-    margin-bottom: 0.6em;
-  }
-}
-
-.directory-search--fields-block-grid li {
-  padding-bottom: 0;
-}
-@media screen and (min-width: 768px) {
-  .directory-search--fields-block-grid li:last-child {
-    padding-right: 0;
-  }
-}
-
-.directory-search-button--container {
-  position: relative;
-  border: 4px solid #ffffff;
-  padding: 1.5em 1em;
-  margin-top: 1em;
+/** LINK LIST PARTIAL **/
+.linklist--container {
+  padding: 0.5em 0.75em;
   margin-bottom: 1.2em;
 }
 @media screen and (min-width: 768px) {
-  .directory-search-button--container {
-    padding-top: 1.95em;
-    margin-top: 2.25em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-button--container {
-    padding-top: 1.5em;
-    margin-top: 2.6em;
-    margin-bottom: 0;
-  }
-}
-.directory-search-button--container .ico {
-  position: absolute;
-}
-.directory-search-button--container .ico.directory-search-button--icon {
-  top: -12px;
-  left: -3%;
-  width: 63%;
-  height: 50px;
-}
-@media screen and (min-width: 480px) {
-  .directory-search-button--container .ico.directory-search-button--icon {
-    top: -9px;
-    left: -4%;
-    width: 58%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .directory-search-button--container .ico.directory-search-button--icon {
-    top: -11px;
-    left: -8%;
-    width: 68%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-button--container .ico.directory-search-button--icon {
-    width: 63%;
-    top: -8px;
-    left: -3px;
-  }
-}
-.directory-search-button--container .ico.directory-search-button--arrow {
-  top: -5px;
-  right: -8px;
-  width: 33%;
-  height: 40px;
-}
-@media screen and (min-width: 480px) {
-  .directory-search-button--container .ico.directory-search-button--arrow {
-    top: -3px;
-    width: 28%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .directory-search-button--container .ico.directory-search-button--arrow {
-    top: -11px;
-    right: -17%;
-    width: 35%;
-    height: 54px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-button--container .ico.directory-search-button--arrow {
-    top: -8px;
-    right: 0;
-    width: 30%;
+  .linklist--container {
+    padding: 1em 1.5em;
   }
 }
 
-.directory-search-button--text {
-  position: relative;
-  left: 60%;
-  padding: 0;
-  background: none;
-  border: none;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.5em;
-  color: #ffffff;
+.linklist--container__white {
+  background-color: #ffffff;
+}
+
+.linklist--container__grey {
+  background-color: #eeeeee;
+}
+
+.linklist--column--no-header {
+  padding-top: 0px;
+}
+@media screen and (min-width: 768px) {
+  .linklist--column--no-header {
+    padding-top: 5.625em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .linklist--column--no-header {
+    padding-top: 3.438em;
+  }
+}
+
+.linklist--container--header {
+  padding-bottom: 0 !important;
+  margin-bottom: 0.4em;
+}
+.linklist--container--header a {
+  color: #565656;
+}
+
+.linklist--container--description p {
+  margin-bottom: 0;
+}
+
+.linklist--column-container li {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .linklist--column-container li {
+    padding-bottom: 1.25em;
+  }
+}
+
+.linklist--link-items {
+  margin-left: 0;
+}
+.linklist--link-items li {
+  padding-bottom: 0;
+  margin-bottom: 0.6em;
+}
+.linklist--link-items li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+  border-bottom: 1px dotted #000000;
+}
+.linklist--link-items li a:hover {
+  border-bottom-style: solid;
   text-decoration: none;
 }
-@media screen and (min-width: 480px) {
-  .directory-search-button--text {
-    left: 86%;
-    font-size: 1.8em;
-  }
+
+.linklist--column--header {
+  margin-top: 0.7em;
+  margin-bottom: 0.1em;
+  padding-bottom: 0;
+  color: #565656;
+}
+
+.more-results {
+  clear: both;
+  text-align: center;
+}
+.more-results a {
+  color: #565656;
+}
+.more-results a:hover {
+  color: #565656;
+}
+
+.more-results-text__directory-search-results {
+  font-size: 1.3em;
 }
 @media screen and (min-width: 768px) {
-  .directory-search-button--text {
-    top: 2px;
-    left: 54%;
-    font-size: 1.3em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .directory-search-button--text {
-    left: 58%;
-    font-size: 1.75em;
-  }
-}
-@media screen and (min-width: 1160px) {
-  .directory-search-button--text {
-    left: 68%;
+  .more-results-text__directory-search-results {
+    font-size: 1.4em;
   }
 }
 
-.directory-search__science-profiles {
-  background-color: #565656;
+/** PRESS OFFICE PARTIAL (PHASED OUT) **/
+/** SECONDARY NAV PARTIAL **/
+/**** SECONDARY NAV ****/
+.secondary-nav-wrapper {
+  margin: 1.3em 0;
+  clear: both;
+}
+@media screen and (min-width: 768px) {
+  .secondary-nav-wrapper {
+    margin: 0 0 1.3em 0;
+  }
+}
+.secondary-nav-wrapper .side-nav {
+  padding: 0;
+}
+.secondary-nav-wrapper .side-nav li {
+  margin-bottom: 0.3em;
+  border: none;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  .secondary-nav-wrapper .side-nav li {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .secondary-nav-wrapper .side-nav li {
+    font-size: 1.4em;
+  }
+}
+.secondary-nav-wrapper .side-nav li a {
+  color: #107E5E;
+  padding: 1em 1.5em;
+}
+.secondary-nav-wrapper .side-nav li a:hover {
+  color: #107E5E;
+  text-decoration: none;
+}
+.secondary-nav-wrapper .side-nav li.selected a:hover {
+  text-decoration: none;
 }
 
 /** SCIENCE PROFILES DETAIL PAGE PARTIAL **/
@@ -8571,6 +7902,659 @@ a.button-cta {
 
 .science-profiles-detail-page--accordion-content-container {
   padding: 0.5em !important;
+}
+
+/** REFACTOR-SPONSORS-GRID PARTIAL **/
+.sponsors-grid {
+  margin-top: 2.1em;
+  padding: 1em 1.5em;
+  border-top: 1px solid #CCCCCC;
+}
+
+/** REFACTOR-TITLE-BAR PARTIAL **/
+/** this makes the title bar flush with screen edge, keeps gutter for content. **/
+.title .row.title-bar {
+  width: 100%;
+}
+
+.content-page .title-bar {
+  margin-bottom: 1.2em;
+}
+
+.science-profiles-detail-page .title-bar {
+  margin-bottom: 1.2em;
+}
+
+/** REFACTOR-TEXT-COMPONENT PARTIAL **/
+.text {
+  padding: 0 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .text {
+    padding: 0 1.5em;
+  }
+}
+
+/** FOOTER PARTIAL - MERGED **/
+/** ABOUT-US THEME PARTIAL **/
+.about-us .title-bar {
+  background-color: #0B5C7B;
+}
+.about-us h4 {
+  font-weight: normal;
+}
+.about-us .carousel .caption {
+  background-color: #0B5C7B;
+  background-color: rgba(11, 92, 123, 0.9);
+}
+.about-us .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.about-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(11, 92, 123, 0.1);
+}
+.about-us .secondary-nav-wrapper .side-nav li a {
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #0B5C7B;
+  background-color: rgba(11, 92, 123, 0.25);
+}
+.about-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(11, 92, 123, 0.25);
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(11, 92, 123, 0.25);
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #0B5C7B;
+}
+.about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #0B5C7B;
+}
+
+.about-us .linklist--container--header a {
+  color: #0B5C7B;
+}
+.about-us .linklist--link-items li a:hover {
+  border-bottom-color: #0B5C7B;
+}
+.about-us .linklist--column--header a {
+  color: #0B5C7B;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.about-us .ctabutton--inside-hti--cta-text {
+  color: #0B5C7B;
+}
+.about-us .hti-box__feature-box {
+  background-color: #0B5C7B;
+}
+
+.about-us a.promo-link {
+  color: #ffffff;
+}
+
+/** ACCOUNT THEME PARTIAL **/
+.account .title-bar {
+  background-color: #00385D;
+}
+.account h4 {
+  font-weight: normal;
+}
+.account .carousel .caption {
+  background-color: #00385D;
+  background-color: rgba(0, 56, 93, 0.9);
+}
+.account .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.account .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(0, 56, 93, 0.1);
+}
+.account .secondary-nav-wrapper .side-nav li a {
+  color: #00385D;
+}
+.account .secondary-nav-wrapper .side-nav li a:hover {
+  color: #00385D;
+  background-color: rgba(0, 56, 93, 0.25);
+}
+.account .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(0, 56, 93, 0.25);
+  color: #00385D;
+}
+.account .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(0, 56, 93, 0.25);
+}
+.account .secondary-nav-wrapper .side-nav li.selected a {
+  color: #00385D;
+}
+.account .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #00385D;
+}
+
+/** BUSINESS-SERVICES THEME PARTIAL **/
+.business-services .title-bar {
+  background-color: #253480;
+}
+.business-services h4 {
+  font-weight: normal;
+}
+.business-services .carousel .caption {
+  background-color: #253480;
+  background-color: rgba(37, 52, 128, 0.9);
+}
+.business-services .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.business-services .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(37, 52, 128, 0.1);
+}
+.business-services .secondary-nav-wrapper .side-nav li a {
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li a:hover {
+  color: #253480;
+  background-color: rgba(37, 52, 128, 0.25);
+}
+.business-services .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(37, 52, 128, 0.25);
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(37, 52, 128, 0.25);
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected a {
+  color: #253480;
+}
+.business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #253480;
+}
+
+.business-services .linklist--container--header a {
+  color: #253480;
+}
+.business-services .linklist--link-items li a:hover {
+  border-bottom-color: #253480;
+}
+.business-services .linklist--column--header a {
+  color: #253480;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.business-services .ctabutton--inside-hti--cta-text {
+  color: #253480;
+}
+.business-services .hti-box__feature-box {
+  background-color: #253480;
+}
+
+/** CONTACT-US THEME PARTIAL **/
+.contact-us .title-bar {
+  background-color: #808080;
+}
+.contact-us h4 {
+  font-weight: normal;
+}
+.contact-us .carousel .caption {
+  background-color: #808080;
+  background-color: rgba(128, 128, 128, 0.9);
+}
+.contact-us .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.contact-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.contact-us .secondary-nav-wrapper .side-nav li a {
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #808080;
+  background-color: rgba(128, 128, 128, 0.25);
+}
+.contact-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(128, 128, 128, 0.25);
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(128, 128, 128, 0.25);
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #808080;
+}
+.contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #808080;
+}
+
+.contact-us .linklist--container--header a {
+  color: #808080;
+}
+.contact-us .linklist--link-items li a:hover {
+  border-bottom-color: #808080;
+}
+.contact-us .linklist--column--header a {
+  color: #808080;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.contact-us .ctabutton--inside-hti--cta-text {
+  color: #808080;
+}
+.contact-us .hti-box__feature-box {
+  background-color: #808080;
+}
+
+/** DISCOVER THEME PARTIAL **/
+.discover .title-bar {
+  background-color: #565656;
+  margin-bottom: 1.2em;
+}
+.discover h4 {
+  font-weight: normal;
+}
+.discover .carousel .caption {
+  background-color: #107B5E;
+  background-color: rgba(16, 123, 94, 0.9);
+}
+.discover .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.discover h1 {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.3;
+}
+@media screen and (min-width: 768px) {
+  .discover h1 {
+    font-size: 2.7em;
+  }
+}
+.discover .intro-text {
+  color: #565656;
+}
+
+/** HOME THEME PARTIAL **/
+/** OUR-SCIENCE THEME PARTIAL **/
+.our-science .title-bar {
+  background-color: #357900;
+}
+.our-science h4 {
+  font-weight: normal;
+}
+.our-science .carousel .caption {
+  background-color: #357900;
+  background-color: rgba(53, 121, 0, 0.9);
+}
+.our-science .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.our-science .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(53, 121, 0, 0.1);
+}
+.our-science .secondary-nav-wrapper .side-nav li a {
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li a:hover {
+  color: #357900;
+  background-color: rgba(53, 121, 0, 0.25);
+}
+.our-science .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(53, 121, 0, 0.25);
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(53, 121, 0, 0.25);
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected a {
+  color: #357900;
+}
+.our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #357900;
+}
+
+.our-science .linklist--container--header a {
+  color: #357900;
+}
+.our-science .linklist--link-items li a:hover {
+  border-bottom-color: #357900;
+}
+.our-science .linklist--column--header a {
+  color: #357900;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.our-science .ctabutton--inside-hti--cta-text {
+  color: #357900;
+}
+.our-science .hti-box__feature-box {
+  background-color: #357900;
+}
+
+/** PRESS OFFICE THEME PARTIAL **/
+.press-office .pressreleaselistfeed {
+  /** h3 here is the title of the press release listfeed component, not HTI **/
+}
+.press-office .pressreleaselistfeed h3 {
+  color: #107E5E;
+}
+.press-office .pressreleasetilefeed {
+  /** h3 here is the title of the press release tilefeed component, not HTI **/
+}
+.press-office .pressreleasetilefeed h3 {
+  color: #107E5E;
+}
+.press-office .title-bar {
+  background-color: #107E5E;
+}
+.press-office .feature-box a {
+  color: #ffffff;
+}
+.press-office .feature-box h3 {
+  padding-left: 0;
+}
+.press-office .aside-box h3 {
+  padding-left: 0;
+}
+.press-office .event-slider-wrapper h4 {
+  color: #107E5E;
+}
+
+.press-office .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(16, 126, 94, 0.1);
+}
+.press-office .secondary-nav-wrapper .side-nav li a {
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li a:hover {
+  color: #107E5E;
+  background-color: rgba(16, 126, 94, 0.25);
+}
+.press-office .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(16, 126, 94, 0.25);
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(16, 126, 94, 0.25);
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected a {
+  color: #107E5E;
+}
+.press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #107E5E;
+}
+
+.press-office .linklist--container--header a {
+  color: #107E5E;
+}
+.press-office .linklist--link-items li a:hover {
+  border-bottom-color: #107E5E;
+}
+.press-office .linklist--column--header a {
+  color: #107E5E;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.press-office .ctabutton--inside-hti--cta-text {
+  color: #107E5E;
+}
+.press-office .hti-box__feature-box {
+  background-color: #107E5E;
+}
+
+/** SCHOOLS THEME PARTIAL **/
+.schools .title-bar {
+  background-color: #0983BB;
+}
+.schools h4 {
+  font-weight: normal;
+}
+.schools .carousel .caption {
+  background-color: #0983BB;
+  background-color: rgba(9, 131, 187, 0.9);
+}
+.schools .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.schools .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(9, 131, 187, 0.1);
+}
+.schools .secondary-nav-wrapper .side-nav li a {
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li a:hover {
+  color: #0983BB;
+  background-color: rgba(9, 131, 187, 0.25);
+}
+.schools .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(9, 131, 187, 0.25);
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(9, 131, 187, 0.25);
+}
+.schools .secondary-nav-wrapper .side-nav li.selected a {
+  color: #0983BB;
+}
+.schools .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #0983BB;
+}
+
+.schools .linklist--container--header a {
+  color: #0983BB;
+}
+.schools .linklist--link-items li a:hover {
+  border-bottom-color: #0983BB;
+}
+.schools .linklist--column--header a {
+  color: #0983BB;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.schools .ctabutton--inside-hti--cta-text {
+  color: #0983BB;
+}
+.schools .hti-box__feature-box {
+  background-color: #0983BB;
+}
+
+/** SUPPORT-US THEME PARTIAL **/
+.support-us .title-bar {
+  background-color: #7F206E;
+}
+.support-us h4 {
+  font-weight: normal;
+}
+.support-us .carousel .caption {
+  background-color: #7F206E;
+  background-color: rgba(127, 32, 110, 0.9);
+}
+.support-us .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.support-us .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(127, 32, 110, 0.1);
+}
+.support-us .secondary-nav-wrapper .side-nav li a {
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li a:hover {
+  color: #7F206E;
+  background-color: rgba(127, 32, 110, 0.25);
+}
+.support-us .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(127, 32, 110, 0.25);
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(127, 32, 110, 0.25);
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected a {
+  color: #7F206E;
+}
+.support-us .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #7F206E;
+}
+
+.support-us .linklist--container--header a {
+  color: #7F206E;
+}
+.support-us .linklist--link-items li a:hover {
+  border-bottom-color: #7F206E;
+}
+.support-us .linklist--column--header a {
+  color: #7F206E;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.support-us .ctabutton--inside-hti--cta-text {
+  color: #7F206E;
+}
+.support-us .hti-box__feature-box {
+  background-color: #7F206E;
+}
+
+/** TAKE-PART THEME PARTIAL **/
+.take-part .title-bar {
+  background-color: #BF491F;
+}
+.take-part h4 {
+  font-weight: normal;
+}
+.take-part .carousel .caption {
+  background-color: #BF491F;
+  background-color: rgba(191, 73, 31, 0.9);
+}
+.take-part .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.take-part .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(191, 73, 31, 0.1);
+}
+.take-part .secondary-nav-wrapper .side-nav li a {
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li a:hover {
+  color: #BF491F;
+  background-color: rgba(191, 73, 31, 0.25);
+}
+.take-part .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(191, 73, 31, 0.25);
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(191, 73, 31, 0.25);
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected a {
+  color: #BF491F;
+}
+.take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #BF491F;
+}
+
+.take-part .linklist--container--header a {
+  color: #BF491F;
+}
+.take-part .linklist--link-items li a:hover {
+  border-bottom-color: #BF491F;
+}
+.take-part .linklist--column--header a {
+  color: #BF491F;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.take-part .ctabutton--inside-hti--cta-text {
+  color: #BF491F;
+}
+.take-part .hti-box__feature-box {
+  background-color: #BF491F;
+}
+
+/** VISIT THEME PARTIAL **/
+.visit .title-bar {
+  background-color: #A1164E;
+}
+.visit h4 {
+  font-weight: normal;
+}
+.visit .carousel .caption {
+  background-color: #A1164E;
+  background-color: rgba(161, 22, 78, 0.9);
+}
+.visit .carousel .caption h2 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.visit .secondary-nav-wrapper .side-nav li {
+  background-color: rgba(161, 22, 78, 0.1);
+}
+.visit .secondary-nav-wrapper .side-nav li a {
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li a:hover {
+  color: #A1164E;
+  background-color: rgba(161, 22, 78, 0.25);
+}
+.visit .secondary-nav-wrapper .side-nav li a:focus {
+  background-color: rgba(161, 22, 78, 0.25);
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li.selected {
+  background-color: rgba(161, 22, 78, 0.25);
+}
+.visit .secondary-nav-wrapper .side-nav li.selected a {
+  color: #A1164E;
+}
+.visit .secondary-nav-wrapper .side-nav li.selected a:hover {
+  color: #A1164E;
+}
+
+.visit .linklist--container--header a {
+  color: #A1164E;
+}
+.visit .linklist--link-items li a:hover {
+  border-bottom-color: #A1164E;
+}
+.visit .linklist--column--header a {
+  color: #A1164E;
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.visit .ctabutton--inside-hti--cta-text {
+  color: #A1164E;
+}
+.visit .hti-box__feature-box {
+  background-color: #A1164E;
 }
 
 /*# sourceMappingURL=styles.css.map */
