@@ -258,6 +258,8 @@ public class ScientistProfileHelper {
 	public  static final String PUBLICATIONS_NODE_NAME			  = "publications";
 	public  static final String AUTHORED_PUBLICATIONS_NODE_NAME	  = "authored";
 	private static final String PUBLICATIONS_NODE_PATH			  = PUBLICATIONS_NODE_NAME + "/" + AUTHORED_PUBLICATIONS_NODE_NAME;
+	public static final String CONTRIBUTED_PUBLICATIONS_NODE_NAME = "contributed";
+	private static final String CONTRIBUTED_PUBLICATIONS_NODE_PATH = PUBLICATIONS_NODE_NAME + "/" + CONTRIBUTED_PUBLICATIONS_NODE_NAME;
 	
 	public static final String PUBLICATION_TYPE_BOOK 					= "Book";
 	public static final String PUBLICATION_TYPE_CHAPTER					= "Chapter";
@@ -757,6 +759,10 @@ public class ScientistProfileHelper {
 		return this.extractPublications(PUBLICATIONS_NODE_PATH);
 	}
 	
+	public Set<Publication> getContributedPublications() {
+		return this.extractPublications(CONTRIBUTED_PUBLICATIONS_NODE_PATH);
+	}
+	
 	private Set<Publication> extractPublications(final String nodeName) {
 		final Set<Publication> result = new TreeSet<Publication>(); 
 		
@@ -1029,6 +1035,16 @@ public class ScientistProfileHelper {
 		final Set<Publication> publications = helper.getPublications();
 		boolean res = false;
 		if (publications != null && !publications.isEmpty()) {
+			res = true;
+		}
+		return res;
+	}
+	
+	public boolean displayContributedPublicationsTab(Resource resource) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Set<Publication> contributedPublications = helper.getContributedPublications();
+		boolean res = false;
+		if (contributedPublications != null && !contributedPublications.isEmpty()) {
 			res = true;
 		}
 		return res;
