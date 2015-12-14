@@ -1933,8 +1933,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		final Node authored = publications.addNode(ScientistProfileHelper.AUTHORED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		final Node contributed = publications.addNode(ScientistProfileHelper.CONTRIBUTED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		addPublication (authored, webProfile.getPublications().getAuthored().getPublication());
-		//@alisp2 TODO
-		//addPublication (contributed, webProfile.getPublications().getContributed()
+		addPublication (contributed, webProfile.getPublications().getContributed().getPublication());
 
 		// Node : image
 		final Node imageNode = jcrContentNode.addNode("image");
