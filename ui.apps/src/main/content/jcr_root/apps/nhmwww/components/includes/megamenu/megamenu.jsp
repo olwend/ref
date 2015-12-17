@@ -228,7 +228,7 @@
                                   	<li class="nav-list__item">
                                   		<a href="http://www.nhmshop.co.uk/prints.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-image">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Buy Christmas gifts now">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Wall prints from £20">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
                                                        Wall prints from £20
