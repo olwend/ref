@@ -208,8 +208,10 @@
                                 </div>
                                 
                                 <div class="dropdown-section">
+                                    <p></p>
                                     <p class="nav-callout tablet desktop">
                                         Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. All sales support the Museum.</p>
+                                        <br/>
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
                                             <li>
