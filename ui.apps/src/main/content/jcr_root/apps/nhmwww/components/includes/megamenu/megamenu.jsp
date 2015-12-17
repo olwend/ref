@@ -203,14 +203,14 @@
                                         <a href="http://www.nhmshop.co.uk/latest-offers.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-nhm-meganav-link&utm_content=meganav-link-3">Latest offers</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas</a>
+                                        <a href="http://www.nhmshop.co.uk/sale.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-link-4">Sale</a>
                                     </li>
                                 </div>
                                 
                                 <div class="dropdown-section">
                                     <p></p>
                                     <p class="nav-callout tablet desktop">
-                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. Order by 23 December for Christmas delivery. All sales support the Museum.</p>
+                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. All sales support the Museum.</p>
                                         <br/>
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
@@ -226,12 +226,12 @@
                                 
                                   <div class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-image-1">
+                                  		<a href="http://www.nhmshop.co.uk/prints.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-image">
                                   			<div class="mega-thumb">
 	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Buy Christmas gifts now">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Buy Christmas gifts now
+                                                       Wall prints from £20
                                                     </p>
 	                                            </div>
 	                                        </div>
