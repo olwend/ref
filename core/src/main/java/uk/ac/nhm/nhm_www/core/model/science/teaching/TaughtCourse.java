@@ -85,31 +85,37 @@ public class TaughtCourse extends TeachingActivityTemplate {
 			}
 		}
 		
-		// startMonth / startYear - endMonth / endYear. || starthMonth / startYear - on going.
-		if (this.yearsd != null){
-			if (this.yeared != null) {
-				if (this.monthsd != null){
-					stringBuffer.append(this.monthsd);
-					stringBuffer.append("/");
-				}
-				stringBuffer.append(this.yearsd);
-				stringBuffer.append(" - ");
-				if (this.monthed != null){
-					stringBuffer.append(this.monthed);
-					stringBuffer.append("/");
-				}
-				stringBuffer.append(this.yeared);
-				stringBuffer.append(".");
-			} else {
-				if (this.monthsd != null){
-					stringBuffer.append(this.monthsd);
-					stringBuffer.append("/");
-				}
-				stringBuffer.append(this.yearsd);
-				stringBuffer.append(" - ");
-				stringBuffer.append("on going");
-				stringBuffer.append(".");
-			}
+		// startMonth / startYear.
+		// || startMonth / startYear - endYear..
+		// || startMonth / startYear - endMonth / endYear.
+		// || startYear - endYear.
+		// || starthMonth / startYear - on going.
+		if (this.yearsd != null) {
+            if (this.monthsd != null){
+                stringBuffer.append(this.monthsd);
+                stringBuffer.append("/");
+            }
+            stringBuffer.append(this.yearsd);
+
+            if (this.yeared != null && this.monthed != null) {
+                if(!(this.yeared.equals(this.yearsd) && this.monthed.equals(this.monthsd))) {
+                    stringBuffer.append(" - ");
+                    stringBuffer.append(this.monthed);
+                    stringBuffer.append("/");
+                    stringBuffer.append(this.yeared);
+                }
+            }
+            else {
+                if(this.yeared != null) {
+                    stringBuffer.append(" - ");
+                    stringBuffer.append(this.yeared);
+                }
+                else {
+                    stringBuffer.append(" - ");
+                    stringBuffer.append("on going");
+                }
+            }
+            stringBuffer.append(".");
 		}
 		
 		return stringBuffer.toString();

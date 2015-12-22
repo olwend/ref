@@ -1475,6 +1475,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							grantsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 						}
 						break;
+						
+					case "c-nhm-url":
+						if(field.getText() != null) {
+							grantsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
+						}
+						break;
 					}
 				}
 			}
@@ -1532,7 +1538,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 					case "url":
 						teachingANode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
 						break;
-					case "c-end-date":
+					case "end-date":
 						final BigInteger endYear = field.getDate().getYear();
 						final BigInteger endMonth = field.getDate().getMonth();
 						final BigInteger endDay = field.getDate().getDay();
