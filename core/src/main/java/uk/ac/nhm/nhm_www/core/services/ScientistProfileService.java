@@ -23,7 +23,7 @@ import com.day.cq.workflow.model.WorkflowModel;
 @Component
 @Service
 @Properties({
-	@Property(name="scheduler.expression", value="0 0 13 * * ? *"),
+	@Property(name="scheduler.expression", value="0 30 15 * * ? *"),
 })
 public class ScientistProfileService implements Runnable {
 
