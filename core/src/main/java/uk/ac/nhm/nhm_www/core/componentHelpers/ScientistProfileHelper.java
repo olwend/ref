@@ -1050,6 +1050,39 @@ public class ScientistProfileHelper {
 		}
 		return res;
 	}
+	
+	public SortedSet<Publication> getSortedPublications(Set<Publication> authored, Set<Publication> contributed) {
+		SortedSet<Publication> sortedPublications = new TreeSet<Publication>();
+		
+		Iterator<Publication> autIterator = authored.iterator();
+		
+		while(autIterator.hasNext()) {
+			Publication aut = autIterator.next();
+
+			
+			if(aut.getPublicationYear().equals(null)) {
+				LOG.error(aut.getPublicationYear());
+			}
+			 /*if(!contributed.isEmpty()) {
+				Iterator<Publication> conIterator = contributed.iterator();
+				
+				while(conIterator.hasNext()) {
+	 				Publication con = conIterator.next();
+					
+	 				int autYear = Integer.parseInt(aut.getPublicationYear());
+	 				int conYear = Integer.parseInt(con.getPublicationYear());
+					
+	 				//if(conYear <= autYear) {
+	 					sortedPublications.add(con);
+						contributed.remove(con);
+	 				//}
+				}
+			}*/
+			sortedPublications.add(aut);
+			
+		} 
+		return sortedPublications;
+	}
 
 	/*
 	 * #############################
