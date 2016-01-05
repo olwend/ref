@@ -7942,8 +7942,8 @@ input.searchBox {
 }
 input.searchGo {
   display: inline;
-  padding: 0 5px;
-  top: auto;
+  padding: 0 5px !important;
+  top: auto !important;
 }
 
 /** FOOTER PARTIAL - MERGED **/
