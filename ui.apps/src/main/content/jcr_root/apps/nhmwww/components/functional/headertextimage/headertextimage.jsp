@@ -41,12 +41,14 @@
 } %>
 
 <%	if(helper.isActivated()) {	%>
-<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>">
+<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>" <%if(!helper.getImagePosition().equals("top")) {%>	<%if(helper.getAddPadding()) { %> data-equalizer <%} else {%> data-equalizer-watch <%} %>
+<%}%>>
+
 	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
 			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>
 						<% if (helper.hasImagePositionSwitched()) { %> medium-<%=helper.getImageColumnsSize() %> large-<%=helper.getImageColumnsSize() %> <% } %>" 
-						>
+							<%if(!helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
 				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
 				<% } %>
@@ -71,10 +73,9 @@
 		<div class="hti-box end columns <%= helper.getComponentType() %> small-12 <% if (!helper.hasImage()) { %> medium-12 large-12 <% } %>
 					<% if (helper.hasImage()) { %> medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %> 
 						<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %> 
-					<% } %>"
-					data-equalizer-watch>
+					<% } %>" <%if(!helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
 		
-			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper">
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" <%if(helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
 				<h3>
 					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
 						<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
