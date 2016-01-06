@@ -578,7 +578,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	}
 
 	private void addPublication (final Node rootNode, final List<WebProfile.Publications.Contributed.Publication> publications) throws Exception {
-		int i  = 0;
+		int i = 0;
 
 		for (WebProfile.Publications.Contributed.Publication publication : publications) {
 			final Node publicationsNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
@@ -1931,7 +1931,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		// Node : publications
 		final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		final Node authored = publications.addNode(ScientistProfileHelper.AUTHORED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+		final Node contributed = publications.addNode(ScientistProfileHelper.CONTRIBUTED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		addPublication (authored, webProfile.getPublications().getAuthored().getPublication());
+		addPublication (contributed, webProfile.getPublications().getContributed().getPublication());
 
 		// Node : image
 		final Node imageNode = jcrContentNode.addNode("image");

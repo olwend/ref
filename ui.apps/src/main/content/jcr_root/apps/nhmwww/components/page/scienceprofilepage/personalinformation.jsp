@@ -59,17 +59,19 @@
 					String otherWork = "";
 					int count = 0;
 					for(EmailAddress e : emails) {
-						if(e.getType().equals("work")) {
-							if(e.getEmailAddress().contains("@nhm.ac.uk")) {%>
-								<span class="science-profiles-detail-page--personal--label">Contact:</span> 
-								<a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=
-								<%=e.getEmailAddress().replace("@nhm.ac.uk", "")%>
-								&business_title=
-								<% if (helper.getNickName() != null ) { %><%=helper.getNickName().trim()%>+<%=helper.getLastName()%>
-				                <% } else { %><%=helper.getFirstName().trim()%>+<%=helper.getLastName()%>
-				                <% } %>
-								"> email</a> <br>
-							<%}
+						if(!(e.getType() == null || e.getType().equals(null))) {
+							if(e.getType().equals("work")) {
+								if(e.getEmailAddress().contains("@nhm.ac.uk")) {%>
+									<span class="science-profiles-detail-page--personal--label">Contact:</span> 
+									<a href="/about-us/contact-enquiries/forms/emailform.jsp?recip=
+									<%=e.getEmailAddress().replace("@nhm.ac.uk", "")%>
+									&business_title=
+									<% if (helper.getNickName() != null ) { %><%=helper.getNickName().trim()%>+<%=helper.getLastName()%>
+					                <% } else { %><%=helper.getFirstName().trim()%>+<%=helper.getLastName()%>
+					                <% } %>
+									"> email</a> <br>
+								<%}
+							}
 							else {
 								otherWork = otherWork + e.getEmailAddress() + ", ";
 								count++;

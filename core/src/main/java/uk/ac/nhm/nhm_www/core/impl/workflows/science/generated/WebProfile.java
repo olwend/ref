@@ -1504,7 +1504,7 @@ public class WebProfile {
         public static class Contributed {
 
             @XmlElement(namespace = "", required = true)
-            protected WebProfile.Publications.Contributed.Publication publication;
+            protected List<WebProfile.Publications.Contributed.Publication> publication;
 
             /**
              * Gets the value of the publication property.
@@ -1514,8 +1514,11 @@ public class WebProfile {
              *     {@link WebProfile.Publications.Contributed.Publication }
              *     
              */
-            public WebProfile.Publications.Contributed.Publication getPublication() {
-                return publication;
+            public List<WebProfile.Publications.Contributed.Publication> getPublication() {
+            	if (publication == null) {
+            		publication = new ArrayList<WebProfile.Publications.Contributed.Publication>();
+            	}
+                return this.publication;
             }
 
             /**
@@ -1526,9 +1529,9 @@ public class WebProfile {
              *     {@link WebProfile.Publications.Contributed.Publication }
              *     
              */
-            public void setPublication(WebProfile.Publications.Contributed.Publication value) {
-                this.publication = value;
-            }
+            //public void setPublication(WebProfile.Publications.Contributed.Publication value) {
+            //    this.publication = value;
+            //}
 
 
             /**
