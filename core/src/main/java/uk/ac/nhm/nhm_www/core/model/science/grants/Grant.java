@@ -14,10 +14,11 @@ public class Grant extends GrantTemplate {
 	private String totaAwarded;
 	private String nhmAwarded;
 	private String proposalTitle;
+	private String nhmURL;
 
 	public Grant(String proposalTitle, final String reportingDate, String yearStartDate, String monthStartDate, String dayStartDate, 
 			String yearEndDate, String monthEndDate, String dayEndDate, List<String> principalsList, List<String> coInvestigatorsList, 
-			String funderName, String funderNameOther, String totalAwarded, String nhmAwarded) {
+			String funderName, String funderNameOther, String totalAwarded, String nhmAwarded, String nhmURL) {
 		super(proposalTitle, reportingDate, yearStartDate, monthStartDate, dayStartDate, yearEndDate, monthEndDate, dayEndDate);
 		this.proposalTitle = proposalTitle;
 		this.principalInvestigators = principalsList;
@@ -26,6 +27,7 @@ public class Grant extends GrantTemplate {
 		this.funderNameOther = funderNameOther;
 		this.totaAwarded = totalAwarded;
 		this.nhmAwarded = nhmAwarded;
+		this.nhmURL = nhmURL;
 	}
 	
 	@Override
@@ -36,7 +38,13 @@ public class Grant extends GrantTemplate {
 		
 		// ProposalTitle
 		if (this.proposalTitle != null){
+			if(this.nhmURL != null) {
+				stringBuffer.append("<a href=" + this.nhmURL + ">");
+			}
 			stringBuffer.append(this.proposalTitle);
+			if(this.nhmURL != null) {
+				stringBuffer.append("</a>");
+			}
 			stringBuffer.append("<br>");
 		}
 		

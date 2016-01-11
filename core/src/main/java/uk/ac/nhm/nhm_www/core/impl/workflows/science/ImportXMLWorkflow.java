@@ -578,7 +578,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	}
 
 	private void addPublication (final Node rootNode, final List<WebProfile.Publications.Contributed.Publication> publications) throws Exception {
-		int i  = 0;
+		int i = 0;
 
 		for (WebProfile.Publications.Contributed.Publication publication : publications) {
 			final Node publicationsNode = rootNode.addNode(ScientistProfileHelper.PUBLICATION_PREFIX_NODE_NAME + i++, JcrConstants.NT_UNSTRUCTURED);
@@ -1475,6 +1475,12 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 							grantsNode.setProperty(ScientistProfileHelper.START_DATE_DAY_NAME_ATTRIBUTE, startDay.longValue());
 						}
 						break;
+						
+					case "c-nhm-url":
+						if(field.getText() != null) {
+							grantsNode.setProperty(ScientistProfileHelper.NHM_URL, field.getText());
+						}
+						break;
 					}
 				}
 			}
@@ -1532,7 +1538,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 					case "url":
 						teachingANode.setProperty(ScientistProfileHelper.URL_ATTRIBUTE, field.getText());
 						break;
-					case "c-end-date":
+					case "end-date":
 						final BigInteger endYear = field.getDate().getYear();
 						final BigInteger endMonth = field.getDate().getMonth();
 						final BigInteger endDay = field.getDate().getDay();
@@ -1925,7 +1931,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		// Node : publications
 		final Node publications = jcrContentNode.addNode(ScientistProfileHelper.PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		final Node authored = publications.addNode(ScientistProfileHelper.AUTHORED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
+		final Node contributed = publications.addNode(ScientistProfileHelper.CONTRIBUTED_PUBLICATIONS_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		addPublication (authored, webProfile.getPublications().getAuthored().getPublication());
+		addPublication (contributed, webProfile.getPublications().getContributed().getPublication());
 
 		// Node : image
 		final Node imageNode = jcrContentNode.addNode("image");

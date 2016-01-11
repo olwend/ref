@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -258,6 +259,8 @@ public class ScientistProfileHelper {
 	public  static final String PUBLICATIONS_NODE_NAME			  = "publications";
 	public  static final String AUTHORED_PUBLICATIONS_NODE_NAME	  = "authored";
 	private static final String PUBLICATIONS_NODE_PATH			  = PUBLICATIONS_NODE_NAME + "/" + AUTHORED_PUBLICATIONS_NODE_NAME;
+	public static final String CONTRIBUTED_PUBLICATIONS_NODE_NAME = "contributed";
+	private static final String CONTRIBUTED_PUBLICATIONS_NODE_PATH = PUBLICATIONS_NODE_NAME + "/" + CONTRIBUTED_PUBLICATIONS_NODE_NAME;
 	
 	public static final String PUBLICATION_TYPE_BOOK 					= "Book";
 	public static final String PUBLICATION_TYPE_CHAPTER					= "Chapter";
@@ -757,6 +760,10 @@ public class ScientistProfileHelper {
 		return this.extractPublications(PUBLICATIONS_NODE_PATH);
 	}
 	
+	public Set<Publication> getContributedPublications() {
+		return this.extractPublications(CONTRIBUTED_PUBLICATIONS_NODE_PATH);
+	}
+	
 	private Set<Publication> extractPublications(final String nodeName) {
 		final Set<Publication> result = new TreeSet<Publication>(); 
 		
@@ -1032,6 +1039,49 @@ public class ScientistProfileHelper {
 			res = true;
 		}
 		return res;
+	}
+	
+	public boolean displayContributedPublicationsTab(Resource resource) {
+		final ScientistProfileHelper helper = new ScientistProfileHelper(resource);
+		final Set<Publication> contributedPublications = helper.getContributedPublications();
+		boolean res = false;
+		if (contributedPublications != null && !contributedPublications.isEmpty()) {
+			res = true;
+		}
+		return res;
+	}
+	
+	public SortedSet<Publication> getSortedPublications(Set<Publication> authored, Set<Publication> contributed) {
+		SortedSet<Publication> sortedPublications = new TreeSet<Publication>();
+		
+		Iterator<Publication> autIterator = authored.iterator();
+		
+		while(autIterator.hasNext()) {
+			Publication aut = autIterator.next();
+
+			
+			if(aut.getPublicationYear().equals(null)) {
+				LOG.error(aut.getPublicationYear());
+			}
+			 /*if(!contributed.isEmpty()) {
+				Iterator<Publication> conIterator = contributed.iterator();
+				
+				while(conIterator.hasNext()) {
+	 				Publication con = conIterator.next();
+					
+	 				int autYear = Integer.parseInt(aut.getPublicationYear());
+	 				int conYear = Integer.parseInt(con.getPublicationYear());
+					
+	 				//if(conYear <= autYear) {
+	 					sortedPublications.add(con);
+						contributed.remove(con);
+	 				//}
+				}
+			}*/
+			sortedPublications.add(aut);
+			
+		} 
+		return sortedPublications;
 	}
 
 	/*
@@ -1743,6 +1793,7 @@ public class ScientistProfileHelper {
 				final String yearEndDate = childProperties.get(END_DATE_YEAR_NAME_ATTRIBUTE, String.class);
 				final String monthEndDate = childProperties.get(END_DATE_MONTH_NAME_ATTRIBUTE, String.class);
 				final String dayEndDate = childProperties.get(END_DATE_DAY_NAME_ATTRIBUTE, String.class);
+				final String nhmURL = childProperties.get(NHM_URL, String.class);
 				final String reportingDate;
 				if (childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class) != null ){
 					reportingDate = childProperties.get(REPORTING_DATE_ATTRIBUTE, String.class);
@@ -1774,7 +1825,7 @@ public class ScientistProfileHelper {
 //				case GRANT_TYPE_GRANT:
 					setGrants.add(new Grant(proposalTitle, reportingDate, yearStartDate, monthStartDate, dayStartDate,
 							yearEndDate, monthEndDate, dayEndDate, principalsList, coInvestigatorsList, funderName, 
-							funderNameOther, totalAwarded, nhmAwarded));
+							funderNameOther, totalAwarded, nhmAwarded, nhmURL));
 //					break;
 //					
 //				default:

@@ -55,7 +55,7 @@
                                 <div class="dropdown-section dropdown-section--thumb">
                                     <li class="nav-list__item">
 
-                                    <a href="/content/nhmwww/en/home/visit/getting-here.html"><img src="https://maps.googleapis.com/maps/api/staticmap?size=360x200&markers=color:red|Natural%20History%20Museum,Cromwell%20Road,%20London" alt="Natural History Museum"></a>
+                                    <a href="/content/nhmwww/en/home/visit/getting-here.html"><img src="https://maps.googleapis.com/maps/api/staticmap?center=51.496705,-0.17636&zoom=14&size=360x200&markers=colour:red%7clabel:Natural+History+Museum%7C51.496705,-0.17636" alt="Natural History Museum"></a>
  
 
                             <!--  <iframe width="360" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Natural%20History%20Museum%2C%20Cromwell%20Road%2C%20London%2C%20United%20Kingdom&key=AIzaSyC09eunz5fyve_HGt3DQGRQzEpQT1A1HbA"></iframe>  -->
@@ -203,14 +203,14 @@
                                         <a href="http://www.nhmshop.co.uk/latest-offers.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-nhm-meganav-link&utm_content=meganav-link-3">Latest offers</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-link-4">Christmas</a>
+                                        <a href="http://www.nhmshop.co.uk/sale.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-link-4">Sale</a>
                                     </li>
                                 </div>
                                 
                                 <div class="dropdown-section">
                                     <p></p>
                                     <p class="nav-callout tablet desktop">
-                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. Order by 23 December for Christmas delivery. All sales support the Museum.</p>
+                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. All sales support the Museum.</p>
                                         <br/>
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
@@ -226,12 +226,12 @@
                                 
                                   <div class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-christmas&utm_content=meganav-image-1">
+                                  		<a href="http://www.nhmshop.co.uk/prints.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-image">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Buy Christmas gifts now">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Wall prints from £20">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Buy Christmas gifts now
+                                                       Wall prints from £20
                                                     </p>
 	                                            </div>
 	                                        </div>
