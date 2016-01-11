@@ -18,12 +18,12 @@
 %>
 <div class="row" <% if(!helper.isEqualizedDisabled()) { %>data-equalizer <% } %>>
 	<div class="large-4 medium-4 columns large4-margin">
-		<cq:include path="par" resourceType="foundation/components/parsys" />
+		<cq:include path="par" resourceType="foundation/components/parsys" <% if(!helper.isEqualize3Col()) { %>data-equalizer-watch<% } %> />
 	</div>
 	<div class="large-4 medium-4 columns large4-margin">
-		<cq:include path="par2" resourceType="foundation/components/parsys" />
+		<cq:include path="par2" resourceType="foundation/components/parsys" <% if(!helper.isEqualize3Col()) { %>data-equalizer-watch<% } %> />
 	</div>
 	<div class="large-4 medium-4 columns large4-margin">
-		<cq:include path="par3" resourceType="foundation/components/parsys" />
+		<cq:include path="par3" resourceType="foundation/components/parsys" <% if(!helper.isEqualize3Col()) { %>data-equalizer-watch<% } %> />
 	</div>
 </div>
