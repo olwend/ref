@@ -7968,6 +7968,16 @@ a.button-cta {
   margin-bottom: 0;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
+/** WR-707 - fix positioning of events calendar search button **/
+/** overrides foundation.calendar.css in events calendar app **/
+input.searchBox {
+  display: inline;
+}
+input.searchGo {
+  display: inline;
+  padding: 0 5px !important;
+  top: auto !important;
+}
 
 /** FOOTER PARTIAL - MERGED **/
 /** ABOUT-US THEME PARTIAL **/
