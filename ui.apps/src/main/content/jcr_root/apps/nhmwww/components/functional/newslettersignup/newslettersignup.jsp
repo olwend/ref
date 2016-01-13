@@ -10,8 +10,8 @@
                 <div class="columns large-9 medium-9 framed-wrapper">
                     <div class="framed">
                         <nav class="footer-nav columns large-9">
-                            <ul class="cf">
-                                <div class="columns large-6 medium-6 small-6">
+                            <div class="cf">
+                                <ul class="columns large-6 medium-6 small-6">
                                     <li><a href="/content/nhmwww/en/home/about-us.html">About us</a></li>
                                     <li><a href="/about-us/news.html">News</a></li>
                                     <li><a href="/content/nhmwww/en/home/press-office.html">Press office</a></li>
@@ -19,8 +19,8 @@
 									<li><a href="/content/nhmwww/en/home/about-us/careers.html">Careers</a></li>
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>
                                     <li><a href="/content/nhmwww/en/home/business-services/touring-exhibitions.html">Touring Exhibitions</a></li>
-                                </div>
-                                <div class="columns large-6 medium-6 small-6">
+                                </ul>
+                                <ul class="columns large-6 medium-6 small-6">
                                 	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
                                 	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
@@ -34,8 +34,8 @@
 	                                        <li><a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts"><img src="<%= currentDesign.getPath() + "/img/icons/gplus.png"%>" alt="GooglePlus" /></a></li>
 	                                   	</ul>
                                     </li>
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </nav>
 <% 
 	final NewsletterSignUpHelper helper = new NewsletterSignUpHelper(properties, pageManager);
