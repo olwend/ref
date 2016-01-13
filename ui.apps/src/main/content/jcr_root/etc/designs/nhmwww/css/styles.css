@@ -7968,6 +7968,7 @@ a.button-cta {
   margin-bottom: 0;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
+
 /** WR-707 - fix positioning of events calendar search button **/
 /** overrides foundation.calendar.css in events calendar app **/
 input.searchBox {
@@ -8429,6 +8430,17 @@ input.searchGo {
 }
 .press-office .hti-box__feature-box {
   background-color: #107E5E;
+}
+
+/** enews signup form styles **/
+.press-office .button__enews-signup {
+  background-color: #107E5E;
+}
+.press-office .button__enews-signup:hover {
+  background-color: rgba(16, 126, 94, 0.75);
+}
+.press-office .button__enews-signup:focus {
+  background-color: rgba(16, 126, 94, 0.75);
 }
 
 /** SCHOOLS THEME PARTIAL **/
