@@ -8433,6 +8433,9 @@ input.searchGo {
 }
 
 /** enews signup form styles **/
+.press-office .enews-signup-form-container h4 {
+  font-weight: normal;
+}
 .press-office .button__enews-signup {
   background-color: #107E5E;
 }
