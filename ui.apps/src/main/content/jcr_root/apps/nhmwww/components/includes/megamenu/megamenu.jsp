@@ -371,7 +371,7 @@
 	                                        </div>
 	                                        <div class="form-field email">
 	                                            <label for="email">Email address</label>
-	                                            <input class="item-input" name="email" type="text" />
+	                                            <input class="item-input" name="email" type="email" />
 	                                        </div>
 	                                        <input class="question" type="text" name="question">
 	                                        <button class="submit arrow">Sign up</button>
