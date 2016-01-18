@@ -423,50 +423,65 @@ jQuery(document).ready(function() {
     });
 
     // Megamenu click handling
-    jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){   
-        if(jQuery(e.target).closest('li').hasClass('has-children')){  
-            var $this = jQuery(this);     
-            if(jQuery(window).width() < 768){    
-                e.preventDefault(); // don't affect clicks on items with submenus to open
-                if($this.hasClass('selected')) {
-                    jQuery('.global-menu-trigger').removeClass('return');
-                    $this.removeClass('selected').siblings().removeClass('selected-siblings');
-                } else {
-                    jQuery('.global-menu-trigger').addClass('return');
-                    jQuery('.nav-list__item').removeClass('selected');
-                    $this.addClass('selected').siblings().addClass('selected-siblings');
-                }                                
-            }                       
-        }
-    });
+    if(jQuery(window).width() < 768){
+      jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){
+        var $this = jQuery(this);
 
-    //Megamenu touch handling
-    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
+      	if(jQuery(e.target).closest('li').hasClass('has-children')){
+					e.preventDefault(); // stop touch acting as a click on items with submenus
+
+					if($this.hasClass('selected')) {
+						$this.removeClass('touch');
+            jQuery('.global-menu-trigger').removeClass('return');
+            $this.removeClass('selected').siblings().removeClass('selected-siblings');
+          } else {
+						$this.addClass('touch');
+            jQuery('.global-menu-trigger').addClass('return');
+            jQuery('.nav-list__item').removeClass('selected');
+            $this.addClass('selected').siblings().addClass('selected-siblings');
+          }
+        }
+      });
+
+       jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
+      	return true;
+        var $this = jQuery(this);
+
+        if($this.hasClass('selected')) {
+					return true;
+          jQuery('.global-menu-trigger').removeClass('return');
+          $this.removeClass('selected').siblings().removeClass('selected-siblings');
+        }
+      });
+    } else {
+	    //Megamenu touch handling
+	    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
+	    	console.log("touchstart > 768");
         if(jQuery(e.target).closest('li').hasClass('has-children')){
-            e.preventDefault(); // stop touch acting as a click on items with submenus
-            e.stopPropagation(); // stop a click event from also firing
+          e.preventDefault(); // stop touch acting as a click on items with submenus
+          e.stopPropagation(); // stop a click event from also firing
+          var $this = jQuery(this);
 
-            var $this = jQuery(this);
+          if($this.hasClass('open')) {
+            $this.removeClass('open').removeClass('touch');
+          } else {
+            jQuery('.nav-list__item').removeClass('open');
+            $this.addClass('open').addClass('touch');
+          }
 
-            if($this.hasClass('open')) {
-                $this.removeClass('open').removeClass('touch');
+          if(jQuery(window).width() < 768){
+            if($this.hasClass('selected')) {
+              jQuery('.global-menu-trigger').removeClass('return');
+              $this.removeClass('selected').siblings().removeClass('selected-siblings');
             } else {
-                jQuery('.nav-list__item').removeClass('open');
-                $this.addClass('open').addClass('touch');
+              jQuery('.global-menu-trigger').addClass('return');
+              jQuery('.nav-list__item').removeClass('selected');
+              $this.addClass('selected').siblings().addClass('selected-siblings');
             }
-
-            if(jQuery(window).width() < 768){
-                if($this.hasClass('selected')) {
-                    jQuery('.global-menu-trigger').removeClass('return');
-                    $this.removeClass('selected').siblings().removeClass('selected-siblings');
-                } else {
-                    jQuery('.global-menu-trigger').addClass('return');
-                    jQuery('.nav-list__item').removeClass('selected');
-                    $this.addClass('selected').siblings().addClass('selected-siblings');
-                }
-            }
+          }
         }
-    });
+	    });
+		}
 
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){

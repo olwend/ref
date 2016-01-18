@@ -7107,12 +7107,32 @@ h6 {
   background-color: #ffffff;
   padding-bottom: 0;
 }
-.nav-list.level-1 > .nav-list__item.selected {
-  background-color: #000000;
-  color: #ffffff;
-}
 .nav-list.level-1 > .nav-list__item.shop {
   overflow: visible;
+}
+
+/** WR-458 **/
+.nav-list.level-1 > .nav-list__item a:hover {
+  color: #000000;
+}
+@media screen and (min-width: 1160px) {
+  .nav-list.level-1 > .nav-list__item a:hover {
+    color: #808080;
+  }
+}
+.nav-list.level-1 > .nav-list__item.selected {
+  background-color: #000000;
+}
+.nav-list.level-1 > .nav-list__item.selected a {
+  color: #ffffff;
+}
+.nav-list.level-1 .level-2 .nav-list__item a {
+  color: #000000;
+}
+@media screen and (min-width: 1160px) {
+  .nav-list.level-1 .level-2 .nav-list__item a:hover {
+    color: #808080;
+  }
 }
 
 .mega-thumb-caption.shop {
