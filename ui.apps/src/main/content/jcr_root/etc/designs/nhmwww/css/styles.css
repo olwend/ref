@@ -7126,6 +7126,16 @@ h6 {
 .nav-list.level-1 > .nav-list__item.selected a {
   color: #ffffff;
 }
+.nav-list.level-1 > .nav-list__item.selected .nav-list.level-2 {
+  right: -2.5%;
+  z-index: 100;
+  transition: 1s linear;
+}
+.nav-list.level-1 .level-2 {
+  transition: none;
+  right: 0;
+  z-index: -100;
+}
 .nav-list.level-1 .level-2 .nav-list__item a {
   color: #000000;
 }
