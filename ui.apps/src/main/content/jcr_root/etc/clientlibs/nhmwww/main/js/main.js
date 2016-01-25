@@ -423,18 +423,26 @@ jQuery(document).ready(function() {
     });
 
     // Megamenu click handling
+
+    // if the width of the window is less than 768px i.e. mobile screen size...
     if(jQuery(window).width() < 768){
+    	// if a main nav link is clicked...
       jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){
+        // set variable for "this"
         var $this = jQuery(this);
 
+        // if the main nav link has children i.e. has a sub-nav...
       	if(jQuery(e.target).closest('li').hasClass('has-children')){
-					e.preventDefault(); // stop touch acting as a click on items with submenus
+					// stop touch acting as a click on items with submenus
+					e.preventDefault();
 
+					// if the main nav link already has a "selected" class, remove all the classes that make it "selected"
 					if($this.hasClass('selected')) {
 						$this.removeClass('touch');
             jQuery('.global-menu-trigger').removeClass('return');
             $this.removeClass('selected').siblings().removeClass('selected-siblings');
           } else {
+          	// else add all the classes that make it "selected"
 						$this.addClass('touch');
             jQuery('.global-menu-trigger').addClass('return');
             jQuery('.nav-list__item').removeClass('selected');
@@ -443,10 +451,14 @@ jQuery(document).ready(function() {
         }
       });
 
-       jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
+      // if a link in the sub-nav is clicked...
+      jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
+      	// allow the link to work as normal
       	return true;
+      	// set variable for "this"
         var $this = jQuery(this);
 
+        // if the main nav link already has a "selected" class, remove all the classes that make it "selected" and allow the link to work as normal
         if($this.hasClass('selected')) {
 					return true;
           jQuery('.global-menu-trigger').removeClass('return');
@@ -454,9 +466,8 @@ jQuery(document).ready(function() {
         }
       });
     } else {
-	    //Megamenu touch handling
+	    // Megamenu touch handling for screens above 768px
 	    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
-	    	console.log("touchstart > 768");
         if(jQuery(e.target).closest('li').hasClass('has-children')){
           e.preventDefault(); // stop touch acting as a click on items with submenus
           e.stopPropagation(); // stop a click event from also firing
