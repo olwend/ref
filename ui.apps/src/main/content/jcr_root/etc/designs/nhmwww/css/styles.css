@@ -7115,6 +7115,11 @@ h6 {
   overflow: visible;
 }
 
+/** WR-710 (WR-480) HTML5 validation fixes **/
+.nav-list .dropdown-section {
+  margin-left: 0;
+}
+
 .mega-thumb-caption.shop {
   background-color: rgba(78, 134, 178, 0.95);
 }
