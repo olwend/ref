@@ -49,7 +49,7 @@
             	 <label class="item-label" for="name">Full name</label>
                  <input class="item-input" name="name" id="name" type="text" />
                  <label class="item-label" for="email">Email address</label>
-                 <input class="item-input" name="email" id="email" type="text" />
+                 <input class="item-input" name="email" id="email" type="email" />
                  <input type="submit" value="Sign up &gt;" />
                  <input class="question" type="text" name="question">
            </fieldset>
