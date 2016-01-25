@@ -84,8 +84,8 @@
 
         <div class="row">
             <div class="span11 small-11 columns">
-					<p class="mobile">The website will be unavailable from 18.00-20.00 on 26 January. Sorry for any inconvenience.</p>
-                	<p class="tablet desktop">Due to essential maintenance, the website will be unavailable from 18.00-20.00 on 26 January 2016. Sorry for any inconvenience.</p>
+					<p class="mobile">Leave <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a> about our new website. <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">More information</a>.</p>
+                	<p class="tablet desktop">You are viewing our new website - we would love to hear your <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a>. Find out about our <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">website redevelopment project</a>.</p>
             </div>
              <div class="span1 small-1 columns">
                 <a class="feedback-close" title="Close feedback bar">
