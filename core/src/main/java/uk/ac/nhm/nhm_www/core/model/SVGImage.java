@@ -174,7 +174,6 @@ public class SVGImage {
 		return "<i class=\"" + this.cssClass
 				+ "\" data-svg-src=\"" + designPath + "img/svg-icons/" + this.svgSrc 
 				+ "\" data-svg-title=\"" + this.title 
-				+ "\" alt=\"" + this.altText
 				+ "\" data-alt=\"" + this.altText
 				+ "\" data-stroke-width=\"" + this.strokeWidth
 				+ "\" data-fallback=\"" + designPath + "img/icons/" + this.fallback 

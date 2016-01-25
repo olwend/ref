@@ -86,6 +86,9 @@ public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
 		final String name 	  = request.getParameter("name");
 		final String email 	  = request.getParameter("email");
 		final String question = request.getParameter("question");
+		/* Optional parameter for CRM marketing campaign (exclude from validation) 
+		 * we may want to validate this separately later - depends on CRM workflow */
+		final String campaign = request.getParameter("campaign");
 		
 		final boolean isFormValidated = name != null && !name.isEmpty() && email != null && isEmailValid(email) && (question == null || question.isEmpty());
 		
@@ -101,6 +104,9 @@ public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
 				postMethod.addParameter("source", "www.nhm.ac.uk");
 				postMethod.addParameter("name"  , name);
 				postMethod.addParameter("email" , email);
+				if (campaign != null) {
+					postMethod.addParameter("campaign" , campaign);
+				}
 		        
 				postMethod.addRequestHeader("accept", "application/json");
 				
