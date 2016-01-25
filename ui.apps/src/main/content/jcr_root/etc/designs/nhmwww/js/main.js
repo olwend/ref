@@ -520,14 +520,14 @@ jQuery(document).ready(function() {
         }
     });
 
-    if (!$.cookie('feedbackBar-cookie')) {
+    if (!$.cookie('downtimeWarning-cookie')) {
         $('#feedback-bar').show();
     } else {
         $('#feedback-bar').remove(); 
     }
 
     $('.feedback-close').click(function() {
-        $.cookie('feedbackBar-cookie', 'Feedback', { expires: 365, path: '/' });
+        $.cookie('downtimeWarning-cookie', 'Downtime warning', { expires: 365, path: '/' });
         $('#feedback-bar').remove();
     });
 
