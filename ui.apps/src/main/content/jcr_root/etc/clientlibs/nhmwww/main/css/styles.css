@@ -7107,12 +7107,47 @@ h6 {
   background-color: #ffffff;
   padding-bottom: 0;
 }
-.nav-list.level-1 > .nav-list__item.selected {
-  background-color: #000000;
-  color: #ffffff;
-}
 .nav-list.level-1 > .nav-list__item.shop {
   overflow: visible;
+}
+
+/** WR-458 **/
+.nav-list.level-1 > .nav-list__item a:hover {
+  color: #000000;
+}
+@media screen and (min-width: 1160px) {
+  .nav-list.level-1 > .nav-list__item a:hover {
+    color: #808080;
+  }
+}
+.nav-list.level-1 > .nav-list__item.selected {
+  background-color: #000000;
+}
+.nav-list.level-1 > .nav-list__item.selected a {
+  color: #ffffff;
+}
+.nav-list.level-1 > .nav-list__item.selected .nav-list.level-2 {
+  right: -2.5%;
+  z-index: 100;
+  transition: 1s linear;
+}
+.nav-list.level-1 .level-2 {
+  transition: none;
+  right: 0;
+  z-index: -100;
+}
+.nav-list.level-1 .level-2 .nav-list__item a {
+  color: #000000;
+}
+@media screen and (min-width: 1160px) {
+  .nav-list.level-1 .level-2 .nav-list__item a:hover {
+    color: #808080;
+  }
+}
+
+/** WR-710 (WR-480) HTML5 validation fixes **/
+.nav-list .dropdown-section {
+  margin-left: 0;
 }
 
 .mega-thumb-caption.shop {
