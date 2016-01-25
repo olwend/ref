@@ -15,7 +15,7 @@
                             <ul class="nav-list level-2">
                                 <div class="dropdown-section">
                                     <li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/visit.html">Visit home</a>
+                                        <a href="/content/nhmwww/en/home/visit.html">Visit homepage</a>
                                     </li>
                                     <li class="nav-list__item ">
                                         <a href="/visit/whats-on/day.html">What's on</a>
@@ -71,7 +71,7 @@
                             <ul class="nav-list level-2">
                                 <div class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/take-part.html">Take part home</a>
+                                        <a href="/content/nhmwww/en/home/take-part.html">Take part homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/take-part/citizen-science.html">Citizen science</a>
@@ -132,7 +132,7 @@
                             <ul class="nav-list level-2">
                                 <div class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/support-us.html">Support us home</a>
+                                        <a href="/content/nhmwww/en/home/support-us.html">Support us homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
@@ -190,7 +190,7 @@
                             <ul class="nav-list level-2">
                                 <div class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="http://www.nhmshop.co.uk">Shop home</a>
+                                        <a href="http://www.nhmshop.co.uk">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="http://www.nhmshop.co.uk/prints.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-prints-wpy&utm_content=meganav-link-1">Wildlife Photographer of the Year 2015 prints</a>
@@ -245,7 +245,7 @@
                             <ul class="nav-list level-2">
                                 <div class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/schools.html">Schools home</a>
+                                        <a href="/content/nhmwww/en/home/schools.html">Schools homepage</a>
                                     </li>
                                     <li class="nav-list__item first">
                                         <a href="/content/nhmwww/en/home/schools/things-to-do-schools.html">Things to do</a>
@@ -289,7 +289,7 @@
                             	<li class="nav-list__item mobile touchonly first">
                                         <a href="/content/nhmwww/en/home/our-science.html" class="home">
                                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_branding_n.svg" data-svg-title="icon__science" data-alt="Section home" data-base-color="#357900" data-hover-color="#357900" data-stroke-width="4" data-fallback="/etc/designs/nhmwww/img/icons/nav-microscope.png"></i>
-                                        Our science home</a>
+                                        Our science homepage</a>
                                     </li>
                                 <li class="nav-list__item first">
                                     <a href="/content/nhmwww/en/home/our-science/our-work.html" class="works">
