@@ -7112,6 +7112,17 @@ h6 {
 }
 
 /** WR-458 **/
+.global-header {
+  /** set z-index to auto by default to ensure mobile sub-navs are below all other page elements on page load **/
+  z-index: auto;
+  /** set z-index back to original value on tablets and above **/
+}
+@media screen and (min-width: 768px) {
+  .global-header {
+    z-index: 99999;
+  }
+}
+
 .nav-list.level-1 > .nav-list__item a:hover {
   color: #000000;
 }
