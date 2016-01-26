@@ -426,7 +426,7 @@ jQuery(document).ready(function() {
 
     // if the width of the window is less than 768px i.e. mobile screen size...
     if(jQuery(window).width() < 768){
-    	// if a main nav link is clicked...
+    // if a main nav link is clicked...
       jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){
         // set variable for "this"
         var $this = jQuery(this);
@@ -442,7 +442,7 @@ jQuery(document).ready(function() {
             jQuery('.global-menu-trigger').removeClass('return');
             $this.removeClass('selected').siblings().removeClass('selected-siblings');
           } else {
-          	// else add all the classes that make it "selected"
+          // else add all the classes that make it "selected"
 						$this.addClass('touch');
             jQuery('.global-menu-trigger').addClass('return');
             jQuery('.nav-list__item').removeClass('selected');
@@ -453,9 +453,9 @@ jQuery(document).ready(function() {
 
       // if a link in the sub-nav is clicked...
       jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
-      	// allow the link to work as normal
+      // allow the link to work as normal
       	return true;
-      	// set variable for "this"
+      // set variable for "this"
         var $this = jQuery(this);
 
         // if the main nav link already has a "selected" class, remove all the classes that make it "selected" and allow the link to work as normal
