@@ -7167,6 +7167,9 @@ h6 {
 }
 
 /** REFACTOR-FOOTER PARTIAL **/
+.main-footer .footer-nav .footer--icon-list-container {
+  padding-top: 0;
+}
 .main-footer .footer-nav .icon-list li {
   padding: 0.8em 0.8em 0 0;
   width: 30%;
