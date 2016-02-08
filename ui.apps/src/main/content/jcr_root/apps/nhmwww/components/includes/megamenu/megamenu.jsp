@@ -199,10 +199,12 @@
                                 </ul>
                                 
                                 <ul class="dropdown-section">
-                                    <p></p>
-                                    <p class="nav-callout tablet desktop">
+                                    <li>
+                                    	<p></p>
+                                    	<p class="nav-callout tablet desktop">
                                         Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. All sales support the Museum.</p>
                                         <br/>
+                                    </li>
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
                                             <li>
@@ -249,11 +251,13 @@
                                 </ul>
                                 
                                 <ul class="dropdown-section">
-                                    <p></p>
-                                    <p class="nav-callout tablet desktop">
+                                    <li>
+                                    	<p></p>
+                                    	<p class="nav-callout tablet desktop">
                                         Book a visit for your school on<br />
                                          <span>+44 (0)20 7942 5555</span>.<br />
                                         Lines are open Monday-Friday from 8.30-16.00 during term time and 10.00-13.00 during school holidays.</p>
+                                    </li>
                                 </ul>
                                 
                                 <ul class="dropdown-section dropdown-section--thumb">
