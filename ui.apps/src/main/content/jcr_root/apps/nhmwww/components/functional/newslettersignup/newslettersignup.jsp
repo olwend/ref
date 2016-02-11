@@ -25,6 +25,7 @@
                                 	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
                                     <li>Follow us</li>
+                                    <li class="footer--icon-list-container">
 										<ul class="small-block-grid-3 icon-list">
 											<li><a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a></li>
 	                                        <li><a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter"></a></li>
