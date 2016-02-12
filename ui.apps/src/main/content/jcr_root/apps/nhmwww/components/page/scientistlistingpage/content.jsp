@@ -62,7 +62,7 @@
 						<option class="division" id="Mineral and planentary sciences" value="Mineral and planentary sciences" data-department="Earth Sciences" data-division="Mineral and Planetary Sciences Division">&nbsp;&nbsp;&nbsp;&nbsp;Mineral and planentary sciences</option>
 						<option class="division" id="Economic and environmental earth sciences" value="Economic and environmental earth sciences" data-department="Earth Sciences" data-division="Economic and Environmental Earth Sciences">&nbsp;&nbsp;&nbsp;&nbsp;Economic and environmental earth sciences</option>
 						<option class="division" id="Vertebrate and anthropology palaeobiology" value="Vertebrate and anthropology palaeobiology" data-department="Earth Sciences" data-division="Vertebrates and Anthropology Palaeobiology">&nbsp;&nbsp;&nbsp;&nbsp;Vertebrate and anthropology palaeobiology</option>
-						<option class="division" id="Invertebrates and plants" value="Invertebrates and plants" data-department="Earth Sciences" data-division="Invertebrates and Plants Division">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates and plants</option>
+						<option class="division" id="Invertebrates and plants" value="Invertebrates and plants" data-department="Earth Sciences" data-division="Invertebrates and Plants Palaeobiology">&nbsp;&nbsp;&nbsp;&nbsp;Invertebrates and plants</option>
 						<option class="division" id="Department Management Team" value="Department Management Team" data-department="Earth Sciences" data-division="Department Management Team">&nbsp;&nbsp;&nbsp;&nbsp;Department Management Team</option>
 						
 
@@ -71,7 +71,7 @@
 						<option class="division" id="Conservation Centre" value="Conservation Centre" data-department="Core Research Laboratories" data-division="Conservation Centre">&nbsp;&nbsp;&nbsp;&nbsp;Conservation Centre</option>
 						<option class="division" id="Imaging and Analysis Centre" value="Imaging and Analysis Centre" data-department="Core Research Laboratories" data-division="Imaging and Analysis Centre">&nbsp;&nbsp;&nbsp;&nbsp;Imaging and Analysis Centre</option>
 						<option class="division" id="Molecular Biology Laboratories" value="Molecular Biology Laboratories" data-department="Core Research Laboratories" data-division="Molecular Biology Laboratories">&nbsp;&nbsp;&nbsp;&nbsp;Molecular Biology Laboratories</option>
-						<option class="division" id="Digitisation Centre" value="Digitisation Centre" data-department="Core Research Laboratories" data-division="Digitisation centre">&nbsp;&nbsp;&nbsp;&nbsp;Digitisation Centre</option>
+						<option class="division" id="Digitisation Centre" value="Digitisation Centre" data-department="Core Research Laboratories" data-division="Digitisation Centre">&nbsp;&nbsp;&nbsp;&nbsp;Digitisation Centre</option>
 						
 						<%-- Department: Library and Archives --%>
 						<option class="department" id="Library and Archives"value="Library and Archives">Library and Archives</option>

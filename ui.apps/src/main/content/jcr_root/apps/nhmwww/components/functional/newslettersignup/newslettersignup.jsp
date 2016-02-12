@@ -10,8 +10,8 @@
                 <div class="columns large-9 medium-9 framed-wrapper">
                     <div class="framed">
                         <nav class="footer-nav columns large-9">
-                            <ul class="cf">
-                                <div class="columns large-6 medium-6 small-6">
+                            <div class="cf">
+                                <ul class="columns large-6 medium-6 small-6">
                                     <li><a href="/content/nhmwww/en/home/about-us.html">About us</a></li>
                                     <li><a href="/about-us/news.html">News</a></li>
                                     <li><a href="/content/nhmwww/en/home/press-office.html">Press office</a></li>
@@ -19,12 +19,13 @@
 									<li><a href="/content/nhmwww/en/home/about-us/careers.html">Careers</a></li>
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>
                                     <li><a href="/content/nhmwww/en/home/business-services/touring-exhibitions.html">Touring Exhibitions</a></li>
-                                </div>
-                                <div class="columns large-6 medium-6 small-6">
+                                </ul>
+                                <ul class="columns large-6 medium-6 small-6">
                                 	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
                                 	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
                                     <li>Follow us</li>
+                                    <li class="footer--icon-list-container">
 										<ul class="small-block-grid-3 icon-list">
 											<li><a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a></li>
 	                                        <li><a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter"></a></li>
@@ -34,8 +35,8 @@
 	                                        <li><a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts"><img src="<%= currentDesign.getPath() + "/img/icons/gplus.png"%>" alt="GooglePlus" /></a></li>
 	                                   	</ul>
                                     </li>
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </nav>
 <% 
 	final NewsletterSignUpHelper helper = new NewsletterSignUpHelper(properties, pageManager);
@@ -47,9 +48,9 @@
 		  <fieldset>
             <legend><%= helper.getTitle() %></legend>
             	 <label class="item-label" for="name">Full name</label>
-                 <input class="item-input" name="name" type="text" />
+                 <input class="item-input" name="name" id="name" type="text" />
                  <label class="item-label" for="email">Email address</label>
-                 <input class="item-input" name="email" type="text" />
+                 <input class="item-input" name="email" id="email" type="email" />
                  <input type="submit" value="Sign up &gt;" />
                  <input class="question" type="text" name="question">
            </fieldset>
@@ -84,8 +85,8 @@
 
         <div class="row">
             <div class="span11 small-11 columns">
-                <p class="mobile">Leave <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a> about our new website. <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">More information</a>.</p>
-                <p class="tablet desktop">You are viewing our new website - we would love to hear your <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a>. Find out about our <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">website redevelopment project</a>.</p>
+					<p class="mobile">Leave <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a> about our new website. <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">More information</a>.</p>
+                	<p class="tablet desktop">You are viewing our new website - we would love to hear your <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a>. Find out about our <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">website redevelopment project</a>.</p>
             </div>
              <div class="span1 small-1 columns">
                 <a class="feedback-close" title="Close feedback bar">
