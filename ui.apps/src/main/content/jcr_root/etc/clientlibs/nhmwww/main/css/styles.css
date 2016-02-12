@@ -2627,42 +2627,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 /** REFACTOR FOUNDATION **/
-/** LEGACY BASE PARTIAL (MERGED WITH REFACTOR BASE PARTIAL) **/
-/** LEGACY TYPOGRAPHY PARTIAL **/
-.text ul {
-  padding-left: 1.5em;
-}
-.text ul li {
-  font-size: 1.125em;
-  list-style: disc outside;
-  margin-bottom: 0.5em;
-}
-
-.intro-text {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.4em;
-  padding-bottom: 2%;
-  /* 
-  &.take-part{color:$take-part-color;}
-  &.discover{color:$discover-color;}
-  &.support-us{color:$support-us-color;}
-  &.shop { color:$shop-color;}
-  &.schools{color:$schools-color;}
-  &.our-science{color:$our-science-color;}
-  &.about-us{color:$about-us-color;}
-  &.press-office{color:$news-press-color;}
-  &.working-with-us{color:$working-with-us-color;}
-  &.business-services{color:$business-services-color;}
-  &.contact-us{color:$contact-us-color;}
-  */
-}
-@media screen and (min-width: 768px) {
-  .intro-text {
-    font-size: 1.8em;
-    line-height: 1.2em;
-  }
-}
-
+/** LEGACY BASE PARTIAL (MERGED WITH REFACTORED BASE PARTIAL - WR-720) **/
+/** LEGACY TYPOGRAPHY PARTIAL (MERGED WITH REFACTORED TYPOGRAPHY PARTIAL - WR-721) **/
 /** LEGACY LAYOUT PARTIAL **/
 /** Grid **/
 .row,
@@ -6290,11 +6256,14 @@ h6 {
 /** REFACTOR-TYPOGRAPHY PARTIAL **/
 .intro-text {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  padding-bottom: 2%;
+  font-size: 1.4em;
   line-height: 35px;
 }
-@media screen and (min-width: 1160px) {
+@media screen and (min-width: 768px) {
   .intro-text {
     font-size: 1.8em;
+    line-height: 1.2em;
   }
 }
 
@@ -7894,6 +7863,14 @@ a.button-cta {
   .text {
     padding: 0 1.5em;
   }
+}
+.text ul {
+  padding-left: 1.5em;
+}
+.text ul li {
+  font-size: 1.125em;
+  list-style: disc outside;
+  margin-bottom: 0.5em;
 }
 
 /** WR-638 enews signup component **/
