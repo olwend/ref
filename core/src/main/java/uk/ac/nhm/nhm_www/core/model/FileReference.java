@@ -20,7 +20,8 @@ public class FileReference
 	private String mimeType; // Optional
 	private ImageResource image; // Optional
 	
-	private String path; 
+	private String path;
+	private String nodePath;
 	private String extension;
 	private String suffix;
 	private String alt;
@@ -47,6 +48,7 @@ public class FileReference
 				
 			
 			String tempPath = request.getContextPath() + resource.getPath();
+			String tempNodePath = fileReference;
 			String tempAlt = htmlEncode(properties.get("alt", ""));
 
 			// Handle extensions on both fileReference and file type images
@@ -76,6 +78,7 @@ public class FileReference
 			tempExtension = htmlEncode(tempExtension);
 			
 			this.path= tempPath;
+			this.nodePath = tempNodePath;
 			this.extension = tempExtension;
 			this.suffix = tempSuffix;
 			this.alt = tempAlt;
@@ -104,6 +107,10 @@ public class FileReference
 		return path;
 	}
 
+	public String getNodePath() {
+		return nodePath;
+	}
+	
 	public String getExtension() {
 		return extension;
 	}

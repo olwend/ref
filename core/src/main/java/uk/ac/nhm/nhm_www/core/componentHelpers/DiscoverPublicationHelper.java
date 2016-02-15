@@ -53,6 +53,7 @@ public class DiscoverPublicationHelper {
 	private Resource resource;
 	
 	private String imagePath;
+	private String imageNodePath;
 	private String imageExtension;
 	private String imageSuffix;
 	private String imageAlt;
@@ -76,6 +77,7 @@ public class DiscoverPublicationHelper {
 		if (this.imageConfigured)
 		{
 			this.imagePath = fileReference.getPath();
+			this.imageNodePath = fileReference.getNodePath();
 			this.imageExtension = fileReference.getExtension();
 			this.imageSuffix = fileReference.getExtension();
 			this.imageAlt = fileReference.getAlt();
@@ -308,6 +310,10 @@ public class DiscoverPublicationHelper {
 		return this.imagePath;
 	}
 
+	public String getImageNodePath() {
+		return this.imageNodePath;
+	}
+	
 	public String getImageExtension() {
 		return this.imageExtension;
 	}

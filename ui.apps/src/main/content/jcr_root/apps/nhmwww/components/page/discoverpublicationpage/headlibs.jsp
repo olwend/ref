@@ -1,12 +1,10 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@ page session="false" %>
+<%@ page session="false"%>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     
-    <meta property="og:url" content="http://localhost:4502" />
-    <meta property="og:title" content="This is the Discover social media title" />
-    <meta property="og:description" content="This is the Discover social media description" />
-    <meta property="og:image" content="http://localhost:4502/content/dam/nhmwww/discover/xmas-tree-worm-1080.jpg"/>
+    <%String s = "";%>
+
         
 	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
