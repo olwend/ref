@@ -8182,6 +8182,9 @@ input.searchGo {
 .discover h1 {
   color: #107B5E;
 }
+.discover .discoverpublication h1 {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
 .discover .intro-text {
   color: #565656;
 }
