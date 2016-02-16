@@ -48,11 +48,7 @@
   			WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
   			WCMMode.PREVIEW.toRequest(slingRequest);
 %>
-1
-<%= xssAPI.filterHTML(helper.getImageNodePath()) %>
-<%=request.getServerName() %>
-2
-	<meta property="og:image" content="<%=helper.getImageNodePath()%>"/>
+	<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getImageNodePath()%>"/>
 	<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
 
 <%
