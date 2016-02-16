@@ -6177,15 +6177,15 @@ h1 {
 
 h2 {
   color: #565656;
-  line-height: 1.2em;
+  line-height: 1.35em;
   padding-bottom: 0.3em;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.8333em;
+  font-size: 1.7em;
   /** unclear where this is used - no reference in JSP's **/
 }
 @media screen and (min-width: 768px) {
   h2 {
-    font-size: 2.4em;
+    font-size: 2.1em;
   }
 }
 h2.padded {
