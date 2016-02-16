@@ -6199,20 +6199,15 @@ h2 > p {
 }
 
 h3 {
-  font-size: 1.4em;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  line-height: 1.2em;
+  font-size: 1.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  line-height: 1.35em;
   padding-bottom: 0.3em;
   color: #565656;
 }
 @media screen and (min-width: 768px) {
   h3 {
     font-size: 1.8em;
-  }
-}
-@media screen and (min-width: 768px) {
-  h3 {
-    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   }
 }
 
