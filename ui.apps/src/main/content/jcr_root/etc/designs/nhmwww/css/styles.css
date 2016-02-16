@@ -8197,16 +8197,6 @@ input.searchGo {
   margin-top: 0;
 }
 
-.discover h1 {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 2em;
-  line-height: 1.3;
-}
-@media screen and (min-width: 768px) {
-  .discover h1 {
-    font-size: 2.7em;
-  }
-}
 .discover .intro-text {
   color: #565656;
 }
