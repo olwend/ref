@@ -5,6 +5,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 /** LEGACY SECTIONS PARTIAL (PHASED OUT) **/
 .home {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .home a, .home a:hover {
   color: #A1164E;
@@ -18,9 +19,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .home .thumb-caption {
     background-color: rgba(161, 22, 78, 0.95);
   }
-}
-.home .intro-text {
-  color: #A1164E;
 }
 .home .nav-list__item.visit a {
   color: #A1164E;
@@ -194,6 +192,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .visit {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .visit a, .visit a:hover {
   color: #A1164E;
@@ -207,9 +206,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .visit .thumb-caption {
     background-color: rgba(161, 22, 78, 0.95);
   }
-}
-.visit .intro-text {
-  color: #A1164E;
 }
 .visit .nav-list__item.visit a {
   color: #A1164E;
@@ -443,6 +439,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .take-part {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .take-part a, .take-part a:hover {
   color: #BF491F;
@@ -456,9 +453,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .take-part .thumb-caption {
     background-color: rgba(191, 73, 31, 0.95);
   }
-}
-.take-part .intro-text {
-  color: #BF491F;
 }
 .take-part .nav-list__item.take-part a {
   color: #BF491F;
@@ -643,6 +637,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .about-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .about-us a, .about-us a:hover {
   color: #0B5C7B;
@@ -656,9 +651,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .about-us .thumb-caption {
     background-color: rgba(11, 92, 123, 0.95);
   }
-}
-.about-us .intro-text {
-  color: #0B5C7B;
 }
 .about-us .nav-list__item.about-us a {
   color: #0B5C7B;
@@ -832,6 +824,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .schools {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .schools a, .schools a:hover {
   color: #0983BB;
@@ -845,9 +838,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .schools .thumb-caption {
     background-color: rgba(9, 131, 187, 0.95);
   }
-}
-.schools .intro-text {
-  color: #0983BB;
 }
 .schools .nav-list__item.schools a {
   color: #0983BB;
@@ -1021,6 +1011,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .our-science {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .our-science a, .our-science a:hover {
   color: #357900;
@@ -1034,9 +1025,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .our-science .thumb-caption {
     background-color: rgba(53, 121, 0, 0.95);
   }
-}
-.our-science .intro-text {
-  color: #357900;
 }
 .our-science .nav-list__item.our-science a {
   color: #357900;
@@ -1257,6 +1245,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .support-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .support-us a, .support-us a:hover {
   color: #7F206E;
@@ -1270,9 +1259,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .support-us .thumb-caption {
     background-color: rgba(127, 32, 110, 0.95);
   }
-}
-.support-us .intro-text {
-  color: #7F206E;
 }
 .support-us .nav-list__item.support-us a {
   color: #7F206E;
@@ -1446,6 +1432,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .discover {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .discover a, .discover a:hover {
   color: #107B5E;
@@ -1459,9 +1446,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .discover .thumb-caption {
     background-color: rgba(16, 123, 94, 0.95);
   }
-}
-.discover .intro-text {
-  color: #107B5E;
 }
 .discover .nav-list__item.discover a {
   color: #107B5E;
@@ -1635,6 +1619,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .press-office {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .press-office a, .press-office a:hover {
   color: #107E5E;
@@ -1648,9 +1633,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .press-office .thumb-caption {
     background-color: rgba(16, 126, 94, 0.95);
   }
-}
-.press-office .intro-text {
-  color: #107E5E;
 }
 .press-office .nav-list__item.press-office a {
   color: #107E5E;
@@ -1824,6 +1806,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .working {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .working a, .working a:hover {
   color: #956624;
@@ -1837,9 +1820,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .working .thumb-caption {
     background-color: rgba(149, 102, 36, 0.95);
   }
-}
-.working .intro-text {
-  color: #956624;
 }
 .working .nav-list__item.working a {
   color: #956624;
@@ -2013,6 +1993,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .business-services {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .business-services a, .business-services a:hover {
   color: #253480;
@@ -2026,9 +2007,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .business-services .thumb-caption {
     background-color: rgba(37, 52, 128, 0.95);
   }
-}
-.business-services .intro-text {
-  color: #253480;
 }
 .business-services .nav-list__item.business-services a {
   color: #253480;
@@ -2202,6 +2180,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .contact-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .contact-us a, .contact-us a:hover {
   color: #808080;
@@ -2215,9 +2194,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .contact-us .thumb-caption {
     background-color: rgba(128, 128, 128, 0.95);
   }
-}
-.contact-us .intro-text {
-  color: #808080;
 }
 .contact-us .nav-list__item.contact-us a {
   color: #808080;
@@ -2391,6 +2367,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .shop {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .shop a, .shop a:hover {
   color: #808080;
@@ -2404,9 +2381,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .shop .thumb-caption {
     background-color: rgba(128, 128, 128, 0.95);
   }
-}
-.shop .intro-text {
-  color: #808080;
 }
 .shop .nav-list__item.shop a {
   color: #808080;
@@ -2519,6 +2493,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .account {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
 }
 .account a, .account a:hover {
   color: #00385D;
@@ -2532,9 +2507,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .account .thumb-caption {
     background-color: rgba(0, 56, 93, 0.95);
   }
-}
-.account .intro-text {
-  color: #00385D;
 }
 .account .nav-list__item.account a {
   color: #00385D;
@@ -7910,10 +7882,16 @@ input.searchGo {
 
 /** FOOTER PARTIAL - MERGED **/
 /** ABOUT-US THEME PARTIAL **/
+.about-us {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .about-us .title-bar {
   background-color: #0B5C7B;
 }
 .about-us h1 {
+  color: #0B5C7B;
+}
+.about-us .intro-text {
   color: #0B5C7B;
 }
 .about-us .carousel .caption {
@@ -7984,10 +7962,16 @@ input.searchGo {
 }
 
 /** ACCOUNT THEME PARTIAL **/
+.account {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .account .title-bar {
   background-color: #00385D;
 }
 .account h1 {
+  color: #00385D;
+}
+.account .intro-text {
   color: #00385D;
 }
 .account .carousel .caption {
@@ -8036,10 +8020,16 @@ input.searchGo {
 }
 
 /** BUSINESS-SERVICES THEME PARTIAL **/
+.business-services {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .business-services .title-bar {
   background-color: #253480;
 }
 .business-services h1 {
+  color: #253480;
+}
+.business-services .intro-text {
   color: #253480;
 }
 .business-services .carousel .caption {
@@ -8106,10 +8096,16 @@ input.searchGo {
 }
 
 /** CONTACT-US THEME PARTIAL **/
+.contact-us {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .contact-us .title-bar {
   background-color: #808080;
 }
 .contact-us h1 {
+  color: #808080;
+}
+.contact-us .intro-text {
   color: #808080;
 }
 .contact-us .carousel .caption {
@@ -8176,12 +8172,18 @@ input.searchGo {
 }
 
 /** DISCOVER THEME PARTIAL **/
+.discover {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .discover .title-bar {
   background-color: #565656;
   margin-bottom: 1.2em;
 }
 .discover h1 {
   color: #107B5E;
+}
+.discover .intro-text {
+  color: #565656;
 }
 .discover .carousel .caption {
   background-color: #107B5E;
@@ -8191,10 +8193,6 @@ input.searchGo {
   color: #ffffff;
   padding-bottom: 0;
   margin-top: 0;
-}
-
-.discover .intro-text {
-  color: #565656;
 }
 
 /** enews signup form styles **/
@@ -8220,10 +8218,16 @@ input.searchGo {
 }
 
 /** OUR-SCIENCE THEME PARTIAL **/
+.our-science {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .our-science .title-bar {
   background-color: #357900;
 }
 .our-science h1 {
+  color: #357900;
+}
+.our-science .intro-text {
   color: #357900;
 }
 .our-science .carousel .caption {
@@ -8290,7 +8294,13 @@ input.searchGo {
 }
 
 /** PRESS OFFICE THEME PARTIAL **/
+.press-office {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .press-office h1 {
+  color: #107E5E;
+}
+.press-office .intro-text {
   color: #107E5E;
 }
 .press-office .pressreleaselistfeed {
@@ -8378,10 +8388,16 @@ input.searchGo {
 }
 
 /** SCHOOLS THEME PARTIAL **/
+.schools {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .schools .title-bar {
   background-color: #0983BB;
 }
 .schools h1 {
+  color: #0983BB;
+}
+.schools .intro-text {
   color: #0983BB;
 }
 .schools .carousel .caption {
@@ -8448,10 +8464,16 @@ input.searchGo {
 }
 
 /** SUPPORT-US THEME PARTIAL **/
+.support-us {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .support-us .title-bar {
   background-color: #7F206E;
 }
 .support-us h1 {
+  color: #7F206E;
+}
+.support-us .intro-text {
   color: #7F206E;
 }
 .support-us .carousel .caption {
@@ -8518,10 +8540,16 @@ input.searchGo {
 }
 
 /** TAKE-PART THEME PARTIAL **/
+.take-part {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .take-part .title-bar {
   background-color: #BF491F;
 }
 .take-part h1 {
+  color: #BF491F;
+}
+.take-part .intro-text {
   color: #BF491F;
 }
 .take-part .carousel .caption {
@@ -8588,10 +8616,16 @@ input.searchGo {
 }
 
 /** VISIT THEME PARTIAL **/
+.visit {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+}
 .visit .title-bar {
   background-color: #A1164E;
 }
 .visit h1 {
+  color: #A1164E;
+}
+.visit .intro-text {
   color: #A1164E;
 }
 .visit .carousel .caption {
