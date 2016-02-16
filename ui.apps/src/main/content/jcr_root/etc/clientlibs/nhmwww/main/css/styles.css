@@ -6216,20 +6216,15 @@ h3 {
 }
 
 h4 {
-  font-size: 1.2em;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  color: #000000;
-  line-height: 1.2em;
+  font-size: 1.3em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  color: #565656;
+  line-height: 1.35em;
   padding-bottom: 0.3em;
 }
 @media screen and (min-width: 768px) {
   h4 {
     font-size: 1.5em;
-  }
-}
-@media screen and (min-width: 768px) {
-  h4 {
-    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   }
 }
 
