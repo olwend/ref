@@ -52,8 +52,8 @@
 <%= xssAPI.filterHTML(helper.getImageNodePath()) %>
 <%=request.getServerName() %>
 2
-<meta property="og:image" content="<%=helper.getImageNodePath()%>"/>
-			<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
+	<meta property="og:image" content="<%=helper.getImageNodePath()%>"/>
+	<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
 
 <%
 			beforeMode.toRequest(slingRequest);
