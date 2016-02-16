@@ -6167,6 +6167,7 @@ h1 {
   font-size: 2em;
   line-height: 1.35em;
   padding-bottom: 0.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 @media screen and (min-width: 768px) {
   h1 {
