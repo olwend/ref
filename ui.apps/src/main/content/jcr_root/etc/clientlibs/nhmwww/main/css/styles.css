@@ -6253,12 +6253,11 @@ h6 {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   padding-bottom: 2%;
   font-size: 1.4em;
-  line-height: 35px;
+  line-height: 1.35em;
 }
 @media screen and (min-width: 768px) {
   .intro-text {
     font-size: 1.8em;
-    line-height: 1.2em;
   }
 }
 
