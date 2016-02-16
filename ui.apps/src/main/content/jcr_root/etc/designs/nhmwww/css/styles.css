@@ -6229,16 +6229,16 @@ h4 {
 }
 
 h5 {
-  font-size: 1em;
+  font-size: 1.25em;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-  line-height: 1em;
+  line-height: 1.35em;
   padding-bottom: 0.3em;
   font-weight: bold;
   color: #565656;
 }
 @media screen and (min-width: 768px) {
   h5 {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 }
 
