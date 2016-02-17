@@ -36,7 +36,7 @@
 	<%} else if (helper.isHasImage()) { %>
 		<div class="home-thumb-right">
             
-                <h2><%= helper.getTitle() %></h2>
+                <h3><%= helper.getTitle() %></h3>
           <a href="<%= helper.getLinkURL() %>"<%=helper.getNewWindowHtml()%> data-gtm="CTA">
                 <img data-interchange="
 	        [<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (default)], 

@@ -6437,6 +6437,9 @@ h6 {
     font-size: 2.4em;
   }
 }
+.ctabutton .home-thumb-right h3 {
+  padding: 0 0.5em;
+}
 
 .info-tout {
   margin-top: 1em;
