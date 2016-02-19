@@ -6122,12 +6122,7 @@ a:hover {
 p {
   line-height: 1.5em;
   margin-bottom: 1.0em;
-  font-size: 1.0em;
-}
-@media screen and (min-width: 768px) {
-  p {
-    font-size: 1em;
-  }
+  font-size: 1em;
 }
 @media screen and (min-width: 768px) {
   p {
@@ -6198,10 +6193,9 @@ h4 {
 
 h5 {
   font-size: 1.25em;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   line-height: 1.35em;
   padding-bottom: 0.3em;
-  font-weight: bold;
   color: #565656;
 }
 @media screen and (min-width: 768px) {
@@ -6219,7 +6213,7 @@ h6 {
 /** REFACTOR-TYPOGRAPHY PARTIAL **/
 .intro-text {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  padding-bottom: 2%;
+  padding-bottom: 0.3em;
   font-size: 1.4em;
   line-height: 1.35em;
 }
@@ -7847,6 +7841,11 @@ a.button-cta {
   font-size: 1em;
   list-style: disc outside;
   margin-bottom: 0.5em;
+}
+@media screen and (min-width: 768px) {
+  .text ul li {
+    font-size: 1.125em;
+  }
 }
 
 /** WR-638 enews signup component **/
