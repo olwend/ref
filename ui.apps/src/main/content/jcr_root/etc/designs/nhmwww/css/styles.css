@@ -6261,26 +6261,26 @@ h6 {
 }
 
 /** REFACTOR-PLACEHOLDERS PARTIAL **/
-.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
+.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
   padding: 0.5em 0.75em;
   margin-top: 0;
   margin-bottom: 0;
 }
-.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .discover .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
+.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .discover .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .search .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
   padding: 0;
   color: #ffffff !important;
 }
-.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
+.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
   color: #ffffff;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
+  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
     padding: 1em 1.5em;
   }
-  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
+  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
     font-size: 1.25em;
   }
 }
@@ -8475,6 +8475,11 @@ input.searchGo {
 }
 .schools .button__enews-signup:focus {
   background-color: rgba(9, 131, 187, 0.75);
+}
+
+/** SEARCH THEME PARTIAL **/
+.search .title-bar {
+  background-color: #808080;
 }
 
 /** SUPPORT-US THEME PARTIAL **/
