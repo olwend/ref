@@ -74,7 +74,66 @@ public class TwitterHelper extends HelperBase {
 			else if (this.widgetId.equals("nhm-ice-rink")) {
 				return "629292203337228288";
 			}
-
+			
+			else if (this.widgetId.equals("nhm-deworm3")) { 
+				return "689822489866813000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-brachiopoda")) { 
+				return "483644889641385000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-bryozoan")) { 
+				return "483645174208135000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-cephalopoda")) { 
+				return "483644384890462000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-dino-lab")) { 
+				return "483645305426944000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-forensics")) { 
+				return "483643504254394000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-fossil-crocs")) { 
+				return "535456136548593000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-fossil-fish")) { 
+				return "483643914205679000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-meteorites")) { 
+				return "535464820708229000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-micropalaeo")) { 
+				return "483644653980225000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-oology")) { 
+				return "535466483837853000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-palaeobotany")) { 
+				return "535469236890918000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-pterosauria")) { 
+				return "535467148668600000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-coleoptera")) { 
+				return "689826170041417000"; 
+			}
+			
+			else if (this.widgetId.equals("nhm-diptera")) { 
+				return "689826729561608000"; 
+			}
 		}
 		return null;
 	}

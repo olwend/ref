@@ -73,6 +73,68 @@
                             jcr:primaryType="nt:unstructured"
                             text="@NHM_IceRink"
                             value="nhm-ice-rink"/>
+                            
+                        <!-- Added 2016-03-10, alisp2 -->
+                        <o16
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_deworm3"
+                        	value="nhm-deworm3"/>
+                        <o17
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Brachiopoda"
+                        	value="nhm-brachiopoda"/>
+                        <o18
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@BryozoanNHM"
+                        	value="nhm-bryozoan"/>
+                        <o19
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Cephalopoda"
+                        	value="nhm-cephalopoda"/>
+                        <o20
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NMHdinolab"
+                        	value="nhm-dino-lab"/>
+                        <o21
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Forensics"
+                        	value="nhm-forensics"/>
+                        <o22
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_FossilCrocs"
+                        	value="nhm-fossil-crocs"/>
+                        <o23
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_FossilFish"
+                        	value="nhm-fossil-fish"/>
+                        <o24
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Meteorites"
+                        	value="nhm-meteorites"/>
+                        <o25
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Micropalaeo"
+                        	value="nhm-micropalaeo"/>
+                        <o26
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Oology"
+                        	value="nhm-oology"/>
+                        <o27
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHMPalaeobotany"
+                        	value="nhm-palaeobotany"/>
+                        <o28
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Pterosauria"
+                        	value="nhm-pterosauria"/>
+                        <o29
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Coleoptera"
+                        	value="nhm-coleoptera"/>
+                        <o30
+                        	jcr:primaryType="nt:unstructured"
+                        	text="@NHM_Diptera"
+                        	value="nhm-diptera"/>
                     </options>
                 </widgetid>
                 <height
