@@ -76,19 +76,19 @@ public class TwitterHelper extends HelperBase {
 			}
 			
 			else if (this.widgetId.equals("nhm-deworm3")) { 
-				return "689822489866813000"; 
+				return "689822489866813440"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-brachiopoda")) { 
-				return "483644889641385000"; 
+				return "483644889641385984"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-bryozoan")) { 
-				return "483645174208135000"; 
+				return "483645174208135168"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-cephalopoda")) { 
-				return "483644384890462000"; 
+				return "483644384890462208"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-dino-lab")) { 
@@ -96,43 +96,43 @@ public class TwitterHelper extends HelperBase {
 			}
 			
 			else if (this.widgetId.equals("nhm-forensics")) { 
-				return "483643504254394000"; 
+				return "483643504254394368"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-fossil-crocs")) { 
-				return "535456136548593000"; 
+				return "535456136548593664"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-fossil-fish")) { 
-				return "483643914205679000"; 
+				return "483643914205679616"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-meteorites")) { 
-				return "535464820708229000"; 
+				return "535464820708229120"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-micropalaeo")) { 
-				return "483644653980225000"; 
+				return "483644653980225537"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-oology")) { 
-				return "535466483837853000"; 
+				return "535466483837853696"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-palaeobotany")) { 
-				return "535469236890918000"; 
+				return "535469236890918912"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-pterosauria")) { 
-				return "535467148668600000"; 
+				return "535467148668600320"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-coleoptera")) { 
-				return "689826170041417000"; 
+				return "689826170041417728"; 
 			}
 			
 			else if (this.widgetId.equals("nhm-diptera")) { 
-				return "689826729561608000"; 
+				return "689826729561608192"; 
 			}
 		}
 		return null;
