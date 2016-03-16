@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Panel"
+    title="Event General Config">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <elementType
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <eventsList
+                    jcr:primaryType="cq:Widget"
+                    cls="event-list"
+                    fieldLabel="Event Type:"
+                    name="./eventSelect"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <exhibition
+                            jcr:primaryType="nt:unstructured"
+                            text="Exhibition"
+                            value="exhibitionTab"/>
+                        <school
+                            jcr:primaryType="nt:unstructured"
+                            text="School"
+                            value="schoolTab"/>
+                        <science
+                            jcr:primaryType="nt:unstructured"
+                            text="Science"
+                            value="scienceTab"/>
+                        <tring
+                            jcr:primaryType="nt:unstructured"
+                            text="Tring"
+                            value="tringTab"/>
+                        <visitor
+                            jcr:primaryType="nt:unstructured"
+                            text="Visitor"
+                            value="visitorTab"/>
+                    </options>
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        selectionchanged="function(field,value) {
+                                          displayEventConfig(field,value); }"/>
+                </eventsList>
+            </items>
+        </elementType>
+        <basic
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <eventTitle
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Event Title"
+                    name="./jcr:eventTitle"
+                    xtype="textfield"/>
+                <eventDescription
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Event Description"
+                    name="./jcr:eventDescription"
+                    xtype="textarea"/>
+                <tags
+                    jcr:primaryType="cq:Widget"
+                    cls="cq-propsdialog-tags"
+                    fieldLabel="Tags/Keywords"
+                    name="./cq:tags"
+                    xtype="tags"/>
+            </items>
+        </basic>
+        <eventDates
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            hideMode="offsets"
+            title="Event Dates"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <dateAndTime
+                    jcr:primaryType="cq:Widget"
+                    addItemLabel="Add Date"
+                    name="./dateAndTime"
+                    title="Dates"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        border="true"
+                        layout="form"
+                        xtype="multi-field-panel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <datetime
+                                jcr:primaryType="cq:Widget"
+                                allowBlank="{Boolean}false"
+                                dName="dateTime"
+                                fieldLabel="Date"
+                                hideTime="{Boolean}true"
+                                xtype="datetime"/>
+                            <allDay
+                                jcr:primaryType="cq:Widget"
+                                dName="allDay"
+                                fieldLabel="All Day Event"
+                                inputValue="true"
+                                type="checkbox"
+                                xtype="selection">
+                                <listeners
+                                    jcr:primaryType="nt:unstructured"
+                                    selectionchanged="function(field,value,isChecked) {                                                                  
+                                                      allDaySelected(field,value,isChecked); }"/>
+                            </allDay>
+                            <times-multifield
+                                jcr:primaryType="cq:Widget"
+                                addItemLabel="Add Times"
+                                dName="times"
+                                title="Add Times"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="cq:Widget"
+                                    border="true"
+                                    layout="form"
+                                    xtype="multi-field-panel">
+                                    <items jcr:primaryType="cq:WidgetCollection">
+                                        <time
+                                            jcr:primaryType="cq:Widget"
+                                            allowBlank="{Boolean}false"
+                                            dName="time"
+                                            fieldLabel="Time"
+                                            xtype="timefield"/>
+                                    </items>
+                                </fieldConfig>
+                            </times-multifield>
+                            <recur
+                                jcr:primaryType="cq:Widget"
+                                dName="checkRecur"
+                                fieldLabel="Recur?"
+                                inputValue="true"
+                                type="checkbox"
+                                xtype="selection">
+                                <listeners
+                                    jcr:primaryType="nt:unstructured"
+                                    afterrender="function(field,value,isChecked) {                                                                  
+                                                 displayRecur(field,value,isChecked);}"
+                                    selectionchanged="function(field,value,isChecked) {                                                                  
+                                                      displayRecur(field,value,isChecked);}"/>
+                            </recur>  
+                            <recurSelectList
+                                jcr:primaryType="cq:Widget"
+                                cls="event-list"
+                                dName="recurSelect"
+                                name="./recurSelect"
+                                type="checkbox"        
+                                fieldLabel="How often?"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <custom
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Custom"
+                                        value="custom"/>
+                                    <daily
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Daily"
+                                        value="daily"/>
+                                    <weekly
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Weekly"
+                                        value="weekly"/>
+                                    <monthly
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Monthly"
+                                        value="monthly"/>
+                                </options>
+                                <listeners
+                                    jcr:primaryType="nt:unstructured"
+                                    afterlayout="function(component){
+                                        initRecurValues(component);
+                                        }"
+                                    selectionchanged="function(selection, value, isChecked){
+                                        initRecurValues(selection, value);
+                                        }"/>
+                            </recurSelectList>
+                            <weekdaysList
+                                jcr:primaryType="cq:Widget"
+                                cls="event-list"
+                                dName="weekdaysList"
+                                fieldLabel="Event Type:"
+                                hidden="true"
+                                type="checkbox"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <monday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Monday"
+                                        value="Monday"/>
+                                    <tuesday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Tuesday"
+                                        value="Tuesday"/>
+                                    <wednesday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Wednesday"
+                                        value="Wednesday"/>
+                                    <thursday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Thursday"
+                                        value="Thursday"/>
+                                    <friday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Friday"
+                                        value="Friday"/>
+                                    <saturday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Saturday"
+                                        value="Saturday"/>
+                                    <sunday
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Sunday"
+                                        value="Sunday"/>
+                                </options>
+                            </weekdaysList>
+                        </items>
+                    </fieldConfig>
+                </dateAndTime>
+            </items>
+        </eventDates>
+    </items>
+</jcr:root>

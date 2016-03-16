@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="700"
+    stateful="false"
+    width="800"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <event
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_event.infinity.json"
+                    xtype="cqinclude"/>
+                <exhibition
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_exhibition.infinity.json"
+                    xtype="cqinclude"/>
+                <school
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_school.infinity.json"
+                    xtype="cqinclude"/>
+                <science
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_science.infinity.json"
+                    xtype="cqinclude"/>
+                <tring
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_tring.infinity.json"
+                    xtype="cqinclude"/>
+                <visitor
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_visitor.infinity.json"
+                    xtype="cqinclude"/>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

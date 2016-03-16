@@ -1,0 +1,23 @@
+/*
+ * 
+ * Needed to fix a dialog bugs and improve the style
+ *
+ */
+
+
+.event-list .x-panel-body {
+    display: inline-flex !important;
+}
+
+.event-list .x-form-check-wrap {
+    width: 100px !important;
+}
+
+.event-list .x-form-check-wrap input {
+    vertical-align: inherit !important;
+}
+
+.recur-list .x-form-text {
+    min-width: 175px !important;
+    max-width: 175px !important;
+}
