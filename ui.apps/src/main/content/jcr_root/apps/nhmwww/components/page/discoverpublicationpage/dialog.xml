@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        manageTabs=
+        "function(tab){
+        	var tabs=['configuration','image','video'];
+        	var index=tabs.indexOf(tab);
+        	if(index==-1) return;
+        	for(var i=1;i&lt;tabs.length;i++) {
+        		if(index==i){
+        			this.unhideTabStripItem(i);
+        		}
+        		else{
+        			this.hideTabStripItem(i);
+        		}
+       		}
+       		this.doLayout();
+        }"
+        xtype="tabpanel">
+        
+        <items jcr:primaryType="cq:WidgetCollection">
+            <Basic
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_basic.infinity.json"
+                xtype="cqinclude"/>
+            <Advanced
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_advanced.infinity.json"
+                xtype="cqinclude"/>
+            <Image
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_image.infinity.json"
+                xtype="cqinclude"/>
+            <Facebook
+            	jcr:primaryType="cq:Widget"
+                title="Facebook"
+                xtype="panel">
+            	<items jcr:primaryType="cq:WidgetCollection">
+            		<ogtitle
+            			jcr:primaryType="cq:Widget"
+            			name="./jcr:ogtitle"
+            			xtype="textfield"
+            			fieldLabel="OG Title"/>
+            		<ogdescription
+            			jcr:primaryType="cq:Widget"
+            			name="./jcr:ogdescription"
+            			xtype="textfield"
+            			fieldLabel="OG Description"/>
+            		<ogimage
+            			jcr:primaryType="cq:Widget"
+            			name="./jcr:ogimage"
+            			xtype="textfield"
+            			fieldLabel="OG Image Path"/>
+            	</items>
+           	</Facebook>          
+        </items>
+        
+    </items>
+    
+</jcr:root>

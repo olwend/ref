@@ -59,6 +59,10 @@ public class DiscoverPublicationHelper {
 	private String imageAlt;
 	private boolean imageConfigured;
 	
+	private String ogtitle;
+	private String ogdescription;
+	private String ogimage;
+	
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
