@@ -9,7 +9,24 @@
             collapsed="{Boolean}false"
             collapsible="{Boolean}false"
             xtype="dialogfieldset">
-            <items jcr:primaryType="cq:WidgetCollection"/>
+            <items jcr:primaryType="cq:WidgetCollection">
+                <subject
+                    jcr:primaryType="cq:Widget"
+                    cls="cq-propsdialog-tags"
+                    fieldLabel="Subject"
+                    name="./cq:subject"
+                    xtype="tags"/>
+                <capacity
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Capacity"
+                    name="./capacity"
+                    xtype="numberfield"/>
+                <eventDuration
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Event Duration"
+                    name=".eventDuration"
+                    xtype="textfield"/>
+            </items>
         </basic>
     </items>
 </jcr:root>
