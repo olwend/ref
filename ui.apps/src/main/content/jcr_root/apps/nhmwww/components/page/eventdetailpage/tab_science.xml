@@ -9,7 +9,19 @@
             collapsed="{Boolean}false"
             collapsible="{Boolean}false"
             xtype="dialogfieldset">
-            <items jcr:primaryType="cq:WidgetCollection"/>
+            <items jcr:primaryType="cq:WidgetCollection">
+                <subjectScience
+                    jcr:primaryType="cq:Widget"
+                    cls="cq-propsdialog-tags"
+                    fieldLabel="Subject"
+                    name="./cq:subjectScience"
+                    xtype="tags"/>
+                <speakerDetails
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Speaker Details"
+                    name=".speakerDetails"
+                    xtype="textfield"/>
+            </items>
         </basic>
     </items>
 </jcr:root>
