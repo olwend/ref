@@ -3,14 +3,13 @@
  * Needed to fix a dialog bugs and improve the style
  *
  */
-
-
 .event-list .x-panel-body {
     display: inline-flex !important;
 }
 
 .event-list .x-form-check-wrap {
     width: 100px !important;
+    line-height: 25px !important;
 }
 
 .event-list .x-form-check-wrap input {
@@ -20,4 +19,50 @@
 .recur-list .x-form-text {
     min-width: 175px !important;
     max-width: 175px !important;
+}
+
+.dates-container {
+    margin-left: -134px !important;
+    width: 717px !important;
+    border-bottom: solid 1px red;
+}
+
+.dates-container-field {
+    border-bottom: 1px solid #999 !important;
+}
+
+.dates-container .x-panel-header {
+    width: 707px !important;
+}
+
+.recurrence-panel {
+    margin-left: -102px !important;
+    width: 640px !important;
+} 
+
+.dates-container .x-panel-body,
+.times-container .x-panel-header,
+.recurrence-panel .x-panel-body{
+    width: auto !important;
+}
+
+.dates-container .x-toolbar-cell {
+    vertical-align: top !important;
+}
+
+.dates-container .x-panel-bwrap {
+    overflow: visible !important;
+}
+
+.dialog-checkbox .x-panel-bwrap,
+.dialog-checkbox .x-panel-body {
+    width: 50% !important;
+}
+
+.times-container {
+    width: 350px !important;
+}
+
+.dates-container .event-list .x-form-check-wrap {
+    width: 75px !important;
 }

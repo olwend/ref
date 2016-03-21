@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Panel"
+    itemId="imageLinkTab"
+    title="Image Link Config">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <basic
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <image
+                    jcr:primaryType="cq:Widget"
+                    cropParameter="./imageCrop"
+                    ddGroups="media"
+                    fileNameParameter="./fileName"
+                    fileReferenceParameter="./fileReference"
+                    height="300"
+                    mapParameter="./imageMap"
+                    name="./file"
+                    title="Image"
+                    xtype="html5smartimage"/>
+            </items>
+        </basic>
+    </items>
+</jcr:root>

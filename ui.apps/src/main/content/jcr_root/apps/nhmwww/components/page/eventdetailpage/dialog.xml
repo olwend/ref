@@ -12,9 +12,9 @@
                     jcr:primaryType="cq:Widget"
                     path="/apps/nhmwww/components/page/eventdetailpage/tab_event.infinity.json"
                     xtype="cqinclude"/>
-                <exhibition
+                <imageLink
                     jcr:primaryType="cq:Widget"
-                    path="/apps/nhmwww/components/page/eventdetailpage/tab_exhibition.infinity.json"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_image_link.infinity.json"
                     xtype="cqinclude"/>
                 <school
                     jcr:primaryType="cq:Widget"
@@ -23,14 +23,6 @@
                 <science
                     jcr:primaryType="cq:Widget"
                     path="/apps/nhmwww/components/page/eventdetailpage/tab_science.infinity.json"
-                    xtype="cqinclude"/>
-                <tring
-                    jcr:primaryType="cq:Widget"
-                    path="/apps/nhmwww/components/page/eventdetailpage/tab_tring.infinity.json"
-                    xtype="cqinclude"/>
-                <visitor
-                    jcr:primaryType="cq:Widget"
-                    path="/apps/nhmwww/components/page/eventdetailpage/tab_visitor.infinity.json"
                     xtype="cqinclude"/>
             </items>
         </tabs>

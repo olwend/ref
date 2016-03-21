@@ -1,15 +1,15 @@
-CQ.Ext.ns("ExperienceAEM");
+CQ.Ext.ns("NHMMultifield");
 
-ExperienceAEM.MultiFieldPanel = CQ.Ext.extend(CQ.Ext.Panel, {
+NHMMultifield.MultiFieldPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     panelValue: '',
 
     constructor: function(config){
         config = config || {};
-        ExperienceAEM.MultiFieldPanel.superclass.constructor.call(this, config);
+        NHMMultifield.MultiFieldPanel.superclass.constructor.call(this, config);
     },
 
     initComponent: function () {
-        ExperienceAEM.MultiFieldPanel.superclass.initComponent.call(this);
+        NHMMultifield.MultiFieldPanel.superclass.initComponent.call(this);
 
         this.panelValue = new CQ.Ext.form.Hidden({
             name: this.name
@@ -30,7 +30,7 @@ ExperienceAEM.MultiFieldPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     },
 
     afterRender : function(){
-        ExperienceAEM.MultiFieldPanel.superclass.afterRender.call(this);
+        NHMMultifield.MultiFieldPanel.superclass.afterRender.call(this);
 
         this.items.each(function(){
             if(!this.contentBasedOptionsURL
@@ -79,4 +79,4 @@ ExperienceAEM.MultiFieldPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     }
 });
 
-CQ.Ext.reg("multi-field-panel", ExperienceAEM.MultiFieldPanel);
+CQ.Ext.reg("nhm-multi-field-panel", NHMMultifield.MultiFieldPanel);
