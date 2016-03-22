@@ -12,6 +12,7 @@ import uk.ac.nhm.nhm_www.core.model.FileReference;
 
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.foundation.Image;
 
 /**
@@ -59,10 +60,6 @@ public class DiscoverPublicationHelper {
 	private String imageAlt;
 	private boolean imageConfigured;
 	
-	private String ogtitle;
-	private String ogdescription;
-	private String ogimage;
-	
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
@@ -86,6 +83,14 @@ public class DiscoverPublicationHelper {
 			this.imageSuffix = fileReference.getExtension();
 			this.imageAlt = fileReference.getAlt();
 		}
+	}
+	
+	public Resource getResource() {
+		return resource;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
 	}
 	
 	/**
@@ -333,6 +338,14 @@ public class DiscoverPublicationHelper {
 	public boolean isImageConfigured() {
 		return this.imageConfigured;
 	}
+	
+	public ValueMap getProperties() {
+		return properties;
+	}
 
+	public void setProperties(ValueMap properties) {
+		this.properties = properties;
+	}
+	
 	
 }
