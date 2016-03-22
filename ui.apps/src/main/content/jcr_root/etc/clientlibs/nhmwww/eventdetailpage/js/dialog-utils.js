@@ -60,7 +60,6 @@ function initRecurValues (component, value, isChecked) {
                             
                         case "monthly":
                             extraMonthParam.show();
-                            console.log("PASS",extraMonthParam.value);
                             repeatMonth.show();
                             repeatDay.show();
                             break;        
@@ -92,6 +91,8 @@ function initExtraValues (component, value, isChecked) {
     
     if (typeof isChecked != 'undefined') {
         isChecked ? repeatList.show() && weekdaysList.show() && daysList.show() && repeatDay.hide() : repeatList.hide() && weekdaysList.hide() && daysList.hide() && repeatDay.show();
+    } else {
+        component.reset();
     }
 };
 
@@ -114,7 +115,7 @@ function initRepeatValues (component, value, isChecked) {
 };
 
 //Function to validate the datepickers
-function checkTime(field, newValue, oldValue) {
+function checkTime (field, newValue, oldValue) {
     var d = new Date();
     var today = new Date(d.getFullYear(), d.getMonth(), d.getDate());
     var newDate = new Date(newValue.getFullYear(), newValue.getMonth(), newValue.getDate());
@@ -122,5 +123,32 @@ function checkTime(field, newValue, oldValue) {
     if (newDate < today) {
         field.setValue(oldValue);
         alert("Please select a valid date");
+    }
+};
+
+//Function to set the prices as required or not
+function setValidation (field, newValue, oldValue) {
+    var panel = field.findParentByType("panel");
+    var prices = panel.findByType('textfield');
+    var isEmpty = true;
+    if (newValue) {
+        for (var i = 0; i < prices.length; i++) {
+            prices[i].allowBlank = true;
+            prices[i].clearInvalid();
+        }
+    } else {
+        field.reset();
+        for (var i = 0; i < prices.length; i++) {
+            if (prices[i].getValue() != "") {
+                isEmpty = false;
+                break;
+            }
+        }
+        if (isEmpty) {
+            for (var i = 0; i < prices.length; i++) {
+                prices[i].allowBlank = false;
+                prices[i].clearInvalid();
+            }
+        }
     }
 };

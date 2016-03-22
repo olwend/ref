@@ -62,6 +62,24 @@
                     fieldLabel="Event Description"
                     name="./jcr:eventDescription"
                     xtype="textarea"/>
+                <eventVenue
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Event Venue"
+                    name="./eventVenue"
+                    xtype="textfield"/>
+                <eventGroup
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    fieldLabel="Event Group"
+                    name="./eventGroup"
+                    xtype="textfield"/>
+                <eventTileLink
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    fieldLabel="Event Tile Link"
+                    name="./eventTileLink"
+                    xtype="textfield"/>
                 <tags
                     jcr:primaryType="cq:Widget"
                     cls="cq-propsdialog-tags"
@@ -208,7 +226,7 @@
                                     xtype="selection">
                                     <listeners
                                         jcr:primaryType="nt:unstructured"
-                                        afterlayout="function(component){                                             
+                                        beforeshow="function(component){                                             
                                                      initExtraValues(component);}"
                                         selectionchanged="function(selection, value, isChecked){                                             
                                                           initExtraValues(selection, value, isChecked);}"/>

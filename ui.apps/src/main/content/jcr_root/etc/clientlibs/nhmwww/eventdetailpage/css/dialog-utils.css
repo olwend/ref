@@ -1,6 +1,6 @@
 /*
  * 
- * Needed to fix a dialog bugs and improve the style
+ * Needed to improve the dialog style due to the amount of info displayed
  *
  */
 .event-list .x-panel-body {
@@ -24,7 +24,6 @@
 .dates-container {
     margin-left: -134px !important;
     width: 717px !important;
-    border-bottom: solid 1px red;
 }
 
 .dates-container-field {
