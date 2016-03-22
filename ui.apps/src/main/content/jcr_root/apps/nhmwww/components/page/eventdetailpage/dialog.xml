@@ -12,6 +12,10 @@
                     jcr:primaryType="cq:Widget"
                     path="/apps/nhmwww/components/page/eventdetailpage/tab_event.infinity.json"
                     xtype="cqinclude"/>
+                <prices
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/eventdetailpage/tab_prices.infinity.json"
+                    xtype="cqinclude"/>
                 <imageLink
                     jcr:primaryType="cq:Widget"
                     path="/apps/nhmwww/components/page/eventdetailpage/tab_image_link.infinity.json"

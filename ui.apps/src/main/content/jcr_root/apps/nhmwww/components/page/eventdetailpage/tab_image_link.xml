@@ -10,14 +10,22 @@
             collapsible="{Boolean}false"
             xtype="dialogfieldset">
             <items jcr:primaryType="cq:WidgetCollection">
+                <ctaLink
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="CTA Link"
+                    defaultValue="https://www.nhm.ac.uk/visit-us/whats-on/tickets/"
+                    emptyText="https://www.nhm.ac.uk/visit-us/whats-on/tickets/"
+                    name="./ctaLink"
+                    xtype="textfield"/>
                 <image
                     jcr:primaryType="cq:Widget"
                     cropParameter="./imageCrop"
                     ddGroups="media"
                     fileNameParameter="./fileName"
                     fileReferenceParameter="./fileReference"
-                    height="300"
                     mapParameter="./imageMap"
+                    height="300"
                     name="./file"
                     title="Image"
                     xtype="html5smartimage"/>
