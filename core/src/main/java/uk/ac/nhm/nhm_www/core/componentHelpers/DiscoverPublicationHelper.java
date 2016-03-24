@@ -60,6 +60,10 @@ public class DiscoverPublicationHelper {
 	private String imageAlt;
 	private boolean imageConfigured;
 	
+	private String ogTitle;
+	private String ogDescription;
+	private String ogImagePath;
+	
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
@@ -83,6 +87,32 @@ public class DiscoverPublicationHelper {
 			this.imageSuffix = fileReference.getExtension();
 			this.imageAlt = fileReference.getAlt();
 		}
+	}
+	
+	public DiscoverPublicationHelper(Resource resource) {
+		setResource(resource);
+		setProperties(resource.adaptTo(ValueMap.class));
+		init();
+	}
+	
+	private void init() {
+		String ogTitle = "";
+		if(getProperties().get("ogtitle") != null) {
+			ogTitle = getProperties().get("ogtitle", String.class);
+		}
+		setOgTitle(ogTitle);
+		
+		String ogDescription = "";
+		if(getProperties().get("ogdescription") != null) {
+			ogDescription = getProperties().get("ogdescription", String.class);
+		}
+		setOgDescription(ogDescription);
+		
+		String ogImagePath = "";
+		if(getProperties().get("ogimagepath") != null) {
+			ogImagePath = getProperties().get("ogimagepath", String.class);
+		}
+		setOgImagePath(ogImagePath);
 	}
 	
 	public Resource getResource() {
@@ -346,6 +376,29 @@ public class DiscoverPublicationHelper {
 	public void setProperties(ValueMap properties) {
 		this.properties = properties;
 	}
-	
+
+	public String getOgTitle() {
+		return ogTitle;
+	}
+
+	public void setOgTitle(String ogTitle) {
+		this.ogTitle = ogTitle;
+	}
+
+	public String getOgDescription() {
+		return ogDescription;
+	}
+
+	public void setOgDescription(String ogDescription) {
+		this.ogDescription = ogDescription;
+	}
+
+	public String getOgImagePath() {
+		return ogImagePath;
+	}
+
+	public void setOgImagePath(String ogImagePath) {
+		this.ogImagePath = ogImagePath;
+	}
 	
 }

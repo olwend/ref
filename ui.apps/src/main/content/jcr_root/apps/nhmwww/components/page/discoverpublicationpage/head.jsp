@@ -1,4 +1,5 @@
-<%@page session="false"%><%--
+<%@page session="false"%>
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper"%><%--
   Copyright 1997-2010 Day Management AG
   Barfuesserplatz 6, 4001 Basel, Switzerland
   All Rights Reserved.
@@ -25,18 +26,35 @@
 --%><%@include file="/libs/foundation/global.jsp" %><%
 %><%@ page import="com.day.cq.commons.Doctype" %>
 <%@ page import="uk.ac.nhm.nhm_www.core.utils.*" %>
+
+<% DiscoverPublicationHelper helper = new DiscoverPublicationHelper(resource); %>
+
 <%
+
     String xs = Doctype.isXHTML(request) ? "/" : "";
     String favIcon = currentDesign.getPath() + "/favicon.ico";
     if (resourceResolver.getResource(favIcon) == null) {
         favIcon = null;
     }
 %><head>
+	
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"<%=xs%>>
     <meta name="keywords" content="<%= xssAPI.encodeForHTMLAttr(WCMUtils.getKeywords(currentPage, false)) %>"<%=xs%>>
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
+	
+	<%if(!helper.getOgTitle().equals(null) || helper.getOgTitle() != null) { %>
+		<meta property="og:title" content="<%=helper.getOgTitle() %>">
+	<%} %>
+	
+	<%if(!helper.getOgDescription().equals(null) || helper.getOgDescription() != null) { %>
+		<meta property="og:description" content="<%=helper.getOgDescription() %>" >
+	<%} %>
+	
+	<%if(!helper.getOgImagePath().equals(null) || helper.getOgImagePath() != null) { %>
+		<meta property="og:image" content="<%=helper.getOgImagePath() %>">
+	<%} %>
 
     <cq:include script="headlibs.jsp"/>
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
