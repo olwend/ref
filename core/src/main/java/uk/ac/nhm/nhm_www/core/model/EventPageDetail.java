@@ -1,0 +1,186 @@
+package uk.ac.nhm.nhm_www.core.model;
+
+import java.util.ArrayList;
+
+public class EventPageDetail {
+	String eventType = "";
+	String title = "";
+	String description = "";
+	String eventVenue = "";
+	String eventGroup = "";
+	String eventTileLink = "";
+	String adultPrice  = "";
+	String concessionPrice = "";
+	String memberPrice = "";
+	String familyPrice = "";
+	String customPrice = "";
+	String imageLink = "";
+	String ctaLink = "";
+	String capacity = "";
+	String eventDuration = "";
+	String speakerDetails = "";
+	
+	ArrayList <String> dates = new ArrayList<String>();
+	ArrayList <String> tags = new ArrayList<String>();
+	ArrayList <String> subject = new ArrayList<String>();
+	ArrayList <String> scienceSubject = new ArrayList<String>();
+	
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
+	}
+	
+	public String getEventType() {
+		return this.eventType;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getDescription() {
+		return this.description;
+	}
+	
+	public void setEventVenue(String eventVenue) {
+		this.eventVenue = eventVenue;
+	}
+	
+	public String getEventVenue() {
+		return this.eventVenue;
+	}
+	public void setEventGroup(String eventGroup) {
+		this.eventGroup = eventGroup;
+	}
+	
+	public String getEventGroup() {
+		return this.eventGroup;
+	}
+	
+	public void setEventTileLink(String eventTileLink) {
+		this.eventTileLink = eventTileLink;
+	}
+	
+	public String getEventTileLink() {
+		return this.eventTileLink;
+	}
+	
+	public void setAdultPrice(String adultPrice) {
+		this.adultPrice = adultPrice;
+	}
+	
+	public String getAdultPrice() {
+		return this.adultPrice;
+	}
+	
+	public void setConcessionPrice(String concessionPrice) {
+		this.concessionPrice = concessionPrice;
+	}
+	
+	public String getConcessionPrice() {
+		return this.concessionPrice;
+	}
+	
+	public void setMemberPrice(String memberPrice) {
+		this.memberPrice = memberPrice;
+	}
+	
+	public String getMemberPrice() {
+		return this.memberPrice;
+	}
+	
+	public void setFamilyPrice(String familyPrice) {
+		this.familyPrice = familyPrice;
+	}
+	
+	public String getFamilyPrice() {
+		return this.familyPrice;
+	}
+	
+	public void setCustomPrice(String customPrice) {
+		this.customPrice = customPrice;
+	}
+	
+	public String getCustomPrice() {
+		return this.customPrice;
+	}
+	
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
+	}
+	
+	public String getImageLink() {
+		return this.imageLink;
+	}
+	
+	public void setCtaLink(String ctaLink) {
+		this.ctaLink = ctaLink;
+	}
+	
+	public String getCtaLink() {
+		return this.ctaLink;
+	}
+	
+	public void setCapacity(String capacity) {
+		this.capacity = capacity;
+	}
+	
+	public String getCapacity() {
+		return this.capacity;
+	}
+	
+	public void setSpeakerDetails(String speakerDetails) {
+		this.speakerDetails = speakerDetails;
+	}
+	
+	public String getSpeakerDetails() {
+		return this.speakerDetails;
+	}
+	
+	public void setEventDuration(String eventDuration) {
+		this.eventDuration = eventDuration;
+	}
+	
+	public String getEventDuration() {
+		return this.eventDuration;
+	}
+	
+	public void setDates(ArrayList<String> dates) {
+		this.dates = dates;
+	}
+	
+	public ArrayList<String> getDates() {
+		return this.dates;
+	}
+	
+	public void setTags(ArrayList<String> tags) {
+		this.tags = tags;
+	}
+	
+	public ArrayList<String> getTags() {
+		return this.tags;
+	}
+	
+	public void setSubject(ArrayList<String> subject) {
+		this.subject = subject;
+	}
+	
+	public ArrayList<String> getSubject() {
+		return this.subject;
+	}
+	
+	public void setScienceSubject(ArrayList<String> scienceSubject) {
+		this.scienceSubject = scienceSubject;
+	}
+	
+	public ArrayList<String> getScienceSubject() {
+		return this.scienceSubject;
+	}
+}

@@ -9,6 +9,11 @@
             collapsible="{Boolean}false"
             xtype="dialogfieldset">
             <items jcr:primaryType="cq:WidgetCollection">
+                <datesRecurrence
+                    jcr:primaryType="cq:Widget"
+                    hidden="true"
+                    name="./jcr:datesRecurrence"
+                    xtype="textfield"/>
                 <eventsList
                     jcr:primaryType="cq:Widget"
                     cls="event-list"
@@ -156,7 +161,7 @@
                         cls="recurrence-panel"
                         dName="recur"
                         orderable="false"
-                        title="Recurence"
+                        title="Recurrence"
                         xtype="multifield">
                         <fieldConfig
                             jcr:primaryType="cq:Widget"
@@ -240,23 +245,23 @@
                                     type="checkbox"
                                     xtype="selection">
                                     <options jcr:primaryType="cq:WidgetCollection">
-                                        <monday
+                                        <first
                                             jcr:primaryType="nt:unstructured"
                                             text="First"
                                             value="First"/>
-                                        <tuesday
+                                        <second
                                             jcr:primaryType="nt:unstructured"
                                             text="Second"
-                                            value="Second"/>
-                                        <wednesday
+                                            value="2"/>
+                                        <third
                                             jcr:primaryType="nt:unstructured"
                                             text="Third"
-                                            value="Third"/>
-                                        <thursday
+                                            value="3"/>
+                                        <fourth
                                             jcr:primaryType="nt:unstructured"
                                             text="Fourth"
-                                            value="Fourth"/>
-                                        <friday
+                                            value="4"/>
+                                        <last
                                             jcr:primaryType="nt:unstructured"
                                             text="Last"
                                             value="Last"/>
@@ -306,6 +311,12 @@
                                             text="Sun."
                                             value="Sunday"/>
                                     </options>
+                                    <listeners
+                                        jcr:primaryType="nt:unstructured"
+                                        afterlayout="function(component){                                             
+                                                     resetWeekDaysValues(component);}"
+                                        selectionchanged="function(selection, value, isChecked){                                             
+                                                          resetWeekDaysValues(selection, value, isChecked);}"/>
                                 </weekdaysList>
                                 <daysList
                                     jcr:primaryType="cq:Widget"
@@ -315,19 +326,25 @@
                                     type="checkbox"
                                     xtype="selection">
                                     <options jcr:primaryType="cq:WidgetCollection">
-                                        <monday
+                                        <day
                                             jcr:primaryType="nt:unstructured"
                                             text="Day"
                                             value="Day"/>
-                                        <tuesday
+                                        <weekendDay
                                             jcr:primaryType="nt:unstructured"
                                             text="Weekend day"
                                             value="WeekendDay"/>
-                                        <wednesday
+                                        <weekday
                                             jcr:primaryType="nt:unstructured"
                                             text="Weekday"
                                             value="Weekday"/>
                                     </options>
+                                    <listeners
+                                        jcr:primaryType="nt:unstructured"
+                                        afterlayout="function(component){                                             
+                                                     initRepeatValues(component);resetDaysValues(component);}"
+                                        selectionchanged="function(selection, value, isChecked){                                             
+                                                          initRepeatValues(selection, value, isChecked);resetDaysValues(selection, value, isChecked);}"/>
                                 </daysList>
                                 <weekRepeat
                                     jcr:primaryType="cq:Widget"

@@ -114,6 +114,28 @@ function initRepeatValues (component, value, isChecked) {
     }
 };
 
+function resetDaysValues (component, value, isChecked) {
+    var panel = component.findParentByType("panel");
+    var weekdaysList = panel.findByType('selection')[3];
+    var componentValues = component.getValue();
+    if (component && componentValues) {
+        if (value && isChecked) {
+            weekdaysList.reset();
+        } 
+    }
+};
+
+function resetWeekDaysValues (component, value, isChecked) {
+    var panel = component.findParentByType("panel");
+    var daysList = panel.findByType('selection')[4];
+    var componentValues = component.getValue();
+    if (component && componentValues) {
+        if (value && isChecked) {
+            daysList.reset();
+        } 
+    }
+};
+
 //Function to validate the datepickers
 function checkTime (field, newValue, oldValue) {
     var d = new Date();
@@ -149,6 +171,25 @@ function setValidation (field, newValue, oldValue) {
                 prices[i].allowBlank = false;
                 prices[i].clearInvalid();
             }
+        }
+    }
+};
+
+function checkInitPrices (field, dataRecord, path) {
+    var panel = field.findParentByType("panel");
+    var prices = panel.findByType('textfield');
+    var isEmpty = true;
+      
+    for (var i = 0; i < prices.length; i++) {
+        if (prices[i].getValue() != "") {
+            isEmpty = false;
+            break;
+        }
+    }
+    if (!isEmpty) {
+        for (var i = 0; i < prices.length; i++) {
+            prices[i].allowBlank = true;
+            prices[i].clearInvalid();
         }
     }
 };

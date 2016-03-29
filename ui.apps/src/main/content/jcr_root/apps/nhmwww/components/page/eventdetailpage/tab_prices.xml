@@ -19,6 +19,8 @@
                     xtype="numberfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
                         change="function(field,newValue,oldValue) {
                                           setValidation(field,newValue,oldValue); }"/>
                 </adult>
@@ -30,6 +32,8 @@
                     xtype="numberfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
                         change="function(field,newValue,oldValue) {
                                           setValidation(field,newValue,oldValue); }"/>
                 </concession>
@@ -41,6 +45,8 @@
                     xtype="numberfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
                         change="function(field,newValue,oldValue) {
                                           setValidation(field,newValue,oldValue); }"/>
                 </member>
@@ -52,6 +58,8 @@
                     xtype="numberfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
                         change="function(field,newValue,oldValue) {
                                           setValidation(field,newValue,oldValue); }"/>
                 </family>
@@ -63,6 +71,8 @@
                     xtype="textfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
                         change="function(field,newValue,oldValue) {
                                           setValidation(field,newValue,oldValue); }"/>
                 </custom>

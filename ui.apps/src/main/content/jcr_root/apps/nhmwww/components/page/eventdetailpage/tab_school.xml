@@ -24,7 +24,7 @@
                 <eventDuration
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Event Duration"
-                    name=".eventDuration"
+                    name="./eventDuration"
                     xtype="textfield"/>
             </items>
         </basic>

@@ -2,3 +2,5 @@
 
 multi-field.js
 dialog-utils.js
+later.min.js
+recurrence-dates.js

@@ -31,4 +31,8 @@
             </items>
         </tabs>
     </items>
+    <listeners
+            jcr:primaryType="nt:unstructured"
+            beforesubmit="function(dialog) {
+                                createDates(dialog); }"/>
 </jcr:root>

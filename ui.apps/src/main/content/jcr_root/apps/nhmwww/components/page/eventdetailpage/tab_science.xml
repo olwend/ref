@@ -19,7 +19,7 @@
                 <speakerDetails
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Speaker Details"
-                    name=".speakerDetails"
+                    name="./speakerDetails"
                     xtype="textfield"/>
             </items>
         </basic>
