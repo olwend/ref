@@ -6811,6 +6811,17 @@ h6 {
 }
 
 /** REFACTOR-FOOTER PARTIAL **/
+.main-footer {
+  /** overrides Foundation forms styles **/
+}
+.main-footer label {
+  color: #ffffff;
+}
+.main-footer fieldset legend {
+  background: none;
+  font-weight: normal;
+  padding: 0;
+}
 .main-footer .footer-nav .footer--icon-list-container {
   padding-top: 0;
 }
@@ -6841,16 +6852,6 @@ h6 {
 .main-footer .footer-nav .icon-list a {
   padding: 0;
   display: inline;
-}
-
-/** overrides Foundation forms styles **/
-.main-footer label {
-  color: #ffffff;
-}
-.main-footer fieldset legend {
-  background: none;
-  font-weight: normal;
-  padding: 0;
 }
 .main-footer .footer-utility input {
   height: auto !important;
