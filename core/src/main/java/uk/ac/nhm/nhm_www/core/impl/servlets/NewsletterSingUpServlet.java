@@ -84,13 +84,18 @@ public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
 		
 		/* Validate form */
 		final String name 	  = request.getParameter("name");
+		final String firstname 	  = request.getParameter("firstname");
+		final String lastname 	  = request.getParameter("lastname");
 		final String email 	  = request.getParameter("email");
 		final String question = request.getParameter("question");
 		/* Optional parameter for CRM marketing campaign (exclude from validation) 
 		 * we may want to validate this separately later - depends on CRM workflow */
 		final String campaign = request.getParameter("campaign");
 		
-		final boolean isFormValidated = name != null && !name.isEmpty() && email != null && isEmailValid(email) && (question == null || question.isEmpty());
+		/* parameters provided must contain either name OR firstname and lastname */ 
+		final boolean isFormValidated = ((name != null && !name.isEmpty()) || (firstname != null && !firstname.isEmpty() && lastname != null && !lastname.isEmpty())) 
+				&& email != null && isEmailValid(email) && (question == null || question.isEmpty());
+		
 		
 		final JSONObject jsonResponse = new JSONObject();
 		try {
@@ -102,7 +107,15 @@ public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
 				String host = "Remote host: " + request.getRemoteHost() + " Server name:" + request.getServerName() + " Servlet path: " + request.getServletPath();
 				LOG.error("REQUEST VALUES: " +host);
 				postMethod.addParameter("source", "www.nhm.ac.uk");
-				postMethod.addParameter("name"  , name);
+				if (name != null) {
+					postMethod.addParameter("name"  , name);
+				}
+				if (firstname != null) {
+					postMethod.addParameter("firstname", firstname);
+				}
+				if (lastname != null) {
+					postMethod.addParameter("lastname", lastname);
+				}
 				postMethod.addParameter("email" , email);
 				if (campaign != null) {
 					postMethod.addParameter("campaign" , campaign);
