@@ -38,8 +38,7 @@
 </div>
 <div class="js-enews-signup enews-signup-form-container">
 	<form
-		<%--action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"--%>
-		action="http://localhost:4502/content/nhmwww/en/home/visit/enews-signup-test/jcr:content.newslettersignup.html"
+		action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
 		method="get">
 		<div class="form-field firstname">
 			<label for="firstname">First name</label> <input type="text" name="firstname"
