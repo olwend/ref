@@ -2497,204 +2497,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 /** LEGACY FOOTER COMPONENT PARTIAL **/
-.main-footer {
-  padding: 2.5em 0;
-  background: #565656;
-  color: #fff;
-}
-.main-footer .row {
-  position: relative;
-  margin-bottom: 0;
-}
-.main-footer .framed-wrapper:before, .main-footer .framed-wrapper:after,
-.main-footer .framed:before,
-.main-footer .framed:after {
-  display: block;
-  content: "";
-  position: absolute;
-}
-.main-footer .framed-wrapper:before,
-.main-footer .framed:before {
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  border-top: 2px solid #565656;
-  border-bottom: 2px solid #565656;
-}
-.main-footer .framed-wrapper:after,
-.main-footer .framed:after {
-  top: 12.5%;
-  width: 100%;
-  height: 75%;
-  border-left: 2px solid #565656;
-  border-right: 2px solid #565656;
-}
-.main-footer .framed-wrapper {
-  position: relative;
-  margin-bottom: 6em;
-  padding: 2em 5%;
-  border-radius: 0 30px 0 30px;
-  border: 2px solid #fff;
-}
-.main-footer .framed-wrapper:before {
-  bottom: -2px;
-}
-.main-footer .framed-wrapper:after {
-  right: -2px;
-}
-.main-footer .framed:before {
-  top: -2px;
-}
-.main-footer .framed:after {
-  left: -2px;
-}
-.main-footer .footer-nav,
-.main-footer .footer-utility {
-  z-index: 100;
-}
-.main-footer .footer-nav li,
-.main-footer .footer-utility p {
-  font-size: 1.1em;
-}
-.main-footer .footer-nav ul {
-  margin: 0;
-}
-.main-footer .footer-nav li {
-  padding-top: 0.5em;
-}
-.main-footer .footer-nav li:first-child {
-  padding-top: 0;
-}
-.main-footer .footer-nav a {
-  color: #fff;
-}
-.main-footer .footer-nav .icon-list a {
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  width: 30%;
-  padding: 0.8em 0.8em 0 0;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-nav .icon-list a {
-    width: auto;
-  }
-}
-.main-footer .footer-utility {
-  position: relative;
-  margin-top: 1.5em;
-  padding-top: 1.5em;
-  border-top: 2px solid #fff;
-}
-.main-footer .footer-utility fieldset {
-  margin: 0 0 1em;
-  padding: 0;
-  border: 0;
-}
-.main-footer .footer-utility label,
-.main-footer .footer-utility input {
-  font-size: 0.875em;
-}
-.main-footer .footer-utility label {
-  display: block;
-  margin: 0.5em 0 0.1em;
-}
-.main-footer .footer-utility input {
-  width: 94%;
-  border: 0;
-}
-.main-footer .footer-utility input[type="text"] {
-  margin-bottom: 0.5em;
-  padding: 1em 3%;
-  color: #565656;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="text"] {
-    padding: 0.5em 3%;
-  }
-}
-.main-footer .footer-utility input[type="submit"] {
-  display: block;
-  margin: 0.4em 0 0;
-  padding: 0.9em 3% 1em;
-  background: none;
-  text-align: left;
-  font-weight: normal;
-  border: 2px solid #fff;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="submit"] {
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-}
-.main-footer .footer-utility p.disclaimer {
-  font-size: 0.75em;
-}
-.main-footer .footer-info {
-  float: none;
-  position: absolute;
-  left: 0;
-  padding-top: 4.5em;
-  bottom: -0.5em;
-  background: url(/etc/designs/nhmwww/img/nhm-logo-white.png) no-repeat center top;
-  background-size: 35% auto;
-  text-align: center;
-}
-.main-footer .footer-info p {
-  font-size: 0.8em;
-}
-@media screen and (min-width: 480px) {
-  .main-footer .footer-info {
-    background-size: 20% auto;
-  }
-}
-@media screen and (min-width: 768px) {
-  .main-footer .framed-wrapper {
-    padding: 1.5em 2%;
-    margin-bottom: 0;
-  }
-  .main-footer .footer-info {
-    position: absolute;
-    bottom: auto;
-    left: auto;
-    top: 0;
-    right: 0;
-    height: 100%;
-    padding: 0;
-    background-position: left center;
-    background-size: 100% auto;
-    text-align: left;
-  }
-  .main-footer .footer-info p {
-    position: absolute;
-    left: 44%;
-    bottom: 30%;
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
-    line-height: 1.3;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .main-footer .footer-utility {
-    margin-top: 0;
-    padding-top: 0;
-    padding-right: 2%;
-    border-top: 0;
-  }
-  .main-footer .footer-info {
-    background-size: auto;
-  }
-  .main-footer .footer-info p {
-    left: 33%;
-    bottom: 20%;
-  }
-}
-
 /** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
 .cf:before,
@@ -6812,15 +6614,93 @@ h6 {
 
 /** REFACTOR-FOOTER PARTIAL **/
 .main-footer {
+  padding: 2.5em 0;
+  background: #565656;
+  color: #fff;
   /** overrides Foundation forms styles **/
 }
 .main-footer label {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .main-footer fieldset legend {
   background: none;
   font-weight: normal;
   padding: 0;
+}
+.main-footer .row {
+  position: relative;
+  margin-bottom: 0;
+}
+.main-footer .framed-wrapper {
+  position: relative;
+  border-radius: 0 30px;
+  border: 2px solid #fff;
+  margin-bottom: 6em;
+  padding: 2em 5%;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .framed-wrapper {
+    padding: 1.5em 2%;
+    margin-bottom: 0;
+  }
+}
+.main-footer .framed-wrapper:before, .main-footer .framed-wrapper:after {
+  display: block;
+  content: "";
+  position: absolute;
+}
+.main-footer .framed-wrapper:before {
+  bottom: -2px;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  border-top: 2px solid #565656;
+  border-bottom: 2px solid #565656;
+}
+.main-footer .framed-wrapper:after {
+  right: -2px;
+  top: 12.5%;
+  width: 100%;
+  height: 75%;
+  border-left: 2px solid #565656;
+  border-right: 2px solid #565656;
+}
+.main-footer .framed:before, .main-footer .framed:after {
+  display: block;
+  content: "";
+  position: absolute;
+}
+.main-footer .framed:before {
+  top: -2px;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  border-top: 2px solid #565656;
+  border-bottom: 2px solid #565656;
+}
+.main-footer .framed:after {
+  left: -2px;
+  top: 12.5%;
+  width: 100%;
+  height: 75%;
+  border-left: 2px solid #565656;
+  border-right: 2px solid #565656;
+}
+.main-footer .footer-nav {
+  z-index: 100;
+}
+.main-footer .footer-nav ul {
+  margin: 0;
+}
+.main-footer .footer-nav li {
+  padding-top: 0.5em;
+  font-size: 1.1em;
+}
+.main-footer .footer-nav li:first-child {
+  padding-top: 0;
+}
+.main-footer .footer-nav a {
+  color: #fff;
 }
 .main-footer .footer-nav .footer--icon-list-container {
   padding-top: 0;
@@ -6841,30 +6721,129 @@ h6 {
 }
 @media screen and (min-width: 1024px) {
   .main-footer .footer-nav .icon-list li {
-    width: 17%;
-  }
-}
-@media screen and (min-width: 1160px) {
-  .main-footer .footer-nav .icon-list li {
     width: 18%;
   }
 }
 .main-footer .footer-nav .icon-list a {
   padding: 0;
   display: inline;
+  width: 30%;
+}
+@media screen and (min-width: 480px) {
+  .main-footer .footer-nav .icon-list a {
+    width: auto;
+  }
+}
+.main-footer .footer-utility {
+  position: relative;
+  z-index: 100;
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 2px solid #FFFFFF;
+}
+@media screen and (min-width: 1025px) {
+  .main-footer .footer-utility {
+    margin-top: 0;
+    padding-top: 0;
+    padding-right: 2%;
+    border-top: 0;
+  }
+}
+.main-footer .footer-utility fieldset {
+  margin: 0 0 1em;
+  padding: 0;
+  border: 0;
+}
+.main-footer .footer-utility label {
+  display: block;
+  margin: 0.5em 0 0.1em;
+  font-size: 0.875em;
 }
 .main-footer .footer-utility input {
+  width: 94%;
+  border: 0;
   height: auto !important;
+  font-size: 0.875em;
+}
+.main-footer .footer-utility input[type="text"] {
+  margin-bottom: 0.5em;
+  padding: 1em 3%;
+  color: #565656;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-utility input[type="text"] {
+    padding: 0.5em 3%;
+  }
 }
 .main-footer .footer-utility input[type="submit"] {
-  border: 2px solid #fff;
+  display: block;
   margin: 0.4em 0 0;
+  background: none;
+  text-align: left;
+  font-weight: normal;
+  border: 2px solid #FFFFFF;
   padding: 0.9em 0.3em 1em 1em;
 }
 @media screen and (min-width: 768px) {
   .main-footer .footer-utility input[type="submit"] {
     border-width: 1px;
     padding: 0.7em 0.3em 0.7em 1em;
+  }
+}
+.main-footer .footer-utility p {
+  font-size: 1.1em;
+}
+.main-footer .footer-info {
+  float: none;
+  position: absolute;
+  bottom: -0.5em;
+  left: 0;
+  padding-top: 4.5em;
+  text-align: center;
+  background: url(/etc/designs/nhmwww/img/nhm-logo-white.png) no-repeat center top;
+  background-size: 35% auto;
+}
+@media screen and (min-width: 480px) {
+  .main-footer .footer-info {
+    background-size: 20% auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-info {
+    bottom: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0;
+    background-position: left center;
+    background-size: 100% auto;
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-footer .footer-info {
+    background-size: auto;
+  }
+}
+.main-footer .footer-info p {
+  font-size: 0.8em;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-info p {
+    position: absolute;
+    bottom: 30%;
+    left: 44%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-footer .footer-info p {
+    left: 33%;
+    bottom: 20%;
   }
 }
 
