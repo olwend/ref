@@ -45,11 +45,11 @@
 		<form action="<%= dynamicPageHelper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
 		  <fieldset>
             <legend><%= helper.getTitle() %></legend>
-            	 <label class="item-label" for="name">Full name</label>
-                 <input class="item-input" name="name" id="name" type="text" />
-                 <label class="item-label" for="email">Email address</label>
-                 <input class="item-input" name="email" id="email" type="email" />
-                 <input type="submit" value="Sign up &gt;" />
+            	 <label class="item-label newslettersignup--footer-label" for="name">Full name</label>
+                 <input class="item-input newslettersignup--footer-input" name="name" id="name" type="text" />
+                 <label class="item-label newslettersignup--footer-label" for="email">Email address</label>
+                 <input class="item-input newslettersignup--footer-input" name="email" id="email" type="email" />
+                 <input type="submit" class="newslettersignup--footer-submit-button" value="Sign up &gt;" />
                  <input class="question" type="text" name="question">
            </fieldset>
            		<div class="errors"></div>
