@@ -6,12 +6,11 @@
 <cq:includeClientLib categories="nhm-www.newsletter" />
 <!-- START OF FOOTER -->
 <footer class="main-footer">
-            <div class="row cf">
-                <div class="columns large-9 medium-9 framed-wrapper">
-                    <div class="framed">
-                        <nav class="footer-nav columns large-9">
-                            <div class="cf">
-                                <ul class="columns large-6 medium-6 small-6">
+            <div class="row">
+                <div class="small-12 medium-9 large-9 columns footer--frame-wrapper">
+                    <div class="footer--frame">
+                        <nav class="small-12 medium-12 large-9 columns footer-nav">
+                               <ul class="small-6 medium-6 large-6 columns">
                                     <li><a href="/content/nhmwww/en/home/about-us.html">About us</a></li>
                                     <li><a href="/about-us/news.html">News</a></li>
                                     <li><a href="/content/nhmwww/en/home/press-office.html">Press office</a></li>
@@ -20,13 +19,13 @@
                                     <li><a href="/content/nhmwww/en/home/about-us/governance.html">Governance</a></li>
                                     <li><a href="/content/nhmwww/en/home/business-services/touring-exhibitions.html">Touring Exhibitions</a></li>
                                 </ul>
-                                <ul class="columns large-6 medium-6 small-6">
+                                <ul class="small-6 medium-6 large-6 columns">
                                 	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
                                 	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
                                     <li>Follow us</li>
                                     <li class="footer--icon-list-container">
-										<ul class="small-block-grid-3 icon-list">
+										<ul class="small-block-grid-3 medium-block-grid-3 large-block-grid-3 icon-list">
 											<li><a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a></li>
 	                                        <li><a href="https://twitter.com/NHM_London"><img src="<%= currentDesign.getPath() + "/img/icons/twitter.png"%>" alt="Twitter"></a></li>
 	                                        <li><a href="https://www.youtube.com/user/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/youtube.png"%>" alt="YouTube"></a></li>
@@ -36,14 +35,13 @@
 	                                   	</ul>
                                     </li>
                                 </ul>
-                            </div>
                         </nav>
 <% 
 	final NewsletterSignUpHelper helper = new NewsletterSignUpHelper(properties, pageManager);
 	
 	if (helper.isComponentInitialised()) {
 %>
-	<div class="footer-utility columns large-3 newslettersignup">
+	<div class="small-12 medium-12 large-3 columns footer-utility newslettersignup">
 		<form action="<%= dynamicPageHelper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
 		  <fieldset>
             <legend><%= helper.getTitle() %></legend>
@@ -72,8 +70,8 @@
 %>
                     </div>
                 </div>
-                <div class="footer-info columns large-3 medium-3" title="Natural History Museum">
-                    <p>&copy; The Trustees of the Natural History Museum, London </p>
+                <div class="small-12 medium-3 large-3 columns footer-info" title="Natural History Museum">
+                    <p class="footer-info-text">&copy; The Trustees of the Natural History Museum, London</p>
                 </div>
             </div>
         </footer>
@@ -84,11 +82,11 @@
     <div class="container">
 
         <div class="row">
-            <div class="span11 small-11 columns">
+            <div class="small-11 medium-11 large-11 columns span11">
 					<p class="mobile">Leave <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a> about our new website. <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">More information</a>.</p>
                 	<p class="tablet desktop">You are viewing our new website - we would love to hear your <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a>. Find out about our <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">website redevelopment project</a>.</p>
             </div>
-             <div class="span1 small-1 columns">
+             <div class="small-1 medium-1 large-1 columns span1">
                 <a class="feedback-close" title="Close feedback bar">
 						<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__general_close" data-stroke-width="8" data-base-color="#EEEEEE"></i>
 					</a>              
