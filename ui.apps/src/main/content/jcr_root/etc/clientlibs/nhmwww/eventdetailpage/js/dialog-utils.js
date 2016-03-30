@@ -2,7 +2,7 @@
 function displayEventConfig(field,value) {
     //Find the parent tabpanel container
     var tabs = field.findParentByType('tabpanel');
-    var tabNames = ["schoolTab","scienceTab"];
+    var tabNames = ["School","Science"];
     //Compares the value get and the Array to display/hide the Tabs
     for (var i = 0; i < tabNames.length; i++){
         tabs.hideTabStripItem(tabNames[i]); 

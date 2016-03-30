@@ -109,6 +109,9 @@ public class EventPagesListener implements EventListener {
 	private EventPageDetail populateEventDetail(Node iteratedNode) throws PathNotFoundException, RepositoryException, JSONException { 
 		EventPageDetail eventDetail = new EventPageDetail();
 		//Common Event Values
+		if (iteratedNode.hasProperty("./jcr:eventPagePath")) {
+			eventDetail.setEventPagePath(iteratedNode.getProperty("./jcr:eventPagePath").getString());
+		}
 		if (iteratedNode.hasProperty("eventSelect")) {
 			eventDetail.setEventType(iteratedNode.getProperty("eventSelect").getString());
 		}
@@ -183,6 +186,7 @@ public class EventPagesListener implements EventListener {
 			JSONObject events = new JSONObject();
 			
 			//Common Event Values
+			events.put("eventPagePath",event.getEventPagePath());
 			events.put("eventType",event.getEventType());
 			events.put("title",event.getTitle());
 			events.put("description",event.getDescription());

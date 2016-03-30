@@ -6,6 +6,7 @@
         <elementType
             jcr:primaryType="cq:Widget"
             collapsed="{Boolean}false"
+            cls="events-dialog"
             collapsible="{Boolean}false"
             xtype="dialogfieldset">
             <items jcr:primaryType="cq:WidgetCollection">
@@ -13,6 +14,11 @@
                     jcr:primaryType="cq:Widget"
                     hidden="true"
                     name="./jcr:datesRecurrence"
+                    xtype="textfield"/>
+                <eventPagePath
+                    jcr:primaryType="cq:Widget"
+                    hidden="true"
+                    name="./jcr:eventPagePath"
                     xtype="textfield"/>
                 <eventsList
                     jcr:primaryType="cq:Widget"
@@ -24,23 +30,23 @@
                         <exhibition
                             jcr:primaryType="nt:unstructured"
                             text="Exhibition"
-                            value="exhibitionTab"/>
+                            value="Exhibition"/>
                         <school
                             jcr:primaryType="nt:unstructured"
                             text="School"
-                            value="schoolTab"/>
+                            value="School"/>
                         <science
                             jcr:primaryType="nt:unstructured"
                             text="Science"
-                            value="scienceTab"/>
+                            value="Science"/>
                         <tring
                             jcr:primaryType="nt:unstructured"
                             text="Tring"
-                            value="tringTab"/>
+                            value="Tring"/>
                         <visitor
                             jcr:primaryType="nt:unstructured"
                             text="Visitor"
-                            value="visitorTab"/>
+                            value="Visitor"/>
                     </options>
                     <listeners
                         jcr:primaryType="nt:unstructured"
@@ -60,11 +66,15 @@
                     allowBlank="false"
                     fieldLabel="Event Title"
                     name="./jcr:eventTitle"
+                    maxLength="45"
+                    maxLengthText="The max length for this field is 45 characters" 
                     xtype="textfield"/>
                 <eventDescription
                     jcr:primaryType="cq:Widget"
                     allowBlank="false"
                     fieldLabel="Event Description"
+                    maxLength="125"
+                    maxLengthText="The max length for this field is 125 characters" 
                     name="./jcr:eventDescription"
                     xtype="textarea"/>
                 <eventVenue

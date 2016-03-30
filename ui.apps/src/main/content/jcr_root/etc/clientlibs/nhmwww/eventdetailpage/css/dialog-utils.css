@@ -3,65 +3,65 @@
  * Needed to improve the dialog style due to the amount of info displayed
  *
  */
-.event-list .x-panel-body {
+.events-dialog .event-list .x-panel-body {
     display: inline-flex !important;
 }
 
-.event-list .x-form-check-wrap {
+.events-dialog .event-list .x-form-check-wrap {
     width: 100px !important;
     line-height: 25px !important;
 }
 
-.event-list .x-form-check-wrap input {
+.events-dialog .event-list .x-form-check-wrap input {
     vertical-align: inherit !important;
 }
 
-.recur-list .x-form-text {
+.events-dialog .recur-list .x-form-text {
     min-width: 175px !important;
     max-width: 175px !important;
 }
 
-.dates-container {
+.events-dialog .dates-container {
     margin-left: -134px !important;
     width: 717px !important;
 }
 
-.dates-container-field {
+.events-dialog .dates-container-field {
     border-bottom: 1px solid #999 !important;
 }
 
-.dates-container .x-panel-header {
+.events-dialog .dates-container .x-panel-header {
     width: 707px !important;
 }
 
-.recurrence-panel {
+.events-dialog .recurrence-panel {
     margin-left: -102px !important;
     width: 640px !important;
 } 
 
-.dates-container .x-panel-body,
-.times-container .x-panel-header,
-.recurrence-panel .x-panel-body{
+.events-dialog .dates-container .x-panel-body,
+.events-dialog .times-container .x-panel-header,
+.events-dialog .recurrence-panel .x-panel-body{
     width: auto !important;
 }
 
-.dates-container .x-toolbar-cell {
+.events-dialog .dates-container .x-toolbar-cell {
     vertical-align: top !important;
 }
 
-.dates-container .x-panel-bwrap {
+.events-dialog .dates-container .x-panel-bwrap {
     overflow: visible !important;
 }
 
-.dialog-checkbox .x-panel-bwrap,
-.dialog-checkbox .x-panel-body {
+.events-dialog .dialog-checkbox .x-panel-bwrap,
+.events-dialog .dialog-checkbox .x-panel-body {
     width: 50% !important;
 }
 
-.times-container {
+.events-dialog .times-container {
     width: 350px !important;
 }
 
-.dates-container .event-list .x-form-check-wrap {
+.events-dialog .dates-container .event-list .x-form-check-wrap {
     width: 75px !important;
 }

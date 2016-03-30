@@ -3,6 +3,7 @@ package uk.ac.nhm.nhm_www.core.model;
 import java.util.ArrayList;
 
 public class EventPageDetail {
+	String eventPagePath = "";
 	String eventType = "";
 	String title = "";
 	String description = "";
@@ -24,6 +25,14 @@ public class EventPageDetail {
 	ArrayList <String> tags = new ArrayList<String>();
 	ArrayList <String> subject = new ArrayList<String>();
 	ArrayList <String> scienceSubject = new ArrayList<String>();
+	
+	public void setEventPagePath(String eventPagePath) {
+		this.eventPagePath = eventPagePath;
+	}
+	
+	public String getEventPagePath() {
+		return this.eventPagePath;
+	}
 	
 	public void setEventType(String eventType) {
 		this.eventType = eventType;

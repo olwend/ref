@@ -1,18 +1,23 @@
 //Function to validate the datepickers
 function createDates(dlg) {
-    
     var multi           = dlg.findByType('multifield'),
         datesRecurrence = dlg.findByType('textfield')[0],
+        eventPagePath   = dlg.findByType('textfield')[1],
         EventDates      = "";
     
     datesRecurrence.setValue("");
+    //Sets the page path
+    eventPagePath.setValue(CQ.WCM.getPagePath());
     
     for (var i = 0; i < multi.length; i++) {
+        if (multi[i].title == "Dates") {
+                var date = multi[i].findByType('datetime')[0];
+                EventDates += date.getValue();
+        }
         
         if (multi[i].title == "Recurrence") {
             
             var panel       = multi[i].findParentByType("panel"),
-                date        = panel.findByType('datetime')[0],
                 startDate   = multi[i].findByType('datetime')[0];
             
             if (startDate){
@@ -24,8 +29,6 @@ function createDates(dlg) {
                     option          = recurSelectList.getValue(),
                     weekDayList     = multi[i].findByType('selection')[3],
                     weekdays        = weekDayList.getValue();                    
-
-                EventDates += date.getValue();
 
                 switch(option[0]) {
                         
