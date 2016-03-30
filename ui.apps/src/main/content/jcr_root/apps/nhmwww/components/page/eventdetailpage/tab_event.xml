@@ -6,7 +6,6 @@
         <elementType
             jcr:primaryType="cq:Widget"
             collapsed="{Boolean}false"
-            cls="events-dialog"
             collapsible="{Boolean}false"
             xtype="dialogfieldset">
             <items jcr:primaryType="cq:WidgetCollection">

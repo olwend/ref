@@ -4,6 +4,7 @@
     height="700"
     stateful="false"
     width="800"
+    cls="events-dialog"
     xtype="dialog">
     <items jcr:primaryType="cq:WidgetCollection">
         <tabs jcr:primaryType="cq:TabPanel">
