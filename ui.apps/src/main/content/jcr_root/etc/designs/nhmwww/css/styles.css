@@ -6631,7 +6631,7 @@ h6 {
   position: relative;
   margin-bottom: 0;
 }
-.main-footer .framed-wrapper {
+.main-footer .footer--frame-wrapper {
   position: relative;
   border-radius: 0 30px;
   border: 2px solid #fff;
@@ -6639,17 +6639,17 @@ h6 {
   padding: 2em 5%;
 }
 @media screen and (min-width: 768px) {
-  .main-footer .framed-wrapper {
+  .main-footer .footer--frame-wrapper {
     padding: 1.5em 2%;
     margin-bottom: 0;
   }
 }
-.main-footer .framed-wrapper:before, .main-footer .framed-wrapper:after {
+.main-footer .footer--frame-wrapper:before, .main-footer .footer--frame-wrapper:after {
   display: block;
   content: "";
   position: absolute;
 }
-.main-footer .framed-wrapper:before {
+.main-footer .footer--frame-wrapper:before {
   bottom: -2px;
   left: 10%;
   width: 80%;
@@ -6657,7 +6657,7 @@ h6 {
   border-top: 2px solid #565656;
   border-bottom: 2px solid #565656;
 }
-.main-footer .framed-wrapper:after {
+.main-footer .footer--frame-wrapper:after {
   right: -2px;
   top: 12.5%;
   width: 100%;
@@ -6665,12 +6665,12 @@ h6 {
   border-left: 2px solid #565656;
   border-right: 2px solid #565656;
 }
-.main-footer .framed:before, .main-footer .framed:after {
+.main-footer .footer--frame:before, .main-footer .footer--frame:after {
   display: block;
   content: "";
   position: absolute;
 }
-.main-footer .framed:before {
+.main-footer .footer--frame:before {
   top: -2px;
   left: 10%;
   width: 80%;
@@ -6678,7 +6678,7 @@ h6 {
   border-top: 2px solid #565656;
   border-bottom: 2px solid #565656;
 }
-.main-footer .framed:after {
+.main-footer .footer--frame:after {
   left: -2px;
   top: 12.5%;
   width: 100%;
@@ -6827,11 +6827,11 @@ h6 {
     background-size: auto;
   }
 }
-.main-footer .footer-info p {
+.main-footer .footer-info .footer-info-text {
   font-size: 0.8em;
 }
 @media screen and (min-width: 768px) {
-  .main-footer .footer-info p {
+  .main-footer .footer-info .footer-info-text {
     position: absolute;
     bottom: 30%;
     left: 44%;
@@ -6841,7 +6841,7 @@ h6 {
   }
 }
 @media screen and (min-width: 1025px) {
-  .main-footer .footer-info p {
+  .main-footer .footer-info .footer-info-text {
     left: 33%;
     bottom: 20%;
   }
