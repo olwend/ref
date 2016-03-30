@@ -6803,6 +6803,8 @@ h6 {
   border: 2px solid #AE3C39;
   padding: 0.75em;
   color: #AE3C39;
+  font-size: 0.875em;
+  line-height: 1.5;
   display: none;
   width: 94%;
   margin-bottom: 0.5em;
