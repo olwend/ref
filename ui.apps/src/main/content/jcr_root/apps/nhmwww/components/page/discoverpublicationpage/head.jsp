@@ -59,9 +59,14 @@
 		<meta property="og:description" content="<%=helper.getPageDescription() %>">
 	<%} %>
 	
-	<%if(!helper.getOgImagePath().equals("")) { %>
-		<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
-	<%} %>
+	<%if(!helper.getOgImagePath().equals("")) { 
+		if(helper.getSelectTab().equals("radioImage")) {%>
+			<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
+		<%}
+		else if(helper.getSelectTab().equals("radioVideo")) { %>
+			<meta property="og:image" content="http://img.youtube.com/vi/<%= helper.getOgImagePath()%>/maxresdefault.jpg"/>
+		<%} 
+	}%>
 
 
     <cq:include script="headlibs.jsp"/>

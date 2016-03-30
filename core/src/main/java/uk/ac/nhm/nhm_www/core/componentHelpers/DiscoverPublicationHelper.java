@@ -65,6 +65,7 @@ public class DiscoverPublicationHelper {
 	private String ogImagePath;
 	private String pageTitle;
 	private String pageDescription;
+	private String selectTab;
 	
 	/**
 	 * Helper Class Constructor.
@@ -131,6 +132,12 @@ public class DiscoverPublicationHelper {
 			pageDescription = getProperties().get("jcr:description", String.class);
 		}
 		setPageDescription(pageDescription);
+		
+		String selectTab = "";
+		if(getProperties().get("selectTab") != null) {
+			selectTab = getProperties().get("selectTab", String.class);
+		}
+		setSelectTab(selectTab);
 	}
 	
 	public Resource getResource() {
@@ -433,6 +440,14 @@ public class DiscoverPublicationHelper {
 
 	public void setPageDescription(String pageDescription) {
 		this.pageDescription = pageDescription;
+	}
+
+	public String getSelectTab() {
+		return selectTab;
+	}
+
+	public void setSelectTab(String selectTab) {
+		this.selectTab = selectTab;
 	}
 	
 }

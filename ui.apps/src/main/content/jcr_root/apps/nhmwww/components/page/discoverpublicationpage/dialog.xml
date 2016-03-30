@@ -57,8 +57,30 @@
             			xtype="pathfield"
             			fieldLabel="OG Image Path"
             			rootPath="/content/dam/nhmwww"/>
+            		<gridlayout
+					    jcr:primaryType="cq:Widget"
+					    itemId="dispotions"
+					    name="./selectTab"
+					    type="radio"
+					    xtype="selection"
+					    layout="hbox"
+					    fieldLabel="Media Type">
+					    <options jcr:primaryType="cq:WidgetCollection">
+					        <grid1
+					            jcr:primaryType="nt:unstructured"
+					            text="Image"
+					            value="radioImage"/>
+					        <grid2
+					            jcr:primaryType="nt:unstructured"
+					            text="Video"
+					            value="radioVideo"/>
+					    </options>
+					    <optionsConfig 
+					        jcr:primaryType="nt:unstructured"
+					        width="60" />
+					</gridlayout>
             	</items>
-           	</Facebook>          
+           	</Facebook>
         </items>
         
     </items>
