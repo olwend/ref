@@ -23,7 +23,7 @@
                                 	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
                                 	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
-                                    <li>Follow us</li>
+                                    <li class="footer--icon-list-title">Follow us</li>
                                     <li class="footer--icon-list-container">
 										<ul class="small-block-grid-3 medium-block-grid-3 large-block-grid-3 icon-list">
 											<li><a href="https://www.facebook.com/naturalhistorymuseum"><img src="<%= currentDesign.getPath() + "/img/icons/facebook.png"%>" alt="Facebook"></a></li>
