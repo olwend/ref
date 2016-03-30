@@ -44,17 +44,25 @@
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
 	
-	<%if(!helper.getOgTitle().equals(null) || helper.getOgTitle() != null) { %>
+	
+	<%if(!helper.getOgTitle().equals("")) { %>
 		<meta property="og:title" content="<%=helper.getOgTitle() %>">
+	<% }
+	else { %>
+		<meta property="og:title" content="<%=helper.getPageTitle() %>">
 	<%} %>
 	
-	<%if(!helper.getOgDescription().equals(null) || helper.getOgDescription() != null) { %>
+	<%if(!helper.getOgDescription().equals("")) { %>
 		<meta property="og:description" content="<%=helper.getOgDescription() %>" >
+	<% }
+	else { %>
+		<meta property="og:description" content="<%=helper.getPageDescription() %>">
 	<%} %>
 	
-	<%if(!helper.getOgImagePath().equals(null) || helper.getOgImagePath() != null) { %>
-		<meta property="og:image" content="<%=helper.getOgImagePath() %>">
+	<%if(!helper.getOgImagePath().equals("")) { %>
+		<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
 	<%} %>
+
 
     <cq:include script="headlibs.jsp"/>
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>

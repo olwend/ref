@@ -54,8 +54,9 @@
             		<ogimage
             			jcr:primaryType="cq:Widget"
             			name="./ogimagepath"
-            			xtype="textfield"
-            			fieldLabel="OG Image Path"/>
+            			xtype="pathfield"
+            			fieldLabel="OG Image Path"
+            			rootPath="/content/dam/nhmwww"/>
             	</items>
            	</Facebook>          
         </items>

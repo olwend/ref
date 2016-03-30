@@ -63,6 +63,8 @@ public class DiscoverPublicationHelper {
 	private String ogTitle;
 	private String ogDescription;
 	private String ogImagePath;
+	private String pageTitle;
+	private String pageDescription;
 	
 	/**
 	 * Helper Class Constructor.
@@ -92,10 +94,14 @@ public class DiscoverPublicationHelper {
 	public DiscoverPublicationHelper(Resource resource) {
 		setResource(resource);
 		setProperties(resource.adaptTo(ValueMap.class));
+		
 		init();
+		
+		
 	}
 	
 	private void init() {
+		//Set title / description / image path variables		
 		String ogTitle = "";
 		if(getProperties().get("ogtitle") != null) {
 			ogTitle = getProperties().get("ogtitle", String.class);
@@ -113,6 +119,18 @@ public class DiscoverPublicationHelper {
 			ogImagePath = getProperties().get("ogimagepath", String.class);
 		}
 		setOgImagePath(ogImagePath);
+		
+		String pageTitle = "";
+		if(getProperties().get("jcr:title") != null) {
+			pageTitle = getProperties().get("jcr:title", String.class);
+		}
+		setPageTitle(pageTitle);
+		
+		String pageDescription = "";
+		if(getProperties().get("jcr:description") != null) {
+			pageDescription = getProperties().get("jcr:description", String.class);
+		}
+		setPageDescription(pageDescription);
 	}
 	
 	public Resource getResource() {
@@ -399,6 +417,22 @@ public class DiscoverPublicationHelper {
 
 	public void setOgImagePath(String ogImagePath) {
 		this.ogImagePath = ogImagePath;
+	}
+
+	public String getPageTitle() {
+		return pageTitle;
+	}
+
+	public void setPageTitle(String pageTitle) {
+		this.pageTitle = pageTitle;
+	}
+
+	public String getPageDescription() {
+		return pageDescription;
+	}
+
+	public void setPageDescription(String pageDescription) {
+		this.pageDescription = pageDescription;
 	}
 	
 }
