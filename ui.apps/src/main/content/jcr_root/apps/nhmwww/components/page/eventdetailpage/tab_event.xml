@@ -168,6 +168,7 @@
                                     jcr:primaryType="cq:Widget"
                                     allowBlank="{Boolean}false"
                                     cls="times-container-time"
+                                    format="H:i"
                                     dName="time"
                                     fieldLabel="Time"
                                     xtype="timefield"/>
