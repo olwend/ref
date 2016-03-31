@@ -45,18 +45,23 @@
             			jcr:primaryType="cq:Widget"
             			name="./ogtitle"
             			xtype="textfield"
-            			fieldLabel="OG Title"/>
+            			fieldLabel="Title"/>
             		<ogdescription
             			jcr:primaryType="cq:Widget"
             			name="./ogdescription"
-            			xtype="textfield"
-            			fieldLabel="OG Description"/>
+            			xtype="textarea"
+            			fieldLabel="Description"/>
             		<ogimage
             			jcr:primaryType="cq:Widget"
             			name="./ogimagepath"
             			xtype="pathfield"
-            			fieldLabel="OG Image Path"
+            			fieldLabel="Image Path"
             			rootPath="/content/dam/nhmwww"/>
+            		<ogvideo
+            			jcr:primaryType="cq:Widget"
+            			name="./ogvideopath"
+            			xtype="textfield"
+            			fieldLabel="YouTube ID"/>
             		<gridlayout
 					    jcr:primaryType="cq:Widget"
 					    itemId="dispotions"

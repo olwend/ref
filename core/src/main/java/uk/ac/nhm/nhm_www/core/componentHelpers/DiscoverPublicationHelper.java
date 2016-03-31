@@ -102,37 +102,51 @@ public class DiscoverPublicationHelper {
 	}
 	
 	private void init() {
-		//Set title / description / image path variables		
+		//Initialise variables from Facebook tab
+		
+		//Set title		
 		String ogTitle = "";
 		if(getProperties().get("ogtitle") != null) {
 			ogTitle = getProperties().get("ogtitle", String.class);
 		}
 		setOgTitle(ogTitle);
 		
+		//Set description
 		String ogDescription = "";
 		if(getProperties().get("ogdescription") != null) {
 			ogDescription = getProperties().get("ogdescription", String.class);
 		}
 		setOgDescription(ogDescription);
-		
+
+		//Set image path - value is dependent on which radio button is selected
 		String ogImagePath = "";
-		if(getProperties().get("ogimagepath") != null) {
-			ogImagePath = getProperties().get("ogimagepath", String.class);
+		if(getProperties().get("selectTab").equals("radioImage")) {
+			if(getProperties().get("ogimagepath") != null) {
+				ogImagePath = getProperties().get("ogimagepath", String.class);
+			}
+		}
+		else if(getProperties().get("selectTab").equals("radioVideo")) {
+			if(getProperties().get("ogvideopath") != null) {
+				ogImagePath = getProperties().get("ogvideopath", String.class);
+			}
 		}
 		setOgImagePath(ogImagePath);
-		
+
+		//Set title - default from 'Basic' tab
 		String pageTitle = "";
 		if(getProperties().get("jcr:title") != null) {
 			pageTitle = getProperties().get("jcr:title", String.class);
 		}
 		setPageTitle(pageTitle);
 		
+		//Set description - default from 'Basic' tab
 		String pageDescription = "";
 		if(getProperties().get("jcr:description") != null) {
 			pageDescription = getProperties().get("jcr:description", String.class);
 		}
 		setPageDescription(pageDescription);
 		
+		//Set value of radio buttons
 		String selectTab = "";
 		if(getProperties().get("selectTab") != null) {
 			selectTab = getProperties().get("selectTab", String.class);
