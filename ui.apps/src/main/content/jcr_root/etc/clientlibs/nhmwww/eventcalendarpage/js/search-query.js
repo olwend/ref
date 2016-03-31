@@ -77,9 +77,9 @@ function createSearchResult(event, ul, counter) {
     
     h3.innerHTML = event.title;
     paragraph.innerHTML =   getEventDates(event.dates) + "<br/>" +
-                            "Event type: " + "<b>" + event.eventType + "</b><br/>" +
-                            "Time: " + "<br/>" + //TODO: REVIEW HOW TO ASSOCIATE TIME TO THE DATES
-                            "Ticket price: " + "<b>" + getEventPrice(event.adultPrice, event.concessionPrice, event.customPrice, event.familyPrice, event.memberPrice) + "</b><br/>" +
+                            "Event type: <b>" + event.eventType + "</b><br/>" +
+                            "Time: <b>" + getEventTimes(event.dates, event.allDay, event.times) + "</b><br/>" +
+                            "Ticket price: <b>" + getEventPrice(event.adultPrice, event.concessionPrice, event.customPrice, event.familyPrice, event.memberPrice) + "</b><br/>" +
                             event.description;
     
     imageDiv.appendChild(img);
@@ -106,6 +106,35 @@ function getEventDates(dates) {
         return parseDate(lastDate, true);
     } 
     return parseDate(new Date(),true) + " - " + parseDate(lastDate,true);
+};
+
+//Helper function to get the times
+function getEventTimes(dates, allDay, times) {
+    var eventTimes  = [],
+        index       = "";
+    
+    for (var i = 0; i < dates.length; i++) {
+        var date = new Date(dates[i]);
+        if (parseDate(new Date(), false) == parseDate(date, false)) { 
+            index = dates[i].substr(dates[i].length - 1);
+            break;
+        }
+    }
+    if (index != "") {        
+        if (allDay[index] == "true") {
+            return "All day";
+        }
+        
+        eventTimes = times[index].split(",");
+        
+        if (eventTimes.length == 1) {
+            return eventTimes[0];
+        }
+        
+        if (eventTimes.length > 1) {
+            return "Times vary";
+        }
+    }
 };
 
 //Helper function to convert the dates to string and to parse the date to the correct format

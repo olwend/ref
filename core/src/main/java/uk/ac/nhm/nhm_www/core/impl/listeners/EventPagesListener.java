@@ -136,6 +136,12 @@ public class EventPagesListener implements EventListener {
 		if (iteratedNode.hasProperty("jcr:datesRecurrence")) {
 			eventDetail.setDates(createDatesArray(iteratedNode.getProperty("jcr:datesRecurrence").getString()));
 		}
+		if (iteratedNode.hasProperty("jcr:allDayRecurrence")) {
+			eventDetail.setAllDay(createAllDayArray(iteratedNode.getProperty("jcr:allDayRecurrence").getString()));
+		}
+		if (iteratedNode.hasProperty("jcr:timesRecurrence")) {
+			eventDetail.setTimes(createTimesArray(iteratedNode.getProperty("jcr:timesRecurrence").getString()));
+		}
 		if (iteratedNode.hasProperty("adultPrice")) {
 			eventDetail.setAdultPrice(iteratedNode.getProperty("adultPrice").getString());
 		}
@@ -195,6 +201,8 @@ public class EventPagesListener implements EventListener {
 			events.put("tileLink",event.getEventTileLink());
 			events.put("tags",event.getTags());
 			events.put("dates",event.getDates());
+			events.put("allDay",event.getAllDay());
+			events.put("times",event.getTimes());
 			events.put("adultPrice",event.getAdultPrice());
 			events.put("concessionPrice",event.getConcessionPrice());
 			events.put("memberPrice",event.getMemberPrice());
@@ -229,8 +237,40 @@ public class EventPagesListener implements EventListener {
 	//Helper function to create the dates Array
 	private ArrayList<String> createDatesArray(String stringValue) {
 		ArrayList<String> stringArray = new ArrayList<String>();
+		
 		String[] values = stringValue.split(","); 
+		
 		for (int i = 0; i < values.length; i++) {
+			stringArray.add(values[i]);
+		}
+		return stringArray;
+	}
+	
+	//Helper function to create the All Day Array
+	private ArrayList<String> createAllDayArray(String stringValue) {
+		ArrayList<String> stringArray = new ArrayList<String>();
+		
+		stringValue = stringValue.replaceAll("[^\\w\\s\\,]", "");
+		
+		String[] values = stringValue.split(","); 
+		
+		for (int i = 0; i < values.length; i++) {
+			stringArray.add(values[i]);
+		}
+		return stringArray;
+	}
+	
+	//Helper function to create the Times Array
+	private ArrayList<String> createTimesArray(String stringValue) {
+		ArrayList<String> stringArray = new ArrayList<String>();
+		
+		stringValue = stringValue.replace("\"", "");
+		stringValue = stringValue.substring(1, stringValue.length()-1);
+		
+		String[] values = stringValue.split("],"); 
+		
+		for (int i = 0; i < values.length; i++) {
+			values[i] = values[i].replaceAll("[^\\w\\s\\,\\:]", "");
 			stringArray.add(values[i]);
 		}
 		return stringArray;

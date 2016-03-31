@@ -14,6 +14,16 @@
                     hidden="true"
                     name="./jcr:datesRecurrence"
                     xtype="textfield"/>
+                <allDayRecurrence
+                    jcr:primaryType="cq:Widget"
+                    hidden="true"
+                    name="./jcr:allDayRecurrence"
+                    xtype="textfield"/>
+                <timesRecurrence
+                    jcr:primaryType="cq:Widget"
+                    hidden="true"
+                    name="./jcr:timesRecurrence"
+                    xtype="textfield"/>
                 <eventPagePath
                     jcr:primaryType="cq:Widget"
                     hidden="true"

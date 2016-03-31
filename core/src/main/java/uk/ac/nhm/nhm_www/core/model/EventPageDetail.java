@@ -22,6 +22,8 @@ public class EventPageDetail {
 	String speakerDetails = "";
 	
 	ArrayList <String> dates = new ArrayList<String>();
+	ArrayList <String> allDay = new ArrayList<String>();
+	ArrayList <String> times = new ArrayList<String>();
 	ArrayList <String> tags = new ArrayList<String>();
 	ArrayList <String> subject = new ArrayList<String>();
 	ArrayList <String> scienceSubject = new ArrayList<String>();
@@ -167,6 +169,22 @@ public class EventPageDetail {
 	
 	public ArrayList<String> getDates() {
 		return this.dates;
+	}
+	
+	public void setAllDay(ArrayList<String> allDay) {
+		this.allDay = allDay;
+	}
+	
+	public ArrayList<String> getAllDay() {
+		return this.allDay;
+	}
+	
+	public void setTimes(ArrayList<String> times) {
+		this.times = times;
+	}
+	
+	public ArrayList<String> getTimes() {
+		return this.times;
 	}
 	
 	public void setTags(ArrayList<String> tags) {
