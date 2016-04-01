@@ -13,43 +13,82 @@ function displayTodayEvents() {
         showMore    = document.getElementById("showMore"),
         titleH2     = document.createElement("h2"),
         ul          = document.createElement("ul"),
+        results     = [],
         flag        = true,
         counter     = 0;
     
     showMore.style.display = "none"; 
     titleH2.innerHTML = "Today's Events";
     ul.className = "small-block-grid-3";
-    
-    //TODO: REMOVE THE LOG
-    console.log(eventsJson);
+
     for (var i = 0; i < eventsJson.Events.length;  i++) {
-        var eventFlag = false;
         for (var j = 0; j < eventsJson.Events[i].dates.length;  j++) {
             var date = new Date(eventsJson.Events[i].dates[j]);
             if (parseDate(today, false) == parseDate(date, false)) {
-                counter ++;
                 if (flag) {
                     flag = false;
                     //Appends the title
                     container.appendChild(titleH2);
                 }
-                eventFlag = true;
+                results.push(eventsJson.Events[i]);
                 break;
             }
         }
-        if (eventFlag) {
-            createSearchResult(eventsJson.Events[i], ul, counter);
+    }
+    
+    if (results.length > 0) {
+        results = orderResults(results);
+        for (var k = 0; k < results.length; k ++) {
+            counter ++;
+            createSearchResult(results[k], ul, counter);
             if (counter > 6) {
                 showMore.style.display = "table";
             }
         }
     }
+    
     //Adds the listener to the show more div
     showMore.addEventListener('click', function(e){
         showMoreEvents(e, counter, ul, showMore);
     }, false);
     
     container.appendChild(ul);
+};
+
+//Function to order the search results
+function orderResults(results) {
+    var orderResults    = [],
+        notAllDay       = [],
+        finalResults    = [];
+    
+    //Order the events by name
+    results = results.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+    });
+    
+    //Gets the All day first
+    for (var i = 0; i < results.length; i++) {
+        if (getEventTimes(results[i], false) == "All day") {
+            orderResults.push(results[i]);
+        }
+        else {
+            notAllDay.push(results[i]);
+        }
+    }
+    //Order the rest by time
+    notAllDay = notAllDay.sort(function(a, b) {
+        if (getEventTimes(a, true) > getEventTimes(b, true)) {
+            return 1;
+        }
+        if (getEventTimes(a, true) < getEventTimes(b, true)) {
+            return -1;
+        }    
+        return 0;
+    });
+    
+    orderResults = orderResults.concat(notAllDay);
+    
+    return orderResults;
 };
 
 //Populates the single event li and events ul
@@ -78,7 +117,7 @@ function createSearchResult(event, ul, counter) {
     h3.innerHTML = event.title;
     paragraph.innerHTML =   getEventDates(event.dates) + "<br/>" +
                             "Event type: <b>" + event.eventType + "</b><br/>" +
-                            "Time: <b>" + getEventTimes(event.dates, event.allDay, event.times) + "</b><br/>" +
+                            "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
                             "Ticket price: <b>" + getEventPrice(event.adultPrice, event.concessionPrice, event.customPrice, event.familyPrice, event.memberPrice) + "</b><br/>" +
                             event.description;
     
@@ -109,8 +148,11 @@ function getEventDates(dates) {
 };
 
 //Helper function to get the times
-function getEventTimes(dates, allDay, times) {
-    var eventTimes  = [],
+function getEventTimes(event, getTimes) {
+    var dates       = event.dates,
+        allDay      = event.allDay,
+        times       = event.times,
+        eventTimes  = [],
         index       = "";
     
     for (var i = 0; i < dates.length; i++) {
@@ -120,7 +162,7 @@ function getEventTimes(dates, allDay, times) {
             break;
         }
     }
-    if (index != "") {        
+    if (index != "" && !getTimes) {        
         if (allDay[index] == "true") {
             return "All day";
         }
@@ -135,6 +177,11 @@ function getEventTimes(dates, allDay, times) {
             return "Times vary";
         }
     }
+    
+    eventTimes = times[index].split(",");
+    var myTime = eventTimes[0].replace(':','');
+    
+    return parseInt(myTime);
 };
 
 //Helper function to convert the dates to string and to parse the date to the correct format
