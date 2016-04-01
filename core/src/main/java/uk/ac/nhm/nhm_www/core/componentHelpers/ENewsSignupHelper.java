@@ -19,7 +19,7 @@ public class ENewsSignupHelper extends HelperBase {
 	/**
 	 * Set a default campaign in case it does not get set
 	 */
-	private String campaign = "www";
+	private String campaign = "eNewsletters";
 
 	public ENewsSignupHelper(ValueMap properties) {
 

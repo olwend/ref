@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="cq:Dialog"
-    height="{Long}400"
-    title="News List Feed"
-    width="1000"
-    xtype="dialog">
+          jcr:primaryType="cq:Dialog"
+          height="{Long}400"
+          title="News List Feed"
+          width="1000"
+          xtype="dialog">
     <items
         jcr:primaryType="cq:Widget"
         xtype="tabpanel">
@@ -20,37 +20,56 @@
                         name="./title"
                         width="155"
                         xtype="textfield"/>
-                        <description
+                    <description
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Description"
                         name="./description"
                         width="155"
                         xtype="textfield"/>
-                        <campaign
+                    <campaign
                         jcr:primaryType="cq:Widget"
+                        defaultValue="eNewsletters"
                         fieldLabel="Marketing Campaign"
                         name="./campaign"
                         width="155"
-                        xtype="textfield"/>
-                        <dataProtection
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="eNewsletters"
+                                value="eNewsletters"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="WiFi Signups"
+                                value="WiFi Signups"/>
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="App Signups"
+                                value="App Signups"/>
+        
+                        </options>
+                    </campaign>
+                    <dataProtection
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Data Protection Statement"
                         name="./dataProtection"
                         width="155"
+                        height="300"
                         xtype="textfield"/>
-<!--                     <hyperlink -->
-<!--                         jcr:primaryType="cq:Widget" -->
-<!--                         fieldLabel="Hyperlink" -->
-<!--                         itemId="hyperlink" -->
-<!--                         name="./hyperlink" -->
-<!--                         width="155" -->
-<!--                         xtype="pathfield"/> -->
-<!--                     <newwindow -->
-<!--                         jcr:primaryType="cq:Widget" -->
-<!--                         fieldLabel="Open in New Window" -->
-<!--                         name="./newwindow" -->
-<!--                         type="checkbox" -->
-<!--                         xtype="selection"/> -->
+                    <!--                     <hyperlink -->
+                    <!--                         jcr:primaryType="cq:Widget" -->
+                    <!--                         fieldLabel="Hyperlink" -->
+                    <!--                         itemId="hyperlink" -->
+                    <!--                         name="./hyperlink" -->
+                    <!--                         width="155" -->
+                    <!--                         xtype="pathfield"/> -->
+                    <!--                     <newwindow -->
+                    <!--                         jcr:primaryType="cq:Widget" -->
+                    <!--                         fieldLabel="Open in New Window" -->
+                    <!--                         name="./newwindow" -->
+                    <!--                         type="checkbox" -->
+                    <!--                         xtype="selection"/> -->
                 </items>
             </basic>
         </items>
