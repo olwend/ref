@@ -1,0 +1,38 @@
+.event--calendar--wrapper {
+    display: table;
+    background-color: #565656;
+    padding: 1.5em 1.5em 1em 1.5em;
+    color: #FFFFFF;
+}
+
+.search-keywords input {
+    height: 6.4em;
+}
+
+.date--button {
+    position: relative;
+    padding: 0;
+    background: none;
+    border: 1px solid #FFFFFF;
+//    border-bottom: none;
+    font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+//    -moz-box-shadow: inset 0 -10px 0 -7px #484848;
+//    -webkit-box-shadow: inset 0 -10px 0 -7px #484848;
+//    box-shadow: inset 0 -10px 0 -7px #484848;
+}
+
+.date--button:hover {
+    background: #FFFFFF;
+    color: #565656;
+}
+
+.date--button input {
+    padding: 0;
+    background: none;
+    border: none;
+    line-height: 1.9em;
+}
