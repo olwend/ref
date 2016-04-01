@@ -25,7 +25,6 @@ public class DynamicPageHelper {
 	private Boolean defaultLegacyCSS;
 	
 	public DynamicPageHelper(Resource resource,ValueMap properties, HttpServletRequest request)	{
-		
 //		this.image = getProperties().get("image", String.class);
 		setResource(resource);
 		setProperties(properties);
@@ -40,6 +39,7 @@ public class DynamicPageHelper {
 		setProperties(page.getProperties());;
 		init();
 	}
+	
 	private void init() {
 		String pageIntroduction = "";
 		if(getProperties().get("pageIntroduction") !=null) {
