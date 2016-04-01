@@ -12,6 +12,7 @@ import uk.ac.nhm.nhm_www.core.model.FileReference;
 
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.foundation.Image;
 
 /**
@@ -59,6 +60,13 @@ public class DiscoverPublicationHelper {
 	private String imageAlt;
 	private boolean imageConfigured;
 	
+	private String ogTitle;
+	private String ogDescription;
+	private String ogImagePath;
+	private String pageTitle;
+	private String pageDescription;
+	private String selectTab;
+	
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
@@ -82,6 +90,76 @@ public class DiscoverPublicationHelper {
 			this.imageSuffix = fileReference.getExtension();
 			this.imageAlt = fileReference.getAlt();
 		}
+	}
+	
+	public DiscoverPublicationHelper(Resource resource) {
+		setResource(resource);
+		setProperties(resource.adaptTo(ValueMap.class));
+		
+		init();
+		
+		
+	}
+	
+	private void init() {
+		//Initialise variables from Facebook tab
+		
+		//Set title		
+		String ogTitle = "";
+		if(getProperties().get("ogtitle") != null) {
+			ogTitle = getProperties().get("ogtitle", String.class);
+		}
+		setOgTitle(ogTitle);
+		
+		//Set description
+		String ogDescription = "";
+		if(getProperties().get("ogdescription") != null) {
+			ogDescription = getProperties().get("ogdescription", String.class);
+		}
+		setOgDescription(ogDescription);
+
+		//Set image path - value is dependent on which radio button is selected
+		String ogImagePath = "";
+		if(getProperties().get("selectTab").equals("radioImage")) {
+			if(getProperties().get("ogimagepath") != null) {
+				ogImagePath = getProperties().get("ogimagepath", String.class);
+			}
+		}
+		else if(getProperties().get("selectTab").equals("radioVideo")) {
+			if(getProperties().get("ogvideopath") != null) {
+				ogImagePath = getProperties().get("ogvideopath", String.class);
+			}
+		}
+		setOgImagePath(ogImagePath);
+
+		//Set title - default from 'Basic' tab
+		String pageTitle = "";
+		if(getProperties().get("jcr:title") != null) {
+			pageTitle = getProperties().get("jcr:title", String.class);
+		}
+		setPageTitle(pageTitle);
+		
+		//Set description - default from 'Basic' tab
+		String pageDescription = "";
+		if(getProperties().get("jcr:description") != null) {
+			pageDescription = getProperties().get("jcr:description", String.class);
+		}
+		setPageDescription(pageDescription);
+		
+		//Set value of radio buttons
+		String selectTab = "";
+		if(getProperties().get("selectTab") != null) {
+			selectTab = getProperties().get("selectTab", String.class);
+		}
+		setSelectTab(selectTab);
+	}
+	
+	public Resource getResource() {
+		return resource;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
 	}
 	
 	/**
@@ -329,6 +407,61 @@ public class DiscoverPublicationHelper {
 	public boolean isImageConfigured() {
 		return this.imageConfigured;
 	}
+	
+	public ValueMap getProperties() {
+		return properties;
+	}
 
+	public void setProperties(ValueMap properties) {
+		this.properties = properties;
+	}
+
+	public String getOgTitle() {
+		return ogTitle;
+	}
+
+	public void setOgTitle(String ogTitle) {
+		this.ogTitle = ogTitle;
+	}
+
+	public String getOgDescription() {
+		return ogDescription;
+	}
+
+	public void setOgDescription(String ogDescription) {
+		this.ogDescription = ogDescription;
+	}
+
+	public String getOgImagePath() {
+		return ogImagePath;
+	}
+
+	public void setOgImagePath(String ogImagePath) {
+		this.ogImagePath = ogImagePath;
+	}
+
+	public String getPageTitle() {
+		return pageTitle;
+	}
+
+	public void setPageTitle(String pageTitle) {
+		this.pageTitle = pageTitle;
+	}
+
+	public String getPageDescription() {
+		return pageDescription;
+	}
+
+	public void setPageDescription(String pageDescription) {
+		this.pageDescription = pageDescription;
+	}
+
+	public String getSelectTab() {
+		return selectTab;
+	}
+
+	public void setSelectTab(String selectTab) {
+		this.selectTab = selectTab;
+	}
 	
 }
