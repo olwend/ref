@@ -27,7 +27,10 @@
 %><%@ page import="com.day.cq.commons.Doctype" %>
 <%@ page import="uk.ac.nhm.nhm_www.core.utils.*" %>
 
-<% DiscoverPublicationHelper helper = new DiscoverPublicationHelper(resource); %>
+<%	
+		DiscoverPublicationHelper helper = new DiscoverPublicationHelper(resource);
+
+%>
 
 <%
 

@@ -120,14 +120,16 @@ public class DiscoverPublicationHelper {
 
 		//Set image path - value is dependent on which radio button is selected
 		String ogImagePath = "";
-		if(getProperties().get("selectTab").equals("radioImage")) {
-			if(getProperties().get("ogimagepath") != null) {
-				ogImagePath = getProperties().get("ogimagepath", String.class);
+		if(getProperties().get("selectTab") != null) {
+			if(getProperties().get("selectTab").equals("radioImage")) {
+				if(getProperties().get("ogimagepath") != null) {
+					ogImagePath = getProperties().get("ogimagepath", String.class);
+				}
 			}
-		}
-		else if(getProperties().get("selectTab").equals("radioVideo")) {
-			if(getProperties().get("ogvideopath") != null) {
-				ogImagePath = getProperties().get("ogvideopath", String.class);
+			else if(getProperties().get("selectTab").equals("radioVideo")) {
+				if(getProperties().get("ogvideopath") != null) {
+					ogImagePath = getProperties().get("ogvideopath", String.class);
+				}
 			}
 		}
 		setOgImagePath(ogImagePath);
