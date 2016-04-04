@@ -5,19 +5,29 @@
     title="Search"
     xtype="panel">
     <items jcr:primaryType="cq:WidgetCollection">
-        <events
+        <filterOne
             jcr:primaryType="cq:Widget"
-            fieldLabel="Events"
-            name="./eventTags"
+            fieldLabel="Filter One:"
+            name="./filterOne"
             allowBlank="false"
             showPathInLabels="false"
             xtype="tags"/>
-        <audiences
+        <filterOneLabel
             jcr:primaryType="cq:Widget"
-            fieldLabel="Audiences"
-            name="./audiencesTags"
+            name="./filterOneLabel"
+            fieldLabel="Filter One Label:"
+            xtype="textfield"/>
+        <filterTwo
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Filter Two:"
+            name="./filterTwo"
             allowBlank="false"
             showPathInLabels="false"
             xtype="tags"/>
+        <filterTwoLabel
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Filter Two Label:"
+            name="./filterTwoLabel"
+            xtype="textfield"/>
     </items>
 </jcr:root>

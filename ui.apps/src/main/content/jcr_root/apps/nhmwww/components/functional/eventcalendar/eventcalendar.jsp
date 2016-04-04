@@ -15,22 +15,24 @@
                 <legend class="directory-search--label">Filter by</legend>
             </div>
             <div class="small-12 medium-12 large-12 columns">
-                <select id="event">
-                    <option value="none" selected="selected">Event type</option>
-                    <c:set var="events" value="<%= properties.get("eventTags", String[].class) %>" />
-				    <c:forEach var="event" items="${events}">
-                        <c:set var="eventName" value="${fn:split(event, '/')}"/>
-                        <option value="${event}">${eventName[1]}</option> 
+                <select id="filterOne">
+                    <c:set var="filterOneLabel" value="<%= properties.get("filterOneLabel" , String.class) %>" />
+                    <option value="none" selected="selected">${filterOneLabel}</option>
+                    <c:set var="filterOneOptions" value="<%= properties.get("filterOne", String[].class) %>" />
+				    <c:forEach var="filterOneOption" items="${filterOneOptions}">
+                        <c:set var="filterOneName" value="${fn:split(filterOneOption, '/')}"/>
+                        <option value="${filterOneOption}">${filterOneName[1]}</option> 
                     </c:forEach>	
 				</select>
             </div>
             <div class="small-12 medium-12 large-12 columns">
-                <select id="audience" class="mb-0">
-                    <option value="none" selected="selected">Who am I</option>
-                    <c:set var="audiences" value="<%= properties.get("audiencesTags", String[].class) %>" />
-				    <c:forEach var="audience" items="${audiences}">
-                        <c:set var="audienceName" value="${fn:split(audience, '/')}"/>
-                        <option value="${audience}">${audienceName[1]}</option> 
+                <select id="filterTwo" class="mb-0">
+                    <c:set var="filterTwoLabel" value="<%= properties.get("filterTwoLabel", String.class) %>" />
+                    <option value="none" selected="selected">${filterTwoLabel}</option>
+                    <c:set var="filterTwoOptions" value="<%= properties.get("filterTwo", String[].class) %>" />
+				    <c:forEach var="filterTwoOption" items="${filterTwoOptions}">
+                        <c:set var="filterTwoName" value="${fn:split(filterTwoOption, '/')}"/>
+                        <option value="${filterTwoOption}">${filterTwoName[1]}</option> 
                     </c:forEach>
 				</select> 
             </div>
