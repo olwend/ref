@@ -24,7 +24,7 @@
 
 <div class="text parbase section">
 <%
-	ENewsSignupHelper helper = new ENewsSignupHelper(properties);
+	ENewsSignupHelper helper = new ENewsSignupHelper(properties, resource);
 	DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
 %>
 <p><%=helper.getTitle()%></p>

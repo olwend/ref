@@ -54,22 +54,7 @@
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Data Protection Statement"
                         name="./dataProtection"
-                        width="155"
-                        height="300"
-                        xtype="textfield"/>
-                    <!--                     <hyperlink -->
-                    <!--                         jcr:primaryType="cq:Widget" -->
-                    <!--                         fieldLabel="Hyperlink" -->
-                    <!--                         itemId="hyperlink" -->
-                    <!--                         name="./hyperlink" -->
-                    <!--                         width="155" -->
-                    <!--                         xtype="pathfield"/> -->
-                    <!--                     <newwindow -->
-                    <!--                         jcr:primaryType="cq:Widget" -->
-                    <!--                         fieldLabel="Open in New Window" -->
-                    <!--                         name="./newwindow" -->
-                    <!--                         type="checkbox" -->
-                    <!--                         xtype="selection"/> -->
+                        xtype="richtext"/>                    
                 </items>
             </basic>
         </items>

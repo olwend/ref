@@ -1,5 +1,8 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import org.apache.sling.api.resource.ModifiableValueMap;
+import org.apache.sling.api.resource.PersistenceException;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
 public class ENewsSignupHelper extends HelperBase {
@@ -21,7 +24,7 @@ public class ENewsSignupHelper extends HelperBase {
 	 */
 	private String campaign = "eNewsletters";
 
-	public ENewsSignupHelper(ValueMap properties) {
+	public ENewsSignupHelper(ValueMap properties, Resource resource) throws PersistenceException {
 
 		if (properties.get("title") != null) {
 			this.title = properties.get("title", String.class);
@@ -34,6 +37,11 @@ public class ENewsSignupHelper extends HelperBase {
 		}
 		if (properties.get("dataProtection") != null) {
 			this.dataProtection = properties.get("dataProtection", String.class);
+		} else {
+			// Modify the resource in the content JCR tree
+			ModifiableValueMap map = resource.adaptTo(ModifiableValueMap.class);
+			map.put("dataProtection", dataProtection);
+			resource.getResourceResolver().commit();
 		}
 	}
 
