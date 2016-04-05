@@ -5,6 +5,10 @@ window.onload = function (e) {
     displayTodayEvents();
 };
 
+function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, dateTo) {
+    console.log(keywordsInput, filterOne, filterTwo, dateFrom, dateTo);
+};
+
 //Populates the single events result content
 function displayTodayEvents() {
     var today       = new Date(),

@@ -1,0 +1,3 @@
+#base=js
+date-picker-script.js
+calendar-script.js

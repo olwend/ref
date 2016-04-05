@@ -29,5 +29,12 @@
             fieldLabel="Filter Two Label:"
             name="./filterTwoLabel"
             xtype="textfield"/>
+        <extraOptions
+            jcr:primaryType="cq:Widget"
+            name="./extraOptions"
+            fieldLabel="Display extra options?"
+            inputValue="true"
+            type="checkbox"
+            xtype="selection"/>
     </items>
 </jcr:root>
