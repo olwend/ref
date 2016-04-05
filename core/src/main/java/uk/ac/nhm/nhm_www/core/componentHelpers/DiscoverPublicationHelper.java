@@ -70,6 +70,8 @@ public class DiscoverPublicationHelper {
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
+	 * @param request 
+	 * @param xssAPI
 	 */
 	public DiscoverPublicationHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) {
 		this.resource   = resource;
@@ -92,13 +94,15 @@ public class DiscoverPublicationHelper {
 		}
 	}
 	
+	/**
+	 * Helper Class Constructor.
+	 * @param resource {@link Resource Component Resource}.
+	 */
 	public DiscoverPublicationHelper(Resource resource) {
 		setResource(resource);
 		setProperties(resource.adaptTo(ValueMap.class));
 		
 		init();
-		
-		
 	}
 	
 	private void init() {
@@ -108,6 +112,7 @@ public class DiscoverPublicationHelper {
 		String ogTitle = "";
 		if(getProperties().get("ogtitle") != null) {
 			ogTitle = getProperties().get("ogtitle", String.class);
+			
 		}
 		setOgTitle(ogTitle);
 		
@@ -120,14 +125,16 @@ public class DiscoverPublicationHelper {
 
 		//Set image path - value is dependent on which radio button is selected
 		String ogImagePath = "";
-		if(getProperties().get("selectTab").equals("radioImage")) {
-			if(getProperties().get("ogimagepath") != null) {
-				ogImagePath = getProperties().get("ogimagepath", String.class);
+		if(getProperties().get("selectTab") != null) {
+			if(getProperties().get("selectTab").equals("radioImage")) {
+				if(getProperties().get("ogimagepath") != null) {
+					ogImagePath = getProperties().get("ogimagepath", String.class);
+				}
 			}
-		}
-		else if(getProperties().get("selectTab").equals("radioVideo")) {
-			if(getProperties().get("ogvideopath") != null) {
-				ogImagePath = getProperties().get("ogvideopath", String.class);
+			else if(getProperties().get("selectTab").equals("radioVideo")) {
+				if(getProperties().get("ogvideopath") != null) {
+					ogImagePath = getProperties().get("ogvideopath", String.class);
+				}
 			}
 		}
 		setOgImagePath(ogImagePath);
