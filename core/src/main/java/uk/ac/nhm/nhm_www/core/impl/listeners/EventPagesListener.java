@@ -31,7 +31,7 @@ import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 @Component(immediate = true, metatype = false)
 @Service
 public class EventPagesListener implements EventListener {
-	private static final String EVENTS_PATH = "content/nhmwww/en";
+	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private Node root;
 	private Session session;
 	private ObservationManager observationManager;

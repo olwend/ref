@@ -4,18 +4,18 @@
     padding: 1.5em 1.5em 1em 1.5em;
     color: #FFFFFF;
 }
-.calendar--search--label {
+.event--calendar--wrapper .calendar--search--label {
     font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
     margin-bottom: 0.6em;
     font-size: 1.375em;
 }
 
-.search-keywords input {
+.event--calendar--wrapper .search-keywords input {
     height: 4.5em;
     border: none;
 }
 
-.search-icon {
+.event--calendar--wrapper .search-icon {
     background-color: #EEEEEE;
     height: 5.65em;
     text-align: center;
@@ -23,16 +23,16 @@
     cursor: pointer;
 }
 
-.search-keywords input,
-.calendar--select select,
-.dates--label,
-.date--button,
-.date--wrapper input {
+.event--calendar--wrapper .search-keywords input,
+.event--calendar--wrapper .calendar--select select,
+.event--calendar--wrapper .dates--label,
+.event--calendar--wrapper .date--button,
+.event--calendar--wrapper .date--wrapper input {
     font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
     font-size: 1.25em;
 }
 
-.reset--filter {
+.event--calendar--wrapper .reset--filter {
     font-family: Arial;
     font-size: 1em;
     text-decoration: underline;
@@ -41,17 +41,17 @@
     cursor: pointer;
 }
 
-.date--picker {
+.event--calendar--wrapper .date--picker {
     margin: 0 0 1rem 0;
 }
 
-.date--wrapper {
+.event--calendar--wrapper .date--wrapper {
     background: #FFFFFF;
     color: #565656;
 }
 
-.date--wrapper input, 
-.date--wrapper input[type="text"][readonly] {
+.event--calendar--wrapper .date--wrapper input, 
+.event--calendar--wrapper .date--wrapper input[type="text"][readonly] {
     border: none;
     box-shadow: none;
     margin: 0;
@@ -62,21 +62,21 @@
     padding-left: 0.3em;
 }
 
-.date--wrapper input:focus {
+.event--calendar--wrapper .date--wrapper input:focus {
    background: none; 
 }
 
-.date--wrapper img {
+.event--calendar--wrapper .date--wrapper img {
     margin-top: -1.2em;
     display: table-cell;
 }
 
-.dates--label {
+.event--calendar--wrapper .dates--label {
     font-size: 1em;
     padding-left: 0.3em;
 }
 
-.date--button {
+.event--calendar--wrapper .date--button {
     cursor: pointer;
     position: relative;
     padding: 0;
@@ -88,13 +88,13 @@
     text-align: center;
 }
 
-.date--button:hover,
-.date--button--selected {
+.event--calendar--wrapper .date--button:hover,
+.event--calendar--wrapper .date--button--selected {
     background: #FFFFFF;
     color: #565656;
 }
 
-.date--button input {
+.event--calendar--wrapper .date--button input {
     padding: 0;
     background: none;
     border: none;
@@ -172,7 +172,8 @@
     font-size: 0.9em;
 }
 
-.ui-datepicker td span, .ui-datepicker td a {
+.ui-datepicker td span, 
+.ui-datepicker td a {
     border-color: #000000;
     margin: 0 auto;
     width: 2em;

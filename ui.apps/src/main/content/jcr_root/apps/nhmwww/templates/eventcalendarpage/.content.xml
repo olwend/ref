@@ -6,5 +6,21 @@
     ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="nhmwww/components/page/eventcalendarpage"/>
+        sling:resourceType="nhmwww/components/page/eventcalendarpage">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <herosection
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/herosection">
+                <par2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+                    <nhm_carousel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="nhmwww/components/functional/nhm-carousel"/>
+                </par2>
+            </herosection>
+        </par>
+    </jcr:content>
 </jcr:root>

@@ -1,9 +1,24 @@
-//Stores the events JSON in sessionStorage and displays Today Events
-window.onload = function (e) {
+//Needed for using multiple onload
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+
+addLoadEvent(function() {
+    //Stores the events JSON in sessionStorage and displays Today Events
     var eventsData = CQ.HTTP.get(CQ.HTTP.externalize("/content/nhmwww/eventscontent" + "/events"));
     sessionStorage.events = eventsData.responseText;
     displayTodayEvents();
-};
+});
 
 function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, dateTo) {
     console.log(keywordsInput, filterOne, filterTwo, dateFrom, dateTo);

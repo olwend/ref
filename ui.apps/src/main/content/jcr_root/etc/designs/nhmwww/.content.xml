@@ -225,7 +225,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[/apps/nhmwww/components/functional/eventcalendar]">
+                components="[/apps/nhmwww/components/functional/eventcalendar, /apps/nhmwww/components/functional/nhm-carousel]">
             </par>
         </eventcalendarpage>
     </jcr:content>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template"
-    jcr:title="Natural History Museum Event Details Page"
-    allowedParents="[/apps/nhmwww/templates/eventspage]"
+    jcr:title="Natural History Museum Events Page"
+    allowedParents="[/apps/nhmwww/templates/homepage]"
     allowedPaths="[/content/nhmwww/(.*)?]"
+    allowedChildren="[/apps/nhmwww/templates/eventdetailpage]"
     ranking="{Long}100">
     <jcr:content
+        cq:designPath="/etc/designs/nhmwww"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="nhmwww/components/page/eventdetailpage"/>
+        sling:resourceType="foundation/components/redirect"
+        redirectTarget="/content/nhmwww/en"/>
 </jcr:root>
