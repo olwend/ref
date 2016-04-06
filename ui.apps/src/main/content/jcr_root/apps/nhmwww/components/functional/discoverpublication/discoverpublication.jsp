@@ -48,7 +48,6 @@
   			WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
   			WCMMode.PREVIEW.toRequest(slingRequest);
 %>
-	<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getImageNodePath()%>"/>
 	<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
 
 <%
@@ -88,7 +87,6 @@
 	if (helper.isVideoHeadType()) {
 		final String videoId = helper.getVideo();
 %>
-	<meta property="og:image" content="http://img.youtube.com/vi/<%= videoId%>/maxresdefault.jpg"/>
 	<div class="row">
 		
 		<div class="discover-video small-12 medium-12 large-12 columns">
