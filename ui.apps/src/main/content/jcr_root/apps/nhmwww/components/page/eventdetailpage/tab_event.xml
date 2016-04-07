@@ -108,6 +108,7 @@
                     jcr:primaryType="cq:Widget"
                     cls="cq-propsdialog-tags"
                     fieldLabel="Tags/Keywords"
+                    showPathInLabels="false"
                     name="./cq:tags"
                     xtype="tags"/>
             </items>

@@ -15,8 +15,14 @@ function addLoadEvent(func) {
 
 addLoadEvent(function() {
     //Stores the events JSON in sessionStorage and displays Today Events
-    var eventsData = CQ.HTTP.get(CQ.HTTP.externalize("/content/nhmwww/eventscontent" + "/events"));
+    var eventsData  = CQ.HTTP.get(CQ.HTTP.externalize("/content/nhmwww/eventscontent" + "/events")),
+        pagePath    = CQ.WCM.getPagePath();
+    
     sessionStorage.events = eventsData.responseText;
+    
+    pagePath = pagePath.split("/");    
+    sessionStorage.pagePath = pagePath[pagePath.length - 2];
+        
     displayTodayEvents();
 });
 
@@ -42,8 +48,27 @@ function displayTodayEvents() {
 
     for (var i = 0; i < eventsJson.Events.length;  i++) {
         for (var j = 0; j < eventsJson.Events[i].dates.length;  j++) {
-            var date = new Date(eventsJson.Events[i].dates[j]);
-            if (parseDate(today, false) == parseDate(date, false)) {
+            
+            var isOurEvent  = false,
+                date        = new Date(eventsJson.Events[i].dates[j]),
+                eventType   = eventsJson.Events[i].eventType;
+            
+            //Checks the Event Type
+            if (checkEventType(eventType)){
+                isOurEvent = true;
+            }
+            else {
+                //If not checks the tags
+                var tags = eventsJson.Events[i].tags;
+                for (var k = 0; k < tags.length; k++) {
+                    var tag = tags[k].split("/");
+                    if (checkEventType(tag[tag.length - 1])){
+                        isOurEvent = true;
+                    }
+                }
+            }
+            
+            if ((parseDate(today, false) == parseDate(date, false)) && isOurEvent) {
                 if (flag) {
                     flag = false;
                     //Appends the title
@@ -73,6 +98,25 @@ function displayTodayEvents() {
     
     container.appendChild(ul);
 };
+
+//Helper function to check the Event against the page
+function checkEventType(eventType) {
+    
+    if (eventType == "Science" && sessionStorage.pagePath == "our-science") {
+        return true;
+    }
+    if (eventType == "School" && sessionStorage.pagePath == "schools") {
+        return true;
+    }
+    if (eventType == "Visitor" && sessionStorage.pagePath == "visit") {
+        return true;
+    }
+    if (eventType == "Tring" && sessionStorage.pagePath == "tring-homepage") {
+        return true;
+    }
+    
+    return false;
+}
 
 //Function to order the search results
 function orderResults(results) {

@@ -15,6 +15,7 @@
         <filterOneLabel
             jcr:primaryType="cq:Widget"
             name="./filterOneLabel"
+            allowBlank="false"
             fieldLabel="Filter One Label:"
             xtype="textfield"/>
         <filterTwo
@@ -27,6 +28,7 @@
         <filterTwoLabel
             jcr:primaryType="cq:Widget"
             fieldLabel="Filter Two Label:"
+            allowBlank="false"
             name="./filterTwoLabel"
             xtype="textfield"/>
         <extraOptions
