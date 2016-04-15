@@ -308,6 +308,10 @@
                                     type="checkbox"
                                     xtype="selection">
                                     <options jcr:primaryType="cq:WidgetCollection">
+                                        <sunday
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Sun."
+                                            value="Sunday"/>
                                         <monday
                                             jcr:primaryType="nt:unstructured"
                                             text="Mon."
@@ -332,10 +336,6 @@
                                             jcr:primaryType="nt:unstructured"
                                             text="Sat."
                                             value="Saturday"/>
-                                        <sunday
-                                            jcr:primaryType="nt:unstructured"
-                                            text="Sun."
-                                            value="Sunday"/>
                                     </options>
                                     <listeners
                                         jcr:primaryType="nt:unstructured"

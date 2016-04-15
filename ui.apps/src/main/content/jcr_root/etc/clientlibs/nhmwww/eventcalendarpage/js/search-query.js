@@ -88,18 +88,7 @@ function displayTodayEvents() {
     //Displays the results
     if (results.length > 0) {
         results = orderResults(results);
-        for (var k = 0; k < results.length; k ++) {
-            counter ++;
-            createSearchResult(results[k], ul, counter);
-            if (counter > 6) {
-                showMore.style.display = "block";
-            }
-        }
-    
-        //Adds the listener to the show more div
-        showMore.addEventListener('click', function(e){
-            showMoreEvents(e, counter, ul, showMore);
-        }, false);
+        doTheLayout(results, ul);
     }
     
     //Displays the no reults for today message
@@ -189,7 +178,7 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
     //Displays the results
     if (results.length > 0) {
         results = orderResults(results);
-        createResultDiv(results, dateFrom, dateTo);
+        createResultDiv(results, dateFrom, dateTo, container);
     }
     //Displays the error msg
     else {
@@ -199,30 +188,110 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
     return;
 };
 
-function createResultDiv(results, dateFrom, dateTo) {
-    
+function createResultDiv(results, dateFrom, dateTo, container) {
+    var numOfDays;
+        
     //If not dateFrom starts today
     if (!dateFrom) {
         dateFrom = new Date();
+    } else if (dateFrom) {
+        dateFrom = getFormattedDate(dateFrom);
     }
-    dateFrom = getFormattedDate(dateFrom);
     
     //If not dateTo finish in one year
     if (!dateTo) {
-        dateTo = new Date(dateFrom.getDay(), dateFrom.getMonth(), dateFrom.getFullYear() + 1);
+        dateTo = new Date(dateFrom);
+        dateTo.setMonth(dateTo.getMonth() + 12);
+    } else if (dateTo){
+        dateTo = getFormattedDate(dateTo);
     }
-    dateTo = getFormattedDate(dateTo);
     
+    dateFrom = dateFrom.setHours(0,0,0,0,0);
+    dateTo = dateTo.setHours(0,0,0,0,0);
+    //Gets the interval of days
+    numOfDays = Math.floor(( dateTo - dateFrom) / 86400000);
+    
+    //If ther is only one date
+    if (numOfDays == 0) {
+        var titleH2         = document.createElement("h2"),
+            ul              = document.createElement("ul");
+            
+        titleH2.className = "events--header";
+        ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
+        
+        titleH2.innerHTML = parseToEventDate(new Date(dateFrom), true);
+        
+        container.appendChild(titleH2);
+        container.appendChild(ul);
+        
+        doTheLayout(results, ul);
+        
+        return;
+    }
+
+    var date = new Date(dateFrom);
+    
+    //For each day gets the events
+    for (var i = 0; i < numOfDays + 1; i ++) {
+        var titleH2         = document.createElement("h2"),
+            ul              = document.createElement("ul"),
+            auxResults      = [],
+            auxDate         = new Date();
+        
+        titleH2.className = "events--header";
+        ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
+        
+        //Sets the date in the title
+        titleH2.innerHTML = parseToEventDate(new Date(auxDate.setDate(date.getDate() + i)), true);
+                
+        container.appendChild(titleH2);
+        container.appendChild(ul);
+        
+        auxDate = new Date(auxDate).setHours(0,0,0,0,0);
+        
+        for (var j = 0; j < results.length;  j++) {
+            
+            for (var k = 0; k < results[j].dates.length;  k++) {
+                var eventDate = new Date(results[j].dates[k]).setHours(0,0,0,0,0);
+                if (eventDate == auxDate) { 
+                    auxResults.push(results[j]);
+                    break;
+                }
+            }            
+        }
+        
+        doTheLayout(auxResults, ul);
+    }
     return;
 };
+
+//Helper function to create the results and add the seach button
+function doTheLayout(results, ul){
+    var showMore = document.getElementById("showMore"),
+        counter  = 0;
+    
+    for (var i = 0; i < results.length; i ++) {
+        counter ++;
+        createSearchResult(results[i], ul, counter);
+        if (counter > 6) {
+            showMore.style.display = "block";
+        }
+    }
+    
+    //Adds the listener to the show more div
+    showMore.addEventListener('click', function(e){
+        showMoreEvents(e, counter, ul, showMore);
+    }, false);
+    
+    return;
+} 
 
 //Helper function to get a formatted date from the datepicker inputs
 function getFormattedDate(date) {
     var stringDate      = date.split(" "),
-        dateNumbers     = stringDate[1].split("/"),
-        formattedDate   = new Date(dateNumbers[2],  parseInt(dateNumbers[1]) -1 , dateNumbers[0]);
+        dateNumbers     = stringDate[1].split("/");
     
-    return formattedDate.setHours(0,0,0,0,0);
+    return new Date(dateNumbers[2],dateNumbers[1] - 1,dateNumbers[0]);
 }
 
 //Function to compare the dates
@@ -363,9 +432,9 @@ function getEventDates(dates) {
     var lastDate = new Date(dates[dates.length - 1]);
     
     if (dates.length == 1) {
-        return parseToEventDate(lastDate);
+        return parseToEventDate(lastDate, false);
     } 
-    return parseToEventDate(new Date()) + " - " + parseToEventDate(lastDate);
+    return parseToEventDate(new Date(), false) + " - " + parseToEventDate(lastDate, false);
 };
 
 //Helper function to get the times
@@ -407,16 +476,24 @@ function getEventTimes(event, getTimes) {
 };
 
 //Helper function to convert the dates to string and to parse the date to the correct format
-function parseToEventDate(str) {
-    var day         = str.getDate(),
-        monthIndex  = str.getMonth(),
-        year        = str.getFullYear(),
-        monthNames  = [ "Jan",  "Feb", "Mar",
-                        "Apr",  "May", "June", 
-                        "July", "Aug", "Sept", 
-                        "Oct",  "Nov", "Dec" ];
+function parseToEventDate(str, isLongMonth) {
+    var day             = str.getDate(),
+        monthIndex      = str.getMonth(),
+        year            = str.getFullYear(),
+        shortMonthNames = [ "Jan",  "Feb", "Mar",
+                            "Apr",  "May", "June", 
+                            "July", "Aug", "Sept", 
+                            "Oct",  "Nov", "Dec" 
+        ],
+        longMonthNames  = [ "January", "February", "March",
+                            "April",   "May",      "June", 
+                            "July",    "August",   "September", 
+                            "October", "November", "December" ];
+    if (!isLongMonth) {
+        return day.toString() +  " " + shortMonthNames[monthIndex] + " " + year.toString();
+    }
     
-    return day.toString() +  " " + monthNames[monthIndex] + " " + year.toString();
+    return day.toString() +  " " + longMonthNames[monthIndex] + " " + year.toString();
 };
 
 //Helper function to get the event price
