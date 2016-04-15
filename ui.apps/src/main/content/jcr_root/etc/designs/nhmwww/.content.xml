@@ -225,7 +225,21 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[/apps/nhmwww/components/functional/eventcalendar, /apps/nhmwww/components/functional/nhm-carousel]">
+                components="[/apps/nhmwww/components/functional/eventcalendar,/apps/nhmwww/components/functional/layout/rowfullwidth]">
+                <eventcalendar jcr:primaryType="nt:unstructured"
+                           sling:resourceType="nhmwww/components/functional/eventcalendar"/>
+                <rowfullwidth
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nhmwww/components/functional/layout/herosection">
+                    <par2
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[/apps/nhmwww/components/functional/nhm-carousel]">
+                        <nhm_carousel
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="nhmwww/components/functional/nhm-carousel"/>
+                    </par2>
+                </rowfullwidth>
             </par>
         </eventcalendarpage>
     </jcr:content>

@@ -10,9 +10,11 @@
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/parsys">
-            <herosection
+            <eventcalendar jcr:primaryType="nt:unstructured"
+                           sling:resourceType="nhmwww/components/functional/eventcalendar"/>
+            <rowfullwidth
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/herosection">
+                sling:resourceType="nhmwww/components/functional/layout/rowfullwidth">
                 <par2
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/parsys">
@@ -20,7 +22,7 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="nhmwww/components/functional/nhm-carousel"/>
                 </par2>
-            </herosection>
+            </rowfullwidth>
         </par>
     </jcr:content>
 </jcr:root>
