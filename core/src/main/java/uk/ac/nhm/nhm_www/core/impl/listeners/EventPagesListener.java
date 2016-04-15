@@ -133,6 +133,9 @@ public class EventPagesListener implements EventListener {
 		if (iteratedNode.hasProperty("./cq:tags")) {
 			eventDetail.setTags(createArrayFromValues(iteratedNode.getProperty("./cq:tags").getValues()));
 		}
+		if (iteratedNode.hasProperty("keywords")) {
+			eventDetail.setKeywords(iteratedNode.getProperty("keywords").getString());
+		}
 		if (iteratedNode.hasProperty("jcr:datesRecurrence")) {
 			eventDetail.setDates(createDatesArray(iteratedNode.getProperty("jcr:datesRecurrence").getString()));
 		}
@@ -200,6 +203,7 @@ public class EventPagesListener implements EventListener {
 			events.put("group",event.getEventGroup());
 			events.put("tileLink",event.getEventTileLink());
 			events.put("tags",event.getTags());
+			events.put("keywords",event.getKeywords());
 			events.put("dates",event.getDates());
 			events.put("allDay",event.getAllDay());
 			events.put("times",event.getTimes());

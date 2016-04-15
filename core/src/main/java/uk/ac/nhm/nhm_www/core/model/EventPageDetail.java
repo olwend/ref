@@ -10,6 +10,7 @@ public class EventPageDetail {
 	String eventVenue = "";
 	String eventGroup = "";
 	String eventTileLink = "";
+	String keywords = "";
 	String adultPrice  = "";
 	String concessionPrice = "";
 	String memberPrice = "";
@@ -81,6 +82,14 @@ public class EventPageDetail {
 	
 	public String getEventTileLink() {
 		return this.eventTileLink;
+	}
+	
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
+	
+	public String getKeywords() {
+		return this.keywords;
 	}
 	
 	public void setAdultPrice(String adultPrice) {
