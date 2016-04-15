@@ -45,7 +45,7 @@
 				class="item-input">
 		</div>
 		<div class="form-field lastname">
-			<label for="lastname">Last name *</label> <input type="text" name="lastname"
+			<label for="lastname">Surname *</label> <input type="text" name="lastname"
 				class="item-input">
 		</div>
 		<div class="form-field email">
