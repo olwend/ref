@@ -9,10 +9,17 @@ addLoadEvent(function() {
     var resetButton = document.getElementsByClassName("reset--filter");
     resetButton[0].addEventListener("click", resetFilters, false);
     
+    var filterOne = document.getElementById("filterOne");
+    filterOne.addEventListener("change", doSearch, false);
+    
+    var filterTwo = document.getElementById("filterTwo");
+    filterTwo.addEventListener("change", doSearch, false);
+    
     var dateButtons = document.getElementsByClassName("date--button");
     for (var i = 0; i < dateButtons.length; i++) {
         dateButtons[i].addEventListener('click', setDateButton, false);
     }
+    
 });    
 
 //Do Search if key pressed is enter
@@ -31,18 +38,39 @@ function doSearch(){
         dateFrom        = document.getElementById("dateFrom"),
         dateTo          = document.getElementById("dateTo");
     
-    displaySearchEvents(keywordsInput.value, filterOne.value, filterTwo.value, dateFrom.value, dateTo.value);
-    
+    if (keywordsInput.value || filterOne.value != "none" || filterTwo.value != "none" || dateFrom.value || dateTo.value) {
+         displaySearchEvents(keywordsInput.value, filterOne.value , filterTwo.value , dateFrom.value , dateTo.value);
+    }
+    else {
+        displayTodayEvents(); 
+    }
+   
     return;
 };
 
-//Function to reset the filters
+//Function to reset the calendar
 function resetFilters () {
-    var filterOne = document.getElementById("filterOne"),
-        filterTwo = document.getElementById("filterTwo");
+    var keywordsInput   = document.getElementById("keywordsInput"),
+        filterOne       = document.getElementById("filterOne"),
+        filterTwo       = document.getElementById("filterTwo"),
+        dateButtons     = document.getElementsByClassName("date--button");
     
+    //Reset the keyword
+    keywordsInput.value = "";
+    
+    //Reset the filters
     filterOne.value = "none";
     filterTwo.value = "none";
+    
+    //Reset the dates
+    for (var i = 0; i < dateButtons.length; i++) {
+        dateButtons[i].className = "small-12 medium-12 large-12 columns date--button";   
+    }
+    $('#dateFrom').datepicker("setDate", null);
+    $('#dateTo').datepicker("setDate", null);
+    
+    //Call the search function
+    doSearch();
     
     return;
 };
@@ -64,9 +92,11 @@ function setDateButton () {
     } 
     else {
         this.className = "small-12 medium-12 large-12 columns date--button"
-         $('#dateFrom').datepicker("setDate", null);
-         $('#dateTo').datepicker("setDate", null);
+        $('#dateFrom').datepicker("setDate", null);
+        $('#dateTo').datepicker("setDate", null);
     }
+    
+    doSearch();
     
     return;
 };

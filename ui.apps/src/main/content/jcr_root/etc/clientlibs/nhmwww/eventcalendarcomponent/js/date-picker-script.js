@@ -19,6 +19,8 @@ $(document).ready(function () {
         //Needed to set the "To" date 
         onSelect: function (dateText, inst) {
             $("#dateTo").datepicker("option", "minDate", $("#dateFrom").datepicker("getDate"));
+            //Call to the search function
+            doSearch();
         },
     });
     //Second datepicker
@@ -41,6 +43,9 @@ $(document).ready(function () {
                 addRule(document.styleSheets[0], ".ui-datepicker:before", "left: 75%");
                 addRule(document.styleSheets[0], ".ui-datepicker:after", "left: 75%;");
             }, 10);
+        },
+        onSelect: function (dateText, inst) {
+           doSearch();
         },
     });
     //Needed to hide the datepickers
