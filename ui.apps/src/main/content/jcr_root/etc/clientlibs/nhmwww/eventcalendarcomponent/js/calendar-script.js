@@ -68,6 +68,7 @@ function resetFilters () {
     }
     $('#dateFrom').datepicker("setDate", null);
     $('#dateTo').datepicker("setDate", null);
+    $("#dateTo").datepicker("option", "minDate", 0);
     
     //Call the search function
     doSearch();
@@ -103,7 +104,8 @@ function setDateButton () {
 
 function setDatesFromButton(dates) {
     var today = new Date();
-    $('#dateFrom').datepicker("setDate", today);  
+    $('#dateFrom').datepicker("setDate", today);
+    $("#dateTo").datepicker("option", "minDate", 0);
     
     switch (dates) {
         
