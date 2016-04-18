@@ -55,21 +55,20 @@
 .event--calendar--wrapper .date--wrapper input[type="text"][readonly] {
     border: none;
     box-shadow: none;
-    margin: 0;
-    padding: 0;
-    height: 1.125em;
-    margin-top: -0.5em;
     background: none;
-    padding-left: 0.3em;
+    height: 1.125em;
+    margin: 0.774em 0 0;
+    padding: 0 0 0 0.3em;
+    font-size: 1em;
 }
 
 .event--calendar--wrapper .date--wrapper input:focus {
    background: none; 
 }
 
-.event--calendar--wrapper .date--wrapper img {
-    margin-top: -1.2em;
-    display: table-cell;
+.calendar--text,
+.calendar--icon {
+    margin-top: -1.2em; 
 }
 
 .event--calendar--wrapper .dates--label {

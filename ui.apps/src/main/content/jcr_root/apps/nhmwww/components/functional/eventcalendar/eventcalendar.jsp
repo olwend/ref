@@ -27,7 +27,7 @@
                         <c:set var="filterOneName" value="${fn:split(filterOneOption, '/')}"/>
                         <c:set var="filterOneName2" value="${fn:replace(filterOneName[1], '-', ' ')}" />
                         <option value="${filterOneOption}">${filterOneName2}</option> 
-                    </c:forEach>	
+                    </c:forEach>
 				</select>
             </div>
             <div class="small-12 medium-12 large-12 columns calendar--select">
@@ -53,11 +53,11 @@
                         <legend class="dates--label">From</legend>
                     </div>
                     <div class="small-12 medium-12 large-12 columns">
-                        <div class="small-10 medium-10 large-10 columns">
+                        <div class="small-10 medium-10 large-10 columns calendar--text">
                             <input readonly="true" type="text" placeholder="___ __/__/____ " id="dateFrom" class="dp">
                         </div>
-                        <div class="small-2 medium-2 large-2 columns">
-                            <img src="/etc/designs/nhmwww/img/icons/calendar-icon.png" class="ui-datepicker-trigger"/>
+                        <div class="small-2 medium-2 large-2 columns calendar--icon">
+                            <img src="/etc/designs/nhmwww/img/icons/calendar-icon.png"/>
                         </div>
                     </div>
                 </div>
@@ -68,10 +68,10 @@
                         <legend class="dates--label">To</legend>
                     </div>
                    <div class="small-12 medium-12 large-12 columns">
-                        <div class="small-10 medium-10 large-10 columns">
+                        <div class="small-10 medium-10 large-10 columns calendar--text">
                             <input readonly="true" type="text" placeholder="___ __/__/____ " id="dateTo" class="dp"/>
                         </div>
-                        <div class="small-2 medium-2 large-2 columns">
+                        <div class="small-2 medium-2 large-2 columns calendar--icon">
                             <img src="/etc/designs/nhmwww/img/icons/calendar-icon.png"/>
                         </div>
                     </div>
