@@ -91,7 +91,7 @@ function displayTodayEvents() {
         doTheLayout(results, ul);
     }
     
-    //Displays the no reults for today message
+    //Displays the no results for today message
     else { 
         noResultsToday.style.display = "block";
     }
@@ -188,6 +188,7 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
     return;
 };
 
+//Function to display the results after a search query
 function createResultDiv(results, dateFrom, dateTo, container) {
     var numOfDays;
         
@@ -208,6 +209,7 @@ function createResultDiv(results, dateFrom, dateTo, container) {
     
     dateFrom = dateFrom.setHours(0,0,0,0,0);
     dateTo = dateTo.setHours(0,0,0,0,0);
+    
     //Gets the interval of days
     numOfDays = Math.floor(( dateTo - dateFrom) / 86400000);
     
@@ -429,12 +431,21 @@ function createSearchResult(event, ul, counter) {
 
 //Helper function to parse the event date
 function getEventDates(dates) {
-    var lastDate = new Date(dates[dates.length - 1]);
     
+    //If there is only one date
     if (dates.length == 1) {
-        return parseToEventDate(lastDate, false);
-    } 
-    return parseToEventDate(new Date(), false) + " - " + parseToEventDate(lastDate, false);
+        return parseToEventDate(new Date(dates[dates.length - 1]), false);
+    }
+    
+    //If there are more than one day it gets the last date
+    var aux = [];
+    for (var i = 0; i < dates.length; i++) {
+        var date = new Date(dates[i]);
+        aux.push(date.setHours(0,0,0,0,0));
+    }
+    var lastDate = aux.reduce(function (a, b) { return a > b ? a : b; });
+    
+    return parseToEventDate(new Date(), false) + " - " + parseToEventDate(new Date(lastDate), false);
 };
 
 //Helper function to get the times
@@ -446,6 +457,7 @@ function getEventTimes(event, getTimes) {
         today       = new Date(),
         index       = "";
     
+    //Gets the index for today's event
     for (var i = 0; i < dates.length; i++) {
         var date = new Date(dates[i]);
         if (today.setHours(0,0,0,0,0) == date.setHours(0,0,0,0,0)) { 
