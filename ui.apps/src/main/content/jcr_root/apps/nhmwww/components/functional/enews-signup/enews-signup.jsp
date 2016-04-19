@@ -40,6 +40,7 @@
 	<form
 		action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
 		method="get">
+		<div class="errors"></div>
 		<div class="form-field firstname">
 			<label for="firstname">First name *</label> <input type="text" name="firstname"
 				class="item-input">
@@ -56,6 +57,5 @@
 			type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
 		<p><%=helper.getDataProtection()%></p>
 		<button class="button__enews-signup">Sign up</button>
-		<div class="errors"></div>
 	</form>
 </div>
