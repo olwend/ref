@@ -1,18 +1,18 @@
-
-.event--information--wrapper {
+.event--information--wrapper,
+.event--information--wrapper h3 {
     color: #FFFFFF;
 }
 
-.school {
-    background-color: #0983BB;
-}
-.visit {
-    background-color: #A1164E;
-}
-.science {
-    background-color: #357900;
+.event--information--wrapper img { 
+    margin: 0 auto;
+    display: inherit;
 }
 
-.event--information--wrapper h3{
-    color: #FFFFFF;  
+.event--information--wrapper p { 
+    margin-bottom: 0;
 }
+
+.event--information--wrapper .new--section { 
+    margin-top: 1.0em;
+}
+
