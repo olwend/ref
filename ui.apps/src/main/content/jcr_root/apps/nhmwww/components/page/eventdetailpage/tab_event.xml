@@ -36,10 +36,6 @@
                     name="./eventSelect"
                     xtype="selection">
                     <options jcr:primaryType="cq:WidgetCollection">
-                        <exhibition
-                            jcr:primaryType="nt:unstructured"
-                            text="Exhibition"
-                            value="Exhibition"/>
                         <school
                             jcr:primaryType="nt:unstructured"
                             text="School"
