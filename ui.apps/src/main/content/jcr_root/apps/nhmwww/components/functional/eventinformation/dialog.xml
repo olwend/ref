@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Dialog"
+          title="Event List Component"
+          xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <events
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Select event type"
+                    name="./events"
+                    type="select"
+                    xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <school
+                     jcr:primaryType="nt:unstructured"
+                     text="School"
+                     value="school"/>
+                <visitorTring
+                     jcr:primaryType="nt:unstructured"
+                     text="Visitor &amp; Tring"
+                     value="visit"/>
+                <science
+                       jcr:primaryType="nt:unstructured"
+                       text="Science"
+                       value="science"/>
+            </options>
+        </events>
+    </items>
+</jcr:root>
