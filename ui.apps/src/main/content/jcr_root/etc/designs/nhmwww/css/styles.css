@@ -4846,106 +4846,7 @@ div#feedback-bar p a:hover {
   speak: none;
 }
 
-/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) **/
-/*** _EVENT-SLIDER.SCSS, FORMERLY _EVENTS.SCSS ***/
-.event-slider li {
-  float: left;
-  width: 33%;
-}
-@media screen and (min-width: 768px) {
-  .event-slider li:hover {
-    background: #f4f4f4;
-  }
-}
-.event-slider li img {
-  width: 100%;
-}
-.event-slider li h4 {
-  margin: 0;
-  color: #2a6cd9;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1.125em;
-  font-weight: bold;
-  line-height: 1.4;
-}
-.event-slider li p {
-  margin: 0.4em 0 0;
-  font-size: 0.875em;
-  color: #565656;
-}
-.event-slider li p a {
-  padding-right: 1em;
-}
-.event-slider .event-slide-meta {
-  padding: 0.3125em 6%;
-}
-.event-slider .event-slide-content {
-  padding: 1.25em 6%;
-}
-.event-slider .event-time,
-.event-slider .event-tag {
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  width: 49%;
-  min-height: 19px;
-  margin: 0;
-  padding-left: 9%;
-  position: relative;
-  color: #2a6cd9;
-  font-size: 0.75em;
-}
-@media screen and (min-width: 768px) {
-  .event-slider .event-time,
-  .event-slider .event-tag {
-    display: block;
-    width: 100%;
-    padding-left: 12%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .event-slider .event-time,
-  .event-slider .event-tag {
-    display: inline-block;
-    *vertical-align: auto;
-    zoom: 1;
-    *display: inline;
-    width: 49%;
-    padding-left: 8%;
-  }
-}
-@media screen and (min-width: 1160px) {
-  .event-slider .event-time,
-  .event-slider .event-tag {
-    width: 46%;
-  }
-}
-.event-slider .event-time .ico,
-.event-slider .event-tag .ico {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.event-slider .event-time .ico {
-  width: 19px;
-  height: 19px;
-}
-@media screen and (min-width: 768px) {
-  .event-slider .event-time {
-    padding-bottom: 1em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .event-slider .event-time {
-    padding-bottom: 0;
-  }
-}
-.event-slider .event-tag .ico {
-  width: 17px;
-  height: 16px;
-}
-
+/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) - MERGED WITH REFACTORED EVENT-SLIDER PARTIAL (WR-752) **/
 /** LEGACY LIGHTSLIDER (VENDOR) PARTIAL **/
 /** /!!! Core CSS !!!/**/
 .lSSlideOuter {
@@ -6206,6 +6107,7 @@ h6 {
 }
 
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
+/*** _EVENT-SLIDER.SCSS, FORMERLY _EVENTS.SCSS ***/
 .event-slider-wrapper {
   /** WR-617 - change event slider H4 to H3 **/
 }
@@ -6217,23 +6119,99 @@ h6 {
     padding: 0.5em 0.75em;
   }
 }
-.event-slider-wrapper h4 {
-  padding: 0.5em;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.6em;
-  color: #565656;
+.event-slider-wrapper .event-slider li {
+  float: left;
+  width: 33%;
 }
-@media screen and (min-width: 768px) {
-  .event-slider-wrapper h4 {
-    padding: 0.5em 0.75em;
-    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  }
+.event-slider-wrapper .event-slider li img {
+  width: 100%;
 }
-
-.event-slider li h4 {
-  padding: 0;
+.event-slider-wrapper .event-slider li h4 {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+.event-slider-wrapper .event-slider li p {
+  margin: 0.4em 0 0;
+  font-size: 0.875em;
+  color: #565656;
+}
+.event-slider-wrapper .event-slider li p a {
+  padding-right: 1em;
+}
+.event-slider-wrapper .event-slider .event-slide-meta {
+  padding: 0.3125em 6%;
+}
+.event-slider-wrapper .event-slider .event-slide-content {
+  padding: 1.25em 6%;
+}
+
+/** event-time and event-tag likely not used **/
+.event-slider .event-time,
+.event-slider .event-tag {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 49%;
+  min-height: 19px;
+  margin: 0;
+  padding-left: 9%;
+  position: relative;
+  color: #2a6cd9;
+  font-size: 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .event-slider .event-time,
+  .event-slider .event-tag {
+    display: block;
+    width: 100%;
+    padding-left: 12%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .event-slider .event-time,
+  .event-slider .event-tag {
+    display: inline-block;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    width: 49%;
+    padding-left: 8%;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .event-slider .event-time,
+  .event-slider .event-tag {
+    width: 46%;
+  }
+}
+.event-slider .event-time .ico,
+.event-slider .event-tag .ico {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.event-slider .event-time .ico {
+  width: 19px;
+  height: 19px;
+}
+@media screen and (min-width: 768px) {
+  .event-slider .event-time {
+    padding-bottom: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .event-slider .event-time {
+    padding-bottom: 0;
+  }
+}
+.event-slider .event-tag .ico {
+  width: 17px;
+  height: 16px;
 }
 
 /** REFACTOR-EVENTS-SUMMARY **/
