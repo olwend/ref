@@ -405,10 +405,9 @@ function createSearchResult(event, ul, counter) {
     
     
     img.src = event.imageLink;
-    
     h3.innerHTML = event.title;
     paragraph.innerHTML =   getEventDates(event.dates) + "<br/>" +
-                            "Event type: <b>" + event.eventType + "</b><br/>" +
+                            "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
                             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
                             "Ticket price: <b>" + getEventPrice(event.adultPrice, event.concessionPrice, event.customPrice, event.familyPrice, event.memberPrice) + "</b><br/>" +
                             event.description;
@@ -427,6 +426,36 @@ function createSearchResult(event, ul, counter) {
     }
     
     ul.appendChild(li);
+};
+
+//Helper function to return the events
+function getEvents(tags, eventType) {
+    var events = "";
+    
+    for (var i = 0; i < tags.length; i++) {
+        var tokens      = tags[i].split("/"),
+            firstToken  = tokens[0],
+            headers     = firstToken.split(":"),
+            lastToken = "";
+        
+        if (headers[1].localeCompare("events") == 0) {
+            lastToken = tokens[tokens.length-1];
+            lastToken = lastToken.replace("-", " ");
+
+            if (events.localeCompare("") == 0) {
+                events = lastToken;                               
+            } 
+            else {
+                events = events.concat(", " + lastToken);                            
+            }
+        }
+    }
+    
+    if (events.localeCompare("") == 0) {
+        return eventType;
+    }
+    
+    return events;
 };
 
 //Helper function to parse the event date
@@ -510,6 +539,10 @@ function parseToEventDate(str, isLongMonth) {
 
 //Helper function to get the event price
 function getEventPrice(adultPrice, concessionPrice, customPrice, familyPrice, memberPrice) {
+    //Remove the last space if exits
+    if (customPrice.localeCompare("") != 0) {
+        customPrice = customPrice.replace(/\s+$/, "");
+    }
     if (customPrice == "Free" || customPrice == "free") {
         return "Free";
     }
@@ -520,7 +553,10 @@ function getEventPrice(adultPrice, concessionPrice, customPrice, familyPrice, me
         return "£" + concessionPrice;
     }
     if (adultPrice == "" && concessionPrice == ""  && customPrice != "" && familyPrice == "" && memberPrice == "") {
-        return "£" + customPrice;
+        if (/^\d+$/.test(customPrice)) {
+            return "£" + customPrice;
+        }
+        return customPrice;
     }
     if (adultPrice == "" && concessionPrice == ""  && customPrice == "" && familyPrice != "" && memberPrice == "") {
         return "£" + familyPrice;

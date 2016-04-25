@@ -12,19 +12,33 @@
    String eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
    String eventVenue = contentNode.hasProperty("eventVenue") ? contentNode.getProperty("eventVenue").getString() : "";
 
-   Value[] audience = contentNode.hasProperty("cq:tags") ? contentNode.getProperty("cq:tags").getValues() : null;
+   Value[] tags = contentNode.hasProperty("cq:tags") ? contentNode.getProperty("cq:tags").getValues() : null;
+   String events = "";
    String audiences = "";
    
-   if (audience != null && audience.length > 0) {
-      for (int i = 0; i < audience.length; i++) {
-         String[] tokens = audience[i].toString().split("/");
+   if (tags != null && tags.length > 0) {
+      for (int i = 0; i < tags.length; i++) {
+         String[] tokens = tags[i].toString().split("/");
          String firstToken = tokens[0];
          String[] headers = firstToken.split(":");
-         if (headers[1].equals("audience")) {
-            String lastToken = tokens[tokens.length-1];
+         String lastToken = "";
+                                     
+        if (headers[1].equals("events")) {
+            lastToken = tokens[tokens.length-1];
             lastToken = lastToken.replace("-", " ");
 
-            if (i == 0) {
+            if (events.equals("")) {
+               events = lastToken;                               
+            } 
+            else {
+               events = events.concat(", " + lastToken);                            
+            }
+         }
+         if (headers[1].equals("audience")) {
+            lastToken = tokens[tokens.length-1];
+            lastToken = lastToken.replace("-", " ");
+
+            if (audiences.equals("")) {
                audiences = lastToken;                               
             } 
             else {
@@ -79,8 +93,9 @@
                 <img src="/etc/designs/nhmwww/img/icons/info.png"/>
             </div>
             <div class="small-10 large-10 columns">
-                <c:if test="${not empty eventType}">
-                    <p>Event: <span style="font-weight:bold">${eventType}</span></p> 
+                <c:set var="events" value="<%= events %>"/>
+                <c:if test="${not empty events}">
+                    <p>Event: <span style="font-weight:bold">${events}</span></p> 
                 </c:if>
 
                 <c:set var="eventVenue" value="<%= eventVenue %>"/>
