@@ -25,6 +25,7 @@ import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 public class EventPagesListener implements EventListener {
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-atractions";
+	
 	private Session session;
 	private ObservationManager eventsObservationManager;
 
@@ -34,23 +35,19 @@ public class EventPagesListener implements EventListener {
 	private ResourceResolverFactory resolverFactory;
 
 	//Logic to define the Events Custom Event Handler
+	@SuppressWarnings("deprecation")
 	protected void activate(ComponentContext ctx) {
 		try {
-			//TODO Search for the newest one
 			session = repository.loginAdministrative(null);
 			eventsObservationManager = session.getWorkspace().getObservationManager();
 			eventsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EVENTS_PATH, true, null, null, false);
-			
-			//TODO REMOVE THIS LOGGING
-			System.out.println("Observing property changes to Events nodes");
-
 		} catch (Exception e) {
+			System.out.println(e);
 			e.printStackTrace();
 		}
 	}
 
 	protected void deactivate(ComponentContext componentContext) throws RepositoryException {
-
 		if (eventsObservationManager != null) {
 			eventsObservationManager.removeEventListener(this);
 		}

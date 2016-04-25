@@ -22,13 +22,15 @@ public class EventPagesUtils {
 	// Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
 	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException  {
 		root = session.getRootNode();
+		
 		Node eventsNode = root.getNode(eventsPath);
 		NodeIterator iterator = eventsNode.getNodes();
+		
 		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
+		
 		while (iterator.hasNext()) {
 			Node currentNode = iterator.nextNode();
-			if (currentNode.getProperty("jcr:primaryType").getString()
-					.equals("cq:Page")) {
+			if (currentNode.getProperty("jcr:primaryType").getString().equals("cq:Page")) {
 				NodeIterator pageIterator = currentNode.getNodes();
 				while (pageIterator.hasNext()) {
 					Node iteratedNode = pageIterator.nextNode();
@@ -38,11 +40,12 @@ public class EventPagesUtils {
 		}
 
 		Node exhibitionsNode = root.getNode(exhibitionsPath);
+		
 		iterator = exhibitionsNode.getNodes();
+		
 		while (iterator.hasNext()) {
 			Node currentNode = iterator.nextNode();
-			if (currentNode.getProperty("jcr:primaryType").getString()
-					.equals("cq:Page")) {
+			if (currentNode.getProperty("jcr:primaryType").getString().equals("cq:Page")) {
 				NodeIterator pageIterator = currentNode.getNodes();
 				while (pageIterator.hasNext()) {
 					Node iteratedNode = pageIterator.nextNode();
@@ -231,6 +234,7 @@ public class EventPagesUtils {
 	// Helper function to create the tags Array
 	private ArrayList<String> createArrayFromValues(Value[] values) {
 		ArrayList<String> stringArray = new ArrayList<String>();
+		
 		for (int i = 0; i < values.length; i++) {
 			stringArray.add(values[i].toString());
 		}
