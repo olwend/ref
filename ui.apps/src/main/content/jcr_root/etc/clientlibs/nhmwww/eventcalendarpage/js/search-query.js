@@ -397,7 +397,15 @@ function createSearchResult(event, ul, counter) {
     
     containerDiv.className = "small-12 columns";
     navigateDiv.className = "small-12 columns";
-    a.href = event.eventPagePath + ".html";
+    
+    //Sets the Event Link
+    if (event.tileLink.localeCompare("") == 0) {
+        a.href = event.eventPagePath + ".html";  
+    }
+    else {
+        a.href = event.tileLink;    
+    }
+    
     imageDiv.className = "adaptiveimage parbase foundation5image image";
     h3.className = sessionStorage.pagePath + " event--title";
     textDiv.className = "feed--item--content";
