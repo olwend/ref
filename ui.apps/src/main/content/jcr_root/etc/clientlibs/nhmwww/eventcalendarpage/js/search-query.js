@@ -525,10 +525,10 @@ function getEventTimes(event, getTimes) {
 };
 
 //Helper function to convert the dates to string and to parse the date to the correct format
-function parseToEventDate(str, isLongMonth) {
-    var day             = str.getDate(),
-        monthIndex      = str.getMonth(),
-        year            = str.getFullYear(),
+function parseToEventDate(date, isLongMonth) {
+    var day             = date.getDate(),
+        monthIndex      = date.getMonth(),
+        year            = date.getFullYear(),
         shortMonthNames = [ "Jan",  "Feb", "Mar",
                             "Apr",  "May", "June", 
                             "July", "Aug", "Sept", 
