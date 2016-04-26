@@ -21,6 +21,9 @@ public class EventPagesUtils {
 
 	// Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
 	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException  {
+		final String primaryType = "jcr:primaryType";
+		final String cqPage = "cq:Page";
+		
 		root = session.getRootNode();
 		
 		Node eventsNode = root.getNode(eventsPath);
@@ -30,7 +33,7 @@ public class EventPagesUtils {
 		
 		while (iterator.hasNext()) {
 			Node currentNode = iterator.nextNode();
-			if (currentNode.getProperty("jcr:primaryType").getString().equals("cq:Page")) {
+			if (currentNode.getProperty(primaryType).getString().equals(cqPage)) {
 				NodeIterator pageIterator = currentNode.getNodes();
 				while (pageIterator.hasNext()) {
 					Node iteratedNode = pageIterator.nextNode();
@@ -45,7 +48,7 @@ public class EventPagesUtils {
 		
 		while (iterator.hasNext()) {
 			Node currentNode = iterator.nextNode();
-			if (currentNode.getProperty("jcr:primaryType").getString().equals("cq:Page")) {
+			if (currentNode.getProperty(primaryType).getString().equals(cqPage)) {
 				NodeIterator pageIterator = currentNode.getNodes();
 				while (pageIterator.hasNext()) {
 					Node iteratedNode = pageIterator.nextNode();
@@ -58,87 +61,115 @@ public class EventPagesUtils {
 
 	// Retrieves the Page properties and populates the EventsPageDetail Object
 	private EventPageDetail populateEventDetail(Node iteratedNode) throws ValueFormatException, PathNotFoundException, RepositoryException  {
+		final String eventPagePath = "./jcr:eventPagePath";
+		final String eventSelect = "eventSelect";
+		final String eventTitle = "jcr:eventTitle";
+		final String eventDescription = "jcr:eventDescription";
+		final String eventVenue = "eventVenue";
+		final String eventGroup = "eventGroup";
+		final String eventTileLink = "eventTileLink";
+		final String tags = "./cq:tags";
+		final String keywords = "keywords";
+		final String datesRecurrence = "jcr:datesRecurrence";
+		final String allDayRecurrence = "jcr:allDayRecurrence";
+		final String timesRecurrence = "jcr:timesRecurrence";
+		final String adultPrice = "adultPrice";
+		final String concessionPrice = "concessionPrice";
+		final String memberPrice = "memberPrice";
+		final String familyPrice = "familyPrice";
+		final String customPrice = "customPrice";
+		final String fileReference = "fileReference";
+		final String ctaLink = "ctaLink";
+		final String subject = "./cq:subject";
+		final String capacity = "./capacity";
+		final String eventDuration = "./eventDuration";
+		final String subjectScience = "./cq:subjectScience";
+		final String speakerDetails = "./speakerDetails";
+		
 		EventPageDetail eventDetail = new EventPageDetail();
+		
 		// Common Event Values
-		if (iteratedNode.hasProperty("./jcr:eventPagePath")) {
-			eventDetail.setEventPagePath(iteratedNode.getProperty("./jcr:eventPagePath").getString());
+		if (iteratedNode.hasProperty(eventPagePath)) {
+			eventDetail.setEventPagePath(iteratedNode.getProperty(eventPagePath).getString());
 		}
-		if (iteratedNode.hasProperty("eventSelect")) {
-			eventDetail.setEventType(iteratedNode.getProperty("eventSelect").getString());
+		if (iteratedNode.hasProperty(eventSelect)) {
+			eventDetail.setEventType(iteratedNode.getProperty(eventSelect).getString());
 		}
-		if (iteratedNode.hasProperty("jcr:eventTitle")) {
-			eventDetail.setTitle(iteratedNode.getProperty("jcr:eventTitle").getString());
+		if (iteratedNode.hasProperty(eventTitle)) {
+			eventDetail.setTitle(iteratedNode.getProperty(eventTitle).getString());
 		}
-		if (iteratedNode.hasProperty("jcr:eventDescription")) {
-			eventDetail.setDescription(iteratedNode.getProperty("jcr:eventDescription").getString());
+		if (iteratedNode.hasProperty(eventDescription)) {
+			eventDetail.setDescription(iteratedNode.getProperty(eventDescription).getString());
 		}
-		if (iteratedNode.hasProperty("eventVenue")) {
-			eventDetail.setEventVenue(iteratedNode.getProperty("eventVenue").getString());
+		if (iteratedNode.hasProperty(eventVenue)) {
+			eventDetail.setEventVenue(iteratedNode.getProperty(eventVenue).getString());
 		}
-		if (iteratedNode.hasProperty("eventGroup")) {
-			eventDetail.setEventGroup(iteratedNode.getProperty("eventGroup").getString());
+		if (iteratedNode.hasProperty(eventGroup)) {
+			eventDetail.setEventGroup(iteratedNode.getProperty(eventGroup).getString());
 		}
-		if (iteratedNode.hasProperty("eventTileLink")) {
-			eventDetail.setEventTileLink(iteratedNode.getProperty("eventTileLink").getString());
+		if (iteratedNode.hasProperty(eventTileLink)) {
+			eventDetail.setEventTileLink(iteratedNode.getProperty(eventTileLink).getString());
 		}
-		if (iteratedNode.hasProperty("./cq:tags")) {
-			eventDetail.setTags(createArrayFromValues(iteratedNode.getProperty("./cq:tags").getValues()));
+		if (iteratedNode.hasProperty(tags)) {
+			eventDetail.setTags(createArrayFromValues(iteratedNode.getProperty(tags).getValues()));
 		}
-		if (iteratedNode.hasProperty("keywords")) {
-			eventDetail.setKeywords(iteratedNode.getProperty("keywords").getString());
+		if (iteratedNode.hasProperty(keywords)) {
+			eventDetail.setKeywords(iteratedNode.getProperty(keywords).getString());
 		}
-		if (iteratedNode.hasProperty("jcr:datesRecurrence")) {
-			eventDetail.setDates(createDatesArray(iteratedNode.getProperty("jcr:datesRecurrence").getString()));
+		if (iteratedNode.hasProperty(datesRecurrence)) {
+			eventDetail.setDates(createDatesArray(iteratedNode.getProperty(datesRecurrence).getString()));
 		}
-		if (iteratedNode.hasProperty("jcr:allDayRecurrence")) {
-			eventDetail.setAllDay(createAllDayArray(iteratedNode.getProperty("jcr:allDayRecurrence").getString()));
+		if (iteratedNode.hasProperty(allDayRecurrence)) {
+			eventDetail.setAllDay(createAllDayArray(iteratedNode.getProperty(allDayRecurrence).getString()));
 		}
-		if (iteratedNode.hasProperty("jcr:timesRecurrence")) {
-			eventDetail.setTimes(createTimesArray(iteratedNode.getProperty("jcr:timesRecurrence").getString()));
+		if (iteratedNode.hasProperty(timesRecurrence)) {
+			eventDetail.setTimes(createTimesArray(iteratedNode.getProperty(timesRecurrence).getString()));
 		}
-		if (iteratedNode.hasProperty("adultPrice")) {
-			eventDetail.setAdultPrice(iteratedNode.getProperty("adultPrice").getString());
+		if (iteratedNode.hasProperty(adultPrice)) {
+			eventDetail.setAdultPrice(iteratedNode.getProperty(adultPrice).getString());
 		}
-		if (iteratedNode.hasProperty("concessionPrice")) {
-			eventDetail.setConcessionPrice(iteratedNode.getProperty("concessionPrice").getString());
+		if (iteratedNode.hasProperty(concessionPrice)) {
+			eventDetail.setConcessionPrice(iteratedNode.getProperty(concessionPrice).getString());
 		}
-		if (iteratedNode.hasProperty("memberPrice")) {
-			eventDetail.setMemberPrice(iteratedNode.getProperty("memberPrice").getString());
+		if (iteratedNode.hasProperty(memberPrice)) {
+			eventDetail.setMemberPrice(iteratedNode.getProperty(memberPrice).getString());
 		}
-		if (iteratedNode.hasProperty("familyPrice")) {
-			eventDetail.setFamilyPrice(iteratedNode.getProperty("familyPrice").getString());
+		if (iteratedNode.hasProperty(familyPrice)) {
+			eventDetail.setFamilyPrice(iteratedNode.getProperty(familyPrice).getString());
 		}
-		if (iteratedNode.hasProperty("customPrice")) {
-			eventDetail.setCustomPrice(iteratedNode.getProperty("customPrice").getString());
+		if (iteratedNode.hasProperty(customPrice)) {
+			eventDetail.setCustomPrice(iteratedNode.getProperty(customPrice).getString());
 		}
-		if (iteratedNode.hasProperty("fileReference")) {
-			eventDetail.setImageLink(iteratedNode.getProperty("fileReference").getString());
+		if (iteratedNode.hasProperty(fileReference)) {
+			eventDetail.setImageLink(iteratedNode.getProperty(fileReference).getString());
 		}
-		if (iteratedNode.hasProperty("ctaLink")) {
-			eventDetail.setCtaLink(iteratedNode.getProperty("ctaLink").getString());
+		if (iteratedNode.hasProperty(ctaLink)) {
+			eventDetail.setCtaLink(iteratedNode.getProperty(ctaLink).getString());
 		}
 		// School Event Values
-		if (iteratedNode.hasProperty("./cq:subject")) {
-			eventDetail.setSubject(createArrayFromValues(iteratedNode.getProperty("./cq:subject").getValues()));
+		if (iteratedNode.hasProperty(subject)) {
+			eventDetail.setSubject(createArrayFromValues(iteratedNode.getProperty(subject).getValues()));
 		}
-		if (iteratedNode.hasProperty("./capacity")) {
-			eventDetail.setCapacity(iteratedNode.getProperty("./capacity").getString());
+		if (iteratedNode.hasProperty(capacity)) {
+			eventDetail.setCapacity(iteratedNode.getProperty(capacity).getString());
 		}
-		if (iteratedNode.hasProperty("./eventDuration")) {
-			eventDetail.setEventDuration(iteratedNode.getProperty("./eventDuration").getString());
+		if (iteratedNode.hasProperty(eventDuration)) {
+			eventDetail.setEventDuration(iteratedNode.getProperty(eventDuration).getString());
 		}
 		// Science Event Values
-		if (iteratedNode.hasProperty("./cq:subjectScience")) {
-			eventDetail.setScienceSubject(createArrayFromValues(iteratedNode.getProperty("./cq:subjectScience").getValues()));
+		if (iteratedNode.hasProperty(subjectScience)) {
+			eventDetail.setScienceSubject(createArrayFromValues(iteratedNode.getProperty(subjectScience).getValues()));
 		}
-		if (iteratedNode.hasProperty("./speakerDetails")) {
-			eventDetail.setSpeakerDetails(iteratedNode.getProperty("./speakerDetails").getString());
+		if (iteratedNode.hasProperty(speakerDetails)) {
+			eventDetail.setSpeakerDetails(iteratedNode.getProperty(speakerDetails).getString());
 		}
 		return eventDetail;
 	}
 
 	// Creates the JSON
 	private void createFeed(ArrayList<EventPageDetail> eventsArray, Session session) throws JSONException, PathNotFoundException, RepositoryException  {
+		final String eventscontent = "eventscontent";
+		
 		JSONObject eventsObject = new JSONObject();
 		JSONArray eventsJSONArray = new JSONArray();
 
@@ -179,10 +210,10 @@ public class EventPagesUtils {
 
 		Node content = root.getNode("content/nhmwww");
 		Node events = null;
-		if (!content.hasNode("eventscontent")) {
-			events = content.addNode("eventscontent", "nt:unstructured");
+		if (!content.hasNode(eventscontent)) {
+			events = content.addNode(eventscontent, "nt:unstructured");
 		} else {
-			events = content.getNode("eventscontent");
+			events = content.getNode(eventscontent);
 		}
 		events.setProperty("events", eventsObject.toString());
 
