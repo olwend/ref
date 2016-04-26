@@ -19,7 +19,15 @@ import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 public class EventPagesUtils {
 	private Node root;
 
-	// Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
+	/**
+	 * Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
+	 * 
+	 * @param session
+	 * @param eventsPath
+	 * @param exhibitionsPath
+	 * @throws RepositoryException
+	 * @throws JSONException
+	 */
 	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException  {
 		root = session.getRootNode();
 		
@@ -56,7 +64,15 @@ public class EventPagesUtils {
 		createFeed(eventsArray, session);
 	}
 
-	// Retrieves the Page properties and populates the EventsPageDetail Object
+	/**
+	 * Retrieves the Page properties and populates the EventsPageDetail Object
+	 * 
+	 * @param iteratedNode
+	 * @return
+	 * @throws ValueFormatException
+	 * @throws PathNotFoundException
+	 * @throws RepositoryException
+	 */
 	private EventPageDetail populateEventDetail(Node iteratedNode) throws ValueFormatException, PathNotFoundException, RepositoryException  {
 		EventPageDetail eventDetail = new EventPageDetail();
 		// Common Event Values
@@ -137,7 +153,15 @@ public class EventPagesUtils {
 		return eventDetail;
 	}
 
-	// Creates the JSON
+	/**
+	 * Creates the JSON
+	 * 
+	 * @param eventsArray
+	 * @param session
+	 * @throws JSONException
+	 * @throws PathNotFoundException
+	 * @throws RepositoryException
+	 */
 	private void createFeed(ArrayList<EventPageDetail> eventsArray, Session session) throws JSONException, PathNotFoundException, RepositoryException  {
 		JSONObject eventsObject = new JSONObject();
 		JSONArray eventsJSONArray = new JSONArray();
@@ -189,7 +213,12 @@ public class EventPagesUtils {
 		session.save();
 	}
 
-	// Helper function to create the dates Array
+	/**
+	 * Helper function to create the dates Array
+	 * 
+	 * @param stringValue
+	 * @return ArrayList<String>
+	 */
 	private ArrayList<String> createDatesArray(String stringValue) {
 		ArrayList<String> stringArray = new ArrayList<String>();
 
@@ -201,7 +230,12 @@ public class EventPagesUtils {
 		return stringArray;
 	}
 
-	// Helper function to create the All Day Array
+	/**
+	 * Helper function to create the All Day Array
+	 * 
+	 * @param stringValue
+	 * @return ArrayList<String>
+	 */
 	private ArrayList<String> createAllDayArray(String stringValue) {
 		ArrayList<String> stringArray = new ArrayList<String>();
 
@@ -215,7 +249,12 @@ public class EventPagesUtils {
 		return stringArray;
 	}
 
-	// Helper function to create the Times Array
+	/**
+	 * Helper function to create the Times Array
+	 * 
+	 * @param stringValue
+	 * @return ArrayList<String>
+	 */
 	private ArrayList<String> createTimesArray(String stringValue) {
 		ArrayList<String> stringArray = new ArrayList<String>();
 
@@ -231,7 +270,12 @@ public class EventPagesUtils {
 		return stringArray;
 	}
 
-	// Helper function to create the tags Array
+	/**
+	 * Helper function to create the tags Array
+	 * 
+	 * @param values
+	 * @return ArrayList<String>
+	 */
 	private ArrayList<String> createArrayFromValues(Value[] values) {
 		ArrayList<String> stringArray = new ArrayList<String>();
 		

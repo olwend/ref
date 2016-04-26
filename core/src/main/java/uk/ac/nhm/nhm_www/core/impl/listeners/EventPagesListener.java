@@ -20,6 +20,11 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
+/**
+ * Events Folder Listener needed to retrieve the 
+ * changes in the repo and create the JSON and XML 
+ * feed files
+ */
 @Component(immediate = true, metatype = false)
 @Service
 public class EventPagesListener implements EventListener {
@@ -34,7 +39,11 @@ public class EventPagesListener implements EventListener {
 	@Reference
 	private ResourceResolverFactory resolverFactory;
 
-	//Logic to define the Events Custom Event Handler
+	/**
+	 * Logic to define the Events Custom Event Handler
+	 * 
+	 * @param ctx
+	 */
 	@SuppressWarnings("deprecation")
 	protected void activate(ComponentContext ctx) {
 		try {
@@ -58,7 +67,11 @@ public class EventPagesListener implements EventListener {
 		}
 	}
 
-	//Triggers the onEvent Function
+	/**
+	 * Triggers the onEvent Function
+	 * 
+	 * @param events
+	 */
 	@Override
 	public void onEvent(EventIterator events) {		
 		try {

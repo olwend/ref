@@ -18,6 +18,11 @@ import org.osgi.service.component.ComponentContext;
 
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
+/**
+ * Exhibition Folder Listener needed to retrieve the 
+ * changes in the repo and create the JSON and XML 
+ * feed files
+ */
 @Component(immediate = true, metatype = false)
 @Service
 public class ExhibitionPagesListener implements EventListener {
@@ -32,7 +37,11 @@ public class ExhibitionPagesListener implements EventListener {
 	@Reference
 	private ResourceResolverFactory resolverFactory;
 	
-	//Logic to define the Exhibitions Custom Event Handler
+	/**
+	 * Logic to define the Exhibition Custom Event Handler
+	 * 
+	 * @param ctx
+	 */
 	@SuppressWarnings("deprecation")
 	protected void activate(ComponentContext ctx) {
 		try {
@@ -56,7 +65,11 @@ public class ExhibitionPagesListener implements EventListener {
 		}
 	}
 	
-	//Triggers the onEvent Function
+	/**
+	 * Triggers the onEvent Function
+	 * 
+	 * @param events
+	 */
 	@Override
 	public void onEvent(EventIterator events) {		
 		try {
