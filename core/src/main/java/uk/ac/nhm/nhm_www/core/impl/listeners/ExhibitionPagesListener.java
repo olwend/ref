@@ -1,5 +1,7 @@
 package uk.ac.nhm.nhm_www.core.impl.listeners;
 
+import java.text.ParseException;
+
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -83,6 +85,9 @@ public class ExhibitionPagesListener implements EventListener {
 		} catch (JSONException e) {
 			System.out.println(e);
 			e.printStackTrace();
-		}
+		} catch (ParseException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} 
 	}
 }

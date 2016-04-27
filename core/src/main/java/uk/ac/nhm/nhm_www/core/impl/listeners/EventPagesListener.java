@@ -1,5 +1,7 @@
 package uk.ac.nhm.nhm_www.core.impl.listeners;
 
+import java.text.ParseException;
+
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 import org.json.JSONException;
@@ -85,6 +87,9 @@ public class EventPagesListener implements EventListener {
 		} catch (JSONException e) {
 			System.out.println(e);
 			e.printStackTrace();
-		}
+		} catch (ParseException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} 
 	}	
 }

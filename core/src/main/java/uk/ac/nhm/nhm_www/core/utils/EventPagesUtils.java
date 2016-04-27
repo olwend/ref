@@ -1,6 +1,9 @@
 package uk.ac.nhm.nhm_www.core.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -27,8 +30,9 @@ public class EventPagesUtils {
 	 * @param exhibitionsPath
 	 * @throws RepositoryException
 	 * @throws JSONException
+	 * @throws ParseException 
 	 */
-	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException  {
+	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException, ParseException  {
 		final String primaryType = "jcr:primaryType";
 		final String cqPage = "cq:Page";
 		
@@ -75,8 +79,9 @@ public class EventPagesUtils {
 	 * @throws ValueFormatException
 	 * @throws PathNotFoundException
 	 * @throws RepositoryException
+	 * @throws ParseException 
 	 */
-	private EventPageDetail populateEventDetail(Node iteratedNode) throws ValueFormatException, PathNotFoundException, RepositoryException  {
+	private EventPageDetail populateEventDetail(Node iteratedNode) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException  {
 		final String eventPagePath = "./jcr:eventPagePath";
 		final String eventSelect = "eventSelect";
 		final String eventTitle = "jcr:eventTitle";
@@ -249,16 +254,39 @@ public class EventPagesUtils {
 	 * 
 	 * @param stringValue
 	 * @return ArrayList<String>
+	 * @throws ParseException 
 	 */
-	private ArrayList<String> createDatesArray(String stringValue) {
+	private ArrayList<String> createDatesArray(String stringValue) throws ParseException {
 		ArrayList<String> stringArray = new ArrayList<String>();
 
 		String[] values = stringValue.split(",");
 
 		for (int i = 0; i < values.length; i++) {
-			stringArray.add(values[i]);
+			if (values[i].length() > 0) {
+				stringArray.add(getDateParsed (values[i]));
+			}
 		}
 		return stringArray;
+	}
+	
+	/**
+	 * Helper function to parse the date retrieved from the JSON
+	 * 
+	 * @param dateString
+	 * @param sdf
+	 * @return
+	 * @throws ParseException
+	 */
+	private String getDateParsed (String dateString) throws ParseException {
+		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd yyyy");
+		
+		String[] parts = dateString.split(" ");
+		String stringDateParsed = parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3];
+		String index = dateString.substring(dateString.length() -1 );
+		
+		Date dateParsed = sdf.parse(stringDateParsed);
+	System.out.println("HELLOOOOOOO: "+ dateParsed.toString() + index);
+		return dateParsed.toString() + index;
 	}
 
 	/**

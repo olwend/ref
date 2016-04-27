@@ -59,12 +59,16 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 	private JSONArray getJSON() throws LoginException, RepositoryException, JSONException {
 		session = repository.loginAdministrative(null);
 		root = session.getRootNode();
-		Node eventsNode = root.getNode(JSON_PATH);
 		
-		if (eventsNode.hasProperty("events")) {
-			JSONObject json = new JSONObject(eventsNode.getProperty("events").getString());
-			events = json.getJSONArray("Events");
+		if (root.hasNode(JSON_PATH)) {
+			Node eventsNode = root.getNode(JSON_PATH);
+			
+			if (eventsNode.hasProperty("events")) {
+				JSONObject json = new JSONObject(eventsNode.getProperty("events").getString());
+				events = json.getJSONArray("Events");
+			}
 		}
+
 		return events;
 	}
 	
@@ -77,36 +81,41 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 	 * @throws ParseException 
 	 */
 	private void checkTodayEvents(JSONArray events) throws JSONException, ParseException {
-		final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd yyyy");
 		
 		Date today = new Date();
 		today = sdf.parse(sdf.format(today));
-		
+		System.out.println("TODAY ---------=-=>" + today.toString());
 		for (int i = 0; i < events.length(); i++) {
 			JSONObject event = events.getJSONObject(i);
 			JSONArray dates = event.getJSONArray("dates");
-			System.out.println("DATES ---------=-=>");
-			System.out.println(dates.toString());
 			if (dates != null && dates.length() > 0) {
 				for (int j = 0; j < dates.length(); j++) {
 					String dateString = dates.getString(j);
-					//Removes the index attached at the end of the date
 					if (dateString.length() > 0) {
-						dateString = dateString.substring(0, dateString.length()-1);
-						System.out.println("DATE ---------=-=>");
-						System.out.println(dateString);
-						Date date = getDateParsed(dateString);
+						Date date = getDateParsed(dateString, sdf);
+						System.out.println("DATEPARSED ---------=-=>");
+						System.out.println(date.toString());
 					}
 				}
 			}
 		}
 	}
 	
-	private Date getDateParsed (String dateString) {
-		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd yyyy");
-		Date date = new Date();
+	/**
+	 * Helper function to parse the date retrieved from the JSON
+	 * 
+	 * @param dateString
+	 * @param sdf
+	 * @return
+	 * @throws ParseException
+	 */
+	private Date getDateParsed (String dateString, SimpleDateFormat sdf) throws ParseException {		
 		String[] parts = dateString.split(" ");
+		String stringDateParsed = parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3];
+
+		Date dateParsed = sdf.parse(stringDateParsed);
 		
-		return date;
+		return dateParsed;
 	}
 }
