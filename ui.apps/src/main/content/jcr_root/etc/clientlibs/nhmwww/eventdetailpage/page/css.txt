@@ -1,2 +1,0 @@
-#base=css
-event-detail-page.scss
