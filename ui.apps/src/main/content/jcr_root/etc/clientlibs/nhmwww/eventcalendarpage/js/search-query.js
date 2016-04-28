@@ -47,7 +47,7 @@ function displayTodayEvents() {
     noResults.style.display = "none";
     
     carousel[0].style.display = "block";
-    titleH2.className = "events--header";
+    titleH2.className = "pl-12";
     titleH2.innerHTML = "Today's Events";
     ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
 
@@ -218,7 +218,7 @@ function createResultDiv(results, dateFrom, dateTo, container) {
         var titleH2         = document.createElement("h2"),
             ul              = document.createElement("ul");
             
-        titleH2.className = "events--header";
+        titleH2.className = "pl-12";
         ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
         
         titleH2.innerHTML = parseToEventDate(new Date(dateFrom), true);
@@ -240,7 +240,7 @@ function createResultDiv(results, dateFrom, dateTo, container) {
             auxResults      = [],
             auxDate         = new Date();
         
-        titleH2.className = "events--header";
+        titleH2.className = "pl-12";
         ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
         
         //Sets the date in the title
@@ -389,6 +389,7 @@ function createSearchResult(event, ul, counter) {
         containerDiv    = document.createElement("div"),
         navigateDiv     = document.createElement("div"),
         a               = document.createElement("a"),
+        aH3             = document.createElement("a"),
         imageDiv        = document.createElement("div"),
         img             = document.createElement("img"),
         h3              = document.createElement("h3"),
@@ -407,13 +408,14 @@ function createSearchResult(event, ul, counter) {
     }
     
     imageDiv.className = "adaptiveimage parbase foundation5image image";
-    h3.className = sessionStorage.pagePath + " event--title";
+    h3.className = "pr-11 pl-11 mt-24";
     textDiv.className = "feed--item--content";
-    paragraph.className = "event--info";
+    paragraph.className = "mb-6";
     
     
     img.src = event.imageLink;
-    h3.innerHTML = event.title;
+    aH3.innerHTML = event.title;
+    h3.appendChild(aH3);
     paragraph.innerHTML =   getEventDates(event.dates) + "<br/>" +
                             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
                             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
