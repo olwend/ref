@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashSet;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -256,17 +257,19 @@ public class EventPagesUtils {
 	 * @return ArrayList<String>
 	 * @throws ParseException 
 	 */
-	private ArrayList<String> createDatesArray(String stringValue) throws ParseException {
-		ArrayList<String> stringArray = new ArrayList<String>();
-
+	private LinkedHashSet<String> createDatesArray(String stringValue) throws ParseException {
+		//ArrayList<String> stringArray = new ArrayList<String>();
+		LinkedHashSet<String> datesSet = new LinkedHashSet<String>();
 		String[] values = stringValue.split(",");
 
 		for (int i = 0; i < values.length; i++) {
 			if (values[i].length() > 0) {
-				stringArray.add(getDateParsed (values[i]));
+				//stringArray.add(getDateParsed (values[i]));
+				datesSet.add(getDateParsed (values[i]));
 			}
 		}
-		return stringArray;
+		//return stringArray;
+		return datesSet;
 	}
 	
 	/**
@@ -285,7 +288,6 @@ public class EventPagesUtils {
 		String index = dateString.substring(dateString.length() -1 );
 		
 		Date dateParsed = sdf.parse(stringDateParsed);
-	System.out.println("HELLOOOOOOO: "+ dateParsed.toString() + index);
 		return dateParsed.toString() + index;
 	}
 

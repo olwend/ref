@@ -1,6 +1,8 @@
 package uk.ac.nhm.nhm_www.core.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class EventPageDetail {
 	String eventPagePath = "";
@@ -22,7 +24,7 @@ public class EventPageDetail {
 	String eventDuration = "";
 	String speakerDetails = "";
 	
-	ArrayList <String> dates = new ArrayList<String>();
+	LinkedHashSet<String> dates = new LinkedHashSet<String>();
 	ArrayList <String> allDay = new ArrayList<String>();
 	ArrayList <String> times = new ArrayList<String>();
 	ArrayList <String> tags = new ArrayList<String>();
@@ -172,11 +174,11 @@ public class EventPageDetail {
 		return this.eventDuration;
 	}
 	
-	public void setDates(ArrayList<String> dates) {
-		this.dates = dates;
+	public void setDates(LinkedHashSet<String> hashSet) {
+		this.dates = hashSet;
 	}
 	
-	public ArrayList<String> getDates() {
+	public LinkedHashSet<String> getDates() {
 		return this.dates;
 	}
 	

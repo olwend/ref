@@ -85,7 +85,7 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 		
 		Date today = new Date();
 		today = sdf.parse(sdf.format(today));
-		System.out.println("TODAY ---------=-=>" + today.toString());
+		System.out.println("TODAY IS THE DAY---------=-=>" + today.toString());
 		for (int i = 0; i < events.length(); i++) {
 			JSONObject event = events.getJSONObject(i);
 			JSONArray dates = event.getJSONArray("dates");
