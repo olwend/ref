@@ -1,6 +1,5 @@
 <%@page session="false"%>
 <%@include file="/libs/foundation/global.jsp" %>
-<cq:includeClientLib categories="nhmwww.imageandctacomponent"/>
 <%
    Page eventPage = currentPage;
    String eventContentPath = eventPage.getPath()+"/jcr:content";
@@ -20,7 +19,7 @@
 <c:set var="school" value="school"/>  
 <c:set var="science" value="science"/>
 <c:if test="${not empty eventType && not empty fileReference}"> 
-    <div class="image--and--cta--wrapper" style="background-image: url(${fileReference})">
+    <div class="image--and--cta--wrapper mt-20" style="background-image: url(${fileReference})">
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:if test="${not empty ctaLink}">    
             <a class="small-6 columns cta--wrapper ${eventType}" href="${ctaLink}.html">
