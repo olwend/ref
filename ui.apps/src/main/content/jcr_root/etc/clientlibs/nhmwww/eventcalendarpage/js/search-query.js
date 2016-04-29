@@ -1,3 +1,14 @@
+//Set as global variables to improve the performance
+var shortMonthNames = [ "Jan",  "Feb", "Mar",
+                        "Apr",  "May", "June", 
+                        "July", "Aug", "Sept", 
+                        "Oct",  "Nov", "Dec" 
+    ],
+    longMonthNames  = [ "January", "February", "March",
+                        "April",   "May",      "June", 
+                        "July",    "August",   "September", 
+                        "October", "November", "December" ];
+
 //Needed for using multiple onload
 function addLoadEvent(func) {
   var oldonload = window.onload;
@@ -36,9 +47,7 @@ function displayTodayEvents() {
         container       = document.getElementById("searchResult"),
         titleH2         = document.createElement("h2"),
         ul              = document.createElement("ul"),
-        results         = [],
-        flag            = true,
-        counter         = 0;
+        results         = [];
     
     //Clears the container
     container.innerHTML = "";
@@ -46,7 +55,11 @@ function displayTodayEvents() {
     noResultsToday.style.display = "none";
     noResults.style.display = "none";
     
-    carousel[0].style.display = "block";
+    //Prevents if no carousel 
+    if (carousel[0] != undefined || carousel[0] != null) {
+        carousel[0].style.display = "block";
+    }
+    
     titleH2.className = "pl-12";
     titleH2.innerHTML = "Today's Events";
     ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
@@ -58,28 +71,23 @@ function displayTodayEvents() {
                 date        = new Date(eventsJson.Events[i].dates[j]),
                 eventType   = eventsJson.Events[i].eventType;
             
-            //Checks the Event Type
-            if (checkEventType(eventType)){
-                isOurEvent = true;
-            }
-            else {
-                //If not checks the tags
-                var tags = eventsJson.Events[i].tags;
-                for (var k = 0; k < tags.length; k++) {
-                    var tag = tags[k].split("/");
-                    if (checkEventType(tag[tag.length - 1])){
-                        isOurEvent = true;
+            //If date == today
+            if (today.setHours(0,0,0,0,0) == date.setHours(0,0,0,0,0)) {
+                //Checks the Event Type
+                if (isValidEvent(eventType)){
+                    results.push(eventsJson.Events[i]);
+                }
+                else {
+                    //If not checks the tags
+                    var tags = eventsJson.Events[i].tags;
+                    for (var k = 0; k < tags.length; k++) {
+                        var tag = tags[k].split("/");
+                        if (isValidEvent(tag[tag.length - 1])){
+                            results.push(eventsJson.Events[i]);
+                            break;
+                        }
                     }
-                }
-            }
-            if (today.setHours(0,0,0,0,0) == date.setHours(0,0,0,0,0) && isOurEvent) {
-                if (flag) {
-                    flag = false;
-                    //Appends the title
-                    container.appendChild(titleH2);
-                    container.appendChild(ul);
-                }
-                results.push(eventsJson.Events[i]);
+                }            
                 break;
             }
         }
@@ -87,8 +95,12 @@ function displayTodayEvents() {
     
     //Displays the results
     if (results.length > 0) {
+        //Appends the title
+        container.appendChild(titleH2);
+        container.appendChild(ul);
+        
         results = orderResults(results);
-        doTheLayout(results, ul);
+        renderLayout(results, ul);
     }
     
     //Displays the no results for today message
@@ -115,7 +127,12 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
     showMore.style.display = "none";
     noResultsToday.style.display = "none";
     noResults.style.display = "none";
-    carousel[0].style.display = "none";
+    
+    //Prevents if no carousel 
+    if (carousel[0] != undefined || carousel[0] != null) {
+        carousel[0].style.display = "none";
+    }
+    
     
     for (var i = 0; i < eventsJson.Events.length;  i++) {
         var isOurEvent  = false,
@@ -124,14 +141,14 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
             tags        = eventsJson.Events[i].tags;
                 
         //Checks the Event Type
-        if (checkEventType(eventType)) {
+        if (isValidEvent(eventType)) {
                 isOurEvent = true;
         }
         //If not checks the tags
         else {
             for (var k = 0; k < tags.length; k++) {
                 var tag = tags[k].split("/");
-                if (checkEventType(tag[tag.length - 1])){
+                if (isValidEvent(tag[tag.length - 1])){
                     isOurEvent = true;
                 }
             }
@@ -226,7 +243,7 @@ function createResultDiv(results, dateFrom, dateTo, container) {
         container.appendChild(titleH2);
         container.appendChild(ul);
         
-        doTheLayout(results, ul);
+        renderLayout(results, ul);
         
         return;
     }
@@ -262,29 +279,28 @@ function createResultDiv(results, dateFrom, dateTo, container) {
             }            
         }
         
-        doTheLayout(auxResults, ul);
+        renderLayout(auxResults, ul);
     }
     return;
 };
 
 //Helper function to create the results and add the seach button
-function doTheLayout(results, ul){
-    var showMore = document.getElementById("showMore"),
-        counter  = 0;
+function renderLayout(results, ul){
+    var showMore = document.getElementById("showMore");
     
     for (var i = 0; i < results.length; i ++) {
-        counter ++;
-        createSearchResult(results[i], ul, counter);
-        if (counter > 6) {
+        createSearchResult(results[i], ul, i);
+        if (i == 5) {
             showMore.style.display = "block";
         }
     }
     
     //Adds the listener to the show more div
-    showMore.addEventListener('click', function(e){
-        showMoreEvents(e, counter, ul, showMore);
-    }, false);
-    
+    if (results.length > 5) {
+        showMore.addEventListener('click', function(e){
+            showMoreEvents(e, ul, showMore);
+        }, false);    
+    }
     return;
 } 
 
@@ -329,7 +345,7 @@ function searchByKey(pattern, element, type) {
 };
 
 //Helper function to check the Event against the page
-function checkEventType(eventType) {
+function isValidEvent(eventType) {
 
     if (eventType == "Science" && sessionStorage.pagePath == "our-science") {
         return true;
@@ -369,10 +385,13 @@ function orderResults(results) {
     }
     //Order the rest by time
     notAllDay = notAllDay.sort(function(a, b) {
-        if (getEventTimes(a, true) > getEventTimes(b, true)) {
+        var timeOfEventA = getEventTimes(a, true),
+            timeOfEventB = getEventTimes(b, true);
+        
+        if (timeOfEventA > timeOfEventB) {
             return 1;
         }
-        if (getEventTimes(a, true) < getEventTimes(b, true)) {
+        if (timeOfEventA < timeOfEventB) {
             return -1;
         }    
         return 0;
@@ -384,7 +403,7 @@ function orderResults(results) {
 };
 
 //Populates the single event li and events ul
-function createSearchResult(event, ul, counter) {
+function createSearchResult(event, ul, resultsDisplayed) {
     var li              = document.createElement("li"),
         containerDiv    = document.createElement("div"),
         navigateDiv     = document.createElement("div"),
@@ -431,7 +450,7 @@ function createSearchResult(event, ul, counter) {
     li.appendChild(containerDiv);
     
     //Hides the results above 6
-    if (counter > 6) {
+    if (resultsDisplayed > 5) {
         li.style.display = "none";
     }
     
@@ -463,9 +482,10 @@ function getEvents(tags, eventType) {
     
     if (events.localeCompare("") == 0) {
         return eventType;
+    } 
+    else {
+        return events;
     }
-    
-    return events;
 };
 
 //Helper function to parse the event date
@@ -488,28 +508,31 @@ function getEventDates(dates) {
 };
 
 //Helper function to get the times
-function getEventTimes(event, getTimes) {
+function getEventTimes(event, shouldGetTimes) {
     var dates       = event.dates,
         allDay      = event.allDay,
         times       = event.times,
         eventTimes  = [],
         today       = new Date(),
-        index       = "";
+        key         = "";
     
-    //Gets the index for today's event
+    console.log(dates);
+    console.log(allDay);
+    console.log(times);
+    //Gets the key for today's event
     for (var i = 0; i < dates.length; i++) {
         var date = new Date(dates[i]);
         if (today.setHours(0,0,0,0,0) == date.setHours(0,0,0,0,0)) { 
-            index = dates[i].substr(dates[i].length - 1);
+            key = dates[i].substr(dates[i].length - 1);
             break;
         }
     }
-    if (index != "" && !getTimes) {        
-        if (allDay[index] == "true") {
+    if (key != "" && !shouldGetTimes) {        
+        if (allDay[key] == "true") {
             return "All day";
         }
         
-        eventTimes = times[index].split(",");
+        eventTimes = times[key].split(",");
         
         if (eventTimes.length == 1) {
             return eventTimes[0];
@@ -520,31 +543,19 @@ function getEventTimes(event, getTimes) {
         }
     }
     
-    eventTimes = times[index].split(",");
-    var myTime = eventTimes[0].replace(':','');
+    eventTimes = times[key].split(",");
     
-    return parseInt(myTime);
+    return parseInt(eventTimes[0].replace(':',''));
 };
 
 //Helper function to convert the dates to string and to parse the date to the correct format
 function parseToEventDate(date, isLongMonth) {
-    var day             = date.getDate(),
-        monthIndex      = date.getMonth(),
-        year            = date.getFullYear(),
-        shortMonthNames = [ "Jan",  "Feb", "Mar",
-                            "Apr",  "May", "June", 
-                            "July", "Aug", "Sept", 
-                            "Oct",  "Nov", "Dec" 
-        ],
-        longMonthNames  = [ "January", "February", "March",
-                            "April",   "May",      "June", 
-                            "July",    "August",   "September", 
-                            "October", "November", "December" ];
-    if (!isLongMonth) {
-        return day.toString() +  " " + shortMonthNames[monthIndex] + " " + year.toString();
-    }
+    var day         = date.getDate(),
+        monthIndex  = date.getMonth(),
+        year        = date.getFullYear(),
+        monthName   = isLongMonth? longMonthNames[monthIndex] : shortMonthNames[monthIndex];
     
-    return day.toString() +  " " + longMonthNames[monthIndex] + " " + year.toString();
+    return day.toString() +  " " + monthName + " " + year.toString();
 };
 
 //Helper function to get the event price
@@ -578,19 +589,19 @@ function getEventPrice(adultPrice, concessionPrice, customPrice, familyPrice, me
 };
 
 //Function to display more events
-function showMoreEvents(e, counter, ul, showMore) {
+function showMoreEvents(e, ul, showMore) {
     e.preventDefault();
-    var listItem        = ul.getElementsByTagName("li"),
-        numOfElements   = 0;
+    var listItem = ul.getElementsByTagName("li");
     
-    for (var i=0; i < listItem.length; i++) {
-        if (numOfElements == 6) {
+    for (var i = 0; i < listItem.length; i++) {
+        if (i == 6) {
             return;
         }
         if (listItem[i].offsetParent === null) {
             listItem[i].style.display = "block";
-            numOfElements++;
         }
     }
     showMore.style.display = "none";
+    //Removes the vent listener
+    this.removeEventListener('click',arguments.callee,false);
 };
