@@ -5241,6 +5241,120 @@ div#feedback-bar p a:hover {
   height: 16px;
 }
 
+/** JQUERY DATEPICKER (VENDOR) PARTIAL NHMEC-5**/
+/*
+ * EVENT CALENDAR COMPONENT DATEPICKER STYLING 
+ */
+.ui-datepicker {
+  height: auto;
+  margin: 5px auto 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.ui-datepicker:after,
+.ui-datepicker:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ui-datepicker:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #FFFFFF;
+  border-width: 19px;
+  margin-left: -19px;
+}
+
+.ui-datepicker:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-width: 20px;
+  margin-left: -20px;
+}
+
+.ui-datepicker a {
+  text-decoration: none;
+}
+
+.ui-datepicker table {
+  width: 100%;
+}
+
+.ui-datepicker .ui-datepicker-title {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  color: #565656;
+  font-size: 1.25em;
+  font-weight: normal;
+  text-align: center;
+}
+
+.ui-widget-header {
+  background: #FFFFFF;
+  border: none;
+}
+
+.ui-icon-circle-triangle-w {
+  background-position: -96px 0;
+}
+
+.ui-icon-circle-triangle-e {
+  background-position: -32px 0px;
+}
+
+.ui-datepicker th {
+  font-family: Arial, sans-serif;
+  color: #565656;
+  font-size: 0.9em;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+  border-color: #000000;
+  margin: 0 auto;
+  width: 2em;
+  border-radius: 2em;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  text-align: center;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  color: #000000;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+  background: #FFFFFF;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #000000;
+  padding-top: 0.3em;
+}
+
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+  opacity: 1;
+}
+
+.ui-datepicker-unselectable .ui-state-default {
+  background: #D5D5D5;
+  color: #000000;
+  padding-top: 0.3em;
+}
+
+.ui-datepicker-calendar .ui-state-active,
+.ui-datepicker-calendar .ui-state-hover {
+  background: #565656;
+  color: #FFFFFF;
+  padding-top: 0.3em;
+}
+
 /** LEGACY LIGHTSLIDER (VENDOR) PARTIAL **/
 /** /!!! Core CSS !!!/**/
 .lSSlideOuter {
@@ -5823,12 +5937,40 @@ h6 {
   padding-right: 0.65em;
 }
 
+.pr-11 {
+  padding-right: 0.7em;
+}
+
+.pl-11 {
+  padding-left: 0.7em;
+}
+
+.pl-12 {
+  padding-left: 0.8em;
+}
+
 .mb-0 {
   margin-bottom: 0;
 }
 
+.mb-6 {
+  margin-bottom: 0.4em;
+}
+
 .mb-20 {
   margin-bottom: 1.2em;
+}
+
+.mt-16 {
+  margin-top: 1.0em;
+}
+
+.mt-20 {
+  margin-top: 1.2em;
+}
+
+.mt-24 {
+  margin-top: 1.5em;
 }
 
 .mt-32 {
@@ -6441,6 +6583,121 @@ h6 {
   }
 }
 
+/** EVENT CALENDAR CAROUSEL COMPONENT PARTIAL NHMEC-4**/
+.calendar--page .carousel-wrapper h3 {
+  font-size: 2.1em;
+  padding-left: 0.8em;
+}
+
+/** EVENT CALENDAR COMPONENT PARTIAL NHMEC-5**/
+.event--calendar--wrapper {
+  display: table;
+  background-color: #565656;
+  padding: 1.5em 1.5em 1em 1.5em;
+  color: #FFFFFF;
+}
+
+.event--calendar--wrapper .calendar--search--label {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  margin-bottom: 0.6em;
+  font-size: 1.375em;
+}
+
+.event--calendar--wrapper .search-keywords input {
+  height: 4.55em;
+  border: none;
+}
+
+.event--calendar--wrapper .search-icon {
+  background-color: #EEEEEE;
+  height: 5.65em;
+  text-align: center;
+  padding-top: 1.7em;
+  cursor: pointer;
+}
+
+.event--calendar--wrapper .search-keywords input,
+.event--calendar--wrapper .calendar--select select,
+.event--calendar--wrapper .dates--label,
+.event--calendar--wrapper .date--button,
+.event--calendar--wrapper .date--wrapper input {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+}
+
+.event--calendar--wrapper .reset--filter {
+  font-family: Arial;
+  font-size: 1em;
+  text-decoration: underline;
+  margin-bottom: 0.6em;
+  color: #B6B6B6;
+  cursor: pointer;
+}
+
+.event--calendar--wrapper .date--picker {
+  margin: 0 0 1rem 0;
+}
+
+.event--calendar--wrapper .date--wrapper {
+  background: #FFFFFF;
+  color: #565656;
+}
+
+.event--calendar--wrapper .date--wrapper input,
+.event--calendar--wrapper .date--wrapper input[type="text"][readonly] {
+  border: none;
+  box-shadow: none;
+  background: none;
+  height: 1.125em;
+  margin: 0.774em 0 0;
+  padding: 0 0 0 0.3em;
+  font-size: 1em;
+}
+
+.event--calendar--wrapper .date--wrapper input:focus {
+  background: none;
+}
+
+.calendar--text,
+.calendar--icon {
+  margin-top: -1.2em;
+}
+
+.event--calendar--wrapper .dates--label {
+  font-size: 1em;
+  padding-left: 0.3em;
+}
+
+.event--calendar--wrapper .date--button {
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  background: none;
+  border: 1px solid #FFFFFF;
+  font-size: 1.125em;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+}
+
+.event--calendar--wrapper .date--button:hover,
+.event--calendar--wrapper .date--button--selected {
+  background: #FFFFFF;
+  color: #565656;
+}
+
+.event--calendar--wrapper .date--button input {
+  padding: 0;
+  background: none;
+  border: none;
+  line-height: 1.9em;
+}
+
+/** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
+.event--information--wrapper {
+  min-height: 435px;
+}
+
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
 .event-slider-wrapper {
   /** WR-617 - change event slider H4 to H3 **/
@@ -6493,6 +6750,50 @@ h6 {
 /** this has likely been superseded by HTI-BOX__FEATURE-BOX **/
 .feature-box a:hover {
   color: #ffffff;
+}
+
+/** IMAGE AND CTA PARTIAL NHMEC-8 **/
+.image--and--cta--wrapper {
+  width: 100%;
+  height: 435px;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+
+.image--and--cta--wrapper .cta--wrapper {
+  background-color: #FFFFFF;
+  float: right;
+  position: relative;
+  top: 65%;
+  padding: 12px;
+  display: block;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+
+.image--and--cta--wrapper .cta--wrapper h3,
+.image--and--cta--wrapper .cta--wrapper p {
+  padding: 0;
+  margin-bottom: 0;
+  padding-left: 7.5%;
+  padding-right: 10%;
+  line-height: 1;
+}
+
+.image--and--cta--wrapper .cta--wrapper h3 {
+  font-weight: bold;
+}
+
+.image--and--cta--wrapper .arrow--icon {
+  height: 35px;
+  margin-top: 15%;
+}
+
+.image--and--cta--wrapper .ticket--icon {
+  height: 60px;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/
@@ -7485,6 +7786,24 @@ a.button-cta {
   }
 }
 
+.event--calendar--no--results,
+.event--calendar--more--results {
+  clear: both;
+  text-align: center;
+  background-color: #D8D8D8;
+}
+
+.event--calendar--more--results:hover {
+  cursor: pointer;
+}
+
+.event--calendar--no--results h5,
+.event--calendar--more--results h5 {
+  padding-top: 0.4em;
+  padding-bottom: 0;
+  line-height: 1.2em;
+}
+
 /** PRESS OFFICE PARTIAL (PHASED OUT) **/
 /** SECONDARY NAV PARTIAL **/
 /**** SECONDARY NAV ****/
@@ -8233,6 +8552,12 @@ input.searchGo {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
+/** Needed for the image and CTA component NHMEC-8 **/
+.our-science .image--and--cta--wrapper,
+.our-science .image--and--cta--wrapper .cta--wrapper h3 {
+  color: #357900;
+}
+
 /** PRESS OFFICE THEME PARTIAL **/
 .press-office {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -8434,6 +8759,12 @@ input.searchGo {
 .schools .accordion .accordion-navigation.active > a:hover,
 .schools .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.schools .image--and--cta--wrapper,
+.schools .image--and--cta--wrapper .cta--wrapper h3 {
+  color: #0983BB;
 }
 
 /** SEARCH THEME PARTIAL **/
@@ -8721,6 +9052,12 @@ input.searchGo {
 .visit .accordion .accordion-navigation.active > a:hover,
 .visit .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.visit .image--and--cta--wrapper,
+.visit .image--and--cta--wrapper .cta--wrapper h3 {
+  color: #A1164E;
 }
 
 /*# sourceMappingURL=styles.css.map */
