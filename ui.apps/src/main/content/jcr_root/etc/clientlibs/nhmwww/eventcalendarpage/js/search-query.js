@@ -9,22 +9,7 @@ var shortMonthNames = [ "Jan",  "Feb", "Mar",
                         "July",    "August",   "September", 
                         "October", "November", "December" ];
 
-//Needed for using multiple onload
-function addLoadEvent(func) {
-  var oldonload = window.onload;
-  if (typeof window.onload != 'function') {
-    window.onload = func;
-  } else {
-    window.onload = function() {
-      if (oldonload) {
-        oldonload();
-      }
-      func();
-    }
-  }
-}
-
-addLoadEvent(function() {
+$(document).ready(function() {
     //Stores the events JSON in sessionStorage and displays Today Events
     var eventsData  = CQ.HTTP.get(CQ.HTTP.externalize("/content/nhmwww/eventscontent" + "/events")),
         pagePath    = CQ.WCM.getPagePath();
@@ -34,7 +19,7 @@ addLoadEvent(function() {
     pagePath = pagePath.split("/");    
     sessionStorage.pagePath = pagePath[pagePath.length - 2];
         
-    displayTodayEvents();
+    displayTodayEvents();    
 });
 
 //Populates the single events result content
@@ -150,6 +135,7 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
                 var tag = tags[k].split("/");
                 if (isValidEvent(tag[tag.length - 1])){
                     isOurEvent = true;
+                    break;
                 }
             }
         }
@@ -230,26 +216,7 @@ function createResultDiv(results, dateFrom, dateTo, container) {
     //Gets the interval of days
     numOfDays = Math.floor(( dateTo - dateFrom) / 86400000);
     
-    //If ther is only one date
-    if (numOfDays == 0) {
-        var titleH2         = document.createElement("h2"),
-            ul              = document.createElement("ul");
-            
-        titleH2.className = "pl-12";
-        ul.className = "large-block-grid-3 medium-block-grid-3 small-block-grid-1";
-        
-        titleH2.innerHTML = parseToEventDate(new Date(dateFrom), true);
-        
-        container.appendChild(titleH2);
-        container.appendChild(ul);
-        
-        renderLayout(results, ul);
-        
-        return;
-    }
-
     var date = new Date(dateFrom);
-    
     //For each day gets the events
     for (var i = 0; i < numOfDays + 1; i ++) {
         var titleH2         = document.createElement("h2"),
@@ -269,7 +236,6 @@ function createResultDiv(results, dateFrom, dateTo, container) {
         auxDate = new Date(auxDate).setHours(0,0,0,0,0);
         
         for (var j = 0; j < results.length;  j++) {
-            
             for (var k = 0; k < results[j].dates.length;  k++) {
                 var eventDate = new Date(results[j].dates[k]).setHours(0,0,0,0,0);
                 if (eventDate == auxDate) { 
