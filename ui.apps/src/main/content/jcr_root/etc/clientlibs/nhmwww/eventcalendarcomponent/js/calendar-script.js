@@ -1,4 +1,4 @@
-addLoadEvent(function() {
+$(document).ready(function(){
     //Sets the listenerts needed
     var keywordsInput = document.getElementById("keywordsInput");
     keywordsInput.addEventListener("keyup", function(){ getKey(event); }, false);
@@ -18,9 +18,8 @@ addLoadEvent(function() {
     var dateButtons = document.getElementsByClassName("date--button");
     for (var i = 0; i < dateButtons.length; i++) {
         dateButtons[i].addEventListener('click', setDateButton, false);
-    }
-    
-});    
+    } 
+});   
 
 //Do Search if key pressed is enter
 function getKey(event) {
