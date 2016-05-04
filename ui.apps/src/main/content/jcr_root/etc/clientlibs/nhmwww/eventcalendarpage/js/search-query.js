@@ -482,9 +482,6 @@ function getEventTimes(event, shouldGetTimes) {
         today       = new Date(),
         key         = "";
     
-    console.log(dates);
-    console.log(allDay);
-    console.log(times);
     //Gets the key for today's event
     for (var i = 0; i < dates.length; i++) {
         var date = new Date(dates[i]);

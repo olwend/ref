@@ -1,11 +1,26 @@
+var NHMDatePicker = NHMDatePicker || {};
+if (typeof NHMDatePicker.Profile === 'undefined') {
+    NHMDatePicker.Profile = function () {
+        this.CONST = {
+            DATE_FORMAT:    'D d/mm/yy',
+            ORIENTATION:    'top',
+            DAY_NAMES:      ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            MIN_DATE:       0,
+            MAX_DATE:       '+1y'
+        };
+    };   
+}
 $(document).ready(function () {
+    //Sets the profiles
+    var datePickerProfile = new NHMDatePicker.Profile();
+    var calendarProfile = new NHMCalendar.Profile();
     //First datepicker
     $('#dateFrom').datepicker({
-        minDate: 0,
-        maxDate: "+1y",
-        orientation: "top",
-        dateFormat: "D d/mm/yy",
-        dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        minDate: datePickerProfile.CONST.MIN_DATE,
+        maxDate: datePickerProfile.CONST.MAX_DATE,
+        orientation: datePickerProfile.CONST.ORIENTATION,
+        dateFormat: datePickerProfile.CONST.DATE_FORMAT,
+        dayNamesMin: datePickerProfile.CONST.DAY_NAMES,
         beforeShow: function (input, inst) {
             inst.inline = false;
             setTimeout(function () {
@@ -20,16 +35,16 @@ $(document).ready(function () {
         onSelect: function (dateText, inst) {
             $("#dateTo").datepicker("option", "minDate", $("#dateFrom").datepicker("getDate"));
             //Call to the search function
-            doSearch();
-        },
+            calendarProfile.doSearch();
+        }
     });
     //Second datepicker
     $('#dateTo').datepicker({
-        minDate: 0,
-        maxDate: "+1y",
-        orientation: "top",
-        dateFormat: "D d/mm/yy",
-        dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        minDate: datePickerProfile.CONST.MIN_DATE,
+        maxDate: datePickerProfile.CONST.MAX_DATE,
+        orientation: datePickerProfile.CONST.ORIENTATION,
+        dateFormat: datePickerProfile.CONST.DATE_FORMAT,
+        dayNamesMin: datePickerProfile.CONST.DAY_NAMES,
         //Needed to display both datepickers in the same place
         beforeShow: function (input, inst) {
             var cal = inst.dpDiv;
@@ -45,12 +60,12 @@ $(document).ready(function () {
             }, 10);
         },
         onSelect: function (dateText, inst) {
-           doSearch();
-        },
+           calendarProfile.doSearch();
+        }
     });
     //Needed to hide the datepickers
     $('.dp').on('change', function () {
-        $('.datepicker').hide();
+        $('.datepicker').datepicker('hide');
     });
     
     //Helper function to add the rules
