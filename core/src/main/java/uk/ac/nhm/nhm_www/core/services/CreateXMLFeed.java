@@ -4,6 +4,7 @@ import java.text.ParseException;
 
 import javax.jcr.LoginException;
 import javax.jcr.RepositoryException;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.json.JSONException;
 
@@ -12,6 +13,6 @@ import org.json.JSONException;
  */
 public interface CreateXMLFeed {
 
-	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException;
+	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException;
 	
 }

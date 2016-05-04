@@ -258,17 +258,14 @@ public class EventPagesUtils {
 	 * @throws ParseException 
 	 */
 	private LinkedHashSet<String> createDatesArray(String stringValue) throws ParseException {
-		//ArrayList<String> stringArray = new ArrayList<String>();
 		LinkedHashSet<String> datesSet = new LinkedHashSet<String>();
 		String[] values = stringValue.split(",");
 
 		for (int i = 0; i < values.length; i++) {
 			if (values[i].length() > 0) {
-				//stringArray.add(getDateParsed (values[i]));
 				datesSet.add(getDateParsed (values[i]));
 			}
 		}
-		//return stringArray;
 		return datesSet;
 	}
 	
@@ -285,9 +282,9 @@ public class EventPagesUtils {
 		
 		String[] parts = dateString.split(" ");
 		String stringDateParsed = parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3];
-		String index = dateString.substring(dateString.length() -1 );
-		
+		String index = dateString.substring(dateString.length() - 1);
 		Date dateParsed = sdf.parse(stringDateParsed);
+
 		return dateParsed.toString() + index;
 	}
 

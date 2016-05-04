@@ -1,7 +1,6 @@
 package uk.ac.nhm.nhm_www.core.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 public class EventPageDetail {
