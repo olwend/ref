@@ -1,18 +1,14 @@
 <%@page session="false"%>
 <%@include file="/libs/foundation/global.jsp" %>
 <%
-   Page eventPage = currentPage;
-   String eventContentPath = eventPage.getPath()+"/jcr:content";
+   String eventContentPath = currentPage.getPath()+"/jcr:content";
 
    Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 
    String eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
    String fileReference = contentNode.hasProperty("fileReference") ? contentNode.getProperty("fileReference").getString() : "";
    
-   String ctaLink = "";
-   if (eventType != ""){
-      ctaLink = contentNode.hasProperty("ctaLink") ? contentNode.getProperty("ctaLink").getString() : "";
-   }
+   String ctaLink = (eventType != "" && contentNode.hasProperty("ctaLink")) ? contentNode.getProperty("ctaLink").getString() : "";
 %>    
 <c:set var="eventType" value="<%= eventType.toLowerCase() %>"/>
 <c:set var="fileReference" value="<%= fileReference %>"/>

@@ -14,11 +14,10 @@
    String events = "";
    String audiences = "";
    
-   if (tags != null && tags.length > 0) {
+   if (tags != null) {
       for (int i = 0; i < tags.length; i++) {
          String[] tokens = tags[i].toString().split("/");
-         String firstToken = tokens[0];
-         String[] headers = firstToken.split(":");
+         String[] headers = tokens[0].split(":");
          String lastToken = "";
                                      
         if (headers[1].equals("events")) {
@@ -32,7 +31,7 @@
                events = events.concat(", " + lastToken);                            
             }
          }
-         if (headers[1].equals("audience")) {
+         else if (headers[1].equals("audience")) {
             lastToken = tokens[tokens.length-1];
             lastToken = lastToken.replace("-", " ");
 
@@ -58,7 +57,7 @@
                                           
    if (eventType.toLowerCase().equals("school")) {
        Value[] subject = contentNode.hasProperty("cq:subject") ? contentNode.getProperty("cq:subject").getValues() : null;
-       if (subject != null && subject.length > 0) {
+       if (subject != null) {
           for (int i = 0; i < subject.length; i++) {
              String[] tokens = subject[i].toString().split("/");
              String lastToken = tokens[tokens.length-1];
@@ -83,77 +82,79 @@
    
 %>
 <c:set var="eventType" value="<%= eventType.toLowerCase() %>"/>
-<c:if test="${not empty eventType}">
-    <div class="${eventType} hti-wrapper mt-20">
-        <div class="event--information--wrapper small-12 medium-12 large-12 columns hti-box__feature-box">
-            <div class="hti-box--text-wrapper">
-                <h3>Event information</h3>
-                <div class="small-12 large-12 columns">
-                    <c:set var="events" value="<%= events %>"/>
-                    <c:if test="${not empty events}">
-                        <p class="mb-0">Event: <span style="font-weight:bold">${events}</span></p> 
-                    </c:if>
+<c:choose>
+    <c:when test="${not empty eventType}">
+        <div class="${eventType} hti-wrapper mt-20">
+            <div class="event--information--wrapper small-12 medium-12 large-12 columns hti-box__feature-box">
+                <div class="hti-box--text-wrapper">
+                    <h3>Event information</h3>
+                    <div class="small-12 large-12 columns">
+                        <c:set var="events" value="<%= events %>"/>
+                        <c:if test="${not empty events}">
+                            <p class="mb-0">Event: <span>${events}</span></p> 
+                        </c:if>
 
-                    <c:set var="eventVenue" value="<%= eventVenue %>"/>
-                    <c:if test="${not empty eventVenue}">
-                        <p class="mb-0">Location: <span style="font-weight:bold">${eventVenue}</span></p> 
-                    </c:if>
+                        <c:set var="eventVenue" value="<%= eventVenue %>"/>
+                        <c:if test="${not empty eventVenue}">
+                            <p class="mb-0">Location: <span>${eventVenue}</span></p> 
+                        </c:if>
 
-                    <c:set var="audiences" value="<%= audiences %>"/>
-                    <c:if test="${not empty audiences}">
-                        <p class="mb-0">Who is it for: <span style="font-weight:bold">${audiences}</span></p> 
-                    </c:if>
+                        <c:set var="audiences" value="<%= audiences %>"/>
+                        <c:if test="${not empty audiences}">
+                            <p class="mb-0">Who is it for: <span>${audiences}</span></p> 
+                        </c:if>
 
-                    <p class="mt-16 mb-0">Ticket prices:</p>
-                    <c:set var="adultPrice" value="<%= adultPrice %>"/>
-                    <c:if test="${not empty adultPrice}">
-                        <p class="mb-0">Adult: <span style="font-weight:bold">${adultPrice}</span></p> 
-                    </c:if>
+                        <p class="mt-16 mb-0">Ticket prices:</p>
+                        <c:set var="adultPrice" value="<%= adultPrice %>"/>
+                        <c:if test="${not empty adultPrice}">
+                            <p class="mb-0">Adult: <span>${adultPrice}</span></p> 
+                        </c:if>
 
-                    <c:set var="concessionPrice" value="<%= concessionPrice %>"/>
-                    <c:if test="${not empty concessionPrice}">
-                        <p class="mb-0">Child and concession: <span style="font-weight:bold">${concessionPrice}</span></p> 
-                    </c:if> 
+                        <c:set var="concessionPrice" value="<%= concessionPrice %>"/>
+                        <c:if test="${not empty concessionPrice}">
+                            <p class="mb-0">Child and concession: <span>${concessionPrice}</span></p> 
+                        </c:if> 
 
-                    <c:set var="memberPrice" value="<%= memberPrice %>"/>
-                    <c:if test="${not empty memberPrice}">
-                        <p class="mb-0">Members: <span style="font-weight:bold">${memberPrice}</span></p> 
-                    </c:if> 
+                        <c:set var="memberPrice" value="<%= memberPrice %>"/>
+                        <c:if test="${not empty memberPrice}">
+                            <p class="mb-0">Members: <span>${memberPrice}</span></p> 
+                        </c:if> 
 
-                    <c:set var="familyPrice" value="<%= familyPrice %>"/>
-                    <c:if test="${not empty familyPrice}">
-                        <p class="mb-0">Family: <span style="font-weight:bold">${familyPrice}</span></p> 
-                    </c:if> 
+                        <c:set var="familyPrice" value="<%= familyPrice %>"/>
+                        <c:if test="${not empty familyPrice}">
+                            <p class="mb-0">Family: <span>${familyPrice}</span></p> 
+                        </c:if> 
 
-                    <c:set var="customPrice" value="<%= customPrice %>"/>
-                    <c:if test="${not empty customPrice}">
-                        <p class="mb-0" style="font-weight:bold">${customPrice}</p> 
-                    </c:if>
+                        <c:set var="customPrice" value="<%= customPrice %>"/>
+                        <c:if test="${not empty customPrice}">
+                            <p class="mb-0" class="info--span">${customPrice}</p> 
+                        </c:if>
 
-                    <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
-                    <c:if test="${not empty eventSubjects}">
-                        <p class="mt-16 mb-0">Subject: <span style="font-weight:bold">${eventSubjects}</span></p> 
-                    </c:if> 
+                        <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
+                        <c:if test="${not empty eventSubjects}">
+                            <p class="mt-16 mb-0">Subject: <span>${eventSubjects}</span></p> 
+                        </c:if> 
 
-                    <c:set var="capacity" value="<%= capacity %>"/>
-                    <c:if test="${not empty capacity}">
-                        <p class="mb-0">Capacity: <span style="font-weight:bold">${capacity}</span></p> 
-                    </c:if> 
+                        <c:set var="capacity" value="<%= capacity %>"/>
+                        <c:if test="${not empty capacity}">
+                            <p class="mb-0">Capacity: <span>${capacity}</span></p> 
+                        </c:if> 
 
-                    <c:set var="eventDuration" value="<%= eventDuration %>"/>
-                    <c:if test="${not empty eventDuration}">
-                        <p class="mb-0">Event duration: <span style="font-weight:bold">${eventDuration}</span></p> 
-                    </c:if>
+                        <c:set var="eventDuration" value="<%= eventDuration %>"/>
+                        <c:if test="${not empty eventDuration}">
+                            <p class="mb-0">Event duration: <span>${eventDuration}</span></p> 
+                        </c:if>
 
-                    <c:set var="speakerDetails" value="<%= speakerDetails %>"/>
-                    <c:if test="${not empty speakerDetails}">
-                       <p class="mt-16 mb-0">Speaker details: <span style="font-weight:bold">${speakerDetails}</span></p> 
-                    </c:if> 
+                        <c:set var="speakerDetails" value="<%= speakerDetails %>"/>
+                        <c:if test="${not empty speakerDetails}">
+                           <p class="mt-16 mb-0">Speaker details: <span>${speakerDetails}</span></p> 
+                        </c:if> 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</c:if>
-<c:if test="${empty eventType}">
-    The page has not been set up yet.
-</c:if>
+    </c:when>
+    <c:otherwise>
+        The page has not been set up yet.
+    </c:otherwise>
+</c:choose>

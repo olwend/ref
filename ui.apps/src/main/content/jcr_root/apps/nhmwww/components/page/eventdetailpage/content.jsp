@@ -1,6 +1,5 @@
 <%@page session="false"
-          import="com.day.cq.wcm.api.Page,
-                  com.day.cq.wcm.api.WCMMode"%>
+          import="com.day.cq.wcm.api.WCMMode"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%
     if (WCMMode.fromRequest(request) == WCMMode.EDIT) {
@@ -12,10 +11,10 @@
     if (eventSelect.equals("science")) {
           eventSelect = "our-science";                                                     
     }
-    if (eventSelect.equals("school")) {
+    else if (eventSelect.equals("school")) {
           eventSelect = "schools";                                                     
     }
-    if (eventSelect.equals("tring") || eventSelect.equals("visitor")) {
+    else if (eventSelect.equals("tring") || eventSelect.equals("visitor")) {
           eventSelect = "visit";                                                     
     }
 %>

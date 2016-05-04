@@ -6697,6 +6697,9 @@ h6 {
 .event--information--wrapper {
   min-height: 435px;
 }
+.event--information--wrapper span {
+  font-weight: bold;
+}
 
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
 .event-slider-wrapper {
@@ -7802,6 +7805,10 @@ a.button-cta {
   padding-top: 0.4em;
   padding-bottom: 0;
   line-height: 1.2em;
+}
+
+.event--calendar--more--results--hide {
+  display: none;
 }
 
 /** PRESS OFFICE PARTIAL (PHASED OUT) **/

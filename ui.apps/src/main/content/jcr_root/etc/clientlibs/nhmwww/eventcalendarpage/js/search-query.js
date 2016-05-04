@@ -29,6 +29,7 @@ function displayTodayEvents() {
         carousel        = document.getElementsByClassName("nhm-carousel"),
         showMore        = document.getElementById("showMore"),
         noResultsToday  = document.getElementById("noResultsToday"),
+        noResults       = document.getElementById("noResults"),
         container       = document.getElementById("searchResult"),
         titleH2         = document.createElement("h2"),
         ul              = document.createElement("ul"),
@@ -36,9 +37,9 @@ function displayTodayEvents() {
     
     //Clears the container
     container.innerHTML = "";
-    showMore.style.display = "none";
-    noResultsToday.style.display = "none";
-    noResults.style.display = "none";
+    showMore.className = "event--calendar--more--results--hide";
+    noResultsToday.className = "event--calendar--more--results--hide";
+    noResults.className = "event--calendar--more--results--hide";
     
     //Prevents if no carousel 
     if (carousel[0] != undefined || carousel[0] != null) {
@@ -89,8 +90,8 @@ function displayTodayEvents() {
     }
     
     //Displays the no results for today message
-    else { 
-        noResultsToday.style.display = "block";
+    else {
+        noResultsToday.className = "more-results-text more-results-text__directory-search-results";
     }
     
     return;
@@ -109,9 +110,9 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
     
     //Clears the container
     container.innerHTML = "";
-    showMore.style.display = "none";
-    noResultsToday.style.display = "none";
-    noResults.style.display = "none";
+    showMore.className = "event--calendar--more--results--hide";
+    noResultsToday.className = "event--calendar--more--results--hide";
+    noResults.className = "event--calendar--more--results--hide";
     
     //Prevents if no carousel 
     if (carousel[0] != undefined || carousel[0] != null) {
@@ -185,7 +186,7 @@ function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, date
     }
     //Displays the error msg
     else {
-       noResults.style.display = "block"; 
+       noResults.className = "more-results-text more-results-text__directory-search-results"; 
     }
     
     return;
@@ -256,13 +257,13 @@ function renderLayout(results, ul){
     
     for (var i = 0; i < results.length; i ++) {
         createSearchResult(results[i], ul, i);
-        if (i == 5) {
-            showMore.style.display = "block";
+        if (i >= 6) {
+            showMore.className = "row event--calendar--more--results";
         }
     }
     
     //Adds the listener to the show more div
-    if (results.length > 5) {
+    if (results.length >= 6) {
         showMore.addEventListener('click', function(e){
             showMoreEvents(e, ul, showMore);
         }, false);    
@@ -554,17 +555,19 @@ function getEventPrice(adultPrice, concessionPrice, customPrice, familyPrice, me
 //Function to display more events
 function showMoreEvents(e, ul, showMore) {
     e.preventDefault();
-    var listItem = ul.getElementsByTagName("li");
+    var listItem    = ul.getElementsByTagName("li"),
+        counter     = 0;
     
     for (var i = 0; i < listItem.length; i++) {
-        if (i == 6) {
+        if (counter == 6) {
             return;
         }
         if (listItem[i].offsetParent === null) {
             listItem[i].style.display = "block";
+            counter++;
         }
     }
-    showMore.style.display = "none";
+    showMore.className = "event--calendar--more--results--hide";
     //Removes the vent listener
     this.removeEventListener('click',arguments.callee,false);
 };

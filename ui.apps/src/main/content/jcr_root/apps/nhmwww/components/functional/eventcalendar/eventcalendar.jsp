@@ -24,9 +24,9 @@
                     <option value="none" selected="selected">${filterOneLabel}</option>
                     <c:set var="filterOneOptions" value="<%= properties.get("filterOne", String[].class) %>" />
 				    <c:forEach var="filterOneOption" items="${filterOneOptions}">
-                        <c:set var="filterOneName" value="${fn:split(filterOneOption, '/')}"/>
-                        <c:set var="filterOneName2" value="${fn:replace(filterOneName[1], '-', ' ')}" />
-                        <option value="${filterOneOption}">${filterOneName2}</option> 
+                        <c:set var="filterOneOptionSplit" value="${fn:split(filterOneOption, '/')}"/>
+                        <c:set var="filterOneName" value="${fn:replace(filterOneOptionSplit[1], '-', ' ')}" />
+                        <option value="${filterOneOption}">${filterOneName}</option> 
                     </c:forEach>
 				</select>
             </div>
@@ -36,9 +36,9 @@
                     <option value="none" selected="selected">${filterTwoLabel}</option>
                     <c:set var="filterTwoOptions" value="<%= properties.get("filterTwo", String[].class) %>" />
 				    <c:forEach var="filterTwoOption" items="${filterTwoOptions}">
-                        <c:set var="filterTwoName" value="${fn:split(filterTwoOption, '/')}"/>
-                        <c:set var="filterTwoName2" value="${fn:replace(filterTwoName[1], '-', ' ')}" />
-                        <option value="${filterTwoOption}">${filterTwoName2}</option> 
+                        <c:set var="filterTwoOptionSplit" value="${fn:split(filterTwoOption, '/')}"/>
+                        <c:set var="filterTwoName" value="${fn:replace(filterTwoOptionSplit[1], '-', ' ')}" />
+                        <option value="${filterTwoOption}">${filterTwoName}</option> 
                     </c:forEach>
 				</select> 
             </div>
