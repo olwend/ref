@@ -39,7 +39,7 @@ NHMMultifield.MultiFieldPanel = CQ.Ext.extend(CQ.Ext.Panel, {
             }
 
             this.processPath(this.findParentByType('dialog').path);
-        })
+        });
     },
 
     getValue: function () {
