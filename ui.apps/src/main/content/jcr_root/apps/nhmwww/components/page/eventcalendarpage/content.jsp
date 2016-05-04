@@ -1,7 +1,6 @@
 <%@page session="false"
-          import="com.day.cq.wcm.api.Page"%>
+        import="com.day.cq.wcm.api.WCMMode"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<cq:includeClientLib categories="nhmwww.eventcalendarpage"/>
 <cq:includeClientLib categories="cq.widgets"/>
 <div class="main-section calendar--page">
     <div class="small-12 large-text-left columns">
@@ -10,9 +9,10 @@
 	<cq:include path="par" resourceType="foundation/components/parsys" />
     <%
         if (WCMMode.fromRequest(request) == WCMMode.DISABLED || WCMMode.fromRequest(request) == WCMMode.PREVIEW) {
-        %>     
+        %>   
+            <cq:includeClientLib categories="nhmwww.eventcalendarpage"/>
             <div id="searchResult" class="row"></div>
-            <div id="showMore" class="row event--calendar--more--results" style="display: none;">
+            <div id="showMore" class="row event--calendar--more--results hide" style="display: none;">
                 <h5 class="more-results-text more-results-text__directory-search-results">Show more</h5>
             </div>
             <div class="row event--calendar--no--results">
