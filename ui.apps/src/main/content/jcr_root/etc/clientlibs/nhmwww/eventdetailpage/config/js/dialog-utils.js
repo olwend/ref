@@ -154,7 +154,7 @@ function setValidation (field, newValue, oldValue) {
     var prices = panel.findByType('textfield');
     var isEmpty = true;
     if (newValue) {
-        for (var i = 0; i < prices.length; i++) {
+        for (var i = 0; i < prices.length - 1; i++) {
             prices[i].allowBlank = true;
             prices[i].clearInvalid();
         }
@@ -164,7 +164,7 @@ function setValidation (field, newValue, oldValue) {
         isEmpty = checkEmptyPrice(prices);
 
         if (isEmpty) {
-            for (var i = 0; i < prices.length; i++) {
+            for (var i = 0; i < prices.length - 1; i++) {
                 prices[i].allowBlank = false;
                 prices[i].clearInvalid();
             }
@@ -180,7 +180,7 @@ function checkInitPrices (field, dataRecord, path) {
     isEmpty = checkEmptyPrice(prices);
     
     if (!isEmpty) {
-        for (var i = 0; i < prices.length; i++) {
+        for (var i = 0; i < prices.length - 1; i++) {
             prices[i].allowBlank = true;
             prices[i].clearInvalid();
         }
@@ -190,7 +190,7 @@ function checkInitPrices (field, dataRecord, path) {
 function checkEmptyPrice (prices) {
     var isEmpty = true;
     
-    for (var i = 0; i < prices.length; i++) {
+    for (var i = 0; i < prices.length - 1; i++) {
         if (prices[i].getValue() != "") {
             isEmpty = false;
             break;

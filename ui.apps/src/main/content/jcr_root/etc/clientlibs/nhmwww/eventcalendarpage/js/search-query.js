@@ -405,7 +405,7 @@ function createSearchResult(event, ul, resultsDisplayed) {
     paragraph.innerHTML =   getEventDates(event.dates) + "<br/>" +
                             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
                             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
-                            "Ticket price: <b>" + getEventPrice(event.adultPrice, event.concessionPrice, event.customPrice, event.familyPrice, event.memberPrice) + "</b><br/>" +
+                            "Ticket price: <b>" + event.eventListingPrice + "</b><br/>" +
                             event.description;
     
     imageDiv.appendChild(img);
@@ -520,36 +520,6 @@ function parseToEventDate(date, isLongMonth) {
         monthName   = isLongMonth? longMonthNames[monthIndex] : shortMonthNames[monthIndex];
     
     return day.toString() +  " " + monthName + " " + year.toString();
-};
-
-//Helper function to get the event price
-function getEventPrice(adultPrice, concessionPrice, customPrice, familyPrice, memberPrice) {
-    //Remove the last space if exits
-    if (customPrice.localeCompare("") != 0) {
-        customPrice = customPrice.replace(/\s+$/, "");
-    }
-    if (customPrice == "Free" || customPrice == "free") {
-        return "Free";
-    }
-    if (adultPrice != "" && concessionPrice == ""  && customPrice == "" && familyPrice == "" && memberPrice == "") {
-        return "£" + adultPrice;
-    }
-    if (adultPrice == "" && concessionPrice != ""  && customPrice == "" && familyPrice == "" && memberPrice == "") {
-        return "£" + concessionPrice;
-    }
-    if (adultPrice == "" && concessionPrice == ""  && customPrice != "" && familyPrice == "" && memberPrice == "") {
-        if (/^\d+$/.test(customPrice)) {
-            return "£" + customPrice;
-        }
-        return customPrice;
-    }
-    if (adultPrice == "" && concessionPrice == ""  && customPrice == "" && familyPrice != "" && memberPrice == "") {
-        return "£" + familyPrice;
-    }
-    if (adultPrice == "" && concessionPrice == ""  && customPrice == "" && familyPrice == "" && memberPrice != "") {
-        return "£" + memberPrice;
-    }
-    return "Vary";
 };
 
 //Function to display more events

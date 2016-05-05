@@ -78,6 +78,7 @@ public class EventPagesUtils {
 		final String memberPrice = "memberPrice";
 		final String familyPrice = "familyPrice";
 		final String customPrice = "customPrice";
+		final String eventListingPrice = "eventListingPrice";
 		final String fileReference = "fileReference";
 		final String ctaLink = "ctaLink";
 		final String subject = "./cq:subject";
@@ -140,6 +141,9 @@ public class EventPagesUtils {
 		if (iteratedNode.hasProperty(customPrice)) {
 			eventDetail.setCustomPrice(iteratedNode.getProperty(customPrice).getString());
 		}
+		if (iteratedNode.hasProperty(eventListingPrice)) {
+			eventDetail.setEventListingPrice(iteratedNode.getProperty(eventListingPrice).getString());
+		}
 		if (iteratedNode.hasProperty(fileReference)) {
 			eventDetail.setImageLink(iteratedNode.getProperty(fileReference).getString());
 		}
@@ -194,6 +198,7 @@ public class EventPagesUtils {
 			events.put("memberPrice", event.getMemberPrice());
 			events.put("familyPrice", event.getFamilyPrice());
 			events.put("customPrice", event.getCustomPrice());
+			events.put("eventListingPrice", event.getEventListingPrice());
 			events.put("imageLink", event.getImageLink());
 			events.put("ctaLink", event.getCtaLink());
 			// School Event Values
