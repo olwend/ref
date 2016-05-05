@@ -1,8 +1,45 @@
 <%@page session="false"%>
 <%@include file="/libs/foundation/global.jsp" %>
+
+<%!
+    //function to get the tags
+    String getTags(String token, String tags) {
+       String lastToken = token.replace("-", " ");
+
+       if (tags.equals("")) {
+          tags = lastToken;                               
+       } 
+       else {
+          tags = tags.concat(", " + lastToken);                            
+       }
+    
+       return tags;
+    }
+        
+    //function to get the subjects
+    String getSubject(Value[] subject) {
+       String subjects = "";
+       
+       if (subject != null) {
+          for (int i = 0; i < subject.length; i++) {
+             String[] tokens = subject[i].toString().split("/");
+             String lastToken = tokens[tokens.length - 1];
+             lastToken = lastToken.replace("-", " ");
+
+             if (i == 0) {
+                subjects = lastToken;                               
+             } 
+             else {
+                subjects = subjects.concat(", " + lastToken);                            
+             }
+          }
+       }
+       
+       return subjects;
+    }
+%>
 <%
-   Page eventPage = currentPage;
-   String eventContentPath = eventPage.getPath()+"/jcr:content";
+   String eventContentPath = currentPage.getPath() + "/jcr:content";
 
    Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 
@@ -18,29 +55,12 @@
       for (int i = 0; i < tags.length; i++) {
          String[] tokens = tags[i].toString().split("/");
          String[] headers = tokens[0].split(":");
-         String lastToken = "";
-                                     
-        if (headers[1].equals("events")) {
-            lastToken = tokens[tokens.length-1];
-            lastToken = lastToken.replace("-", " ");
-
-            if (events.equals("")) {
-               events = lastToken;                               
-            } 
-            else {
-               events = events.concat(", " + lastToken);                            
-            }
+         
+         if (headers[1].equals("events")) {
+            events = getTags(tokens[tokens.length - 1], events);
          }
          else if (headers[1].equals("audience")) {
-            lastToken = tokens[tokens.length-1];
-            lastToken = lastToken.replace("-", " ");
-
-            if (audiences.equals("")) {
-               audiences = lastToken;                               
-            } 
-            else {
-               audiences = audiences.concat(", " + lastToken);                            
-            }                               
+            audiences = getTags(tokens[tokens.length - 1], audiences);                               
          }
       }
    } 
@@ -57,26 +77,17 @@
                                           
    if (eventType.toLowerCase().equals("school")) {
        Value[] subject = contentNode.hasProperty("cq:subject") ? contentNode.getProperty("cq:subject").getValues() : null;
-       if (subject != null) {
-          for (int i = 0; i < subject.length; i++) {
-             String[] tokens = subject[i].toString().split("/");
-             String lastToken = tokens[tokens.length-1];
-             lastToken = lastToken.replace("-", " ");
-
-             if (i == 0) {
-                eventSubjects = lastToken;                               
-             } 
-             else {
-                eventSubjects = eventSubjects.concat(", " + lastToken);                            
-             }
-          }
-       }
+       eventSubjects = getSubject(subject);
        capacity = contentNode.hasProperty("capacity") ? contentNode.getProperty("capacity").getString() : "";
        eventDuration = contentNode.hasProperty("eventDuration") ? contentNode.getProperty("eventDuration").getString() : "";                                          
    } 
 
+   String scienceSubjects = "";
    String speakerDetails = "";
+   
    if (eventType.toLowerCase().equals("science")) {
+      Value[] scienceSubject = contentNode.hasProperty("cq:subjectScience") ? contentNode.getProperty("cq:subjectScience").getValues() : null;
+      scienceSubjects = getSubject(scienceSubject);
       speakerDetails = contentNode.hasProperty("speakerDetails") ? contentNode.getProperty("speakerDetails").getString() : "";                                         
    }
    
@@ -103,7 +114,32 @@
                         <c:if test="${not empty audiences}">
                             <p class="mb-0">Who is it for: <span>${audiences}</span></p> 
                         </c:if>
+                        
+                        <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
+                        <c:if test="${not empty eventSubjects}">
+                            <p class="mt-16 mb-0">Subject: <span>${eventSubjects}</span></p> 
+                        </c:if> 
 
+                        <c:set var="capacity" value="<%= capacity %>"/>
+                        <c:if test="${not empty capacity}">
+                            <p class="mb-0">Capacity: <span>${capacity}</span></p> 
+                        </c:if> 
+
+                        <c:set var="eventDuration" value="<%= eventDuration %>"/>
+                        <c:if test="${not empty eventDuration}">
+                            <p class="mb-0">Event duration: <span>${eventDuration}</span></p> 
+                        </c:if>
+
+                        <c:set var="scienceSubjects" value="<%= scienceSubjects %>"/>
+                        <c:if test="${not empty scienceSubjects}">
+                            <p class="mt-16 mb-0">Subject: <span>${scienceSubjects}</span></p> 
+                        </c:if> 
+                        
+                        <c:set var="speakerDetails" value="<%= speakerDetails %>"/>
+                        <c:if test="${not empty speakerDetails}">
+                           <p class="mb-0">Speaker details: <span>${speakerDetails}</span></p> 
+                        </c:if> 
+                        
                         <p class="mt-16 mb-0">Ticket prices:</p>
                         <c:set var="adultPrice" value="<%= adultPrice %>"/>
                         <c:if test="${not empty adultPrice}">
@@ -129,26 +165,6 @@
                         <c:if test="${not empty customPrice}">
                             <p class="mb-0" class="info--span">${customPrice}</p> 
                         </c:if>
-
-                        <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
-                        <c:if test="${not empty eventSubjects}">
-                            <p class="mt-16 mb-0">Subject: <span>${eventSubjects}</span></p> 
-                        </c:if> 
-
-                        <c:set var="capacity" value="<%= capacity %>"/>
-                        <c:if test="${not empty capacity}">
-                            <p class="mb-0">Capacity: <span>${capacity}</span></p> 
-                        </c:if> 
-
-                        <c:set var="eventDuration" value="<%= eventDuration %>"/>
-                        <c:if test="${not empty eventDuration}">
-                            <p class="mb-0">Event duration: <span>${eventDuration}</span></p> 
-                        </c:if>
-
-                        <c:set var="speakerDetails" value="<%= speakerDetails %>"/>
-                        <c:if test="${not empty speakerDetails}">
-                           <p class="mt-16 mb-0">Speaker details: <span>${speakerDetails}</span></p> 
-                        </c:if> 
                     </div>
                 </div>
             </div>
