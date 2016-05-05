@@ -6583,12 +6583,6 @@ h6 {
   }
 }
 
-/** EVENT CALENDAR CAROUSEL COMPONENT PARTIAL NHMEC-4**/
-.calendar--page .carousel-wrapper h3 {
-  font-size: 2.1em;
-  padding-left: 0.8em;
-}
-
 /** EVENT CALENDAR COMPONENT PARTIAL NHMEC-5**/
 .event--calendar--wrapper {
   display: table;
