@@ -20,31 +20,27 @@ public class EventPagesUtils {
 	private Node root;
 
 	// Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
-	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException  {
-		final String primaryType = "jcr:primaryType";
-		final String cqPage = "cq:Page";
+	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException  {		
+		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
 		
 		root = session.getRootNode();
 		
+		//Gets the events 
 		Node eventsNode = root.getNode(eventsPath);
-		NodeIterator iterator = eventsNode.getNodes();
-		
-		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
-		
-		while (iterator.hasNext()) {
-			Node currentNode = iterator.nextNode();
-			if (currentNode.getProperty(primaryType).getString().equals(cqPage)) {
-				NodeIterator pageIterator = currentNode.getNodes();
-				while (pageIterator.hasNext()) {
-					Node iteratedNode = pageIterator.nextNode();
-					eventsArray.add(populateEventDetail(iteratedNode));
-				}
-			}
-		}
+		eventsArray = populateEventsArray(eventsNode, eventsArray);
 
+		//Gets the exhibitions 
 		Node exhibitionsNode = root.getNode(exhibitionsPath);
+		eventsArray = populateEventsArray(exhibitionsNode, eventsArray);
+
+		createFeed(eventsArray, session);
+	}
+	
+	private ArrayList<EventPageDetail> populateEventsArray (Node node, ArrayList<EventPageDetail> eventsArray) throws RepositoryException {
+		final String primaryType = "jcr:primaryType";
+		final String cqPage = "cq:Page";
 		
-		iterator = exhibitionsNode.getNodes();
+		NodeIterator iterator = node.getNodes();
 		
 		while (iterator.hasNext()) {
 			Node currentNode = iterator.nextNode();
@@ -56,7 +52,8 @@ public class EventPagesUtils {
 				}
 			}
 		}
-		createFeed(eventsArray, session);
+		
+		return eventsArray;
 	}
 
 	// Retrieves the Page properties and populates the EventsPageDetail Object
