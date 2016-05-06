@@ -17,7 +17,7 @@
     <div class="image--and--cta--wrapper mt-20" style="background-image: url(${fileReference})">
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:if test="${not empty ctaLink}">    
-            <a class="small-6 columns cta--wrapper ${eventType}" href="${ctaLink}.html">
+            <a class="small-6 columns cta--wrapper ${eventType} hide-for-small-only" href="${ctaLink}.html">
                  <div class="small-2 large-2 columns">
                     <i class="ico svg-ico ticket--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="3"></i>
                 </div>

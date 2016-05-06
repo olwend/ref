@@ -46,7 +46,9 @@
    String eventTitle = contentNode.hasProperty("jcr:eventTitle") ? contentNode.getProperty("jcr:eventTitle").getString() : "";
    String eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
    String eventVenue = contentNode.hasProperty("eventVenue") ? contentNode.getProperty("eventVenue").getString() : "";
-
+   String ctaLink = (eventType != "" && contentNode.hasProperty("ctaLink")) ? contentNode.getProperty("ctaLink").getString() : "";
+   String ctaText = (eventType != "" && contentNode.hasProperty("ctaText")) ? contentNode.getProperty("ctaText").getString() : "";
+   
    Value[] tags = contentNode.hasProperty("cq:tags") ? contentNode.getProperty("cq:tags").getValues() : null;
    String events = "";
    String audiences = "";
@@ -95,8 +97,8 @@
 <c:set var="eventType" value="<%= eventType.toLowerCase() %>"/>
 <c:choose>
     <c:when test="${not empty eventType}">
-        <div class="${eventType} hti-wrapper mt-20">
-            <div class="event--information--wrapper small-12 medium-12 large-12 columns hti-box__feature-box">
+        <div class="${eventType} hti-wrapper mt-20 event--information--wrapper">
+            <div class="small-12 medium-12 large-12 columns hti-box__feature-box event--information--wrapper">
                 <div class="hti-box--text-wrapper">
                     <h3>Event information</h3>
                     <div class="small-12 large-12 columns">
@@ -169,6 +171,19 @@
                 </div>
             </div>
         </div>
+        <c:set var="ctaLink" value="<%= ctaLink %>"/>
+        <c:set var="ctaText" value="<%= ctaText %>"/>
+        <c:if test="${not empty ctaLink}">
+            <div class="${eventType} mt-20 show-for-small-only">
+                <div class="info-tout info-tout__action tickets">
+                    <a class="arrow--large burgandy" href="${ctaLink}.html">
+                        <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="3"></i>
+                        <h3 class="paddingTB">${ctaText}</h3>
+                        <i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-stroke-width="4"></i>
+                    </a>
+                </div>
+            </div>
+        </c:if>
     </c:when>
     <c:otherwise>
         The page has not been set up yet.
