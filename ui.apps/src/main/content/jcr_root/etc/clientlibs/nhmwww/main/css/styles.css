@@ -6623,6 +6623,10 @@ h6 {
   font-size: 1.25em;
 }
 
+.event--calendar--wrapper .calendar--select select {
+  background-image: url(../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
+}
+
 .event--calendar--wrapper .reset--filter {
   font-family: Arial;
   font-size: 1em;
