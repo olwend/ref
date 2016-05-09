@@ -85,10 +85,8 @@ function createDates(dlg) {
                     option          = recurSelectList.getValue(),
                     weekDayList     = multi[i].findByType('selection')[3],
                     weekdays        = weekDayList.getValue(),
-                    parserText      = "on ";
-
-                parserText += weekdays[0];
-    
+                    parserText      = "on " + weekdays[0];
+                
                 for (var i = 1; i < weekdays.length; i++) {
                      parserText += ", " + weekdays[i];           
                 }     
@@ -97,7 +95,7 @@ function createDates(dlg) {
                         
                     case "daily":
                         
-                        EventDates += createDailyDates(parserText, startDateValue, endDateValue, daysCounter, strDaysCounter);
+                        EventDates += createDayOrWeekDates(parserText, startDateValue, endDateValue, daysCounter, strDaysCounter);
                         
                         break;
 
@@ -107,7 +105,7 @@ function createDates(dlg) {
                             numberfield = weekRepeat.getValue();
                         
                         parserText += " every " + numberfield + " weeks";
-                        EventDates += createWeekDates(parserText, numberfield, startDateValue, endDateValue, daysCounter, strDaysCounter);
+                        EventDates += createDayOrWeekDates(parserText, startDateValue, endDateValue, daysCounter, strDaysCounter);
                         
                         break;
 
@@ -135,30 +133,13 @@ function createDates(dlg) {
     datesRecurrence.setValue(EventDates);
 }
 
-//Function to generate the daily recurrence dates
-function createDailyDates (parserText, startDate, endDate, daysCounter, strDaysCounter) {
+//Function to generate the daily or weekly recurrence dates
+function createDayOrWeekDates (parserText, startDate, endDate, daysCounter, strDaysCounter) {
     
     var sched       = later.parse.text(parserText),
         occurrences = later.schedule(sched).next(1000, startDate);
 
     parserText = occurrences[0] + strDaysCounter;
-    
-    for (var x = 1; x < occurrences.length; x ++) {
-        if (parseDate(occurrences[x]) - endDate >= 0) {
-            break;
-        }
-        parserText += "," + occurrences[x] + strDaysCounter;
-    }
-    return parserText;
-}
-
-//Function to generate the weekly recurrence dates
-function createWeekDates (parserText, numberfield, startDate, endDate, daysCounter, strDaysCounter) {
-    
-    var sched       = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000, startDate);
-
-    parserText = occurrences[0] + daysCounter.toString();
     
     for (var x = 1; x < occurrences.length; x ++) {
         if (parseDate(occurrences[x]) - endDate >= 0) {
