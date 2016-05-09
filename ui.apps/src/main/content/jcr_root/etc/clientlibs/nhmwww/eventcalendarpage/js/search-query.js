@@ -23,7 +23,21 @@ var NHMSearchQuery = new function () {
     };
 
     var inputs = {};
-
+    
+    //Helper function to create the title
+    var createTitleH2 = function () {
+        var titleH2 = document.createElement("h2");
+        titleH2.className = CONST.EVENT_TITLE_CLASS;
+        return titleH2;
+    };
+    
+    //Helper function to create the ul
+    var createUL = function () {
+        var ul = document.createElement("ul");
+        ul.className = CONST.EVENTS_UL_CLASS;
+        return ul;
+    };
+    
     //Helper function to clear the results container
     var clearContainer = function () {
         inputs.results = [];
@@ -60,13 +74,10 @@ var NHMSearchQuery = new function () {
         var date = new Date(dateFrom);
         //For each day gets the events
         for (var i = 0; i < numOfDays + 1; i++) {
-            var titleH2     = document.createElement("h2"),
-                ul          = document.createElement("ul"),
+            var titleH2     = createTitleH2(),
+                ul          = createUL(),
                 auxResults  = [],
                 auxDate     = new Date();
-
-            titleH2.className = CONST.EVENT_TITLE_CLASS;
-            ul.className = CONST.EVENTS_UL_CLASS;
 
             //Sets the date in the title
             titleH2.innerHTML = parseToEventDate(new Date(auxDate.setDate(date.getDate() + i)), true);  
@@ -127,21 +138,28 @@ var NHMSearchQuery = new function () {
         return false;
     };
 
-    //Helper function to check the keyword against title, description, keywords or filters
-    var searchByKey = function (pattern, element, type) {
-        if (type === "keyword") {
-            if (element.title.match(pattern) || element.description.match(pattern) || element.keywords.match(pattern)) {
-                return true;
+    //Helper function to check the keyword against title, description
+    var searchByKeyword = function (pattern, element) {
+        if (element.title.match(pattern) || element.description.match(pattern) || element.keywords.match(pattern)) {
+            return true;
+        }
+         else {
+            return false;        
+         }
+    };
+    
+    //Helper function to check the tag against title, description, keywords or filters
+    var searchByTag = function (pattern, element) {
+        var isTarget = false;
+        
+        for (var i = 0; i < element.length; i++) {
+            if (element[i] == pattern) {
+                isTarget = true;
+                break;
             }
         }
-        if (type === "tag") {
-            for (var i = 0; i < element.length; i++) {
-                if (element[i] == pattern) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        
+        return isTarget;
     };
 
     //Helper function to check the Event against the page
@@ -163,9 +181,8 @@ var NHMSearchQuery = new function () {
 
     //Function to order the search results
     var orderResults = function () {
-        var orderResults    = [],
-            notAllDay       = [],
-            finalResults    = [];
+        var tempResults     = [],
+            notAllDay       = [];
 
         //Order the events by name
         inputs.results = inputs.results.sort(function (a, b) {
@@ -174,7 +191,7 @@ var NHMSearchQuery = new function () {
         //Gets the All day first
         for (var i = 0; i < inputs.results.length; i++) {
             if (getEventTimes(inputs.results[i], false) == "All day") {
-                orderResults.push(inputs.results[i]);
+                tempResults.push(inputs.results[i]);
             } else {
                 notAllDay.push(inputs.results[i]);
             }
@@ -193,9 +210,9 @@ var NHMSearchQuery = new function () {
             return 0;
         });
 
-        orderResults = orderResults.concat(notAllDay);
+        tempResults = tempResults.concat(notAllDay);
 
-        return orderResults;
+        return tempResults;
     };
 
     //Populates the single event li and events ul
@@ -313,6 +330,7 @@ var NHMSearchQuery = new function () {
         //Gets the key for today's event
         for (var i = 0; i < dates.length; i++) {
             var date = new Date(dates[i]);
+
             if (today.setHours(0, 0, 0, 0, 0) == date.setHours(0, 0, 0, 0, 0)) {
                 key = dates[i].substr(dates[i].length - 1);
                 break;
@@ -368,6 +386,25 @@ var NHMSearchQuery = new function () {
         //Removes the vent listener
         this.removeEventListener('click', arguments.callee, false);
     };
+    
+    //Helper function to check the today's events
+    var checkTodayEvents = function (event) {
+        var eventType = event.eventType;
+        
+        if (isValidEvent(eventType)) {
+           return true;
+        } else {
+            //If not checks the tags
+            var tags = event.tags;
+            for (var k = 0; k < tags.length; k++) {
+                var tag = tags[k].split("/");
+                if (isValidEvent(tag[tag.length - 1])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     this.init = function () {
         //Stores the events JSON in sessionStorage and displays Today Events
@@ -380,7 +417,7 @@ var NHMSearchQuery = new function () {
         sessionStorage.pagePath = pagePath[pagePath.length - 2];
 
         inputs = {
-            eventsJson:     JSON.parse(sessionStorage.events),
+            eventsJson:     JSON.parse(sessionStorage.events).Events,
             carousel:       document.getElementsByClassName("nhm-carousel"),
             showMore:       document.getElementById("showMore"),
             noResultsToday: document.getElementById("noResultsToday"),
@@ -399,36 +436,20 @@ var NHMSearchQuery = new function () {
             inputs.carousel[0].style.display = "block";
         }
 
-        var titleH2 = document.createElement("h2"),
-            ul      = document.createElement("ul"),
+        var titleH2 = createTitleH2(),
+            ul      = createUL(),
             today   = new Date();
 
-        titleH2.className = CONST.EVENT_TITLE_CLASS;
         titleH2.innerHTML = CONST.EVENT_TITLE_TODAY;
-        ul.className = CONST.EVENTS_UL_CLASS;
-
-        for (var i = 0; i < inputs.eventsJson.Events.length; i++) {
-            for (var j = 0; j < inputs.eventsJson.Events[i].dates.length; j++) {
-
-                var isOurEvent  = false,
-                    date        = new Date(inputs.eventsJson.Events[i].dates[j]),
-                    eventType   = inputs.eventsJson.Events[i].eventType;
-
+        
+        for (var i = 0; i < inputs.eventsJson.length; i++) {
+            for (var j = 0; j < inputs.eventsJson[i].dates.length; j++) {
+                var date = new Date(inputs.eventsJson[i].dates[j]);
                 //If date == today
                 if (today.setHours(0, 0, 0, 0, 0) == date.setHours(0, 0, 0, 0, 0)) {
                     //Checks the Event Type
-                    if (isValidEvent(eventType)) {
-                        inputs.results.push(inputs.eventsJson.Events[i]);
-                    } else {
-                        //If not checks the tags
-                        var tags = inputs.eventsJson.Events[i].tags;
-                        for (var k = 0; k < tags.length; k++) {
-                            var tag = tags[k].split("/");
-                            if (isValidEvent(tag[tag.length - 1])) {
-                                inputs.results.push(inputs.eventsJson.Events[i]);
-                                break;
-                            }
-                        }
+                    if (checkTodayEvents(inputs.eventsJson[i])) {
+                        inputs.results.push(inputs.eventsJson[i]);
                     }
                     break;
                 }
@@ -460,62 +481,49 @@ var NHMSearchQuery = new function () {
             inputs.carousel[0].style.display = "none";
         }
 
-        for (var i = 0; i < inputs.eventsJson.Events.length; i++) {
+        for (var i = 0; i < inputs.eventsJson.length; i++) {
             var isOurEvent  = false,
-                eventType   = inputs.eventsJson.Events[i].eventType,
                 pattern     = "",
-                tags        = inputs.eventsJson.Events[i].tags;
+                tags        = inputs.eventsJson[i].tags;
 
-            //Checks the Event Type
-            if (isValidEvent(eventType)) {
-                isOurEvent = true;
-            }
-            //If not checks the tags
-            else {
-                for (var k = 0; k < tags.length; k++) {
-                    var tag = tags[k].split("/");
-                    if (isValidEvent(tag[tag.length - 1])) {
-                        isOurEvent = true;
-                        break;
-                    }
-                }
-            }
+            isOurEvent = checkTodayEvents(inputs.eventsJson[i]);
+            
             //If we have keyword and the event matched with our type
             if (keywordsInput && isOurEvent) {
                 pattern = new RegExp(keywordsInput, 'i');
 
                 //If the keyword matched with title, description or keywords
-                if (!searchByKey(pattern, inputs.eventsJson.Events[i], "keyword")) {
+                if (!searchByKeyword(pattern, inputs.eventsJson[i])) {
                     isOurEvent = false;
                 }
             }
             //If the filter matches with the tags
             if (filterOne != "none" && isOurEvent) {
-                if (!searchByKey(filterOne, tags, "tag")) {
+                if (!searchByTag(filterOne, tags, "tag")) {
                     isOurEvent = false;
                 }
             }
             if (filterTwo != "none" && isOurEvent) {
-                if (!searchByKey(filterTwo, tags, "tag")) {
+                if (!searchByTag(filterTwo, tags, "tag")) {
                     isOurEvent = false;
                 }
             }
             //If the date matches
             if (dateFrom && isOurEvent) {
                 var date = getFormattedDate(dateFrom);
-                if (!searchByDate(date, inputs.eventsJson.Events[i].dates, true)) {
+                if (!searchByDate(date, inputs.eventsJson[i].dates, true)) {
                     isOurEvent = false;
                 }
             }
             if (dateTo && isOurEvent) {
                 var date = getFormattedDate(dateTo);
-                if (!searchByDate(date, inputs.eventsJson.Events[i].dates, false)) {
+                if (!searchByDate(date, inputs.eventsJson[i].dates, false)) {
                     isOurEvent = false;
                 }
             }
             //Add the event if matches the query
             if (isOurEvent) {
-                inputs.results.push(inputs.eventsJson.Events[i]);
+                inputs.results.push(inputs.eventsJson[i]);
             }
         }
 
