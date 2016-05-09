@@ -1,26 +1,19 @@
-var NHMDatePicker = NHMDatePicker || {};
-if (typeof NHMDatePicker.Profile === 'undefined') {
-    NHMDatePicker.Profile = function () {
-        this.CONST = {
-            DATE_FORMAT:    'D d/mm/yy',
-            ORIENTATION:    'top',
-            DAY_NAMES:      ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            MIN_DATE:       0,
-            MAX_DATE:       '+1y'
-        };
-    };   
-}
+var NHMDatePicker = {
+    DATE_FORMAT: 'D d/mm/yy',
+    ORIENTATION: 'top',
+    DAY_NAMES: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    MIN_DATE: 0,
+    MAX_DATE: '+1y'
+};
+
 $(document).ready(function () {
-    //Sets the profiles
-    var datePickerProfile = new NHMDatePicker.Profile();
-    var calendarProfile = new NHMCalendar.Profile();
     //First datepicker
     $('#dateFrom').datepicker({
-        minDate: datePickerProfile.CONST.MIN_DATE,
-        maxDate: datePickerProfile.CONST.MAX_DATE,
-        orientation: datePickerProfile.CONST.ORIENTATION,
-        dateFormat: datePickerProfile.CONST.DATE_FORMAT,
-        dayNamesMin: datePickerProfile.CONST.DAY_NAMES,
+        minDate: NHMDatePicker.MIN_DATE,
+        maxDate: NHMDatePicker.MAX_DATE,
+        orientation: NHMDatePicker.ORIENTATION,
+        dateFormat: NHMDatePicker.DATE_FORMAT,
+        dayNamesMin: NHMDatePicker.DAY_NAMES,
         beforeShow: function (input, inst) {
             inst.inline = false;
             setTimeout(function () {
@@ -35,16 +28,16 @@ $(document).ready(function () {
         onSelect: function (dateText, inst) {
             $("#dateTo").datepicker("option", "minDate", $("#dateFrom").datepicker("getDate"));
             //Call to the search function
-            calendarProfile.doSearch();
+            NHMCalendar.doSearch();
         }
     });
     //Second datepicker
     $('#dateTo').datepicker({
-        minDate: datePickerProfile.CONST.MIN_DATE,
-        maxDate: datePickerProfile.CONST.MAX_DATE,
-        orientation: datePickerProfile.CONST.ORIENTATION,
-        dateFormat: datePickerProfile.CONST.DATE_FORMAT,
-        dayNamesMin: datePickerProfile.CONST.DAY_NAMES,
+        minDate: NHMDatePicker.MIN_DATE,
+        maxDate: NHMDatePicker.MAX_DATE,
+        orientation: NHMDatePicker.ORIENTATION,
+        dateFormat: NHMDatePicker.DATE_FORMAT,
+        dayNamesMin: NHMDatePicker.DAY_NAMES,
         //Needed to display both datepickers in the same place
         beforeShow: function (input, inst) {
             var cal = inst.dpDiv;
@@ -60,16 +53,16 @@ $(document).ready(function () {
             }, 10);
         },
         onSelect: function (dateText, inst) {
-           calendarProfile.doSearch();
+            NHMCalendar.doSearch();
         }
     });
     //Needed to hide the datepickers
     $('.dp').on('change', function () {
         $('.datepicker').datepicker('hide');
     });
-    
+
     //Helper function to add the rules
-    var addRule = function(sheet, selector, styles) {
+    var addRule = function (sheet, selector, styles) {
         if (sheet.insertRule) return sheet.insertRule(selector + " {" + styles + "}", sheet.cssRules.length);
         if (sheet.addRule) return sheet.addRule(selector, styles);
     };
