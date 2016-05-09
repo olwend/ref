@@ -1,11 +1,19 @@
+var NHMDatePicker = {
+    DATE_FORMAT: 'D d/mm/yy',
+    ORIENTATION: 'top',
+    DAY_NAMES: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    MIN_DATE: 0,
+    MAX_DATE: '+1y'
+};
+
 $(document).ready(function () {
     //First datepicker
     $('#dateFrom').datepicker({
-        minDate: 0,
-        maxDate: "+1y",
-        orientation: "top",
-        dateFormat: "D d/mm/yy",
-        dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        minDate: NHMDatePicker.MIN_DATE,
+        maxDate: NHMDatePicker.MAX_DATE,
+        orientation: NHMDatePicker.ORIENTATION,
+        dateFormat: NHMDatePicker.DATE_FORMAT,
+        dayNamesMin: NHMDatePicker.DAY_NAMES,
         beforeShow: function (input, inst) {
             inst.inline = false;
             setTimeout(function () {
@@ -20,16 +28,16 @@ $(document).ready(function () {
         onSelect: function (dateText, inst) {
             $("#dateTo").datepicker("option", "minDate", $("#dateFrom").datepicker("getDate"));
             //Call to the search function
-            doSearch();
-        },
+            NHMCalendar.doSearch();
+        }
     });
     //Second datepicker
     $('#dateTo').datepicker({
-        minDate: 0,
-        maxDate: "+1y",
-        orientation: "top",
-        dateFormat: "D d/mm/yy",
-        dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        minDate: NHMDatePicker.MIN_DATE,
+        maxDate: NHMDatePicker.MAX_DATE,
+        orientation: NHMDatePicker.ORIENTATION,
+        dateFormat: NHMDatePicker.DATE_FORMAT,
+        dayNamesMin: NHMDatePicker.DAY_NAMES,
         //Needed to display both datepickers in the same place
         beforeShow: function (input, inst) {
             var cal = inst.dpDiv;
@@ -45,16 +53,16 @@ $(document).ready(function () {
             }, 10);
         },
         onSelect: function (dateText, inst) {
-           doSearch();
-        },
+            NHMCalendar.doSearch();
+        }
     });
     //Needed to hide the datepickers
     $('.dp').on('change', function () {
-        $('.datepicker').hide();
+        $('.datepicker').datepicker('hide');
     });
-    
+
     //Helper function to add the rules
-    var addRule = function(sheet, selector, styles) {
+    var addRule = function (sheet, selector, styles) {
         if (sheet.insertRule) return sheet.insertRule(selector + " {" + styles + "}", sheet.cssRules.length);
         if (sheet.addRule) return sheet.addRule(selector, styles);
     };

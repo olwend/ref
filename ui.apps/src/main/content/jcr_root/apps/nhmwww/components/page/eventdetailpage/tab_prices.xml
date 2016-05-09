@@ -16,7 +16,7 @@
                     fieldLabel="Adult"
                     name="./adultPrice"
                     enableKeyEvents="true"
-                    xtype="numberfield">
+                    xtype="textfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
                         loadcontent="function(field,dataRecord,path) {
@@ -29,7 +29,7 @@
                     allowBlank="false"
                     fieldLabel="Concession"
                     name="./concessionPrice"
-                    xtype="numberfield">
+                    xtype="textfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
                         loadcontent="function(field,dataRecord,path) {
@@ -42,7 +42,7 @@
                     allowBlank="false"
                     fieldLabel="Member"
                     name="./memberPrice"
-                    xtype="numberfield">
+                    xtype="textfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
                         loadcontent="function(field,dataRecord,path) {
@@ -55,7 +55,7 @@
                     allowBlank="false"
                     fieldLabel="Family"
                     name="./familyPrice"
-                    xtype="numberfield">
+                    xtype="textfield">
                     <listeners
                         jcr:primaryType="nt:unstructured"
                         loadcontent="function(field,dataRecord,path) {
@@ -76,6 +76,12 @@
                         change="function(field,newValue,oldValue) {
                                           setValidation(field,newValue,oldValue); }"/>
                 </custom>
+                <eventListing
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Event Listing Price"
+                    name="./eventListingPrice"
+                    xtype="textfield"/>
             </items>
         </eventPrices>
     </items>

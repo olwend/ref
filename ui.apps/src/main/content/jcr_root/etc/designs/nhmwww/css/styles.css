@@ -5961,6 +5961,10 @@ h6 {
   margin-bottom: 1.2em;
 }
 
+.mt-9 {
+  margin-top: 0.6em;
+}
+
 .mt-16 {
   margin-top: 1.0em;
 }
@@ -6583,12 +6587,6 @@ h6 {
   }
 }
 
-/** EVENT CALENDAR CAROUSEL COMPONENT PARTIAL NHMEC-4**/
-.calendar--page .carousel-wrapper h3 {
-  font-size: 2.1em;
-  padding-left: 0.8em;
-}
-
 /** EVENT CALENDAR COMPONENT PARTIAL NHMEC-5**/
 .event--calendar--wrapper {
   display: table;
@@ -6623,6 +6621,10 @@ h6 {
 .event--calendar--wrapper .date--wrapper input {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.25em;
+}
+
+.event--calendar--wrapper .calendar--select select {
+  background-image: url(../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
 }
 
 .event--calendar--wrapper .reset--filter {
@@ -6696,6 +6698,9 @@ h6 {
 /** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
 .event--information--wrapper {
   min-height: 435px;
+}
+.event--information--wrapper span {
+  font-weight: bold;
 }
 
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
@@ -7802,6 +7807,10 @@ a.button-cta {
   padding-top: 0.4em;
   padding-bottom: 0;
   line-height: 1.2em;
+}
+
+.event--calendar--more--results--hide {
+  display: none;
 }
 
 /** PRESS OFFICE PARTIAL (PHASED OUT) **/

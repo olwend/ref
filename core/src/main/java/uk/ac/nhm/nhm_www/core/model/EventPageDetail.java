@@ -17,6 +17,7 @@ public class EventPageDetail {
 	String memberPrice = "";
 	String familyPrice = "";
 	String customPrice = "";
+	String eventListingPrice = "";
 	String imageLink = "";
 	String ctaLink = "";
 	String capacity = "";
@@ -131,6 +132,14 @@ public class EventPageDetail {
 	
 	public String getCustomPrice() {
 		return this.customPrice;
+	}
+	
+	public void setEventListingPrice(String eventListingPrice) {
+		this.eventListingPrice = eventListingPrice;
+	}
+	
+	public String getEventListingPrice() {
+		return this.eventListingPrice;
 	}
 	
 	public void setImageLink(String imageLink) {

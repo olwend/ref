@@ -1,34 +1,28 @@
 <%@page session="false"%>
 <%@include file="/libs/foundation/global.jsp" %>
 <%
-   Page eventPage = currentPage;
-   String eventContentPath = eventPage.getPath()+"/jcr:content";
+   String eventContentPath = currentPage.getPath()+"/jcr:content";
 
    Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 
-   String eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
+   String eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString().toLowerCase() : "";
    String fileReference = contentNode.hasProperty("fileReference") ? contentNode.getProperty("fileReference").getString() : "";
-   
-   String ctaLink = "";
-   if (eventType != ""){
-      ctaLink = contentNode.hasProperty("ctaLink") ? contentNode.getProperty("ctaLink").getString() : "";
-   }
+   String ctaLink = (eventType != "" && contentNode.hasProperty("ctaLink")) ? contentNode.getProperty("ctaLink").getString() : "";
+   String ctaText = (eventType != "" && contentNode.hasProperty("ctaText")) ? contentNode.getProperty("ctaText").getString() : "";
 %>    
-<c:set var="eventType" value="<%= eventType.toLowerCase() %>"/>
+<c:set var="eventType" value="<%= eventType%>"/>
 <c:set var="fileReference" value="<%= fileReference %>"/>
-<c:set var="school" value="school"/>  
-<c:set var="science" value="science"/>
+<c:set var="ctaText" value="<%= ctaText %>"/>
 <c:if test="${not empty eventType && not empty fileReference}"> 
     <div class="image--and--cta--wrapper mt-20" style="background-image: url(${fileReference})">
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:if test="${not empty ctaLink}">    
-            <a class="small-6 columns cta--wrapper ${eventType}" href="${ctaLink}.html">
+            <a class="small-6 columns cta--wrapper ${eventType} hide-for-small-only" href="${ctaLink}.html">
                  <div class="small-2 large-2 columns">
                     <i class="ico svg-ico ticket--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="3"></i>
                 </div>
                 <div class="small-8 large-8 columns">
-                    <h3>Book tickets now</h3>
-                    <p class="sub--text">Beat the long queues!</p>
+                    <h3 class="mt-9">${ctaText}</h3>
                 </div>
                 <div class="small-2 large-2 columns">
                     <i class="ico svg-ico arrowl arrow--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-stroke-width="4"></i>

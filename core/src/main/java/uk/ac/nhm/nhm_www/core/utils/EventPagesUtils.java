@@ -23,6 +23,7 @@ import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 public class EventPagesUtils {
 	private Node root;
 
+
 	/**
 	 * Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
 	 * 
@@ -33,31 +34,36 @@ public class EventPagesUtils {
 	 * @throws JSONException
 	 * @throws ParseException 
 	 */
-	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException, ParseException  {
-		final String primaryType = "jcr:primaryType";
-		final String cqPage = "cq:Page";
+	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException, ParseException  {		
+		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
 		
 		root = session.getRootNode();
 		
+		//Gets the events 
 		Node eventsNode = root.getNode(eventsPath);
-		NodeIterator iterator = eventsNode.getNodes();
-		
-		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
-		
-		while (iterator.hasNext()) {
-			Node currentNode = iterator.nextNode();
-			if (currentNode.getProperty(primaryType).getString().equals(cqPage)) {
-				NodeIterator pageIterator = currentNode.getNodes();
-				while (pageIterator.hasNext()) {
-					Node iteratedNode = pageIterator.nextNode();
-					eventsArray.add(populateEventDetail(iteratedNode));
-				}
-			}
-		}
+		eventsArray = populateEventsArray(eventsNode, eventsArray);
 
+		//Gets the exhibitions 
 		Node exhibitionsNode = root.getNode(exhibitionsPath);
+		eventsArray = populateEventsArray(exhibitionsNode, eventsArray);
+
+		createFeed(eventsArray, session);
+	}
+	
+	/**
+	 * Function to populate the Event's array
+	 * 
+	 * @param node
+	 * @param eventsArray
+	 * @return
+	 * @throws RepositoryException
+	 * @throws ParseException
+	 */
+	private ArrayList<EventPageDetail> populateEventsArray (Node node, ArrayList<EventPageDetail> eventsArray) throws RepositoryException, ParseException {
+		final String primaryType = "jcr:primaryType";
+		final String cqPage = "cq:Page";
 		
-		iterator = exhibitionsNode.getNodes();
+		NodeIterator iterator = node.getNodes();
 		
 		while (iterator.hasNext()) {
 			Node currentNode = iterator.nextNode();
@@ -69,7 +75,8 @@ public class EventPagesUtils {
 				}
 			}
 		}
-		createFeed(eventsArray, session);
+		
+		return eventsArray;
 	}
 
 	/**
@@ -100,6 +107,7 @@ public class EventPagesUtils {
 		final String memberPrice = "memberPrice";
 		final String familyPrice = "familyPrice";
 		final String customPrice = "customPrice";
+		final String eventListingPrice = "eventListingPrice";
 		final String fileReference = "fileReference";
 		final String ctaLink = "ctaLink";
 		final String subject = "./cq:subject";
@@ -161,6 +169,9 @@ public class EventPagesUtils {
 		}
 		if (iteratedNode.hasProperty(customPrice)) {
 			eventDetail.setCustomPrice(iteratedNode.getProperty(customPrice).getString());
+		}
+		if (iteratedNode.hasProperty(eventListingPrice)) {
+			eventDetail.setEventListingPrice(iteratedNode.getProperty(eventListingPrice).getString());
 		}
 		if (iteratedNode.hasProperty(fileReference)) {
 			eventDetail.setImageLink(iteratedNode.getProperty(fileReference).getString());
@@ -224,6 +235,7 @@ public class EventPagesUtils {
 			events.put("memberPrice", event.getMemberPrice());
 			events.put("familyPrice", event.getFamilyPrice());
 			events.put("customPrice", event.getCustomPrice());
+			events.put("eventListingPrice", event.getEventListingPrice());
 			events.put("imageLink", event.getImageLink());
 			events.put("ctaLink", event.getCtaLink());
 			// School Event Values

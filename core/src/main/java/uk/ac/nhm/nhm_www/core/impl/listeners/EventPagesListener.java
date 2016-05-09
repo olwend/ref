@@ -31,7 +31,7 @@ import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 @Service
 public class EventPagesListener implements EventListener {
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
-	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-atractions";
+	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-attractions";
 	
 	private Session session;
 	private ObservationManager eventsObservationManager;

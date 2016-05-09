@@ -12,12 +12,17 @@
             <items jcr:primaryType="cq:WidgetCollection">
                 <ctaLink
                     jcr:primaryType="cq:Widget"
-                    allowBlank="false"
+                    allowBlank="true"
                     fieldLabel="CTA Link"
-                    value="https://www.nhm.ac.uk/visit-us/whats-on/tickets/"
-                    defaultValue="https://www.nhm.ac.uk/visit-us/whats-on/tickets/"
-                    emptyText="https://www.nhm.ac.uk/visit-us/whats-on/tickets/"
                     name="./ctaLink"
+                    regex="/^(http:\\/\\/www.|https:\\/\\/www.|http:\\/\\/|https:\\/\\/)[a-z0-9]+([-.]{1}[a-z0-9]+)*.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/"
+                    regexText="Invalid URL format"
+                    xtype="textfield"/>
+                <ctaText
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    fieldLabel="CTA Text"
+                    name="./ctaText"
                     xtype="textfield"/>
                 <image
                     jcr:primaryType="cq:Widget"

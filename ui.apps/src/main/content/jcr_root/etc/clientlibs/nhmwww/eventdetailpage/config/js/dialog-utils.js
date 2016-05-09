@@ -5,12 +5,13 @@ function displayEventConfig(field,value) {
     var tabNames = ["School","Science"];
     //Compares the value get and the Array to display/hide the Tabs
     for (var i = 0; i < tabNames.length; i++){
-        tabs.hideTabStripItem(tabNames[i]); 
-        if (tabNames[i] == value) {
-            tabs.unhideTabStripItem(tabNames[i]);
+        var tabName = tabNames[i];
+        tabs.hideTabStripItem(tabName); 
+        if (tabName == value) {
+            tabs.unhideTabStripItem(tabName);
         }
     }
-};
+}
 
 //Displays or Hides the Time selector for an Event Date
 function allDaySelected(field,value,isChecked) {
@@ -20,7 +21,7 @@ function allDaySelected(field,value,isChecked) {
     var times = panel.findByType('multifield')[0];
     //Hide or show component based on checked value
     isChecked ? times.hide() : times.show();
-};
+}
 
 //Inits the recur checkbox
 function initRecurValues (component, value, isChecked) {
@@ -78,7 +79,7 @@ function initRecurValues (component, value, isChecked) {
             repeatMonth.hide();
         }
     }
-};
+}
 
 //Displays/Hides the extra monthly parameters
 function initExtraValues (component, value, isChecked) {
@@ -94,8 +95,7 @@ function initExtraValues (component, value, isChecked) {
     } else {
         component.reset();
     }
-};
-
+}
 
 function initRepeatValues (component, value, isChecked) {
     var panel = component.findParentByType("panel");
@@ -112,7 +112,7 @@ function initRepeatValues (component, value, isChecked) {
             }
         } 
     }
-};
+}
 
 function resetDaysValues (component, value, isChecked) {
     var panel = component.findParentByType("panel");
@@ -123,7 +123,7 @@ function resetDaysValues (component, value, isChecked) {
             weekdaysList.reset();
         } 
     }
-};
+}
 
 function resetWeekDaysValues (component, value, isChecked) {
     var panel = component.findParentByType("panel");
@@ -134,7 +134,7 @@ function resetWeekDaysValues (component, value, isChecked) {
             daysList.reset();
         } 
     }
-};
+}
 
 //Function to validate the datepickers
 function checkTime (field, newValue, oldValue) {
@@ -146,7 +146,7 @@ function checkTime (field, newValue, oldValue) {
         field.setValue(oldValue);
         alert("Please select a valid date");
     }
-};
+}
 
 //Function to set the prices as required or not
 function setValidation (field, newValue, oldValue) {
@@ -154,42 +154,48 @@ function setValidation (field, newValue, oldValue) {
     var prices = panel.findByType('textfield');
     var isEmpty = true;
     if (newValue) {
-        for (var i = 0; i < prices.length; i++) {
+        for (var i = 0; i < prices.length - 1; i++) {
             prices[i].allowBlank = true;
             prices[i].clearInvalid();
         }
     } else {
         field.reset();
-        for (var i = 0; i < prices.length; i++) {
-            if (prices[i].getValue() != "") {
-                isEmpty = false;
-                break;
-            }
-        }
+        
+        isEmpty = checkEmptyPrice(prices);
+
         if (isEmpty) {
-            for (var i = 0; i < prices.length; i++) {
+            for (var i = 0; i < prices.length - 1; i++) {
                 prices[i].allowBlank = false;
                 prices[i].clearInvalid();
             }
         }
     }
-};
+}
 
 function checkInitPrices (field, dataRecord, path) {
     var panel = field.findParentByType("panel");
     var prices = panel.findByType('textfield');
     var isEmpty = true;
       
-    for (var i = 0; i < prices.length; i++) {
+    isEmpty = checkEmptyPrice(prices);
+    
+    if (!isEmpty) {
+        for (var i = 0; i < prices.length - 1; i++) {
+            prices[i].allowBlank = true;
+            prices[i].clearInvalid();
+        }
+    }
+}
+
+function checkEmptyPrice (prices) {
+    var isEmpty = true;
+    
+    for (var i = 0; i < prices.length - 1; i++) {
         if (prices[i].getValue() != "") {
             isEmpty = false;
             break;
         }
     }
-    if (!isEmpty) {
-        for (var i = 0; i < prices.length; i++) {
-            prices[i].allowBlank = true;
-            prices[i].clearInvalid();
-        }
-    }
-};
+    
+    return isEmpty;
+}
