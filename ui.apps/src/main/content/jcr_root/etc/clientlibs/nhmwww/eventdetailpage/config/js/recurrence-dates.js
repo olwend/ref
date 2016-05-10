@@ -70,32 +70,29 @@ function createDates(dlg) {
                 strDaysCounter  = daysCounter.toString();
             
             //Sets the first date
-            if (daysCounter == 0) {
+            if (daysCounter == 0){
                 EventDates += mainDates[daysCounter] + strDaysCounter + ",";
-            } else {
+            } else if (daysCounter > 0 && startDate){
                 EventDates += "," + mainDates[daysCounter] + strDaysCounter + ",";
+            } else {
+                EventDates += mainDates[daysCounter] + strDaysCounter + ",";
             }
             
-            if (startDate) {
+            if (startDate){
                 
-                var startDateValue  = parseDate(startDate.getValue()),
+                var startDateValue  = startDate.getValue(),
                     endDate         = multi[i].findByType('datetime')[1],
-                    endDateValue    = parseDate(endDate.getValue()),
+                    endDateValue    = endDate.getValue(),
                     recurSelectList = multi[i].findByType('selection')[0],
                     option          = recurSelectList.getValue(),
                     weekDayList     = multi[i].findByType('selection')[3],
-                    weekdays        = weekDayList.getValue(),
-                    parserText      = "on " + weekdays[0];
-                
-                for (var i = 1; i < weekdays.length; i++) {
-                     parserText += ", " + weekdays[i];           
-                }     
-                
+                    weekdays        = weekDayList.getValue();                    
+
                 switch(option[0]) {
                         
                     case "daily":
                         
-                        EventDates += createDayOrWeekDates(parserText, startDateValue, endDateValue, daysCounter, strDaysCounter);
+                        EventDates += createDayAndWeekDates(weekdays, null,startDateValue, endDateValue, strDaysCounter);
                         
                         break;
 
@@ -104,8 +101,7 @@ function createDates(dlg) {
                         var weekRepeat  = multi[i].findByType('numberfield')[0],
                             numberfield = weekRepeat.getValue();
                         
-                        parserText += " every " + numberfield + " weeks";
-                        EventDates += createDayOrWeekDates(parserText, startDateValue, endDateValue, daysCounter, strDaysCounter);
+                        EventDates += createDayAndWeekDates(weekdays, numberfield, startDateValue, endDateValue, strDaysCounter);
                         
                         break;
 
@@ -122,7 +118,7 @@ function createDates(dlg) {
                             repeatListValue     = repeatList.getValue(),
                             daysListValue       = daysList.getValue();
                         
-                        EventDates += createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDateValue, endDateValue, daysCounter, strDaysCounter);
+                        EventDates += createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDateValue, endDateValue, strDaysCounter);
                         
                         break;        
                 }   
@@ -130,20 +126,33 @@ function createDates(dlg) {
             daysCounter++;
         }     
     }
-    datesRecurrence.setValue(EventDates);
+    //Replace needed to remove empty ,,
+    datesRecurrence.setValue(EventDates.replace(/,,/g,","));
 }
 
-//Function to generate the daily or weekly recurrence dates
-function createDayOrWeekDates (parserText, startDate, endDate, daysCounter, strDaysCounter) {
+//Function to generate Daily and Weekly dates
+function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
+    
+    var parserText = "on ";
+    
+    parserText += weekdays[0];
+    
+    for (var i = 1; i < weekdays.length; i++) {
+        parserText += ", " + weekdays[i];           
+    }
+    
+    if (numberfield != null) {
+        parserText += " every " + numberfield + " weeks";   
+    }
     
     var sched       = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000, startDate);
+        occurrences = later.schedule(sched).next(1000,parseDate(startDate));
 
     parserText = occurrences[0] + strDaysCounter;
     
     for (var x = 1; x < occurrences.length; x ++) {
-        if (parseDate(occurrences[x]) - endDate >= 0) {
-            break;
+        if (parseDate(occurrences[x]) - parseDate(endDate) >= 0) {
+            return parserText;
         }
         parserText += "," + occurrences[x] + strDaysCounter;
     }
@@ -151,7 +160,7 @@ function createDayOrWeekDates (parserText, startDate, endDate, daysCounter, strD
 }
 
 //Function to generate the montly recurrence dates
-function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDate, endDate, daysCounter, strDaysCounter) {
+function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDate, endDate, strDaysCounter) {
     
     var parserText,
         dates;
@@ -179,17 +188,17 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
                     //Query for the Weekend
                     parserText = "on Saturday, Sunday every " + monthNumber + " months";
                     
-                    return filterMonthDates(parserText, startDate, endDate, repeatListValue, 2, daysCounter, strDaysCounter);
+                    return filterMonthDates(parserText, parseDate(startDate), parseDate(endDate), repeatListValue, 2, strDaysCounter);
                                     
                 case "Weekday":
                     //Query for the Weekdays
                     parserText = "on Monday, Tuesday, Wednesday, Thursday, Friday every " + monthNumber + " months";
                     
-                    return filterMonthDates(parserText, startDate, endDate, repeatListValue, 5, daysCounter, strDaysCounter);                    
+                    return filterMonthDates(parserText, parseDate(startDate), parseDate(endDate), repeatListValue, 5, strDaysCounter);                    
             }
         }
         
-        else if (daysListValue.length == 0){
+        if (daysListValue.length == 0){
             
             parserText = "on ";
             parserText += weekdays[0];
@@ -201,19 +210,19 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
             
             parserText += " every " + monthNumber + " months";
 
-            return filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays.length, daysCounter, strDaysCounter);
+            return filterMonthDates(parserText, parseDate(startDate), parseDate(endDate), repeatListValue, weekdays.length, strDaysCounter);
         }
     }
     
     //If it's not a custom monthly recurrence generates the query directly
     var sched = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000, startDate);
+        occurrences = later.schedule(sched).next(1000,parseDate(startDate));
     
-    parserText = occurrences[0] + daysCounter.toString();
+    parserText = occurrences[0] + strDaysCounter;
     
     for (var x = 1; x < occurrences.length; x ++) {
         
-        if (parseDate(occurrences[x]) - endDate >= 0){
+        if (parseDate(occurrences[x]) - parseDate(endDate) >= 0){
             return parserText;
         }
         
@@ -223,10 +232,10 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
     return "";
 }
 
-function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays, daysCounter, strDaysCounter) {
+function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays, strDaysCounter) {
     
     var sched       = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000, startDate),
+        occurrences = later.schedule(sched).next(1000,startDate),
         datesArray  = [],
         counter     = 0,
         monthYear   = concatDates(occurrences[0]),
@@ -238,13 +247,16 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
         
         if (parseDate(occurrences[i]) - endDate >= 0){break;}
         
-        if (monthYear != concatDates(occurrences[i])) {
+        if (monthYear == concatDates(occurrences[i])) {
+            datesArray[counter].push(occurrences[i]);
+        }
+        
+        else {
             counter++;
             datesArray[counter] = []; 
             monthYear = concatDates(occurrences[i]);
+            datesArray[counter].push(occurrences[i]);
         }
-        
-        datesArray[counter].push(occurrences[i]);
     }
     
     //Gets the value needed
@@ -275,9 +287,8 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
                 
                 case "4":
                     repeatNumber = 3;    
-                    break;                 
+                    break; 
             }
-            
             if (repeatListValue.toString() == "Last") {
                 finalArray += "," + datesArray[x][datesArray[x].length - weekdays] + strDaysCounter;  
             } 
