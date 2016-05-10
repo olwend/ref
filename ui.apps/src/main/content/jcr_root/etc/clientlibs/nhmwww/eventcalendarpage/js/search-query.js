@@ -28,18 +28,18 @@ var NHMSearchQuery = new function () {
 
     var inputs = {};
     
-    //Helper function to render the title and the ul
-    var renderTitleUL = function (titleHTML) {
-        var titleH2 = document.createElement("h2"),
-            ul      = document.createElement("ul");
-        
+    //Helper function to create the title
+    var createTitleH2 = function () {
+        var titleH2 = document.createElement("h2");
         titleH2.className = CONST.EVENT_TITLE_CLASS;
-        titleH2.innerHTML = titleHTML;
-        
+        return titleH2;
+    };
+    
+    //Helper function to create the ul
+    var createUL = function () {
+        var ul = document.createElement("ul");
         ul.className = CONST.EVENTS_UL_CLASS;
-        
-        inputs.container.appendChild(titleH2);
-        inputs.container.appendChild(ul);
+        return ul;
     };
     
     //Helper function to clear the results container
@@ -78,8 +78,13 @@ var NHMSearchQuery = new function () {
         var date = new Date(dateFrom);
         //For each day gets the events
         for (var i = 0; i < numOfDays + 1; i++) {
-            var auxResults  = [],
+            var titleH2     = createTitleH2(),
+                ul          = createUL(),
+                auxResults  = [],
                 auxDate     = new Date();
+
+            //Sets the date in the title
+            titleH2.innerHTML = parseToEventDate(new Date(auxDate.setDate(date.getDate() + i)), true);  
                                                     
             auxDate = new Date(auxDate).setHours(0, 0, 0, 0, 0);
 
@@ -89,7 +94,8 @@ var NHMSearchQuery = new function () {
                     if (eventDate == auxDate) {
                         //Needed to prevent empty dates displayed
                         if (auxResults.length == 0) {
-                            renderTitleUL(parseToEventDate(new Date(auxDate.setDate(date.getDate() + i)), true));
+                            inputs.container.appendChild(titleH2);
+                            inputs.container.appendChild(ul);
                         }
                         auxResults.push(inputs.results[j]);
                         break;
@@ -135,6 +141,7 @@ var NHMSearchQuery = new function () {
     var searchByDate = function (date, dates, isFromDate) {
         for (var i = 0; i < dates.length; i++) {
             var eventDate = getEventsFormattedDate(dates[i].substring(0, dates[i].length - 1)).setHours(0, 0, 0, 0, 0);
+            console.log(eventDate);
             if ((isFromDate && eventDate >= date) || (!isFromDate && eventDate <= date)) {
                 return true;
             }
@@ -386,8 +393,10 @@ var NHMSearchQuery = new function () {
     };
     
     //Helper function to check the today's events
-    var checkTodayEvents = function (event) {        
-        if (isValidEvent(event.eventType)) {
+    var checkTodayEvents = function (event) {
+        var eventType = event.eventType;
+        
+        if (isValidEvent(eventType)) {
            return true;
         } else {
             //If not checks the tags
@@ -427,15 +436,20 @@ var NHMSearchQuery = new function () {
     this.displayTodayEvents = function () {
         clearContainer();
         
-        //Prevents if no carousel 
-        if (inputs.carousel[0] != undefined || inputs.carousel[0] != null) {
-            inputs.carousel[0].style.display = "block";
+        //Prevents if no carousel
+        var carousel = inputs.carousel[0];
+        if (carousel != undefined || carousel != null) {
+            carousel.style.display = "block";
         }
 
-        var today   = new Date();
+        var titleH2 = createTitleH2(),
+            ul      = createUL(),
+            today   = new Date();
+
+        titleH2.innerHTML = CONST.EVENT_TITLE_TODAY;
         
         for (var i = 0; i < inputs.eventsJson.length; i++) {
-            var eventsJson = inputs.eventsJson[i];
+            var eventsJson  = inputs.eventsJson[i];
             for (var j = 0; j < eventsJson.dates.length; j++) {
                 var date = getEventsFormattedDate(eventsJson.dates[j].substring(0, eventsJson.dates[j].length - 1));
                 //If date == today
@@ -451,7 +465,10 @@ var NHMSearchQuery = new function () {
 
         //Displays the results
         if (inputs.results.length > 0) {
-            renderTitleUL(CONST.EVENT_TITLE_TODAY);
+            //Appends the title
+            inputs.container.appendChild(titleH2);
+            inputs.container.appendChild(ul);
+
             inputs.results = orderResults();
             renderLayout(inputs.results, ul, false);
         }
@@ -466,9 +483,10 @@ var NHMSearchQuery = new function () {
     this.displaySearchEvents = function (keywordsInput, filterOne, filterTwo, dateFrom, dateTo) {
         clearContainer();
 
-        //Prevents if no carousel 
-        if (inputs.carousel[0] != undefined || inputs.carousel[0] != null) {
-            inputs.carousel[0].style.display = "none";
+        //Prevents if no carousel
+        var carousel = inputs.carousel[0];
+        if (carousel != undefined || carousel != null) {
+            carousel.style.display = "none";
         }
 
         for (var i = 0; i < inputs.eventsJson.length; i++) {
@@ -476,7 +494,6 @@ var NHMSearchQuery = new function () {
                 pattern     = "",
                 eventsJson  = inputs.eventsJson[i],
                 tags        = eventsJson.tags;
-                
 
             isOurEvent = checkTodayEvents(eventsJson);
             
