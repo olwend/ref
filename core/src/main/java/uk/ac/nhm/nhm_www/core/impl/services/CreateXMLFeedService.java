@@ -1,9 +1,11 @@
 package uk.ac.nhm.nhm_www.core.impl.services;
 
+import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashSet;
 
 import javax.jcr.LoginException;
 import javax.jcr.Node;
@@ -13,7 +15,11 @@ import javax.jcr.Session;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
@@ -36,6 +42,7 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 
 	private JSONArray events = new JSONArray();
 	private ArrayList<EventPageDetail> eventsParsed = new ArrayList<EventPageDetail>();
+	private ArrayList<Integer> dateIndex = new ArrayList<Integer>();
 	private Session session;
 	private Node root;
 	
@@ -45,13 +52,12 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 	private ResourceResolverFactory resolverFactory;
 	
 	@Override
-	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException {
+	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException {
 		
 		events = getJSON();
 		
 		if (events != null && events.length() > 0) {
 			eventsParsed = getTodayEvents(events);
-			System.out.println("JUAN TEST: "+eventsParsed.toString());
 			if (!eventsParsed.isEmpty()) {
 				createXMLFromEvents(eventsParsed);
 			}
@@ -87,7 +93,7 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 	 * matches with today and retrieve them
 	 * 
 	 * @param events
-	 * @return 
+	 * @return ArrayList<EventPageDetail>
 	 * @throws JSONException
 	 * @throws ParseException 
 	 */
@@ -106,10 +112,13 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 				for (int j = 0; j < dates.length(); j++) {
 					String dateString = dates.getString(j);
 					if (dateString.length() > 0) {
-						Date date = getDateParsed(dateString, sdf);
-						if(date.compareTo(today)==0){ 
-							System.out.println("MATCHES: " + date.toString());
+						String[] parts = dateString.split(" ");
+						Date date = getDateParsed(parts, sdf);
+						//Gets the index of the date and stored the event object
+						if(date.compareTo(today) == 0) {
+							dateIndex.add(getDateIndex(parts));
 							eventsArray.add(getEventDetails(event));
+							break;
 						}
 					}
 				}
@@ -118,24 +127,39 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 		return eventsArray;
 	}
 	
-	private void createXMLFromEvents(ArrayList<EventPageDetail> eventsParsed) throws ParserConfigurationException, PathNotFoundException, RepositoryException {
-		
-		DocumentBuilderFactory icFactory = DocumentBuilderFactory.newInstance();
-	    DocumentBuilder icBuilder = icFactory.newDocumentBuilder();	    
-	    Document doc = icBuilder.newDocument();
-		Element feed = doc.createElementNS(null,"feed");
-		doc.appendChild(feed);
-		Element items = doc.createElement("items");
-		items.setAttribute("test", "HELLO WORLD");
-		feed.appendChild(items);
-		DOMSource source = new DOMSource(doc);
-		System.out.println("FEED "+feed.toString());
-		
+	/**
+	 * Function to create the App Feed XML file
+	 * 
+	 * @param eventsParsed
+	 * @throws ParserConfigurationException
+	 * @throws PathNotFoundException
+	 * @throws RepositoryException
+	 * @throws TransformerException
+	 */
+	private void createXMLFromEvents(ArrayList<EventPageDetail> eventsParsed) throws ParserConfigurationException, PathNotFoundException, RepositoryException, TransformerException {
 		final String visitorFeed = "visitorfeed.xml";
 		
 		Node content = root.getNode("content/nhmwww");
 		Node events = null;
 		Node node = null;
+		
+		DocumentBuilderFactory icFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder icBuilder;
+        icBuilder = icFactory.newDocumentBuilder();
+        Document doc = icBuilder.newDocument();
+        //Feed element
+        Element feed = doc.createElementNS(null, "feed");
+        //Items element
+        Element items = createItemsFromEvents(eventsParsed, doc);
+        //Appends the items element to feed
+        feed.appendChild(items);
+        //Appends the feed to the document
+        doc.appendChild(feed);
+        StringWriter sw = new StringWriter();
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer transformer = tf.newTransformer();
+        transformer.transform(new DOMSource(doc), new StreamResult(sw));
+		
 		
 		if (!content.hasNode(visitorFeed)) {
 			events = content.addNode(visitorFeed, "nt:file");
@@ -145,16 +169,32 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 			events = content.getNode(visitorFeed);
 			node = events.getNode("jcr:content");
 		}
-		node.setProperty("jcr:data", source.toString());
+		node.setProperty("jcr:data", sw.toString());
 
 		session.save();
+	}
+	
+	private Element createItemsFromEvents(ArrayList<EventPageDetail> eventsParsed, Document doc) {
+		Element items = doc.createElement("items");
+		int eventsCounter = 0;
+		
+        for (EventPageDetail event : eventsParsed) {
+        	createItemFromEventTime(event, eventsCounter, doc, items);
+        	eventsCounter++;
+        }
+		return items;
+	}
+	
+	private void createItemFromEventTime(EventPageDetail event, int eventsCounter, Document doc, Element items) {
+		Element item = doc.createElement("item");
+		
 	}
 	
 	/**
 	 * Helper function to populate the EventDetail object from a JSON
 	 * 
 	 * @param event
-	 * @return
+	 * @return EventPageDetail
 	 * @throws JSONException
 	 */
 	private EventPageDetail getEventDetails(JSONObject event) throws JSONException {
@@ -195,9 +235,9 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 		eventDetail.setEventTileLink(event.getString(tileLink));
 		//eventDetail.setTags(event.getJSONArray(tags));
 		eventDetail.setKeywords(event.getString(keywords));
-		//eventDetail.setDates(event.getJSONArray(dates));
+		//eventDetail.setDates(createDatesArray(event.getJSONArray(dates)));
 		//eventDetail.setAllDay(event.getJSONArray(allDay));
-		//eventDetail.setTimes(event.getJSONArray(times));
+		eventDetail.setTimes(createTimesArray(event.getJSONArray(times)));
 		eventDetail.setAdultPrice(event.getString(adultPrice));
 		eventDetail.setConcessionPrice(event.getString(concessionPrice));
 		eventDetail.setMemberPrice(event.getString(memberPrice));
@@ -219,20 +259,60 @@ public class CreateXMLFeedService implements CreateXMLFeed {
 	}
 	
 	/**
+	 * Helper function to create the times Array
+	 * 
+	 * @param timesJson
+	 * @return ArrayList<String>
+	 * @throws JSONException
+	 */
+	private ArrayList<String> createTimesArray(JSONArray timesJson) throws JSONException {
+		ArrayList<String> stringArray = new ArrayList<String>();
+		
+		System.out.println("TIMES: " + timesJson.toString());
+		
+		String[] parts = timesJson.toString().split("\"");
+		for(int i = 1; i < parts.length - 1; i++) {
+			switch (parts[i]) {
+			case ",":
+				break;
+			case " ":
+				stringArray.add("");
+			default:
+				stringArray.add(parts[i]);
+				break;
+			}
+		}
+		
+		for (String part : stringArray) {
+			System.out.println("PARTS: " + part);
+		}
+		
+		return stringArray;
+	}
+	
+	/**
 	 * Helper function to parse the date retrieved from the JSON
 	 * 
-	 * @param dateString
+	 * @param parts
 	 * @param sdf
-	 * @return
+	 * @return Date
 	 * @throws ParseException
 	 */
-	private Date getDateParsed (String dateString, SimpleDateFormat sdf) throws ParseException {		
-		String[] parts = dateString.split(" ");
+	private Date getDateParsed (String[] parts, SimpleDateFormat sdf) throws ParseException {		
 		//parts[5].substring(0, parts[5].length() - 1) is needed because we attach the index to the date
 		String stringDateParsed = parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[5].substring(0, parts[5].length() - 1);
 
 		Date dateParsed = sdf.parse(stringDateParsed);
 		
 		return dateParsed;
+	}
+	/**
+	 * Helper function to get the dates index
+	 * 
+	 * @param parts
+	 * @return Integer
+	 */
+	private Integer getDateIndex(String[] parts) {
+		return Integer.parseInt(parts[5].substring(parts[5].length()));
 	}
 }

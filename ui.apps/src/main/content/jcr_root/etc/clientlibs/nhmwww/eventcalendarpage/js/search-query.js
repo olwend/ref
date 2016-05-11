@@ -141,7 +141,6 @@ var NHMSearchQuery = new function () {
     var searchByDate = function (date, dates, isFromDate) {
         for (var i = 0; i < dates.length; i++) {
             var eventDate = getEventsFormattedDate(dates[i].substring(0, dates[i].length - 1)).setHours(0, 0, 0, 0, 0);
-            console.log(eventDate);
             if ((isFromDate && eventDate >= date) || (!isFromDate && eventDate <= date)) {
                 return true;
             }

@@ -5,6 +5,7 @@ import java.text.ParseException;
 import javax.jcr.LoginException;
 import javax.jcr.RepositoryException;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
@@ -38,7 +39,10 @@ public class CreateMXLFeedTask implements Runnable {
 			System.out.println("Parse Exception: " + e);
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			System.out.println("Parser ConfigurationException: " + e);
+			System.out.println("Parser Configuration Exception: " + e);
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			System.out.println("Transformer Exception: " + e);
 			e.printStackTrace();
 		}
     }

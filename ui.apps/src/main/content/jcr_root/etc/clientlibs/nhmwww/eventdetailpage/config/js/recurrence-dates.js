@@ -53,7 +53,6 @@ function createDates(dlg) {
                 times   = [];
                 
             for (var j = 0; j < time.length; j++) {
-                    
                 times.push(time[j].getValue());
             }
             timesArray.push(times);
@@ -72,11 +71,9 @@ function createDates(dlg) {
             //Sets the first date
             if (daysCounter == 0){
                 EventDates += mainDates[daysCounter] + strDaysCounter + ",";
-            } else if (daysCounter > 0 && startDate){
-                EventDates += "," + mainDates[daysCounter] + strDaysCounter + ",";
             } else {
-                EventDates += mainDates[daysCounter] + strDaysCounter + ",";
-            }
+                EventDates += "," + mainDates[daysCounter] + strDaysCounter + ",";
+            } 
             
             if (startDate){
                 
@@ -127,8 +124,72 @@ function createDates(dlg) {
         }     
     }
     //Replace needed to remove empty ,,
-    datesRecurrence.setValue(EventDates.replace(/,,/g,","));
+    datesRecurrence.setValue(removeDuplicates(EventDates.replace(/,,/g,",")));
+    
 }
+
+function removeDuplicates (eventDates) {
+    console.log('ALL DATES WITH DUPLICATES: ' + eventDates);
+    var dates = eventDates.split(",");
+    //Removes the empty values
+    dates = dates.filter(date=>date!="");
+    var finalIndex = [];
+    var toRemoveIndex = [];
+    
+    //Iterates the dates to get the single index
+    for (var i = 0; i < dates.length; i++) {
+        if (dates[i].length > 0) {
+            var index = dates[i].slice(-1);
+            var counter = 0;
+            for (var j = 0; j < dates.length; j++) {
+                if (dates[j].length > 0) {
+                    var innerIndex = dates[j].slice(-1);
+                    if (index == innerIndex) {
+                        counter++;
+                    }
+                }
+            }
+            if (counter <= 1) {
+                finalIndex.push(i);
+            }
+        }
+    }
+
+    for (var i = 0; i < finalIndex.length; i++) {
+        var dateArray = dates[finalIndex[i]].split(" ");
+        var dateString = dateArray[1]+dateArray[2]+dateArray[3];
+        for (var j = dates.length - 1; j >= 0; j--) {
+            if (j != finalIndex[i]){
+                var dateArrayCompared = dates[j].split(" ");
+                var dateStringCompared = dateArrayCompared[1]+dateArrayCompared[2]+dateArrayCompared[3];
+                if (dateString == dateStringCompared) {
+                    toRemoveIndex.push(j);
+                }   
+            }
+        }
+    }
+    
+    toRemoveIndex.sort();
+    
+    for (var i = toRemoveIndex.length - 1; i >= 0; i--) {
+        dates.splice(toRemoveIndex[i], 1);
+    }
+   
+    var datesString = [];
+    for (var i = 0; i < dates.length; i++) {
+        var dateArrayCompared = dates[i].split(" ");
+        datesString.push(dateArrayCompared[0]+" "+dateArrayCompared[1]+" "+dateArrayCompared[2]+" "+dateArrayCompared[3]+" 00:00:00 "+dateArrayCompared[5]+" "+dateArrayCompared[6]);
+    }
+    
+    var unique = datesString.filter(function(elem, index, self) {
+        return index == self.indexOf(elem);
+    });
+    
+    console.log('ALL DATES WITHOUT DUPLICATES: ' + unique);
+    
+    return unique;
+}
+
 
 //Function to generate Daily and Weekly dates
 function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
