@@ -174,7 +174,9 @@ public class Other extends Publication{
 			}
 			
 			// Publisher :_
-			stringBuffer.append(this.publisher);
+			if(this.publisher != null) {
+				stringBuffer.append(this.publisher);
+			}
 			stringBuffer.append(" : ");			
 			
 			// PublishPlace._
