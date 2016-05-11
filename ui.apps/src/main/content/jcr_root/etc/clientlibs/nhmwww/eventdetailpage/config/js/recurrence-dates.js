@@ -124,72 +124,93 @@ function createDates(dlg) {
         }     
     }
     //Replace needed to remove empty ,,
-    datesRecurrence.setValue(removeDuplicates(EventDates.replace(/,,/g,",")));
+    datesRecurrence.setValue(removeConflictDates(EventDates.replace(/,,/g,",")));
     
 }
 
-function removeDuplicates (eventDates) {
-    console.log('ALL DATES WITH DUPLICATES: ' + eventDates);
-    var dates = eventDates.split(",");
+//Function to remove conflict dates
+function removeConflictDates(eventDates) {
+    var dates           = eventDates.split(","),
+        singleItemArray = [],
+        toRemoveIndex   = [];
+    
     //Removes the empty values
-    dates = dates.filter(date=>date!="");
-    var finalIndex = [];
-    var toRemoveIndex = [];
-    
-    //Iterates the dates to get the single index
-    for (var i = 0; i < dates.length; i++) {
-        if (dates[i].length > 0) {
-            var index = dates[i].slice(-1);
-            var counter = 0;
-            for (var j = 0; j < dates.length; j++) {
-                if (dates[j].length > 0) {
-                    var innerIndex = dates[j].slice(-1);
-                    if (index == innerIndex) {
-                        counter++;
-                    }
-                }
-            }
-            if (counter <= 1) {
-                finalIndex.push(i);
-            }
-        }
-    }
+    dates = dates.filter(date => date != "");
 
-    for (var i = 0; i < finalIndex.length; i++) {
-        var dateArray = dates[finalIndex[i]].split(" ");
-        var dateString = dateArray[1]+dateArray[2]+dateArray[3];
-        for (var j = dates.length - 1; j >= 0; j--) {
-            if (j != finalIndex[i]){
-                var dateArrayCompared = dates[j].split(" ");
-                var dateStringCompared = dateArrayCompared[1]+dateArrayCompared[2]+dateArrayCompared[3];
-                if (dateString == dateStringCompared) {
-                    toRemoveIndex.push(j);
-                }   
-            }
-        }
-    }
-    
-    toRemoveIndex.sort();
-    
+    singleItemArray = getSingleItemsIndex(dates);
+    toRemoveIndex = getIndexToRemove(singleItemArray, dates);
+
+    //Removes the recurrence dates which are in conflict with single dates
     for (var i = toRemoveIndex.length - 1; i >= 0; i--) {
         dates.splice(toRemoveIndex[i], 1);
     }
-   
+    
+    //Removes the duplicated dates
+    var finalDates = resetTimeStamp(dates).filter(function (elem, index, self) {
+        return index == self.indexOf(elem);
+    });
+
+    return finalDates;
+}
+
+//Function to get the index of the single dates
+function getSingleItemsIndex(dates) {
+    var indexArray = [];
+
+    for (var i = 0; i < dates.length; i++) {
+        //Gets the index placed in the last position of the date string
+        var index   = dates[i].slice(-1),
+            counter = 0;
+        
+        for (var j = 0; j < dates.length; j++) {
+            var innerIndex = dates[j].slice(-1);
+            if (index == innerIndex) {
+                counter++;
+                if (counter > 1){
+                    break;
+                }
+            }
+        }
+        if (counter == 1) {
+            indexArray.push(i);
+        }
+    }
+    return indexArray;
+}
+
+//Function to get the index on the dates to be removed    
+function getIndexToRemove(singleItemArray, dates) {
+    var indexToRemove = [];
+    
+    for (var i = 0; i < singleItemArray.length; i++) {
+        var dateString = createDateString(dates[singleItemArray[i]]);
+        for (var j = dates.length - 1; j >= 0; j--) {
+            if (j != singleItemArray[i]) {
+                var dateStringToCompare = createDateString(dates[j]);
+                if (dateString == dateStringToCompare) {
+                    indexToRemove.push(j);
+                }
+            }
+        }
+    }
+    return indexToRemove.sort();
+}
+
+//Helper function to create a String from a date entered
+function createDateString(date) {
+    var dateArray = date.split(" ");
+    return dateArray[1] + dateArray[2] + dateArray[3];
+}
+
+//Function to remove the timestamp and set all the tomes to 00:00:00
+function resetTimeStamp(dates) {
     var datesString = [];
     for (var i = 0; i < dates.length; i++) {
         var dateArrayCompared = dates[i].split(" ");
-        datesString.push(dateArrayCompared[0]+" "+dateArrayCompared[1]+" "+dateArrayCompared[2]+" "+dateArrayCompared[3]+" 00:00:00 "+dateArrayCompared[5]+" "+dateArrayCompared[6]);
+        datesString.push(dateArrayCompared[0] + " " + dateArrayCompared[1] + " " + dateArrayCompared[2] + " " + dateArrayCompared[3] + " 00:00:00 " + dateArrayCompared[5] + " " + dateArrayCompared[6]);
     }
-    
-    var unique = datesString.filter(function(elem, index, self) {
-        return index == self.indexOf(elem);
-    });
-    
-    console.log('ALL DATES WITHOUT DUPLICATES: ' + unique);
-    
-    return unique;
+    return datesString;
 }
-
 
 //Function to generate Daily and Weekly dates
 function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
