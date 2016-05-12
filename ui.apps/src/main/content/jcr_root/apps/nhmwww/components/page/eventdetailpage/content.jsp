@@ -20,7 +20,11 @@
 %>
 <div class="main-section <%= eventSelect %>"> 
 	<div class="small-12 large-text-left columns">
-        <cq:include path="title" resourceType="nhmwww/components/functional/title"/>
+        <div class="row title-bar">
+            <div class="small-12 columns">
+                <h1><%= title %></h1>
+            </div>
+        </div>
 	</div>
 	<cq:include path="par" resourceType="foundation/components/parsys" />
 </div>
