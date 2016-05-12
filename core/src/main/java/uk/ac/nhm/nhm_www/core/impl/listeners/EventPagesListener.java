@@ -14,11 +14,11 @@ import javax.jcr.observation.Event;
 import javax.jcr.observation.EventIterator;
 import javax.jcr.observation.EventListener;
 import javax.jcr.observation.ObservationManager;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.felix.scr.annotations.Reference;
-//Sling Imports
-import org.apache.sling.api.resource.ResourceResolverFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
@@ -33,13 +33,13 @@ public class EventPagesListener implements EventListener {
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-attractions";
 	
+	private EventPagesUtils eventPagesUtils;
+	
 	private Session session;
 	private ObservationManager eventsObservationManager;
 
 	@Reference
 	private SlingRepository repository;
-	@Reference
-	private ResourceResolverFactory resolverFactory;
 
 	/**
 	 * Logic to define the Events Custom Event Handler
@@ -77,7 +77,8 @@ public class EventPagesListener implements EventListener {
 	@Override
 	public void onEvent(EventIterator events) {		
 		try {
-			new EventPagesUtils().getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);	
+			eventPagesUtils = new EventPagesUtils();
+			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);
 		} catch (PathNotFoundException e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -88,6 +89,12 @@ public class EventPagesListener implements EventListener {
 			System.out.println(e);
 			e.printStackTrace();
 		} catch (ParseException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} catch (TransformerException e) {
 			System.out.println(e);
 			e.printStackTrace();
 		} 

@@ -17,8 +17,8 @@ import uk.ac.nhm.nhm_www.core.services.CreateXMLFeed;
 
 @Component
 @Service(value = Runnable.class)
-@Property( name = "scheduler.expression", value = "0 * * * * ?")
-public class CreateMXLFeedTask implements Runnable {
+@Property( name = "scheduler.expression", value = "30 00 * * * ?")
+public class CreateXMLFeedTask implements Runnable {
 	   
 	@Reference
 	private CreateXMLFeed createXMLFeed;

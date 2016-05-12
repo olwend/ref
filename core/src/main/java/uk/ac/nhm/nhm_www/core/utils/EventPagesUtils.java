@@ -13,6 +13,8 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.Value;
 import javax.jcr.ValueFormatException;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,8 +24,9 @@ import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 
 public class EventPagesUtils {
 	private Node root;
-
-
+	
+	private CreateXMLFeedUtils createXMLFeedUtils;
+	
 	/**
 	 * Gets the nodes under EVENTS_PATH and EXHIBITIONS_PATH
 	 * 
@@ -33,8 +36,10 @@ public class EventPagesUtils {
 	 * @throws RepositoryException
 	 * @throws JSONException
 	 * @throws ParseException 
+	 * @throws TransformerException 
+	 * @throws ParserConfigurationException 
 	 */
-	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException, ParseException  {		
+	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException  {		
 		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
 		
 		root = session.getRootNode();
@@ -141,7 +146,7 @@ public class EventPagesUtils {
 			eventDetail.setEventTileLink(iteratedNode.getProperty(eventTileLink).getString());
 		}
 		if (iteratedNode.hasProperty(tags)) {
-			eventDetail.setTags(createArrayFromValues(iteratedNode.getProperty(tags).getValues()));
+			eventDetail.setTags(createArrayFromTags(iteratedNode.getProperty(tags).getValues()));
 		}
 		if (iteratedNode.hasProperty(keywords)) {
 			eventDetail.setKeywords(iteratedNode.getProperty(keywords).getString());
@@ -181,7 +186,7 @@ public class EventPagesUtils {
 		}
 		// School Event Values
 		if (iteratedNode.hasProperty(subject)) {
-			eventDetail.setSubject(createArrayFromValues(iteratedNode.getProperty(subject).getValues()));
+			eventDetail.setSubject(createArrayFromTags(iteratedNode.getProperty(subject).getValues()));
 		}
 		if (iteratedNode.hasProperty(capacity)) {
 			eventDetail.setCapacity(iteratedNode.getProperty(capacity).getString());
@@ -191,7 +196,7 @@ public class EventPagesUtils {
 		}
 		// Science Event Values
 		if (iteratedNode.hasProperty(subjectScience)) {
-			eventDetail.setScienceSubject(createArrayFromValues(iteratedNode.getProperty(subjectScience).getValues()));
+			eventDetail.setScienceSubject(createArrayFromTags(iteratedNode.getProperty(subjectScience).getValues()));
 		}
 		if (iteratedNode.hasProperty(speakerDetails)) {
 			eventDetail.setSpeakerDetails(iteratedNode.getProperty(speakerDetails).getString());
@@ -207,8 +212,11 @@ public class EventPagesUtils {
 	 * @throws JSONException
 	 * @throws PathNotFoundException
 	 * @throws RepositoryException
+	 * @throws TransformerException 
+	 * @throws ParserConfigurationException 
+	 * @throws ParseException 
 	 */
-	private void createFeed(ArrayList<EventPageDetail> eventsArray, Session session) throws JSONException, PathNotFoundException, RepositoryException  {
+	private void createFeed(ArrayList<EventPageDetail> eventsArray, Session session) throws JSONException, PathNotFoundException, RepositoryException, ParseException, ParserConfigurationException, TransformerException  {
 		final String eventscontent = "eventscontent";
 		
 		JSONObject eventsObject = new JSONObject();
@@ -258,8 +266,12 @@ public class EventPagesUtils {
 			events = content.getNode(eventscontent);
 		}
 		events.setProperty("events", eventsObject.toString());
-
+		
 		session.save();
+		session.refresh(false);
+		
+		createXMLFeedUtils = new CreateXMLFeedUtils();
+		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(eventsJSONArray), root, session);
 	}
 
 	/**
@@ -312,10 +324,11 @@ public class EventPagesUtils {
 		stringValue = stringValue.replaceAll("[^\\w\\s\\,]", "");
 
 		String[] values = stringValue.split(",");
-
-		for (int i = 0; i < values.length; i++) {
-			stringArray.add(values[i]);
+		
+		for (String value : values) {
+			stringArray.add(value);
 		}
+		
 		return stringArray;
 	}
 
@@ -332,11 +345,11 @@ public class EventPagesUtils {
 		stringValue = stringValue.substring(1, stringValue.length() - 1);
 
 		String[] values = stringValue.split("],");
-
-		for (int i = 0; i < values.length; i++) {
-			values[i] = values[i].replaceAll("[^\\w\\s\\,\\:]", "");
-			stringArray.add(values[i]);
+		
+		for (String value : values) {
+			stringArray.add(value.replaceAll("[^\\w\\s\\,\\:]", ""));
 		}
+		
 		return stringArray;
 	}
 
@@ -346,12 +359,13 @@ public class EventPagesUtils {
 	 * @param values
 	 * @return ArrayList<String>
 	 */
-	private ArrayList<String> createArrayFromValues(Value[] values) {
+	private ArrayList<String> createArrayFromTags(Value[] values) {
 		ArrayList<String> stringArray = new ArrayList<String>();
 		
-		for (int i = 0; i < values.length; i++) {
-			stringArray.add(values[i].toString());
+		for (Value value : values) {
+			stringArray.add(value.toString());
 		}
+		
 		return stringArray;
 	}
 }

@@ -9,11 +9,12 @@ import javax.jcr.observation.Event;
 import javax.jcr.observation.EventIterator;
 import javax.jcr.observation.EventListener;
 import javax.jcr.observation.ObservationManager;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.json.JSONException;
 import org.osgi.service.component.ComponentContext;
@@ -31,13 +32,13 @@ public class ExhibitionPagesListener implements EventListener {
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-attractions";
 	
+	private EventPagesUtils eventPagesUtils;
+	
 	private Session session;
 	private ObservationManager exhibitionsObservationManager;
 	
 	@Reference
 	private SlingRepository repository;
-	@Reference
-	private ResourceResolverFactory resolverFactory;
 	
 	/**
 	 * Logic to define the Exhibition Custom Event Handler
@@ -75,7 +76,8 @@ public class ExhibitionPagesListener implements EventListener {
 	@Override
 	public void onEvent(EventIterator events) {		
 		try {
-			new EventPagesUtils().getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);
+			eventPagesUtils = new EventPagesUtils();
+			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);
 		} catch (PathNotFoundException e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -86,6 +88,12 @@ public class ExhibitionPagesListener implements EventListener {
 			System.out.println(e);
 			e.printStackTrace();
 		} catch (ParseException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} catch (TransformerException e) {
 			System.out.println(e);
 			e.printStackTrace();
 		} 
