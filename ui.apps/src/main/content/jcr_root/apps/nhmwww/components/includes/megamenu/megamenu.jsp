@@ -185,24 +185,24 @@
                                         <a href="http://www.nhmshop.co.uk">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/prints.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-prints-wpy&utm_content=meganav-link-1">Wildlife Photographer of the Year 2015 prints</a>
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-1">Dinosaur shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-2">Dinosaur toys</a>
+                                        <a href="http://www.nhmshop.co.uk/souvenirs.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-souvenirs&utm_content=meganav-link-2">Museum souvenirs</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/latest-offers.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-nhm-meganav-link&utm_content=meganav-link-3">Latest offers</a>
+                                        <a href="http://www.nhmshop.co.uk/prints/wildlife-photographer-of-the-year-2015-prints.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-wpy&utm_content=meganav-link-3">Wildlife Photographer of the Year 2015 prints</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/sale.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-link-4">Sale</a>
+                                        <a href="http://www.nhmshop.co.uk/jewellery.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-jewellery&utm_content=meganav-link-4">Jewellery</a>
                                     </li>
                                 </ul>
                                 
                                 <ul class="dropdown-section">
-                                    <li>
+                                    <li class="nav-callout tablet desktop">
                                     	<p></p>
-                                    	<p class="nav-callout tablet desktop">
-                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. All sales support the Museum.</p>
+                                    	<p>
+                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £50 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
                                         <br/>
                                     </li>
 									<li class="nav-list__item">
@@ -217,12 +217,12 @@
                                 
                                   <ul class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/prints.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-image">
+                                  		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-kitsch-dino&utm_content=meganav-image">
                                   			<div class="mega-thumb">
 	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Wall prints from £20">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Wall prints from £20
+                                                       Kitsch dino for adults
                                                     </p>
 	                                            </div>
 	                                        </div>
