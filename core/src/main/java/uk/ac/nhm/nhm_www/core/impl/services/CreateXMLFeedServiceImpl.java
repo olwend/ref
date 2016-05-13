@@ -17,12 +17,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import uk.ac.nhm.nhm_www.core.services.CreateXMLFeed;
+import uk.ac.nhm.nhm_www.core.services.CreateXMLFeedService;
 import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
 
 @Component(immediate = true, metatype = false)
-@Service (value = CreateXMLFeed.class)
-public class CreateXMLFeedService implements CreateXMLFeed {
+@Service (value = CreateXMLFeedServiceImpl.class)
+public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	private static final String JSON_PATH = "content/nhmwww/eventscontent";
 	
 	private CreateXMLFeedUtils createXMLFeedUtils;

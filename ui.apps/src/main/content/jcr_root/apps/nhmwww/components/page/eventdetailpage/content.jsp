@@ -6,19 +6,19 @@
        %> <cq:includeClientLib categories="nhmwww.eventdetailpageconfig"/><%
     }
     String title = (String) properties.get("jcr:eventTitle", "");
-    String eventSelect = (String) properties.get("eventSelect", "").toLowerCase();
+    String eventSelectTypeClassName = (String) properties.get("eventSelect", "").toLowerCase();
     //TO DO: Parse properly from the dialog properties
     if (eventSelect.equals("science")) {
-          eventSelect = "our-science";                                                     
+          eventSelectTypeClassName = "our-science";                                                     
     }
     else if (eventSelect.equals("school")) {
-          eventSelect = "schools";                                                     
+          eventSelectTypeClassName = "schools";                                                     
     }
     else if (eventSelect.equals("tring") || eventSelect.equals("visitor")) {
-          eventSelect = "visit";                                                     
+          eventSelectTypeClassName = "visit";                                                     
     }
 %>
-<div class="main-section <%= eventSelect %>"> 
+<div class="main-section <%= eventSelectTypeClassName %>"> 
 	<div class="small-12 large-text-left columns">
         <div class="row title-bar">
             <div class="small-12 columns">

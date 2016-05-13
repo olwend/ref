@@ -4,6 +4,7 @@ import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.jcr.Node;
@@ -29,6 +30,31 @@ import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 
 public class CreateXMLFeedUtils {
 	
+	private static final String EVENT_PAGE_PATH = "eventPagePath";
+	private static final String TITLE = "title";
+	private static final String DESCRIPTION = "description";
+	private static final String VENUE = "venue";
+	private static final String TILE_LINK = "tileLink";
+	private static final String TAGS = "tags";
+	private static final String KEYWORDS = "keywords";
+	private static final String TIMES = "times";
+	private static final String EVENT_LISTING_PRICE = "eventListingPrice";
+	private static final String IMAGE_LINK = "imageLink";
+	
+	private static final SimpleDateFormat SDF = new SimpleDateFormat("MMM dd, yyyy");
+	
+	private static final String UID = "uid";
+	private static final String NAME = "name";
+	private static final String DTSTART = "dtstart";
+	private static final String DTEND = "dtend";
+	private static final String URL = "url";
+	private static final String IMAGE_URL = "image_url";
+	private static final String CATEGORY = "category";
+	private static final String CUSTOM_1 = "custom_1";
+	private static final String CUSTOM_2 = "custom_2";
+	private static final String CUSTOM_3 = "custom_3";
+	private static final String ALL_DAY = "allday";
+	
 	private ArrayList<Integer> dateIndex = new ArrayList<Integer>();
 	private Date today = new Date();
 	
@@ -53,7 +79,7 @@ public class CreateXMLFeedUtils {
 		for (int i = 0; i < events.length(); i++) {
 			JSONObject event = events.getJSONObject(i);
 			JSONArray dates = event.getJSONArray("dates");
-			if (dates != null && dates.length() > 0) {
+			if (dates != null) {
 				for (int j = 0; j < dates.length(); j++) {
 					String dateString = dates.getString(j);
 					if (dateString.length() > 0) {
@@ -184,30 +210,19 @@ public class CreateXMLFeedUtils {
 	 * @throws JSONException
 	 */
 	private EventPageDetail getEventDetails(JSONObject event) throws JSONException {
-		final String eventPagePath = "eventPagePath";
-		final String title = "title";
-		final String description = "description";
-		final String venue = "venue";
-		final String tileLink = "tileLink";
-		final String tags = "tags";
-		final String keywords = "keywords";
-		final String times = "times";
-		final String eventListingPrice = "eventListingPrice";
-		final String imageLink = "imageLink";
-		
 		EventPageDetail eventDetail = new EventPageDetail();
 		
 		//Needed Event Values for creating the XML
-		eventDetail.setEventPagePath(event.getString(eventPagePath));
-		eventDetail.setTitle(event.getString(title));
-		eventDetail.setDescription(event.getString(description));
-		eventDetail.setEventVenue(event.getString(venue));
-		eventDetail.setEventTileLink(event.getString(tileLink));
-		eventDetail.setTags(createTagsArray(event.getJSONArray(tags).toString()));
-		eventDetail.setKeywords(event.getString(keywords));
-		eventDetail.setTimes(createTimesArray(event.getJSONArray(times).toString()));
-		eventDetail.setEventListingPrice(event.getString(eventListingPrice));
-		eventDetail.setImageLink(event.getString(imageLink));
+		eventDetail.setEventPagePath(event.getString(EVENT_PAGE_PATH));
+		eventDetail.setTitle(event.getString(TITLE));
+		eventDetail.setDescription(event.getString(DESCRIPTION));
+		eventDetail.setEventVenue(event.getString(VENUE));
+		eventDetail.setEventTileLink(event.getString(TILE_LINK));
+		eventDetail.setTags(createTagsArray(event.getJSONArray(TAGS).toString()));
+		eventDetail.setKeywords(event.getString(KEYWORDS));
+		eventDetail.setTimes(createTimesArray(event.getJSONArray(TIMES).toString()));
+		eventDetail.setEventListingPrice(event.getString(EVENT_LISTING_PRICE));
+		eventDetail.setImageLink(event.getString(IMAGE_LINK));
 		
 		return eventDetail;
 	}
@@ -220,15 +235,9 @@ public class CreateXMLFeedUtils {
 	 * @throws JSONException
 	 */
 	private ArrayList<String> createTagsArray(String tagsJson) throws JSONException {
-		ArrayList<String> stringArray = new ArrayList<String>();
 		tagsJson = tagsJson.replaceAll("[^\\w\\s\\,\\/\\:\\-]", "");
-		String[] tags = tagsJson.toString().split(",");		
-		
-		for (String tag : tags) {
-			stringArray.add(tag);
-		}
-		
-		return stringArray;
+
+		return new ArrayList<String>(Arrays.asList(tagsJson.toString().split(",")));
 	}
 	
 	/**
@@ -284,28 +293,13 @@ public class CreateXMLFeedUtils {
 	 * @param items
 	 * @throws ParseException
 	 */
-	private void createItemFromEventTime(EventPageDetail event, int eventsCounter, Document doc, Element items) throws ParseException {
-		final SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
-		
-		final String uid = "uid";
-		final String name = "name";
-		final String dtstart = "dtstart";
-		final String dtend = "dtend";
-		final String url = "url";
-		final String image_url = "image_url";
-		final String category = "category";
-		final String description = "description";
-		final String custom_1 = "custom_1";
-		final String custom_2 = "custom_2";
-		final String custom_3 = "custom_3";
-		final String allday = "allday";
-		
+	private void createItemFromEventTime(EventPageDetail event, int eventsCounter, Document doc, Element items) throws ParseException {		
 		ArrayList<String> eventTimes = event.getTimes();
 		
 		String timeString = eventTimes.get(dateIndex.get(eventsCounter));
 		String [] times = timeString.split(",");
 
-		String todayParsed = sdf.format(today);
+		String todayParsed = SDF.format(today);
 
 		int uidCounter = 0;
 		
@@ -313,50 +307,50 @@ public class CreateXMLFeedUtils {
 			Element item = doc.createElement("item");
 			String uidValue = "" + String.valueOf(System.currentTimeMillis()) + eventsCounter + uidCounter;
 			//Sets the uid
-			item.appendChild(getEventElements(doc, item, uid, uidValue));
+			item.appendChild(createEventElement(doc, item, UID, uidValue));
 			//Sets the name
-			item.appendChild(getEventElements(doc, item, name, event.getTitle()));
+			item.appendChild(createEventElement(doc, item, NAME, event.getTitle()));
 			//Sets the dtstart and dtend
 			if (singleTime.equals("")) {
-				item.appendChild(getEventElements(doc, item, dtstart, todayParsed));
-				item.appendChild(getEventElements(doc, item, dtend, todayParsed));
+				item.appendChild(createEventElement(doc, item, DTSTART, todayParsed));
+				item.appendChild(createEventElement(doc, item, DTEND, todayParsed));
 			} else {
-				item.appendChild(getEventElements(doc, item, dtstart, todayParsed +  " " + singleTime));
-				item.appendChild(getEventElements(doc, item, dtend, todayParsed +  " " + setEventDuration(singleTime)));
+				item.appendChild(createEventElement(doc, item, DTSTART, todayParsed +  " " + singleTime));
+				item.appendChild(createEventElement(doc, item, DTEND, todayParsed +  " " + setEventDuration(singleTime)));
 			}
 			//Sets the url
 			if (event.getEventTileLink().equals("")) {
-				item.appendChild(getEventElements(doc, item, url, event.getEventPagePath() + ".html"));
+				item.appendChild(createEventElement(doc, item, URL, event.getEventPagePath() + ".html"));
 			} else {
-				item.appendChild(getEventElements(doc, item, url, event.getEventTileLink()));
+				item.appendChild(createEventElement(doc, item, URL, event.getEventTileLink()));
 			}
 			//Sets the image url
-			item.appendChild(getEventElements(doc, item, image_url, event.getImageLink()));
+			item.appendChild(createEventElement(doc, item, IMAGE_URL, event.getImageLink()));
 			//Creates the placemarks
 			Element placemarks = doc.createElement("placemarks");
 			Element placemark = doc.createElement("placemark");
-			placemark.appendChild(getEventElements(doc, placemark, name, event.getEventVenue()));
+			placemark.appendChild(createEventElement(doc, placemark, NAME, event.getEventVenue()));
 			placemarks.appendChild(placemark);
 			item.appendChild(placemarks);
 			//Creates the categories and sets the Event types
 			Element categories = doc.createElement("categories");
-			categories.appendChild(getEventElements(doc, categories, category, getTypeTags(event.getTags(), "Event")));
+			categories.appendChild(createEventElement(doc, categories, CATEGORY, getTypeTags(event.getTags(), "Event")));
 			item.appendChild(categories);
 			//Sets the description
-			item.appendChild(createCDATA(doc, item, description, event.getDescription()));
+			item.appendChild(createCDATA(doc, item, DESCRIPTION, event.getDescription()));
 			//Sets the audience in custom_1
-			item.appendChild(getEventElements(doc, item, custom_1,  getTypeTags(event.getTags(), "Audience")));
+			item.appendChild(createEventElement(doc, item, CUSTOM_1,  getTypeTags(event.getTags(), "Audience")));
 			//Sets the listing price in custom_2
-			item.appendChild(getEventElements(doc, item, custom_2,  event.getEventListingPrice()));
+			item.appendChild(createEventElement(doc, item, CUSTOM_2,  event.getEventListingPrice()));
 			//Sets the time in custom_3
 			if (singleTime.equals("")) {
-				item.appendChild(getEventElements(doc, item, custom_3,  "All day"));
+				item.appendChild(createEventElement(doc, item, CUSTOM_3,  "All day"));
 			} else {
-				item.appendChild(getEventElements(doc, item, custom_3,  singleTime));
+				item.appendChild(createEventElement(doc, item, CUSTOM_3,  singleTime));
 			}
 			items.appendChild(item);
 			if (singleTime.equals("")) {
-				items.appendChild(getEventElements(doc, items, allday,  "true"));
+				items.appendChild(createEventElement(doc, items, ALL_DAY,  "true"));
 			} 
 			uidCounter++;
 		}
@@ -371,7 +365,7 @@ public class CreateXMLFeedUtils {
 	 * @param value
 	 * @return Element
 	 */
-    private static Element getEventElements(Document doc, Element element, String name, String value) {
+    private static Element createEventElement(Document doc, Element element, String name, String value) {
         Element node = doc.createElement(name);
         node.appendChild(doc.createTextNode(value));
         return node;

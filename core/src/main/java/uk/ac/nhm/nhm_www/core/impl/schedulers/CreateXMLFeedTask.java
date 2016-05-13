@@ -13,7 +13,7 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.felix.scr.annotations.Property;
 import org.json.JSONException;
 
-import uk.ac.nhm.nhm_www.core.services.CreateXMLFeed;
+import uk.ac.nhm.nhm_www.core.services.CreateXMLFeedService;
 
 @Component
 @Service(value = Runnable.class)
@@ -21,7 +21,7 @@ import uk.ac.nhm.nhm_www.core.services.CreateXMLFeed;
 public class CreateXMLFeedTask implements Runnable {
 	   
 	@Reference
-	private CreateXMLFeed createXMLFeed;
+	private CreateXMLFeedService createXMLFeed;
     
 	public void run() {
 		try {

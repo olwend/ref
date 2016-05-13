@@ -69,17 +69,16 @@ function createDates(dlg) {
                 strDaysCounter  = daysCounter.toString();
             
             //Sets the first date
-            if (daysCounter == 0){
-                EventDates += mainDates[daysCounter] + strDaysCounter + ",";
-            } else {
-                EventDates += "," + mainDates[daysCounter] + strDaysCounter + ",";
-            } 
+            if (daysCounter > 0) {
+                EventDates += ",";
+            }
+            EventDates += mainDates[daysCounter] + strDaysCounter + ",";
             
             if (startDate){
                 
-                var startDateValue  = startDate.getValue(),
+                var startDateValue  = parseDate(startDate.getValue()),
                     endDate         = multi[i].findByType('datetime')[1],
-                    endDateValue    = endDate.getValue(),
+                    endDateValue    = parseDate(endDate.getValue()),
                     recurSelectList = multi[i].findByType('selection')[0],
                     option          = recurSelectList.getValue(),
                     weekDayList     = multi[i].findByType('selection')[3],
@@ -89,7 +88,7 @@ function createDates(dlg) {
                         
                     case "daily":
                         
-                        EventDates += createDayAndWeekDates(weekdays, null,startDateValue, endDateValue, strDaysCounter);
+                        EventDates += createDayAndWeekDates(weekdays, null, startDateValue, endDateValue, strDaysCounter);
                         
                         break;
 
@@ -124,29 +123,26 @@ function createDates(dlg) {
         }     
     }
     //Replace needed to remove empty ,,
-    datesRecurrence.setValue(removeConflictDates(EventDates.replace(/,,/g,",")));
+    datesRecurrence.setValue(removeConflictDates(EventDates.replace(/,,/g,",").split(",")));
     
 }
 
 //Function to remove conflict dates
 function removeConflictDates(eventDates) {
-    var dates           = eventDates.split(","),
-        singleItemArray = [],
-        toRemoveIndex   = [];
+    var toRemoveIndex = [];
     
     //Removes the empty values
-    dates = dates.filter(date => date != "");
+    eventDates = eventDates.filter(date => date != "");
 
-    singleItemArray = getSingleItemsIndex(dates);
-    toRemoveIndex = getIndexToRemove(singleItemArray, dates);
+    toRemoveIndex = getIndexToRemove(getSingleItemsIndex(eventDates), eventDates);
 
     //Removes the recurrence dates which are in conflict with single dates
     for (var i = toRemoveIndex.length - 1; i >= 0; i--) {
-        dates.splice(toRemoveIndex[i], 1);
+        eventDates.splice(toRemoveIndex[i], 1);
     }
     
     //Removes the duplicated dates
-    var finalDates = resetTimeStamp(dates).filter(function (elem, index, self) {
+    var finalDates = resetTimeStamp(eventDates).filter(function (elem, index, self) {
         return index == self.indexOf(elem);
     });
 
@@ -228,13 +224,13 @@ function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDa
     }
     
     var sched       = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000,parseDate(startDate));
+        occurrences = later.schedule(sched).next(1000, startDate);
 
     parserText = occurrences[0] + strDaysCounter;
     
     for (var x = 1; x < occurrences.length; x ++) {
-        if (parseDate(occurrences[x]) - parseDate(endDate) >= 0) {
-            return parserText;
+        if (parseDate(occurrences[x]) - endDate >= 0) {
+            break;
         }
         parserText += "," + occurrences[x] + strDaysCounter;
     }
@@ -270,13 +266,13 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
                     //Query for the Weekend
                     parserText = "on Saturday, Sunday every " + monthNumber + " months";
                     
-                    return filterMonthDates(parserText, parseDate(startDate), parseDate(endDate), repeatListValue, 2, strDaysCounter);
+                    return filterMonthDates(parserText, startDate, endDate, repeatListValue, 2, strDaysCounter);
                                     
                 case "Weekday":
                     //Query for the Weekdays
                     parserText = "on Monday, Tuesday, Wednesday, Thursday, Friday every " + monthNumber + " months";
                     
-                    return filterMonthDates(parserText, parseDate(startDate), parseDate(endDate), repeatListValue, 5, strDaysCounter);                    
+                    return filterMonthDates(parserText, startDate, endDate, repeatListValue, 5, strDaysCounter);                    
             }
         }
         
@@ -292,19 +288,19 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
             
             parserText += " every " + monthNumber + " months";
 
-            return filterMonthDates(parserText, parseDate(startDate), parseDate(endDate), repeatListValue, weekdays.length, strDaysCounter);
+            return filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays.length, strDaysCounter);
         }
     }
     
     //If it's not a custom monthly recurrence generates the query directly
     var sched = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000,parseDate(startDate));
+        occurrences = later.schedule(sched).next(1000, startDate);
     
     parserText = occurrences[0] + strDaysCounter;
     
     for (var x = 1; x < occurrences.length; x ++) {
         
-        if (parseDate(occurrences[x]) - parseDate(endDate) >= 0){
+        if (parseDate(occurrences[x]) - endDate >= 0){
             return parserText;
         }
         
@@ -317,7 +313,7 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
 function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays, strDaysCounter) {
     
     var sched       = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000,startDate),
+        occurrences = later.schedule(sched).next(1000, startDate),
         datesArray  = [],
         counter     = 0,
         monthYear   = concatDates(occurrences[0]),

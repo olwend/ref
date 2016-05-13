@@ -12,7 +12,7 @@ import org.json.JSONException;
 /**
  * Service to manage the creation of the XML Feed
  */
-public interface CreateXMLFeed {
+public interface CreateXMLFeedService {
 
 	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException;
 	
