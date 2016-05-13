@@ -7011,6 +7011,9 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper.grand-summary--exhibition {
   padding-bottom: 1.5em;
 }
+.grand-summary--wrapper.grand-summary--exhibition .grand-summary--caption-container .caption {
+  padding: 0;
+}
 
 .grand-summary--exhibition-details-grid {
   padding-top: 0.75em;
@@ -7086,12 +7089,7 @@ div#feedback-bar .span11 {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 132px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 142px;
+    height: auto;
   }
 }
 
