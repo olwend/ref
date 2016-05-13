@@ -7146,7 +7146,7 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper .ctabutton {
   padding: 1.1em 0.95em;
   border: 3px solid #565656;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .grand-summary--wrapper .ctabutton:hover h3 {
   text-decoration: underline;
@@ -7161,7 +7161,7 @@ div#feedback-bar .span11 {
   padding-bottom: 0;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 2em;
 }
 
