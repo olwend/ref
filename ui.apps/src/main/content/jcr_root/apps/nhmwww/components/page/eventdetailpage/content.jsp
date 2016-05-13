@@ -8,13 +8,13 @@
     String title = (String) properties.get("jcr:eventTitle", "");
     String eventSelectTypeClassName = (String) properties.get("eventSelect", "").toLowerCase();
     //TO DO: Parse properly from the dialog properties
-    if (eventSelect.equals("science")) {
+    if (eventSelectTypeClassName.equals("science")) {
           eventSelectTypeClassName = "our-science";                                                     
     }
-    else if (eventSelect.equals("school")) {
+    else if (eventSelectTypeClassName.equals("school")) {
           eventSelectTypeClassName = "schools";                                                     
     }
-    else if (eventSelect.equals("tring") || eventSelect.equals("visitor")) {
+    else if (eventSelectTypeClassName.equals("tring") || eventSelectTypeClassName.equals("visitor")) {
           eventSelectTypeClassName = "visit";                                                     
     }
 %>

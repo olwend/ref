@@ -371,7 +371,6 @@ public class CreateXMLFeedUtils {
         return node;
     }
     
-    
     /**
      * Helper function to create CDATA section (needed for the description field)
      * 
