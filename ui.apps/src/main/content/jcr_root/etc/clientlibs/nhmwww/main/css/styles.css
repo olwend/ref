@@ -7051,7 +7051,7 @@ div#feedback-bar .span11 {
     margin-top: 0;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .grand-summary--wrapper .info-sidebar {
     padding-left: 2em;
   }
@@ -7089,7 +7089,7 @@ div#feedback-bar .span11 {
     height: 132px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
     height: 142px;
   }
