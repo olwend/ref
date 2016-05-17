@@ -124,7 +124,6 @@ function createDates(dlg) {
     }
     //Replace needed to remove empty ,,
     datesRecurrence.setValue(removeConflictDates(EventDates.replace(/,,/g,",").split(",")));
-    
 }
 
 //Function to remove conflict dates
@@ -203,7 +202,7 @@ function resetTimeStamp(dates) {
     var datesString = [];
     for (var i = 0; i < dates.length; i++) {
         var dateArrayCompared = dates[i].split(" ");
-        datesString.push(dateArrayCompared[0] + " " + dateArrayCompared[1] + " " + dateArrayCompared[2] + " " + dateArrayCompared[3] + " 00:00:00 " + dateArrayCompared[5] + " " + dateArrayCompared[6]);
+        datesString.push(dateArrayCompared[0] + " " + dateArrayCompared[1] + " " + dateArrayCompared[2] + " " + dateArrayCompared[3] + " 00:00:00 " + dateArrayCompared[5] + " " + dates[i].match(/\((.*)\)/)[0] + dates[i].slice(-1));
     }
     return datesString;
 }
