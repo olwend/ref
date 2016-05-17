@@ -7473,7 +7473,6 @@ input.searchGo {
   background-color: rgba(11, 92, 123, 0.75);
 }
 .about-us .carousel .caption {
-  background-color: #0B5C7B;
   background-color: rgba(11, 92, 123, 0.9);
 }
 
@@ -7579,7 +7578,6 @@ input.searchGo {
   background-color: rgba(0, 56, 93, 0.75);
 }
 .account .carousel .caption {
-  background-color: #00385D;
   background-color: rgba(0, 56, 93, 0.9);
 }
 
@@ -7663,7 +7661,6 @@ input.searchGo {
   background-color: rgba(37, 52, 128, 0.75);
 }
 .business-services .carousel .caption {
-  background-color: #253480;
   background-color: rgba(37, 52, 128, 0.9);
 }
 
@@ -7765,7 +7762,6 @@ input.searchGo {
   background-color: rgba(128, 128, 128, 0.75);
 }
 .contact-us .carousel .caption {
-  background-color: #808080;
   background-color: rgba(128, 128, 128, 0.9);
 }
 
@@ -7872,8 +7868,7 @@ input.searchGo {
   background-color: rgba(86, 86, 86, 0.75);
 }
 .discover .carousel .caption {
-  background-color: #107B5E;
-  background-color: rgba(16, 123, 94, 0.9);
+  background-color: rgba(86, 86, 86, 0.9);
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
@@ -7960,7 +7955,6 @@ input.searchGo {
   background-color: rgba(53, 121, 0, 0.75);
 }
 .our-science .carousel .caption {
-  background-color: #357900;
   background-color: rgba(53, 121, 0, 0.9);
 }
 
@@ -8074,7 +8068,6 @@ input.searchGo {
   background-color: #107E5E;
 }
 .press-office .carousel-wrapper .caption {
-  background-color: #107E5E;
   background-color: rgba(16, 126, 94, 0.9);
 }
 .press-office .feature-box a {
@@ -8188,7 +8181,6 @@ input.searchGo {
   background-color: rgba(9, 131, 187, 0.75);
 }
 .schools .carousel .caption {
-  background-color: #0983BB;
   background-color: rgba(9, 131, 187, 0.9);
 }
 
@@ -8295,7 +8287,6 @@ input.searchGo {
   background-color: rgba(127, 32, 110, 0.75);
 }
 .support-us .carousel .caption {
-  background-color: #7F206E;
   background-color: rgba(127, 32, 110, 0.9);
 }
 
@@ -8397,7 +8388,6 @@ input.searchGo {
   background-color: rgba(191, 73, 31, 0.75);
 }
 .take-part .carousel .caption {
-  background-color: #BF491F;
   background-color: rgba(191, 73, 31, 0.9);
 }
 
@@ -8499,7 +8489,6 @@ input.searchGo {
   background-color: rgba(161, 22, 78, 0.75);
 }
 .visit .carousel .caption {
-  background-color: #A1164E;
   background-color: rgba(161, 22, 78, 0.9);
 }
 
