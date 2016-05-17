@@ -133,6 +133,34 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="Scientist"
                                 value="scientist"/>
+                            <interactive
+                                jcr:primaryType="nt:unstructured"
+                                text="Interactive"
+                                value="interactive"/>
+                            <infographic
+                                jcr:primaryType="nt:unstructured"
+                                text="Infographic"
+                                value="infographic"/>
+                            <audio
+                                jcr:primaryType="nt:unstructured"
+                                text="Audio"
+                                value="audio"/>
+                            <quiz
+                                jcr:primaryType="nt:unstructured"
+                                text="Quiz"
+                                value="quiz"/>
+                            <factfile
+                                jcr:primaryType="nt:unstructured"
+                                text="Fact File"
+                                value="factfile"/>
+                            <audioslideshow
+                                jcr:primaryType="nt:unstructured"
+                                text="Audio Slideshow"
+                                value="audioslideshow"/>
+                            <game
+                                jcr:primaryType="nt:unstructured"
+                                text="Game"
+                                value="game"/>
                         </options>
                     </itemtype>
                     <tags

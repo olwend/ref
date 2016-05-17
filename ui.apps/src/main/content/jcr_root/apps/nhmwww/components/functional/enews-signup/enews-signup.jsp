@@ -24,7 +24,7 @@
 
 <div class="text parbase section">
 <%
-	ENewsSignupHelper helper = new ENewsSignupHelper(properties);
+	ENewsSignupHelper helper = new ENewsSignupHelper(properties, resource);
 	DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
 %>
 <p><%=helper.getTitle()%></p>
@@ -41,11 +41,15 @@
 		action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
 		method="get">
 		<div class="form-field firstname">
-			<label for="name">Full name</label> <input type="text" name="name"
+			<label for="firstname">First name *</label> <input type="text" name="firstname"
+				class="item-input">
+		</div>
+		<div class="form-field lastname">
+			<label for="lastname">Surname *</label> <input type="text" name="lastname"
 				class="item-input">
 		</div>
 		<div class="form-field email">
-			<label for="email">Email address</label> <input type="text"
+			<label for="email">Email address *</label> <input type="text"
 				name="email" class="item-input">
 		</div>
 		<input type="text" name="question" class="question"> <input

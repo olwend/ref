@@ -6753,6 +6753,9 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper.grand-summary--exhibition {
   padding-bottom: 1.5em;
 }
+.grand-summary--wrapper.grand-summary--exhibition .grand-summary--caption-container .caption {
+  padding: 0;
+}
 
 .grand-summary--exhibition-details-grid {
   padding-top: 0.75em;
@@ -6793,7 +6796,7 @@ div#feedback-bar .span11 {
     margin-top: 0;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .grand-summary--wrapper .info-sidebar {
     padding-left: 2em;
   }
@@ -6828,12 +6831,7 @@ div#feedback-bar .span11 {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 132px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 142px;
+    height: auto;
   }
 }
 
@@ -6888,7 +6886,7 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper .ctabutton {
   padding: 1.1em 0.95em;
   border: 3px solid #565656;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .grand-summary--wrapper .ctabutton:hover h3 {
   text-decoration: underline;
@@ -6903,7 +6901,7 @@ div#feedback-bar .span11 {
   padding-bottom: 0;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 2em;
 }
 
@@ -7408,7 +7406,7 @@ a.button-cta {
 /** WR-638 enews signup component **/
 .enews-signup-form-container {
   padding: 2em 2em 1em 2em;
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .enews-signup-form-container a {
@@ -7454,6 +7452,7 @@ input.searchGo {
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .about-us .title-bar {
   background-color: #0B5C7B;
@@ -7464,7 +7463,16 @@ input.searchGo {
 .about-us .intro-text {
   color: #0B5C7B;
 }
-.about-us .carousel-wrapper .caption {
+.about-us .button__enews-signup {
+  background-color: #0B5C7B;
+}
+.about-us .button__enews-signup:hover {
+  background-color: rgba(11, 92, 123, 0.75);
+}
+.about-us .button__enews-signup:focus {
+  background-color: rgba(11, 92, 123, 0.75);
+}
+.about-us .carousel .caption {
   background-color: #0B5C7B;
   background-color: rgba(11, 92, 123, 0.9);
 }
@@ -7515,17 +7523,6 @@ input.searchGo {
   color: #ffffff;
 }
 
-/** enews signup form styles **/
-.about-us .button__enews-signup {
-  background-color: #0B5C7B;
-}
-.about-us .button__enews-signup:hover {
-  background-color: rgba(11, 92, 123, 0.75);
-}
-.about-us .button__enews-signup:focus {
-  background-color: rgba(11, 92, 123, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .about-us .accordion .accordion-navigation > a,
 .about-us .accordion dd > a {
@@ -7561,6 +7558,7 @@ input.searchGo {
 /** ACCOUNT THEME PARTIAL **/
 .account {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .account .title-bar {
   background-color: #00385D;
@@ -7571,7 +7569,16 @@ input.searchGo {
 .account .intro-text {
   color: #00385D;
 }
-.account .carousel-wrapper .caption {
+.account .button__enews-signup {
+  background-color: #00385D;
+}
+.account .button__enews-signup:hover {
+  background-color: rgba(0, 56, 93, 0.75);
+}
+.account .button__enews-signup:focus {
+  background-color: rgba(0, 56, 93, 0.75);
+}
+.account .carousel .caption {
   background-color: #00385D;
   background-color: rgba(0, 56, 93, 0.9);
 }
@@ -7598,17 +7605,6 @@ input.searchGo {
 }
 .account .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #00385D;
-}
-
-/** enews signup form styles **/
-.account .button__enews-signup {
-  background-color: #00385D;
-}
-.account .button__enews-signup:hover {
-  background-color: rgba(0, 56, 93, 0.75);
-}
-.account .button__enews-signup:focus {
-  background-color: rgba(0, 56, 93, 0.75);
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
@@ -7646,6 +7642,7 @@ input.searchGo {
 /** BUSINESS-SERVICES THEME PARTIAL **/
 .business-services {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .business-services .title-bar {
   background-color: #253480;
@@ -7656,7 +7653,16 @@ input.searchGo {
 .business-services .intro-text {
   color: #253480;
 }
-.business-services .carousel-wrapper .caption {
+.business-services .button__enews-signup {
+  background-color: #253480;
+}
+.business-services .button__enews-signup:hover {
+  background-color: rgba(37, 52, 128, 0.75);
+}
+.business-services .button__enews-signup:focus {
+  background-color: rgba(37, 52, 128, 0.75);
+}
+.business-services .carousel .caption {
   background-color: #253480;
   background-color: rgba(37, 52, 128, 0.9);
 }
@@ -7703,17 +7709,6 @@ input.searchGo {
   background-color: #253480;
 }
 
-/** enews signup form styles **/
-.business-services .button__enews-signup {
-  background-color: #253480;
-}
-.business-services .button__enews-signup:hover {
-  background-color: rgba(37, 52, 128, 0.75);
-}
-.business-services .button__enews-signup:focus {
-  background-color: rgba(37, 52, 128, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .business-services .accordion .accordion-navigation > a,
 .business-services .accordion dd > a {
@@ -7749,6 +7744,7 @@ input.searchGo {
 /** CONTACT-US THEME PARTIAL **/
 .contact-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .contact-us .title-bar {
   background-color: #808080;
@@ -7759,7 +7755,16 @@ input.searchGo {
 .contact-us .intro-text {
   color: #808080;
 }
-.contact-us .carousel-wrapper .caption {
+.contact-us .button__enews-signup {
+  background-color: #808080;
+}
+.contact-us .button__enews-signup:hover {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+.contact-us .button__enews-signup:focus {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+.contact-us .carousel .caption {
   background-color: #808080;
   background-color: rgba(128, 128, 128, 0.9);
 }
@@ -7806,17 +7811,6 @@ input.searchGo {
   background-color: #808080;
 }
 
-/** enews signup form styles **/
-.contact-us .button__enews-signup {
-  background-color: #808080;
-}
-.contact-us .button__enews-signup:hover {
-  background-color: rgba(128, 128, 128, 0.75);
-}
-.contact-us .button__enews-signup:focus {
-  background-color: rgba(128, 128, 128, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .contact-us .accordion .accordion-navigation > a,
 .contact-us .accordion dd > a {
@@ -7853,6 +7847,7 @@ input.searchGo {
 .discover {
   /** WR-585: added to ensure that Discover publication styles are not affected by changes to base H1 **/
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .discover .title-bar {
   background-color: #565656;
@@ -7867,12 +7862,6 @@ input.searchGo {
 .discover .intro-text {
   color: #565656;
 }
-.discover .carousel-wrapper .caption {
-  background-color: #107B5E;
-  background-color: rgba(16, 123, 94, 0.9);
-}
-
-/** enews signup form styles **/
 .discover .button__enews-signup {
   background-color: #565656;
 }
@@ -7881,6 +7870,10 @@ input.searchGo {
 }
 .discover .button__enews-signup:focus {
   background-color: rgba(86, 86, 86, 0.75);
+}
+.discover .carousel .caption {
+  background-color: #107B5E;
+  background-color: rgba(16, 123, 94, 0.9);
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
@@ -7946,6 +7939,7 @@ input.searchGo {
 /** OUR-SCIENCE THEME PARTIAL **/
 .our-science {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .our-science .title-bar {
   background-color: #357900;
@@ -7956,7 +7950,16 @@ input.searchGo {
 .our-science .intro-text {
   color: #357900;
 }
-.our-science .carousel-wrapper .caption {
+.our-science .button__enews-signup {
+  background-color: #357900;
+}
+.our-science .button__enews-signup:hover {
+  background-color: rgba(53, 121, 0, 0.75);
+}
+.our-science .button__enews-signup:focus {
+  background-color: rgba(53, 121, 0, 0.75);
+}
+.our-science .carousel .caption {
   background-color: #357900;
   background-color: rgba(53, 121, 0, 0.9);
 }
@@ -8003,17 +8006,6 @@ input.searchGo {
   background-color: #357900;
 }
 
-/** enews signup form styles **/
-.our-science .button__enews-signup {
-  background-color: #357900;
-}
-.our-science .button__enews-signup:hover {
-  background-color: rgba(53, 121, 0, 0.75);
-}
-.our-science .button__enews-signup:focus {
-  background-color: rgba(53, 121, 0, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .our-science .accordion .accordion-navigation > a,
 .our-science .accordion dd > a {
@@ -8049,12 +8041,22 @@ input.searchGo {
 /** PRESS OFFICE THEME PARTIAL **/
 .press-office {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .press-office h1 {
   color: #107E5E;
 }
 .press-office .intro-text {
   color: #107E5E;
+}
+.press-office .button__enews-signup {
+  background-color: #107E5E;
+}
+.press-office .button__enews-signup:hover {
+  background-color: rgba(16, 126, 94, 0.75);
+}
+.press-office .button__enews-signup:focus {
+  background-color: rgba(16, 126, 94, 0.75);
 }
 .press-office .pressreleaselistfeed {
   /** h3 here is the title of the press release listfeed component, not HTI **/
@@ -8130,17 +8132,6 @@ input.searchGo {
   background-color: #107E5E;
 }
 
-/** enews signup form styles **/
-.press-office .button__enews-signup {
-  background-color: #107E5E;
-}
-.press-office .button__enews-signup:hover {
-  background-color: rgba(16, 126, 94, 0.75);
-}
-.press-office .button__enews-signup:focus {
-  background-color: rgba(16, 126, 94, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .press-office .accordion .accordion-navigation > a,
 .press-office .accordion dd > a {
@@ -8176,6 +8167,7 @@ input.searchGo {
 /** SCHOOLS THEME PARTIAL **/
 .schools {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .schools .title-bar {
   background-color: #0983BB;
@@ -8186,7 +8178,16 @@ input.searchGo {
 .schools .intro-text {
   color: #0983BB;
 }
-.schools .carousel-wrapper .caption {
+.schools .button__enews-signup {
+  background-color: #0983BB;
+}
+.schools .button__enews-signup:hover {
+  background-color: rgba(9, 131, 187, 0.75);
+}
+.schools .button__enews-signup:focus {
+  background-color: rgba(9, 131, 187, 0.75);
+}
+.schools .carousel .caption {
   background-color: #0983BB;
   background-color: rgba(9, 131, 187, 0.9);
 }
@@ -8233,17 +8234,6 @@ input.searchGo {
   background-color: #0983BB;
 }
 
-/** enews signup form styles **/
-.schools .button__enews-signup {
-  background-color: #0983BB;
-}
-.schools .button__enews-signup:hover {
-  background-color: rgba(9, 131, 187, 0.75);
-}
-.schools .button__enews-signup:focus {
-  background-color: rgba(9, 131, 187, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .schools .accordion .accordion-navigation > a,
 .schools .accordion dd > a {
@@ -8284,6 +8274,7 @@ input.searchGo {
 /** SUPPORT-US THEME PARTIAL **/
 .support-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .support-us .title-bar {
   background-color: #7F206E;
@@ -8294,7 +8285,16 @@ input.searchGo {
 .support-us .intro-text {
   color: #7F206E;
 }
-.support-us .carousel-wrapper .caption {
+.support-us .button__enews-signup {
+  background-color: #7F206E;
+}
+.support-us .button__enews-signup:hover {
+  background-color: rgba(127, 32, 110, 0.75);
+}
+.support-us .button__enews-signup:focus {
+  background-color: rgba(127, 32, 110, 0.75);
+}
+.support-us .carousel .caption {
   background-color: #7F206E;
   background-color: rgba(127, 32, 110, 0.9);
 }
@@ -8341,17 +8341,6 @@ input.searchGo {
   background-color: #7F206E;
 }
 
-/** enews signup form styles **/
-.support-us .button__enews-signup {
-  background-color: #7F206E;
-}
-.support-us .button__enews-signup:hover {
-  background-color: rgba(127, 32, 110, 0.75);
-}
-.support-us .button__enews-signup:focus {
-  background-color: rgba(127, 32, 110, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .support-us .accordion .accordion-navigation > a,
 .support-us .accordion dd > a {
@@ -8387,6 +8376,7 @@ input.searchGo {
 /** TAKE-PART THEME PARTIAL **/
 .take-part {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .take-part .title-bar {
   background-color: #BF491F;
@@ -8397,7 +8387,16 @@ input.searchGo {
 .take-part .intro-text {
   color: #BF491F;
 }
-.take-part .carousel-wrapper .caption {
+.take-part .button__enews-signup {
+  background-color: #BF491F;
+}
+.take-part .button__enews-signup:hover {
+  background-color: rgba(191, 73, 31, 0.75);
+}
+.take-part .button__enews-signup:focus {
+  background-color: rgba(191, 73, 31, 0.75);
+}
+.take-part .carousel .caption {
   background-color: #BF491F;
   background-color: rgba(191, 73, 31, 0.9);
 }
@@ -8444,17 +8443,6 @@ input.searchGo {
   background-color: #BF491F;
 }
 
-/** enews signup form styles **/
-.take-part .button__enews-signup {
-  background-color: #BF491F;
-}
-.take-part .button__enews-signup:hover {
-  background-color: rgba(191, 73, 31, 0.75);
-}
-.take-part .button__enews-signup:focus {
-  background-color: rgba(191, 73, 31, 0.75);
-}
-
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .take-part .accordion .accordion-navigation > a,
 .take-part .accordion dd > a {
@@ -8490,6 +8478,7 @@ input.searchGo {
 /** VISIT THEME PARTIAL **/
 .visit {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
 }
 .visit .title-bar {
   background-color: #A1164E;
@@ -8500,7 +8489,16 @@ input.searchGo {
 .visit .intro-text {
   color: #A1164E;
 }
-.visit .carousel-wrapper .caption {
+.visit .button__enews-signup {
+  background-color: #A1164E;
+}
+.visit .button__enews-signup:hover {
+  background-color: rgba(161, 22, 78, 0.75);
+}
+.visit .button__enews-signup:focus {
+  background-color: rgba(161, 22, 78, 0.75);
+}
+.visit .carousel .caption {
   background-color: #A1164E;
   background-color: rgba(161, 22, 78, 0.9);
 }
@@ -8545,17 +8543,6 @@ input.searchGo {
 }
 .visit .hti-box__feature-box {
   background-color: #A1164E;
-}
-
-/** enews signup form styles **/
-.visit .button__enews-signup {
-  background-color: #A1164E;
-}
-.visit .button__enews-signup:hover {
-  background-color: rgba(161, 22, 78, 0.75);
-}
-.visit .button__enews-signup:focus {
-  background-color: rgba(161, 22, 78, 0.75);
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
