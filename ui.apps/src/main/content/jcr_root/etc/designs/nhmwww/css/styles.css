@@ -6745,6 +6745,13 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper .row {
   margin-bottom: 0;
 }
+@media screen and (max-width: 768px) {
+  .grand-summary--wrapper .row {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
     margin: 0;
@@ -6831,7 +6838,7 @@ div#feedback-bar .span11 {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: auto;
+    height: 146px;
   }
 }
 
