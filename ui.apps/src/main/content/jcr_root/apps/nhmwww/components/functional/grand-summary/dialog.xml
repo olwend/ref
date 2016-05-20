@@ -7,16 +7,22 @@
     <items jcr:primaryType="cq:WidgetCollection">
         <image
             jcr:primaryType="cq:Widget"
-            cropParameter="./imageCrop"
-            ddGroups="[media]"
-            fileNameParameter="./fileName"
-            fileReferenceParameter="./fileReference"
-            mapParameter="./imageMap"
-            name="./file"
-            requestSuffix=".img.png"
-            rotateParameter="./imageRotate"
+            anchor="100%"
             title="Image"
-            xtype="html5smartimage"/>
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	<fileReference
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Image path"
+                    name="./fileReference"
+                    xtype="pathfield"/>
+                <mobileFileReference
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Mobile image path"
+                    name="./mobileFileReference"
+                    xtype="pathfield"/>
+            </items>
+        </image>
         <normal
             jcr:primaryType="cq:Widget"
             anchor="100%"

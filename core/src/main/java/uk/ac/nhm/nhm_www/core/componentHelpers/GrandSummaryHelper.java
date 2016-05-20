@@ -2,7 +2,10 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.osgi.service.component.annotations.Reference;
 
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
@@ -19,6 +22,11 @@ public class GrandSummaryHelper {
 	// Image & Advanced
 	private Image image;
 	private Image mobileimage;
+	
+	private String fileReference;
+	private String mobileFileReference;
+	private String alt;
+	
 	private String id;
 	private String divId;
 	private String title;
@@ -58,6 +66,9 @@ public class GrandSummaryHelper {
 			this.newWindow = properties.get("newwindow",false);
 		}
 
+		if(properties.get("fileReference")!=null) this.fileReference = properties.get("fileReference", String.class);
+		if(properties.get("mobileFileReference")!=null) this.mobileFileReference = properties.get("mobileFileReference", String.class);
+		
 		this.mobileimage = new Image(request.getResource());
 		this.mobileimage.setIsInUITouchMode(Placeholder.isAuthoringUIModeTouch(request));
 		this.image = image;
@@ -298,6 +309,30 @@ public class GrandSummaryHelper {
 
 	public void setCTAIconClass(String ctaIconClass) {
 		this.ctaIconClass = ctaIconClass;
+	}
+
+	public String getFileReference() {
+		return fileReference;
+	}
+
+	public void setFileReference(String fileReference) {
+		this.fileReference = fileReference;
+	}
+
+	public String getMobileFileReference() {
+		return mobileFileReference;
+	}
+
+	public void setMobileFileReference(String mobileFileReference) {
+		this.mobileFileReference = mobileFileReference;
+	}
+
+	public String getAlt() {
+		return alt;
+	}
+
+	public void setAlt(String alt) {
+		this.alt = alt;
 	}
 
 }
