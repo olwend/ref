@@ -39,7 +39,7 @@
 				    <img src='<%= helper.getFileReference() %>' alt='<%= helper.getAlt() %>'>
 				</noscript>
 					<div class="row">
-						<div class="small-12 medium-12 large-8 columns grand-summary--caption-container">
+						<div class="small-12 medium-12 large-11 columns grand-summary--caption-container">
 							<div class="caption-outer-wrapper">
 								<div class="caption-inner-wrapper">
 										<% if (!helper.isExhibition()) { %>
