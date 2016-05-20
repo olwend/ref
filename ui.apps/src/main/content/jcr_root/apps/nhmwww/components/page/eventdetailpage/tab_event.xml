@@ -24,6 +24,11 @@
                     hidden="true"
                     name="./jcr:timesRecurrence"
                     xtype="textfield"/>
+                <durationsRecurrence
+                    jcr:primaryType="cq:Widget"
+                    hidden="true"
+                    name="./jcr:durationsRecurrence"
+                    xtype="textfield"/>
                 <eventPagePath
                     jcr:primaryType="cq:Widget"
                     hidden="true"
@@ -180,6 +185,12 @@
                             </items>
                         </fieldConfig>
                     </times-multifield>
+                    <eventDuration
+                              jcr:primaryType="cq:Widget"
+                              fieldLabel="Duration"
+                              fieldDescription="Please enter the duration in minutes."
+                              dName="eventDuration"
+                              xtype="numberfield"/>
                     <recur-multifield
                         jcr:primaryType="cq:Widget"
                         addItemLabel="Add Recurrence"

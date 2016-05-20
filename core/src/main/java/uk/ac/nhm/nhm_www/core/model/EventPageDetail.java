@@ -27,6 +27,7 @@ public class EventPageDetail {
 	LinkedHashSet<String> dates = new LinkedHashSet<String>();
 	ArrayList <String> allDay = new ArrayList<String>();
 	ArrayList <String> times = new ArrayList<String>();
+	ArrayList <String> durations = new ArrayList<String>();
 	ArrayList <String> tags = new ArrayList<String>();
 	ArrayList <String> subject = new ArrayList<String>();
 	ArrayList <String> scienceSubject = new ArrayList<String>();
@@ -204,6 +205,14 @@ public class EventPageDetail {
 	
 	public ArrayList<String> getTimes() {
 		return this.times;
+	}
+	
+	public void setDurations(ArrayList<String> durations) {
+		this.durations = durations;
+	}
+	
+	public ArrayList<String> getDurations() {
+		return this.durations;
 	}
 	
 	public void setTags(ArrayList<String> tags) {

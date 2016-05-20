@@ -107,6 +107,7 @@ public class EventPagesUtils {
 		final String datesRecurrence = "jcr:datesRecurrence";
 		final String allDayRecurrence = "jcr:allDayRecurrence";
 		final String timesRecurrence = "jcr:timesRecurrence";
+		final String durationsRecurrence = "jcr:durationsRecurrence";
 		final String adultPrice = "adultPrice";
 		final String concessionPrice = "concessionPrice";
 		final String memberPrice = "memberPrice";
@@ -155,10 +156,13 @@ public class EventPagesUtils {
 			eventDetail.setDates(createDatesArray(iteratedNode.getProperty(datesRecurrence).getString()));
 		}
 		if (iteratedNode.hasProperty(allDayRecurrence)) {
-			eventDetail.setAllDay(createAllDayArray(iteratedNode.getProperty(allDayRecurrence).getString()));
+			eventDetail.setAllDay(createStringArray(iteratedNode.getProperty(allDayRecurrence).getString()));
 		}
 		if (iteratedNode.hasProperty(timesRecurrence)) {
 			eventDetail.setTimes(createTimesArray(iteratedNode.getProperty(timesRecurrence).getString()));
+		}
+		if (iteratedNode.hasProperty(durationsRecurrence)) {
+			eventDetail.setDurations(createStringArray(iteratedNode.getProperty(durationsRecurrence).getString()));
 		}
 		if (iteratedNode.hasProperty(adultPrice)) {
 			eventDetail.setAdultPrice(iteratedNode.getProperty(adultPrice).getString());
@@ -238,6 +242,7 @@ public class EventPagesUtils {
 			events.put("dates", event.getDates());
 			events.put("allDay", event.getAllDay());
 			events.put("times", event.getTimes());
+			events.put("durations", event.getDurations());
 			events.put("adultPrice", event.getAdultPrice());
 			events.put("concessionPrice", event.getConcessionPrice());
 			events.put("memberPrice", event.getMemberPrice());
@@ -318,7 +323,7 @@ public class EventPagesUtils {
 	 * @param stringValue
 	 * @return ArrayList<String>
 	 */
-	private ArrayList<String> createAllDayArray(String stringValue) {
+	private ArrayList<String> createStringArray(String stringValue) {
 		ArrayList<String> stringArray = new ArrayList<String>();
 
 		stringValue = stringValue.replaceAll("[^\\w\\s\\,]", "");

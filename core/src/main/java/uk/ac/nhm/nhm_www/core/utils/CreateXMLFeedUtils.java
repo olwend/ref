@@ -1,10 +1,12 @@
 package uk.ac.nhm.nhm_www.core.utils;
 
 import java.io.StringWriter;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.jcr.Node;
@@ -38,10 +40,12 @@ public class CreateXMLFeedUtils {
 	private static final String TAGS = "tags";
 	private static final String KEYWORDS = "keywords";
 	private static final String TIMES = "times";
+	private static final String DURATIONS = "durations";
 	private static final String EVENT_LISTING_PRICE = "eventListingPrice";
 	private static final String IMAGE_LINK = "imageLink";
 	
 	private static final SimpleDateFormat SDF = new SimpleDateFormat("MMM dd, yyyy");
+	private static final SimpleDateFormat TIME_SDF = new SimpleDateFormat("HH:mm");
 	
 	private static final String UID = "uid";
 	private static final String NAME = "name";
@@ -221,6 +225,7 @@ public class CreateXMLFeedUtils {
 		eventDetail.setTags(createTagsArray(event.getJSONArray(TAGS).toString()));
 		eventDetail.setKeywords(event.getString(KEYWORDS));
 		eventDetail.setTimes(createTimesArray(event.getJSONArray(TIMES).toString()));
+		eventDetail.setDurations(createDurationsArray(event.getJSONArray(DURATIONS).toString()));
 		eventDetail.setEventListingPrice(event.getString(EVENT_LISTING_PRICE));
 		eventDetail.setImageLink(event.getString(IMAGE_LINK));
 		
@@ -266,6 +271,19 @@ public class CreateXMLFeedUtils {
 	}
 	
 	/**
+	 * Helper function to retrieve the durations form the JSON
+	 * 
+	 * @param durationsJson
+	 * @return ArrayList<String>
+	 * @throws JSONException
+	 */
+	private ArrayList<String> createDurationsArray(String durationsJson) throws JSONException {
+		durationsJson = durationsJson.replaceAll("[^\\d\\,]", "");
+
+		return new ArrayList<String>(Arrays.asList(durationsJson.toString().split(",")));
+	} 
+	
+	/**
 	 * Function to create the "items" label
 	 * 
 	 * @param eventsParsed
@@ -295,10 +313,13 @@ public class CreateXMLFeedUtils {
 	 */
 	private void createItemFromEventTime(EventPageDetail event, int eventsCounter, Document doc, Element items) throws ParseException {		
 		ArrayList<String> eventTimes = event.getTimes();
+		ArrayList<String> eventDurations = event.getDurations();
 		
 		String timeString = eventTimes.get(dateIndex.get(eventsCounter));
 		String [] times = timeString.split(",");
 
+		String durationString = eventDurations.get(dateIndex.get(eventsCounter));
+				
 		String todayParsed = SDF.format(today);
 
 		int uidCounter = 0;
@@ -316,7 +337,7 @@ public class CreateXMLFeedUtils {
 				item.appendChild(createEventElement(doc, item, DTEND, todayParsed));
 			} else {
 				item.appendChild(createEventElement(doc, item, DTSTART, todayParsed +  " " + singleTime));
-				item.appendChild(createEventElement(doc, item, DTEND, todayParsed +  " " + setEventDuration(singleTime)));
+				item.appendChild(createEventElement(doc, item, DTEND, todayParsed +  " " + setEventDuration(singleTime, durationString)));
 			}
 			//Sets the url
 			if (event.getEventTileLink().equals("")) {
@@ -431,8 +452,14 @@ public class CreateXMLFeedUtils {
         return tags;
      }
     
-    //TODO: Set the time properly related with NHMEC-58
-	private String setEventDuration(String time) {
+   
+	private String setEventDuration(String time, String duration) throws ParseException {
+		Time timeValue = new Time(TIME_SDF.parse(time).getTime());
+		System.out.println("TIME: " + timeValue.toString());
+//		Calendar cal = Calendar.getInstance();
+//		cal.setTimeInMillis(timeValue.getTime());
+//		cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE) + Integer.parseInt(duration));
+//		System.out.println("TIME PLUS TIME: " + new Time(cal.get(Calendar.MILLISECOND)).toString());
 		return "90 mins";
 	}
 }

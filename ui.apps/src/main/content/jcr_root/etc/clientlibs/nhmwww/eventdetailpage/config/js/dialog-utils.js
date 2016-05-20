@@ -19,8 +19,9 @@ function allDaySelected(field,value,isChecked) {
     var panel = field.findParentByType("panel");
     //Gets the Times Multifield
     var times = panel.findByType('multifield')[0];
+    var duration = panel.findByType('numberfield')[0];
     //Hide or show component based on checked value
-    isChecked ? times.hide() : times.show();
+    isChecked ? times.hide() && duration.hide() : times.show() && duration.show();
 }
 
 //Inits the recur checkbox

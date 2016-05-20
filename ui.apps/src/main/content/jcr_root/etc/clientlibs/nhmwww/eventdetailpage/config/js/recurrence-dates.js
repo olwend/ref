@@ -4,11 +4,13 @@ function createDates(dlg) {
         datesRecurrence     = dlg.findByType('textfield')[0],
         allDayRecurrence    = dlg.findByType('textfield')[1],
         timesRecurrence     = dlg.findByType('textfield')[2],
-        eventPagePath       = dlg.findByType('textfield')[3],
+        durationsRecurrence = dlg.findByType('textfield')[3],
+        eventPagePath       = dlg.findByType('textfield')[4],
         jsonString          = "",
         mainDates           = [],
         allDays             = [],
         timesArray          = [],
+        durationsArray      = [],
         daysCounter         = 0,
         EventDates          = "";
     
@@ -23,14 +25,16 @@ function createDates(dlg) {
         if (multi[i].title == "Dates") {
             
             var dates        = multi[i].findByType('datetime'),
-                allDayFields = multi[i].findByType('selection');
-            
+                allDayFields = multi[i].findByType('selection'),
+                durations    = multi[i].findByType('numberfield');
+    
             //Populates the main date Array
             for (var j = 0; j < dates.length; j++) {
                 if (dates[j].fieldLabel == "Date") {
                     mainDates.push(dates[j].getValue());
                 }
             }
+            
             //Populates All Day array
             for (var k = 0; k < allDayFields.length; k++) {
                 if (allDayFields[k].fieldLabel == "All Day Event") {
@@ -41,9 +45,17 @@ function createDates(dlg) {
                     }
                 }
             }
-            
             jsonString = JSON.stringify(allDays);
             allDayRecurrence.setValue(jsonString);
+            
+            //Populates the durations array
+            for (var l = 0; l < durations.length; l++) {
+                if (durations[l].fieldLabel == "Duration") {
+                    durationsArray.push(durations[l].getValue());
+                }
+            }
+            jsonString = JSON.stringify(durationsArray);
+            durationsRecurrence.setValue(jsonString);
         }
         
         //Gets the times
