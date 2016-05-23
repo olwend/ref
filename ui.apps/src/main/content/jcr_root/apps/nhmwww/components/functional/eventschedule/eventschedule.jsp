@@ -91,21 +91,43 @@
       }
    });
 %>
-    
-<c:set var="datesMap" value="<%= datesMap %>" />
-<c:set var="sortedDates" value="<%= sortedDates %>" />
-<c:set var="eventAllDay" value="<%= eventAllDay %>" />
-<table>
-    <thead>
-        <tr>
-            <th class="hti-box__feature-box">Event dates</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="date" items="${sortedDates}">
-            <tr>
-                <td>${date} <span>${datesMap[date]}</span></td>
-            </tr>
-        </c:forEach>
-    </tbody>
-</table>
+<cq:includeClientLib categories="nhmwww.eventschedule"/>
+<c:set var="eventType" value="<%= eventType %>" />
+<c:choose>
+    <c:when test="${not empty eventType}">
+        <c:set var="datesMap" value="<%= datesMap %>" />
+        <c:set var="sortedDates" value="<%= sortedDates %>" />
+        <c:set var="eventAllDay" value="<%= eventAllDay %>" />
+        <div class="event--schedule--wrapper">
+            <table id="datesTable" class="small-12 medium-12 large-12">
+                <thead>
+                    <tr>
+                        <td class="hti-box__feature-box title-bar">Event dates</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="date" items="${sortedDates}" varStatus="loop">
+                        <tr>
+                            <c:choose>
+                                <c:when test="${loop.index < 7}">
+                                    <td>${date} <span>${datesMap[date]}</span></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td style="display:none;">${date} <span>${datesMap[date]}</span></td>
+                                </c:otherwise>
+                            </c:choose>
+                        </tr>
+                        <c:if test="${loop.index == 7}">
+                            <tr>
+                                <th id="showMore">Show more</th>
+                            </tr>
+                        </c:if>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </c:when>
+    <c:otherwise>
+        The page has not been set up yet.
+    </c:otherwise>
+</c:choose>
