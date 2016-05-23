@@ -104,63 +104,63 @@
                     <div class="small-12 large-12 columns">
                         <c:set var="events" value="<%= events %>"/>
                         <c:if test="${not empty events}">
-                            <p class="mb-0">Event: <span>${events}</span></p> 
+                            <p class="mb-0">Event: <strong>${events}</strong></p> 
                         </c:if>
 
                         <c:set var="eventVenue" value="<%= eventVenue %>"/>
                         <c:if test="${not empty eventVenue}">
-                            <p class="mb-0">Location: <span>${eventVenue}</span></p> 
+                            <p class="mb-0">Location: <strong>${eventVenue}</strong></p> 
                         </c:if>
 
                         <c:set var="audiences" value="<%= audiences %>"/>
                         <c:if test="${not empty audiences}">
-                            <p class="mb-0">Who is it for: <span>${audiences}</span></p> 
+                            <p class="mb-0">Who is it for: <strong>${audiences}</strong></p> 
                         </c:if>
                         
                         <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
                         <c:if test="${not empty eventSubjects}">
-                            <p class="mt-16 mb-0">Subject: <span>${eventSubjects}</span></p> 
+                            <p class="mt-16 mb-0">Subject: <strong>${eventSubjects}</strong></p> 
                         </c:if> 
 
                         <c:set var="capacity" value="<%= capacity %>"/>
                         <c:if test="${not empty capacity}">
-                            <p class="mb-0">Capacity: <span>${capacity}</span></p> 
+                            <p class="mb-0">Capacity: <strong>${capacity}</strong></p> 
                         </c:if> 
 
                         <c:set var="eventDuration" value="<%= eventDuration %>"/>
                         <c:if test="${not empty eventDuration}">
-                            <p class="mb-0">Event duration: <span>${eventDuration}</span></p> 
+                            <p class="mb-0">Event duration: <strong>${eventDuration}</strong></p> 
                         </c:if>
 
                         <c:set var="scienceSubjects" value="<%= scienceSubjects %>"/>
                         <c:if test="${not empty scienceSubjects}">
-                            <p class="mt-16 mb-0">Subject: <span>${scienceSubjects}</span></p> 
+                            <p class="mt-16 mb-0">Subject: <strong>${scienceSubjects}</strong></p> 
                         </c:if> 
                         
                         <c:set var="speakerDetails" value="<%= speakerDetails %>"/>
                         <c:if test="${not empty speakerDetails}">
-                           <p class="mb-0">Speaker details: <span>${speakerDetails}</span></p> 
+                           <p class="mb-0">Speaker details: <strong>${speakerDetails}</strong></p> 
                         </c:if> 
                         
                         <p class="mt-16 mb-0">Ticket prices:</p>
                         <c:set var="adultPrice" value="<%= adultPrice %>"/>
                         <c:if test="${not empty adultPrice}">
-                            <p class="mb-0">Adult: <span>${adultPrice}</span></p> 
+                            <p class="mb-0">Adult: <strong>${adultPrice}</strong></p> 
                         </c:if>
 
                         <c:set var="concessionPrice" value="<%= concessionPrice %>"/>
                         <c:if test="${not empty concessionPrice}">
-                            <p class="mb-0">Child and concession: <span>${concessionPrice}</span></p> 
+                            <p class="mb-0">Child and concession: <strong>${concessionPrice}</strong></p> 
                         </c:if> 
 
                         <c:set var="memberPrice" value="<%= memberPrice %>"/>
                         <c:if test="${not empty memberPrice}">
-                            <p class="mb-0">Members: <span>${memberPrice}</span></p> 
+                            <p class="mb-0">Members: <strong>${memberPrice}</strong></p> 
                         </c:if> 
 
                         <c:set var="familyPrice" value="<%= familyPrice %>"/>
                         <c:if test="${not empty familyPrice}">
-                            <p class="mb-0">Family: <span>${familyPrice}</span></p> 
+                            <p class="mb-0">Family: <strong>${familyPrice}</strong></p> 
                         </c:if> 
 
                         <c:set var="customPrice" value="<%= customPrice %>"/>
