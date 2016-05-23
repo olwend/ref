@@ -1,7 +1,6 @@
 package uk.ac.nhm.nhm_www.core.utils;
 
 import java.io.StringWriter;
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,6 +45,8 @@ public class CreateXMLFeedUtils {
 	
 	private static final SimpleDateFormat SDF = new SimpleDateFormat("MMM dd, yyyy");
 	private static final SimpleDateFormat TIME_SDF = new SimpleDateFormat("HH:mm");
+	
+	private Calendar CALENDAR = Calendar.getInstance();
 	
 	private static final String UID = "uid";
 	private static final String NAME = "name";
@@ -452,14 +453,20 @@ public class CreateXMLFeedUtils {
         return tags;
      }
     
-   
+   /**
+    * Helper function to set the End Time
+    * 
+    * @param time
+    * @param duration
+    * @return String
+    * @throws ParseException
+    */
 	private String setEventDuration(String time, String duration) throws ParseException {
-		Time timeValue = new Time(TIME_SDF.parse(time).getTime());
-		System.out.println("TIME: " + timeValue.toString());
-//		Calendar cal = Calendar.getInstance();
-//		cal.setTimeInMillis(timeValue.getTime());
-//		cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE) + Integer.parseInt(duration));
-//		System.out.println("TIME PLUS TIME: " + new Time(cal.get(Calendar.MILLISECOND)).toString());
-		return "90 mins";
+		Date timeValue = TIME_SDF.parse(time);
+		
+		CALENDAR.setTime(timeValue);
+		CALENDAR.set(Calendar.MINUTE, CALENDAR.get(Calendar.MINUTE) + Integer.parseInt(duration));
+		
+		return TIME_SDF.format(CALENDAR.getTime()).toString();
 	}
 }
