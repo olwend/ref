@@ -6734,6 +6734,17 @@ h6 {
   font-size: 1em;
 }
 
+/** NHMEC-6: EVENTS CALENDAR SEARCH RESULTS PARTIAL **/
+.event--calendar--search--result .event--calendar--search--result--title {
+  padding: 0.5em 0.7em 0 0.7em;
+}
+.event--calendar--search--result .event--calendar--search--result--item--content {
+  padding: 0.5em 1.25em;
+}
+.event--calendar--search--result .event--calendar--search--result--content--text {
+  margin-bottom: 0.4em;
+}
+
 /** REFACTOR-EVENTS-SUMMARY **/
 @media screen and (min-width: 768px) {
   .info-sidebar li {
@@ -7798,15 +7809,20 @@ a.button-cta {
   background-color: #D8D8D8;
 }
 
-.event--calendar--more--results:hover {
-  cursor: pointer;
-}
-
-.event--calendar--no--results h5,
-.event--calendar--more--results h5 {
+.more-results-text__event--calendar--search--results {
   padding-top: 0.4em;
   padding-bottom: 0;
   line-height: 1.2em;
+  font-size: 1.3em;
+}
+@media screen and (min-width: 768px) {
+  .more-results-text__event--calendar--search--results {
+    font-size: 1.4em;
+  }
+}
+
+.event--calendar--more--results:hover {
+  cursor: pointer;
 }
 
 .event--calendar--more--results--hide {

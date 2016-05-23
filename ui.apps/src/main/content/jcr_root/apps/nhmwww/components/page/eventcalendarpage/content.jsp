@@ -13,7 +13,7 @@
             <cq:includeClientLib categories="nhmwww.eventcalendarpage"/>
             <div id="searchResult" class="row"></div>
             <div id="showMore">
-                <h5 class="more-results-text more-results-text__directory-search-results">Show more</h5>
+                <h5 class="more-results-text__event--calendar--search--results">Show more</h5>
             </div>
             <div class="row event--calendar--no--results">
                 <h5 id="noResultsToday">There are no museum activities today</h5>
