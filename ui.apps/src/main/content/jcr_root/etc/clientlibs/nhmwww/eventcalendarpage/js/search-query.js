@@ -16,14 +16,15 @@ var NHMSearchQuery = new function () {
                                 "April",    "May",      "June",
                                 "July",     "August",   "September",
                                 "October",  "November", "December"],
-        NO_RESULTS_CLASS:       "more-results-text more-results-text__directory-search-results",
+        NO_RESULTS_CLASS:       "more-results-text__event--calendar--search--results",
         EVENTS_UL_CLASS:        "large-block-grid-3 medium-block-grid-3 small-block-grid-1",
-        PARAGRAPH_CLASS:        "mb-6",
-        EVENTS_DATA_URL:         "/content/nhmwww/eventscontent" + "/events",
+        PARAGRAPH_CLASS:        "event--calendar--search--result--content--text",
+        EVENTS_DATA_URL:        "/content/nhmwww/eventscontent" + "/events",
         HIDE_DIV_CLASS:         "event--calendar--more--results--hide",
-        TEXT_DIV_CLASS:         "feed--item--content",
+        TEXT_DIV_CLASS:         "event--calendar--search--result--item--content",
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image",
-        H3_CLASS:               "pr-11 pl-11 mt-24"
+        LI_CLASS:               "event--calendar--search--result",
+        H3_CLASS:               "event--calendar--search--result--title"
     };
 
     var inputs = {};
@@ -243,6 +244,7 @@ var NHMSearchQuery = new function () {
             a.href = event.tileLink;
         }
 
+        li.className = CONST.LI_CLASS;
         imageDiv.className = CONST.IMAGE_CLASS;
         h3.className = CONST.H3_CLASS;
         textDiv.className = CONST.TEXT_DIV_CLASS;
