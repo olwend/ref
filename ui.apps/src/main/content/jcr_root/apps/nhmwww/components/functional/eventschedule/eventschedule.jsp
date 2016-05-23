@@ -27,17 +27,19 @@
 		return finalSdf.format(dateParsed).toString() + index;
 	}
     
-    String[] createTimesArray(String stringValue) {
-       if (stringValue.length() > 0) {
+    String[] createTimesArray(String times, String durations) throws ParseException {
+       if (times.length() > 0) {
           ArrayList<String> stringArrayList = new ArrayList<String>();
+          Integer[] intDurationArray =  createDurationsArray(durations);
+    
+		  times = times.replace("\"", "");
+		  times = times.substring(1, times.length() - 1);
 
-		  stringValue = stringValue.replace("\"", "");
-		  stringValue = stringValue.substring(1, stringValue.length() - 1);
-
-		  String[] values = stringValue.split("],");
+		  String[] values = times.split("],");
 		
-		  for (String value : values) {
-             stringArrayList.add(value.replaceAll("[^\\w\\s\\,\\:]", ""));
+		  for (int i = 0; i < values.length; i++) {
+             String [] timeArray = values[i].replaceAll("[^\\w\\s\\,\\:]", "").split(",");
+             stringArrayList.add(createTimeAndDuration(timeArray, intDurationArray[i]));
 		  }
 		
           String[] stringArray = new String[stringArrayList.size()];
@@ -48,6 +50,60 @@
           return new String[0];    
        }
 	}
+    
+    Integer[] createDurationsArray(String durations) {
+       if (durations.length() > 0) {
+          ArrayList<Integer> intArrayList = new ArrayList<Integer>();
+
+		  String[] values = durations.replaceAll("[^\\w\\s\\,]", "").split(",");
+		
+		  for (String duration : values) {
+             if (!duration.equals("")) {
+                intArrayList.add(Integer.parseInt(duration));
+             } else {
+                intArrayList.add(0);
+             }
+		  }
+		
+          Integer[] intArray = new Integer[intArrayList.size()];
+          intArray = intArrayList.toArray(intArray);
+		
+          return intArray;
+       } else {
+          return new Integer[0];    
+       }
+	}
+                                            
+    String createTimeAndDuration(String[] times, Integer duration) throws ParseException {
+       String timeAndDuration = "";
+       if (times.length > 0) {
+          for (int i = 0; i < times.length; i++) {
+             timeAndDuration += times[i] +" - "+calculateEndTime(times[i], duration);
+             if (i < times.length - 1) {
+                  timeAndDuration += ", ";                       
+             }
+          }
+          return timeAndDuration;
+       } else {
+          return timeAndDuration;    
+       }
+	}
+    
+    String calculateEndTime(String time, Integer duration) throws ParseException {
+        String endTime = "";
+        if (!time.equals("")) {
+           final SimpleDateFormat timeSdf = new SimpleDateFormat("HH:mm");
+           Calendar calendar = Calendar.getInstance();
+           Date timeValue = timeSdf.parse(time);
+		
+		   calendar.setTime(timeValue);
+		   calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) + duration);
+		
+		   return timeSdf.format(calendar.getTime()).toString();
+        } else {
+            return endTime;                               
+        }
+    }
 %>
 <%
    String eventContentPath = currentPage.getPath() + "/jcr:content";
@@ -57,7 +113,8 @@
    String eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
    String eventDates = contentNode.hasProperty("jcr:datesRecurrence") ? contentNode.getProperty("jcr:datesRecurrence").getString() : "";
    String eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
-   String eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";   
+   String eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
+   String durations = contentNode.hasProperty("jcr:durationsRecurrence") ? contentNode.getProperty("jcr:durationsRecurrence").getString() : "";
    
    HashMap<String, String> datesMap = new HashMap<String, String>();
  
@@ -65,7 +122,7 @@
 
    if (!eventDates.equals("")) {
       LinkedHashSet<String> dates = createDatesArray(eventDates);
-      String[] times = createTimesArray(eventTimes);
+      String[] times = createTimesArray(eventTimes, durations);
       String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
     
       //Populates the Map
