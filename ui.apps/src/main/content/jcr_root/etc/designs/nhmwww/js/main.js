@@ -168,11 +168,14 @@ function resizeYoutubeFrames() {
 	// (You'll probably want to debounce this)
 	$(window).resize(function() {
 
-		var newWidth = $fluidEl.width();
+		//var newWidth = $fluidEl.width(); //dhis - dont use 1st video-wrapper
 	
 		// Resize all videos according to their own aspect ratio
 		$allVideos.each(function() {
+			
 			var $el = $(this);
+			var newWidth = $el.closest('.video-wrapper').width();  //dhis use items video-wrapper parent width instead
+			
 			if(newWidth == $el.data('originalWidth')) {
 				$el
 				.width(newWidth)

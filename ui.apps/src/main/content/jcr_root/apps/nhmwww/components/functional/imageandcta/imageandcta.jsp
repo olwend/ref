@@ -14,7 +14,7 @@
 <c:set var="fileReference" value="<%= fileReference %>"/>
 <c:set var="ctaText" value="<%= ctaText %>"/>
 <c:if test="${not empty eventType && not empty fileReference}"> 
-    <div class="image--and--cta--wrapper mt-20" style="background-image: url(${fileReference})">
+    <div class="image--and--cta--wrapper">
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:if test="${not empty ctaLink}">    
             <a class="small-6 columns cta--wrapper ${eventType} hide-for-small-only" href="${ctaLink}.html">
@@ -22,13 +22,14 @@
                     <i class="ico svg-ico ticket--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="3"></i>
                 </div>
                 <div class="small-8 large-8 columns">
-                    <h3 class="mt-9">${ctaText}</h3>
+                    <h3 class="cta--text">${ctaText}</h3>
                 </div>
                 <div class="small-2 large-2 columns">
                     <i class="ico svg-ico arrowl arrow--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-stroke-width="4"></i>
                 </div>
             </a>
         </c:if>
+        <img class="image--and--cta--image" src="${fileReference}">
     </div>
 </c:if>
 <c:if test="${empty eventType}">

@@ -6529,45 +6529,35 @@ h6 {
 /** IMAGE AND CTA PARTIAL NHMEC-8 **/
 .image--and--cta--wrapper {
   width: 100%;
-  height: 435px;
-  background: no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   position: relative;
 }
-
 .image--and--cta--wrapper .cta--wrapper {
   background-color: #FFFFFF;
-  float: right;
-  position: relative;
+  right: 0;
+  position: absolute;
   top: 65%;
   padding: 12px;
   display: block;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
-
-.image--and--cta--wrapper .cta--wrapper h3,
-.image--and--cta--wrapper .cta--wrapper p {
+.image--and--cta--wrapper .cta--wrapper .cta--text {
   padding: 0;
+  margin-top: 0.6em;
   margin-bottom: 0;
   padding-left: 7.5%;
   padding-right: 10%;
   line-height: 1;
-}
-
-.image--and--cta--wrapper .cta--wrapper h3 {
   font-weight: bold;
 }
-
 .image--and--cta--wrapper .arrow--icon {
   height: 35px;
   margin-top: 15%;
 }
-
 .image--and--cta--wrapper .ticket--icon {
   height: 60px;
+}
+.image--and--cta--wrapper .image--and--cta--image {
+  height: 435px;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/
@@ -8391,7 +8381,7 @@ input.searchGo {
 
 /** Needed for the image and CTA component NHMEC-8 **/
 .our-science .image--and--cta--wrapper,
-.our-science .image--and--cta--wrapper .cta--wrapper h3 {
+.our-science .image--and--cta--wrapper .cta--wrapper .cta--text {
   color: #357900;
 }
 
@@ -8628,8 +8618,7 @@ input.searchGo {
 
 /** Needed for the image and CTA component NHMEC-8 **/
 .schools .image--and--cta--wrapper,
-.schools .image--and--cta--wrapper .cta--wrapper h3,
-.schools .event--schedule--wrapper table {
+.schools .image--and--cta--wrapper .cta--wrapper .cta--text {
   color: #0983BB;
 }
 
@@ -8948,7 +8937,7 @@ input.searchGo {
 
 /** Needed for the image and CTA component NHMEC-8 **/
 .visit .image--and--cta--wrapper,
-.visit .image--and--cta--wrapper .cta--wrapper h3 {
+.visit .image--and--cta--wrapper .cta--wrapper .cta--text {
   color: #A1164E;
 }
 
