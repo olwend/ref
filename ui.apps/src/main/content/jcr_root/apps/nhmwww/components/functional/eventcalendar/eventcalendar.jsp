@@ -3,7 +3,7 @@
 <cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
 
 <div class="row event--calendar--wrapper">
-    <ul class="small-block-grid-1 medium-block-grid-3 directory-search--fields-block-grid">
+    <ul class="small-block-grid-1 medium-block-grid-3 calendar-search--fields-block-grid">
         <li>
             <legend class="calendar--search--label">Keyword search</legend>
             <div class="search-keywords small-10 medium-10 large-10 columns">

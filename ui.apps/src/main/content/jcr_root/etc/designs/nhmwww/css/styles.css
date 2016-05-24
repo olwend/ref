@@ -6594,18 +6594,29 @@ h6 {
   padding: 1.5em 1.5em 1em 1.5em;
   color: #FFFFFF;
 }
-
+@media screen and (max-width: 1024px) {
+  .event--calendar--wrapper {
+    margin: 0;
+    width: 100%;
+  }
+}
+.event--calendar--wrapper .calendar-search--fields-block-grid li {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .event--calendar--wrapper .calendar-search--fields-block-grid li:last-child {
+    padding-right: 0;
+  }
+}
 .event--calendar--wrapper .calendar--search--label {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin-bottom: 0.6em;
   font-size: 1.375em;
 }
-
 .event--calendar--wrapper .search-keywords input {
   height: 4.55em;
   border: none;
 }
-
 .event--calendar--wrapper .search-icon {
   background-color: #EEEEEE;
   height: 5.65em;
@@ -6613,7 +6624,6 @@ h6 {
   padding-top: 1.7em;
   cursor: pointer;
 }
-
 .event--calendar--wrapper .search-keywords input,
 .event--calendar--wrapper .calendar--select select,
 .event--calendar--wrapper .dates--label,
@@ -6622,11 +6632,9 @@ h6 {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.25em;
 }
-
 .event--calendar--wrapper .calendar--select select {
   background-image: url(../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
 }
-
 .event--calendar--wrapper .reset--filter {
   font-family: Arial;
   font-size: 1em;
@@ -6635,16 +6643,13 @@ h6 {
   color: #B6B6B6;
   cursor: pointer;
 }
-
 .event--calendar--wrapper .date--picker {
   margin: 0 0 1rem 0;
 }
-
 .event--calendar--wrapper .date--wrapper {
   background: #FFFFFF;
   color: #565656;
 }
-
 .event--calendar--wrapper .date--wrapper input,
 .event--calendar--wrapper .date--wrapper input[type="text"][readonly] {
   border: none;
@@ -6655,21 +6660,17 @@ h6 {
   padding: 0 0 0 0.3em;
   font-size: 1em;
 }
-
 .event--calendar--wrapper .date--wrapper input:focus {
   background: none;
 }
-
-.calendar--text,
-.calendar--icon {
+.event--calendar--wrapper .calendar--text,
+.event--calendar--wrapper .calendar--icon {
   margin-top: -1.2em;
 }
-
 .event--calendar--wrapper .dates--label {
   font-size: 1em;
   padding-left: 0.3em;
 }
-
 .event--calendar--wrapper .date--button {
   cursor: pointer;
   position: relative;
@@ -6681,18 +6682,16 @@ h6 {
   text-decoration: none;
   text-align: center;
 }
-
-.event--calendar--wrapper .date--button:hover,
-.event--calendar--wrapper .date--button--selected {
-  background: #FFFFFF;
-  color: #565656;
-}
-
 .event--calendar--wrapper .date--button input {
   padding: 0;
   background: none;
   border: none;
   line-height: 1.9em;
+}
+.event--calendar--wrapper .date--button:hover,
+.event--calendar--wrapper .date--button--selected {
+  background: #FFFFFF;
+  color: #565656;
 }
 
 /** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
