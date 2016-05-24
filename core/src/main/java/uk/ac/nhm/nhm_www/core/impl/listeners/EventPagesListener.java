@@ -21,6 +21,7 @@ import javax.xml.transform.TransformerException;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.felix.scr.annotations.Reference;
 
+import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
 /**
@@ -31,12 +32,11 @@ import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 @Component(immediate = true, metatype = false)
 @Service
 public class EventPagesListener implements EventListener {
-	private static final String USER_ID = "admin";
-	private static final String USER_PASSWORD = "admin"; 
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-attractions";
 	
 	private EventPagesUtils eventPagesUtils;
+	private EventCalendarLoginUtils eventCalendarLoginUtils;
 	
 	private Session session;
 	private ObservationManager eventsObservationManager;
@@ -51,7 +51,8 @@ public class EventPagesListener implements EventListener {
 	 */
 	protected void activate(ComponentContext ctx) {
 		try {
-			session = repository.login(new SimpleCredentials(USER_ID, USER_PASSWORD.toCharArray()));
+			eventCalendarLoginUtils = new EventCalendarLoginUtils();
+			session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 			eventsObservationManager = session.getWorkspace().getObservationManager();
 			eventsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EVENTS_PATH, true, null, null, false);
 		} catch (Exception e) {

@@ -20,6 +20,7 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.json.JSONException;
 import org.osgi.service.component.ComponentContext;
 
+import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
 /**
@@ -30,16 +31,15 @@ import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 @Component(immediate = true, metatype = false)
 @Service
 public class ExhibitionPagesListener implements EventListener {
-	private static final String USER_ID = "admin";
-	private static final String USER_PASSWORD = "admin"; 
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-attractions";
 	
 	private EventPagesUtils eventPagesUtils;
+	private EventCalendarLoginUtils eventCalendarLoginUtils;
 	
 	private Session session;
 	private ObservationManager exhibitionsObservationManager;
-	
+
 	@Reference
 	private SlingRepository repository;
 	
@@ -50,7 +50,8 @@ public class ExhibitionPagesListener implements EventListener {
 	 */
 	protected void activate(ComponentContext ctx) {
 		try {
-			session = repository.login(new SimpleCredentials(USER_ID, USER_PASSWORD.toCharArray()));
+			eventCalendarLoginUtils = new EventCalendarLoginUtils();
+			session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 			exhibitionsObservationManager = session.getWorkspace().getObservationManager();
 			exhibitionsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EXHIBITIONS_PATH, true, null, null, false);
 		} catch (Exception e) {

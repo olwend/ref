@@ -20,15 +20,15 @@ import org.json.JSONObject;
 
 import uk.ac.nhm.nhm_www.core.services.CreateXMLFeedService;
 import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
+import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 
 @Component(immediate = true, metatype = false)
 @Service (value = CreateXMLFeedServiceImpl.class)
-public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
-	private static final String USER_ID = "admin";
-	private static final String USER_PASSWORD = "admin"; 
+public class CreateXMLFeedServiceImpl implements CreateXMLFeedService { 
 	private static final String JSON_PATH = "content/nhmwww/eventscontent";
 	
 	private CreateXMLFeedUtils createXMLFeedUtils;
+	private EventCalendarLoginUtils eventCalendarLoginUtils;
 	
 	private Session session;
 	private Node root;
@@ -51,8 +51,8 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	 */
 	private JSONArray getJSON() throws LoginException, RepositoryException, JSONException {
 		JSONArray events = new JSONArray();
-		
-		session = repository.login( new SimpleCredentials(USER_ID, USER_PASSWORD.toCharArray()));
+		eventCalendarLoginUtils = new EventCalendarLoginUtils();
+		session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 		
 		if (root.hasNode(JSON_PATH)) {
 			Node eventsNode = root.getNode(JSON_PATH);
