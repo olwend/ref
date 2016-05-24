@@ -6363,8 +6363,8 @@ h6 {
 .event--information--wrapper {
   min-height: 435px;
 }
-.event--information--wrapper span {
-  font-weight: bold;
+.event--information--wrapper .hti-box p {
+  margin-bottom: 0;
 }
 
 /** NHMEC-52: EVENT SCHEDULE PARTIAL **/
@@ -7078,6 +7078,13 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper .row {
   margin-bottom: 0;
 }
+@media screen and (max-width: 768px) {
+  .grand-summary--wrapper .row {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
     margin: 0;
@@ -7164,7 +7171,7 @@ div#feedback-bar .span11 {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: auto;
+    height: 146px;
   }
 }
 
@@ -7737,6 +7744,10 @@ a.button-cta {
 }
 
 .science-profiles-detail-page .title-bar {
+  margin-bottom: 1.2em;
+}
+
+.events .title-bar {
   margin-bottom: 1.2em;
 }
 

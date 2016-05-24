@@ -97,8 +97,8 @@
 <c:set var="eventType" value="<%= eventType.toLowerCase() %>"/>
 <c:choose>
     <c:when test="${not empty eventType}">
-        <div class="${eventType} hti-wrapper mt-20 event--information--wrapper">
-            <div class="small-12 medium-12 large-12 columns hti-box__feature-box event--information--wrapper">
+        <div class="${eventType} hti-wrapper event--information--wrapper">
+            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box event--information--wrapper">
                 <div class="hti-box--text-wrapper">
                     <h3>Event information</h3>
                     <div class="small-12 large-12 columns">
