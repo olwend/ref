@@ -10,6 +10,7 @@ import org.osgi.service.component.ComponentContext;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.SimpleCredentials;
 import javax.jcr.observation.Event;
 import javax.jcr.observation.EventIterator;
 import javax.jcr.observation.EventListener;
@@ -30,6 +31,8 @@ import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 @Component(immediate = true, metatype = false)
 @Service
 public class EventPagesListener implements EventListener {
+	private static final String USER_ID = "admin";
+	private static final String USER_PASSWORD = "admin"; 
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions-and-attractions";
 	
@@ -46,10 +49,9 @@ public class EventPagesListener implements EventListener {
 	 * 
 	 * @param ctx
 	 */
-	@SuppressWarnings("deprecation")
 	protected void activate(ComponentContext ctx) {
 		try {
-			session = repository.loginAdministrative(null);
+			session = repository.login(new SimpleCredentials(USER_ID, USER_PASSWORD.toCharArray()));
 			eventsObservationManager = session.getWorkspace().getObservationManager();
 			eventsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EVENTS_PATH, true, null, null, false);
 		} catch (Exception e) {

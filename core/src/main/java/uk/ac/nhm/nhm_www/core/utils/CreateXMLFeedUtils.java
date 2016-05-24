@@ -315,11 +315,12 @@ public class CreateXMLFeedUtils {
 	private void createItemFromEventTime(EventPageDetail event, int eventsCounter, Document doc, Element items) throws ParseException {		
 		ArrayList<String> eventTimes = event.getTimes();
 		ArrayList<String> eventDurations = event.getDurations();
+		Integer indexOfDate = dateIndex.get(eventsCounter);
 		
-		String timeString = eventTimes.get(dateIndex.get(eventsCounter));
+		String timeString = eventTimes.get(indexOfDate);
 		String [] times = timeString.split(",");
 
-		String durationString = eventDurations.get(dateIndex.get(eventsCounter));
+		String durationString = eventDurations.get(indexOfDate);
 				
 		String todayParsed = SDF.format(today);
 

@@ -83,14 +83,11 @@
                   timeAndDuration += ", ";                       
              }
           }
-          return timeAndDuration;
-       } else {
-          return timeAndDuration;    
        }
+       return timeAndDuration;    
 	}
     
     String calculateEndTime(String time, Integer duration) throws ParseException {
-        String endTime = "";
         if (!time.equals("")) {
            final SimpleDateFormat timeSdf = new SimpleDateFormat("HH:mm");
            Calendar calendar = Calendar.getInstance();
@@ -101,7 +98,7 @@
 		
 		   return timeSdf.format(calendar.getTime()).toString();
         } else {
-            return endTime;                               
+            return "";                               
         }
     }
 %>
@@ -128,12 +125,11 @@
       //Populates the Map
       for (String date : dates) {
          int index = Integer.parseInt(date.substring(date.length() - 1));
-
-         if (allDayArray[index].equals("true")){
-            datesMap.put(date.substring(0,date.length()-1),"All day"); 
-         } else {
-            datesMap.put(date.substring(0,date.length()-1),times[index]); 
-         }   
+         String datesMapValue = "All day";
+         if (!allDayArray[index].equals("true")){
+            datesMapValue =  times[index]; 
+         } 
+         datesMap.put(date.substring(0, date.length() - 1), datesMapValue);  
       }
    
       //Populates an array list with the dates
@@ -166,24 +162,24 @@
             <table id="datesTable" class="small-12 medium-12 large-12">
                 <thead>
                     <tr>
-                        <td class="hti-box__feature-box title-bar">Event dates</td>
+                        <td class="hti-box__feature-box title-bar event--schedule--td">Event dates</td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="event--schedule--tbody">
                     <c:forEach var="date" items="${sortedDates}" varStatus="loop">
                         <tr>
                             <c:choose>
                                 <c:when test="${loop.index < 7}">
-                                    <td>${date} <span>${datesMap[date]}</span></td>
+                                    <td class="event--schedule--td">${date} <span class="event--schedule--times">${datesMap[date]}</span></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td style="display:none;">${date} <span>${datesMap[date]}</span></td>
+                                    <td style="display:none;" class="event--schedule--td">${date} <span class="event--schedule--times">${datesMap[date]}</span></td>
                                 </c:otherwise>
                             </c:choose>
                         </tr>
                         <c:if test="${loop.index == 7}">
                             <tr>
-                                <th id="showMore">Show more</th>
+                                <th class="event--schedule--th" id="showMore">Show more</th>
                             </tr>
                         </c:if>
                     </c:forEach>

@@ -5,6 +5,7 @@ import java.text.ParseException;
 import javax.jcr.LoginException;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
+import javax.jcr.SimpleCredentials;
 import javax.jcr.Session;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -23,6 +24,8 @@ import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
 @Component(immediate = true, metatype = false)
 @Service (value = CreateXMLFeedServiceImpl.class)
 public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
+	private static final String USER_ID = "admin";
+	private static final String USER_PASSWORD = "admin"; 
 	private static final String JSON_PATH = "content/nhmwww/eventscontent";
 	
 	private CreateXMLFeedUtils createXMLFeedUtils;
@@ -46,12 +49,10 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	 * @throws LoginException 
 	 * @throws JSONException 
 	 */
-	@SuppressWarnings("deprecation")
 	private JSONArray getJSON() throws LoginException, RepositoryException, JSONException {
 		JSONArray events = new JSONArray();
 		
-		session = repository.loginAdministrative(null);
-		root = session.getRootNode();
+		session = repository.login( new SimpleCredentials(USER_ID, USER_PASSWORD.toCharArray()));
 		
 		if (root.hasNode(JSON_PATH)) {
 			Node eventsNode = root.getNode(JSON_PATH);
