@@ -6371,6 +6371,10 @@ h6 {
 .event--schedule--wrapper {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
+.event--schedule--wrapper .event--schedule--title {
+  padding: 1em 1.5em;
+  color: #FFFFFF;
+}
 .event--schedule--wrapper .event--schedule--tbody .event--schedule--th,
 .event--schedule--wrapper .event--schedule--tbody .event--schedule--td {
   padding: 1em 1.5em;
@@ -8404,6 +8408,9 @@ input.searchGo {
 }
 
 /** NHMEC-52 Event schedule component**/
+.our-science .event--schedule--wrapper .event--schedule--title {
+  background-color: #357900;
+}
 .our-science .event--schedule--wrapper .event--schedule--tbody {
   color: #357900;
 }
@@ -8641,6 +8648,9 @@ input.searchGo {
 }
 
 /** NHMEC-52 Event schedule component**/
+.schools .event--schedule--wrapper .event--schedule--title {
+  background-color: #0983BB;
+}
 .schools .event--schedule--wrapper .event--schedule--tbody {
   color: #0983BB;
 }
@@ -8960,6 +8970,9 @@ input.searchGo {
 }
 
 /** NHMEC-52 Event schedule component**/
+.visit .event--schedule--wrapper .event--schedule--title {
+  background-color: #A1164E;
+}
 .visit .event--schedule--wrapper .event--schedule--tbody {
   color: #A1164E;
 }

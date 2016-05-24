@@ -162,7 +162,7 @@
             <table id="datesTable" class="small-12 medium-12 large-12">
                 <thead>
                     <tr>
-                        <td class="hti-box__feature-box title-bar event--schedule--td">Event dates</td>
+                        <td class="event--schedule--td event--schedule--title">Event dates</td>
                     </tr>
                 </thead>
                 <tbody class="event--schedule--tbody">
