@@ -1,5 +1,8 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import org.apache.sling.api.resource.ModifiableValueMap;
+import org.apache.sling.api.resource.PersistenceException;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
 public class ENewsSignupHelper extends HelperBase {
@@ -7,11 +10,11 @@ public class ENewsSignupHelper extends HelperBase {
 	/**
 	 * Provide a default data protection statement
 	 */
-	private String dataProtection = "<p>By providing your details, you agree that the Natural History Museum may contact you by email with news and information about our activities, events, products and services.</p>"
+	private String dataProtection = "<p>By providing your details, you agree that the Natural History Museum may contact you by email with news and information about our activities, events, products, services and fundraising.</p>"
 			+ "<h4>Data protection</h4>"
 			+ "<p>The Natural History Museum will use your personal information in accordance with the Data Protection Act 1998. We will use it to provide the service(s) requested, improve our understanding of"
-			+ "our target audiences and supporters, and, if you agree, to send you news and information as set out above. For more information,"
-			+ " please see our <a href=\"http://www.nhm.ac.uk/my-nhm/privacy-statement/index.html\">privacy policy</a>.</p>";
+			+ " our target audiences and supporters, and, if you agree, to send you news and information as set out above. For more information,"
+			+ " please see our <a href=\"http://www.nhm.ac.uk/my-nhm/privacy-statement/index.html\">privacy notice</a>.</p>";
 
 	private String title;
 	private String description;
@@ -19,9 +22,9 @@ public class ENewsSignupHelper extends HelperBase {
 	/**
 	 * Set a default campaign in case it does not get set
 	 */
-	private String campaign = "www";
+	private String campaign = "eNewsletters";
 
-	public ENewsSignupHelper(ValueMap properties) {
+	public ENewsSignupHelper(ValueMap properties, Resource resource) throws PersistenceException {
 
 		if (properties.get("title") != null) {
 			this.title = properties.get("title", String.class);
@@ -34,6 +37,11 @@ public class ENewsSignupHelper extends HelperBase {
 		}
 		if (properties.get("dataProtection") != null) {
 			this.dataProtection = properties.get("dataProtection", String.class);
+		} else {
+			// Modify the resource in the content JCR tree
+			ModifiableValueMap map = resource.adaptTo(ModifiableValueMap.class);
+			map.put("dataProtection", dataProtection);
+			resource.getResourceResolver().commit();
 		}
 	}
 
