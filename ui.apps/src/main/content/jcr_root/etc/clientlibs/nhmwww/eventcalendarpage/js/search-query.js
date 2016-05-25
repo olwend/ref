@@ -2,7 +2,7 @@ var NHMSearchQuery = new function () {
     var CONST = {
         CONTAINER_DIV_CLASS:    "small-12 columns",
         DISPLAY_SHOW_MORE:      "row event--calendar--more--results",
-        EVENT_TITLE_CLASS:      "pl-12",
+        EVENT_TITLE_CLASS:      "event--calendar--search--result--main--title",
         EVENT_TITLE_TODAY:      "Today's Events",
         EVENT_MONTH_DATES:      ["Jan",  "Feb", "Mar",
                                  "Apr",  "May", "Jun",
@@ -22,7 +22,7 @@ var NHMSearchQuery = new function () {
         EVENTS_DATA_URL:        "/content/nhmwww/eventscontent" + "/events",
         HIDE_DIV_CLASS:         "event--calendar--more--results--hide",
         TEXT_DIV_CLASS:         "event--calendar--search--result--item--content",
-        IMAGE_CLASS:            "adaptiveimage parbase foundation5image image",
+        IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title"
     };
