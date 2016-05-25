@@ -16,16 +16,29 @@
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-          import="uk.ac.nhm.nhm_www.core.componentHelpers.HelperBase"%><%
+          import="uk.ac.nhm.nhm_www.core.componentHelpers.HelperBase, com.day.cq.commons.ImageResource,
+                  com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
+                  uk.ac.nhm.nhm_www.core.componentHelpers.TwentyTwentyImageHelper"%><%
 %>
 <cq:defineObjects />
 
-<%  HelperBase helper = new HelperBase(); %>
+<%
+	TwentyTwentyImageHelper helper = new TwentyTwentyImageHelper(properties, resource, resourceResolver, request, xssAPI);
+%>
+
+
+
+<p><%= helper.getPath() %></p>
+<p><%= helper.getOriginalImagePathBefore() %></p>
+<p><%= helper.getOriginalImagePathAfter() %></p>
+
 
 <div class="twentytwenty-image-slider--container">
-	<img src="http://placehold.it/1080x800?text=before">
-	<img src="http://placehold.it/1080x800?text=after">
+	<img src='<%= helper.getOriginalImagePathBefore() %>' />
+	<img src='<%= helper.getOriginalImagePathAfter() %>' />
 </div>
+
+
 	<cq:includeClientLib categories="uk.ac.nhm.twentytwenty-image-slider"/>
 	<script>
 		$(document).ready(function(){
