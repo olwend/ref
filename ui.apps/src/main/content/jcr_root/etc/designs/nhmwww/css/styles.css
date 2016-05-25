@@ -6360,28 +6360,36 @@ h6 {
 }
 
 /** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
-.event--information--wrapper {
-  min-height: 435px;
-}
 .event--information--wrapper .hti-box p {
   margin-bottom: 0;
 }
+.event--information--wrapper .event--information--new-section {
+  margin-top: 1.0em;
+}
 
 /** NHMEC-52: EVENT SCHEDULE PARTIAL **/
-.event--schedule--wrapper tbody th,
-.event--schedule--wrapper tbody td {
+.event--schedule--wrapper {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+.event--schedule--wrapper .event--schedule--title {
+  padding: 1em 1.5em;
+  color: #FFFFFF;
+}
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--th,
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--td {
   padding: 1em 1.5em;
   background-color: #EEEEEE;
 }
-.event--schedule--wrapper tbody td {
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--td {
   border-bottom: 1px solid #FFFFFF;
 }
-.event--schedule--wrapper tbody td span {
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--td .event--schedule--times {
   padding-left: 1.5em;
   color: #000000;
 }
-.event--schedule--wrapper tbody th {
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--th {
   color: #565656;
+  cursor: pointer;
 }
 
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
@@ -8409,7 +8417,10 @@ input.searchGo {
 }
 
 /** NHMEC-52 Event schedule component**/
-.our-science .event--schedule--wrapper tbody {
+.our-science .event--schedule--wrapper .event--schedule--title {
+  background-color: #357900;
+}
+.our-science .event--schedule--wrapper .event--schedule--tbody {
   color: #357900;
 }
 
@@ -8651,7 +8662,10 @@ input.searchGo {
 }
 
 /** NHMEC-52 Event schedule component**/
-.schools .event--schedule--wrapper tbody {
+.schools .event--schedule--wrapper .event--schedule--title {
+  background-color: #0983BB;
+}
+.schools .event--schedule--wrapper .event--schedule--tbody {
   color: #0983BB;
 }
 
@@ -8975,7 +8989,10 @@ input.searchGo {
 }
 
 /** NHMEC-52 Event schedule component**/
-.visit .event--schedule--wrapper tbody {
+.visit .event--schedule--wrapper .event--schedule--title {
+  background-color: #A1164E;
+}
+.visit .event--schedule--wrapper .event--schedule--tbody {
   color: #A1164E;
 }
 
