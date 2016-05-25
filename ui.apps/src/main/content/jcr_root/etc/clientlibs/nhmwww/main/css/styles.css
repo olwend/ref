@@ -6511,6 +6511,10 @@ h6 {
   margin-bottom: 0.4em;
 }
 
+.event--calendar--search--result--main--title {
+  padding-left: 0.8em;
+}
+
 /** REFACTOR-EVENTS-SUMMARY **/
 @media screen and (min-width: 768px) {
   .info-sidebar li {
@@ -8407,6 +8411,11 @@ input.searchGo {
   color: #357900;
 }
 
+/** NHMEC-4 Added style to the search result <a> **/
+.our-science .event--calendar--search--result a {
+  color: #357900;
+}
+
 /** NHMEC-52 Event schedule component**/
 .our-science .event--schedule--wrapper .event--schedule--title {
   background-color: #357900;
@@ -8644,6 +8653,11 @@ input.searchGo {
   background-color: #f4f4f4;
 }
 .schools .event-slide-content a {
+  color: #0983BB;
+}
+
+/** NHMEC-4 Added style to the search result <a> **/
+.schools .event--calendar--search--result a {
   color: #0983BB;
 }
 
@@ -8966,6 +8980,11 @@ input.searchGo {
   background-color: #f4f4f4;
 }
 .visit .event-slide-content a {
+  color: #A1164E;
+}
+
+/** NHMEC-4 Added style to the search result <a> **/
+.visit .event--calendar--search--result a {
   color: #A1164E;
 }
 
