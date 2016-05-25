@@ -6360,6 +6360,10 @@ h6 {
 }
 
 /** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
+.event--information--wrapper {
+  display: inline-block;
+  width: 100%;
+}
 .event--information--wrapper .hti-box p {
   margin-bottom: 0;
 }
@@ -6543,6 +6547,11 @@ h6 {
   width: 100%;
   position: relative;
 }
+@media screen and (max-width: 1024px) {
+  .image--and--cta--wrapper {
+    margin-bottom: 1em;
+  }
+}
 .image--and--cta--wrapper .cta--wrapper {
   background-color: #FFFFFF;
   right: 0;
@@ -6570,6 +6579,11 @@ h6 {
 }
 .image--and--cta--wrapper .image--and--cta--image {
   height: 435px;
+}
+@media screen and (max-width: 1024px) {
+  .image--and--cta--wrapper .image--and--cta--image {
+    height: auto;
+  }
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/

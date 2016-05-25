@@ -98,7 +98,7 @@
 <c:choose>
     <c:when test="${not empty eventType}">
         <div class="${eventType} hti-wrapper event--information--wrapper">
-            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box event--information--wrapper" data-equalizer-watch>
+            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box" data-equalizer-watch>
                 <div class="hti-box--text-wrapper">
                     <h3>Event information</h3>
                     <div class="small-12 large-12 columns">
@@ -174,7 +174,7 @@
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:set var="ctaText" value="<%= ctaText %>"/>
         <c:if test="${not empty ctaLink}">
-            <div class="${eventType} mt-20 show-for-small-only">
+            <div class="${eventType} show-for-small-only">
                 <div class="info-tout info-tout__action tickets">
                     <a class="arrow--large burgandy" href="${ctaLink}.html">
                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="3"></i>
