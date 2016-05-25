@@ -6366,6 +6366,9 @@ h6 {
 .event--information--wrapper .hti-box p {
   margin-bottom: 0;
 }
+.event--information--wrapper .event--information--new-section {
+  margin-top: 1.0em;
+}
 
 /** NHMEC-52: EVENT SCHEDULE PARTIAL **/
 .event--schedule--wrapper {
