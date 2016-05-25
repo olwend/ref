@@ -14,7 +14,7 @@
 <c:set var="fileReference" value="<%= fileReference %>"/>
 <c:set var="ctaText" value="<%= ctaText %>"/>
 <c:if test="${not empty eventType && not empty fileReference}"> 
-    <div class="image--and--cta--wrapper">
+    <div class="image--and--cta--wrapper" data-equalizer-watch>
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:if test="${not empty ctaLink}">    
             <a class="small-6 columns cta--wrapper ${eventType} hide-for-small-only" href="${ctaLink}.html">
