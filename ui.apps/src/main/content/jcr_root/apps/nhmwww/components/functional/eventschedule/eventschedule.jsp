@@ -162,7 +162,8 @@
             <table id="datesTable" class="small-12 medium-12 large-12">
                 <thead>
                     <tr>
-                        <td class="event--schedule--td event--schedule--title">Event dates</td>
+                        <td class="small-4 medium-4 large-3 event--schedule--td event--schedule--title">Event dates</td>
+                        <td class="small-8 medium-8 large-9  event--schedule--td event--schedule--title"></td>
                     </tr>
                 </thead>
                 <tbody class="event--schedule--tbody">
@@ -170,21 +171,21 @@
                         <tr>
                             <c:choose>
                                 <c:when test="${loop.index < 7}">
-                                    <td class="event--schedule--td">${date} <span class="event--schedule--times">${datesMap[date]}</span></td>
+                                    <td class="event--schedule--td">${date}</td>
+                                    <td class="event--schedule--times">${datesMap[date]}</td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td style="display:none;" class="event--schedule--td">${date} <span class="event--schedule--times">${datesMap[date]}</span></td>
+                                    <td style="display:none;" class="event--schedule--td">${date}</td>
+                                    <td style="display:none;" class="event--schedule--times">${datesMap[date]}</td>
                                 </c:otherwise>
                             </c:choose>
                         </tr>
-                        <c:if test="${loop.index == 7}">
-                            <tr>
-                                <th class="event--schedule--th" id="showMore">Show more</th>
-                            </tr>
-                        </c:if>
                     </c:forEach>
                 </tbody>
             </table>
+            <c:if test="${fn:length(sortedDates) > 7}">
+                <div class="small-12 medium-12 large-12 event--schedule--show--more" id="showMore">Show more</div>
+            </c:if>
         </div>
     </c:when>
     <c:otherwise>

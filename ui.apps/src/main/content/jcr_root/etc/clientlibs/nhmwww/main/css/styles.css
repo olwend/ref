@@ -5567,10 +5567,6 @@ h6 {
   margin-bottom: 1.2em;
 }
 
-.mt-9 {
-  margin-top: 0.6em;
-}
-
 .mt-16 {
   margin-top: 1.0em;
 }
@@ -6376,24 +6372,36 @@ h6 {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
 .event--schedule--wrapper .event--schedule--title {
-  padding: 1em 1.5em;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding: 1em;
   color: #FFFFFF;
 }
-.event--schedule--wrapper .event--schedule--tbody .event--schedule--th,
-.event--schedule--wrapper .event--schedule--tbody .event--schedule--td {
-  padding: 1em 1.5em;
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--td,
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--times {
+  padding: 1em;
   background-color: #EEEEEE;
-}
-.event--schedule--wrapper .event--schedule--tbody .event--schedule--td {
   border-bottom: 1px solid #FFFFFF;
 }
-.event--schedule--wrapper .event--schedule--tbody .event--schedule--td .event--schedule--times {
-  padding-left: 1.5em;
+.event--schedule--wrapper .event--schedule--tbody .event--schedule--times {
   color: #000000;
 }
-.event--schedule--wrapper .event--schedule--tbody .event--schedule--th {
+.event--schedule--wrapper .event--schedule--show--more {
+  text-align: center;
+  padding: 1em;
+  background-color: #EEEEEE;
   color: #565656;
   cursor: pointer;
+  border-top: 1px solid #FFFFFF;
+}
+.event--schedule--wrapper .event--schedule--show--more:after {
+  display: inline-block;
+  zoom: 1;
+  content: "";
+  width: 15px;
+  height: 10px;
+  margin-left: 5px;
+  background: url("../../../../../etc/designs/nhmwww/img/arrows/down-arrow.png") no-repeat 95% 60%;
+  background-size: 15px auto;
 }
 
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
@@ -8405,12 +8413,6 @@ input.searchGo {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
-/** Needed for the image and CTA component NHMEC-8 **/
-.our-science .image--and--cta--wrapper,
-.our-science .image--and--cta--wrapper .cta--wrapper .cta--text {
-  color: #357900;
-}
-
 /** WR-752 moved from legacy mixin for carousel component refactor **/
 .our-science .lSAction a:hover {
   background-color: rgba(53, 121, 0, 0.7);
@@ -8427,6 +8429,12 @@ input.searchGo {
 
 /** NHMEC-4 Added style to the search result <a> **/
 .our-science .event--calendar--search--result a {
+  color: #357900;
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.our-science .image--and--cta--wrapper,
+.our-science .image--and--cta--wrapper .cta--wrapper .cta--text {
   color: #357900;
 }
 
@@ -8650,12 +8658,6 @@ input.searchGo {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
-/** Needed for the image and CTA component NHMEC-8 **/
-.schools .image--and--cta--wrapper,
-.schools .image--and--cta--wrapper .cta--wrapper .cta--text {
-  color: #0983BB;
-}
-
 /** WR-752 moved from legacy mixin for carousel component refactor **/
 .schools .lSAction a:hover {
   background-color: rgba(9, 131, 187, 0.7);
@@ -8672,6 +8674,12 @@ input.searchGo {
 
 /** NHMEC-4 Added style to the search result <a> **/
 .schools .event--calendar--search--result a {
+  color: #0983BB;
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.schools .image--and--cta--wrapper,
+.schools .image--and--cta--wrapper .cta--wrapper .cta--text {
   color: #0983BB;
 }
 
@@ -8977,12 +8985,6 @@ input.searchGo {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
-/** Needed for the image and CTA component NHMEC-8 **/
-.visit .image--and--cta--wrapper,
-.visit .image--and--cta--wrapper .cta--wrapper .cta--text {
-  color: #A1164E;
-}
-
 /** WR-752 moved from legacy mixin for carousel component refactor **/
 .visit .lSAction a:hover {
   background-color: rgba(161, 22, 78, 0.7);
@@ -8999,6 +9001,12 @@ input.searchGo {
 
 /** NHMEC-4 Added style to the search result <a> **/
 .visit .event--calendar--search--result a {
+  color: #A1164E;
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.visit .image--and--cta--wrapper,
+.visit .image--and--cta--wrapper .cta--wrapper .cta--text {
   color: #A1164E;
 }
 
