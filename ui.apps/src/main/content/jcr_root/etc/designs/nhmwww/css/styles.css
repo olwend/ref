@@ -6369,15 +6369,9 @@ h6 {
 
 /** NHMEC-52: EVENT SCHEDULE PARTIAL **/
 .event--schedule--wrapper {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-}
-@media screen and (max-width: 1024px) {
-  .event--schedule--wrapper {
-    font-size: 0.9em;
-  }
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .event--schedule--wrapper .event--schedule--title {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding: 1em;
   color: #FFFFFF;
 }
