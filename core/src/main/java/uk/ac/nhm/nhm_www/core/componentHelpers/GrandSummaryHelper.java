@@ -74,7 +74,12 @@ public class GrandSummaryHelper {
 		
 		//Get asset from @fileReference to get title of image
 		this.fileImage = ptrs.getAsset(this.fileReference, request);
-		this.alt = this.fileImage.getMetadataValue("dc:title").toString();
+		if(this.fileImage.getMetadata().containsKey("dc:title")) {
+			this.alt = this.fileImage.getMetadataValue("dc:title").toString();
+		}
+		else {
+			this.alt = this.fileImage.getName();
+		}
 		
 		this.mobileimage = new Image(request.getResource());
 		this.mobileimage.setIsInUITouchMode(Placeholder.isAuthoringUIModeTouch(request));

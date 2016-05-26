@@ -33,7 +33,7 @@ public class PathToResourceService {
 		Resource resource = resourceResolver.getResource(path);
 		
 		Image image = new Image(resource);
-		
+
 		return image;
 	}
 	

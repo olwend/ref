@@ -13,11 +13,13 @@
             <items jcr:primaryType="cq:WidgetCollection">
             	<fileReference
                     jcr:primaryType="cq:Widget"
+                    allowBlank="false"
                     fieldLabel="Image path"
                     name="./fileReference"
                     xtype="pathfield"/>
                 <mobileFileReference
                     jcr:primaryType="cq:Widget"
+                    allowBlank="false"
                     fieldLabel="Mobile image path"
                     name="./mobileFileReference"
                     xtype="pathfield"/>
