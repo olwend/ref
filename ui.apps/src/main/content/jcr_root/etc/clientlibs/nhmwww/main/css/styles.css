@@ -54,17 +54,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .home .info-tout__share a:hover h3, .home .info-tout__share a:hover p {
   color: #ffffff;
 }
-.home .hero .caption {
-  background-color: #A1164E;
-}
-@media screen and (min-width: 768px) {
-  .home .hero .caption {
-    background-color: rgba(161, 22, 78, 0.9);
-  }
-}
-.home .hero .caption .dates {
-  background-color: #A1164E;
-}
 .home .bottom-banner {
   background-color: #A1164E;
 }
@@ -212,17 +201,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .visit .info-tout__share a:hover h3, .visit .info-tout__share a:hover p {
   color: #ffffff;
-}
-.visit .hero .caption {
-  background-color: #A1164E;
-}
-@media screen and (min-width: 768px) {
-  .visit .hero .caption {
-    background-color: rgba(161, 22, 78, 0.9);
-  }
-}
-.visit .hero .caption .dates {
-  background-color: #A1164E;
 }
 .visit .bottom-banner {
   background-color: #A1164E;
@@ -406,17 +384,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .take-part .info-tout__share a:hover h3, .take-part .info-tout__share a:hover p {
   color: #ffffff;
 }
-.take-part .hero .caption {
-  background-color: #BF491F;
-}
-@media screen and (min-width: 768px) {
-  .take-part .hero .caption {
-    background-color: rgba(191, 73, 31, 0.9);
-  }
-}
-.take-part .hero .caption .dates {
-  background-color: #BF491F;
-}
 .take-part .bottom-banner {
   background-color: #BF491F;
 }
@@ -575,17 +542,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .info-tout__share a:hover h3, .about-us .info-tout__share a:hover p {
   color: #ffffff;
 }
-.about-us .hero .caption {
-  background-color: #0B5C7B;
-}
-@media screen and (min-width: 768px) {
-  .about-us .hero .caption {
-    background-color: rgba(11, 92, 123, 0.9);
-  }
-}
-.about-us .hero .caption .dates {
-  background-color: #0B5C7B;
-}
 .about-us .bottom-banner {
   background-color: #0B5C7B;
 }
@@ -732,17 +688,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .schools .info-tout__share a:hover h3, .schools .info-tout__share a:hover p {
   color: #ffffff;
-}
-.schools .hero .caption {
-  background-color: #0983BB;
-}
-@media screen and (min-width: 768px) {
-  .schools .hero .caption {
-    background-color: rgba(9, 131, 187, 0.9);
-  }
-}
-.schools .hero .caption .dates {
-  background-color: #0983BB;
 }
 .schools .bottom-banner {
   background-color: #0983BB;
@@ -891,17 +836,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .our-science .info-tout__share a:hover h3, .our-science .info-tout__share a:hover p {
   color: #ffffff;
-}
-.our-science .hero .caption {
-  background-color: #357900;
-}
-@media screen and (min-width: 768px) {
-  .our-science .hero .caption {
-    background-color: rgba(53, 121, 0, 0.9);
-  }
-}
-.our-science .hero .caption .dates {
-  background-color: #357900;
 }
 .our-science .bottom-banner {
   background-color: #357900;
@@ -1093,17 +1027,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .support-us .info-tout__share a:hover h3, .support-us .info-tout__share a:hover p {
   color: #ffffff;
 }
-.support-us .hero .caption {
-  background-color: #7F206E;
-}
-@media screen and (min-width: 768px) {
-  .support-us .hero .caption {
-    background-color: rgba(127, 32, 110, 0.9);
-  }
-}
-.support-us .hero .caption .dates {
-  background-color: #7F206E;
-}
 .support-us .bottom-banner {
   background-color: #7F206E;
 }
@@ -1250,17 +1173,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .discover .info-tout__share a:hover h3, .discover .info-tout__share a:hover p {
   color: #ffffff;
-}
-.discover .hero .caption {
-  background-color: #107B5E;
-}
-@media screen and (min-width: 768px) {
-  .discover .hero .caption {
-    background-color: rgba(16, 123, 94, 0.9);
-  }
-}
-.discover .hero .caption .dates {
-  background-color: #107B5E;
 }
 .discover .bottom-banner {
   background-color: #107B5E;
@@ -1409,17 +1321,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .press-office .info-tout__share a:hover h3, .press-office .info-tout__share a:hover p {
   color: #ffffff;
 }
-.press-office .hero .caption {
-  background-color: #107E5E;
-}
-@media screen and (min-width: 768px) {
-  .press-office .hero .caption {
-    background-color: rgba(16, 126, 94, 0.9);
-  }
-}
-.press-office .hero .caption .dates {
-  background-color: #107E5E;
-}
 .press-office .bottom-banner {
   background-color: #107E5E;
 }
@@ -1566,17 +1467,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .working .info-tout__share a:hover h3, .working .info-tout__share a:hover p {
   color: #ffffff;
-}
-.working .hero .caption {
-  background-color: #956624;
-}
-@media screen and (min-width: 768px) {
-  .working .hero .caption {
-    background-color: rgba(149, 102, 36, 0.9);
-  }
-}
-.working .hero .caption .dates {
-  background-color: #956624;
 }
 .working .bottom-banner {
   background-color: #956624;
@@ -1725,17 +1615,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .info-tout__share a:hover h3, .business-services .info-tout__share a:hover p {
   color: #ffffff;
 }
-.business-services .hero .caption {
-  background-color: #253480;
-}
-@media screen and (min-width: 768px) {
-  .business-services .hero .caption {
-    background-color: rgba(37, 52, 128, 0.9);
-  }
-}
-.business-services .hero .caption .dates {
-  background-color: #253480;
-}
 .business-services .bottom-banner {
   background-color: #253480;
 }
@@ -1882,17 +1761,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .contact-us .info-tout__share a:hover h3, .contact-us .info-tout__share a:hover p {
   color: #ffffff;
-}
-.contact-us .hero .caption {
-  background-color: #808080;
-}
-@media screen and (min-width: 768px) {
-  .contact-us .hero .caption {
-    background-color: rgba(128, 128, 128, 0.9);
-  }
-}
-.contact-us .hero .caption .dates {
-  background-color: #808080;
 }
 .contact-us .bottom-banner {
   background-color: #808080;
@@ -2041,17 +1909,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .shop .info-tout__share a:hover h3, .shop .info-tout__share a:hover p {
   color: #ffffff;
 }
-.shop .hero .caption {
-  background-color: #808080;
-}
-@media screen and (min-width: 768px) {
-  .shop .hero .caption {
-    background-color: rgba(128, 128, 128, 0.9);
-  }
-}
-.shop .hero .caption .dates {
-  background-color: #808080;
-}
 .shop .bottom-banner {
   background-color: #808080;
 }
@@ -2137,17 +1994,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .account .info-tout__share a:hover h3, .account .info-tout__share a:hover p {
   color: #ffffff;
-}
-.account .hero .caption {
-  background-color: #00385D;
-}
-@media screen and (min-width: 768px) {
-  .account .hero .caption {
-    background-color: rgba(0, 56, 93, 0.9);
-  }
-}
-.account .hero .caption .dates {
-  background-color: #00385D;
 }
 .account .bottom-banner {
   background-color: #00385D;
