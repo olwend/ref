@@ -3468,14 +3468,6 @@ span.st_googleplus_large {
 }
 
 /** LEGACY CAROUSEL PARTIAL **/
-.foundation5image {
-  position: relative;
-}
-.foundation5image .caption h2 {
-  margin-bottom: 0.2rem;
-  padding-bottom: 0;
-}
-
 .promo {
   padding: 0 10px 10px;
 }
@@ -4705,6 +4697,15 @@ iframe.youtubeplayer {
   /*top: 0;*/
   width: 100%;
   /*height: 100%;*/
+}
+
+/** LEGACY IMAGE COMPONENT PARTIAL (WR-792) **/
+.foundation5image {
+  position: relative;
+}
+.foundation5image .caption h2 {
+  margin-bottom: 0.2rem;
+  padding-bottom: 0;
 }
 
 /** LEGACY TITLE-BAR PARTIAL **/
