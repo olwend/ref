@@ -6,6 +6,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .home {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -153,6 +154,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .visit {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
   /** commented out for WR-751 (refactor of carousel component) **/
@@ -336,6 +338,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .take-part {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -494,6 +497,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -641,6 +645,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .schools {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -788,6 +793,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .our-science {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
   /** commented out for WR-752 (refactor of carousel component) **/
@@ -979,6 +985,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .support-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1126,6 +1133,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .discover {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1273,6 +1281,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .press-office {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1420,6 +1429,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .working {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1567,6 +1577,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1714,6 +1725,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .contact-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1861,6 +1873,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .shop {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -1947,6 +1960,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .account {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
@@ -5267,17 +5281,6 @@ h6 {
 .hero {
   margin-bottom: 0;
 }
-.hero .caption-outer-wrapper {
-  position: static;
-  width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .hero .caption-outer-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
 .hero .caption-inner-wrapper {
   display: table;
   margin-left: auto;
@@ -5286,54 +5289,11 @@ h6 {
   max-width: 1160px;
 }
 .hero .caption {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
   font-size: 1.1em;
-  padding: 1em 2em;
   position: relative;
   z-index: 2;
   height: 142px;
-}
-.hero .caption h1 {
-  color: #FFF;
-  font-size: 2.5em;
-  padding-bottom: 0;
-}
-.hero .caption h2 {
-  color: #FFF;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-.hero .caption p {
-  line-height: 1.25em;
-}
-.hero .caption .dates {
-  background-color: #000;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1%;
-}
-@media screen and (min-width: 768px) {
-  .hero .caption {
-    max-height: 200px;
-    max-width: 70%;
-    padding: 0.75em 1.5em;
-  }
-  .hero .caption h1 {
-    font-size: 3em;
-  }
-  .hero .caption h2 {
-    font-size: 1.7em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .hero .caption {
-    padding: 1em 2em;
-  }
-  .hero .caption h2 {
-    font-size: 1.8333em;
-  }
+  /** not sure where this is used **/
 }
 @media screen and (min-width: 480px) {
   .hero .caption {
@@ -5348,7 +5308,39 @@ h6 {
 @media screen and (min-width: 768px) {
   .hero .caption {
     height: auto;
+    max-height: 200px;
+    max-width: 70%;
   }
+}
+.hero .caption h1 {
+  color: #FFFFFF;
+  font-size: 2.5em;
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .hero .caption h1 {
+    font-size: 3em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero .caption h2 {
+    font-size: 1.7em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .hero .caption h2 {
+    font-size: 1.8333em;
+  }
+}
+.hero .caption p {
+  line-height: 1.25em;
+}
+.hero .caption .dates {
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1%;
 }
 
 /** REFACTOR-ACCORDION PARTIAL **/
