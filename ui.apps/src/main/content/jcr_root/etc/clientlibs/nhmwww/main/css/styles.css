@@ -6741,6 +6741,7 @@ div#feedback-bar .span11 {
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
+  clear: both;
 }
 .grand-summary--wrapper .row {
   margin-bottom: 0;
