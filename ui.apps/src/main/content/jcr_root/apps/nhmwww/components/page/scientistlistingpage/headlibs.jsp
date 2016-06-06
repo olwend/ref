@@ -28,7 +28,9 @@
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			
-			ga('create', 'UA-57477456-1', 'auto');
+			ga('create', 'UA-57477456-1', 'auto', {'allowLinker' : true});
+			ga('require','linker');
+			ga('linker:autoLink', ['secpay.com','nhm.ac.uk'] );
 			ga('send', 'pageview');
 		</script>
         
