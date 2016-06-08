@@ -26,13 +26,6 @@
 	TwentyTwentyImageHelper helper = new TwentyTwentyImageHelper(properties, resource, resourceResolver, request, xssAPI);
 %>
 
-
-
-<p><%= helper.getPath() %></p>
-<p><%= helper.getOriginalImagePathBefore() %></p>
-<p><%= helper.getOriginalImagePathAfter() %></p>
-
-
 <div class="twentytwenty-image-slider--container">
 	<img src='<%= helper.getOriginalImagePathBefore() %>' />
 	<img src='<%= helper.getOriginalImagePathAfter() %>' />
