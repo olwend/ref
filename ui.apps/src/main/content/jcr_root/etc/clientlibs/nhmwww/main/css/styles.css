@@ -6741,6 +6741,7 @@ div#feedback-bar .span11 {
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
+  clear: both;
 }
 .grand-summary--wrapper .row {
   margin-bottom: 0;
@@ -7921,7 +7922,7 @@ input.searchGo {
   margin-bottom: 10px;
 }
 .home .carousel-wrapper .caption {
-  background-color: rgba(161, 22, 78, 0.7);
+  background-color: rgba(161, 22, 78, 0.9);
 }
 
 /** WR-752 moved from legacy mixin for carousel component refactor **/

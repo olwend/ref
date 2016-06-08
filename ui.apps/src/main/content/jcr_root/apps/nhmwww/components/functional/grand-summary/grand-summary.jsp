@@ -28,8 +28,16 @@
 		<%-- Main --%>
 			<% if ( helper.getLink() != null ) { %> <a href="<%= helper.getLink() %>" <% if ( helper.getNewWindow() != null ) { %> <%=helper.getNewWindow()%> <% } %>> <% } %>
 				<div class="grand-summary--image-wrapper">
-					<% helper.getMobileImage().draw(out); %>
-					<% helper.getImage().draw(out); %>
+					<img alt='<%=helper.getAlt()%>' data-interchange="  
+					    [<%= helper.getMobileFileReference() %>, (default)], 
+					    [<%= helper.getMobileFileReference() %>, (only screen and (max-width: 768px))],
+					    [<%= helper.getMobileFileReference() %>, (only screen and (max-width: 768px) and (orientation: landscape))],
+					    [<%= helper.getFileReference() %>, (only screen and (min-width: 768px))],
+					    [<%= helper.getFileReference() %>, (only screen and (min-width: 1160px))]">
+				<%-- Fallback content for non-JS browsers. --%>
+				<noscript>
+				    <img src='<%= helper.getFileReference() %>' alt='<%=helper.getAlt()%>'>
+				</noscript>
 					<div class="row">
 						<div class="small-12 medium-12 large-11 columns grand-summary--caption-container">
 							<div class="caption-outer-wrapper">
