@@ -32,7 +32,23 @@
                 rotateParameter="./imageRotateAfter"
                 title="Image-after"
                 xtype="html5smartimage"/>
-                
+            <advanced
+            	jcr:primaryType="cq:Widget"
+	            title="Advanced"
+	            xtype="panel">
+	            <items jcr:primaryType="cq:WidgetCollection">
+	                <altBefore
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Alt text before"
+	                    name="./altBefore"
+	                    xtype="textfield"/>
+	                <altAfter
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Alt text after"
+	                    name="./altAfter"
+	                    xtype="textfield"/>
+	            </items>
+            	</advanced>
         </items>
     </items>
 </jcr:root>
