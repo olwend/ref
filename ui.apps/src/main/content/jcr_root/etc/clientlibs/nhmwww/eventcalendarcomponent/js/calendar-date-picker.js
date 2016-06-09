@@ -1,9 +1,10 @@
 var NHMDatePicker = {
     DATE_FORMAT: 'D d/mm/yy',
     ORIENTATION: 'top',
-    DAY_NAMES: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    DAY_NAMES: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     MIN_DATE: 0,
-    MAX_DATE: '+1y'
+    MAX_DATE: '+1y',
+    MONDAY: 1
 };
 
 $(document).ready(function () {
@@ -14,6 +15,7 @@ $(document).ready(function () {
         orientation: NHMDatePicker.ORIENTATION,
         dateFormat: NHMDatePicker.DATE_FORMAT,
         dayNamesMin: NHMDatePicker.DAY_NAMES,
+        firstDay: NHMDatePicker.MONDAY,
         beforeShow: function (input, inst) {
             inst.inline = false;
             setTimeout(function () {
@@ -38,6 +40,7 @@ $(document).ready(function () {
         orientation: NHMDatePicker.ORIENTATION,
         dateFormat: NHMDatePicker.DATE_FORMAT,
         dayNamesMin: NHMDatePicker.DAY_NAMES,
+        firstDay: NHMDatePicker.MONDAY,
         //Needed to display both datepickers in the same place
         beforeShow: function (input, inst) {
             var cal = inst.dpDiv;
