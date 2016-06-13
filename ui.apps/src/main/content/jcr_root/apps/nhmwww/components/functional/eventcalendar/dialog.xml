@@ -10,7 +10,8 @@
             name="./filterOne"
             allowBlank="false"
             showPathInLabels="false"
-            xtype="tags"/>
+            nhmTagsBasePaths="[/etc/tags/nhmwww/audience,/etc/tags/nhmwww/events,/etc/tags/nhmwww/key-stage,/etc/tags/nhmwww/subject]"
+            xtype="nhmtags"/>
         <filterOneLabel
             jcr:primaryType="cq:Widget"
             name="./filterOneLabel"
@@ -23,7 +24,8 @@
             name="./filterTwo"
             allowBlank="false"
             showPathInLabels="false"
-            xtype="tags"/>
+            nhmTagsBasePaths="[/etc/tags/nhmwww/audience,/etc/tags/nhmwww/events,/etc/tags/nhmwww/key-stage,/etc/tags/nhmwww/subject]"
+            xtype="nhmtags"/>
         <filterTwoLabel
             jcr:primaryType="cq:Widget"
             fieldLabel="Filter Two Label:"
