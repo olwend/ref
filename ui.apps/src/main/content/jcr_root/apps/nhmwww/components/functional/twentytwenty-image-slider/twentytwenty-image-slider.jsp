@@ -20,7 +20,7 @@
 	<script>
 		$(document).ready(function(){
 			$(".twentytwenty-image-slider--container").twentytwenty({
-				default_offset_pct: 0.3,
+				default_offset_pct: 0.85,
 			});
 		});
 	</script>
