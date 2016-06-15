@@ -88,13 +88,9 @@
 		templateType = "template--discover-publication-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoversectionpage") ){
 		templateType = "template--discover-section-page";
-	} 
-	
-	/*else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/dynamicapppage") ){
-		templateTYpe = "template--dynamicapp-page";
-	} */ 
-	
-	else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/exhibitiondetailspage") ){
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/dynamicapppage") ){
+		templateType = "template--dynamicapp-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/exhibitiondetailspage") ){
 		templateType = "template--exhibition-details-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/homepage") ){
 		templateType = "template--homepage";
@@ -108,15 +104,11 @@
 		templateType = "template--science-profiles-detail-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/scientistsdirectorypage") ){
 		templateType = "template--scientists-directory-page";
-	} 
-	
-	/*else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/searchpage") ){
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/searchpage") ){
 		templateType = "template--search-page";
-	}
-	else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/sublandingpage") ){
-		templateType = "template--sub-landing-page;"
-	} */
-	else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/taggedcontentpage") ){
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/sublandingpage") ){
+		templateType = "template--sub-landing-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/taggedcontentpage") ){
 		templateType = "template--tagged-content-page";
 	}
 
