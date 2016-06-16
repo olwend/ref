@@ -135,6 +135,30 @@
                 layout="form"
                 xtype="nhm-multi-field-panel">
                 <items jcr:primaryType="cq:WidgetCollection">
+                    <eventRecurType
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Type"
+                        cls="event-list"
+                        defaultValue="single"
+                        name="./eventRecurType"
+                        dName="eventRecurType" 
+                        key="eventRecurType"
+                        type="radiogroup"
+                        xtype="selection"
+                        allowBlank="{Boolean}false">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one jcr:primaryType="nt:unstructured"
+                                 text="Single"
+                                 value="single" />
+                            <two jcr:primaryType="nt:unstructured"
+                                 text="Recurring"
+                                 value="recurring" />
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            afterlayout="function(component){initEventDateLayout(component);}"
+                            selectionchanged="function(field,value){eventRecurTypeSelected(field,value);}"/>
+                    </eventRecurType>
                     <dateTime
                         jcr:primaryType="cq:Widget"
                         allowBlank="{Boolean}false"
@@ -146,7 +170,7 @@
                         xtype="datetime">
                         <listeners
                             jcr:primaryType="nt:unstructured"
-                            change="function(field,newValue,oldValue) {                                                                                                                 checkTime(field,newValue,oldValue); }"/>
+                            change="function(field,newValue,oldValue){checkTime(field,newValue,oldValue);}"/>
                     </dateTime>
                     <allDay
                         jcr:primaryType="cq:Widget"
@@ -163,6 +187,7 @@
                     <times-multifield
                         jcr:primaryType="cq:Widget"
                         addItemLabel="Add Times"
+                        fieldLabel="Times"
                         cls="times-container"
                         dName="times"
                         title="Add Times"
@@ -184,6 +209,10 @@
                                     xtype="timefield"/>
                             </items>
                         </fieldConfig>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            add="function(container,component,index){updateDurationVisibility(container,component);}"
+                            remove="function(container,component){updateDurationVisibility(container,component);}"/>
                     </times-multifield>
                     <eventDuration
                               jcr:primaryType="cq:Widget"

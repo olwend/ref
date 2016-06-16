@@ -13,6 +13,123 @@ function displayEventConfig(field,value) {
     }
 }
 
+function checkDates(dialog) {
+    var submit = true;
+    var datesPanel = dialog.getField('./dateAndTime');
+    var datesPanelValue = datesPanel.getValue();
+    var timesPanel = datesPanel.findByType('timefield');
+    if (datesPanelValue.length === 0) {
+        submit = false;
+        datesPanel.markInvalid('Dates can not be empty');
+    }else {
+        var allDay = datesPanel.findByType('selection')[1].getValue();
+        if(!allDay.length || !allDay[0]){
+            if(timesPanel.length) {
+                var durationPanel = datesPanel.findByType('numberfield')[0];
+                if(!durationPanel.getValue()){
+                    submit = false;
+                    durationPanel.markInvalid('Duration can not be empty');
+                }
+            } else {
+                submit = false;
+                datesPanel.findByType('multifield')[0].markInvalid('Times can not be empty');
+            }
+        }
+    }
+    return submit;
+}
+
+function getToday() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yy = today.getFullYear().toString().substr(2,2);
+
+    if(dd<10) {
+        dd='0'+dd;
+    } 
+
+    if(mm<10) {
+        mm='0'+mm;
+    }
+
+    return mm+'-'+dd+'-'+yy;
+}
+
+function changeEventRecurType(isRecurring, dateForm, recurForm) {
+    dateForm.setValue(getToday());
+    dateForm.getEl().up('.x-form-item').child('.x-form-field-wrap').removeClass('x-hide-display');
+    if (isRecurring) {
+        recurForm.show();
+    } else {
+        recurForm.hide();
+    }
+    dateForm.getEl().up('.x-form-item').setDisplayed(!isRecurring);
+}
+
+//Displays or Hides the ui elements depending on whether the event is single or recursive
+function eventRecurTypeSelected(field,value) {
+    //Find the parent panel container
+    var panel = field.findParentByType('panel');
+    //Gets the Times Multifield
+    var date = panel.findByType('datetime')[0];
+    var times = panel.findByType('multifield')[0];
+    var recurrence = panel.findByType('multifield')[1];
+    var duration = panel.findByType('numberfield')[0];
+    var allDay = panel.findByType('selection')[1];
+    allDay.show();
+    toggleTimesVisibility(allDay, times);
+    toggleDurationVisibility(panel, duration);
+    changeEventRecurType(value === 'recurring', date, recurrence);
+}
+
+function toggleDurationVisibility(container, durationForm) {
+    var dlg = container.findParentByType('dialog');
+    var panel = dlg.getField('./dateAndTime');
+    var times = panel.findByType('multifield')[0];
+    var timesItems = panel.findByType('timefield');
+    if (!times.hidden && timesItems.length) {
+        if(durationForm.hidden){
+            durationForm.show();
+        }
+    } else {
+        if(!durationForm.hidden){
+            durationForm.hide();
+        }
+    }
+}
+
+function toggleTimesVisibility(allDayForm, timesForm) {
+    var allDayValue = allDayForm.getValue();
+    if(allDayForm.hidden || allDayValue.length > 0 && allDayValue[0]){
+        timesForm.hide();
+    }else {
+        timesForm.show();
+    }
+}
+
+function initEventDateLayout(component) {
+    var value = component.getValue();
+    var panel = component.findParentByType('panel');
+    var date = panel.findByType('datetime')[0];
+    var times = panel.findByType('multifield')[0];
+    var recurrence = panel.findByType('multifield')[1];
+    var duration = panel.findByType('numberfield')[0];
+    var allDay = panel.findByType('selection')[1];
+    if (value === '') {
+        date.hide();
+        date.getEl().up('.x-form-item').setDisplayed(false);
+        allDay.hide();
+        times.hide();
+        duration.hide();
+        recurrence.hide();
+    } else {
+        allDay.show();
+        toggleTimesVisibility(allDay, times);
+        changeEventRecurType(value === 'recurring', date, recurrence);
+    }
+}
+
 //Displays or Hides the Time selector for an Event Date
 function allDaySelected(field,value,isChecked) {
     //Find the parent panel container
@@ -21,7 +138,19 @@ function allDaySelected(field,value,isChecked) {
     var times = panel.findByType('multifield')[0];
     var duration = panel.findByType('numberfield')[0];
     //Hide or show component based on checked value
-    isChecked ? times.hide() && duration.hide() : times.show() && duration.show();
+    if(isChecked) {
+        times.hide();
+        duration.hide();
+    } else {
+        times.show();
+        toggleDurationVisibility(panel, duration);
+    }
+}
+
+function updateDurationVisibility(container,component) {
+    var panel = container.findParentByType('nhm-multi-field-panel');
+    var duration = panel.findByType('numberfield')[0];
+    toggleDurationVisibility(container, duration);
 }
 
 //Inits the recur checkbox
