@@ -135,30 +135,19 @@
                 layout="form"
                 xtype="nhm-multi-field-panel">
                 <items jcr:primaryType="cq:WidgetCollection">
-                    <eventRecurType
+                    <isRecurring
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Type"
-                        cls="event-list"
-                        defaultValue="single"
-                        name="./eventRecurType"
-                        dName="eventRecurType" 
-                        key="eventRecurType"
-                        type="radiogroup"
-                        xtype="selection"
-                        allowBlank="{Boolean}false">
-                        <options jcr:primaryType="cq:WidgetCollection">
-                            <one jcr:primaryType="nt:unstructured"
-                                 text="Single"
-                                 value="single" />
-                            <two jcr:primaryType="nt:unstructured"
-                                 text="Recurring"
-                                 value="recurring" />
-                        </options>
+                        cls="dialog-checkbox"
+                        dName="isRecurring"
+                        fieldLabel="Recurring"
+                        inputValue="true"
+                        type="checkbox"
+                        xtype="selection">
                         <listeners
                             jcr:primaryType="nt:unstructured"
                             afterlayout="function(component){initEventDateLayout(component);}"
-                            selectionchanged="function(field,value){eventRecurTypeSelected(field,value);}"/>
-                    </eventRecurType>
+                            selectionchanged="function(field,value,isChecked) {eventRecurTypeSelected(field,value,isChecked); }"/>
+                    </isRecurring>
                     <dateTime
                         jcr:primaryType="cq:Widget"
                         allowBlank="{Boolean}false"

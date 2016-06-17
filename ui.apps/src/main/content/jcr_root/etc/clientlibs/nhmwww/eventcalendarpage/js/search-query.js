@@ -332,35 +332,31 @@ var NHMSearchQuery = new function () {
             times       = event.times,
             today       = new Date(),
             eventTimes  = [],
-            key         = "";
+            key         = '0',
+            result      = '';
 
         //Gets the key for today's event
         for (var i = 0; i < dates.length; i++) {
             var date = getEventsFormattedDate(dates[i].substring(0, dates[i].length - 1));
-            if (today.setHours(0, 0, 0, 0, 0) == date.setHours(0, 0, 0, 0, 0)) {
-                key = dates[i].substr(dates[i].length - 1);
-                break;
-            }
+            key = dates[i].substr(dates[i].length - 1);
+            break;
         }
-        if (key != "" && !shouldGetTimes) {
-            if (allDay[key] == "true") {
-                return "All day";
+        
+        eventTimes = times[key].split(',');
+        
+        if(!shouldGetTimes) {
+            if (allDay[key] == 'true') {
+                result = 'All day';
+            } else if (eventTimes.length == 1) {
+                result = eventTimes[0];
+            } else if (eventTimes.length > 1) {
+                result = 'Times vary';
             }
-
-            eventTimes = times[key].split(",");
-
-            if (eventTimes.length == 1) {
-                return eventTimes[0];
-            }
-
-            if (eventTimes.length > 1) {
-                return "Times vary";
-            }
+        } else {
+            result = parseInt(eventTimes[0].replace(':', ''));
         }
 
-        eventTimes = times[key].split(",");
-
-        return parseInt(eventTimes[0].replace(':', ''));
+        return result;
     };
 
     //Helper function to convert the dates to string and to parse the date to the correct format

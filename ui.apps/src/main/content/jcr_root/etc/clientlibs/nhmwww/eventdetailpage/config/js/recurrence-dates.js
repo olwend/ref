@@ -1,65 +1,71 @@
 //Function to validate the datepickers
 function createDates(dlg) {
-    var multi               = dlg.findByType('multifield'),
+    var datesPanel          = dlg.getField('./dateAndTime'),
+        multi               = datesPanel.findByType('multifield'),
+        dates               = datesPanel.findByType('datetime'),
+        selectionFields     = datesPanel.findByType('selection'),
+        durations           = datesPanel.findByType('numberfield'),
         datesRecurrence     = dlg.findByType('textfield')[0],
         allDayRecurrence    = dlg.findByType('textfield')[1],
         timesRecurrence     = dlg.findByType('textfield')[2],
         durationsRecurrence = dlg.findByType('textfield')[3],
         eventPagePath       = dlg.findByType('textfield')[4],
-        jsonString          = "",
+        jsonString          = '',
         mainDates           = [],
         allDays             = [],
         timesArray          = [],
         durationsArray      = [],
         daysCounter         = 0,
-        EventDates          = "";
+        EventDates          = '',
+        isRecurring         = true;
     
-    datesRecurrence.setValue("");
-    timesRecurrence.setValue("");
+    datesRecurrence.setValue('');
+    timesRecurrence.setValue('');
     //Sets the page path
     eventPagePath.setValue(CQ.WCM.getPagePath());
     
-    for (var i = 0; i < multi.length; i++) {
-
-        //Gets the main days and if it's an All day event
-        if (multi[i].title == "Dates") {
-            
-            var dates        = multi[i].findByType('datetime'),
-                allDayFields = multi[i].findByType('selection'),
-                durations    = multi[i].findByType('numberfield');
-    
-            //Populates the main date Array
-            for (var j = 0; j < dates.length; j++) {
-                if (dates[j].fieldLabel == "Date") {
-                    mainDates.push(dates[j].getValue());
-                }
+    //Gets the main days and if it's an All day event
+    //Populates All Day array
+    for (var k = 0; k < selectionFields.length; k++) {
+        if (selectionFields[k].fieldLabel === 'All Day Event') {
+            if (selectionFields[k].getValue()[0]) {
+                allDays.push(true);
+            } else {
+                allDays.push(false);
             }
-            
-            //Populates All Day array
-            for (var k = 0; k < allDayFields.length; k++) {
-                if (allDayFields[k].fieldLabel == "All Day Event") {
-                    if (allDayFields[k].getValue()[0] == true) {
-                        allDays.push(true);
-                    } else {
-                        allDays.push(false);
+        } else if (selectionFields[k].fieldLabel === 'Recurring') {
+            var fieldValue = selectionFields[k].getValue();
+            if(!fieldValue.length || !fieldValue[0]) {
+                //Populates the main date Array
+                for (var j = 0; j < dates.length; j++) {
+                    if (dates[j].fieldLabel === 'Date') {
+                        mainDates.push(dates[j].getValue());
+                        EventDates = mainDates[daysCounter] + daysCounter + ',';
+                        daysCounter++;
+                        isRecurring = false;
                     }
                 }
             }
-            jsonString = JSON.stringify(allDays);
-            allDayRecurrence.setValue(jsonString);
-            
-            //Populates the durations array
-            for (var l = 0; l < durations.length; l++) {
-                if (durations[l].fieldLabel == "Duration") {
-                    durationsArray.push(durations[l].getValue());
-                }
-            }
-            jsonString = JSON.stringify(durationsArray);
-            durationsRecurrence.setValue(jsonString);
         }
+    }
+    jsonString = JSON.stringify(allDays);
+    allDayRecurrence.setValue(jsonString);
+
+    //Populates the durations array
+    for (var l = 0; l < durations.length; l++) {
+        if (durations[l].fieldLabel === 'Duration') {
+            durationsArray.push(durations[l].getValue());
+        }
+    }
+    jsonString = JSON.stringify(durationsArray);
+    durationsRecurrence.setValue(jsonString);
+    
+    for (var i = 0; i < multi.length; i++) {
+        
+        strDaysCounter = daysCounter.toString();
         
         //Gets the times
-        if (multi[i].title == "Add Times") {
+        if (multi[i].title === 'Add Times') {
                 
             var time    = multi[i].findByType('timefield'),
                 times   = [];
@@ -73,18 +79,16 @@ function createDates(dlg) {
         jsonString = JSON.stringify(timesArray);
         timesRecurrence.setValue(jsonString);
         
-        //Gets the recurrences
-        if (multi[i].title == "Recurrence") {
+        //Gets the recurrences only if it's not a single date event
+        if (isRecurring && multi[i].title === 'Recurrence') {
 
-            var panel           = multi[i].findParentByType("panel"),
-                startDate       = multi[i].findByType('datetime')[0],
-                strDaysCounter  = daysCounter.toString();
+            var panel           = multi[i].findParentByType('panel'),
+                startDate       = multi[i].findByType('datetime')[0];
             
             //Sets the first date
             if (daysCounter > 0) {
-                EventDates += ",";
+                EventDates += ',';
             }
-            EventDates += mainDates[daysCounter] + strDaysCounter + ",";
             
             if (startDate){
                 
@@ -98,13 +102,13 @@ function createDates(dlg) {
 
                 switch(option[0]) {
                         
-                    case "daily":
+                    case 'daily':
                         
                         EventDates += createDayAndWeekDates(weekdays, null, startDateValue, endDateValue, strDaysCounter);
                         
                         break;
 
-                    case "weekly":
+                    case 'weekly':
                         
                         var weekRepeat  = multi[i].findByType('numberfield')[0],
                             numberfield = weekRepeat.getValue();
@@ -113,7 +117,7 @@ function createDates(dlg) {
                         
                         break;
 
-                    case "monthly":
+                    case 'monthly':
                         
                         var customMonthCheck    = multi[i].findByType('selection')[1],
                             repeatList          = multi[i].findByType('selection')[2],
@@ -134,8 +138,16 @@ function createDates(dlg) {
             daysCounter++;
         }     
     }
-    //Replace needed to remove empty ,,
-    datesRecurrence.setValue(removeConflictDates(EventDates.replace(/,,/g,",").split(",")));
+    
+    var aggregatedDates;
+    if(isRecurring) {
+        //Replace needed to remove empty ,,
+        aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(','));
+    } else {
+        aggregatedDates = [EventDates];
+    }
+    datesRecurrence.setValue(aggregatedDates);
+    alert('good');
 }
 
 //Function to remove conflict dates
@@ -143,7 +155,7 @@ function removeConflictDates(eventDates) {
     var toRemoveIndex = [];
     
     //Removes the empty values
-    eventDates = eventDates.filter(date => date != "");
+    eventDates = eventDates.filter(date => date !== '');
 
     toRemoveIndex = getIndexToRemove(getSingleItemsIndex(eventDates), eventDates);
 
@@ -154,7 +166,7 @@ function removeConflictDates(eventDates) {
     
     //Removes the duplicated dates
     var finalDates = resetTimeStamp(eventDates).filter(function (elem, index, self) {
-        return index == self.indexOf(elem);
+        return index === self.indexOf(elem);
     });
 
     return finalDates;
@@ -171,14 +183,14 @@ function getSingleItemsIndex(dates) {
         
         for (var j = 0; j < dates.length; j++) {
             var innerIndex = dates[j].slice(-1);
-            if (index == innerIndex) {
+            if (index === innerIndex) {
                 counter++;
                 if (counter > 1){
                     break;
                 }
             }
         }
-        if (counter == 1) {
+        if (counter === 1) {
             indexArray.push(i);
         }
     }
@@ -192,9 +204,9 @@ function getIndexToRemove(singleItemArray, dates) {
     for (var i = 0; i < singleItemArray.length; i++) {
         var dateString = createDateString(dates[singleItemArray[i]]);
         for (var j = dates.length - 1; j >= 0; j--) {
-            if (j != singleItemArray[i]) {
+            if (j !== singleItemArray[i]) {
                 var dateStringToCompare = createDateString(dates[j]);
-                if (dateString == dateStringToCompare) {
+                if (dateString === dateStringToCompare) {
                     indexToRemove.push(j);
                 }
             }
@@ -205,7 +217,7 @@ function getIndexToRemove(singleItemArray, dates) {
 
 //Helper function to create a String from a date entered
 function createDateString(date) {
-    var dateArray = date.split(" ");
+    var dateArray = date.split(' ');
     return dateArray[1] + dateArray[2] + dateArray[3];
 }
 
@@ -213,25 +225,24 @@ function createDateString(date) {
 function resetTimeStamp(dates) {
     var datesString = [];
     for (var i = 0; i < dates.length; i++) {
-        var dateArrayCompared = dates[i].split(" ");
-        datesString.push(dateArrayCompared[0] + " " + dateArrayCompared[1] + " " + dateArrayCompared[2] + " " + dateArrayCompared[3] + " 00:00:00 " + dateArrayCompared[5] + " " + dates[i].match(/\((.*)\)/)[0] + dates[i].slice(-1));
+        var dateArrayCompared = dates[i].split(' ');
+        datesString.push(dateArrayCompared[0] + ' ' + dateArrayCompared[1] + ' ' + dateArrayCompared[2] + ' ' + dateArrayCompared[3] + ' 00:00:00 ' + dateArrayCompared[5] + ' ' + dates[i].match(/\((.*)\)/)[0] + dates[i].slice(-1));
     }
     return datesString;
 }
 
 //Function to generate Daily and Weekly dates
 function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
-    
-    var parserText = "on ";
+    var parserText = 'on ';
     
     parserText += weekdays[0];
     
     for (var i = 1; i < weekdays.length; i++) {
-        parserText += ", " + weekdays[i];           
+        parserText += ', ' + weekdays[i];
     }
     
-    if (numberfield != null) {
-        parserText += " every " + numberfield + " weeks";   
+    if (numberfield !== null) {
+        parserText += ' every ' + numberfield + ' weeks';
     }
     
     var sched       = later.parse.text(parserText),
@@ -240,10 +251,10 @@ function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDa
     parserText = occurrences[0] + strDaysCounter;
     
     for (var x = 1; x < occurrences.length; x ++) {
-        if (parseDate(occurrences[x]) - endDate >= 0) {
+        if (parseDate(occurrences[x]) - endDate > 0) {
             break;
         }
-        parserText += "," + occurrences[x] + strDaysCounter;
+        parserText += ',' + occurrences[x] + strDaysCounter;
     }
     return parserText;
 }
@@ -264,40 +275,40 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
     else {
         
         
-        if (weekdays.length == 0 && daysListValue.length == 1){
+        if (weekdays.length === 0 && daysListValue.length === 1){
             
             switch(daysListValue[0].toString()) {
                     
-                case "Day":
+                case 'Day':
                     //Query for the 1st, 2nd, 3r, 4th and last day of the month
                     parserText = 'on the '+ repeatListValue[0] + ' day every '+ monthNumber + ' months';
                     break;
 
-                case "WeekendDay":
+                case 'WeekendDay':
                     //Query for the Weekend
-                    parserText = "on Saturday, Sunday every " + monthNumber + " months";
+                    parserText = 'on Saturday, Sunday every ' + monthNumber + ' months';
                     
                     return filterMonthDates(parserText, startDate, endDate, repeatListValue, 2, strDaysCounter);
                                     
-                case "Weekday":
+                case 'Weekday':
                     //Query for the Weekdays
-                    parserText = "on Monday, Tuesday, Wednesday, Thursday, Friday every " + monthNumber + " months";
+                    parserText = 'on Monday, Tuesday, Wednesday, Thursday, Friday every ' + monthNumber + ' months';
                     
                     return filterMonthDates(parserText, startDate, endDate, repeatListValue, 5, strDaysCounter);                    
             }
         }
         
-        if (daysListValue.length == 0){
+        if (daysListValue.length === 0){
             
-            parserText = "on ";
+            parserText = 'on ';
             parserText += weekdays[0];
             
             for (var i = 1; i < weekdays.length; i++) {
                 
-                parserText += ", " + weekdays[i];           
+                parserText += ', ' + weekdays[i];           
             }
             
-            parserText += " every " + monthNumber + " months";
+            parserText += ' every ' + monthNumber + ' months';
 
             return filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays.length, strDaysCounter);
         }
@@ -315,10 +326,10 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
             return parserText;
         }
         
-        parserText += "," + occurrences[x] + strDaysCounter;
+        parserText += ',' + occurrences[x] + strDaysCounter;
     }
     
-    return "";
+    return '';
 }
 
 function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekdays, strDaysCounter) {
@@ -328,7 +339,7 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
         datesArray  = [],
         counter     = 0,
         monthYear   = concatDates(occurrences[0]),
-        finalArray  = "";
+        finalArray  = '';
         
     datesArray[counter] = [];    
     //Creates an array of arrays with all the dates
@@ -336,7 +347,7 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
         
         if (parseDate(occurrences[i]) - endDate >= 0){break;}
         
-        if (monthYear == concatDates(occurrences[i])) {
+        if (monthYear === concatDates(occurrences[i])) {
             datesArray[counter].push(occurrences[i]);
         }
         
@@ -353,47 +364,47 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
         
         if (datesArray[x].length <= weekdays) {
             
-            finalArray += "," + datesArray[x][0] + strDaysCounter;
+            finalArray += ',' + datesArray[x][0] + strDaysCounter;
             
             for (var z = 1; z < datesArray[x].length; z++) {
                 
-                finalArray += "," + datesArray[x][z] + strDaysCounter;
+                finalArray += ',' + datesArray[x][z] + strDaysCounter;
             }
         }
         
         else {
             var repeatNumber = 0;
-            //Case Frist is == to 0 case Last special value
+            //Case Frist is === to 0 case Last special value
             switch(repeatListValue.toString()) {
 
-                case "2":
+                case '2':
                     repeatNumber = 1;
                     break;
 
-                case "3":
+                case '3':
                     repeatNumber = 2;    
                     break;  
                 
-                case "4":
+                case '4':
                     repeatNumber = 3;    
                     break; 
             }
-            if (repeatListValue.toString() == "Last") {
-                finalArray += "," + datesArray[x][datesArray[x].length - weekdays] + strDaysCounter;  
+            if (repeatListValue.toString() === 'Last') {
+                finalArray += ',' + datesArray[x][datesArray[x].length - weekdays] + strDaysCounter;  
             } 
             else {
-                finalArray += "," + datesArray[x][weekdays * repeatNumber] + strDaysCounter;   
+                finalArray += ',' + datesArray[x][weekdays * repeatNumber] + strDaysCounter;   
             }
             
             for (var z = 1; z < weekdays; z++) {
                 
-                if (repeatListValue.toString() == "Last") {
+                if (repeatListValue.toString() === 'Last') {
                     
-                    finalArray += "," + datesArray[x][z + datesArray[x].length - weekdays] + strDaysCounter;  
+                    finalArray += ',' + datesArray[x][z + datesArray[x].length - weekdays] + strDaysCounter;  
                 }
                 else {
                     
-                    finalArray += "," + datesArray[x][z + (weekdays * repeatNumber)] + strDaysCounter;  
+                    finalArray += ',' + datesArray[x][z + (weekdays * repeatNumber)] + strDaysCounter;  
                 }
             }
         }

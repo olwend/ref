@@ -2,12 +2,12 @@
 function displayEventConfig(field,value) {
     //Find the parent tabpanel container
     var tabs = field.findParentByType('tabpanel');
-    var tabNames = ["School","Science"];
+    var tabNames = ['School','Science'];
     //Compares the value get and the Array to display/hide the Tabs
     for (var i = 0; i < tabNames.length; i++){
         var tabName = tabNames[i];
         tabs.hideTabStripItem(tabName); 
-        if (tabName == value) {
+        if (tabName === value) {
             tabs.unhideTabStripItem(tabName);
         }
     }
@@ -17,22 +17,30 @@ function checkDates(dialog) {
     var submit = true;
     var datesPanel = dialog.getField('./dateAndTime');
     var datesPanelValue = datesPanel.getValue();
-    var timesPanel = datesPanel.findByType('timefield');
     if (datesPanelValue.length === 0) {
         submit = false;
         datesPanel.markInvalid('Dates can not be empty');
     }else {
-        var allDay = datesPanel.findByType('selection')[1].getValue();
-        if(!allDay.length || !allDay[0]){
-            if(timesPanel.length) {
-                var durationPanel = datesPanel.findByType('numberfield')[0];
-                if(!durationPanel.getValue()){
-                    submit = false;
-                    durationPanel.markInvalid('Duration can not be empty');
+        var selectionFields = datesPanel.findByType('selection');
+        for(var i=0;i<selectionFields.length;i++){
+            var selectionField = selectionFields[i];
+            if(selectionField.dName === 'allDay'){
+                var allDay = selectionField.getValue();
+                if(!allDay.length || !allDay[0]){
+                    var datePanel = selectionField.findParentByType('nhm-multi-field-panel');
+                    var timesFields = datePanel.findByType('timefield');
+                    if(timesFields.length) {
+                        var durationPanel = datePanel.findByType('numberfield')[0];
+                        if(!durationPanel.getValue()){
+                            submit = false;
+                            durationPanel.markInvalid('Duration can not be empty');
+                        }
+                    } else {
+                        submit = false;
+                        var timesPanel = datePanel.findByType('multifield')[0];
+                        timesPanel.markInvalid('Times can not be empty');
+                    }
                 }
-            } else {
-                submit = false;
-                datesPanel.findByType('multifield')[0].markInvalid('Times can not be empty');
             }
         }
     }
@@ -57,7 +65,10 @@ function getToday() {
 }
 
 function changeEventRecurType(isRecurring, dateForm, recurForm) {
-    dateForm.setValue(getToday());
+    var dateFormValue = dateForm.getValue();
+    if(isRecurring && !dateFormValue){
+        dateForm.setValue(getToday());
+    }
     dateForm.getEl().up('.x-form-item').child('.x-form-field-wrap').removeClass('x-hide-display');
     if (isRecurring) {
         recurForm.show();
@@ -68,7 +79,7 @@ function changeEventRecurType(isRecurring, dateForm, recurForm) {
 }
 
 //Displays or Hides the ui elements depending on whether the event is single or recursive
-function eventRecurTypeSelected(field,value) {
+function eventRecurTypeSelected(field,value,isChecked) {
     //Find the parent panel container
     var panel = field.findParentByType('panel');
     //Gets the Times Multifield
@@ -80,14 +91,12 @@ function eventRecurTypeSelected(field,value) {
     allDay.show();
     toggleTimesVisibility(allDay, times);
     toggleDurationVisibility(panel, duration);
-    changeEventRecurType(value === 'recurring', date, recurrence);
+    changeEventRecurType(isChecked, date, recurrence);
 }
 
 function toggleDurationVisibility(container, durationForm) {
-    var dlg = container.findParentByType('dialog');
-    var panel = dlg.getField('./dateAndTime');
-    var times = panel.findByType('multifield')[0];
-    var timesItems = panel.findByType('timefield');
+    var times = container.findByType('multifield')[0];
+    var timesItems = container.findByType('timefield');
     if (!times.hidden && timesItems.length) {
         if(durationForm.hidden){
             durationForm.show();
@@ -116,24 +125,15 @@ function initEventDateLayout(component) {
     var recurrence = panel.findByType('multifield')[1];
     var duration = panel.findByType('numberfield')[0];
     var allDay = panel.findByType('selection')[1];
-    if (value === '') {
-        date.hide();
-        date.getEl().up('.x-form-item').setDisplayed(false);
-        allDay.hide();
-        times.hide();
-        duration.hide();
-        recurrence.hide();
-    } else {
-        allDay.show();
-        toggleTimesVisibility(allDay, times);
-        changeEventRecurType(value === 'recurring', date, recurrence);
-    }
+    toggleTimesVisibility(allDay, times);
+    toggleDurationVisibility(panel, duration);
+    changeEventRecurType(value[0], date, recurrence);
 }
 
 //Displays or Hides the Time selector for an Event Date
 function allDaySelected(field,value,isChecked) {
     //Find the parent panel container
-    var panel = field.findParentByType("panel");
+    var panel = field.findParentByType('panel');
     //Gets the Times Multifield
     var times = panel.findByType('multifield')[0];
     var duration = panel.findByType('numberfield')[0];
@@ -150,12 +150,12 @@ function allDaySelected(field,value,isChecked) {
 function updateDurationVisibility(container,component) {
     var panel = container.findParentByType('nhm-multi-field-panel');
     var duration = panel.findByType('numberfield')[0];
-    toggleDurationVisibility(container, duration);
+    toggleDurationVisibility(panel, duration);
 }
 
 //Inits the recur checkbox
 function initRecurValues (component, value, isChecked) {
-    var panel = component.findParentByType("panel");
+    var panel = component.findParentByType('panel');
     var extraMonthParam = panel.findByType('selection')[1];
     var repeatList = panel.findByType('selection')[2];
     var weekdaysList = panel.findByType('selection')[3];
@@ -169,7 +169,7 @@ function initRecurValues (component, value, isChecked) {
         if (value && isChecked) {
             var newValue = value;
             for (var i = 0; i < componentValues.length; i++) {
-                if (componentValues[i] == newValue) {
+                if (componentValues[i] === newValue) {
                     extraMonthParam.hide();
                     repeatList.hide();
                     weekdaysList.hide();
@@ -180,16 +180,16 @@ function initRecurValues (component, value, isChecked) {
                     
                     component.setValue(newValue);                    
                     switch(newValue) {
-                        case "daily":
+                        case 'daily':
                             weekdaysList.show();
                             break;
                             
-                        case "weekly":
+                        case 'weekly':
                             weekdaysList.show();
                             repeatWeekly.show();
                             break;
                             
-                        case "monthly":
+                        case 'monthly':
                             extraMonthParam.show();
                             repeatMonth.show();
                             repeatDay.show();
@@ -199,7 +199,7 @@ function initRecurValues (component, value, isChecked) {
                 }
             }
         } 
-        if (typeof isChecked != 'undefined' && !isChecked) {
+        if (typeof isChecked !== 'undefined' && !isChecked) {
             extraMonthParam.hide();
             repeatList.hide();
             weekdaysList.hide();
@@ -213,14 +213,14 @@ function initRecurValues (component, value, isChecked) {
 
 //Displays/Hides the extra monthly parameters
 function initExtraValues (component, value, isChecked) {
-    var panel = component.findParentByType("panel");
+    var panel = component.findParentByType('panel');
     var repeatList = panel.findByType('selection')[2];
     var weekdaysList = panel.findByType('selection')[3];
     var daysList = panel.findByType('selection')[4];
     var repeatDay = panel.findByType('numberfield')[1];
     var repeatMonth = panel.findByType('numberfield')[2];
     
-    if (typeof isChecked != 'undefined') {
+    if (typeof isChecked !== 'undefined') {
         isChecked ? repeatList.show() && weekdaysList.show() && daysList.show() && repeatDay.hide() : repeatList.hide() && weekdaysList.hide() && daysList.hide() && repeatDay.show();
     } else {
         component.reset();
@@ -228,14 +228,14 @@ function initExtraValues (component, value, isChecked) {
 }
 
 function initRepeatValues (component, value, isChecked) {
-    var panel = component.findParentByType("panel");
+    var panel = component.findParentByType('panel');
     var repeatList = panel.findByType('selection')[2];
     var componentValues = component.getValue();
     if (component && componentValues) {
         if (value && isChecked) {
             var newValue = value;
             for (var i = 0; i < componentValues.length; i++) {
-                if (componentValues[i] == newValue) {
+                if (componentValues[i] === newValue) {
                     component.setValue(newValue);
                     break;        
                 }
@@ -245,7 +245,7 @@ function initRepeatValues (component, value, isChecked) {
 }
 
 function resetDaysValues (component, value, isChecked) {
-    var panel = component.findParentByType("panel");
+    var panel = component.findParentByType('panel');
     var weekdaysList = panel.findByType('selection')[3];
     var componentValues = component.getValue();
     if (component && componentValues) {
@@ -256,7 +256,7 @@ function resetDaysValues (component, value, isChecked) {
 }
 
 function resetWeekDaysValues (component, value, isChecked) {
-    var panel = component.findParentByType("panel");
+    var panel = component.findParentByType('panel');
     var daysList = panel.findByType('selection')[4];
     var componentValues = component.getValue();
     if (component && componentValues) {
@@ -274,13 +274,13 @@ function checkTime (field, newValue, oldValue) {
 
     if (newDate < today) {
         field.setValue(oldValue);
-        alert("Please select a valid date");
+        alert('Please select a valid date');
     }
 }
 
 //Function to set the prices as required or not
 function setValidation (field, newValue, oldValue) {
-    var panel = field.findParentByType("panel");
+    var panel = field.findParentByType('panel');
     var prices = panel.findByType('textfield');
     var isEmpty = true;
     if (newValue) {
@@ -303,7 +303,7 @@ function setValidation (field, newValue, oldValue) {
 }
 
 function checkInitPrices (field, dataRecord, path) {
-    var panel = field.findParentByType("panel");
+    var panel = field.findParentByType('panel');
     var prices = panel.findByType('textfield');
     var isEmpty = true;
       
@@ -321,7 +321,7 @@ function checkEmptyPrice (prices) {
     var isEmpty = true;
     
     for (var i = 0; i < prices.length - 1; i++) {
-        if (prices[i].getValue() != "") {
+        if (prices[i].getValue() !== '') {
             isEmpty = false;
             break;
         }
