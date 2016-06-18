@@ -21,30 +21,127 @@ function checkDates(dialog) {
         submit = false;
         datesPanel.markInvalid('Dates can not be empty');
     }else {
-        var selectionFields = datesPanel.findByType('selection');
-        for(var i=0;i<selectionFields.length;i++){
-            var selectionField = selectionFields[i];
-            if(selectionField.dName === 'allDay'){
-                var allDay = selectionField.getValue();
-                if(!allDay.length || !allDay[0]){
-                    var datePanel = selectionField.findParentByType('nhm-multi-field-panel');
-                    var timesFields = datePanel.findByType('timefield');
-                    if(timesFields.length) {
-                        var durationPanel = datePanel.findByType('numberfield')[0];
-                        if(!durationPanel.getValue()){
-                            submit = false;
-                            durationPanel.markInvalid('Duration can not be empty');
+        var subpanels = datesPanel.findByType('nhm-multi-field-panel');
+        for(var j=0;j<subpanels.length;j++){
+            var subpanel = subpanels[j];
+            if(subpanel.name === './dateAndTime'){
+                var selectionFields = subpanel.findByType('selection');
+                //check is recurring
+                var isRecurringField = selectionFields[0].getValue();
+                if(isRecurringField.length && isRecurringField[0]) {
+                    var recurrencesPanel = subpanel.findByType('multifield')[1];
+                    if(recurrencesPanel.getValue().length){
+                        var recurSelections = recurrencesPanel.findByType('selection');
+                        var recurNumFields = recurrencesPanel.findByType('numberfield');
+                        var frequencyType = recurSelections[0].getValue();
+                        if(frequencyType.length){
+                            switch (frequencyType[0]){
+                                case 'daily':
+                                    submit = checkDailyFrequency(recurSelections);
+                                    break;
+                                case 'weekly':
+                                    submit = checkWeeklyFrequency(recurSelections, recurNumFields);
+                                    break;
+                                case 'monthly':
+                                    submit = checkMonthlyFrequency(recurNumFields);
+                                    break;
+                            }
+                            if(!submit){
+                                break;
+                            }
                         }
-                    } else {
+                    }else{
                         submit = false;
-                        var timesPanel = datePanel.findByType('multifield')[0];
-                        timesPanel.markInvalid('Times can not be empty');
+                        recurrencesPanel.markInvalid('Recurrences can not be empty');
+                    }
+                }
+                
+                for(var i=1;i<selectionFields.length;i++){
+                    var selectionField = selectionFields[i];
+                    if(selectionField.dName === 'allDay'){
+                        var allDay = selectionField.getValue();
+                        if(!allDay.length || !allDay[0]){
+                            var datePanel = selectionField.findParentByType('nhm-multi-field-panel');
+                            var timesFields = subpanel.findByType('timefield');
+                            if(timesFields.length) {
+                                var durationPanel = subpanel.findByType('numberfield')[0];
+                                if(!durationPanel.getValue()){
+                                    submit = false;
+                                    durationPanel.markInvalid('Duration can not be empty');
+                                }
+                            } else {
+                                submit = false;
+                                var timesPanel = subpanel.findByType('multifield')[0];
+                                timesPanel.markInvalid('Times can not be empty');
+                            }
+                        }
                     }
                 }
             }
         }
     }
     return submit;
+}
+
+function isDailyFrequencyValid(recurSelections){
+    var isValid = true;
+    for(var i=1;i<recurSelections.length;i++){
+        var recurSelection = recurSelections[i];
+        if(recurSelection.dName === 'weekdaysList'){
+            var weekdaysListValue = recurSelection.getValue();
+            if(!weekdaysListValue.length){
+                isValid = false;
+                recurSelection.markInvalid('Day(s) can not be empty');
+            }
+            break;
+        }
+    }
+    return isValid;
+}
+
+function checkDailyFrequency(recurSelections) {
+    return isDailyFrequencyValid(recurSelections);
+}
+
+function checkWeeklyFrequency(recurSelections, recurNumFields) {
+    var isValid = isDailyFrequencyValid(recurSelections);
+    if(isValid){
+        for(var i=0;i<recurNumFields.length;i++){
+            var recurNumField = recurNumFields[i];
+            if(recurNumField.dName === 'weekRepeat'){
+                if(!recurNumField.getValue()){
+                    isValid = false;
+                    recurNumField.markInvalid('Weekly recurrence frequency can not be empty');
+                }
+                break;
+            }
+        }
+    }
+    return isValid;
+}
+
+function checkMonthlyFrequency(recurNumFields) {
+    var isValid = true;
+    if(isValid){
+        for(var i=0;i<recurNumFields.length;i++){
+            var recurNumField = recurNumFields[i];
+            if(recurNumField.dName === 'dayRepeat'){
+                if(!recurNumField.getValue()){
+                    isValid = false;
+                    recurNumField.markInvalid('Day of month can not be empty');
+                    break;
+                }
+            }
+            if(recurNumField.dName === 'monthRepeat'){
+                if(!recurNumField.getValue()){
+                    isValid = false;
+                    recurNumField.markInvalid('Monthly recurrence frequency can not be empty');
+                    break;
+                }
+            }
+        }
+    }
+    return isValid;
 }
 
 function getToday() {

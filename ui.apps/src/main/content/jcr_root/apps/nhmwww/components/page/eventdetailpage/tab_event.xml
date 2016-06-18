@@ -229,6 +229,7 @@
                                     dName="startDate"
                                     fieldLabel="Start Date"
                                     hideTime="{Boolean}true"
+                                    allowBlank="{Boolean}false"
                                     xtype="datetime">
                                     <listeners
                                         jcr:primaryType="nt:unstructured"
@@ -240,6 +241,7 @@
                                     dName="endDate"
                                     fieldLabel="End Date"
                                     hideTime="{Boolean}true"
+                                    allowBlank="{Boolean}false"
                                     xtype="datetime">
                                     <listeners
                                         jcr:primaryType="nt:unstructured"
@@ -252,6 +254,7 @@
                                     fieldLabel="How often?"
                                     name="./recurSelect"
                                     type="checkbox"
+                                    allowBlank="{Boolean}false"
                                     xtype="selection">
                                     <options jcr:primaryType="cq:WidgetCollection">
                                         <daily

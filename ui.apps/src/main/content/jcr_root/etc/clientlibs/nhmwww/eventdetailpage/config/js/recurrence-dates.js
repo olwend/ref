@@ -1,10 +1,7 @@
 //Function to validate the datepickers
 function createDates(dlg) {
     var datesPanel          = dlg.getField('./dateAndTime'),
-        multi               = datesPanel.findByType('multifield'),
-        dates               = datesPanel.findByType('datetime'),
-        selectionFields     = datesPanel.findByType('selection'),
-        durations           = datesPanel.findByType('numberfield'),
+        datesSubpanels      = datesPanel.findByType('nhm-multi-field-panel'),
         datesRecurrence     = dlg.findByType('textfield')[0],
         allDayRecurrence    = dlg.findByType('textfield')[1],
         timesRecurrence     = dlg.findByType('textfield')[2],
@@ -24,120 +21,133 @@ function createDates(dlg) {
     //Sets the page path
     eventPagePath.setValue(CQ.WCM.getPagePath());
     
-    //Gets the main days and if it's an All day event
-    //Populates All Day array
-    for (var k = 0; k < selectionFields.length; k++) {
-        if (selectionFields[k].fieldLabel === 'All Day Event') {
-            if (selectionFields[k].getValue()[0]) {
-                allDays.push(true);
-            } else {
-                allDays.push(false);
-            }
-        } else if (selectionFields[k].fieldLabel === 'Recurring') {
-            var fieldValue = selectionFields[k].getValue();
-            if(!fieldValue.length || !fieldValue[0]) {
-                //Populates the main date Array
-                for (var j = 0; j < dates.length; j++) {
-                    if (dates[j].fieldLabel === 'Date') {
-                        mainDates.push(dates[j].getValue());
-                        EventDates = mainDates[daysCounter] + daysCounter + ',';
-                        daysCounter++;
-                        isRecurring = false;
+    for (var m=0;m<datesSubpanels.length;m++){
+        var subpanel = datesSubpanels[m];
+        if(subpanel.name === './dateAndTime'){
+
+            var multi               = subpanel.findByType('multifield'),
+                dates               = subpanel.findByType('datetime'),
+                selectionFields     = subpanel.findByType('selection'),
+                durations           = subpanel.findByType('numberfield');
+            
+            isRecurring = true;
+            
+            //Gets the main days and if it's an All day event
+            //Populates All Day array
+            for (var k = 0; k < selectionFields.length; k++) {
+                if (selectionFields[k].fieldLabel === 'All Day Event') {
+                    if (selectionFields[k].getValue()[0]) {
+                        allDays.push(true);
+                    } else {
+                        allDays.push(false);
+                    }
+                } else if (selectionFields[k].fieldLabel === 'Recurring') {
+                    var fieldValue = selectionFields[k].getValue();
+                    if(!fieldValue.length || !fieldValue[0]) {
+                        //Populates the main date Array
+                        for (var j = 0; j < dates.length; j++) {
+                            if (dates[j].fieldLabel === 'Date') {
+                                mainDates.push(dates[j].getValue());
+                                if (daysCounter > 0) {
+                                    EventDates += ',';
+                                }
+                                EventDates += mainDates[daysCounter] + daysCounter;
+                                daysCounter++;
+                                isRecurring = false;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-    jsonString = JSON.stringify(allDays);
-    allDayRecurrence.setValue(jsonString);
 
-    //Populates the durations array
-    for (var l = 0; l < durations.length; l++) {
-        if (durations[l].fieldLabel === 'Duration') {
-            durationsArray.push(durations[l].getValue());
+            //Populates the durations array
+            for (var l = 0; l < durations.length; l++) {
+                if (durations[l].fieldLabel === 'Duration') {
+                    durationsArray.push(durations[l].getValue());
+                }
+            }
+
+            for (var i = 0; i < multi.length; i++) {
+
+                strDaysCounter = daysCounter.toString();
+
+                //Gets the times
+                if (multi[i].title === 'Add Times') {
+
+                    var time    = multi[i].findByType('timefield'),
+                        times   = [];
+
+                    for (var j = 0; j < time.length; j++) {
+                        times.push(time[j].getValue());
+                    }
+                    timesArray.push(times);
+                }
+
+                //Gets the recurrences only if it's not a single date event
+                if (isRecurring && multi[i].title === 'Recurrence') {
+
+                    var panel           = multi[i].findParentByType('panel'),
+                        startDate       = multi[i].findByType('datetime')[0];
+
+                    //Sets the first date
+                    if (daysCounter > 0) {
+                        EventDates += ',';
+                    }
+
+                    if (startDate){
+
+                        var startDateValue  = parseDate(startDate.getValue()),
+                            endDate         = multi[i].findByType('datetime')[1],
+                            endDateValue    = parseDate(endDate.getValue()),
+                            recurSelectList = multi[i].findByType('selection')[0],
+                            option          = recurSelectList.getValue(),
+                            weekDayList     = multi[i].findByType('selection')[3],
+                            weekdays        = weekDayList.getValue();                    
+
+                        switch(option[0]) {
+
+                            case 'daily':
+
+                                EventDates += createDayAndWeekDates(weekdays, null, startDateValue, endDateValue, strDaysCounter);
+
+                                break;
+
+                            case 'weekly':
+
+                                var weekRepeat  = multi[i].findByType('numberfield')[0],
+                                    numberfield = weekRepeat.getValue();
+
+                                EventDates += createDayAndWeekDates(weekdays, numberfield, startDateValue, endDateValue, strDaysCounter);
+
+                                break;
+
+                            case 'monthly':
+
+                                var customMonthCheck    = multi[i].findByType('selection')[1],
+                                    repeatList          = multi[i].findByType('selection')[2],
+                                    daysList            = multi[i].findByType('selection')[4],
+                                    dayRepeat           = multi[i].findByType('numberfield')[1],
+                                    monthRepeat         = multi[i].findByType('numberfield')[2],
+                                    isCustom            = customMonthCheck.getValue(),
+                                    dayNumber           = dayRepeat.getValue(),
+                                    monthNumber         = monthRepeat.getValue(),
+                                    repeatListValue     = repeatList.getValue(),
+                                    daysListValue       = daysList.getValue();
+
+                                EventDates += createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDateValue, endDateValue, strDaysCounter);
+
+                                break;        
+                        }   
+                    }
+                    daysCounter++;
+                }     
+            }
         }
     }
-    jsonString = JSON.stringify(durationsArray);
-    durationsRecurrence.setValue(jsonString);
     
-    for (var i = 0; i < multi.length; i++) {
-        
-        strDaysCounter = daysCounter.toString();
-        
-        //Gets the times
-        if (multi[i].title === 'Add Times') {
-                
-            var time    = multi[i].findByType('timefield'),
-                times   = [];
-                
-            for (var j = 0; j < time.length; j++) {
-                times.push(time[j].getValue());
-            }
-            timesArray.push(times);
-        }
-        
-        jsonString = JSON.stringify(timesArray);
-        timesRecurrence.setValue(jsonString);
-        
-        //Gets the recurrences only if it's not a single date event
-        if (isRecurring && multi[i].title === 'Recurrence') {
-
-            var panel           = multi[i].findParentByType('panel'),
-                startDate       = multi[i].findByType('datetime')[0];
-            
-            //Sets the first date
-            if (daysCounter > 0) {
-                EventDates += ',';
-            }
-            
-            if (startDate){
-                
-                var startDateValue  = parseDate(startDate.getValue()),
-                    endDate         = multi[i].findByType('datetime')[1],
-                    endDateValue    = parseDate(endDate.getValue()),
-                    recurSelectList = multi[i].findByType('selection')[0],
-                    option          = recurSelectList.getValue(),
-                    weekDayList     = multi[i].findByType('selection')[3],
-                    weekdays        = weekDayList.getValue();                    
-
-                switch(option[0]) {
-                        
-                    case 'daily':
-                        
-                        EventDates += createDayAndWeekDates(weekdays, null, startDateValue, endDateValue, strDaysCounter);
-                        
-                        break;
-
-                    case 'weekly':
-                        
-                        var weekRepeat  = multi[i].findByType('numberfield')[0],
-                            numberfield = weekRepeat.getValue();
-                        
-                        EventDates += createDayAndWeekDates(weekdays, numberfield, startDateValue, endDateValue, strDaysCounter);
-                        
-                        break;
-
-                    case 'monthly':
-                        
-                        var customMonthCheck    = multi[i].findByType('selection')[1],
-                            repeatList          = multi[i].findByType('selection')[2],
-                            daysList            = multi[i].findByType('selection')[4],
-                            dayRepeat           = multi[i].findByType('numberfield')[1],
-                            monthRepeat         = multi[i].findByType('numberfield')[2],
-                            isCustom            = customMonthCheck.getValue(),
-                            dayNumber           = dayRepeat.getValue(),
-                            monthNumber         = monthRepeat.getValue(),
-                            repeatListValue     = repeatList.getValue(),
-                            daysListValue       = daysList.getValue();
-                        
-                        EventDates += createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDateValue, endDateValue, strDaysCounter);
-                        
-                        break;        
-                }   
-            }
-            daysCounter++;
-        }     
-    }
+    allDayRecurrence.setValue(JSON.stringify(allDays));
+    durationsRecurrence.setValue(JSON.stringify(durationsArray));
+    timesRecurrence.setValue(JSON.stringify(timesArray));
     
     var aggregatedDates;
     if(isRecurring) {
@@ -147,7 +157,6 @@ function createDates(dlg) {
         aggregatedDates = [EventDates];
     }
     datesRecurrence.setValue(aggregatedDates);
-    alert('good');
 }
 
 //Function to remove conflict dates
