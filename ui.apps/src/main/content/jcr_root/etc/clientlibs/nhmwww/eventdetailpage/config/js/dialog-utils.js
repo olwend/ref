@@ -22,7 +22,7 @@ function checkDates(dialog) {
         datesPanel.markInvalid('Dates can not be empty');
     }else {
         var subpanels = datesPanel.findByType('nhm-multi-field-panel');
-        for(var j=0;j<subpanels.length;j++){
+        for(var j=0;j<subpanels.length && submit;j++){
             var subpanel = subpanels[j];
             if(subpanel.name === './dateAndTime'){
                 var selectionFields = subpanel.findByType('selection');
@@ -53,6 +53,7 @@ function checkDates(dialog) {
                     }else{
                         submit = false;
                         recurrencesPanel.markInvalid('Recurrences can not be empty');
+                        break;
                     }
                 }
                 
@@ -68,11 +69,13 @@ function checkDates(dialog) {
                                 if(!durationPanel.getValue()){
                                     submit = false;
                                     durationPanel.markInvalid('Duration can not be empty');
+                                    break;
                                 }
                             } else {
                                 submit = false;
                                 var timesPanel = subpanel.findByType('multifield')[0];
                                 timesPanel.markInvalid('Times can not be empty');
+                                break;
                             }
                         }
                     }
@@ -211,6 +214,8 @@ function toggleTimesVisibility(allDayForm, timesForm) {
         timesForm.hide();
     }else {
         timesForm.show();
+        timesForm.doLayout();
+        timesForm.getEl().child('.times-container-time').setWidth('auto');
     }
 }
 
@@ -240,6 +245,8 @@ function allDaySelected(field,value,isChecked) {
         duration.hide();
     } else {
         times.show();
+        times.doLayout();
+        times.getEl().child('.times-container-time').setWidth('auto');
         toggleDurationVisibility(panel, duration);
     }
 }

@@ -171,7 +171,7 @@
                         xtype="selection">
                         <listeners
                             jcr:primaryType="nt:unstructured"
-                            selectionchanged="function(field,value,isChecked) {                                                                                                                 allDaySelected(field,value,isChecked); }"/>
+                            selectionchanged="function(field,value,isChecked){allDaySelected(field,value,isChecked); }"/>
                     </allDay>
                     <times-multifield
                         jcr:primaryType="cq:Widget"

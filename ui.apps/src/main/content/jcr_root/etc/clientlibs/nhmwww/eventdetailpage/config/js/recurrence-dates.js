@@ -47,13 +47,15 @@ function createDates(dlg) {
                         //Populates the main date Array
                         for (var j = 0; j < dates.length; j++) {
                             if (dates[j].fieldLabel === 'Date') {
-                                mainDates.push(dates[j].getValue());
+                                var mainDateValue = dates[j].getValue();
+                                mainDates.push(mainDateValue);
                                 if (daysCounter > 0) {
                                     EventDates += ',';
                                 }
-                                EventDates += mainDates[daysCounter] + daysCounter;
+                                EventDates += mainDateValue + daysCounter;
                                 daysCounter++;
                                 isRecurring = false;
+                                break;
                             }
                         }
                     }
@@ -63,7 +65,9 @@ function createDates(dlg) {
             //Populates the durations array
             for (var l = 0; l < durations.length; l++) {
                 if (durations[l].fieldLabel === 'Duration') {
-                    durationsArray.push(durations[l].getValue());
+                    var value = durations[l].getValue();
+                    value = value === '' ? 0 : value;
+                    durationsArray.push(value);
                 }
             }
 
@@ -149,13 +153,8 @@ function createDates(dlg) {
     durationsRecurrence.setValue(JSON.stringify(durationsArray));
     timesRecurrence.setValue(JSON.stringify(timesArray));
     
-    var aggregatedDates;
-    if(isRecurring) {
         //Replace needed to remove empty ,,
-        aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(','));
-    } else {
-        aggregatedDates = [EventDates];
-    }
+    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(','));
     datesRecurrence.setValue(aggregatedDates);
 }
 
