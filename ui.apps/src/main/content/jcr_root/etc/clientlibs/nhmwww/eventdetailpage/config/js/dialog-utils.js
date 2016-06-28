@@ -43,7 +43,7 @@ function checkDates(dialog) {
                                     submit = checkWeeklyFrequency(recurSelections, recurNumFields);
                                     break;
                                 case 'monthly':
-                                    submit = checkMonthlyFrequency(recurNumFields);
+                                    submit = checkMonthlyFrequency(recurNumFields, recurSelections);
                                     break;
                             }
                             if(!submit){
@@ -123,9 +123,73 @@ function checkWeeklyFrequency(recurSelections, recurNumFields) {
     return isValid;
 }
 
-function checkMonthlyFrequency(recurNumFields) {
+function checkMonthlyFrequency(recurNumFields, recurSelections) {
     var isValid = true;
-    if(isValid){
+    
+        
+    var hasExtraParameters = false;
+    for(var i=0; i<recurSelections.length; i++) {
+        var field = recurSelections[i];
+        if(field.dName === 'customMonthCheck') {
+            hasExtraParameters = field.getValue()[0];
+            break;
+        }
+    }
+    
+    if(hasExtraParameters) {
+        // Need to check if either weekdayList or dayList have values
+        var weekdayList, dayList;
+        for(var i=0;i<recurSelections.length;i++){
+            var recurNumField = recurSelections[i];
+            var dName = recurNumField.dName;
+            var value = recurNumField.getValue();
+            
+            if(dName === 'monthRepeat'){
+                if(!recurNumField.getValue()){
+                    isValid = false;
+                    recurNumField.markInvalid('Monthly recurrence frequency can not be empty');
+                    break;
+                }
+            }
+            
+            if(dName === 'repeatList'){
+                if(!value || value.length === 0){
+                    isValid = false;
+                    recurNumField.markInvalid('This value is required');
+                    break;
+                }
+            }
+            
+            if(dName === 'customMonthCheck'){
+                if(!recurNumField.getValue()){
+                    isValid = false;
+                    recurNumField.markInvalid('This value is required');
+                    break;
+                }
+            }
+            
+            // Special case to check if either of these have values set
+            if(dName === 'weekdaysList'){
+                weekdayList = recurNumField;
+            }
+            if(dName === 'daysList'){
+                dayList = recurNumField;
+            }   
+        }
+        
+        // Check either the weekday or day list was selected
+        if(weekdayList && dayList) {
+            var weekdayValue = weekdayList.getValue();
+            var dayValue = dayList.getValue();
+            if((!weekdayValue || weekdayValue.length === 0) && (!dayValue || dayValue.length === 0)) {
+                isValid = false;
+                weekdayList.markInvalid('This value is required');
+                dayList.markInvalid('This value is required');
+            }
+        } else {
+            console.log('Someone forgot to update the validation here');
+        }
+    } else {
         for(var i=0;i<recurNumFields.length;i++){
             var recurNumField = recurNumFields[i];
             if(recurNumField.dName === 'dayRepeat'){
@@ -135,12 +199,24 @@ function checkMonthlyFrequency(recurNumFields) {
                     break;
                 }
             }
-            if(recurNumField.dName === 'monthRepeat'){
-                if(!recurNumField.getValue()){
-                    isValid = false;
-                    recurNumField.markInvalid('Monthly recurrence frequency can not be empty');
-                    break;
-                }
+        }
+    }
+
+
+    for(var i=0;i<recurNumFields.length;i++){
+        var recurNumField = recurNumFields[i];
+        if(!hasExtraParameters && recurNumField.dName === 'dayRepeat'){
+            if(!recurNumField.getValue()){
+                isValid = false;
+                recurNumField.markInvalid('Day of month can not be empty');
+                break;
+            }
+        }
+        if(hasExtraParameters && recurNumField.dName === 'monthRepeat'){
+            if(!recurNumField.getValue()){
+                isValid = false;
+                recurNumField.markInvalid('Monthly recurrence frequency can not be empty');
+                break;
             }
         }
     }
@@ -215,7 +291,7 @@ function toggleTimesVisibility(allDayForm, timesForm) {
     }else {
         timesForm.show();
         timesForm.doLayout();
-        timesForm.getEl().child('.times-container-time').setWidth('auto');
+//        timesForm.getEl().child('.times-container-time').setWidth('auto');
     }
 }
 
