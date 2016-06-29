@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    height="{Long}400"
+    helpPath="en/cq/current/wcm/default_components.html#Image"
+    width="600"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <imageBefore
+                jcr:primaryType="cq:Widget"
+                cropParameter="./imageCropBefore"
+                ddGroups="[media]"
+                fileNameParameter="./fileNameBefore"
+                fileReferenceParameter="./fileReferenceBefore"
+                mapParameter="./imageMapBefore"
+                name="./fileBefore"
+                rotateParameter="./imageRotateBefore"
+                title="Image-before"
+                xtype="html5smartimage"/>
+            <imageAfter
+                jcr:primaryType="cq:Widget"
+                cropParameter="./imageCropAfter"
+                ddGroups="[media]"
+                fileNameParameter="./fileNameAfter"
+                fileReferenceParameter="./fileReferenceAfter"
+                mapParameter="./imageMapAfter"
+                name="./fileAfter"
+                rotateParameter="./imageRotateAfter"
+                title="Image-after"
+                xtype="html5smartimage"/>
+            <advanced
+            	jcr:primaryType="cq:Widget"
+	            title="Advanced"
+	            xtype="panel">
+	            <items jcr:primaryType="cq:WidgetCollection">
+	                <altBefore
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Alt text before"
+	                    name="./altBefore"
+	                    xtype="textfield"/>
+	                <altAfter
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Alt text after"
+	                    name="./altAfter"
+	                    xtype="textfield"/>
+	            </items>
+            	</advanced>
+        </items>
+    </items>
+</jcr:root>
