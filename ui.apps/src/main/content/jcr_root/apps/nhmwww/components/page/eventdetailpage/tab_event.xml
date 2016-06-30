@@ -113,7 +113,8 @@
                     fieldLabel="Tags"
                     showPathInLabels="false"
                     name="./cq:tags"
-                    xtype="tags"/>
+                    nhmTagsBasePaths="[/etc/tags/nhmwww/audience,/etc/tags/nhmwww/events,/etc/tags/nhmwww/key-stage,/etc/tags/nhmwww/subject]"
+                    xtype="nhmtags"/>
                 <keywords
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Keywords"

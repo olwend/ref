@@ -15,7 +15,8 @@
                     cls="cq-propsdialog-tags"
                     fieldLabel="Subject"
                     name="./cq:subject"
-                    xtype="tags"/>
+                    nhmTagsBasePaths="[/etc/tags/nhmwww/audience,/etc/tags/nhmwww/events,/etc/tags/nhmwww/key-stage,/etc/tags/nhmwww/subject]"
+                    xtype="nhmtags"/>
                 <capacity
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Capacity"
