@@ -52,8 +52,8 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	private JSONArray getJSON() throws LoginException, RepositoryException, JSONException {
 		JSONArray events = new JSONArray();
 		eventCalendarLoginUtils = new EventCalendarLoginUtils();
-		session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
-		
+        session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+		root = session.getRootNode();
 		if (root.hasNode(JSON_PATH)) {
 			Node eventsNode = root.getNode(JSON_PATH);
 			
