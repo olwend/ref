@@ -1,24 +1,28 @@
 package uk.ac.nhm.nhm_www.core.impl.schedulers;
 
-import java.util.Map;
+import java.text.ParseException;
 
-import org.apache.felix.scr.annotations.Activate;
+import javax.jcr.LoginException;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.jcr.SimpleCredentials;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.felix.scr.annotations.Reference;
-
-import java.text.ParseException;
-import javax.jcr.LoginException;
-import javax.jcr.RepositoryException;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
+import org.apache.felix.scr.annotations.Service;
+import org.apache.sling.jcr.api.SlingRepository;
 import org.json.JSONException;
-import java.lang.Exception;
 
 import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
+import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
+import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 
+import com.day.cq.replication.ReplicationActionType;
+import com.day.cq.replication.Replicator;
 
 @Component(metatype = true, label = "NHM scheduled task", 
     description = "Cron-job executed every day at midnight 00:30")
@@ -33,12 +37,25 @@ public class CreateXMLFeedTask implements Runnable {
     
     @Reference
 	private CreateXMLFeedServiceImpl createXMLFeed;
+    @Reference
+    private SlingRepository repository;
+    @Reference
+    private Replicator replicator;
+    
+    private Session session;
+    private EventCalendarLoginUtils eventCalendarLoginUtils;
+
 
     @Override
     public void run() {
-        System.out.println("*** NHM Cron Job executed, generating events feed...");
+        System.out.println("*** NHM Cron Job executed, generating events feed ...");
 		try {
 			createXMLFeed.createXML();
+            System.out.println("*** Replicating feed ...");
+            eventCalendarLoginUtils = new EventCalendarLoginUtils();
+            session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+            replicator.replicate(session, ReplicationActionType.ACTIVATE, "/" + CreateXMLFeedUtils.contentUrl + CreateXMLFeedUtils.visitorFeed);
+            System.out.println("*** Feed replicated successfully.");   
 		} catch (LoginException e) {
 			System.out.println("Login Exception: " + e);
 			e.printStackTrace();
