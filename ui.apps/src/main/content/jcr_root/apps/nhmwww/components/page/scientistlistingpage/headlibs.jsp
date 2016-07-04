@@ -40,6 +40,6 @@
         
          <cq:includeClientLib categories="nhm-www.sciencelist" />
          <script type="text/javascript">var switchTo5x=true;</script>
-		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+		<cq:includeClientLib categories="nhmwww.buttons"/>
 		<script type="text/javascript">stLight.options({publisher: "4069e561-f5e3-40c7-a58e-a86ba8d470ac", doNotHash: false, doNotCopy: false, hashAddressBar: false, onhover: false});</script>
          
