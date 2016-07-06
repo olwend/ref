@@ -62,6 +62,8 @@ public class CreateXMLFeedUtils {
 	private static final String CUSTOM_2 = "custom_2";
 	private static final String CUSTOM_3 = "custom_3";
 	private static final String ALL_DAY = "allday";
+    
+    private static final String PRODUCTION_URL = "http://www.nhm.ac.uk";
 	
 	private ArrayList<Integer> dateIndex = new ArrayList<Integer>();
 	private Date today = new Date();
@@ -344,12 +346,12 @@ public class CreateXMLFeedUtils {
 			}
 			//Sets the url
 			if (event.getEventTileLink().equals("")) {
-				item.appendChild(createEventElement(doc, item, URL, event.getEventPagePath() + ".html"));
+				item.appendChild(createEventElement(doc, item, URL, PRODUCTION_URL + event.getEventPagePath() + ".html"));
 			} else {
-				item.appendChild(createEventElement(doc, item, URL, event.getEventTileLink()));
+				item.appendChild(createEventElement(doc, item, URL, PRODUCTION_URL + event.getEventTileLink()));
 			}
 			//Sets the image url
-			item.appendChild(createEventElement(doc, item, IMAGE_URL, event.getImageLink()));
+			item.appendChild(createEventElement(doc, item, IMAGE_URL, PRODUCTION_URL + event.getImageLink()));
 			//Creates the placemarks
 			Element placemarks = doc.createElement("placemarks");
 			Element placemark = doc.createElement("placemark");
