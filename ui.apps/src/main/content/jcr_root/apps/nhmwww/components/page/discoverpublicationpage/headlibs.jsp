@@ -47,6 +47,6 @@
         <cq:includeClientLib css="nhm-www.discover" />
 		<cq:includeClientLib categories="nhm-www.discoverpublication" />
 		<script type="text/javascript">var switchTo5x=true;</script>
-		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+		<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 		<script type="text/javascript">stLight.options({publisher: "4069e561-f5e3-40c7-a58e-a86ba8d470ac", doNotHash: false, doNotCopy: false, hashAddressBar: false, onhover: false});</script>
 		
