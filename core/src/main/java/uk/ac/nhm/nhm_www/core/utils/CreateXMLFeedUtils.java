@@ -43,6 +43,9 @@ public class CreateXMLFeedUtils {
 	private static final String EVENT_LISTING_PRICE = "eventListingPrice";
 	private static final String IMAGE_LINK = "imageLink";
 	
+	public final static String visitorFeed = "visitorfeed.xml";
+	public final static String contentUrl = "content/nhmwww";
+	
 	private static final SimpleDateFormat SDF = new SimpleDateFormat("MMM dd, yyyy");
 	private static final SimpleDateFormat TIME_SDF = new SimpleDateFormat("HH:mm");
 	
@@ -114,8 +117,6 @@ public class CreateXMLFeedUtils {
 	 * @throws ParseException 
 	 */
 	public void storeXMLFromEvents(ArrayList<EventPageDetail> eventsParsed, Node root, Session session) throws ParserConfigurationException, PathNotFoundException, RepositoryException, TransformerException, ParseException {
-		final String visitorFeed = "visitorfeed.xml";
-		final String contentUrl = "content/nhmwww";
 		final String ntFile = "nt:file";
 		final String jcrContent = "jcr:content";
 		final String ntResource = "nt:resource";
