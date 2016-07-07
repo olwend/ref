@@ -26,5 +26,5 @@
             </div>
         </div>
 	</div>
-	<cq:include path="par" resourceType="foundation/components/parsys" />
+   <cq:include path="parentpar" resourceType="foundation/components/parsys"/>
 </div>
