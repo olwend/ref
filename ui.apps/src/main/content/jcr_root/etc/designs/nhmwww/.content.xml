@@ -243,7 +243,7 @@
             </par>
         </eventcalendarpage>
         <eventdetailpage jcr:primaryType="nt:unstructured">
-            <par
+            <parentpar
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys">
                  <section jcr:primaryType="nt:unstructured"/>
@@ -251,17 +251,17 @@
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[/apps/nhmwww/components/functional/eventinformation,/apps/nhmwww/components/functional/eventschedule,/apps/nhmwww/components/functional/imageandcta]">
+                        components="[/apps/nhmwww/components/functional/eventinformation,/apps/nhmwww/components/functional/eventschedule,/apps/nhmwww/components/functional/imageandcta,group:General,group:Columns]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par>
                     <par2
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[/apps/nhmwww/components/functional/eventinformation,/apps/nhmwww/components/functional/eventschedule,/apps/nhmwww/components/functional/imageandcta]">
+                        components="[/apps/nhmwww/components/functional/eventinformation,/apps/nhmwww/components/functional/eventschedule,/apps/nhmwww/components/functional/imageandcta,group:General,group:Columns]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par2>
                 </row2cells21>
-            </par>
+            </parentpar>
         </eventdetailpage>
     </jcr:content>
     <favicon.ico/>
