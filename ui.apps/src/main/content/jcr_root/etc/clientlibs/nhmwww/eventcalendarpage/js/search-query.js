@@ -184,7 +184,7 @@ var NHMSearchQuery = new function () {
         if (eventType == "Visitor" && sessionStorage.pagePath == "visit") {
             return true;
         }
-        if (eventType == "Tring" && sessionStorage.pagePath == "tring-homepage") {
+        if (eventType == "Tring" && sessionStorage.pagePath == "tring") {
             return true;
         }
         return false;
