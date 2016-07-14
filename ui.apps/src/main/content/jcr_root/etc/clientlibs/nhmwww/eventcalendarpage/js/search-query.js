@@ -483,6 +483,97 @@ var NHMSearchQuery = new function () {
         }
 
     };
+    
+    var formattedTags = function(tagArray) {
+        var result = [];
+        for (var i = 0; i < tagArray.length; i++) {
+            var tag = tagArray[i];
+            result.push(tag.split('/')[1]);
+        }
+        return result;
+    }
+    
+    var hasAllTags = function(paramsTag, eventTags) {
+        var containsAllTags = true;
+        var paramsTagList = paramsTag.split(',');
+        for (var i = 0; i < paramsTagList.length; i++) {
+            var param = paramsTagList[i];
+            var found = $.inArray(param, eventTags) > -1;
+            if (!found) {
+                containsAllTags = false;
+                break;
+            }
+        } 
+        return containsAllTags;
+    };
+    
+    var hasAllKeywords = function(paramsKeywords, eventKeywords) {
+        eventKeywords = eventKeywords.split(" ");
+        var containsAllKeywords = true;
+        var paramsKeywordsList = paramsKeywords.split(',');
+        for (var i = 0; i < paramsKeywordsList.length; i++) {
+            var keyword = paramsKeywordsList[i];
+            var found = $.inArray(keyword, eventKeywords) > -1;
+            if (!found) {
+                containsAllKeywords = false;
+                break;
+            }
+        } 
+        return containsAllKeywords;
+    };
+    
+    this.displayFilteredEvents = function (params) {
+        clearContainer();
+        
+        //Prevents if no carousel
+        if (inputs.carousel) {
+            var carousel = inputs.carousel[0];
+            if (carousel != undefined || carousel != null) {
+                carousel.style.display = "block";
+            }
+
+            var titleH2 = createTitleH2(),
+                ul      = createUL(),
+                today   = new Date();
+
+            titleH2.innerHTML = CONST.EVENT_TITLE_TODAY;
+
+            for (var i = 0; i < inputs.eventsJson.length; i++) {
+                var eventsJson  = inputs.eventsJson[i];
+                var allFiltersPassed = true;
+                if (params.group) allFiltersPassed = params.group == eventsJson.group;
+                if (allFiltersPassed && params.title) allFiltersPassed = params.title.replace(/\+/g,' ') == eventsJson.title; 
+                if (allFiltersPassed && params.description) allFiltersPassed = params.description.replace(/\+/g,' ') == eventsJson.description; 
+                if (allFiltersPassed && params.venue) allFiltersPassed = params.venue.replace(/\+/g,' ') == eventsJson.venue;
+                if (allFiltersPassed && params.link) allFiltersPassed = params.link == eventsJson.ctaLink;
+                if (allFiltersPassed && params.tags) allFiltersPassed = hasAllTags(params.tags,formattedTags(eventsJson.tags));
+                if (allFiltersPassed && params.keywords) allFiltersPassed = hasAllKeywords(params.keywords,eventsJson.keywords);
+                if (allFiltersPassed) {
+                    for (var j = 0; j < eventsJson.dates.length; j++) {
+                        var date = getEventsFormattedDate(eventsJson.dates[j].substring(0, eventsJson.dates[j].length - 1));
+                        inputs.results.push(eventsJson);
+                        break;
+                    }
+                }
+            }
+
+            //Displays the results
+            if (inputs.results.length > 0) {
+                //Appends the title
+                inputs.container.appendChild(titleH2);
+                inputs.container.appendChild(ul);
+
+                inputs.results = orderResults();
+                renderLayout(inputs.results, ul, false);
+            }
+
+            //Displays the no results for today message
+            else {
+                inputs.noResultsToday.className = CONST.NO_RESULTS_CLASS;
+            }
+        }
+
+    };
 
     //Function which search according to the criteria
     this.displaySearchEvents = function (keywordsInput, filterOne, filterTwo, dateFrom, dateTo) {
@@ -558,5 +649,39 @@ var NHMSearchQuery = new function () {
 
 $(document).ready(function () {
     NHMSearchQuery.init();
-    NHMSearchQuery.displayTodayEvents();
+    
+    var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    
+    var params = {
+        group : getUrlParameter('group'),
+        title : getUrlParameter('title'),
+        description : getUrlParameter('description'),
+        venue : getUrlParameter('venue'),
+        link : getUrlParameter('link'),
+        tags : getUrlParameter('tags'),
+        keywords : getUrlParameter('keywords')
+    };
+    
+    var hasParams = function() {
+        return window.location.search.substring(1).replace("wcmmode=disabled","").length > 0;
+    };
+
+    if (hasParams()) {
+        NHMSearchQuery.displayFilteredEvents(params);
+    }
+    else {
+        NHMSearchQuery.displayTodayEvents();  
+    }
 });
