@@ -426,10 +426,17 @@
                         </fieldConfig>
                         <listeners
                             jcr:primaryType="nt:unstructured"
-                            beforeadd="function(selection, value, number){                                             
-                                       if (number > 0) {                                                 
-                                       CQ.Ext.Msg.show({title: 'Limit reached',  msg: 'You are only allowed to add 1 item to this module',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK})
-                                       ;;return false;}}"/>
+                            beforeadd="function(list, component, index) {
+                                        var length = list.items.length;
+                                        var addButton = list.items.items[length - 1];
+                                        addButton.hide();
+                                        }"
+                            removeditem="function(list) {
+                                         var length = list.items.length;
+                                         var addButton = list.items.items[length - 1];
+                                         addButton.show();
+                                         }"       
+                                   />
                     </recur-multifield>
                 </items>
             </fieldConfig>
