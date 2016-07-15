@@ -35,7 +35,7 @@
 <c:set var="fileReference" value="<%= fileReference %>"/>
 <c:set var="hasUploadedImage" value="<%= image != null %>"/>
 <c:set var="hasFileReference" value="<%= !fileReference.isEmpty() %>"/>
-<c:set var="hasCTAImage" value="hasUploadedImage || hasFileReference"/>
+<c:set var="hasCTAImage" value="${hasUploadedImage || hasFileReference}"/>
 <c:set var="ctaText" value="<%= ctaText %>"/>
 <c:if test="${not empty eventType && hasCTAImage}"> 
     <div class="image--and--cta--wrapper">
