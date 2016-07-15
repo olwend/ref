@@ -1,4 +1,5 @@
-<%@page session="false"%>
+<%@page session="false"
+        import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager"%>
 <%@include file="/libs/foundation/global.jsp" %>
 <cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
 
@@ -19,6 +20,7 @@
                 <legend class="reset--filter right">Reset filter</legend>
             </div>
             <div class="small-12 medium-12 large-12 columns calendar--select">
+                <% TagManager tagMgr = resourceResolver.adaptTo(TagManager.class); %>
                 <select id="filterOne">
                     <c:set var="filterOneLabel" value="<%= properties.get("filterOneLabel" , String.class) %>" />
                     <option value="none" selected="selected">${filterOneLabel}</option>
@@ -26,7 +28,11 @@
 				    <c:forEach var="filterOneOption" items="${filterOneOptions}">
                         <c:set var="filterOneOptionSplit" value="${fn:split(filterOneOption, '/')}"/>
                         <c:set var="filterOneName" value="${fn:replace(filterOneOptionSplit[1], '-', ' ')}" />
-                        <option value="${filterOneOption}">${filterOneName}</option> 
+                        <%
+                            String tagName = (String)pageContext.getAttribute("filterOneOption");
+                            Tag tag = tagMgr.resolve(tagName);
+                        %>
+                        <option value="${filterOneOption}"><%=tag.getTitle()%></option> 
                     </c:forEach>
 				</select>
             </div>
@@ -38,7 +44,11 @@
 				    <c:forEach var="filterTwoOption" items="${filterTwoOptions}">
                         <c:set var="filterTwoOptionSplit" value="${fn:split(filterTwoOption, '/')}"/>
                         <c:set var="filterTwoName" value="${fn:replace(filterTwoOptionSplit[1], '-', ' ')}" />
-                        <option value="${filterTwoOption}">${filterTwoName}</option> 
+                        <%
+                            String tagName = (String)pageContext.getAttribute("filterTwoOption");
+                            Tag tag = tagMgr.resolve(tagName);
+                        %>
+                        <option value="${filterTwoOption}"><%=tag.getTitle()%></option> 
                     </c:forEach>
 				</select> 
             </div>
