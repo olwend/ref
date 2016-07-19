@@ -251,13 +251,13 @@
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[/apps/nhmwww/components/functional/eventinformation,/apps/nhmwww/components/functional/eventschedule,/apps/nhmwww/components/functional/imageandcta,group:General,group:Columns]">
+                        components="[group:General,group:Columns,group:NHM - Stacked,group:nhmwww]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par>
                     <par2
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[/apps/nhmwww/components/functional/eventinformation,/apps/nhmwww/components/functional/eventschedule,/apps/nhmwww/components/functional/imageandcta,group:General,group:Columns]">
+                        components="[group:General,group:Columns,group:NHM - Stacked,group:nhmwww]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par2>
                 </row2cells21>
