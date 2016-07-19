@@ -245,7 +245,8 @@
         <eventdetailpage jcr:primaryType="nt:unstructured">
             <parentpar
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="foundation/components/parsys">
+                sling:resourceType="foundation/components/parsys"
+                components="[group:General,group:Columns,group:NHM - Stacked,group:nhmwww]">
                  <section jcr:primaryType="nt:unstructured"/>
                  <row2cells21 jcr:primaryType="nt:unstructured">
                     <par
