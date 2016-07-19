@@ -26,7 +26,7 @@ var NHMSearchQuery = new function () {
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
-        SHOW_MORE:              (showMoreValue=="NaN"?6:showMoreValue)
+        SHOW_MORE:              (Number.isNaN(showMoreValue)?6:showMoreValue)
     };
 
     var inputs = {};
