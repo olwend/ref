@@ -39,5 +39,11 @@
             inputValue="true"
             type="checkbox"
             xtype="selection"/>
+        <showMore
+            jcr:primaryType="cq:Widget"
+            name="./showmore"      
+            fieldLabel="Show more button"
+            fieldDescription="Display 'Show more' button if more than (events) in the result"
+            xtype="numberfield"/>        
     </items>
 </jcr:root>

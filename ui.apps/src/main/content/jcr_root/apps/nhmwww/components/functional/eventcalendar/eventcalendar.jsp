@@ -1,9 +1,10 @@
 <%@page session="false"
         import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager"%>
 <%@include file="/libs/foundation/global.jsp" %>
-<cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
 
-<div class="row event--calendar--wrapper">
+<cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
+    
+<div class="row event--calendar--wrapper" data-showmore="<%=properties.get("./showmore","NaN")%>">
     <ul class="small-block-grid-1 medium-block-grid-3 calendar-search--fields-block-grid">
         <li>
             <legend class="calendar--search--label">Keyword search</legend>

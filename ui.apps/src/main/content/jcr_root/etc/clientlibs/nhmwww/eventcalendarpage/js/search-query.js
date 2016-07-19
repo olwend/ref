@@ -1,4 +1,5 @@
 var NHMSearchQuery = new function () {
+    var showMoreValue = Number($('div[data-showmore]').data('showmore'));
     var CONST = {
         CONTAINER_DIV_CLASS:    "small-12 columns",
         DISPLAY_SHOW_MORE:      "row event--calendar--more--results",
@@ -24,15 +25,19 @@ var NHMSearchQuery = new function () {
         TEXT_DIV_CLASS:         "event--calendar--search--result--item--content",
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
-        H3_CLASS:               "event--calendar--search--result--title"
+        H3_CLASS:               "event--calendar--search--result--title",
+        SHOW_MORE:              (showMoreValue=="NaN"?6:showMoreValue)
     };
 
     var inputs = {};
-    
+    var eventsCounter = 0;
     //Helper function to create the title
     var createTitleH2 = function () {
         var titleH2 = document.createElement("h2");
         titleH2.className = CONST.EVENT_TITLE_CLASS;
+        if (eventsCounter >= CONST.SHOW_MORE) {
+            titleH2.style.display = "none";
+        }
         return titleH2;
     };
     
@@ -59,6 +64,7 @@ var NHMSearchQuery = new function () {
 
     //Function to display the results after a search query
     var createResultDiv = function (dateFrom, dateTo) {
+        eventsCounter = 0;
         var numOfDays;
         //If not dateFrom starts today
         if (!dateFrom) {
@@ -114,15 +120,18 @@ var NHMSearchQuery = new function () {
 
     //Helper function to create the results and add the seach button
     var renderLayout = function (results, ul, isFromSearch) {
+        if (results.length > CONST.SHOW_MORE) {
+            inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
+        }
         for (var i = 0; i < results.length; i++) {
+            eventsCounter++;
             createSearchResult(results[i], ul, i, isFromSearch);
-            if (i == 6 && !isFromSearch) {
-                inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
-            }
         }
 
+        
         //Adds the listener to the show more div
-        if (results.length >= 6) {
+        if (eventsCounter >= CONST.SHOW_MORE) {
+            inputs.showMore.className = CONST.DISPLAY_SHOW_MORE; 
             inputs.showMore.addEventListener('click', function (e) {
                 showMoreEvents(e, ul, inputs.showMore);
             }, false);
@@ -273,8 +282,8 @@ var NHMSearchQuery = new function () {
         containerDiv.appendChild(textDiv);
         li.appendChild(containerDiv);
 
-        //Hides the results above 6
-        if (resultsDisplayed > 5 && !isFromSearch) {
+        //Hides the results above the maximum number of events set by an author.
+        if (eventsCounter > CONST.SHOW_MORE) {
             li.style.display = "none";
         }
 
@@ -377,16 +386,17 @@ var NHMSearchQuery = new function () {
     //Function to display more events
     var showMoreEvents = function (e, ul, showMore) {
         e.preventDefault();
-        var listItem = ul.getElementsByTagName("li"),
-            counter = 0;
-
+        var listItem = ul.getElementsByTagName("li");
         for (var i = 0; i < listItem.length; i++) {
-            if (counter == 6) {
-                return;
-            }
             if (listItem[i].offsetParent === null) {
                 listItem[i].style.display = "block";
-                counter++;
+            }
+        }   
+        var headers = $("#searchResult h2:hidden");
+        for (var j = 0; j < headers.length; j++) {
+            var header = headers[i];
+            if (header) {
+                headers[i].style.display = "block";
             }
         }
         showMore.className = CONST.HIDE_DIV_CLASS;
@@ -649,7 +659,7 @@ var NHMSearchQuery = new function () {
 
 $(document).ready(function () {
     NHMSearchQuery.init();
-    
+    eventsCounter = 0;
     var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -682,6 +692,6 @@ $(document).ready(function () {
         NHMSearchQuery.displayFilteredEvents(params);
     }
     else {
-        NHMSearchQuery.displayTodayEvents();  
+        NHMSearchQuery.displayTodayEvents();
     }
 });
