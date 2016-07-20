@@ -130,7 +130,7 @@ var NHMSearchQuery = new function () {
 
         
         //Adds the listener to the show more div
-        if (eventsCounter >= CONST.SHOW_MORE) {
+        if (eventsCounter > CONST.SHOW_MORE) {
             inputs.showMore.className = CONST.DISPLAY_SHOW_MORE; 
             inputs.showMore.addEventListener('click', function (e) {
                 showMoreEvents(e, ul, inputs.showMore);
