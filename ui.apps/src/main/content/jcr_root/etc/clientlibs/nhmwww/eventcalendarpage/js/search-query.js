@@ -335,8 +335,10 @@ var NHMSearchQuery = new function () {
         var lastDate = aux.reduce(function (a, b) {
             return a > b ? a : b;
         });
-
-        return parseToEventDate(new Date(), false) + " - " + parseToEventDate(new Date(lastDate), false);
+        var firstDate = aux.reduce(function (a, b) {
+            return a < b ? a : b;
+        });
+        return parseToEventDate(new Date(firstDate), false) + " - " + parseToEventDate(new Date(lastDate), false);
     };
 
     //Helper function to get the times
