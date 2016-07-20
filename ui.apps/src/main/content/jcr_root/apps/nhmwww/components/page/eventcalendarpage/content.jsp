@@ -7,7 +7,7 @@
         <cq:include path="title" resourceType="nhmwww/components/functional/title"/>
 	</div>
 	<cq:include path="par" resourceType="foundation/components/parsys" />
-    <%
+        <%
         if (WCMMode.fromRequest(request) == WCMMode.DISABLED || WCMMode.fromRequest(request) == WCMMode.PREVIEW) {
         %>   
             <cq:includeClientLib categories="nhmwww.eventcalendarpage"/>
@@ -18,8 +18,15 @@
             <div class="row event--calendar--no--results">
                 <h5 id="noResultsToday">There are no museum activities today</h5>
                 <h5 id="noResults">There are no museum activities on this day that match your search criteria</h5>
-            </div>   
+            </div>
         <%
         }
-    %>
+        else {
+        %>
+        <div align="center"><< Search results will be displayed here >></div>
+        <%
+           }
+        %>
+        <cq:include path="par-below" resourceType="foundation/components/parsys" />
+    
 </div>
