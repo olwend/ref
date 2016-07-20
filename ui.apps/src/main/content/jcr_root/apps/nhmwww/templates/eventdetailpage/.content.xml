@@ -7,7 +7,8 @@
     ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="nhmwww/components/page/eventdetailpage">
+        sling:resourceType="nhmwww/components/page/eventdetailpage"
+        ctaLink="https://www.nhm.ac.uk/visit/book-tickets.html">
         <parentpar
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/parsys">
