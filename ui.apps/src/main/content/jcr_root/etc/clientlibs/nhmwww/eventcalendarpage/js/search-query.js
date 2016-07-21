@@ -566,6 +566,11 @@ var NHMSearchQuery = new function () {
         return (paramToDate >= Date.parse(dateToSearchFormat(firstDate)));
     }
     
+    var containsText = function(paramText, title, description) {
+        var pattern = new RegExp(paramText.replace('+',' '),"g");
+        return title.match(pattern) || description.match(pattern);
+    }
+    
     this.displayFilteredEvents = function (params) {
         clearContainer();
         //Prevents if no carousel
@@ -593,6 +598,7 @@ var NHMSearchQuery = new function () {
                 if (allFiltersPassed && params.keywords) allFiltersPassed = hasAllKeywords(params.keywords,eventsJson.keywords);
                 if (allFiltersPassed && params.from) allFiltersPassed = isAfterDate(params.from,eventsJson.dates);
                 if (allFiltersPassed && params.to) allFiltersPassed = isBeforeDate(params.to,eventsJson.dates);
+                if (allFiltersPassed && params.text) allFiltersPassed = containsText(params.text, eventsJson.title, eventsJson.description);    
                 if (allFiltersPassed) {
                     for (var j = 0; j < eventsJson.dates.length; j++) {
                         var date = getEventsFormattedDate(eventsJson.dates[j].substring(0, eventsJson.dates[j].length - 1));
@@ -718,7 +724,8 @@ $(document).ready(function () {
         tags : getUrlParameter('tags'),
         keywords : getUrlParameter('keywords'),
         from : getUrlParameter('from'),
-        to : getUrlParameter('to')
+        to : getUrlParameter('to'),
+        text : getUrlParameter('text')
     };
     
     var hasParams = function() {
