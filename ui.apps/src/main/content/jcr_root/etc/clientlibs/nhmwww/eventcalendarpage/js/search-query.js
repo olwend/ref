@@ -5,6 +5,7 @@ var NHMSearchQuery = new function () {
         DISPLAY_SHOW_MORE:      "row event--calendar--more--results",
         EVENT_TITLE_CLASS:      "event--calendar--search--result--main--title",
         EVENT_TITLE_TODAY:      "Today's Events",
+        EVENT_TITLE_SEARCH:     "Search results",
         EVENT_MONTH_DATES:      ["Jan",  "Feb", "Mar",
                                  "Apr",  "May", "Jun",
                                  "Jul",  "Aug", "Sep",
@@ -532,9 +533,41 @@ var NHMSearchQuery = new function () {
         return containsAllKeywords;
     };
     
+    var monthNumber = {
+        'Jan':'01','Feb':'02','Mar':'03','Apr':'04','May':'05','Jun':'06',
+        'Jul':'07','Aug':'08','Sep':'09','Oct':'10','Nov':'11','Dec':'12'    
+    }
+    
+    var dateToSearchFormat = function(date) {
+        var parsedDate = date.split(" ");
+        var month = monthNumber[parsedDate[1]]; // Gets the month number in the format MM
+        var day = parsedDate[2];
+        var parsedYear = parsedDate[parsedDate.length-1];
+        var year = parsedYear.substring(0, parsedYear.length - 1);
+        return month + '/' + day + '/' + year;    
+    }
+    
+    
+    var isAfterDate = function(paramFromDate, arrayDates) {
+        if (typeof arrayDates == 'undefined' || arrayDates.length == 0) return false;
+        paramFromDate = Date.parse(paramFromDate);
+        var lastDate = arrayDates.reduce(function (a, b) {
+            return Date.parse(dateToSearchFormat(a)) > Date.parse(dateToSearchFormat(b)) ? a : b;
+        });
+        return (paramFromDate <= Date.parse(dateToSearchFormat(lastDate)));
+    }
+    
+    var isBeforeDate = function(paramToDate, arrayDates) {
+        if (typeof arrayDates == 'undefined' || arrayDates.length == 0) return false;
+        paramToDate = Date.parse(paramToDate);
+        var firstDate = arrayDates.reduce(function (a, b) {
+            return Date.parse(dateToSearchFormat(a)) < Date.parse(dateToSearchFormat(b)) ? a : b;
+        });
+        return (paramToDate >= Date.parse(dateToSearchFormat(firstDate)));
+    }
+    
     this.displayFilteredEvents = function (params) {
         clearContainer();
-        
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];
@@ -546,7 +579,7 @@ var NHMSearchQuery = new function () {
                 ul      = createUL(),
                 today   = new Date();
 
-            titleH2.innerHTML = CONST.EVENT_TITLE_TODAY;
+            titleH2.innerHTML = CONST.EVENT_TITLE_SEARCH;
 
             for (var i = 0; i < inputs.eventsJson.length; i++) {
                 var eventsJson  = inputs.eventsJson[i];
@@ -558,6 +591,8 @@ var NHMSearchQuery = new function () {
                 if (allFiltersPassed && params.link) allFiltersPassed = params.link == eventsJson.ctaLink;
                 if (allFiltersPassed && params.tags) allFiltersPassed = hasAllTags(params.tags,formattedTags(eventsJson.tags));
                 if (allFiltersPassed && params.keywords) allFiltersPassed = hasAllKeywords(params.keywords,eventsJson.keywords);
+                if (allFiltersPassed && params.from) allFiltersPassed = isAfterDate(params.from,eventsJson.dates);
+                if (allFiltersPassed && params.to) allFiltersPassed = isBeforeDate(params.to,eventsJson.dates);
                 if (allFiltersPassed) {
                     for (var j = 0; j < eventsJson.dates.length; j++) {
                         var date = getEventsFormattedDate(eventsJson.dates[j].substring(0, eventsJson.dates[j].length - 1));
@@ -681,7 +716,9 @@ $(document).ready(function () {
         venue : getUrlParameter('venue'),
         link : getUrlParameter('link'),
         tags : getUrlParameter('tags'),
-        keywords : getUrlParameter('keywords')
+        keywords : getUrlParameter('keywords'),
+        from : getUrlParameter('from'),
+        to : getUrlParameter('to')
     };
     
     var hasParams = function() {
