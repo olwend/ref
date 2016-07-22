@@ -114,7 +114,7 @@
 
                         <c:set var="audiences" value="<%= audiences %>"/>
                         <c:if test="${not empty audiences}">
-                            <p>Who is it for: <strong>${audiences}</strong></p> 
+                            <p>Key Stage: <strong>${audiences}</strong></p> 
                         </c:if>
                         
                         <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
