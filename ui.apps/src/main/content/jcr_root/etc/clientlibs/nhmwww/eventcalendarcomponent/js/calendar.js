@@ -78,14 +78,13 @@ var NHMCalendar = new function () {
         switch (dates) {
 
             case CONST.SEVEN_DAYS:
-
-                fromDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+                fromDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 6);
 
                 break;
 
             case CONST.THIRTY_DAYS:
 
-                fromDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+                fromDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 29);
 
                 break;
         }
