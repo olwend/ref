@@ -290,29 +290,35 @@ var NHMSearchQuery = new function () {
 
         ul.appendChild(li);
     };
+    
+    var getTagTitle = function(tagId) {
+        var tagTitle = "";
+        for (var i = 0; i < tagsJson.length; i++) {
+            if (tagId == tagsJson[i].name) {
+                tagTitle = tagsJson[i].title;
+                break;
+            }
+        }
+        return (tagTitle.length>0 ? tagTitle : tagId);
+    }
 
     //Helper function to return the events
     var getEvents = function (tags, eventType) {
         var events = "";
 
         for (var i = 0; i < tags.length; i++) {
+            var tagId = tags[i];
             var tokens      = tags[i].split("/"),
                 firstToken  = tokens[0],
-                headers     = firstToken.split(":"),
-                lastToken   = "";
+                headers     = firstToken.split(":");
 
-            if (headers[1].localeCompare("events") === 0) {
-                lastToken = tokens[tokens.length - 1];
-                lastToken = lastToken.replace("-", " ");
-
-                if (events.localeCompare("") === 0) {
-                    events = lastToken;
-                } else {
-                    events = events.concat(", " + lastToken);
-                }
+            if (headers[1] == "events") {
+                 var tagTitle = getTagTitle(tagId);
+                 if (i > 0) tagTitle = tagTitle.toLowerCase(); // All events but first must be in lower cases.
+                 events += tagTitle;
+                 if (i < tags.length-1) events += ", "; // Do not concat a comma if it's the last event.
             }
         }
-
         if (events.localeCompare("") === 0) {
             return eventType;
         } else {
@@ -597,7 +603,7 @@ var NHMSearchQuery = new function () {
                 if (allFiltersPassed && params.venue) allFiltersPassed = params.venue.replace(/\+/g,' ') == eventsJson.venue;
                 if (allFiltersPassed && params.link) allFiltersPassed = params.link == eventsJson.ctaLink;
                 if (allFiltersPassed && params.tags) allFiltersPassed = hasAllTags(params.tags,formattedTags(eventsJson.tags));
-                if (allFiltersPassed && params.keywords) allFiltersPassed = hasAllKeywords(params.keywords,eventsJson.keywords);
+                if (allFiltersPassed && params.keywords) allFiltersPassed = hasAllKeywords(params.keywords,eventsJson.keywords);    
                 if (allFiltersPassed && params.from) allFiltersPassed = isAfterDate(params.from,eventsJson.dates);
                 if (allFiltersPassed && params.to) allFiltersPassed = isBeforeDate(params.to,eventsJson.dates);
                 if (allFiltersPassed && params.text) allFiltersPassed = containsText(params.text, eventsJson.title, eventsJson.description);    

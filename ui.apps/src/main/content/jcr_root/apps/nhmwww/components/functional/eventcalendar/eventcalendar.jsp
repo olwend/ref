@@ -1,9 +1,41 @@
 <%@page session="false"
-        import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager"%>
+        import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager,
+                java.util.Iterator,
+                java.lang.Exception"%>
 <%@include file="/libs/foundation/global.jsp" %>
 
+<% // Creates a json object with elements in the form { "tagId" : "tagTitle" }
+   // in order to be used by the front end javascript logic (search-query.js) %>   
+<script type="application/javascript">
+    var tagsNamespace = "nhmwww";
+    var tagsJson = [];
+    <% 
+    try {
+        String tagID = "nhmwww:";
+        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        Tag tag2 = tagManager.resolve(tagID);
+        Iterator<Tag> tagIterator = tag2.listChildren();
+        while (tagIterator.hasNext()) {
+            Tag newTag = tagIterator.next();
+            %>
+            // Adds the parent category tab    
+            tagsJson.push({"title":"<%=newTag.getTitle()%>", "name":"<%=newTag.getTagID()%>"});
+            <% 
+            Iterator<Tag> tagIteratorSubtags = newTag.listChildren();
+            while (tagIteratorSubtags.hasNext()) {
+                Tag newSubTag = tagIteratorSubtags.next();
+                %>
+                // Adds the subtag inside that category    
+                tagsJson.push({"title":"<%=newSubTag.getTitle()%>","name":"<%=newSubTag.getTagID()%>"});
+                <%            
+            }    
+        }
+    } catch(Exception e) {
+        // Do nothing
+    }
+    %>
+</script>     
 <cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
-    
 <div class="row event--calendar--wrapper" data-showmore="<%=properties.get("./showmore","NaN")%>">
     <ul class="small-block-grid-1 medium-block-grid-3 calendar-search--fields-block-grid">
         <li>

@@ -1,42 +1,31 @@
-<%@page session="false"%>
+<%@page session="false"
+        import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager,
+                java.util.Map,
+                java.util.HashMap"%>
 <%@include file="/libs/foundation/global.jsp" %>
 
 <%!
-    //function to get the tags
-    String getTags(String token, String tags) {
-       String lastToken = token.replace("-", " ");
 
-       if (tags.equals("")) {
-          tags = lastToken;                               
-       } 
-       else {
-          tags = tags.concat(", " + lastToken);                            
-       }
     
-       return tags;
-    }
-        
     //function to get the subjects
-    String getSubject(Value[] subject) {
-       String subjects = "";
-       
+    String getSubject(Value[] subject, TagManager tagMgr) {
+       String result = "";
        if (subject != null) {
           for (int i = 0; i < subject.length; i++) {
-             String[] tokens = subject[i].toString().split("/");
-             String lastToken = tokens[tokens.length - 1];
-             lastToken = lastToken.replace("-", " ");
-
-             if (i == 0) {
-                subjects = lastToken;                               
-             } 
-             else {
-                subjects = subjects.concat(", " + lastToken);                            
-             }
-          }
+                Value value = subject[i];
+                Tag tag = tagMgr.resolve(value.toString());
+                String subjectTitle = tag.getTitle();
+                if (i != 0) subjectTitle = subjectTitle.toLowerCase();
+                result += subjectTitle;
+                if (i < subject.length-1) result += ", ";
+           }
        }
-       
-       return subjects;
+       return result;
     }
+     String getTagTitle(Value tagId, TagManager tagMgr) {
+        Tag tag = tagMgr.resolve(tagId.toString());
+        return  tag.getTitle();
+     }
 %>
 <%
    String eventContentPath = currentPage.getPath() + "/jcr:content";
@@ -51,22 +40,41 @@
    
    Value[] tags = contentNode.hasProperty("cq:tags") ? contentNode.getProperty("cq:tags").getValues() : null;
    String events = "";
-   String audiences = "";
-   
+   String keyStage = "";
+   String tagTitles[] = new String[0];
+   TagManager tagMgr = resourceResolver.adaptTo(TagManager.class);
+   boolean eventTagsFound = false;
+   boolean keyStageTagsFound = false;
    if (tags != null) {
       for (int i = 0; i < tags.length; i++) {
          String[] tokens = tags[i].toString().split("/");
          String[] headers = tokens[0].split(":");
          
          if (headers[1].equals("events")) {
-            events = getTags(tokens[tokens.length - 1], events);
+            eventTagsFound = true;
+            String tagTitle = getTagTitle(tags[i], tagMgr) + ", ";
+            if (i != 0) tagTitle = tagTitle.toLowerCase();
+            events += tagTitle;
          }
-         else if (headers[1].equals("audience")) {
-            audiences = getTags(tokens[tokens.length - 1], audiences);                               
+         else if (headers[1].equals("key-stage")) {
+            keyStageTagsFound = true;
+            String tagTitle = getTagTitle(tags[i], tagMgr) + ", ";
+            if (i != 0) tagTitle = tagTitle.toLowerCase();
+            keyStage += tagTitle;                               
          }
       }
+   }
+    
+   if (eventTagsFound) {
+        events = events.substring(0, events.length() - 2);
+   } else { 
+        events = eventType; 
    } 
-   
+
+   if (keyStageTagsFound) {
+        keyStage = keyStage.substring(0, keyStage.length() - 2);
+   }
+    
    String adultPrice = contentNode.hasProperty("adultPrice") ? contentNode.getProperty("adultPrice").getString() : "";
    String concessionPrice = contentNode.hasProperty("concessionPrice") ? contentNode.getProperty("concessionPrice").getString() : "";
    String memberPrice = contentNode.hasProperty("memberPrice") ? contentNode.getProperty("memberPrice").getString() : "";
@@ -79,7 +87,7 @@
                                           
    if (eventType.toLowerCase().equals("school")) {
        Value[] subject = contentNode.hasProperty("cq:subject") ? contentNode.getProperty("cq:subject").getValues() : null;
-       eventSubjects = getSubject(subject);
+       eventSubjects = getSubject(subject, tagMgr);
        capacity = contentNode.hasProperty("capacity") ? contentNode.getProperty("capacity").getString() : "";
        eventDuration = contentNode.hasProperty("eventDuration") ? contentNode.getProperty("eventDuration").getString() : "";                                          
    } 
@@ -89,7 +97,7 @@
    
    if (eventType.toLowerCase().equals("science")) {
       Value[] scienceSubject = contentNode.hasProperty("cq:subjectScience") ? contentNode.getProperty("cq:subjectScience").getValues() : null;
-      scienceSubjects = getSubject(scienceSubject);
+      scienceSubjects = getSubject(scienceSubject, tagMgr);
       speakerDetails = contentNode.hasProperty("speakerDetails") ? contentNode.getProperty("speakerDetails").getString() : "";                                         
    }
    
@@ -112,9 +120,9 @@
                             <p>Location: <strong>${eventVenue}</strong></p> 
                         </c:if>
 
-                        <c:set var="audiences" value="<%= audiences %>"/>
-                        <c:if test="${not empty audiences}">
-                            <p>Key Stage: <strong>${audiences}</strong></p> 
+                        <c:set var="keyStage" value="<%= keyStage %>"/>
+                        <c:if test="${not empty keyStage}">
+                            <p>Key Stage: <strong>${keyStage}</strong></p> 
                         </c:if>
                         
                         <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
