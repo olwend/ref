@@ -6355,6 +6355,12 @@ h6 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.event--calendar--search--result .event--calendar--search--result--description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .event--calendar--search--result .event--calendar--search--result--item--content {
   padding: 0.5em 1.25em;
 }

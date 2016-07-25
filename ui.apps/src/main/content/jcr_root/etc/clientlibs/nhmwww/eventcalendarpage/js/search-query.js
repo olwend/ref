@@ -273,7 +273,7 @@ var NHMSearchQuery = new function () {
             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
             "Ticket price: <b>" + event.eventListingPrice + "</b><br/>" +
-            event.description;
+            "<span class='event--calendar--search--result--description'>" + event.description + "</span>";
 
         imageDiv.appendChild(img);
         a.appendChild(imageDiv);
