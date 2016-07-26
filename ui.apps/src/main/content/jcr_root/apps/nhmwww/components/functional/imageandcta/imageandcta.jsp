@@ -1,10 +1,14 @@
 <%@page session="false"%>
 <%@ page import="com.day.cq.commons.Doctype,
     com.day.cq.wcm.api.components.DropTarget,
-    com.day.cq.wcm.foundation.Image, com.day.cq.wcm.foundation.Placeholder" %>
+    com.day.cq.wcm.foundation.Image, com.day.cq.wcm.foundation.Placeholder,
+    com.day.cq.wcm.resource.details.AssetDetails,
+    java.text.DecimalFormat" %>
 <%@include file="/libs/foundation/global.jsp" %>
 <%
    final String IMAGE_CLASS = "image--and--cta--image";
+   String IMAGE_NOT_MATCHING_RATIO_CLASS = "";
+   final String IMAGE_RATIO = "1.76";
    Resource pageRes = currentPage.getContentResource();
    Image image = null;
    if(pageRes != null) {
@@ -30,6 +34,19 @@
    String fileReference = contentNode.hasProperty("fileReference") ? contentNode.getProperty("fileReference").getString() : "";
    String ctaLink = (eventType != "" && contentNode.hasProperty("ctaLink")) ? contentNode.getProperty("ctaLink").getString() : "";
    String ctaText = (eventType != "" && contentNode.hasProperty("ctaText")) ? contentNode.getProperty("ctaText").getString() : "";
+   
+   if (!fileReference.isEmpty()) {
+       Resource res = resourceResolver.getResource(fileReference); 
+       AssetDetails assetDetails = new AssetDetails(res);
+          if(assetDetails != null) {
+               Double height = new Double(assetDetails.getHeight());
+               Double width = new Double(assetDetails.getWidth());
+               DecimalFormat df = new DecimalFormat(".##");
+               if (!IMAGE_RATIO.equals(df.format(width/height).toString())) {
+                    IMAGE_NOT_MATCHING_RATIO_CLASS = " image--not--matching--ratio";
+               }
+          }
+    }
 %>    
 <c:set var="eventType" value="<%= eventType %>"/>
 <c:set var="fileReference" value="<%= fileReference %>"/>
@@ -55,7 +72,7 @@
         </c:if>
         <c:choose>
             <c:when test="${not empty eventType && hasFileReference}">
-                <img class="${IMAGE_CLASS}" src="${fileReference}">
+                <img class="<%=IMAGE_CLASS%><%=IMAGE_NOT_MATCHING_RATIO_CLASS%>" src="${fileReference}">
             </c:when>
             <c:when test="${not empty eventType && hasUploadedImage}">
                 <% image.draw(out); %>

@@ -6427,6 +6427,9 @@ h6 {
 .image--and--cta--wrapper .image--and--cta--image {
   height: 435px;
 }
+.image--and--cta--wrapper .image--not--matching--ratio {
+    width: 100%;
+}
 @media screen and (max-width: 1024px) {
   .image--and--cta--wrapper .image--and--cta--image {
     height: auto;
