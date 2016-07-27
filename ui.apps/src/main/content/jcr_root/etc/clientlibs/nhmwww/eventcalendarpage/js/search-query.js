@@ -481,7 +481,7 @@ var NHMSearchQuery = new function () {
     //Populates the single events result content
     this.displayTodayEvents = function () {
         clearContainer();
-        
+        eventsCounter = 0;
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];

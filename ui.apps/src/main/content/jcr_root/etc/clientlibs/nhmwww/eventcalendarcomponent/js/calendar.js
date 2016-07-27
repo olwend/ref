@@ -4,6 +4,7 @@ var NHMCalendar = new function () {
         DATE_BUTTON_CLASS: 'small-12 medium-12 large-12 columns date--button',
         THIRTY_DAYS: 'thirtyDays',
         SEVEN_DAYS: 'sevenDays',
+        TODAY: 'today',
         DATE_FROM: '#dateFrom',
         SET_DATE: 'setDate',
         MIN_DATE: 'minDate',
@@ -70,26 +71,26 @@ var NHMCalendar = new function () {
     //Function to set the datepicker values from the buttons
     var setDatesFromButton = function (dates) {
         var today = new Date(),
-            fromDate = today;
+            toDate = "";
 
         $(CONST.DATE_FROM).datepicker(CONST.SET_DATE, today);
-        $(CONST.DATE_TO).datepicker(CONST.OPTION, CONST.MIN_DATE, 0);
-
         switch (dates) {
-
+            case CONST.TODAY:
+                toDate = today;
+                break;
+                
             case CONST.SEVEN_DAYS:
-                fromDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 6);
-
+                toDate = new Date();
+                toDate.setDate(today.getDate() + 6);
                 break;
 
             case CONST.THIRTY_DAYS:
-
-                fromDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 29);
-
+                toDate = new Date();
+                toDate.setDate(today.getDate() + 29);
                 break;
         }
 
-        $(CONST.DATE_TO).datepicker(CONST.SET_DATE, fromDate);
+        $(CONST.DATE_TO).datepicker(CONST.SET_DATE, toDate);
     };
     
     this.init = function () {
