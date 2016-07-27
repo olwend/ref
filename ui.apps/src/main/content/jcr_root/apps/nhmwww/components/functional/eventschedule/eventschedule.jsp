@@ -78,9 +78,9 @@
        String timeAndDuration = "";
        if (times.length > 0) {
           for (int i = 0; i < times.length; i++) {
-             String initialTime = times[i];
-             String finalTime = calculateEndTime(times[i], duration);  
-             timeAndDuration += initialTime.replace("00:00","midnight") + "-" + finalTime.replace("00:00","midnight");
+             String initialTime = times[i].replace(":",".");
+             String finalTime = calculateEndTime(times[i], duration).replace(":",".");  
+             timeAndDuration += initialTime.replace("00.00","midnight") + "-" + finalTime.replace("00.00","midnight");
              if (i < times.length - 1) {
                   timeAndDuration += ", ";                       
              }
