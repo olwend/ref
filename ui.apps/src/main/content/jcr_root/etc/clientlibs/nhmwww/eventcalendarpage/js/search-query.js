@@ -235,6 +235,11 @@ var NHMSearchQuery = new function () {
 
         return tempResults;
     };
+    
+    var isExhibitionEvent = function(path) {
+        var parsedPath = path.split('/');
+        return (parsedPath[parsedPath.length - 2] == "exhibitions")
+    }
 
     //Populates the single event li and events ul
     var createSearchResult = function (event, ul, resultsDisplayed, isFromSearch) {
@@ -269,7 +274,7 @@ var NHMSearchQuery = new function () {
         img.src = event.imageLink;
         aH3.innerHTML = event.title;
         h3.appendChild(aH3);
-        paragraph.innerHTML = getEventDates(event.dates) + "<br/>" +
+        paragraph.innerHTML = getEventDates(event.dates, isExhibitionEvent(event.eventPagePath)) + "<br/>" +
             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
             "Ticket price: <b>" + event.eventListingPrice + "</b><br/>" +
@@ -327,7 +332,7 @@ var NHMSearchQuery = new function () {
     };
 
     //Helper function to parse the event date
-    var getEventDates = function (dates) {
+    var getEventDates = function (dates, isExhibitionEvent) {
         //If there is only one date
         if (dates.length == 1) {
             return parseToEventDate(getEventsFormattedDate(dates[0].substring(0, dates[0].length - 1)), false);
@@ -345,7 +350,27 @@ var NHMSearchQuery = new function () {
         var firstDate = aux.reduce(function (a, b) {
             return a < b ? a : b;
         });
-        return parseToEventDate(new Date(firstDate), false) + " - " + parseToEventDate(new Date(lastDate), false);
+        var startDate = new Date(firstDate);
+        var endDate = new Date(lastDate);
+        var startDateParsed = parseToEventDate(startDate, true);
+        var endDateParsed = parseToEventDate(endDate, true);
+        var today = new Date();
+        
+        var finalDate = "";
+        
+        //c3. For exhibitions only, if the start date has passed, the format should change to: 'Until [end date]'."
+        if (isExhibitionEvent && startDate.getTime() < today.getTime()) {
+            finalDate = "Until " + endDateParsed;
+        }
+        //c2. For exhibitions only, if the start date hasn't passed, the format should be: 
+        // 1 December 2015 - 15 January 2016 if spanning 2 years, or 1 January - 20 March 2016 if the exhibition starts and ends in the the same year.
+        else if (isExhibitionEvent && startDate.getFullYear() == endDate.getFullYear()) {
+            finalDate = startDateParsed.replace(" " + startDate.getFullYear(), "") + " - " + endDateParsed;
+        }
+        else {
+            finalDate = startDateParsed + " - " + endDateParsed;
+        }
+        return finalDate;
     };
 
     //Helper function to get the times
