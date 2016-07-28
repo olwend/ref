@@ -428,9 +428,9 @@ var NHMSearchQuery = new function () {
         }   
         var headers = $("#searchResult h2:hidden");
         for (var j = 0; j < headers.length; j++) {
-            var header = headers[i];
+            var header = headers[j];
             if (header) {
-                headers[i].style.display = "block";
+                headers[j].style.display = "block";
             }
         }
         showMore.className = CONST.HIDE_DIV_CLASS;
