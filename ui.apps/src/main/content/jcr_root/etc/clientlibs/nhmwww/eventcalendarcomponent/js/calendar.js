@@ -71,12 +71,15 @@ var NHMCalendar = new function () {
     //Function to set the datepicker values from the buttons
     var setDatesFromButton = function (dates) {
         var today = new Date(),
-            toDate = "";
+            toDate = '',
+            fromEl = $(CONST.DATE_FROM),
+            toEl = $(CONST.DATE_TO);
 
-        $(CONST.DATE_FROM).datepicker(CONST.SET_DATE, today);
+        fromEl.datepicker(CONST.SET_DATE, today);
         switch (dates) {
             case CONST.TODAY:
                 toDate = today;
+                toEl.datepicker('option', 'minDate', fromEl.datepicker('getDate'));
                 break;
                 
             case CONST.SEVEN_DAYS:
@@ -89,8 +92,7 @@ var NHMCalendar = new function () {
                 toDate.setDate(today.getDate() + 29);
                 break;
         }
-
-        $(CONST.DATE_TO).datepicker(CONST.SET_DATE, toDate);
+        toEl.datepicker(CONST.SET_DATE, toDate);
     };
     
     this.init = function () {
@@ -138,6 +140,12 @@ var NHMCalendar = new function () {
             NHMSearchQuery.displaySearchEvents(inputs.keywordsInput.value, inputs.filterOne.value, inputs.filterTwo.value, inputs.dateFrom.value, inputs.dateTo.value);
         } else {
             NHMSearchQuery.displayTodayEvents();
+        }
+    };
+    
+    this.resetSelectedButtons = function () {
+        for (var i = 0; i < inputs.dateButtons.length; i++) {
+            inputs.dateButtons[i].className = CONST.DATE_BUTTON_CLASS;
         }
     };
     
