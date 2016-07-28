@@ -54,7 +54,7 @@ public class CreateXMLFeedTask implements Runnable {
             System.out.println("*** Replicating feed ...");
             eventCalendarLoginUtils = new EventCalendarLoginUtils();
             session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
-            replicator.replicate(session, ReplicationActionType.ACTIVATE, "/" + CreateXMLFeedUtils.contentUrl + CreateXMLFeedUtils.visitorFeed);
+            replicator.replicate(session, ReplicationActionType.ACTIVATE, "/" + CreateXMLFeedUtils.contentUrl + "/" + CreateXMLFeedUtils.visitorFeed);
             System.out.println("*** Feed replicated successfully.");   
 		} catch (LoginException e) {
 			System.out.println("Login Exception: " + e);
