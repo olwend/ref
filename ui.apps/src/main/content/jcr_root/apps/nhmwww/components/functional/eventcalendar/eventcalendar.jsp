@@ -91,7 +91,7 @@
                 <legend class="calendar--search--label">Date</legend>
             </div>
             <div class="small-6 medium-6 large-6 columns pr-10 date--picker">
-                <div class="date--wrapper columns">
+                <div id="fromIcon" class="date--wrapper columns">
                     <div class="small-12 medium-12 large-12 columns">
                         <legend class="dates--label">From</legend>
                     </div>
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="small-6 medium-6 large-6 columns date--picker">
-                <div class="date--wrapper columns">
+                <div id="toIcon" class="date--wrapper columns">
                     <div class="small-12 medium-12 large-12 columns">
                         <legend class="dates--label">To</legend>
                     </div>

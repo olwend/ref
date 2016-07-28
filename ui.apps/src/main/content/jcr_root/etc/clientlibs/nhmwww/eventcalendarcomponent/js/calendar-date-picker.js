@@ -69,4 +69,11 @@ $(document).ready(function () {
         if (sheet.insertRule) return sheet.insertRule(selector + " {" + styles + "}", sheet.cssRules.length);
         if (sheet.addRule) return sheet.addRule(selector, styles);
     };
+    $( "#fromIcon" ).click(function() {
+        $( "#dateFrom" ).datepicker("show");
+    });
+
+    $( "#toIcon" ).click(function() {
+        $( "#dateTo" ).datepicker("show");
+    });
 });
