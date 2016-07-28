@@ -30,7 +30,7 @@ $(document).ready(function () {
         onSelect: function (dateText, inst) {
             $("#dateTo").datepicker("option", "minDate", $("#dateFrom").datepicker("getDate"));
             //Call to the search function
-            NHMCalendar.doSearch();
+            NHMCalendar.doSearch(true);
         }
     });
     //Second datepicker
@@ -56,7 +56,7 @@ $(document).ready(function () {
             }, 10);
         },
         onSelect: function (dateText, inst) {
-            NHMCalendar.doSearch();
+            NHMCalendar.doSearch(true);
         }
     });
     //Needed to hide the datepickers
