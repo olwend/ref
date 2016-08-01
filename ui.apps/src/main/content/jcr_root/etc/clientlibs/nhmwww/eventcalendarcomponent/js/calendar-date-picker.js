@@ -29,6 +29,7 @@ $(document).ready(function () {
         //Needed to set the "To" date 
         onSelect: function (dateText, inst) {
             $("#dateTo").datepicker("option", "minDate", $("#dateFrom").datepicker("getDate"));
+            NHMCalendar.resetSelectedButtons();
             //Call to the search function
             NHMCalendar.doSearch(true);
         }
@@ -56,6 +57,7 @@ $(document).ready(function () {
             }, 10);
         },
         onSelect: function (dateText, inst) {
+            NHMCalendar.resetSelectedButtons();
             NHMCalendar.doSearch(true);
         }
     });

@@ -67,18 +67,13 @@ var NHMSearchQuery = new function () {
     var createResultDiv = function (dateFrom, dateTo) {
         eventsCounter = 0;
         var numOfDays;
-        //If not dateFrom starts today
-        if (!dateFrom) {
-            dateFrom = new Date();
-        } else if (dateFrom) {
-            dateFrom = getFormattedDate(dateFrom);
-        }
+        dateFrom = dateFrom ? getFormattedDate(dateFrom) : new Date();
 
         //If not dateTo finish in one year
         if (!dateTo) {
             dateTo = new Date(dateFrom);
             dateTo.setMonth(dateTo.getMonth() + 12);
-        } else if (dateTo) {
+        } else {
             dateTo = getFormattedDate(dateTo);
         }
 
@@ -86,25 +81,28 @@ var NHMSearchQuery = new function () {
         dateTo = dateTo.setHours(0, 0, 0, 0, 0);
 
         //Gets the interval of days
-        numOfDays = Math.floor((dateTo - dateFrom) / 86400000);
-
-        var date = new Date(dateFrom);
+        numOfDays = Math.floor((dateTo - dateFrom)/24/60/60/1000);
+        
+        var fromDate = new Date(dateFrom);
         //For each day gets the events
         for (var i = 0; i < numOfDays + 1; i++) {
             var titleH2     = createTitleH2(),
                 ul          = createUL(),
                 auxResults  = [],
-                auxDate     = new Date();
-
+                auxDate     = new Date(),
+                baseDate    = new Date(dateFrom);
             //Sets the date in the title
-            titleH2.innerHTML = parseToEventDate(new Date(auxDate.setDate(date.getDate() + i)), true);  
+            
+            titleH2.innerHTML = parseToEventDate(new Date(baseDate.setDate(fromDate.getDate() + i)), true);  
                                                     
             auxDate = new Date(auxDate).setHours(0, 0, 0, 0, 0);
 
             for (var j = 0; j < inputs.results.length; j++) {
-                for (var k = 0; k < inputs.results[j].dates.length; k++) {
-                    var eventDate =  getEventsFormattedDate(inputs.results[j].dates[k].substring(0, inputs.results[j].dates[k].length - 1)).setHours(0, 0, 0, 0, 0);
-                    if (eventDate == auxDate) {
+                var eventDates = inputs.results[j].dates;
+                for (var k = 0; k < eventDates.length; k++) {
+                    var eventDate = getEventsFormattedDate(eventDates[k].substring(0, eventDates[k].length - 1)).setHours(0, 0, 0, 0, 0);
+                    
+                    if (eventDate === auxDate) {
                         //Needed to prevent empty dates displayed
                         if (auxResults.length == 0) {
                             inputs.container.appendChild(titleH2);
@@ -428,9 +426,9 @@ var NHMSearchQuery = new function () {
         }   
         var headers = $("#searchResult h2:hidden");
         for (var j = 0; j < headers.length; j++) {
-            var header = headers[i];
+            var header = headers[j];
             if (header) {
-                headers[i].style.display = "block";
+                headers[j].style.display = "block";
             }
         }
         showMore.className = CONST.HIDE_DIV_CLASS;
