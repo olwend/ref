@@ -168,7 +168,8 @@ var NHMSearchQuery = new function () {
     };
     
     //Helper function to check the tag against title, description, keywords or filters
-    var searchByTag = function (pattern, element) {
+    var searchByTag = function (pattern, event) {
+        var element = event.tags.concat(event.scienceSubject).concat(event.subject);
         var isTarget = false;
         
         for (var i = 0; i < element.length; i++) {
@@ -669,50 +670,46 @@ var NHMSearchQuery = new function () {
             }
 
             for (var i = 0; i < inputs.eventsJson.length; i++) {
-                var isOurEvent  = false,
-                    pattern     = "",
-                    eventsJson  = inputs.eventsJson[i],
-                    tags        = eventsJson.tags;
+                var pattern     = "",
+                    eventsJson  = inputs.eventsJson[i];
 
-                isOurEvent = checkTodayEvents(eventsJson);
+                if (!checkTodayEvents(eventsJson)) { 
+                    continue;
+                }
 
                 //If we have keyword and the event matched with our type
-                if (keywordsInput && isOurEvent) {
+                if (keywordsInput) {
                     pattern = new RegExp(keywordsInput, 'i');
 
                     //If the keyword matched with title, description or keywords
                     if (!searchByKeyword(pattern, eventsJson)) {
-                        isOurEvent = false;
+                        continue;
                     }
                 }
                 //If the filter matches with the tags
-                if (filterOne != "none" && isOurEvent) {
-                    if (!searchByTag(filterOne, tags)) {
-                        isOurEvent = false;
+                if (filterOne != "none") {
+                    if (!searchByTag(filterOne, eventsJson)) {
+                        continue;
                     }
                 }
-                if (filterTwo != "none" && isOurEvent) {
-                    if (!searchByTag(filterTwo, tags)) {
-                        isOurEvent = false;
+                if (filterTwo != "none") {
+                    if (!searchByTag(filterTwo, eventsJson)) {
+                        continue;
                     }
                 }
                 //If the date matches
-                if (dateFrom && isOurEvent) {
-                    var date = getFormattedDate(dateFrom);
-                    if (!searchByDate(date, eventsJson.dates, true)) {
-                        isOurEvent = false;
-                    }
+                var date = (!dateFrom) ? new Date() : getFormattedDate(dateFrom);
+                if (!searchByDate(date, eventsJson.dates, true)) {
+                    continue;
                 }
-                if (dateTo && isOurEvent) {
-                    var date = getFormattedDate(dateTo);
-                    if (!searchByDate(date, eventsJson.dates, false)) {
-                        isOurEvent = false;
-                    }
+                
+                var date = (!dateTo) ? new Date().setFullYear(new Date().getFullYear() + 1) : getFormattedDate(dateTo);
+                if (!searchByDate(date, eventsJson.dates, false)) {
+                    continue;
                 }
-                //Add the event if matches the query
-                if (isOurEvent) {
-                    inputs.results.push(eventsJson);
-                }
+                
+                // The event matches all the query parameters.
+                inputs.results.push(eventsJson);
             }
 
             //Displays the results
