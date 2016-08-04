@@ -81,10 +81,11 @@ var NHMCalendar = new function () {
             toEl = $(CONST.DATE_TO);
 
         fromEl.datepicker(CONST.SET_DATE, today);
+        toEl.datepicker('option', 'minDate', fromEl.datepicker('getDate'));
+        
         switch (dates) {
             case CONST.TODAY:
                 toDate = today;
-                toEl.datepicker('option', 'minDate', fromEl.datepicker('getDate'));
                 break;
                 
             case CONST.SEVEN_DAYS:
