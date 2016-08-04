@@ -157,13 +157,20 @@ var NHMCalendar = new function () {
     
     var getSelectedDateButton = function() {
         var selected = "";
-        if ($('#' + CONST.TODAY)[0].classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
+        var todayButton = $('#' + CONST.TODAY)[0];
+        var sevenDaysButton = $('#' + CONST.SEVEN_DAYS)[0];
+        var thirtyDaysButton = $('#' + CONST.THIRTY_DAYS)[0];
+        
+        if ((typeof todayButton != "undefined") && 
+             todayButton.classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
             selected = CONST.TODAY;
         }
-        else if ($('#' + CONST.SEVEN_DAYS)[0].classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
+        else if ((typeof sevenDaysButton != "undefined") && 
+                  sevenDaysButton.classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
             selected = CONST.SEVEN_DAYS;
         }
-        else if ($('#' + CONST.THIRTY_DAYS)[0].classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
+        else if ((typeof thirtyDaysButton != "undefined") && 
+                  thirtyDaysButton.classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
             selected = CONST.THIRTY_DAYS;
         }
         return selected;
