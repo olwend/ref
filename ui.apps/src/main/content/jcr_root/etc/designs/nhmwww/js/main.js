@@ -168,11 +168,14 @@ function resizeYoutubeFrames() {
 	// (You'll probably want to debounce this)
 	$(window).resize(function() {
 
-		var newWidth = $fluidEl.width();
+		//var newWidth = $fluidEl.width(); //dhis - dont use 1st video-wrapper
 	
 		// Resize all videos according to their own aspect ratio
 		$allVideos.each(function() {
+			
 			var $el = $(this);
+			var newWidth = $el.closest('.video-wrapper').width();  //dhis use items video-wrapper parent width instead
+			
 			if(newWidth == $el.data('originalWidth')) {
 				$el
 				.width(newWidth)
@@ -423,50 +426,76 @@ jQuery(document).ready(function() {
     });
 
     // Megamenu click handling
-    jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){   
-        if(jQuery(e.target).closest('li').hasClass('has-children')){  
-            var $this = jQuery(this);     
-            if(jQuery(window).width() < 768){    
-                e.preventDefault(); // don't affect clicks on items with submenus to open
-                if($this.hasClass('selected')) {
-                    jQuery('.global-menu-trigger').removeClass('return');
-                    $this.removeClass('selected').siblings().removeClass('selected-siblings');
-                } else {
-                    jQuery('.global-menu-trigger').addClass('return');
-                    jQuery('.nav-list__item').removeClass('selected');
-                    $this.addClass('selected').siblings().addClass('selected-siblings');
-                }                                
-            }                       
-        }
-    });
 
-    //Megamenu touch handling
-    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
+    // if the width of the window is less than 768px i.e. mobile screen size...
+    if(jQuery(window).width() < 768){
+    // if a main nav link is clicked...
+      jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){
+        // set variable for "this"
+        var $this = jQuery(this);
+
+        // if the main nav link has children i.e. has a sub-nav...
+      	if(jQuery(e.target).closest('li').hasClass('has-children')){
+					// stop touch acting as a click on items with submenus
+					e.preventDefault();
+
+					// if the main nav link already has a "selected" class, remove all the classes that make it "selected"
+					if($this.hasClass('selected')) {
+						$this.removeClass('touch');
+            jQuery('.global-menu-trigger').removeClass('return');
+            $this.removeClass('selected').siblings().removeClass('selected-siblings');
+          } else {
+          // else add all the classes that make it "selected"
+						$this.addClass('touch');
+            jQuery('.global-menu-trigger').addClass('return');
+            jQuery('.nav-list__item').removeClass('selected');
+            $this.addClass('selected').siblings().addClass('selected-siblings');
+          }
+        }
+      });
+
+      // if a link in the sub-nav is clicked...
+      jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
+      // allow the link to work as normal
+      	return true;
+      // set variable for "this"
+        var $this = jQuery(this);
+
+        // if the main nav link already has a "selected" class, remove all the classes that make it "selected" and allow the link to work as normal
+        if($this.hasClass('selected')) {
+					return true;
+          jQuery('.global-menu-trigger').removeClass('return');
+          $this.removeClass('selected').siblings().removeClass('selected-siblings');
+        }
+      });
+    } else {
+	    // Megamenu touch handling for screens above 768px
+	    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
         if(jQuery(e.target).closest('li').hasClass('has-children')){
-            e.preventDefault(); // stop touch acting as a click on items with submenus
-            e.stopPropagation(); // stop a click event from also firing
+          e.preventDefault(); // stop touch acting as a click on items with submenus
+          e.stopPropagation(); // stop a click event from also firing
+          var $this = jQuery(this);
 
-            var $this = jQuery(this);
+          if($this.hasClass('open')) {
+            $this.removeClass('open').removeClass('touch');
+          } else {
+            jQuery('.nav-list__item').removeClass('open');
+            $this.addClass('open').addClass('touch');
+          }
 
-            if($this.hasClass('open')) {
-                $this.removeClass('open').removeClass('touch');
+          if(jQuery(window).width() < 768){
+            if($this.hasClass('selected')) {
+              jQuery('.global-menu-trigger').removeClass('return');
+              $this.removeClass('selected').siblings().removeClass('selected-siblings');
             } else {
-                jQuery('.nav-list__item').removeClass('open');
-                $this.addClass('open').addClass('touch');
+              jQuery('.global-menu-trigger').addClass('return');
+              jQuery('.nav-list__item').removeClass('selected');
+              $this.addClass('selected').siblings().addClass('selected-siblings');
             }
-
-            if(jQuery(window).width() < 768){
-                if($this.hasClass('selected')) {
-                    jQuery('.global-menu-trigger').removeClass('return');
-                    $this.removeClass('selected').siblings().removeClass('selected-siblings');
-                } else {
-                    jQuery('.global-menu-trigger').addClass('return');
-                    jQuery('.nav-list__item').removeClass('selected');
-                    $this.addClass('selected').siblings().addClass('selected-siblings');
-                }
-            }
+          }
         }
-    });
+	    });
+		}
 
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){

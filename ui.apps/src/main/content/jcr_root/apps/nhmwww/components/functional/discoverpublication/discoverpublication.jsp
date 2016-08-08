@@ -48,11 +48,10 @@
   			WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
   			WCMMode.PREVIEW.toRequest(slingRequest);
 %>
+	<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
 
-			<cq:include path="image" resourceType="nhmwww/components/functional/foundation5image" />
 <%
 			beforeMode.toRequest(slingRequest);
-
 			if (helper.hasImageCaption()) {
 %>
 			<div class="discover-image-caption-icon small-1 medium-1 large-1">

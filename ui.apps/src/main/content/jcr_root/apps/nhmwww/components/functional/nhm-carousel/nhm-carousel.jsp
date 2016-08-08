@@ -21,7 +21,7 @@
 <!--  START OF CAROUSEL -->
 <div class="<%= helper.getCarouselType() %>-wrapper">
 
-	<%if (helper.getComponentTitle() != null) {%><h4><%if (helper.getHyperlink() != null) {%><a href="<%=helper.getHyperlink() %>"<%=helper.getNewWindowHtml()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperlink() != null) {%></a><%}%></h4> <%}%>
+	<%if (helper.getComponentTitle() != null) {%><h3><%if (helper.getHyperlink() != null) {%><a href="<%=helper.getHyperlink() %>"<%=helper.getNewWindowHtml()%>><%}%><%=helper.getComponentTitle() %><%if (helper.getHyperlink() != null) {%></a><%}%></h3> <%}%>
     <ul class="<%= helper.getCarouselType() %>"
         data-nhm-thumbnails="<%=helper.getHasThumbnails()%>"
     	data-nhm-autoscroll="<%=helper.getHasAutoscroll()%>"

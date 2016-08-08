@@ -155,7 +155,7 @@ public class HeaderTextImageHelper {
 				this.ctaLink= LinkUtils.getFormattedLink(this.ctaLink);
 			}
 			
-			if (properties.get("callToActionNewWindow") != null) {
+			if (properties.get("cta-newwindow") != null) {
 				this.ctaLinkNewWindow = properties.get("cta-newwindow",false);
 			}
 			

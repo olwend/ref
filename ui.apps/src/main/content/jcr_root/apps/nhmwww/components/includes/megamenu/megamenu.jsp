@@ -12,14 +12,13 @@
                         </li>
                         <li class="nav-list__item has-children first visit">
                             <a href="/content/nhmwww/en/home/visit.html">Visit</a>
-                            <ul class="nav-list level-2">
-                                <div class="dropdown-section">
+                            <div class="nav-list level-2">
+                                <ul class="dropdown-section">
                                     <li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/visit.html">Visit home</a>
+                                        <a href="/content/nhmwww/en/home/visit.html">Visit homepage</a>
                                     </li>
                                     <li class="nav-list__item ">
                                         <a href="/visit/whats-on/day.html">What's on</a>
-                                       
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/exhibitions.html">Exhibitions and attractions</a>
@@ -36,13 +35,11 @@
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/facilities-and-access.html">Facilities and access</a>
                                     </li>
-                                
                                    <!--  <li class="nav-list__item mobile">
                                         <a href="#">Natural History Museum at Tring</a>
                                     </li> -->
-                                </div>
-                                <div class="dropdown-section">
-                                
+                                </ul>
+                                <ul class="dropdown-section">
                                      <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/getting-here.html">Getting here</a>
                                     	<p class="tablet desktop">Our main entrance is on Cromwell Road, just five minutes' walk from South Kensington Tube station.</p>
@@ -51,27 +48,25 @@
                                         <a href="/visit/tring.html">The Museum at Tring</a> 
                                     	<p class="tablet desktop">Visit our Museum in Hertfordshire.</p>
                                     </li>
-                                </div>
-                                <div class="dropdown-section dropdown-section--thumb">
+                                </ul>
+                                <ul class="dropdown-section dropdown-section--thumb">
                                     <li class="nav-list__item">
 
                                     <a href="/content/nhmwww/en/home/visit/getting-here.html"><img src="https://maps.googleapis.com/maps/api/staticmap?center=51.496705,-0.17636&zoom=14&size=360x200&markers=colour:red%7clabel:Natural+History+Museum%7C51.496705,-0.17636" alt="Natural History Museum"></a>
- 
-
                             <!--  <iframe width="360" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Natural%20History%20Museum%2C%20Cromwell%20Road%2C%20London%2C%20United%20Kingdom&key=AIzaSyC09eunz5fyve_HGt3DQGRQzEpQT1A1HbA"></iframe>  -->
                                     </li>
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-list__item">
                             <a href="/content/nhmwww/en/home/discover.html">Discover</a>
                         </li>
                         <li class="nav-list__item has-children take-part">
                             <a href="/content/nhmwww/en/home/take-part.html">Take part</a>
-                            <ul class="nav-list level-2">
-                                <div class="dropdown-section">
+                            <div class="nav-list level-2">
+                                <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/take-part.html">Take part home</a>
+                                        <a href="/content/nhmwww/en/home/take-part.html">Take part homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/take-part/citizen-science.html">Citizen science</a>
@@ -101,17 +96,16 @@
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/take-part/volunteer.html">Volunteer</a>
                                     </li>
-                                </div>
-                                <div class="dropdown-section">
+                                </ul>
+                                <ul class="dropdown-section">
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/take-part/identification-trainers-for-the-future.html">Training</a>
                                     </li>
-                                    
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/take-part/wildlife-photographer-of-the-year-competition.html">Wildlife Photographer<br>of the Year Competition</a>
                                     </li>
-                                </div>
-                                <div class="dropdown-section dropdown-section--thumb">
+                                </ul>
+                                <ul class="dropdown-section dropdown-section--thumb">
                                     <li class="nav-list__item">
 	                                    <a href="/content/nhmwww/en/home/take-part.html">
 	                                        <div class="mega-thumb">
@@ -124,15 +118,15 @@
 	                                        </div>
 	                                    </a>
                                     </li>
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-list__item has-children support-us">
                             <a href="/content/nhmwww/en/home/support-us.html">Support us</a>
-                            <ul class="nav-list level-2">
-                                <div class="dropdown-section">
+                            <div class="nav-list level-2">
+                                <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/support-us.html">Support us home</a>
+                                        <a href="/content/nhmwww/en/home/support-us.html">Support us homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
@@ -142,13 +136,11 @@
                                             </li>
                                         </ul>
                                     </li>
-                                <li class="nav-list__item">
-                                        <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
-                                </li>
-
-
-                                </div>
-                                <div class="dropdown-section">
+	                                <li class="nav-list__item">
+	                                        <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
+	                                </li>
+                                </ul>
+                                <ul class="dropdown-section">
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/give.html">Give</a>
                                         <ul class="nav-list level-3">
@@ -167,9 +159,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </div>
+                                </ul>
                                
-                                 <div class="dropdown-section dropdown-section--thumb">
+                                 <ul class="dropdown-section dropdown-section--thumb">
                                  	<li class="nav-list__item">
 	                                    <a href="/content/nhmwww/en/home/support-us.html">
 	                                 		<div class="mega-thumb">
@@ -182,36 +174,37 @@
 	                                        </div>
 	                                   	</a>
                                    	</li>  
-                               	</div>
-                            </ul>
+                               	</ul>
+                            </div>
                         </li>
                         <li class="nav-list__item has-children shop">
                             <a href="http://www.nhmshop.co.uk">Shop</a>
-                            <ul class="nav-list level-2">
-                                <div class="dropdown-section">
+                            <div class="nav-list level-2">
+                                <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="http://www.nhmshop.co.uk">Shop home</a>
+                                        <a href="http://www.nhmshop.co.uk">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/prints.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-prints-wpy&utm_content=meganav-link-1">Wildlife Photographer of the Year 2015 prints</a>
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-1">Dinosaur shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-2">Dinosaur toys</a>
-                                       
+                                        <a href="http://www.nhmshop.co.uk/souvenirs.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-souvenirs&utm_content=meganav-link-2">Museum souvenirs</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/latest-offers.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm-nhm-meganav-link&utm_content=meganav-link-3">Latest offers</a>
+                                        <a href="http://www.nhmshop.co.uk/prints/wildlife-photographer-of-the-year-2015-prints.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-wpy&utm_content=meganav-link-3">Wildlife Photographer of the Year 2015 prints</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/sale.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-link-4">Sale</a>
+                                        <a href="http://www.nhmshop.co.uk/jewellery.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-jewellery&utm_content=meganav-link-4">Jewellery</a>
                                     </li>
-                                </div>
+                                </ul>
                                 
-                                <div class="dropdown-section">
-                                    <p></p>
-                                    <p class="nav-callout tablet desktop">
-                                        Thousands of nature-inspired gifts. Free UK next-day delivery when you spend £50 on gifts from the Museum collection. All sales support the Museum.</p>
+                                <ul class="dropdown-section">
+                                    <li class="nav-callout tablet desktop">
+                                    	<p></p>
+                                    	<p>
+                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £50 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
                                         <br/>
+                                    </li>
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
                                             <li>
@@ -220,32 +213,30 @@
                                             </li>
                                         </ul>
                                     </li>
-                                        	
-                                        
-                                    </div>
+                                  </ul>
                                 
-                                  <div class="dropdown-section dropdown-section--thumb">
+                                  <ul class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/prints.html?utm_source=&utm_medium=nhm.ac.uk&utm_campaign=referral&utm_content=meganav-image">
+                                  		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-kitsch-dino&utm_content=meganav-image">
                                   			<div class="mega-thumb">
 	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Wall prints from £20">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Wall prints from £20
+                                                       Kitsch dino for adults
                                                     </p>
 	                                            </div>
 	                                        </div>
 	                                   	</a>
                                    	</li>  
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-list__item has-children schools">
                             <a href="/content/nhmwww/en/home/schools.html">Schools</a>
-                            <ul class="nav-list level-2">
-                                <div class="dropdown-section">
+                            <div class="nav-list level-2">
+                                <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/schools.html">Schools home</a>
+                                        <a href="/content/nhmwww/en/home/schools.html">Schools homepage</a>
                                     </li>
                                     <li class="nav-list__item first">
                                         <a href="/content/nhmwww/en/home/schools/things-to-do-schools.html">Things to do</a>
@@ -257,17 +248,19 @@
                                      <li class="nav-list__item first">
                                         <a href="/content/nhmwww/en/home/schools/teaching-resources.html">Teaching resources</a>
                                     </li>
-                                </div>
+                                </ul>
                                 
-                                <div class="dropdown-section">
-                                    <p></p>
-                                    <p class="nav-callout tablet desktop">
+                                <ul class="dropdown-section">
+                                    <li>
+                                    	<p></p>
+                                    	<p class="nav-callout tablet desktop">
                                         Book a visit for your school on<br />
                                          <span>+44 (0)20 7942 5555</span>.<br />
                                         Lines are open Monday-Friday from 8.30-16.00 during term time and 10.00-13.00 during school holidays.</p>
-                                    </div>
+                                    </li>
+                                </ul>
                                 
-                                  <div class="dropdown-section dropdown-section--thumb">
+                                <ul class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
                                   		<a href="/content/nhmwww/en/home/schools.html">
                                   			<div class="mega-thumb">
@@ -280,8 +273,8 @@
 	                                        </div>
 	                                   	</a>
                                    	</li>  
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-list__item has-children">
                             <a href="/content/nhmwww/en/home/our-science.html">Our science</a>
@@ -289,7 +282,7 @@
                             	<li class="nav-list__item mobile touchonly first">
                                         <a href="/content/nhmwww/en/home/our-science.html" class="home">
                                         <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_branding_n.svg" data-svg-title="icon__science" data-alt="Section home" data-base-color="#357900" data-hover-color="#357900" data-stroke-width="4" data-fallback="/etc/designs/nhmwww/img/icons/nav-microscope.png"></i>
-                                        Our science home</a>
+                                        Our science homepage</a>
                                     </li>
                                 <li class="nav-list__item first">
                                     <a href="/content/nhmwww/en/home/our-science/our-work.html" class="works">
@@ -371,7 +364,7 @@
 	                                        </div>
 	                                        <div class="form-field email">
 	                                            <label for="email">Email address</label>
-	                                            <input class="item-input" name="email" type="text" />
+	                                            <input class="item-input" name="email" type="email" />
 	                                        </div>
 	                                        <input class="question" type="text" name="question">
 	                                        <button class="submit arrow">Sign up</button>

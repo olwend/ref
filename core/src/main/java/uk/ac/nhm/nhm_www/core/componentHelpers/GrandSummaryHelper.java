@@ -2,10 +2,13 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ValueMap;
 
+import uk.ac.nhm.nhm_www.core.services.PathToResourceService;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
+import com.day.cq.dam.api.Asset;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.components.DropTarget;
 import com.day.cq.wcm.foundation.Image;
@@ -19,6 +22,13 @@ public class GrandSummaryHelper {
 	// Image & Advanced
 	private Image image;
 	private Image mobileimage;
+	
+	private Asset fileImage;
+	
+	private String fileReference;
+	private String mobileFileReference;
+	private String alt;
+	
 	private String id;
 	private String divId;
 	private String title;
@@ -37,8 +47,9 @@ public class GrandSummaryHelper {
 	private String location;
 	private String date;
 
+	PathToResourceService ptrs = new PathToResourceService();
 	
-	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties, Image image) {
+	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties, Image image) throws LoginException {
 		this.activated = false;
 		this.isExhibition = false;
 		
@@ -58,6 +69,18 @@ public class GrandSummaryHelper {
 			this.newWindow = properties.get("newwindow",false);
 		}
 
+		if(properties.get("fileReference")!=null) this.fileReference = properties.get("fileReference", String.class);
+		if(properties.get("mobileFileReference")!=null) this.mobileFileReference = properties.get("mobileFileReference", String.class);
+		
+		//Get asset from @fileReference to get title of image
+		this.fileImage = ptrs.getAsset(this.fileReference, request);
+		if(this.fileImage.getMetadata().containsKey("dc:title")) {
+			this.alt = this.fileImage.getMetadataValue("dc:title").toString();
+		}
+		else {
+			this.alt = this.fileImage.getName();
+		}
+		
 		this.mobileimage = new Image(request.getResource());
 		this.mobileimage.setIsInUITouchMode(Placeholder.isAuthoringUIModeTouch(request));
 		this.image = image;
@@ -135,7 +158,7 @@ public class GrandSummaryHelper {
 		}
 	}
 
-	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties) {
+	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties) throws LoginException {
 		// Inject image class from Resource
 		this(request, page, properties, new Image(request.getResource()));
 	}
@@ -298,6 +321,38 @@ public class GrandSummaryHelper {
 
 	public void setCTAIconClass(String ctaIconClass) {
 		this.ctaIconClass = ctaIconClass;
+	}
+
+	public String getFileReference() {
+		return fileReference;
+	}
+
+	public void setFileReference(String fileReference) {
+		this.fileReference = fileReference;
+	}
+
+	public String getMobileFileReference() {
+		return mobileFileReference;
+	}
+
+	public void setMobileFileReference(String mobileFileReference) {
+		this.mobileFileReference = mobileFileReference;
+	}
+
+	public String getAlt() {
+		return alt;
+	}
+
+	public void setAlt(String alt) {
+		this.alt = alt;
+	}
+
+	public Asset getFileImage() {
+		return fileImage;
+	}
+
+	public void setFileImage(Asset fileImage) {
+		this.fileImage = fileImage;
 	}
 
 }

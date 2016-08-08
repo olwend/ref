@@ -280,7 +280,17 @@ div#page-container {
   width: 75%;
 }
 .legacy-css #column-c #accountForm #standardTerms, .legacy-css #column-c form #standardTerms {
-  width: 2%;
+  width: 9%;
+}
+@media screen and (min-width: 768px) {
+  .legacy-css #column-c #accountForm #standardTerms, .legacy-css #column-c form #standardTerms {
+    width: 5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .legacy-css #column-c #accountForm #standardTerms, .legacy-css #column-c form #standardTerms {
+    width: 3%;
+  }
 }
 .legacy-css #column-c #fm1 #username, .legacy-css #column-c #fm1 #password {
   width: 100%;

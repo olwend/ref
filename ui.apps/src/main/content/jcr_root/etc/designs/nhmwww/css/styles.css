@@ -3,7 +3,14 @@ STYLESHEET COMPILED USING SASS
 CSS files should not be edited directly, as those edits will be overridden next time SASS is compiled.
 */
 /** LEGACY SECTIONS PARTIAL (PHASED OUT) **/
-.home h1, .home a, .home a:hover {
+.home {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.home a, .home a:hover {
   color: #A1164E;
 }
 .home.thumb-caption,
@@ -15,9 +22,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .home .thumb-caption {
     background-color: rgba(161, 22, 78, 0.95);
   }
-}
-.home .intro-text {
-  color: #A1164E;
 }
 .home .nav-list__item.visit a {
   color: #A1164E;
@@ -51,34 +55,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .home .info-tout__share a:hover h3, .home .info-tout__share a:hover p {
   color: #ffffff;
 }
-.home .hero .caption {
-  background-color: #A1164E;
-}
-@media screen and (min-width: 768px) {
-  .home .hero .caption {
-    background-color: rgba(161, 22, 78, 0.9);
-  }
-}
-.home .hero .caption .dates {
-  background-color: #A1164E;
-}
 .home .bottom-banner {
   background-color: #A1164E;
-}
-.home .lSPrev:hover, .home .lSNext:hover {
-  background-color: #A1164E;
-}
-.home .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #A1164E;
-}
-.home .lSAction a:hover {
-  background-color: rgba(161, 22, 78, 0.7);
-}
-.home .event-slide-content {
-  background-color: #f4f4f4;
-}
-.home .event-slide-content a {
-  color: #A1164E;
 }
 .home .GreyBox a {
   color: #A1164E;
@@ -92,40 +70,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .home .feature-box.our-science {
   background-color: #eeeeee;
 }
-.home .accordion .accordion-navigation > a,
-.home .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-visit.png");
-}
-.home .accordion .accordion-navigation > a:hover,
-.home .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.home .accordion .accordion-navigation.active > a,
-.home .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-visit.png");
-}
-.home .accordion .accordion-navigation.active > a:hover,
-.home .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
-.home h2 {
-  color: #565656;
-  padding-bottom: 10px;
-}
-.home h2 #search-calendar select {
-  margin-bottom: 10px;
-}
-.home a {
-  color: #565656;
-}
 
-.visit h1, .visit h2 {
-  padding-bottom: 10px;
-}
-.visit h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .visit .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -206,7 +151,15 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.visit h1, .visit a, .visit a:hover {
+.visit {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+  /** commented out for WR-751 (refactor of carousel component) **/
+}
+.visit a, .visit a:hover {
   color: #A1164E;
 }
 .visit.thumb-caption,
@@ -218,9 +171,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .visit .thumb-caption {
     background-color: rgba(161, 22, 78, 0.95);
   }
-}
-.visit .intro-text {
-  color: #A1164E;
 }
 .visit .nav-list__item.visit a {
   color: #A1164E;
@@ -254,34 +204,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .visit .info-tout__share a:hover h3, .visit .info-tout__share a:hover p {
   color: #ffffff;
 }
-.visit .hero .caption {
-  background-color: #A1164E;
-}
-@media screen and (min-width: 768px) {
-  .visit .hero .caption {
-    background-color: rgba(161, 22, 78, 0.9);
-  }
-}
-.visit .hero .caption .dates {
-  background-color: #A1164E;
-}
 .visit .bottom-banner {
   background-color: #A1164E;
-}
-.visit .lSPrev:hover, .visit .lSNext:hover {
-  background-color: #A1164E;
-}
-.visit .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #A1164E;
-}
-.visit .lSAction a:hover {
-  background-color: rgba(161, 22, 78, 0.7);
-}
-.visit .event-slide-content {
-  background-color: #f4f4f4;
-}
-.visit .event-slide-content a {
-  color: #A1164E;
 }
 .visit .GreyBox a {
   color: #A1164E;
@@ -295,22 +219,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .visit .feature-box.our-science {
   background-color: #eeeeee;
 }
-.visit .accordion .accordion-navigation > a,
-.visit .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-visit.png");
-}
-.visit .accordion .accordion-navigation > a:hover,
-.visit .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.visit .accordion .accordion-navigation.active > a,
-.visit .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-visit.png");
-}
-.visit .accordion .accordion-navigation.active > a:hover,
-.visit .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 .visit a:hover {
   color: #A1164E;
 }
@@ -319,31 +227,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .visit .summary.blue {
   color: #0983BB;
-}
-.visit .caption h2 {
-  padding-bottom: 0px;
-}
-.visit .caption p {
-  font-size: 1.3em;
-}
-@media screen and (min-width: 768px) {
-  .visit .caption h1 {
-    font-size: 4.5em;
-  }
-  .visit .caption h2 {
-    padding-bottom: 0px;
-  }
-  .visit .caption h4 {
-    color: #ffffff;
-    padding: 0;
-    margin: 0;
-  }
-  .visit .caption p {
-    font-size: 1.5em;
-  }
-}
-.visit .caption.blue-caption {
-  background-color: rgba(9, 131, 187, 0.8);
 }
 @media screen and (min-width: 768px) {
   .visit .GreyBox {
@@ -372,13 +255,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #f4f4f4;
 }
 
-.take-part h1, .take-part h2 {
-  padding-bottom: 10px;
-}
-.take-part h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .take-part .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -459,7 +335,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.take-part h1, .take-part a, .take-part a:hover {
+.take-part {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.take-part a, .take-part a:hover {
   color: #BF491F;
 }
 .take-part.thumb-caption,
@@ -471,9 +354,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .take-part .thumb-caption {
     background-color: rgba(191, 73, 31, 0.95);
   }
-}
-.take-part .intro-text {
-  color: #BF491F;
 }
 .take-part .nav-list__item.take-part a {
   color: #BF491F;
@@ -507,34 +387,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .take-part .info-tout__share a:hover h3, .take-part .info-tout__share a:hover p {
   color: #ffffff;
 }
-.take-part .hero .caption {
-  background-color: #BF491F;
-}
-@media screen and (min-width: 768px) {
-  .take-part .hero .caption {
-    background-color: rgba(191, 73, 31, 0.9);
-  }
-}
-.take-part .hero .caption .dates {
-  background-color: #BF491F;
-}
 .take-part .bottom-banner {
   background-color: #BF491F;
-}
-.take-part .lSPrev:hover, .take-part .lSNext:hover {
-  background-color: #BF491F;
-}
-.take-part .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #BF491F;
-}
-.take-part .lSAction a:hover {
-  background-color: rgba(191, 73, 31, 0.7);
-}
-.take-part .event-slide-content {
-  background-color: #f4f4f4;
-}
-.take-part .event-slide-content a {
-  color: #BF491F;
 }
 .take-part .GreyBox a {
   color: #BF491F;
@@ -548,27 +402,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .take-part .feature-box.our-science {
   background-color: #eeeeee;
 }
-.take-part .accordion .accordion-navigation > a,
-.take-part .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-take-part.png");
-}
-.take-part .accordion .accordion-navigation > a:hover,
-.take-part .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.take-part .accordion .accordion-navigation.active > a,
-.take-part .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-take-part.png");
-}
-.take-part .accordion .accordion-navigation.active > a:hover,
-.take-part .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 .take-part .nav-list__item.take-part a {
   background-color: #EAF2E6;
-}
-.take-part h3 {
-  padding-bottom: 10px;
 }
 .take-part .large4-padding {
   margin-bottom: 3%;
@@ -579,13 +414,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.about-us h1, .about-us h2 {
-  padding-bottom: 10px;
-}
-.about-us h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .about-us .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -666,7 +494,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.about-us h1, .about-us a, .about-us a:hover {
+.about-us {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.about-us a, .about-us a:hover {
   color: #0B5C7B;
 }
 .about-us.thumb-caption,
@@ -678,9 +513,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .about-us .thumb-caption {
     background-color: rgba(11, 92, 123, 0.95);
   }
-}
-.about-us .intro-text {
-  color: #0B5C7B;
 }
 .about-us .nav-list__item.about-us a {
   color: #0B5C7B;
@@ -714,34 +546,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .info-tout__share a:hover h3, .about-us .info-tout__share a:hover p {
   color: #ffffff;
 }
-.about-us .hero .caption {
-  background-color: #0B5C7B;
-}
-@media screen and (min-width: 768px) {
-  .about-us .hero .caption {
-    background-color: rgba(11, 92, 123, 0.9);
-  }
-}
-.about-us .hero .caption .dates {
-  background-color: #0B5C7B;
-}
 .about-us .bottom-banner {
   background-color: #0B5C7B;
-}
-.about-us .lSPrev:hover, .about-us .lSNext:hover {
-  background-color: #0B5C7B;
-}
-.about-us .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #0B5C7B;
-}
-.about-us .lSAction a:hover {
-  background-color: rgba(11, 92, 123, 0.7);
-}
-.about-us .event-slide-content {
-  background-color: #f4f4f4;
-}
-.about-us .event-slide-content a {
-  color: #0B5C7B;
 }
 .about-us .GreyBox a {
   color: #0B5C7B;
@@ -755,33 +561,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .about-us .feature-box.our-science {
   background-color: #eeeeee;
 }
-.about-us .accordion .accordion-navigation > a,
-.about-us .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png");
-}
-.about-us .accordion .accordion-navigation > a:hover,
-.about-us .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.about-us .accordion .accordion-navigation.active > a,
-.about-us .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-about-us.png");
-}
-.about-us .accordion .accordion-navigation.active > a:hover,
-.about-us .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
-.about-us h4 {
-  font-weight: normal;
-}
 
-.schools h1, .schools h2 {
-  padding-bottom: 10px;
-}
-.schools h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .schools .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -862,7 +642,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.schools h1, .schools a, .schools a:hover {
+.schools {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.schools a, .schools a:hover {
   color: #0983BB;
 }
 .schools.thumb-caption,
@@ -874,9 +661,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .schools .thumb-caption {
     background-color: rgba(9, 131, 187, 0.95);
   }
-}
-.schools .intro-text {
-  color: #0983BB;
 }
 .schools .nav-list__item.schools a {
   color: #0983BB;
@@ -910,34 +694,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .schools .info-tout__share a:hover h3, .schools .info-tout__share a:hover p {
   color: #ffffff;
 }
-.schools .hero .caption {
-  background-color: #0983BB;
-}
-@media screen and (min-width: 768px) {
-  .schools .hero .caption {
-    background-color: rgba(9, 131, 187, 0.9);
-  }
-}
-.schools .hero .caption .dates {
-  background-color: #0983BB;
-}
 .schools .bottom-banner {
   background-color: #0983BB;
-}
-.schools .lSPrev:hover, .schools .lSNext:hover {
-  background-color: #0983BB;
-}
-.schools .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #0983BB;
-}
-.schools .lSAction a:hover {
-  background-color: rgba(9, 131, 187, 0.7);
-}
-.schools .event-slide-content {
-  background-color: #f4f4f4;
-}
-.schools .event-slide-content a {
-  color: #0983BB;
 }
 .schools .GreyBox a {
   color: #0983BB;
@@ -951,30 +709,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .schools .feature-box.our-science {
   background-color: #eeeeee;
 }
-.schools .accordion .accordion-navigation > a,
-.schools .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-schools.png");
-}
-.schools .accordion .accordion-navigation > a:hover,
-.schools .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.schools .accordion .accordion-navigation.active > a,
-.schools .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-schools.png");
-}
-.schools .accordion .accordion-navigation.active > a:hover,
-.schools .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.our-science h1, .our-science h2 {
-  padding-bottom: 10px;
-}
-.our-science h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .our-science .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -1055,7 +790,15 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.our-science h1, .our-science a, .our-science a:hover {
+.our-science {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+  /** commented out for WR-752 (refactor of carousel component) **/
+}
+.our-science a, .our-science a:hover {
   color: #357900;
 }
 .our-science.thumb-caption,
@@ -1067,9 +810,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .our-science .thumb-caption {
     background-color: rgba(53, 121, 0, 0.95);
   }
-}
-.our-science .intro-text {
-  color: #357900;
 }
 .our-science .nav-list__item.our-science a {
   color: #357900;
@@ -1103,34 +843,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .our-science .info-tout__share a:hover h3, .our-science .info-tout__share a:hover p {
   color: #ffffff;
 }
-.our-science .hero .caption {
-  background-color: #357900;
-}
-@media screen and (min-width: 768px) {
-  .our-science .hero .caption {
-    background-color: rgba(53, 121, 0, 0.9);
-  }
-}
-.our-science .hero .caption .dates {
-  background-color: #357900;
-}
 .our-science .bottom-banner {
   background-color: #357900;
-}
-.our-science .lSPrev:hover, .our-science .lSNext:hover {
-  background-color: #357900;
-}
-.our-science .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #357900;
-}
-.our-science .lSAction a:hover {
-  background-color: rgba(53, 121, 0, 0.7);
-}
-.our-science .event-slide-content {
-  background-color: #f4f4f4;
-}
-.our-science .event-slide-content a {
-  color: #357900;
 }
 .our-science .GreyBox a {
   color: #357900;
@@ -1144,22 +858,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .our-science .feature-box.our-science {
   background-color: #eeeeee;
 }
-.our-science .accordion .accordion-navigation > a,
-.our-science .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-our-science.png");
-}
-.our-science .accordion .accordion-navigation > a:hover,
-.our-science .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.our-science .accordion .accordion-navigation.active > a,
-.our-science .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-our-science.png");
-}
-.our-science .accordion .accordion-navigation.active > a:hover,
-.our-science .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 .our-science a:hover {
   color: #357900;
 }
@@ -1168,10 +866,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   color: #eeeeee;
   margin: 1em 0;
   width: 100%;
-}
-.our-science .caption h4 {
-  color: #ffffff;
-  font-weight: normal;
 }
 .our-science .link-box {
   padding: 0 0 0 20px;
@@ -1208,13 +902,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.support-us h1, .support-us h2 {
-  padding-bottom: 10px;
-}
-.support-us h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .support-us .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -1295,7 +982,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.support-us h1, .support-us a, .support-us a:hover {
+.support-us {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.support-us a, .support-us a:hover {
   color: #7F206E;
 }
 .support-us.thumb-caption,
@@ -1307,9 +1001,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .support-us .thumb-caption {
     background-color: rgba(127, 32, 110, 0.95);
   }
-}
-.support-us .intro-text {
-  color: #7F206E;
 }
 .support-us .nav-list__item.support-us a {
   color: #7F206E;
@@ -1343,34 +1034,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .support-us .info-tout__share a:hover h3, .support-us .info-tout__share a:hover p {
   color: #ffffff;
 }
-.support-us .hero .caption {
-  background-color: #7F206E;
-}
-@media screen and (min-width: 768px) {
-  .support-us .hero .caption {
-    background-color: rgba(127, 32, 110, 0.9);
-  }
-}
-.support-us .hero .caption .dates {
-  background-color: #7F206E;
-}
 .support-us .bottom-banner {
   background-color: #7F206E;
-}
-.support-us .lSPrev:hover, .support-us .lSNext:hover {
-  background-color: #7F206E;
-}
-.support-us .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #7F206E;
-}
-.support-us .lSAction a:hover {
-  background-color: rgba(127, 32, 110, 0.7);
-}
-.support-us .event-slide-content {
-  background-color: #f4f4f4;
-}
-.support-us .event-slide-content a {
-  color: #7F206E;
 }
 .support-us .GreyBox a {
   color: #7F206E;
@@ -1384,30 +1049,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .support-us .feature-box.our-science {
   background-color: #eeeeee;
 }
-.support-us .accordion .accordion-navigation > a,
-.support-us .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-support-us.png");
-}
-.support-us .accordion .accordion-navigation > a:hover,
-.support-us .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.support-us .accordion .accordion-navigation.active > a,
-.support-us .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-support-us.png");
-}
-.support-us .accordion .accordion-navigation.active > a:hover,
-.support-us .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.discover h1, .discover h2 {
-  padding-bottom: 10px;
-}
-.discover h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .discover .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -1488,7 +1130,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.discover h1, .discover a, .discover a:hover {
+.discover {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.discover a, .discover a:hover {
   color: #107B5E;
 }
 .discover.thumb-caption,
@@ -1500,9 +1149,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .discover .thumb-caption {
     background-color: rgba(16, 123, 94, 0.95);
   }
-}
-.discover .intro-text {
-  color: #107B5E;
 }
 .discover .nav-list__item.discover a {
   color: #107B5E;
@@ -1536,34 +1182,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .discover .info-tout__share a:hover h3, .discover .info-tout__share a:hover p {
   color: #ffffff;
 }
-.discover .hero .caption {
-  background-color: #107B5E;
-}
-@media screen and (min-width: 768px) {
-  .discover .hero .caption {
-    background-color: rgba(16, 123, 94, 0.9);
-  }
-}
-.discover .hero .caption .dates {
-  background-color: #107B5E;
-}
 .discover .bottom-banner {
   background-color: #107B5E;
-}
-.discover .lSPrev:hover, .discover .lSNext:hover {
-  background-color: #107B5E;
-}
-.discover .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #107B5E;
-}
-.discover .lSAction a:hover {
-  background-color: rgba(16, 123, 94, 0.7);
-}
-.discover .event-slide-content {
-  background-color: #f4f4f4;
-}
-.discover .event-slide-content a {
-  color: #107B5E;
 }
 .discover .GreyBox a {
   color: #107B5E;
@@ -1577,30 +1197,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .discover .feature-box.our-science {
   background-color: #eeeeee;
 }
-.discover .accordion .accordion-navigation > a,
-.discover .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.discover .accordion .accordion-navigation > a:hover,
-.discover .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.discover .accordion .accordion-navigation.active > a,
-.discover .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
-.discover .accordion .accordion-navigation.active > a:hover,
-.discover .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.press-office h1, .press-office h2 {
-  padding-bottom: 10px;
-}
-.press-office h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .press-office .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -1681,7 +1278,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.press-office h1, .press-office a, .press-office a:hover {
+.press-office {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.press-office a, .press-office a:hover {
   color: #107E5E;
 }
 .press-office.thumb-caption,
@@ -1693,9 +1297,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .press-office .thumb-caption {
     background-color: rgba(16, 126, 94, 0.95);
   }
-}
-.press-office .intro-text {
-  color: #107E5E;
 }
 .press-office .nav-list__item.press-office a {
   color: #107E5E;
@@ -1729,34 +1330,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .press-office .info-tout__share a:hover h3, .press-office .info-tout__share a:hover p {
   color: #ffffff;
 }
-.press-office .hero .caption {
-  background-color: #107E5E;
-}
-@media screen and (min-width: 768px) {
-  .press-office .hero .caption {
-    background-color: rgba(16, 126, 94, 0.9);
-  }
-}
-.press-office .hero .caption .dates {
-  background-color: #107E5E;
-}
 .press-office .bottom-banner {
   background-color: #107E5E;
-}
-.press-office .lSPrev:hover, .press-office .lSNext:hover {
-  background-color: #107E5E;
-}
-.press-office .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #107E5E;
-}
-.press-office .lSAction a:hover {
-  background-color: rgba(16, 126, 94, 0.7);
-}
-.press-office .event-slide-content {
-  background-color: #f4f4f4;
-}
-.press-office .event-slide-content a {
-  color: #107E5E;
 }
 .press-office .GreyBox a {
   color: #107E5E;
@@ -1770,30 +1345,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .press-office .feature-box.our-science {
   background-color: #eeeeee;
 }
-.press-office .accordion .accordion-navigation > a,
-.press-office .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-press-office.png");
-}
-.press-office .accordion .accordion-navigation > a:hover,
-.press-office .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.press-office .accordion .accordion-navigation.active > a,
-.press-office .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-press-office.png");
-}
-.press-office .accordion .accordion-navigation.active > a:hover,
-.press-office .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.working h1, .working h2 {
-  padding-bottom: 10px;
-}
-.working h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .working .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -1874,7 +1426,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.working h1, .working a, .working a:hover {
+.working {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.working a, .working a:hover {
   color: #956624;
 }
 .working.thumb-caption,
@@ -1886,9 +1445,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .working .thumb-caption {
     background-color: rgba(149, 102, 36, 0.95);
   }
-}
-.working .intro-text {
-  color: #956624;
 }
 .working .nav-list__item.working a {
   color: #956624;
@@ -1922,34 +1478,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .working .info-tout__share a:hover h3, .working .info-tout__share a:hover p {
   color: #ffffff;
 }
-.working .hero .caption {
-  background-color: #956624;
-}
-@media screen and (min-width: 768px) {
-  .working .hero .caption {
-    background-color: rgba(149, 102, 36, 0.9);
-  }
-}
-.working .hero .caption .dates {
-  background-color: #956624;
-}
 .working .bottom-banner {
   background-color: #956624;
-}
-.working .lSPrev:hover, .working .lSNext:hover {
-  background-color: #956624;
-}
-.working .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #956624;
-}
-.working .lSAction a:hover {
-  background-color: rgba(149, 102, 36, 0.7);
-}
-.working .event-slide-content {
-  background-color: #f4f4f4;
-}
-.working .event-slide-content a {
-  color: #956624;
 }
 .working .GreyBox a {
   color: #956624;
@@ -1963,30 +1493,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .working .feature-box.our-science {
   background-color: #eeeeee;
 }
-.working .accordion .accordion-navigation > a,
-.working .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-working.png");
-}
-.working .accordion .accordion-navigation > a:hover,
-.working .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.working .accordion .accordion-navigation.active > a,
-.working .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-working.png");
-}
-.working .accordion .accordion-navigation.active > a:hover,
-.working .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.business-services h1, .business-services h2 {
-  padding-bottom: 10px;
-}
-.business-services h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .business-services .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -2067,7 +1574,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.business-services h1, .business-services a, .business-services a:hover {
+.business-services {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.business-services a, .business-services a:hover {
   color: #253480;
 }
 .business-services.thumb-caption,
@@ -2079,9 +1593,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .business-services .thumb-caption {
     background-color: rgba(37, 52, 128, 0.95);
   }
-}
-.business-services .intro-text {
-  color: #253480;
 }
 .business-services .nav-list__item.business-services a {
   color: #253480;
@@ -2115,34 +1626,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .info-tout__share a:hover h3, .business-services .info-tout__share a:hover p {
   color: #ffffff;
 }
-.business-services .hero .caption {
-  background-color: #253480;
-}
-@media screen and (min-width: 768px) {
-  .business-services .hero .caption {
-    background-color: rgba(37, 52, 128, 0.9);
-  }
-}
-.business-services .hero .caption .dates {
-  background-color: #253480;
-}
 .business-services .bottom-banner {
   background-color: #253480;
-}
-.business-services .lSPrev:hover, .business-services .lSNext:hover {
-  background-color: #253480;
-}
-.business-services .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #253480;
-}
-.business-services .lSAction a:hover {
-  background-color: rgba(37, 52, 128, 0.7);
-}
-.business-services .event-slide-content {
-  background-color: #f4f4f4;
-}
-.business-services .event-slide-content a {
-  color: #253480;
 }
 .business-services .GreyBox a {
   color: #253480;
@@ -2156,30 +1641,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .feature-box.our-science {
   background-color: #eeeeee;
 }
-.business-services .accordion .accordion-navigation > a,
-.business-services .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-business-services.png");
-}
-.business-services .accordion .accordion-navigation > a:hover,
-.business-services .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.business-services .accordion .accordion-navigation.active > a,
-.business-services .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-business-services.png");
-}
-.business-services .accordion .accordion-navigation.active > a:hover,
-.business-services .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.contact-us h1, .contact-us h2 {
-  padding-bottom: 10px;
-}
-.contact-us h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .contact-us .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -2260,7 +1722,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.contact-us h1, .contact-us a, .contact-us a:hover {
+.contact-us {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.contact-us a, .contact-us a:hover {
   color: #808080;
 }
 .contact-us.thumb-caption,
@@ -2272,9 +1741,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .contact-us .thumb-caption {
     background-color: rgba(128, 128, 128, 0.95);
   }
-}
-.contact-us .intro-text {
-  color: #808080;
 }
 .contact-us .nav-list__item.contact-us a {
   color: #808080;
@@ -2308,34 +1774,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .contact-us .info-tout__share a:hover h3, .contact-us .info-tout__share a:hover p {
   color: #ffffff;
 }
-.contact-us .hero .caption {
-  background-color: #808080;
-}
-@media screen and (min-width: 768px) {
-  .contact-us .hero .caption {
-    background-color: rgba(128, 128, 128, 0.9);
-  }
-}
-.contact-us .hero .caption .dates {
-  background-color: #808080;
-}
 .contact-us .bottom-banner {
   background-color: #808080;
-}
-.contact-us .lSPrev:hover, .contact-us .lSNext:hover {
-  background-color: #808080;
-}
-.contact-us .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #808080;
-}
-.contact-us .lSAction a:hover {
-  background-color: rgba(128, 128, 128, 0.7);
-}
-.contact-us .event-slide-content {
-  background-color: #f4f4f4;
-}
-.contact-us .event-slide-content a {
-  color: #808080;
 }
 .contact-us .GreyBox a {
   color: #808080;
@@ -2349,30 +1789,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .contact-us .feature-box.our-science {
   background-color: #eeeeee;
 }
-.contact-us .accordion .accordion-navigation > a,
-.contact-us .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-contact-us.png");
-}
-.contact-us .accordion .accordion-navigation > a:hover,
-.contact-us .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.contact-us .accordion .accordion-navigation.active > a,
-.contact-us .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-contact-us.png");
-}
-.contact-us .accordion .accordion-navigation.active > a:hover,
-.contact-us .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
-.shop h1, .shop h2 {
-  padding-bottom: 10px;
-}
-.shop h4 {
-  color: #000000;
-  font-weight: bold;
-}
 .shop .GreyBox {
   padding: 1.0em;
   background-color: #eeeeee;
@@ -2453,7 +1870,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-.shop h1, .shop a, .shop a:hover {
+.shop {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.shop a, .shop a:hover {
   color: #808080;
 }
 .shop.thumb-caption,
@@ -2465,9 +1889,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .shop .thumb-caption {
     background-color: rgba(128, 128, 128, 0.95);
   }
-}
-.shop .intro-text {
-  color: #808080;
 }
 .shop .nav-list__item.shop a {
   color: #808080;
@@ -2501,34 +1922,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .shop .info-tout__share a:hover h3, .shop .info-tout__share a:hover p {
   color: #ffffff;
 }
-.shop .hero .caption {
-  background-color: #808080;
-}
-@media screen and (min-width: 768px) {
-  .shop .hero .caption {
-    background-color: rgba(128, 128, 128, 0.9);
-  }
-}
-.shop .hero .caption .dates {
-  background-color: #808080;
-}
 .shop .bottom-banner {
   background-color: #808080;
-}
-.shop .lSPrev:hover, .shop .lSNext:hover {
-  background-color: #808080;
-}
-.shop .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #808080;
-}
-.shop .lSAction a:hover {
-  background-color: rgba(128, 128, 128, 0.7);
-}
-.shop .event-slide-content {
-  background-color: #f4f4f4;
-}
-.shop .event-slide-content a {
-  color: #808080;
 }
 .shop .GreyBox a {
   color: #808080;
@@ -2541,22 +1936,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 .shop .feature-box.our-science {
   background-color: #eeeeee;
-}
-.shop .accordion .accordion-navigation > a,
-.shop .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-shop.png");
-}
-.shop .accordion .accordion-navigation > a:hover,
-.shop .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.shop .accordion .accordion-navigation.active > a,
-.shop .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-shop.png");
-}
-.shop .accordion .accordion-navigation.active > a:hover,
-.shop .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
 
 .shop {
@@ -2578,7 +1957,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   overflow: visible;
 }
 
-.account h1, .account a, .account a:hover {
+.account {
+  /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
+  /** commented out for WR-787 (hero component refactor) **/
+  /** commented out for WR-752 (carousel component refactor) **/
+  /** Accordion commented out for WR-737 (Accordion component refactor) **/
+}
+.account a, .account a:hover {
   color: #00385D;
 }
 .account.thumb-caption,
@@ -2590,9 +1976,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .account .thumb-caption {
     background-color: rgba(0, 56, 93, 0.95);
   }
-}
-.account .intro-text {
-  color: #00385D;
 }
 .account .nav-list__item.account a {
   color: #00385D;
@@ -2626,34 +2009,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .account .info-tout__share a:hover h3, .account .info-tout__share a:hover p {
   color: #ffffff;
 }
-.account .hero .caption {
-  background-color: #00385D;
-}
-@media screen and (min-width: 768px) {
-  .account .hero .caption {
-    background-color: rgba(0, 56, 93, 0.9);
-  }
-}
-.account .hero .caption .dates {
-  background-color: #00385D;
-}
 .account .bottom-banner {
   background-color: #00385D;
-}
-.account .lSPrev:hover, .account .lSNext:hover {
-  background-color: #00385D;
-}
-.account .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #00385D;
-}
-.account .lSAction a:hover {
-  background-color: rgba(0, 56, 93, 0.7);
-}
-.account .event-slide-content {
-  background-color: #f4f4f4;
-}
-.account .event-slide-content a {
-  color: #00385D;
 }
 .account .GreyBox a {
   color: #00385D;
@@ -2667,162 +2024,10 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .account .feature-box.our-science {
   background-color: #eeeeee;
 }
-.account .accordion .accordion-navigation > a,
-.account .accordion dd > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-account.png");
-}
-.account .accordion .accordion-navigation > a:hover,
-.account .accordion dd > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
-}
-.account .accordion .accordion-navigation.active > a,
-.account .accordion dd.active > a {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-account.png");
-}
-.account .accordion .accordion-navigation.active > a:hover,
-.account .accordion dd.active > a:hover {
-  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
-}
 
 /** REFACTOR FOUNDATION **/
-/** LEGACY BASE PARTIAL **/
-body {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-ul {
-  margin-left: 0px;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  color: #2a6cd9;
-}
-a:hover {
-  color: #2a6cd9;
-  text-decoration: underline;
-}
-
-p {
-  font-size: 1.0em;
-  line-height: 1.5em;
-  margin-bottom: 1.0em;
-}
-@media screen and (min-width: 768px) {
-  p {
-    font-size: 1.0em;
-  }
-}
-@media screen and (min-width: 1160px) {
-  p {
-    font-size: 1.125em;
-  }
-}
-
-/** LEGACY TYPOGRAPHY PARTIAL **/
-h1 {
-  font-size: 1.8em;
-  line-height: 1em;
-  padding-bottom: 0.5em;
-}
-@media screen and (min-width: 768px) {
-  h1 {
-    font-size: 2.55em;
-  }
-}
-
-h2 {
-  color: #565656;
-  font-size: 1.5em;
-  line-height: 1.2em;
-  padding-bottom: 0.3em;
-}
-@media screen and (min-width: 768px) {
-  h2 {
-    font-size: 1.8333em;
-  }
-}
-h2.padded {
-  padding: 25px 18px;
-}
-h2 > p {
-  display: inline;
-  font-size: 1em;
-  line-height: inherit;
-}
-
-h3 {
-  font-size: 1.3em;
-  line-height: 1.2em;
-  padding-bottom: 0.3em;
-}
-@media screen and (min-width: 768px) {
-  h3 {
-    font-size: 1.6em;
-  }
-}
-
-h4 {
-  font-size: 1.2em;
-  line-height: 1.2em;
-  padding-bottom: 0.3em;
-}
-@media screen and (min-width: 768px) {
-  h4 {
-    font-size: 1.5em;
-  }
-}
-
-h5 {
-  font-size: 1em;
-  line-height: 1em;
-  padding-bottom: 0.3em;
-  font-weight: bold;
-}
-@media screen and (min-width: 768px) {
-  h5 {
-    font-size: 1.2em;
-  }
-}
-
-.text ul {
-  padding-left: 1.5em;
-}
-.text ul li {
-  font-size: 1.125em;
-  list-style: disc outside;
-  margin-bottom: 0.5em;
-}
-
-.intro-text {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.4em;
-  padding-bottom: 2%;
-  /* 
-  &.take-part{color:$take-part-color;}
-  &.discover{color:$discover-color;}
-  &.support-us{color:$support-us-color;}
-  &.shop { color:$shop-color;}
-  &.schools{color:$schools-color;}
-  &.our-science{color:$our-science-color;}
-  &.about-us{color:$about-us-color;}
-  &.press-office{color:$news-press-color;}
-  &.working-with-us{color:$working-with-us-color;}
-  &.business-services{color:$business-services-color;}
-  &.contact-us{color:$contact-us-color;}
-  */
-}
-@media screen and (min-width: 768px) {
-  .intro-text {
-    font-size: 1.8em;
-    line-height: 1.2em;
-  }
-}
-
+/** LEGACY BASE PARTIAL (MERGED WITH REFACTORED BASE PARTIAL - WR-720) **/
+/** LEGACY TYPOGRAPHY PARTIAL (MERGED WITH REFACTORED TYPOGRAPHY PARTIAL - WR-721) **/
 /** LEGACY LAYOUT PARTIAL **/
 /** Grid **/
 .row,
@@ -2929,204 +2134,6 @@ h5 {
   }
 }
 /** LEGACY FOOTER COMPONENT PARTIAL **/
-.main-footer {
-  padding: 2.5em 0;
-  background: #565656;
-  color: #fff;
-}
-.main-footer .row {
-  position: relative;
-  margin-bottom: 0;
-}
-.main-footer .framed-wrapper:before, .main-footer .framed-wrapper:after,
-.main-footer .framed:before,
-.main-footer .framed:after {
-  display: block;
-  content: "";
-  position: absolute;
-}
-.main-footer .framed-wrapper:before,
-.main-footer .framed:before {
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  border-top: 2px solid #565656;
-  border-bottom: 2px solid #565656;
-}
-.main-footer .framed-wrapper:after,
-.main-footer .framed:after {
-  top: 12.5%;
-  width: 100%;
-  height: 75%;
-  border-left: 2px solid #565656;
-  border-right: 2px solid #565656;
-}
-.main-footer .framed-wrapper {
-  position: relative;
-  margin-bottom: 6em;
-  padding: 2em 5%;
-  border-radius: 0 30px 0 30px;
-  border: 2px solid #fff;
-}
-.main-footer .framed-wrapper:before {
-  bottom: -2px;
-}
-.main-footer .framed-wrapper:after {
-  right: -2px;
-}
-.main-footer .framed:before {
-  top: -2px;
-}
-.main-footer .framed:after {
-  left: -2px;
-}
-.main-footer .footer-nav,
-.main-footer .footer-utility {
-  z-index: 100;
-}
-.main-footer .footer-nav li,
-.main-footer .footer-utility p {
-  font-size: 1.1em;
-}
-.main-footer .footer-nav ul {
-  margin: 0;
-}
-.main-footer .footer-nav li {
-  padding-top: 0.5em;
-}
-.main-footer .footer-nav li:first-child {
-  padding-top: 0;
-}
-.main-footer .footer-nav a {
-  color: #fff;
-}
-.main-footer .footer-nav .icon-list a {
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  width: 30%;
-  padding: 0.8em 0.8em 0 0;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-nav .icon-list a {
-    width: auto;
-  }
-}
-.main-footer .footer-utility {
-  position: relative;
-  margin-top: 1.5em;
-  padding-top: 1.5em;
-  border-top: 2px solid #fff;
-}
-.main-footer .footer-utility fieldset {
-  margin: 0 0 1em;
-  padding: 0;
-  border: 0;
-}
-.main-footer .footer-utility label,
-.main-footer .footer-utility input {
-  font-size: 0.875em;
-}
-.main-footer .footer-utility label {
-  display: block;
-  margin: 0.5em 0 0.1em;
-}
-.main-footer .footer-utility input {
-  width: 94%;
-  border: 0;
-}
-.main-footer .footer-utility input[type="text"] {
-  margin-bottom: 0.5em;
-  padding: 1em 3%;
-  color: #565656;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="text"] {
-    padding: 0.5em 3%;
-  }
-}
-.main-footer .footer-utility input[type="submit"] {
-  display: block;
-  margin: 0.4em 0 0;
-  padding: 0.9em 3% 1em;
-  background: none;
-  text-align: left;
-  font-weight: normal;
-  border: 2px solid #fff;
-}
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="submit"] {
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-}
-.main-footer .footer-utility p.disclaimer {
-  font-size: 0.75em;
-}
-.main-footer .footer-info {
-  float: none;
-  position: absolute;
-  left: 0;
-  padding-top: 4.5em;
-  bottom: -0.5em;
-  background: url(/etc/designs/nhmwww/img/nhm-logo-white.png) no-repeat center top;
-  background-size: 35% auto;
-  text-align: center;
-}
-.main-footer .footer-info p {
-  font-size: 0.8em;
-}
-@media screen and (min-width: 480px) {
-  .main-footer .footer-info {
-    background-size: 20% auto;
-  }
-}
-@media screen and (min-width: 768px) {
-  .main-footer .framed-wrapper {
-    padding: 1.5em 2%;
-    margin-bottom: 0;
-  }
-  .main-footer .footer-info {
-    position: absolute;
-    bottom: auto;
-    left: auto;
-    top: 0;
-    right: 0;
-    height: 100%;
-    padding: 0;
-    background-position: left center;
-    background-size: 100% auto;
-    text-align: left;
-  }
-  .main-footer .footer-info p {
-    position: absolute;
-    left: 44%;
-    bottom: 30%;
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
-    line-height: 1.3;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .main-footer .footer-utility {
-    margin-top: 0;
-    padding-top: 0;
-    padding-right: 2%;
-    border-top: 0;
-  }
-  .main-footer .footer-info {
-    background-size: auto;
-  }
-  .main-footer .footer-info p {
-    left: 33%;
-    bottom: 20%;
-  }
-}
-
 /** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
 .cf:before,
@@ -4321,86 +3328,6 @@ span.st_googleplus_large {
 }
 
 /** LEGACY CAROUSEL PARTIAL **/
-.foundation5image {
-  position: relative;
-}
-.foundation5image .caption h2 {
-  margin-bottom: 0.2rem;
-  padding-bottom: 0;
-}
-
-.caption {
-  color: #565656;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.0em;
-  max-width: 100%;
-  bottom: 0;
-  width: 100%;
-}
-.caption p {
-  margin-bottom: 0;
-}
-
-.carousel .caption-outer-wrapper {
-  width: 100%;
-  position: static;
-  bottom: 0;
-  left: 0;
-}
-@media screen and (min-width: 768px) {
-  .carousel .caption-outer-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-.carousel .caption {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
-  padding: 1em 1.5em;
-}
-
-.carousel-wrapper {
-  max-width: 100%;
-  margin-bottom: 1.5em;
-}
-.carousel-wrapper .carousel {
-  margin-bottom: 4px;
-  margin-left: 0;
-}
-.carousel-wrapper .carousel li {
-  position: relative;
-}
-.carousel-wrapper .carousel li iframe {
-  display: block;
-  max-width: 100%;
-}
-.carousel-wrapper .carousel [data-type="video"] .caption {
-  display: none;
-}
-.carousel-wrapper .lSGallery {
-  width: 9999px !important;
-  background: #f4f4f4;
-}
-.carousel-wrapper .lSGallery:hover + .lSAction {
-  filter: alpha(opacity=100);
-  opacity: 1;
-}
-.carousel-wrapper .lSAction {
-  zoom: 1;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-}
-.carousel-wrapper .lSSlideWrapper:hover .lSAction {
-  filter: alpha(opacity=100);
-  opacity: 1;
-}
-
 .promo {
   padding: 0 10px 10px;
 }
@@ -4569,77 +3496,9 @@ span.st_googleplus_large {
 }
 
 /** LEGACY HERO PARTIAL **/
-.hero .caption-outer-wrapper {
-  position: static;
-  width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .hero .caption-outer-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-.hero .caption-inner-wrapper {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1160px;
-}
-.hero .caption {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
-  font-size: 1.1em;
-  padding: 1em 2em;
-  position: relative;
-  z-index: 2;
-}
-.hero .caption h1 {
-  color: #FFF;
-  font-size: 2.5em;
-  padding-bottom: 0;
-}
-.hero .caption h2 {
-  color: #FFF;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-.hero .caption p {
-  line-height: 1.25em;
-}
-.hero .caption .dates {
-  background-color: #000;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1%;
-}
-@media screen and (min-width: 768px) {
-  .hero .caption {
-    max-height: 200px;
-    max-width: 70%;
-    padding: 0.75em 1.5em;
-  }
-  .hero .caption h1 {
-    font-size: 3em;
-  }
-  .hero .caption h2 {
-    font-size: 1.7em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .hero .caption {
-    padding: 1em 2em;
-  }
-  .hero .caption h2 {
-    font-size: 1.8333em;
-  }
-}
-
+/** these styles are designed to apply to a Hero component **/
 .hero {
   position: relative;
-  margin-bottom: 30px;
   padding-top: 0px;
 }
 .hero.exhibitions {
@@ -5632,6 +4491,15 @@ iframe.youtubeplayer {
   /*height: 100%;*/
 }
 
+/** LEGACY IMAGE COMPONENT PARTIAL (WR-792) **/
+.foundation5image {
+  position: relative;
+}
+.foundation5image .caption h2 {
+  margin-bottom: 0.2rem;
+  padding-bottom: 0;
+}
+
 /** LEGACY TITLE-BAR PARTIAL **/
 .row.title {
   margin-bottom: 0px;
@@ -5642,24 +4510,7 @@ iframe.youtubeplayer {
   padding-bottom: 0em;
 }
 
-/** LEGACY ACCORDION PARTIAL **/
-.accordion .accordion-navigation > a,
-.accordion dd > a {
-  background: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png") 97% center no-repeat #EEE;
-}
-.accordion .accordion-navigation > a:hover,
-.accordion dd > a:hover {
-  background: url("/etc/designs/nhmwww/img/png-icons/minus-about-us.png") 97% center no-repeat #E3E3E3;
-}
-.accordion .accordion-navigation.active > a,
-.accordion dd.active > a {
-  background: url("/etc/designs/nhmwww/img/png-icons/minus-about-us.png") 97% center no-repeat #E8E8E8;
-}
-.accordion .accordion-navigation.active > a:hover,
-.accordion dd.active > a:hover {
-  background: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png") 97% center no-repeat #E3E3E3;
-}
-
+/** LEGACY ACCORDION PARTIAL - MERGED WITH REFACTORED ACCORDION PARTIAL (WR-737) **/
 /** LEGACY BREADCRUMB PARTIAL **/
 .breadcrumb {
   background-color: #000000;
@@ -5788,106 +4639,7 @@ div#feedback-bar p a:hover {
   speak: none;
 }
 
-/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) **/
-/*** _EVENT-SLIDER.SCSS, FORMERLY _EVENTS.SCSS ***/
-.event-slider li {
-  float: left;
-  width: 33%;
-}
-@media screen and (min-width: 768px) {
-  .event-slider li:hover {
-    background: #f4f4f4;
-  }
-}
-.event-slider li img {
-  width: 100%;
-}
-.event-slider li h4 {
-  margin: 0;
-  color: #2a6cd9;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1.125em;
-  font-weight: bold;
-  line-height: 1.4;
-}
-.event-slider li p {
-  margin: 0.4em 0 0;
-  font-size: 0.875em;
-  color: #565656;
-}
-.event-slider li p a {
-  padding-right: 1em;
-}
-.event-slider .event-slide-meta {
-  padding: 0.3125em 6%;
-}
-.event-slider .event-slide-content {
-  padding: 1.25em 6%;
-}
-.event-slider .event-time,
-.event-slider .event-tag {
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  width: 49%;
-  min-height: 19px;
-  margin: 0;
-  padding-left: 9%;
-  position: relative;
-  color: #2a6cd9;
-  font-size: 0.75em;
-}
-@media screen and (min-width: 768px) {
-  .event-slider .event-time,
-  .event-slider .event-tag {
-    display: block;
-    width: 100%;
-    padding-left: 12%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .event-slider .event-time,
-  .event-slider .event-tag {
-    display: inline-block;
-    *vertical-align: auto;
-    zoom: 1;
-    *display: inline;
-    width: 49%;
-    padding-left: 8%;
-  }
-}
-@media screen and (min-width: 1160px) {
-  .event-slider .event-time,
-  .event-slider .event-tag {
-    width: 46%;
-  }
-}
-.event-slider .event-time .ico,
-.event-slider .event-tag .ico {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.event-slider .event-time .ico {
-  width: 19px;
-  height: 19px;
-}
-@media screen and (min-width: 768px) {
-  .event-slider .event-time {
-    padding-bottom: 1em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .event-slider .event-time {
-    padding-bottom: 0;
-  }
-}
-.event-slider .event-tag .ico {
-  width: 17px;
-  height: 16px;
-}
-
+/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) - MERGED WITH REFACTORED EVENT-SLIDER PARTIAL (WR-752) **/
 /** LEGACY LIGHTSLIDER (VENDOR) PARTIAL **/
 /** /!!! Core CSS !!!/**/
 .lSSlideOuter {
@@ -6322,11 +5074,41 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 16px;
   color: #565656;
+  -webkit-font-smoothing: antialiased;
 }
 
-/** REFACTOR-TYPOGRAPHY PARTIAL **/
+ul {
+  margin-left: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #2a6cd9;
+}
+a:hover {
+  color: #2a6cd9;
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.5em;
+  margin-bottom: 1.0em;
+  font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 1.125em;
+  }
+}
+
 h1 {
   font-size: 2em;
+  line-height: 1.35em;
+  padding-bottom: 0.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 @media screen and (min-width: 768px) {
   h1 {
@@ -6336,26 +5118,33 @@ h1 {
 }
 
 h2 {
+  color: #565656;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.8333em;
+  font-size: 1.7em;
+  /** unclear where this is used - no reference in JSP's **/
 }
 @media screen and (min-width: 768px) {
   h2 {
-    font-size: 2.4em;
+    font-size: 2.1em;
   }
 }
-
-h3, h4 {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+h2.padded {
+  padding: 25px 18px;
 }
-@media screen and (min-width: 768px) {
-  h3, h4 {
-    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  }
+h2 > p {
+  display: inline;
+  font-size: 1em;
+  line-height: inherit;
 }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
+  color: #565656;
 }
 @media screen and (min-width: 768px) {
   h3 {
@@ -6363,12 +5152,30 @@ h3 {
   }
 }
 
-h3, h4, h5 {
+h4 {
+  font-size: 1.3em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   color: #565656;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
+}
+@media screen and (min-width: 768px) {
+  h4 {
+    font-size: 1.5em;
+  }
 }
 
 h5 {
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
+  color: #565656;
+}
+@media screen and (min-width: 768px) {
+  h5 {
+    font-size: 1.3em;
+  }
 }
 
 h6 {
@@ -6377,11 +5184,14 @@ h6 {
   font-weight: bold;
 }
 
+/** REFACTOR-TYPOGRAPHY PARTIAL **/
 .intro-text {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  line-height: 35px;
+  padding-bottom: 0.3em;
+  font-size: 1.4em;
+  line-height: 1.35em;
 }
-@media screen and (min-width: 1160px) {
+@media screen and (min-width: 768px) {
   .intro-text {
     font-size: 1.8em;
   }
@@ -6425,26 +5235,26 @@ h6 {
 }
 
 /** REFACTOR-PLACEHOLDERS PARTIAL **/
-.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
+.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
   padding: 0.5em 0.75em;
   margin-top: 0;
   margin-bottom: 0;
 }
-.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .discover .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
+.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .discover .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .search .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
   padding: 0;
   color: #ffffff !important;
 }
-.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
+.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
   color: #ffffff;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
+  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
     padding: 1em 1.5em;
   }
-  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
+  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
     font-size: 1.25em;
   }
 }
@@ -6468,27 +5278,67 @@ h6 {
 }
 
 /** REFACTOR-HERO PARTIAL **/
-/** This needs to be reviewed. A Hero is a row system, whereas a caption should belong to a component **/
-.hero {
-  margin-bottom: 0;
+/** These styles apply when a component is placed in a Herosection row system **/
+.herosection .caption-inner-wrapper {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1160px;
 }
-.hero .caption {
+.herosection .carousel-wrapper .caption {
+  font-size: 1.1em;
+  position: relative;
+  z-index: 2;
   height: 142px;
+  /** not sure where this is used **/
 }
 @media screen and (min-width: 480px) {
-  .hero .caption {
+  .herosection .carousel-wrapper .caption {
     height: 100px;
   }
 }
 @media screen and (min-width: 640px) {
-  .hero .caption {
+  .herosection .carousel-wrapper .caption {
     height: 85px;
   }
 }
 @media screen and (min-width: 768px) {
-  .hero .caption {
+  .herosection .carousel-wrapper .caption {
     height: auto;
+    max-height: 200px;
+    max-width: 70%;
   }
+}
+.herosection .carousel-wrapper .caption h1 {
+  color: #FFFFFF;
+  font-size: 2.5em;
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .herosection .carousel-wrapper .caption h1 {
+    font-size: 3em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .herosection .carousel-wrapper .caption h2 {
+    font-size: 1.7em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .herosection .carousel-wrapper .caption h2 {
+    font-size: 1.8333em;
+  }
+}
+.herosection .carousel-wrapper .caption p {
+  line-height: 1.25em;
+}
+.herosection .carousel-wrapper .caption .dates {
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1%;
 }
 
 /** REFACTOR-ACCORDION PARTIAL **/
@@ -6499,6 +5349,9 @@ h6 {
 }
 .accordion .accordion-navigation > a,
 .accordion dd > a {
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  background-color: #EEE;
   padding: 1em 0.75em;
 }
 @media screen and (min-width: 768px) {
@@ -6506,6 +5359,24 @@ h6 {
   .accordion dd > a {
     padding: 1em 1.5em;
   }
+}
+.accordion .accordion-navigation > a:hover,
+.accordion dd > a:hover {
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  background-color: #E3E3E3;
+}
+.accordion .accordion-navigation.active > a,
+.accordion dd.active > a {
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  background-color: #EEE;
+}
+.accordion .accordion-navigation.active > a:hover,
+.accordion dd.active > a:hover {
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  background-color: #E3E3E3;
 }
 
 .science-profiles-detail-page .accordion-navigation a {
@@ -6530,34 +5401,93 @@ h6 {
 }
 
 /** REFACTOR-CAROUSEL PARTIAL **/
-.carousel .caption {
+.caption {
+  color: #565656;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.0em;
+  max-width: 100%;
+  bottom: 0;
+  width: 100%;
+}
+.caption p {
+  margin-bottom: 0;
+}
+
+.carousel-wrapper {
+  max-width: 100%;
+  margin-bottom: 1.5em;
+}
+.carousel-wrapper a:hover {
+  text-decoration: none;
+}
+.carousel-wrapper .carousel {
+  margin-bottom: 4px;
+  margin-left: 0;
+}
+.carousel-wrapper .carousel li {
+  position: relative;
+}
+.carousel-wrapper .carousel li iframe {
+  display: block;
+  max-width: 100%;
+}
+.carousel-wrapper .carousel [data-type="video"] .caption {
+  display: none;
+}
+.carousel-wrapper .lSGallery {
+  width: 9999px !important;
+  background: #f4f4f4;
+}
+.carousel-wrapper .lSGallery:hover + .lSAction {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+.carousel-wrapper .lSAction {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.carousel-wrapper .lSSlideWrapper:hover .lSAction {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+.carousel-wrapper .caption-outer-wrapper {
+  width: 100%;
+  position: static;
+  bottom: 0;
+  left: 0;
+}
+@media screen and (min-width: 768px) {
+  .carousel-wrapper .caption-outer-wrapper {
+    position: absolute;
+  }
+}
+.carousel-wrapper .caption {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #FFFFFF;
   padding: 0.5em 0.75em;
 }
-.carousel .caption p {
+@media screen and (min-width: 768px) {
+  .carousel-wrapper .caption {
+    padding: 1em 1.5em;
+  }
+}
+.carousel-wrapper .caption p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
 }
 @media screen and (min-width: 768px) {
-  .carousel .caption {
-    padding: 1em 1.5em !important;
-  }
-  .carousel .caption p {
+  .carousel-wrapper .caption p {
     font-size: 1.15em;
   }
 }
-
-@media screen and (min-width: 320px) {
-  .carousel-wrapper a:hover {
-    text-decoration: none;
-  }
-}
-
-.carousel .caption {
-  background-color: #107E5E;
-  background-color: rgba(16, 126, 94, 0.9);
-}
-.carousel .caption h2 {
-  color: #ffffff;
+.carousel-wrapper .caption h2 {
+  color: #FFFFFF;
   padding-bottom: 0;
   margin-top: 0;
 }
@@ -6594,6 +5524,9 @@ h6 {
   .ctabutton .home-thumb-right h2 {
     font-size: 2.4em;
   }
+}
+.ctabutton .home-thumb-right h3 {
+  padding: 0 0.5em;
 }
 
 .info-tout {
@@ -7007,23 +5940,111 @@ h6 {
 }
 
 /** REFACTOR-EVENT-SLIDER PARTIAL **/
-.event-slider-wrapper h4 {
+/*** _EVENT-SLIDER.SCSS, FORMERLY _EVENTS.SCSS ***/
+.event-slider-wrapper {
+  /** WR-617 - change event slider H4 to H3 **/
+}
+.event-slider-wrapper h3 {
   padding: 0.5em;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.6em;
-  color: #565656;
 }
 @media screen and (min-width: 768px) {
-  .event-slider-wrapper h4 {
+  .event-slider-wrapper h3 {
     padding: 0.5em 0.75em;
-    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   }
 }
-
-.event-slider li h4 {
-  padding: 0;
+.event-slider-wrapper .event-slider li {
+  float: left;
+  width: 33%;
+}
+.event-slider-wrapper .event-slider li img {
+  width: 100%;
+}
+.event-slider-wrapper .event-slider li h4 {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+.event-slider-wrapper .event-slider li p {
+  margin: 0.4em 0 0;
+  font-size: 0.875em;
+  color: #565656;
+}
+.event-slider-wrapper .event-slider li p a {
+  padding-right: 1em;
+}
+.event-slider-wrapper .event-slider .event-slide-meta {
+  padding: 0.3125em 6%;
+}
+.event-slider-wrapper .event-slider .event-slide-content {
+  padding: 1.25em 6%;
+}
+
+/** event-time and event-tag likely not used **/
+.event-slider .event-time,
+.event-slider .event-tag {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 49%;
+  min-height: 19px;
+  margin: 0;
+  padding-left: 9%;
+  position: relative;
+  color: #2a6cd9;
+  font-size: 0.75em;
+}
+@media screen and (min-width: 768px) {
+  .event-slider .event-time,
+  .event-slider .event-tag {
+    display: block;
+    width: 100%;
+    padding-left: 12%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .event-slider .event-time,
+  .event-slider .event-tag {
+    display: inline-block;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    width: 49%;
+    padding-left: 8%;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .event-slider .event-time,
+  .event-slider .event-tag {
+    width: 46%;
+  }
+}
+.event-slider .event-time .ico,
+.event-slider .event-tag .ico {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.event-slider .event-time .ico {
+  width: 19px;
+  height: 19px;
+}
+@media screen and (min-width: 768px) {
+  .event-slider .event-time {
+    padding-bottom: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .event-slider .event-time {
+    padding-bottom: 0;
+  }
+}
+.event-slider .event-tag .ico {
+  width: 17px;
+  height: 16px;
 }
 
 /** REFACTOR-EVENTS-SUMMARY **/
@@ -7107,12 +6128,59 @@ h6 {
   background-color: #ffffff;
   padding-bottom: 0;
 }
-.nav-list.level-1 > .nav-list__item.selected {
-  background-color: #000000;
-  color: #ffffff;
-}
 .nav-list.level-1 > .nav-list__item.shop {
   overflow: visible;
+}
+
+/** WR-458 **/
+.global-header {
+  /** set z-index to auto by default to ensure mobile sub-navs are below all other page elements on page load **/
+  z-index: auto;
+  /** set z-index back to original value on tablets and above **/
+}
+@media screen and (min-width: 768px) {
+  .global-header {
+    z-index: 99999;
+  }
+}
+
+.nav-list.level-1 > .nav-list__item a:hover {
+  color: #000000;
+}
+@media screen and (min-width: 1160px) {
+  .nav-list.level-1 > .nav-list__item a:hover {
+    color: #808080;
+  }
+}
+.nav-list.level-1 > .nav-list__item.selected {
+  background-color: #000000;
+}
+.nav-list.level-1 > .nav-list__item.selected a {
+  color: #ffffff;
+}
+.nav-list.level-1 > .nav-list__item.selected .nav-list.level-2 {
+  right: -2.5%;
+  /** set to 100 to ensure mobile sub-nav displays above all other page elements **/
+  z-index: 100;
+  transition: 1s linear;
+}
+.nav-list.level-1 .level-2 {
+  transition: none;
+  right: 0;
+  z-index: -100;
+}
+.nav-list.level-1 .level-2 .nav-list__item a {
+  color: #000000;
+}
+@media screen and (min-width: 1160px) {
+  .nav-list.level-1 .level-2 .nav-list__item a:hover {
+    color: #808080;
+  }
+}
+
+/** WR-710 (WR-480) HTML5 validation fixes **/
+.nav-list .dropdown-section {
+  margin-left: 0;
 }
 
 .mega-thumb-caption.shop {
@@ -7120,9 +6188,116 @@ h6 {
 }
 
 /** REFACTOR-FOOTER PARTIAL **/
+.main-footer {
+  padding: 2.5em 0;
+  background: #565656;
+  color: #fff;
+  /** overrides Foundation forms styles **/
+}
+.main-footer label {
+  color: #FFFFFF;
+}
+.main-footer fieldset legend {
+  background: none;
+  font-weight: normal;
+  padding: 0;
+}
+.main-footer .row {
+  position: relative;
+  margin-bottom: 0;
+}
+.main-footer .footer--frame-wrapper {
+  position: relative;
+  border-radius: 0 30px;
+  border: 2px solid #fff;
+  margin-bottom: 6em;
+  padding: 2em 5%;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer--frame-wrapper {
+    padding: 1.5em 2%;
+    margin-bottom: 0;
+  }
+}
+.main-footer .footer--frame-wrapper:before, .main-footer .footer--frame-wrapper:after {
+  display: block;
+  content: "";
+  position: absolute;
+}
+.main-footer .footer--frame-wrapper:before {
+  bottom: -2px;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  border-top: 2px solid #565656;
+  border-bottom: 2px solid #565656;
+}
+.main-footer .footer--frame-wrapper:after {
+  right: -2px;
+  top: 12.5%;
+  width: 100%;
+  height: 75%;
+  border-left: 2px solid #565656;
+  border-right: 2px solid #565656;
+}
+.main-footer .footer--frame:before, .main-footer .footer--frame:after {
+  display: block;
+  content: "";
+  position: absolute;
+}
+.main-footer .footer--frame:before {
+  top: -2px;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  border-top: 2px solid #565656;
+  border-bottom: 2px solid #565656;
+}
+.main-footer .footer--frame:after {
+  left: -2px;
+  top: 12.5%;
+  width: 100%;
+  height: 75%;
+  border-left: 2px solid #565656;
+  border-right: 2px solid #565656;
+}
+.main-footer .footer-nav {
+  z-index: 100;
+}
+.main-footer .footer-nav ul {
+  margin: 0;
+}
+.main-footer .footer-nav li {
+  padding-top: 0.75em;
+  font-size: 1.1em;
+  margin-right: 1em;
+  line-height: 1.4;
+}
+@media screen and (min-width: 640px) {
+  .main-footer .footer-nav li {
+    padding-top: 0.5em;
+    margin-right: 0;
+    line-height: 1.9;
+  }
+}
+.main-footer .footer-nav li:first-child {
+  padding-top: 0;
+}
+.main-footer .footer-nav a {
+  color: #fff;
+}
+.main-footer .footer-nav .footer--icon-list-container {
+  padding-top: 0;
+}
+.main-footer .footer-nav .footer--icon-list-title {
+  line-height: 1.6;
+  margin-top: 20px;
+  font-size: 1em;
+}
 .main-footer .footer-nav .icon-list li {
   padding: 0.8em 0.8em 0 0;
-  width: 30%;
+  width: 33%;
+  margin-right: 0;
 }
 @media screen and (min-width: 480px) {
   .main-footer .footer-nav .icon-list li {
@@ -7136,40 +6311,154 @@ h6 {
 }
 @media screen and (min-width: 1024px) {
   .main-footer .footer-nav .icon-list li {
-    width: 17%;
-  }
-}
-@media screen and (min-width: 1160px) {
-  .main-footer .footer-nav .icon-list li {
     width: 18%;
   }
 }
 .main-footer .footer-nav .icon-list a {
   padding: 0;
   display: inline;
+  width: 30%;
 }
-
-/** overrides Foundation forms styles **/
-.main-footer label {
-  color: #ffffff;
+@media screen and (min-width: 480px) {
+  .main-footer .footer-nav .icon-list a {
+    width: auto;
+  }
 }
-.main-footer fieldset legend {
-  background: none;
-  font-weight: normal;
+.main-footer .footer-utility {
+  position: relative;
+  z-index: 100;
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid #FFFFFF;
+}
+@media screen and (min-width: 1025px) {
+  .main-footer .footer-utility {
+    margin-top: 0;
+    padding-top: 0;
+    padding-right: 2%;
+    border-top: 0;
+  }
+}
+.main-footer .footer-utility fieldset {
+  margin: 0 0 1em;
   padding: 0;
+  border: 0;
 }
-.main-footer .footer-utility input {
+.main-footer .footer-utility .newslettersignup--footer-label {
+  display: block;
+  margin: 0.5em 0 0.1em;
+  font-size: 0.875em;
+}
+.main-footer .footer-utility .newslettersignup--footer-input {
+  width: 94%;
+  border: 0;
   height: auto !important;
+  font-size: 0.875em;
+  margin-bottom: 0.5em;
+  color: #565656;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-.main-footer .footer-utility input[type="submit"] {
-  border: 2px solid #fff;
-  margin: 0.4em 0 0;
+@media screen and (min-width: 768px) {
+  .main-footer .footer-utility .newslettersignup--footer-input {
+    padding: 0.5em 3%;
+  }
+}
+.main-footer .footer-utility .newslettersignup--footer-submit-button {
+  width: 94%;
+  display: block;
+  margin: 1em 0 0;
+  background: none;
+  text-align: left;
+  font-weight: normal;
+  border: 2px solid #FFFFFF;
   padding: 0.9em 0.3em 1em 1em;
 }
 @media screen and (min-width: 768px) {
-  .main-footer .footer-utility input[type="submit"] {
-    border-width: 1px;
+  .main-footer .footer-utility .newslettersignup--footer-submit-button {
     padding: 0.7em 0.3em 0.7em 1em;
+  }
+}
+.main-footer .footer-utility p {
+  font-size: 1.1em;
+}
+.main-footer .footer-utility .errors {
+  background-color: #F5E6E6;
+  border: 2px solid #AE3C39;
+  padding: 0.75em;
+  color: #AE3C39;
+  font-size: 0.875em;
+  line-height: 1.5;
+  display: none;
+  width: 94%;
+  margin-bottom: 0.5em;
+}
+.main-footer .footer-info {
+  float: none;
+  position: absolute;
+  bottom: -0.5em;
+  left: 0;
+  padding-top: 4.5em;
+  text-align: center;
+  background: url(/etc/designs/nhmwww/img/nhm-logo-white.png) no-repeat center top;
+  background-size: 35% auto;
+}
+@media screen and (min-width: 480px) {
+  .main-footer .footer-info {
+    background-size: 20% auto;
+  }
+}
+@media screen and (min-width: 640px) {
+  .main-footer .footer-info {
+    background-size: 25% auto;
+    width: 75%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-info {
+    bottom: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    padding: 0;
+    background-position: left center;
+    background-size: 100% auto;
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main-footer .footer-info {
+    background-size: 85% auto;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-footer .footer-info {
+    background-size: auto;
+  }
+}
+.main-footer .footer-info-text {
+  font-size: 0.8em;
+}
+@media screen and (min-width: 768px) {
+  .main-footer .footer-info-text {
+    position: absolute;
+    bottom: 30%;
+    left: 44%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main-footer .footer-info-text {
+    left: 33%;
+    bottom: 33%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-footer .footer-info-text {
+    bottom: 20%;
   }
 }
 
@@ -7285,9 +6574,17 @@ div#feedback-bar .span11 {
 /** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
 .grand-summary--wrapper {
   background-color: #f4f4f4;
+  clear: both;
 }
 .grand-summary--wrapper .row {
   margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .grand-summary--wrapper .row {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
@@ -7296,6 +6593,9 @@ div#feedback-bar .span11 {
 }
 .grand-summary--wrapper.grand-summary--exhibition {
   padding-bottom: 1.5em;
+}
+.grand-summary--wrapper.grand-summary--exhibition .grand-summary--caption-container .caption {
+  padding: 0;
 }
 
 .grand-summary--exhibition-details-grid {
@@ -7337,7 +6637,7 @@ div#feedback-bar .span11 {
     margin-top: 0;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .grand-summary--wrapper .info-sidebar {
     padding-left: 2em;
   }
@@ -7372,12 +6672,7 @@ div#feedback-bar .span11 {
 }
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 132px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grand-summary--caption-container .caption.grand-summary--exhibition {
-    height: 142px;
+    height: 146px;
   }
 }
 
@@ -7432,7 +6727,7 @@ div#feedback-bar .span11 {
 .grand-summary--wrapper .ctabutton {
   padding: 1.1em 0.95em;
   border: 3px solid #565656;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .grand-summary--wrapper .ctabutton:hover h3 {
   text-decoration: underline;
@@ -7447,7 +6742,7 @@ div#feedback-bar .span11 {
   padding-bottom: 0;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 2em;
 }
 
@@ -7713,7 +7008,7 @@ a.button-cta {
 }
 
 .linklist--container--description p {
-  margin-bottom: 0;
+  margin-bottom: 0.5em;
 }
 
 .linklist--column-container li {
@@ -7748,6 +7043,7 @@ a.button-cta {
   margin-bottom: 0.1em;
   padding-bottom: 0;
   color: #565656;
+  width: 98%;
 }
 
 .more-results {
@@ -7934,6 +7230,53 @@ a.button-cta {
     padding: 0 1.5em;
   }
 }
+.text ul {
+  padding-left: 1.5em;
+}
+.text ul li {
+  font-size: 1em;
+  list-style: disc outside;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 768px) {
+  .text ul li {
+    font-size: 1.125em;
+  }
+}
+
+/** WR-638 enews signup component **/
+.enews-signup-form-container {
+  padding: 2em 2em 1em 2em;
+  background-color: #EEEEEE;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.enews-signup-form-container a {
+  text-decoration: none;
+  border-bottom: 1px dotted #000000;
+  color: #000000;
+}
+.enews-signup-form-container a:hover {
+  border-bottom-style: solid;
+  border-bottom-color: #565656;
+  color: #565656;
+}
+.enews-signup-form-container form {
+  margin-bottom: 0;
+}
+.enews-signup-form-container label {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.125em;
+}
+.enews-signup-form-container .errors {
+  margin-top: 10px;
+  color: #A1164E;
+}
+
+.button__enews-signup {
+  padding: 0.6em 2em;
+  margin-bottom: 0;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
 
 /** WR-707 - fix positioning of events calendar search button **/
 /** overrides foundation.calendar.css in events calendar app **/
@@ -7948,20 +7291,30 @@ input.searchGo {
 
 /** FOOTER PARTIAL - MERGED **/
 /** ABOUT-US THEME PARTIAL **/
+.about-us {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .about-us .title-bar {
   background-color: #0B5C7B;
 }
-.about-us h4 {
-  font-weight: normal;
+.about-us h1 {
+  color: #0B5C7B;
+}
+.about-us .intro-text {
+  color: #0B5C7B;
+}
+.about-us .button__enews-signup {
+  background-color: #0B5C7B;
+}
+.about-us .button__enews-signup:hover {
+  background-color: rgba(11, 92, 123, 0.75);
+}
+.about-us .button__enews-signup:focus {
+  background-color: rgba(11, 92, 123, 0.75);
 }
 .about-us .carousel .caption {
-  background-color: #0B5C7B;
   background-color: rgba(11, 92, 123, 0.9);
-}
-.about-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .about-us .secondary-nav-wrapper .side-nav li {
@@ -8010,21 +7363,63 @@ input.searchGo {
   color: #ffffff;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.about-us .accordion .accordion-navigation > a,
+.about-us .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png");
+}
+.about-us .accordion .accordion-navigation > a:hover,
+.about-us .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.about-us .accordion .accordion-navigation.active > a,
+.about-us .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-about-us.png");
+}
+.about-us .accordion .accordion-navigation.active > a:hover,
+.about-us .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.about-us .lSAction a:hover {
+  background-color: rgba(11, 92, 123, 0.7);
+}
+.about-us .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #0B5C7B;
+}
+.about-us .event-slide-content {
+  background-color: #f4f4f4;
+}
+.about-us .event-slide-content a {
+  color: #0B5C7B;
+}
+
 /** ACCOUNT THEME PARTIAL **/
+.account {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .account .title-bar {
   background-color: #00385D;
 }
-.account h4 {
-  font-weight: normal;
+.account h1 {
+  color: #00385D;
+}
+.account .intro-text {
+  color: #00385D;
+}
+.account .button__enews-signup {
+  background-color: #00385D;
+}
+.account .button__enews-signup:hover {
+  background-color: rgba(0, 56, 93, 0.75);
+}
+.account .button__enews-signup:focus {
+  background-color: rgba(0, 56, 93, 0.75);
 }
 .account .carousel .caption {
-  background-color: #00385D;
   background-color: rgba(0, 56, 93, 0.9);
-}
-.account .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .account .secondary-nav-wrapper .side-nav li {
@@ -8051,21 +7446,63 @@ input.searchGo {
   color: #00385D;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.account .accordion .accordion-navigation > a,
+.account .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-account.png");
+}
+.account .accordion .accordion-navigation > a:hover,
+.account .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.account .accordion .accordion-navigation.active > a,
+.account .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-account.png");
+}
+.account .accordion .accordion-navigation.active > a:hover,
+.account .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.account .lSAction a:hover {
+  background-color: rgba(0, 56, 93, 0.7);
+}
+.account .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #00385D;
+}
+.account .event-slide-content {
+  background-color: #f4f4f4;
+}
+.account .event-slide-content a {
+  color: #00385D;
+}
+
 /** BUSINESS-SERVICES THEME PARTIAL **/
+.business-services {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .business-services .title-bar {
   background-color: #253480;
 }
-.business-services h4 {
-  font-weight: normal;
+.business-services h1 {
+  color: #253480;
+}
+.business-services .intro-text {
+  color: #253480;
+}
+.business-services .button__enews-signup {
+  background-color: #253480;
+}
+.business-services .button__enews-signup:hover {
+  background-color: rgba(37, 52, 128, 0.75);
+}
+.business-services .button__enews-signup:focus {
+  background-color: rgba(37, 52, 128, 0.75);
 }
 .business-services .carousel .caption {
-  background-color: #253480;
   background-color: rgba(37, 52, 128, 0.9);
-}
-.business-services .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .business-services .secondary-nav-wrapper .side-nav li {
@@ -8110,21 +7547,63 @@ input.searchGo {
   background-color: #253480;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.business-services .accordion .accordion-navigation > a,
+.business-services .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-business.png");
+}
+.business-services .accordion .accordion-navigation > a:hover,
+.business-services .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.business-services .accordion .accordion-navigation.active > a,
+.business-services .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-business.png");
+}
+.business-services .accordion .accordion-navigation.active > a:hover,
+.business-services .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.business-services .lSAction a:hover {
+  background-color: rgba(37, 52, 128, 0.7);
+}
+.business-services .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #253480;
+}
+.business-services .event-slide-content {
+  background-color: #f4f4f4;
+}
+.business-services .event-slide-content a {
+  color: #253480;
+}
+
 /** CONTACT-US THEME PARTIAL **/
+.contact-us {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .contact-us .title-bar {
   background-color: #808080;
 }
-.contact-us h4 {
-  font-weight: normal;
+.contact-us h1 {
+  color: #808080;
+}
+.contact-us .intro-text {
+  color: #808080;
+}
+.contact-us .button__enews-signup {
+  background-color: #808080;
+}
+.contact-us .button__enews-signup:hover {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+.contact-us .button__enews-signup:focus {
+  background-color: rgba(128, 128, 128, 0.75);
 }
 .contact-us .carousel .caption {
-  background-color: #808080;
   background-color: rgba(128, 128, 128, 0.9);
-}
-.contact-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .contact-us .secondary-nav-wrapper .side-nav li {
@@ -8169,54 +7648,155 @@ input.searchGo {
   background-color: #808080;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.contact-us .accordion .accordion-navigation > a,
+.contact-us .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-contact-us.png");
+}
+.contact-us .accordion .accordion-navigation > a:hover,
+.contact-us .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.contact-us .accordion .accordion-navigation.active > a,
+.contact-us .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-contact-us.png");
+}
+.contact-us .accordion .accordion-navigation.active > a:hover,
+.contact-us .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.contact-us .lSAction a:hover {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+.contact-us .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #808080;
+}
+.contact-us .event-slide-content {
+  background-color: #f4f4f4;
+}
+.contact-us .event-slide-content a {
+  color: #808080;
+}
+
 /** DISCOVER THEME PARTIAL **/
+.discover {
+  /** WR-585: added to ensure that Discover publication styles are not affected by changes to base H1 **/
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .discover .title-bar {
   background-color: #565656;
   margin-bottom: 1.2em;
 }
-.discover h4 {
-  font-weight: normal;
-}
-.discover .carousel .caption {
-  background-color: #107B5E;
-  background-color: rgba(16, 123, 94, 0.9);
-}
-.discover .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
-}
-
 .discover h1 {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 2em;
-  line-height: 1.3;
+  color: #107B5E;
 }
-@media screen and (min-width: 768px) {
-  .discover h1 {
-    font-size: 2.7em;
-  }
+.discover .discoverpublication h1 {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 .discover .intro-text {
   color: #565656;
 }
+.discover .button__enews-signup {
+  background-color: #565656;
+}
+.discover .button__enews-signup:hover {
+  background-color: rgba(86, 86, 86, 0.75);
+}
+.discover .button__enews-signup:focus {
+  background-color: rgba(86, 86, 86, 0.75);
+}
+.discover .carousel .caption {
+  background-color: rgba(86, 86, 86, 0.9);
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.discover .accordion .accordion-navigation > a,
+.discover .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.discover .accordion .accordion-navigation > a:hover,
+.discover .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.discover .accordion .accordion-navigation.active > a,
+.discover .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+.discover .accordion .accordion-navigation.active > a:hover,
+.discover .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.discover .lSAction a:hover {
+  background-color: rgba(86, 86, 86, 0.7);
+}
+.discover .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #565656;
+}
+.discover .event-slide-content {
+  background-color: #f4f4f4;
+}
+.discover .event-slide-content a {
+  color: #565656;
+}
 
 /** HOME THEME PARTIAL **/
+.home a {
+  color: #A1164E;
+}
+.home h2 {
+  /** not sure where this is used **/
+}
+.home h2 #search-calendar select {
+  margin-bottom: 10px;
+}
+.home .carousel-wrapper .caption {
+  background-color: rgba(161, 22, 78, 0.9);
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.home .lSAction a:hover {
+  background-color: rgba(161, 22, 78, 0.7);
+}
+.home .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #A1164E;
+}
+.home .event-slide-content {
+  background-color: #f4f4f4;
+}
+.home .event-slide-content a {
+  color: #A1164E;
+}
+
 /** OUR-SCIENCE THEME PARTIAL **/
+.our-science {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .our-science .title-bar {
   background-color: #357900;
 }
-.our-science h4 {
-  font-weight: normal;
+.our-science h1 {
+  color: #357900;
+}
+.our-science .intro-text {
+  color: #357900;
+}
+.our-science .button__enews-signup {
+  background-color: #357900;
+}
+.our-science .button__enews-signup:hover {
+  background-color: rgba(53, 121, 0, 0.75);
+}
+.our-science .button__enews-signup:focus {
+  background-color: rgba(53, 121, 0, 0.75);
 }
 .our-science .carousel .caption {
-  background-color: #357900;
   background-color: rgba(53, 121, 0, 0.9);
-}
-.our-science .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .our-science .secondary-nav-wrapper .side-nav li {
@@ -8261,7 +7841,58 @@ input.searchGo {
   background-color: #357900;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.our-science .accordion .accordion-navigation > a,
+.our-science .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-our-science.png");
+}
+.our-science .accordion .accordion-navigation > a:hover,
+.our-science .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.our-science .accordion .accordion-navigation.active > a,
+.our-science .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-our-science.png");
+}
+.our-science .accordion .accordion-navigation.active > a:hover,
+.our-science .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.our-science .lSAction a:hover {
+  background-color: rgba(53, 121, 0, 0.7);
+}
+.our-science .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #357900;
+}
+.our-science .event-slide-content {
+  background-color: #f4f4f4;
+}
+.our-science .event-slide-content a {
+  color: #357900;
+}
+
 /** PRESS OFFICE THEME PARTIAL **/
+.press-office {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
+.press-office h1 {
+  color: #107E5E;
+}
+.press-office .intro-text {
+  color: #107E5E;
+}
+.press-office .button__enews-signup {
+  background-color: #107E5E;
+}
+.press-office .button__enews-signup:hover {
+  background-color: rgba(16, 126, 94, 0.75);
+}
+.press-office .button__enews-signup:focus {
+  background-color: rgba(16, 126, 94, 0.75);
+}
 .press-office .pressreleaselistfeed {
   /** h3 here is the title of the press release listfeed component, not HTI **/
 }
@@ -8276,6 +7907,9 @@ input.searchGo {
 }
 .press-office .title-bar {
   background-color: #107E5E;
+}
+.press-office .carousel-wrapper .caption {
+  background-color: rgba(16, 126, 94, 0.9);
 }
 .press-office .feature-box a {
   color: #ffffff;
@@ -8332,21 +7966,63 @@ input.searchGo {
   background-color: #107E5E;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.press-office .accordion .accordion-navigation > a,
+.press-office .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-news-press.png");
+}
+.press-office .accordion .accordion-navigation > a:hover,
+.press-office .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.press-office .accordion .accordion-navigation.active > a,
+.press-office .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-news-press.png");
+}
+.press-office .accordion .accordion-navigation.active > a:hover,
+.press-office .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.press-office .lSAction a:hover {
+  background-color: rgba(16, 126, 94, 0.7);
+}
+.press-office .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #107E5E;
+}
+.press-office .event-slide-content {
+  background-color: #f4f4f4;
+}
+.press-office .event-slide-content a {
+  color: #107E5E;
+}
+
 /** SCHOOLS THEME PARTIAL **/
+.schools {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .schools .title-bar {
   background-color: #0983BB;
 }
-.schools h4 {
-  font-weight: normal;
+.schools h1 {
+  color: #0983BB;
+}
+.schools .intro-text {
+  color: #0983BB;
+}
+.schools .button__enews-signup {
+  background-color: #0983BB;
+}
+.schools .button__enews-signup:hover {
+  background-color: rgba(9, 131, 187, 0.75);
+}
+.schools .button__enews-signup:focus {
+  background-color: rgba(9, 131, 187, 0.75);
 }
 .schools .carousel .caption {
-  background-color: #0983BB;
   background-color: rgba(9, 131, 187, 0.9);
-}
-.schools .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .schools .secondary-nav-wrapper .side-nav li {
@@ -8391,21 +8067,68 @@ input.searchGo {
   background-color: #0983BB;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.schools .accordion .accordion-navigation > a,
+.schools .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-schools.png");
+}
+.schools .accordion .accordion-navigation > a:hover,
+.schools .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.schools .accordion .accordion-navigation.active > a,
+.schools .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-schools.png");
+}
+.schools .accordion .accordion-navigation.active > a:hover,
+.schools .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.schools .lSAction a:hover {
+  background-color: rgba(9, 131, 187, 0.7);
+}
+.schools .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #0983BB;
+}
+.schools .event-slide-content {
+  background-color: #f4f4f4;
+}
+.schools .event-slide-content a {
+  color: #0983BB;
+}
+
+/** SEARCH THEME PARTIAL **/
+.search .title-bar {
+  background-color: #808080;
+}
+
 /** SUPPORT-US THEME PARTIAL **/
+.support-us {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .support-us .title-bar {
   background-color: #7F206E;
 }
-.support-us h4 {
-  font-weight: normal;
+.support-us h1 {
+  color: #7F206E;
+}
+.support-us .intro-text {
+  color: #7F206E;
+}
+.support-us .button__enews-signup {
+  background-color: #7F206E;
+}
+.support-us .button__enews-signup:hover {
+  background-color: rgba(127, 32, 110, 0.75);
+}
+.support-us .button__enews-signup:focus {
+  background-color: rgba(127, 32, 110, 0.75);
 }
 .support-us .carousel .caption {
-  background-color: #7F206E;
   background-color: rgba(127, 32, 110, 0.9);
-}
-.support-us .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .support-us .secondary-nav-wrapper .side-nav li {
@@ -8450,21 +8173,63 @@ input.searchGo {
   background-color: #7F206E;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.support-us .accordion .accordion-navigation > a,
+.support-us .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-support-us.png");
+}
+.support-us .accordion .accordion-navigation > a:hover,
+.support-us .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.support-us .accordion .accordion-navigation.active > a,
+.support-us .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-support-us.png");
+}
+.support-us .accordion .accordion-navigation.active > a:hover,
+.support-us .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.support-us .lSAction a:hover {
+  background-color: rgba(127, 32, 110, 0.7);
+}
+.support-us .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #7F206E;
+}
+.support-us .event-slide-content {
+  background-color: #f4f4f4;
+}
+.support-us .event-slide-content a {
+  color: #7F206E;
+}
+
 /** TAKE-PART THEME PARTIAL **/
+.take-part {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .take-part .title-bar {
   background-color: #BF491F;
 }
-.take-part h4 {
-  font-weight: normal;
+.take-part h1 {
+  color: #BF491F;
+}
+.take-part .intro-text {
+  color: #BF491F;
+}
+.take-part .button__enews-signup {
+  background-color: #BF491F;
+}
+.take-part .button__enews-signup:hover {
+  background-color: rgba(191, 73, 31, 0.75);
+}
+.take-part .button__enews-signup:focus {
+  background-color: rgba(191, 73, 31, 0.75);
 }
 .take-part .carousel .caption {
-  background-color: #BF491F;
   background-color: rgba(191, 73, 31, 0.9);
-}
-.take-part .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .take-part .secondary-nav-wrapper .side-nav li {
@@ -8509,21 +8274,63 @@ input.searchGo {
   background-color: #BF491F;
 }
 
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.take-part .accordion .accordion-navigation > a,
+.take-part .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-take-part.png");
+}
+.take-part .accordion .accordion-navigation > a:hover,
+.take-part .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.take-part .accordion .accordion-navigation.active > a,
+.take-part .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-take-part.png");
+}
+.take-part .accordion .accordion-navigation.active > a:hover,
+.take-part .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.take-part .lSAction a:hover {
+  background-color: rgba(191, 73, 31, 0.7);
+}
+.take-part .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #BF491F;
+}
+.take-part .event-slide-content {
+  background-color: #f4f4f4;
+}
+.take-part .event-slide-content a {
+  color: #BF491F;
+}
+
 /** VISIT THEME PARTIAL **/
+.visit {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
 .visit .title-bar {
   background-color: #A1164E;
 }
-.visit h4 {
-  font-weight: normal;
+.visit h1 {
+  color: #A1164E;
+}
+.visit .intro-text {
+  color: #A1164E;
+}
+.visit .button__enews-signup {
+  background-color: #A1164E;
+}
+.visit .button__enews-signup:hover {
+  background-color: rgba(161, 22, 78, 0.75);
+}
+.visit .button__enews-signup:focus {
+  background-color: rgba(161, 22, 78, 0.75);
 }
 .visit .carousel .caption {
-  background-color: #A1164E;
   background-color: rgba(161, 22, 78, 0.9);
-}
-.visit .carousel .caption h2 {
-  color: #ffffff;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .visit .secondary-nav-wrapper .side-nav li {
@@ -8566,6 +8373,38 @@ input.searchGo {
 }
 .visit .hti-box__feature-box {
   background-color: #A1164E;
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.visit .accordion .accordion-navigation > a,
+.visit .accordion dd > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-visit.png");
+}
+.visit .accordion .accordion-navigation > a:hover,
+.visit .accordion dd > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+}
+.visit .accordion .accordion-navigation.active > a,
+.visit .accordion dd.active > a {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-visit.png");
+}
+.visit .accordion .accordion-navigation.active > a:hover,
+.visit .accordion dd.active > a:hover {
+  background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.visit .lSAction a:hover {
+  background-color: rgba(161, 22, 78, 0.7);
+}
+.visit .lSSlideOuter .lSPager.lSpg > li.active a {
+  border: 2px solid #A1164E;
+}
+.visit .event-slide-content {
+  background-color: #f4f4f4;
+}
+.visit .event-slide-content a {
+  color: #A1164E;
 }
 
 /*# sourceMappingURL=styles.css.map */
