@@ -2,6 +2,12 @@
         import="com.day.cq.wcm.api.WCMMode"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <cq:includeClientLib categories="cq.widgets"/>
+<script src="/etc/clientlibs/foundation/shared.js" type="text/javascript"></script>
+<script src="/libs/cq/ui/rte.js" type="text/javascript"></script>
+<script src="/libs/cq/ui/widgets.js" type="text/javascript"></script>
+<script src="/libs/cq/searchpromote/widgets.js" type="text/javascript"></script>
+<script src="/apps/sidekick-customization/clientlib.js" type="text/javascript"></script>
+<script src="/libs/cq/ui/widgets/themes/default.js" type="text/javascript"></script>
 <div class="main-section calendar--page">
     <div class="small-12 large-text-left columns">
         <cq:include path="title" resourceType="nhmwww/components/functional/title"/>
