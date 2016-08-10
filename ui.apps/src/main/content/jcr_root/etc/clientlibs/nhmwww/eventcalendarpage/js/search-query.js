@@ -64,11 +64,16 @@ var NHMSearchQuery = new function () {
         }
     };
     
+    // Given a month name, it return month in numeric format
+    function getMonthFromString(mon){
+       return "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(mon) / 3 + 1;
+    }
+    
     // Converts the date obtained in the JSON file in the repository to a Date object
     var jsonDateToDateObject = function(date) {
         date = date.substring(0, date.length - 1); 
         date = date.split(' '); 
-        return new Date(date[2] + '/' + date[1] + '/' + date[5]);
+        return new Date(getMonthFromString(date[2]) + '/' + date[1] + '/' + date[5]);
     }
     
     // Given a Date it returns all the events that are scheduled for that date.
