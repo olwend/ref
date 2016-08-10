@@ -73,7 +73,7 @@ var NHMSearchQuery = new function () {
     var jsonDateToDateObject = function(date) {
         date = date.substring(0, date.length - 1); 
         date = date.split(' '); 
-        return new Date(getMonthFromString(date[2]) + '/' + date[1] + '/' + date[5]);
+        return new Date(getMonthFromString(date[1]) + '/' + date[2] + '/' + date[5]);
     }
     
     // Given a Date it returns all the events that are scheduled for that date.
