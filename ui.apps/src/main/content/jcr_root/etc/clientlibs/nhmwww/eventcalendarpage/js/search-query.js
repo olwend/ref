@@ -404,7 +404,7 @@ var NHMSearchQuery = new function () {
             if (allDay[key] == 'true') {
                 result = 'All day';
             } else if (eventTimes.length == 1) {
-                result = eventTimes[0];
+                result = eventTimes[0].replace(":",".").replace("00.00","midnight");
             } else if (eventTimes.length > 1) {
                 result = 'Times vary';
             }
