@@ -310,7 +310,7 @@ var NHMSearchQuery = new function () {
     //Helper function to return the events
     var getEvents = function (tags, eventType) {
         var events = "";
-
+        var firstEvent = true;
         for (var i = 0; i < tags.length; i++) {
             var tagId = tags[i];
             var tokens      = tags[i].split("/"),
@@ -319,15 +319,23 @@ var NHMSearchQuery = new function () {
 
             if (headers[1] == "events") {
                  var tagTitle = getTagTitle(tagId);
-                 if (i > 0) tagTitle = tagTitle.toLowerCase(); // All events but first must be in lower cases.
-                 events += tagTitle;
-                 if (i < tags.length-1) events += ", "; // Do not concat a comma if it's the last event.
+                 
+                 if (firstEvent) { // First tag, it must use capital letter in the first character.
+                     var firstLetter = tagTitle.charAt(0).toUpperCase(); 
+                     var restOfString = tagTitle.substring(1,tagTitle.length); 
+                     tagTitle = firstLetter + restOfString; 
+                     firstEvent = false;
+                 }
+                 else { // All events but first must be in lower cases.
+                     tagTitle = tagTitle.toLowerCase(); 
+                 }
+                 events += tagTitle + ", ";
             }
         }
-        if (events.localeCompare("") === 0) {
+        if (events.length == 0) {
             return eventType;
         } else {
-            return events;
+            return events.substring(0, events.length - 2); // Remove the ", " from the last event.
         }
     };
 
