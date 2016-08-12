@@ -750,7 +750,6 @@ var NHMSearchQuery = new function () {
                 }
                 
                 //If the date matches
-                
                 var initialDate;
                 if (!dateFrom) {
                      initialDate = getOnlyDate(new Date()); // Do not filter events from the past.
