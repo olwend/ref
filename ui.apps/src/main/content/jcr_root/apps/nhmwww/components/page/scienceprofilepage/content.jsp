@@ -21,7 +21,7 @@
     final String lastName  = helper.getLastName();
     final String nickName  = helper.getNickName();
 %>
-<div class="main-section science-profiles-detail-page">
+<div class="main-section template--science-profiles-detail-page">
 	<!-- CONTENT WRAPPER -->
 	<div class="title">
 		<div class="row title-bar">

@@ -6433,13 +6433,13 @@ h6 {
 .image--and--cta--wrapper .image--and--cta--image {
   height: 435px;
 }
-.image--and--cta--wrapper .image--not--matching--ratio {
-    width: 100%;
-}
 @media screen and (max-width: 1024px) {
   .image--and--cta--wrapper .image--and--cta--image {
     height: auto;
   }
+}
+.image--and--cta--wrapper .image--not--matching--ratio {
+  width: 100%;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/
@@ -7612,11 +7612,11 @@ a.button-cta {
   width: 100%;
 }
 
-.content-page .title-bar {
+.template--content-page .title-bar {
   margin-bottom: 1.2em;
 }
 
-.science-profiles-detail-page .title-bar {
+.template--science-profiles-detail-page .title-bar {
   margin-bottom: 1.2em;
 }
 
