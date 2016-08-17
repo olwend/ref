@@ -1,5 +1,10 @@
 var NHMSearchQuery = new function () {
     var showMoreValue = Number($('div[data-showmore]').data('showmore'));
+    
+    function checkIsNaN(o) {
+        return typeof(o) === 'number' && isNaN(o);
+    }
+    
     var CONST = {
         CONTAINER_DIV_CLASS:    "small-12 columns",
         DISPLAY_SHOW_MORE:      "row event--calendar--more--results",
@@ -27,7 +32,7 @@ var NHMSearchQuery = new function () {
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
-        SHOW_MORE:              (Number.isNaN(showMoreValue)?6:showMoreValue)
+        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue)
     };
 
     var inputs = {};
