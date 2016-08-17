@@ -28,6 +28,7 @@ public class Foundation5ImageHelper {
 	private String caption;
 	private String imageLinkURL;
 	private String mobileImagePath;
+	private Boolean addMarginBottom; // WR-890
 	private boolean newwindow;
 	private Boolean activated;
 	private Resource rs;
@@ -41,8 +42,12 @@ public class Foundation5ImageHelper {
 	public Foundation5ImageHelper(ValueMap properties, Resource resource, ResourceResolver resourceResolver, HttpServletRequest request, XSSAPI xssAPI) {
 		
 		this.activated = false;
+		
+		this.addMarginBottom = false; // WR-890
 		//this.rs = resource;
 		this.resourceResolver = resourceResolver;
+		// WR-890 - set the addMarginBottom Boolean
+		this.addMarginBottom = properties.get("addMarginBottom",false);
 		
 		String fileReference = properties.get("fileReference", "");
 		String mobileFileReference = properties.get("mobileFileReference", "");
@@ -302,6 +307,16 @@ public class Foundation5ImageHelper {
 		{
 			return "";
 		}
+	}
+	
+	// WR-890
+	public Boolean getAddMarginBottom() {
+		return addMarginBottom;
+	}
+	
+	// WR-890
+	public void setAddMarginBottom(Boolean addMarginBottom) {
+		this.addMarginBottom = addMarginBottom;
 	}
 	
 	private boolean hasMobileImage(String path) {

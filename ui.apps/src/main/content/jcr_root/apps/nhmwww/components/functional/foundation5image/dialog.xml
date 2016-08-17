@@ -65,6 +65,13 @@
                         name="./newwindow"
                         type="checkbox"
                         xtype="selection"/>
+                    <!-- WR-890 - option to add bottom margin on Image component -->
+                    <addMarginBottom
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Add bottom margin"
+	                    name="./addMarginBottom"
+	                    type="checkbox"
+	                    xtype="selection"/>
                 </items>
             </advanced>
         </items>
