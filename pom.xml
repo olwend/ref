@@ -31,14 +31,14 @@
 	</modules>
 
 	<properties>
-		<aem.host>localhost</aem.host>
-		<aem.port>4502</aem.port>
+		<aem.host>${crx.host}</aem.host>
+		<aem.port>${crx.port}</aem.port>
 		<aem.publish.host>${publish.crx.host}</aem.publish.host>
 		<aem.publish.port>${publish.crx.port}</aem.publish.port>
-		<sling.user>admin</sling.user>
-		<sling.password>admin</sling.password>
-		<vault.user>admin</vault.user>
-		<vault.password>admin</vault.password>
+		<sling.user>${crx.username}</sling.user>
+		<sling.password>${crx.password}</sling.password>
+		<vault.user>${crx.username}</vault.user>
+		<vault.password>${crx.password}</vault.password>
 	</properties>
 	<build>
 		<plugins>
