@@ -190,6 +190,7 @@ var NHMCalendar = new function () {
                 dateFrom: inputs.dateFrom.value,
                 dateTo: inputs.dateTo.value  
             });
+            localStorage.setItem("searchHistoryArray", JSON.stringify(searchHistoryArray));
             searchNumber++;
         }
         
@@ -209,7 +210,62 @@ var NHMCalendar = new function () {
     this.doSearch = doSearch;
     
     $(document).ready(function () {
+        NHMSearchQuery.init();
         NHMCalendar.init();
+        
+        // Browser tries to access a stored search when clicking 'Back' or 'Forward' buttons
+        if (window.location.href.indexOf("#search") > 0) {
+            var searchIndex = parseInt(window.location.href.split('#')[1].replace("search_",""));
+            searchHistoryArray = JSON.parse(localStorage.getItem("searchHistoryArray"));
+            // Prevents accessing to a seach history position that does not exists
+            if (searchHistoryArray.length != 0 &&  searchIndex < searchHistoryArray.length) {
+                searchNumber = searchHistoryArray.length;
+                setSearchParameters(searchHistoryArray[searchIndex]);
+                doSearch(false);    
+            }
+            else { // Tried to access an invalid position in history, just load Today's events.
+                NHMSearchQuery.displayTodayEvents();
+            }
+        }
+        else {
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+            var params = {
+                group : getUrlParameter('group'),
+                title : getUrlParameter('title'),
+                description : getUrlParameter('description'),
+                venue : getUrlParameter('venue'),
+                link : getUrlParameter('link'),
+                tags : getUrlParameter('tags'),
+                keywords : getUrlParameter('keywords'),
+                from : getUrlParameter('from'),
+                to : getUrlParameter('to'),
+                text : getUrlParameter('text')
+            };
+
+            var hasParams = function() {
+                return window.location.search.substring(1).replace("wcmmode=disabled","").length > 0;
+            };
+
+            if (hasParams()) { // Perform search with URL parameters indicated by the user.
+                NHMSearchQuery.displayFilteredEvents(params);
+            }
+            else {
+                NHMSearchQuery.displayTodayEvents();
+            }
+        }
     });
 
     window.addEventListener('popstate', function(event) {
