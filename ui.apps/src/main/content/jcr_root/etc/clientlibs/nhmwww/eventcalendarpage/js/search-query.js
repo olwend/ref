@@ -796,5 +796,6 @@ var NHMSearchQuery = new function () {
 };
 
 $(document).ready(function () {
+    $("#events-calendar-loading").hide();
     eventsCounter = 0;
 });
