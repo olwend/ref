@@ -791,45 +791,5 @@ var NHMSearchQuery = new function () {
 };
 
 $(document).ready(function () {
-    NHMSearchQuery.init();
     eventsCounter = 0;
-    var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : sParameterName[1];
-            }
-        }
-    };
-    
-    var params = {
-        group : getUrlParameter('group'),
-        title : getUrlParameter('title'),
-        description : getUrlParameter('description'),
-        venue : getUrlParameter('venue'),
-        link : getUrlParameter('link'),
-        tags : getUrlParameter('tags'),
-        keywords : getUrlParameter('keywords'),
-        from : getUrlParameter('from'),
-        to : getUrlParameter('to'),
-        text : getUrlParameter('text')
-    };
-    
-    var hasParams = function() {
-        return window.location.search.substring(1).replace("wcmmode=disabled","").length > 0;
-    };
-
-    if (hasParams()) {
-        NHMSearchQuery.displayFilteredEvents(params);
-    }
-    else {
-        NHMSearchQuery.displayTodayEvents();
-    }
-    $(".event--calendar--search--result--description").dotdotdot();
-
 });
