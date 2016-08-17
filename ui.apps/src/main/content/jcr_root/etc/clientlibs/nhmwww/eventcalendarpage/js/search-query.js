@@ -791,6 +791,7 @@ var NHMSearchQuery = new function () {
 };
 
 $(document).ready(function () {
+    $("#events-calendar-loading").hide();
     NHMSearchQuery.init();
     eventsCounter = 0;
     var getUrlParameter = function getUrlParameter(sParam) {

@@ -6189,6 +6189,20 @@ h6 {
   color: #565656;
 }
 
+#events-calendar-loading {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
 .event--information--wrapper {
   display: inline-block;
@@ -6433,13 +6447,13 @@ h6 {
 .image--and--cta--wrapper .image--and--cta--image {
   height: 435px;
 }
-.image--and--cta--wrapper .image--not--matching--ratio {
-    width: 100%;
-}
 @media screen and (max-width: 1024px) {
   .image--and--cta--wrapper .image--and--cta--image {
     height: auto;
   }
+}
+.image--and--cta--wrapper .image--not--matching--ratio {
+  width: 100%;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/

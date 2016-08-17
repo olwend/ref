@@ -179,6 +179,7 @@ var NHMCalendar = new function () {
     
     //Function to trigger the search
     var doSearch = function (saveSearchHistory) {
+        $("#events-calendar-loading").show();
         if (saveSearchHistory) {
             ignoreHistoryChange = true;
             window.location = "#search_" + searchNumber;
@@ -198,6 +199,7 @@ var NHMCalendar = new function () {
         } else {
             NHMSearchQuery.displayTodayEvents();
         }
+        $("#events-calendar-loading").hide();
     };
     
     this.resetSelectedButtons = function () {
