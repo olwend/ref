@@ -64,7 +64,7 @@ function checkDates(dialog) {
                         if(!allDay.length || !allDay[0]){
                             var datePanel = selectionField.findParentByType('nhm-multi-field-panel');
                             var timesFields = subpanel.findByType('timefield');
-                            if(timesFields.length) {
+                            if(timesFields.length > 0) {
                                 var durationPanel = subpanel.findByType('numberfield')[0];
                                 if(!durationPanel.getValue()){
                                     submit = false;
@@ -72,6 +72,7 @@ function checkDates(dialog) {
                                     break;
                                 }
                             } else {
+                                alert('Times can not be empty');
                                 submit = false;
                                 var timesPanel = subpanel.findByType('multifield')[0];
                                 timesPanel.markInvalid('Times can not be empty');
@@ -93,6 +94,7 @@ function isDailyFrequencyValid(recurSelections){
         if(recurSelection.dName === 'weekdaysList'){
             var weekdaysListValue = recurSelection.getValue();
             if(!weekdaysListValue.length){
+                alert('Day(s) can not be empty');
                 isValid = false;
                 recurSelection.markInvalid('Day(s) can not be empty');
             }
