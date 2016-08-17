@@ -45,4 +45,4 @@ if (WCMMode.fromRequest(request) == WCMMode.DISABLED || WCMMode.fromRequest(requ
         <cq:include path="par-below" resourceType="foundation/components/parsys" />
     
 </div>
-<div id="events-calendar-loading"></div>
+<div id="events-calendar-loading" style="display:none"></div>
