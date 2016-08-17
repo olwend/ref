@@ -830,4 +830,6 @@ $(document).ready(function () {
     else {
         NHMSearchQuery.displayTodayEvents();
     }
+    $(".event--calendar--search--result--description").dotdotdot();
+
 });
