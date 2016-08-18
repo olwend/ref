@@ -32,8 +32,7 @@ var NHMSearchQuery = new function () {
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
-        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
-        MAX_TITLE_CHARS:        45
+        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue)
     };
 
     var inputs = {};
@@ -253,7 +252,6 @@ var NHMSearchQuery = new function () {
             containerDiv    = document.createElement("div"),
             navigateDiv     = document.createElement("div"),
             a               = document.createElement("a"),
-//            aH3             = document.createElement("a"),
             imageDiv        = document.createElement("div"),
             img             = document.createElement("img"),
             h3              = document.createElement("h3"),
