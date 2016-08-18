@@ -32,7 +32,8 @@ var NHMSearchQuery = new function () {
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
-        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue)
+        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
+        MAX_TITLE_CHARS:        45
     };
 
     var inputs = {};
@@ -274,7 +275,11 @@ var NHMSearchQuery = new function () {
         h3.className = CONST.H3_CLASS;
         textDiv.className = CONST.TEXT_DIV_CLASS;
         paragraph.className = CONST.PARAGRAPH_CLASS;
-
+        
+        // Avoids showing event titles when they are too large
+        if (event.title.length > CONST.MAX_TITLE_CHARS) {
+            event.title = event.title.substring(0, CONST.MAX_TITLE_CHARS) + "...";
+        }
 
         img.src = event.imageLink;
         aH3.innerHTML = event.title;
