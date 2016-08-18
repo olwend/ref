@@ -32,7 +32,8 @@ var NHMSearchQuery = new function () {
         IMAGE_CLASS:            "adaptiveimage parbase foundation5image image event--calendar--search--result--image",
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
-        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue)
+        SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
+        MAX_TITLE_CHARS:        45
     };
 
     var inputs = {};
@@ -252,7 +253,7 @@ var NHMSearchQuery = new function () {
             containerDiv    = document.createElement("div"),
             navigateDiv     = document.createElement("div"),
             a               = document.createElement("a"),
-            aH3             = document.createElement("a"),
+//            aH3             = document.createElement("a"),
             imageDiv        = document.createElement("div"),
             img             = document.createElement("img"),
             h3              = document.createElement("h3"),
@@ -277,8 +278,8 @@ var NHMSearchQuery = new function () {
 
 
         img.src = event.imageLink;
-        aH3.innerHTML = event.title;
-        h3.appendChild(aH3);
+        
+        h3.innerHTML = event.title;
         paragraph.innerHTML = getEventDates(event.dates, isExhibitionEvent(event.eventPagePath)) + "<br/>" +
             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
