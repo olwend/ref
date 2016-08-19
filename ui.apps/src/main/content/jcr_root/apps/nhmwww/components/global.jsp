@@ -98,7 +98,7 @@
 		templateType = "template--landing-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/newscontentpage") ){
 		templateType = "template--news-content-page";
-	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/pressrelease") ){
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/pressreleasepage") ){
 		templateType = "template--press-release";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/scienceprofilepage") ){
 		templateType = "template--science-profiles-detail-page";
