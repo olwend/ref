@@ -266,8 +266,10 @@ var NHMSearchQuery = new function () {
         //Sets the Event Link
         if (event.tileLink.localeCompare("") === 0) {
             a.href = event.eventPagePath + ".html";
+            aH3.href = event.eventPagePath + ".html";
         } else {
             a.href = event.tileLink;
+            aH3.href = event.tileLink;
         }
 
         li.className = CONST.LI_CLASS;
@@ -288,7 +290,7 @@ var NHMSearchQuery = new function () {
             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
             "Ticket price: <b>" + event.eventListingPrice + "</b><br/>" +
-            "<span class='event--calendar--search--result--description'>" + event.description + "</span>";
+            "<div class='event--calendar--search--result--description'>" + event.description + "</div>";
 
         imageDiv.appendChild(img);
         a.appendChild(imageDiv);
