@@ -253,6 +253,7 @@ var NHMSearchQuery = new function () {
             containerDiv    = document.createElement("div"),
             navigateDiv     = document.createElement("div"),
             a               = document.createElement("a"),
+            aH3             = document.createElement("a"),
             imageDiv        = document.createElement("div"),
             img             = document.createElement("img"),
             h3              = document.createElement("h3"),
@@ -284,7 +285,9 @@ var NHMSearchQuery = new function () {
 
         img.src = event.imageLink;
         
-        h3.innerHTML = event.title;
+        aH3.innerHTML = event.title;
+        h3.appendChild(aH3);
+
         paragraph.innerHTML = getEventDates(event.dates, isExhibitionEvent(event.eventPagePath)) + "<br/>" +
             "Event type: <b>" + getEvents(event.tags, event.eventType) + "</b><br/>" +
             "Time: <b>" + getEventTimes(event, false) + "</b><br/>" +
