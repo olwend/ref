@@ -200,7 +200,7 @@ var NHMCalendar = new function () {
         } else {
             NHMSearchQuery.displayTodayEvents();
         }
-        $(".event--calendar--search--result--description").dotdotdot();
+        $(".event--calendar--search--result--description").dotdotdot({watch: "true"});
         $("#events-calendar-loading").hide();
     };
     
@@ -228,6 +228,7 @@ var NHMCalendar = new function () {
             }
             else { // Tried to access an invalid position in history, just load Today's events.
                 NHMSearchQuery.displayTodayEvents();
+                $(".event--calendar--search--result--description").dotdotdot({watch: "true"});
             }
         }
         else {
@@ -268,6 +269,7 @@ var NHMCalendar = new function () {
             else {
                 NHMSearchQuery.displayTodayEvents();
             }
+            $(".event--calendar--search--result--description").dotdotdot({watch: "true"});
         }
     });
 
