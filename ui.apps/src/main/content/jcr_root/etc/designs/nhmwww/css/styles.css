@@ -5279,13 +5279,6 @@ h6 {
 
 /** REFACTOR-HERO PARTIAL **/
 /** These styles apply when a component is placed in a Herosection row system **/
-.herosection .caption-inner-wrapper {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1160px;
-}
 .herosection .carousel-wrapper .caption {
   font-size: 1.1em;
   position: relative;
@@ -5342,13 +5335,6 @@ h6 {
 }
 
 /** REFACTOR ROWFULLWIDTH PARTIAL (WR-886) **/
-.rowfullwidth .caption-inner-wrapper {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1160px;
-}
 .rowfullwidth .carousel-wrapper .caption {
   position: relative;
   z-index: 2;
@@ -5524,6 +5510,13 @@ h6 {
   .carousel-wrapper .caption-outer-wrapper {
     position: absolute;
   }
+}
+.herosection .carousel-wrapper .caption-inner-wrapper, .rowfullwidth .carousel-wrapper .caption-inner-wrapper {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1160px;
 }
 .carousel-wrapper .caption {
   background-color: rgba(0, 0, 0, 0.9);
