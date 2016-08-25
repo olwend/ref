@@ -18,29 +18,32 @@
 	Foundation5ImageHelper helper = new Foundation5ImageHelper(properties, resource, resourceResolver, request, xssAPI);
 %>
 <% if(helper.isActivated())  { %>
-	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
-		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
-	<% } %>
-	    <img alt='<%= helper.getAlt() %>' data-interchange="
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 768px) and (orientation: landscape))],
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 768px))],
-	    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1160px))]">
-	<%-- Fallback content for non-JS browsers. --%>
-	<noscript>
-	    <img src='<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>
-	</noscript>
-	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
-		</a>
-	<% } %>
-	<% if(helper.getCaption() != null && !helper.getCaption().equals("")) { %>
-		<div class="caption-outer-wrapper">
-           	<div class="caption-inner-wrapper">
-				<div class="caption"><%= helper.getCaption() %></div>
+<!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
+	<%if(helper.getAddMarginBottom()) { %><div class="mb-20"> <% } %>
+		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
+			<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
+		<% } %>
+		    <img alt='<%= helper.getAlt() %>' data-interchange="
+		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
+		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
+		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 768px) and (orientation: landscape))],
+		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 768px))],
+		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1160px))]">
+		<%-- Fallback content for non-JS browsers. --%>
+		<noscript>
+		    <img src='<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>
+		</noscript>
+		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
+			</a>
+		<% } %>
+		<% if(helper.getCaption() != null && !helper.getCaption().equals("")) { %>
+			<div class="caption-outer-wrapper">
+	           	<div class="caption-inner-wrapper">
+					<div class="caption"><%= helper.getCaption() %></div>
+				</div>
 			</div>
-		</div>
-	<% } %>
+		<% } %>
+	<%if(helper.getAddMarginBottom()) { %></div> <% } %>
 <% } else {  %>
 	<img class="cq-title-placeholder cq-block-lg-placeholder"
 	src="/etc/designs/default/0.gif" />
