@@ -5511,6 +5511,28 @@ h6 {
     position: absolute;
   }
 }
+.herosection .carousel-wrapper, .rowfullwidth .carousel-wrapper {
+  position: relative;
+  z-index: 2;
+  height: 142px;
+}
+@media screen and (min-width: 480px) {
+  .herosection .carousel-wrapper, .rowfullwidth .carousel-wrapper {
+    height: 100px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .herosection .carousel-wrapper, .rowfullwidth .carousel-wrapper {
+    height: 85px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .herosection .carousel-wrapper, .rowfullwidth .carousel-wrapper {
+    height: auto;
+    max-height: 200px;
+    max-width: 70%;
+  }
+}
 .herosection .carousel-wrapper .caption-inner-wrapper, .rowfullwidth .carousel-wrapper .caption-inner-wrapper {
   display: table;
   margin-left: auto;
