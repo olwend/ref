@@ -40,7 +40,7 @@
 
 <div class="row event--calendar--wrapper" data-showmore="<%=properties.get("./showmore","NaN")%>">
 	<div class="small-12 medium-12 large-12 columns style="background-color: red">
-		<div class="small-12 medium-12 large-4 columns" style="background-color: green">
+		<div class="small-12 medium-12 large-4 columns" style="background-color: green; padding-right: 0.9em">
 			<div class="small-12 medium-12 large-12 columns">
 				<legend class="calendar--search--label">Keyword search</legend>
 	            <div class="search-keywords small-10 medium-10 large-10 columns">
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class="small-12 medium-12 large-8 columns" style="background-color: blue">
-			<div class="small-12 medium-6 large-6 columns" style="background-color: red">
+			<div class="small-12 medium-6 large-6 columns" style="background-color: red; padding-right: 0.9em">
 				<div class="small-12 medium-12 large-12 columns">
 	                <legend class="calendar--search--label left">Filter by</legend>
 	                <legend class="reset--filter right">Reset filter</legend>
