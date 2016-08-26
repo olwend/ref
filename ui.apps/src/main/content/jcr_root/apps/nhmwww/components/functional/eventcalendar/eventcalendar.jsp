@@ -59,8 +59,7 @@
 			<!--  START filters wrapper -->
 			<div class="small-12 medium-6 large-6 columns">
 				<div class="small-12 medium-12 large-12 columns">
-	                <legend class="calendar--search--label left">Filter by</legend>
-	                <legend class="reset--filter right">Reset filter</legend>
+	                <legend class="calendar--search--label">Filter by</legend>
 	            </div>
 	            <div class="small-12 medium-12 large-12 columns calendar--select">
 	                <% TagManager tagMgr = resourceResolver.adaptTo(TagManager.class); %>
@@ -100,7 +99,8 @@
 			<!-- START date pickers wrapper -->
 			<div class="small-12 medium-6 large-6 columns event-calendar--date-pickers--wrapper">
 		        <div class="small-12 medium-12 large-12 columns helper">
-	                <legend class="calendar--search--label">Date</legend>
+	                <legend class="calendar--search--label left">Date</legend>
+	                <legend class="reset--filter right">Reset filter</legend>
 	            </div>
 	            <div class="small-6 medium-6 large-6 columns pr-10 date--picker">
 	                <div id="fromIcon" class="date--wrapper columns">
