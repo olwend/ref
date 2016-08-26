@@ -81,10 +81,11 @@ var NHMCalendar = new function () {
             toEl = $(CONST.DATE_TO);
 
         fromEl.datepicker(CONST.SET_DATE, today);
+        toEl.datepicker('option', 'minDate', fromEl.datepicker('getDate'));
+        
         switch (dates) {
             case CONST.TODAY:
                 toDate = today;
-                toEl.datepicker('option', 'minDate', fromEl.datepicker('getDate'));
                 break;
                 
             case CONST.SEVEN_DAYS:
@@ -157,13 +158,20 @@ var NHMCalendar = new function () {
     
     var getSelectedDateButton = function() {
         var selected = "";
-        if ($('#' + CONST.TODAY)[0].classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
+        var todayButton = $('#' + CONST.TODAY)[0];
+        var sevenDaysButton = $('#' + CONST.SEVEN_DAYS)[0];
+        var thirtyDaysButton = $('#' + CONST.THIRTY_DAYS)[0];
+        
+        if ((typeof todayButton != "undefined") && 
+             todayButton.classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
             selected = CONST.TODAY;
         }
-        else if ($('#' + CONST.SEVEN_DAYS)[0].classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
+        else if ((typeof sevenDaysButton != "undefined") && 
+                  sevenDaysButton.classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
             selected = CONST.SEVEN_DAYS;
         }
-        else if ($('#' + CONST.THIRTY_DAYS)[0].classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
+        else if ((typeof thirtyDaysButton != "undefined") && 
+                  thirtyDaysButton.classList.contains(CONST.DATE_BUTTON_SELECTED_CLASS)) {
             selected = CONST.THIRTY_DAYS;
         }
         return selected;
@@ -171,6 +179,7 @@ var NHMCalendar = new function () {
     
     //Function to trigger the search
     var doSearch = function (saveSearchHistory) {
+        $("#events-calendar-loading").show();
         if (saveSearchHistory) {
             ignoreHistoryChange = true;
             window.location = "#search_" + searchNumber;
@@ -182,6 +191,7 @@ var NHMCalendar = new function () {
                 dateFrom: inputs.dateFrom.value,
                 dateTo: inputs.dateTo.value  
             });
+            localStorage.setItem("searchHistoryArray", JSON.stringify(searchHistoryArray));
             searchNumber++;
         }
         
@@ -190,6 +200,8 @@ var NHMCalendar = new function () {
         } else {
             NHMSearchQuery.displayTodayEvents();
         }
+        $(".event--calendar--search--result--description").dotdotdot({watch: "true"});
+        $("#events-calendar-loading").hide();
     };
     
     this.resetSelectedButtons = function () {
@@ -201,7 +213,64 @@ var NHMCalendar = new function () {
     this.doSearch = doSearch;
     
     $(document).ready(function () {
+        NHMSearchQuery.init();
         NHMCalendar.init();
+        
+        // Browser tries to access a stored search when clicking 'Back' or 'Forward' buttons
+        if (window.location.href.indexOf("#search") > 0) {
+            var searchIndex = parseInt(window.location.href.split('#')[1].replace("search_",""));
+            searchHistoryArray = JSON.parse(localStorage.getItem("searchHistoryArray"));
+            // Prevents accessing to a seach history position that does not exists
+            if (searchHistoryArray.length != 0 &&  searchIndex < searchHistoryArray.length) {
+                searchNumber = searchHistoryArray.length;
+                setSearchParameters(searchHistoryArray[searchIndex]);
+                doSearch(false);    
+            }
+            else { // Tried to access an invalid position in history, just load Today's events.
+                NHMSearchQuery.displayTodayEvents();
+                $(".event--calendar--search--result--description").dotdotdot({watch: "true"});
+            }
+        }
+        else {
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+            var params = {
+                group : getUrlParameter('group'),
+                title : getUrlParameter('title'),
+                description : getUrlParameter('description'),
+                venue : getUrlParameter('venue'),
+                link : getUrlParameter('link'),
+                tags : getUrlParameter('tags'),
+                keywords : getUrlParameter('keywords'),
+                from : getUrlParameter('from'),
+                to : getUrlParameter('to'),
+                text : getUrlParameter('text')
+            };
+
+            var hasParams = function() {
+                return window.location.search.substring(1).replace("wcmmode=disabled","").length > 0;
+            };
+
+            if (hasParams()) { // Perform search with URL parameters indicated by the user.
+                NHMSearchQuery.displayFilteredEvents(params);
+            }
+            else {
+                NHMSearchQuery.displayTodayEvents();
+            }
+            $(".event--calendar--search--result--description").dotdotdot({watch: "true"});
+        }
     });
 
     window.addEventListener('popstate', function(event) {

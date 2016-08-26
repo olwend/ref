@@ -6189,6 +6189,20 @@ h6 {
   color: #565656;
 }
 
+#events-calendar-loading {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
 .event--information--wrapper {
   display: inline-block;
@@ -6350,16 +6364,9 @@ h6 {
 /** NHMEC-6: EVENTS CALENDAR SEARCH RESULTS PARTIAL **/
 .event--calendar--search--result .event--calendar--search--result--title {
   padding: 0.5em 0.7em 0 0.7em;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .event--calendar--search--result .event--calendar--search--result--description {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  max-height: 6.2em;
 }
 .event--calendar--search--result .event--calendar--search--result--item--content {
   padding: 0.5em 1.25em;
@@ -6433,13 +6440,13 @@ h6 {
 .image--and--cta--wrapper .image--and--cta--image {
   height: 435px;
 }
-.image--and--cta--wrapper .image--not--matching--ratio {
-    width: 100%;
-}
 @media screen and (max-width: 1024px) {
   .image--and--cta--wrapper .image--and--cta--image {
     height: auto;
   }
+}
+.image--and--cta--wrapper .image--not--matching--ratio {
+  width: 100%;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/
@@ -7612,11 +7619,11 @@ a.button-cta {
   width: 100%;
 }
 
-.content-page .title-bar {
+.template--content-page .title-bar {
   margin-bottom: 1.2em;
 }
 
-.science-profiles-detail-page .title-bar {
+.template--science-profiles-detail-page .title-bar {
   margin-bottom: 1.2em;
 }
 
