@@ -6123,7 +6123,6 @@ h6 {
 .event--calendar--wrapper .search-keywords input,
 .event--calendar--wrapper .calendar--select select,
 .event--calendar--wrapper .dates--label,
-.event--calendar--wrapper .date--button,
 .event--calendar--wrapper .date--wrapper input {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.25em;
@@ -6174,10 +6173,26 @@ h6 {
   padding: 0;
   background: none;
   border: 1px solid #FFFFFF;
-  font-size: 1.125em;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
   color: #FFFFFF;
   text-decoration: none;
   text-align: center;
+}
+@media screen and (min-width: 360px) {
+  .event--calendar--wrapper .date--button {
+    font-size: 1.125em;
+  }
+}
+@media screen and (min-width: 640px) {
+  .event--calendar--wrapper .date--button {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .event--calendar--wrapper .date--button {
+    font-size: 1.125em;
+  }
 }
 .event--calendar--wrapper .date--button input {
   padding: 0;
