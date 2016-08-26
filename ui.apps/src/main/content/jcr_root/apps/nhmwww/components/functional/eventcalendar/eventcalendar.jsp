@@ -38,7 +38,7 @@
 <cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
 
 
-<div class="row event--calendar--wrapper">
+<div class="row event--calendar--wrapper" data-showmore="<%=properties.get("./showmore","NaN")%>">
 	<div class="small-12 medium-12 large-12 columns style="background-color: red">
 		<div class="small-12 medium-12 large-4 columns" style="background-color: green">
 			<div class="small-12 medium-12 large-12 columns">
