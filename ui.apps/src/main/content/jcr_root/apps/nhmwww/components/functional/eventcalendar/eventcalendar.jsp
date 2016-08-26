@@ -40,9 +40,9 @@
 <!-- START event calendar component wrapper -->
 <div class="row event--calendar--wrapper" data-showmore="<%=properties.get("./showmore","NaN")%>">
 	<!-- START event calendar component inner wrapper -->
-	<div class="small-12 medium-12 large-12 columns" style="background-color: red">
+	<div class="small-12 medium-12 large-12 columns">
 		<!-- START keyword field wrapper -->
-		<div class="small-12 medium-12 large-4 columns" style="background-color: green; padding-right: 0.9em">
+		<div class="small-12 medium-12 large-4 columns event-calendar--keyword-search--wrapper">
 			<div class="small-12 medium-12 large-12 columns">
 				<legend class="calendar--search--label">Keyword search</legend>
 	            <div class="search-keywords small-10 medium-10 large-10 columns">
@@ -55,9 +55,9 @@
 		</div>
 		<!-- END keyword field wrapper -->
 		<!-- START filters and date pickers wrapper -->
-		<div class="small-12 medium-12 large-8 columns" style="background-color: blue">
+		<div class="small-12 medium-12 large-8 columns">
 			<!--  START filters wrapper -->
-			<div class="small-12 medium-6 large-6 columns" style="background-color: red; padding-right: 0.9em">
+			<div class="small-12 medium-6 large-6 columns">
 				<div class="small-12 medium-12 large-12 columns">
 	                <legend class="calendar--search--label left">Filter by</legend>
 	                <legend class="reset--filter right">Reset filter</legend>
@@ -98,7 +98,7 @@
 			</div>
 			<!-- END filters wrapper -->
 			<!-- START date pickers wrapper -->
-			<div class="small-12 medium-6 large-6 columns" style="background-color: orange">
+			<div class="small-12 medium-6 large-6 columns event-calendar--date-pickers--wrapper">
 		        <div class="small-12 medium-12 large-12 columns helper">
 	                <legend class="calendar--search--label">Date</legend>
 	            </div>
