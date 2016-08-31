@@ -58,15 +58,15 @@
     <div class="image--and--cta--wrapper">
         <c:set var="ctaLink" value="<%= ctaLink %>"/>
         <c:if test="${not empty ctaLink}">    
-            <a class="small-6 columns cta--wrapper ${eventType} hide-for-small-only" href="${ctaLink}.html">
-                 <div class="small-2 large-2 columns">
-                    <i class="ico svg-ico ticket--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="3"></i>
+            <a class="small-6 medium-7 large-6 columns cta--wrapper ${eventType} hide-for-small-only" href="${ctaLink}.html">
+                 <div class="small-3 medium-2 large-2 columns">
+                    <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-stroke-width="4"></i>
                 </div>
-                <div class="small-8 large-8 columns">
+                <div class="small-7 medium-7 large-8 columns">
                     <h3 class="cta--text">${ctaText}</h3>
                 </div>
-                <div class="small-2 large-2 columns">
-                    <i class="ico svg-ico arrowl arrow--icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-stroke-width="4"></i>
+                <div class="small-2 medium-2 large-2 columns">
+                    <i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-stroke-width="4"></i>
                 </div>
             </a>
         </c:if>
