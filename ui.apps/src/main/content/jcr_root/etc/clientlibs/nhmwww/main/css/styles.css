@@ -6104,6 +6104,11 @@ h6 {
     padding-left: 0.9em;
   }
 }
+@media screen and (max-width: 640px) {
+  .event--calendar--wrapper .event-calendar--date-pickers--wrapper {
+    margin-top: 1em;
+  }
+}
 .event--calendar--wrapper .calendar--search--label {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin-bottom: 0.6em;
