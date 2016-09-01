@@ -6146,10 +6146,12 @@ h6 {
 }
 .event--calendar--wrapper .date--picker {
   margin: 0 0 1rem 0;
+  line-height: 1.6em;
 }
 .event--calendar--wrapper .date--wrapper {
   background: #FFFFFF;
   color: #565656;
+  padding-right: 0.3em;
 }
 .event--calendar--wrapper .date--wrapper input,
 .event--calendar--wrapper .date--wrapper input[type="text"][readonly] {
@@ -6167,6 +6169,9 @@ h6 {
 .event--calendar--wrapper .calendar--text,
 .event--calendar--wrapper .calendar--icon {
   margin-top: -1.2em;
+}
+.event--calendar--wrapper .calendar--icon {
+  text-align: center;
 }
 .event--calendar--wrapper .dates--label {
   font-size: 1em;
@@ -6203,7 +6208,22 @@ h6 {
   padding: 0;
   background: none;
   border: none;
-  line-height: 1.9em;
+  line-height: 2.65em;
+}
+@media screen and (min-width: 360px) {
+  .event--calendar--wrapper .date--button input {
+    line-height: 2.1em;
+  }
+}
+@media screen and (min-width: 640px) {
+  .event--calendar--wrapper .date--button input {
+    line-height: 2.2em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .event--calendar--wrapper .date--button input {
+    line-height: 1.9em;
+  }
 }
 .event--calendar--wrapper .date--button:hover,
 .event--calendar--wrapper .date--button--selected {
