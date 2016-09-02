@@ -7213,11 +7213,11 @@ a.button-cta {
   width: 100%;
 }
 
-.content-page .title-bar {
+.template--content-page .title-bar {
   margin-bottom: 1.2em;
 }
 
-.science-profiles-detail-page .title-bar {
+.template--science-profiles-detail-page .title-bar {
   margin-bottom: 1.2em;
 }
 

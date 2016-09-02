@@ -81,9 +81,37 @@
 	}
 	String templateType = "";
 	if(currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/contentpage") ){
-		templateType = "content-page";
+		templateType = "template--content-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/defaultpage") ){
+		templateType = "template--default-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoverpublicationpage") ){
+		templateType = "template--discover-publication-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoversectionpage") ){
+		templateType = "template--discover-section-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/dynamicapppage") ){
+		templateType = "template--dynamicapp-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/exhibitiondetailspage") ){
+		templateType = "template--exhibition-details-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/homepage") ){
+		templateType = "template--homepage";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/landingpage") ){
+		templateType = "template--landing-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/newscontentpage") ){
+		templateType = "template--news-content-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/pressreleasepage") ){
+		templateType = "template--press-release";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/scienceprofilepage") ){
+		templateType = "template--science-profiles-detail-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/scientistsdirectorypage") ){
+		templateType = "template--scientists-directory-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/searchpage") ){
+		templateType = "template--search-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/sublandingpage") ){
+		templateType = "template--sub-landing-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/taggedcontentpage") ){
+		templateType = "template--tagged-content-page";
 	}
-	
+
 	Calendar calendar = Calendar.getInstance(); 
 	SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
 	String dateNow = formatter.format(calendar.getTime());
