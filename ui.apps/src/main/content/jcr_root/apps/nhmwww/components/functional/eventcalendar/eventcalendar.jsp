@@ -45,10 +45,10 @@
 		<div class="small-12 medium-12 large-4 columns event-calendar--keyword-search--wrapper">
 			<div class="small-12 medium-12 large-12 columns">
 				<legend class="calendar--search--label">Keyword search</legend>
-	            <div class="search-keywords small-10 medium-10 large-10 columns">
+	            <div class="search-keywords small-10 medium-11 large-10 columns">
 	                <input type="text" id="keywordsInput" name="Keywords" placeholder='Your keyword'/>
 	            </div>
-	            <div class="search-icon small-2 medium-2 large-2 columns">
+	            <div class="search-icon small-2 medium-1 large-2 columns">
 	                <img src="/etc/designs/nhmwww/img/icons/search-icon.png"/>
 	            </div>
 			</div>
