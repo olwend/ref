@@ -6458,10 +6458,25 @@ h6 {
   background-color: #FFFFFF;
   right: 0;
   position: absolute;
-  top: 65%;
+  top: 70%;
   padding: 1.125em 0 1.125em 1.125em;
   display: block;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .image--and--cta--wrapper .cta--wrapper {
+    top: 65%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .image--and--cta--wrapper .cta--wrapper {
+    top: 70%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .image--and--cta--wrapper .cta--wrapper {
+    top: 75%;
+  }
 }
 .image--and--cta--wrapper .cta--wrapper .cta--text {
   padding-bottom: 0;
