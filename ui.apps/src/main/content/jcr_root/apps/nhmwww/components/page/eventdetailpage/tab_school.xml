@@ -21,7 +21,7 @@
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Capacity"
                     name="./capacity"
-                    xtype="numberfield"/>
+                    xtype="textfield"/>
                 <eventDuration
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Event Duration"
