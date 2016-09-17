@@ -40,7 +40,7 @@ var NHMSearchQuery = new function () {
 
     var inputs = {};
     var eventsCounter = 0;
-    var eventsShown = 0;
+    var eventsShown = showMoreValue; // Initial value = events shown when loading the page.
     
     //Helper function to create the title
     var createTitleH2 = function () {
@@ -159,9 +159,6 @@ var NHMSearchQuery = new function () {
         //Adds the listener to the show more div
         if (eventsCounter > CONST.SHOW_MORE) {
             inputs.showMore.className = CONST.DISPLAY_SHOW_MORE; 
-            inputs.showMore.addEventListener('click', function (e) {
-                showMoreEvents(e, div, inputs.showMore);
-            }, false);
         } 
     };
 
@@ -448,27 +445,30 @@ var NHMSearchQuery = new function () {
 
         return day.toString() + " " + monthName + " " + year.toString();
     };
-
     
-    var showMoreEvents = function (e, div, showMore) {
-        e.preventDefault();
-        
-        var listItem = div.children[1].getElementsByTagName("li");
-        for (var i = 0; i < listItem.length; i++) {
-            if (listItem[i].offsetParent === null) {
-                listItem[i].style.display = "block";
-            }
-        }   
-        var headers = $("#searchResult h2:hidden");
-        for (var j = 0; j < headers.length; j++) {
-            var header = headers[j];
-            if (header) {
-                headers[j].style.display = "block";
+    var showMoreEvents = function () {
+        // For mobile (tablets and phones), the events will be shown in intervals, 'showMoreValue' each time
+        // Otherwise the 'Show more' shows all events found.
+        var isMobile = ($(window).width() <= CONST.MOBILE_BREAKPOINT);
+        var eventCount = 0;
+        var searchResult = $('#searchResult');
+        for (var i = 0; i < searchResult.children().length; i++) {
+            var day = searchResult.children()[i];
+            var header = day.children[0];
+            var eventList = day.children[1];
+            header.style.display = "block";
+            for (var j = 0; j < eventList.children.length; j++) {
+                var event = eventList.children[j];
+                if (event.style.display === "none") {
+                    event.style.display = "block";
+                    eventsShown++;  // Events shown in total
+                    eventCount++; // Events shown after the last time 'Show more' was clicked.
+                }
+                if (isMobile && eventCount >= showMoreValue) {
+                    return;
+                }
             }
         }
-        showMore.className = CONST.HIDE_DIV_CLASS;
-        //Removes the vent listener
-        this.removeEventListener('click', arguments.callee, false);
     };
     
     //Helper function to check the today's events
@@ -509,6 +509,17 @@ var NHMSearchQuery = new function () {
             container:      document.getElementById("searchResult"),
             results:        []
         };
+        
+        inputs.showMore.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log('Click');
+            showMoreEvents();
+            
+            // Remove button in case all results have been displayed
+            if (eventsShown >= eventsCounter) {
+                showMore.className = CONST.HIDE_DIV_CLASS;
+            }
+        }, false);
     };
     
     //Populates the single events result content
