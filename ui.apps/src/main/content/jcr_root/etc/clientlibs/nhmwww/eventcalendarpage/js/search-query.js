@@ -25,6 +25,7 @@ var NHMSearchQuery = new function () {
                                 "October",  "November", "December"],
         NO_RESULTS_CLASS:       "more-results-text__event--calendar--search--results",
         EVENTS_UL_CLASS:        "large-block-grid-3 medium-block-grid-3 small-block-grid-1",
+        DAY_CONTAINER_CLASS:    "day--event--container",
         PARAGRAPH_CLASS:        "event--calendar--search--result--content--text",
         EVENTS_DATA_URL:        "/content/nhmwww/eventscontent" + "/events",
         HIDE_DIV_CLASS:         "event--calendar--more--results--hide",
@@ -33,11 +34,13 @@ var NHMSearchQuery = new function () {
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
         SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
-        MAX_TITLE_CHARS:        45
+        MAX_TITLE_CHARS:        45,
+        MOBILE_BREAKPOINT:      768
     };
 
     var inputs = {};
     var eventsCounter = 0;
+    var eventsShown = 0;
     
     //Helper function to create the title
     var createTitleH2 = function () {
@@ -51,10 +54,16 @@ var NHMSearchQuery = new function () {
     
     //Helper function to create the ul
     var createUL = function () {
-        var ul = document.createElement("ul");
-        ul.className = CONST.EVENTS_UL_CLASS;
-        return ul;
+        var div = document.createElement("div");
+        div.className = CONST.EVENTS_UL_CLASS;
+        return div;
     };
+    
+    var createDayContainer = function() {
+        var div = document.createElement("div");
+        div.className = "result--day-container";
+        return div;    
+    }
     
     //Helper function to clear the results container
     var clearContainer = function () {
@@ -128,31 +137,32 @@ var NHMSearchQuery = new function () {
                 var titleH2 = createTitleH2();
                 titleH2.innerHTML = parseToEventDate(date, true);  
                 var ul = createUL();
-                inputs.container.appendChild(titleH2);
-                inputs.container.appendChild(ul);
-                renderLayout(dayEvents, ul, true);
+                var dayContainer = createDayContainer();
+                dayContainer.appendChild(titleH2);
+                dayContainer.appendChild(ul);
+                inputs.container.appendChild(dayContainer);
+                renderLayout(dayEvents, dayContainer, true);
             }
             date.setDate(date.getDate() + 1); // Set the date from the next day
         }
     };
-
-    //Helper function to create the results and add the seach button
-    var renderLayout = function (results, ul, isFromSearch) {
+    
+    var renderLayout = function (results, div, isFromSearch) {
         if (results.length > CONST.SHOW_MORE) {
             inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
         }
         for (var i = 0; i < results.length; i++) {
             eventsCounter++;
-            createSearchResult(results[i], ul, i, isFromSearch);
+            createSearchResult(results[i], div, i, isFromSearch);
         }
         
         //Adds the listener to the show more div
         if (eventsCounter > CONST.SHOW_MORE) {
             inputs.showMore.className = CONST.DISPLAY_SHOW_MORE; 
             inputs.showMore.addEventListener('click', function (e) {
-                showMoreEvents(e, ul, inputs.showMore);
+                showMoreEvents(e, div, inputs.showMore);
             }, false);
-        }  
+        } 
     };
 
     //Helper function to get a formatted date from the datepicker inputs
@@ -248,7 +258,7 @@ var NHMSearchQuery = new function () {
     }
 
     //Populates the single event li and events ul
-    var createSearchResult = function (event, ul, resultsDisplayed, isFromSearch) {
+    var createSearchResult = function (event, div, resultsDisplayed, isFromSearch) {
         var li              = document.createElement("li"),
             containerDiv    = document.createElement("div"),
             navigateDiv     = document.createElement("div"),
@@ -306,8 +316,8 @@ var NHMSearchQuery = new function () {
         if (eventsCounter > CONST.SHOW_MORE) {
             li.style.display = "none";
         }
-
-        ul.appendChild(li);
+        
+        div.children[1].appendChild(li);
     };
     
     var getTagTitle = function(tagId) {
@@ -439,10 +449,11 @@ var NHMSearchQuery = new function () {
         return day.toString() + " " + monthName + " " + year.toString();
     };
 
-    //Function to display more events
-    var showMoreEvents = function (e, ul, showMore) {
+    
+    var showMoreEvents = function (e, div, showMore) {
         e.preventDefault();
-        var listItem = ul.getElementsByTagName("li");
+        
+        var listItem = div.children[1].getElementsByTagName("li");
         for (var i = 0; i < listItem.length; i++) {
             if (listItem[i].offsetParent === null) {
                 listItem[i].style.display = "block";
@@ -535,11 +546,13 @@ var NHMSearchQuery = new function () {
             //Displays the results
             if (inputs.results.length > 0) {
                 //Appends the title
-                inputs.container.appendChild(titleH2);
-                inputs.container.appendChild(ul);
-
                 inputs.results = orderResults();
-                renderLayout(inputs.results, ul, false);
+                
+                var dayContainer = createDayContainer();
+                dayContainer.appendChild(titleH2);
+                dayContainer.appendChild(ul);
+                inputs.container.appendChild(dayContainer);
+                renderLayout(inputs.results, dayContainer, true);
             }
 
             //Displays the no results for today message
@@ -666,11 +679,12 @@ var NHMSearchQuery = new function () {
             //Displays the results
             if (inputs.results.length > 0) {
                 //Appends the title
-                inputs.container.appendChild(titleH2);
-                inputs.container.appendChild(ul);
-
                 inputs.results = orderResults();
-                renderLayout(inputs.results, ul, false);
+                var dayContainer = createDayContainer();
+                dayContainer.appendChild(titleH2);
+                dayContainer.appendChild(ul);
+                inputs.container.appendChild(dayContainer);
+                renderLayout(inputs.results, dayContainer, true);
             }
 
             //Displays the no results for today message
