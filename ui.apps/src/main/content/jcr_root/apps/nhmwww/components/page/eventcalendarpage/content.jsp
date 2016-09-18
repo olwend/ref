@@ -31,7 +31,6 @@ if (WCMMode.fromRequest(request) == WCMMode.DISABLED || WCMMode.fromRequest(requ
                 <h5 class="more-results-text__event--calendar--search--results">Show more</h5>
             </div>
             <div class="row event--calendar--no--results">
-                <h5 id="noResultsToday">There are no museum activities today</h5>
                 <h5 id="noResults">There are no museum activities on this day that match your search criteria</h5>
             </div>
         <%
