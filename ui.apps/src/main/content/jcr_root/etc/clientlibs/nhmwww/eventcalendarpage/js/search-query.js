@@ -552,7 +552,6 @@ var NHMSearchQuery = new function () {
      * where n is equal to the number of events to display before displaying the "show more" button
      */
     var displaySuggestedEvents = function() {
-        console.log('asd');
         var dateFrom = new Date();
         var dateFromFormatted = 'dateFrom ' + getDateWithInputFormat(dateFrom);
         var dateTo = new Date(dateFrom);
