@@ -38,7 +38,7 @@ var NHMSearchQuery = new function () {
         H3_CLASS:               "event--calendar--search--result--title",
         SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
         MAX_TITLE_CHARS:        45,
-        MOBILE_BREAKPOINT:      768
+        MOBILE_BREAKPOINT:      1025
     };
 
     var inputs = {};
