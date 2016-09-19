@@ -113,6 +113,7 @@ var NHMSearchQuery = new function () {
     // Function to display the results after a search query
     var createResultDiv = function (dateFrom, dateTo) {
         eventsCounter = 0;
+        eventsShown = showMoreValue;
         var numOfDays;
         dateFrom = dateFrom ? getFormattedDate(dateFrom) : new Date();
 
@@ -512,7 +513,6 @@ var NHMSearchQuery = new function () {
         
         inputs.showMore.addEventListener('click', function (e) {
             e.preventDefault();
-            console.log('Click');
             showMoreEvents();
             
             // Remove button in case all results have been displayed
@@ -526,6 +526,7 @@ var NHMSearchQuery = new function () {
     this.displayTodayEvents = function () {
         clearContainer();
         eventsCounter = 0;
+        eventsShown = showMoreValue;
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];
@@ -832,4 +833,5 @@ var NHMSearchQuery = new function () {
 $(document).ready(function () {
     $("#events-calendar-loading").hide();
     eventsCounter = 0;
+    eventsShown = showMoreValue;
 });
