@@ -76,8 +76,6 @@
                     allowBlank="false"
                     fieldLabel="Event Title"
                     name="./jcr:eventTitle"
-                    maxLength="45"
-                    maxLengthText="The max length for this field is 45 characters" 
                     xtype="textfield"/>
                 <eventDescription
                     jcr:primaryType="cq:Widget"
