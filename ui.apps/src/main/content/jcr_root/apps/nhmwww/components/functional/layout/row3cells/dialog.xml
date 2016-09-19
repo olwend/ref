@@ -21,6 +21,20 @@
                         xtype="selection"/>
                 </items>
             </tab1>
+            <tab2
+                jcr:primaryType="cq:Panel"
+                title="Equalize 3Col">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <equalize
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldDescription="Equalize HTI in 3-column layout?"
+                        fieldLabel="Equalize HTI in 3-column layout?"
+                        name="./isEqualize3Col"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
+            </tab2>
         </items>
     </items>
 </jcr:root>
