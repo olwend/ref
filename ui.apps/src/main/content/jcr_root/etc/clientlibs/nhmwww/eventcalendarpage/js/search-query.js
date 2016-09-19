@@ -1,4 +1,7 @@
 var NHMSearchQuery = new function () {
+    
+    "use strict";
+    
     var showMoreValue = Number($('div[data-showmore]').data('showmore'));
     
     function checkIsNaN(o) {
@@ -35,7 +38,7 @@ var NHMSearchQuery = new function () {
         H3_CLASS:               "event--calendar--search--result--title",
         SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
         MAX_TITLE_CHARS:        45,
-        MOBILE_BREAKPOINT:      768
+        MOBILE_BREAKPOINT:      1025
     };
 
     var inputs = {};
@@ -63,18 +66,16 @@ var NHMSearchQuery = new function () {
         var div = document.createElement("div");
         div.className = "result--day-container";
         return div;    
-    }
+    };
     
     //Helper function to clear the results container
     var clearContainer = function () {
         inputs.results = [];
         if (inputs.container && 
             inputs.showMore &&
-            inputs.noResultsToday &&
             inputs.noResults) {
 			inputs.container.innerHTML = "";
             inputs.showMore.className = CONST.HIDE_DIV_CLASS;
-            inputs.noResultsToday.className = CONST.HIDE_DIV_CLASS;
             inputs.noResults.className = CONST.HIDE_DIV_CLASS;
         }
     };
@@ -89,7 +90,7 @@ var NHMSearchQuery = new function () {
         date = date.substring(0, date.length - 1); 
         date = date.split(' '); 
         return new Date(getMonthFromString(date[1]) + '/' + date[2] + '/' + date[5]);
-    }
+    };
     
     // Given a Date it returns all the events that are scheduled for that date.
     var findEventsForDay = function(fromDate) {
@@ -146,21 +147,16 @@ var NHMSearchQuery = new function () {
             }
             date.setDate(date.getDate() + 1); // Set the date from the next day
         }
+        if (eventsCounter > CONST.SHOW_MORE) {
+            inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
+        }
     };
     
     var renderLayout = function (results, div, isFromSearch) {
-        if (results.length > CONST.SHOW_MORE) {
-            inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
-        }
         for (var i = 0; i < results.length; i++) {
             eventsCounter++;
             createSearchResult(results[i], div, i, isFromSearch);
         }
-        
-        //Adds the listener to the show more div
-        if (eventsCounter > CONST.SHOW_MORE) {
-            inputs.showMore.className = CONST.DISPLAY_SHOW_MORE; 
-        } 
     };
 
     //Helper function to get a formatted date from the datepicker inputs
@@ -252,8 +248,8 @@ var NHMSearchQuery = new function () {
     
     var isExhibitionEvent = function(path) {
         var parsedPath = path.split('/');
-        return (parsedPath[parsedPath.length - 2] == "exhibitions")
-    }
+        return (parsedPath[parsedPath.length - 2] == "exhibitions");
+    };
 
     //Populates the single event li and events ul
     var createSearchResult = function (event, div, resultsDisplayed, isFromSearch) {
@@ -327,7 +323,7 @@ var NHMSearchQuery = new function () {
             }
         }
         return (tagTitle.length>0 ? tagTitle : tagId);
-    }
+    };
 
     //Helper function to return the events
     var getEvents = function (tags, eventType) {
@@ -354,7 +350,7 @@ var NHMSearchQuery = new function () {
                  events += tagTitle + ", ";
             }
         }
-        if (events.length == 0) {
+        if (events.length === 0) {
             return eventType;
         } else {
             return events.substring(0, events.length - 2); // Remove the ", " from the last event.
@@ -489,7 +485,7 @@ var NHMSearchQuery = new function () {
             }
         }
         return false;
-    }
+    };
 
     this.init = function () {
         //Stores the events JSON in sessionStorage and displays Today Events
@@ -505,7 +501,6 @@ var NHMSearchQuery = new function () {
             eventsJson:     JSON.parse(sessionStorage.events).Events,
             carousel:       document.getElementsByClassName("nhm-carousel"),
             showMore:       document.getElementById("showMore"),
-            noResultsToday: document.getElementById("noResultsToday"),
             noResults:      document.getElementById("noResults"),
             container:      document.getElementById("searchResult"),
             results:        []
@@ -522,58 +517,90 @@ var NHMSearchQuery = new function () {
         }, false);
     };
     
+    // Adds to the inputs.results variable all events for today.
+    var fetchTodayEvents = function() {
+        var today = new Date();
+        for (var i = 0; i < inputs.eventsJson.length; i++) {
+            var eventsJson  = inputs.eventsJson[i];
+            for (var j = 0; j < eventsJson.dates.length; j++) {
+                var date = getEventsFormattedDate(eventsJson.dates[j].substring(0, eventsJson.dates[j].length - 1));
+                //If date == today
+                if (today.setHours(0, 0, 0, 0, 0) == date.setHours(0, 0, 0, 0, 0)) {
+                    //Checks the Event Type
+                    if (checkTodayEvents(eventsJson)) {
+                        inputs.results.push(eventsJson);
+                    }
+                    break;
+                }
+            }
+        }
+    };
+    
+    // Returns the date with the same format as the dates input field in the calendar form.
+    var getDateWithInputFormat = function(date) {
+        var dd = date.getDate();
+        var mm = date.getMonth()+1;
+        var yyyy = date.getFullYear();
+            if(mm<10){
+                mm='0'+mm;
+            } 
+        return dd + '/' + mm + '/' + yyyy;
+    };
+    
+    /*
+     * Search criteria used when there are no today's events
+     * Display n following events from search criteria or default todays date, 
+     * where n is equal to the number of events to display before displaying the "show more" button
+     */
+    var displaySuggestedEvents = function() {
+        var dateFrom = new Date();
+        var dateFromFormatted = 'dateFrom ' + getDateWithInputFormat(dateFrom);
+        var dateTo = new Date(dateFrom);
+        dateTo.setFullYear(dateFrom.getFullYear() + 1); // Do not search events with more than 1 year (improves search performance)
+        var dateToFormatted = 'dateTo ' + getDateWithInputFormat(dateTo); 
+        
+        displaySearchEvents("", "none", "none", dateFromFormatted, dateToFormatted);
+        showMore.className = CONST.HIDE_DIV_CLASS; // Hide the 'Show more' button
+    };
+    
     //Populates the single events result content
-    this.displayTodayEvents = function () {
+    function displayTodayEvents() {
         clearContainer();
         eventsCounter = 0;
         eventsShown = showMoreValue;
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];
-            if (carousel != undefined || carousel != null) {
+            if (carousel !== undefined || carousel !== null) {
                 carousel.style.display = "block";
             }
-
-            var titleH2 = createTitleH2(),
-                ul      = createUL(),
-                today   = new Date();
-
-            titleH2.innerHTML = CONST.EVENT_TITLE_TODAY;
-
-            for (var i = 0; i < inputs.eventsJson.length; i++) {
-                var eventsJson  = inputs.eventsJson[i];
-                for (var j = 0; j < eventsJson.dates.length; j++) {
-                    var date = getEventsFormattedDate(eventsJson.dates[j].substring(0, eventsJson.dates[j].length - 1));
-                    //If date == today
-                    if (today.setHours(0, 0, 0, 0, 0) == date.setHours(0, 0, 0, 0, 0)) {
-                        //Checks the Event Type
-                        if (checkTodayEvents(eventsJson)) {
-                            inputs.results.push(eventsJson);
-                        }
-                        break;
-                    }
-                }
-            }
+            
+            fetchTodayEvents();
 
             //Displays the results
             if (inputs.results.length > 0) {
                 //Appends the title
                 inputs.results = orderResults();
-                
+                var titleH2 = createTitleH2();
+                titleH2.innerHTML = CONST.EVENT_TITLE_TODAY;
+                var ul = createUL();
                 var dayContainer = createDayContainer();
                 dayContainer.appendChild(titleH2);
                 dayContainer.appendChild(ul);
                 inputs.container.appendChild(dayContainer);
                 renderLayout(inputs.results, dayContainer, true);
+                
+                if (eventsCounter > CONST.SHOW_MORE) {
+                    inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
+                }
             }
-
-            //Displays the no results for today message
-            else {
-                inputs.noResultsToday.className = CONST.NO_RESULTS_CLASS;
+            else { // No results for today, show suggested dates NHMEC-139
+                displaySuggestedEvents();
             }
         }
-
     };
+    
+    this.displayTodayEvents = displayTodayEvents;
     
     var formattedTags = function(tagArray) {
         var result = [];
@@ -582,7 +609,7 @@ var NHMSearchQuery = new function () {
             result.push(tag.split('/')[1]);
         }
         return result;
-    }
+    };
     
     var hasAllTags = function(paramsTag, eventTags) {
         var containsAllTags = true;
@@ -616,7 +643,7 @@ var NHMSearchQuery = new function () {
     var monthNumber = {
         'Jan':'01','Feb':'02','Mar':'03','Apr':'04','May':'05','Jun':'06',
         'Jul':'07','Aug':'08','Sep':'09','Oct':'10','Nov':'11','Dec':'12'    
-    }
+    };
     
     var dateToSearchFormat = function(date) {
         var parsedDate = date.split(" ");
@@ -625,38 +652,38 @@ var NHMSearchQuery = new function () {
         var parsedYear = parsedDate[parsedDate.length-1];
         var year = parsedYear.substring(0, parsedYear.length - 1);
         return month + '/' + day + '/' + year;    
-    }
+    };
     
     
     var isAfterDate = function(paramFromDate, arrayDates, event) {
-        if (typeof arrayDates == 'undefined' || arrayDates.length == 0) return false;
+        if (typeof arrayDates === 'undefined' || arrayDates.length === 0) return false;
         paramFromDate = Date.parse(paramFromDate);
         var lastDate = arrayDates.reduce(function (a, b) {
             return Date.parse(dateToSearchFormat(a)) >= Date.parse(dateToSearchFormat(b)) ? a : b;
         });
         return (paramFromDate <= Date.parse(dateToSearchFormat(lastDate)));
-    }
+    };
     
     var isBeforeDate = function(paramToDate, arrayDates, event) {
-        if (typeof arrayDates == 'undefined' || arrayDates.length == 0) return false;
+        if (typeof arrayDates === 'undefined' || arrayDates.length === 0) return false;
         paramToDate = Date.parse(paramToDate);
         var firstDate = arrayDates.reduce(function (a, b) {
             return Date.parse(dateToSearchFormat(a)) < Date.parse(dateToSearchFormat(b)) ? a : b;
         });
         return (paramToDate >= Date.parse(dateToSearchFormat(firstDate)));
-    }
+    };
     
     var containsText = function(paramText, title, description) {
         var pattern = new RegExp(paramText.replace('+',' '),"g");
         return title.match(pattern) || description.match(pattern);
-    }
+    };
     
     this.displayFilteredEvents = function (params) {
         clearContainer();
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];
-            if (carousel != undefined || carousel != null) {
+            if (carousel !== 'undefined' || carousel !== null) {
                 carousel.style.display = "block";
             }
 
@@ -716,15 +743,15 @@ var NHMSearchQuery = new function () {
         var mm = date.getMonth()+1;
         var yyyy = date.getFullYear();
             if(mm<10){
-                mm='0'+mm
+                mm='0'+mm;
             } 
         return mm + '/' + dd + '/' + yyyy;
-    }
+    };
     
     var isBetweenDates = function(initialDate, finalDate, arrayDates) {
         var start = Date.parse(initialDate);
         var final = Date.parse(finalDate);
-        isInBetween = false;
+        var isInBetween = false;
         if (arrayDates.length > 0 ) {
 
             var firstDate = arrayDates.reduce(function (a, b) {
@@ -747,16 +774,17 @@ var NHMSearchQuery = new function () {
                }    
         }
         return isInBetween;
-    }
+    };
 
+    this.displaySearchEvents = displaySearchEvents;
     //Function which search according to the criteria
-    this.displaySearchEvents = function (keywordsInput, filterOne, filterTwo, dateFrom, dateTo) {
+    function displaySearchEvents(keywordsInput, filterOne, filterTwo, dateFrom, dateTo) {
         clearContainer();
 
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];
-            if (carousel != undefined || carousel != null) {
+            if (carousel !== 'undefined' || carousel !== null) {
                 carousel.style.display = "none";
             }
 
