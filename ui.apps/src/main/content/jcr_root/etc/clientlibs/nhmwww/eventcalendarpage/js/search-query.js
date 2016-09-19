@@ -25,6 +25,7 @@ var NHMSearchQuery = new function () {
                                 "October",  "November", "December"],
         NO_RESULTS_CLASS:       "more-results-text__event--calendar--search--results",
         EVENTS_UL_CLASS:        "large-block-grid-3 medium-block-grid-3 small-block-grid-1",
+        DAY_CONTAINER_CLASS:    "day--event--container",
         PARAGRAPH_CLASS:        "event--calendar--search--result--content--text",
         EVENTS_DATA_URL:        "/content/nhmwww/eventscontent" + "/events",
         HIDE_DIV_CLASS:         "event--calendar--more--results--hide",
@@ -33,11 +34,13 @@ var NHMSearchQuery = new function () {
         LI_CLASS:               "event--calendar--search--result",
         H3_CLASS:               "event--calendar--search--result--title",
         SHOW_MORE:              (checkIsNaN(showMoreValue)?6:showMoreValue),
-        MAX_TITLE_CHARS:        45
+        MAX_TITLE_CHARS:        45,
+        MOBILE_BREAKPOINT:      768
     };
 
     var inputs = {};
     var eventsCounter = 0;
+    var eventsShown = showMoreValue; // Initial value = events shown when loading the page.
     
     //Helper function to create the title
     var createTitleH2 = function () {
@@ -51,10 +54,16 @@ var NHMSearchQuery = new function () {
     
     //Helper function to create the ul
     var createUL = function () {
-        var ul = document.createElement("ul");
-        ul.className = CONST.EVENTS_UL_CLASS;
-        return ul;
+        var div = document.createElement("div");
+        div.className = CONST.EVENTS_UL_CLASS;
+        return div;
     };
+    
+    var createDayContainer = function() {
+        var div = document.createElement("div");
+        div.className = "result--day-container";
+        return div;    
+    }
     
     //Helper function to clear the results container
     var clearContainer = function () {
@@ -104,6 +113,7 @@ var NHMSearchQuery = new function () {
     // Function to display the results after a search query
     var createResultDiv = function (dateFrom, dateTo) {
         eventsCounter = 0;
+        eventsShown = showMoreValue;
         var numOfDays;
         dateFrom = dateFrom ? getFormattedDate(dateFrom) : new Date();
 
@@ -128,31 +138,29 @@ var NHMSearchQuery = new function () {
                 var titleH2 = createTitleH2();
                 titleH2.innerHTML = parseToEventDate(date, true);  
                 var ul = createUL();
-                inputs.container.appendChild(titleH2);
-                inputs.container.appendChild(ul);
-                renderLayout(dayEvents, ul, true);
+                var dayContainer = createDayContainer();
+                dayContainer.appendChild(titleH2);
+                dayContainer.appendChild(ul);
+                inputs.container.appendChild(dayContainer);
+                renderLayout(dayEvents, dayContainer, true);
             }
             date.setDate(date.getDate() + 1); // Set the date from the next day
         }
     };
-
-    //Helper function to create the results and add the seach button
-    var renderLayout = function (results, ul, isFromSearch) {
+    
+    var renderLayout = function (results, div, isFromSearch) {
         if (results.length > CONST.SHOW_MORE) {
             inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
         }
         for (var i = 0; i < results.length; i++) {
             eventsCounter++;
-            createSearchResult(results[i], ul, i, isFromSearch);
+            createSearchResult(results[i], div, i, isFromSearch);
         }
         
         //Adds the listener to the show more div
         if (eventsCounter > CONST.SHOW_MORE) {
             inputs.showMore.className = CONST.DISPLAY_SHOW_MORE; 
-            inputs.showMore.addEventListener('click', function (e) {
-                showMoreEvents(e, ul, inputs.showMore);
-            }, false);
-        }  
+        } 
     };
 
     //Helper function to get a formatted date from the datepicker inputs
@@ -248,7 +256,7 @@ var NHMSearchQuery = new function () {
     }
 
     //Populates the single event li and events ul
-    var createSearchResult = function (event, ul, resultsDisplayed, isFromSearch) {
+    var createSearchResult = function (event, div, resultsDisplayed, isFromSearch) {
         var li              = document.createElement("li"),
             containerDiv    = document.createElement("div"),
             navigateDiv     = document.createElement("div"),
@@ -306,8 +314,8 @@ var NHMSearchQuery = new function () {
         if (eventsCounter > CONST.SHOW_MORE) {
             li.style.display = "none";
         }
-
-        ul.appendChild(li);
+        
+        div.children[1].appendChild(li);
     };
     
     var getTagTitle = function(tagId) {
@@ -438,26 +446,30 @@ var NHMSearchQuery = new function () {
 
         return day.toString() + " " + monthName + " " + year.toString();
     };
-
-    //Function to display more events
-    var showMoreEvents = function (e, ul, showMore) {
-        e.preventDefault();
-        var listItem = ul.getElementsByTagName("li");
-        for (var i = 0; i < listItem.length; i++) {
-            if (listItem[i].offsetParent === null) {
-                listItem[i].style.display = "block";
-            }
-        }   
-        var headers = $("#searchResult h2:hidden");
-        for (var j = 0; j < headers.length; j++) {
-            var header = headers[j];
-            if (header) {
-                headers[j].style.display = "block";
+    
+    var showMoreEvents = function () {
+        // For mobile (tablets and phones), the events will be shown in intervals, 'showMoreValue' each time
+        // Otherwise the 'Show more' shows all events found.
+        var isMobile = ($(window).width() <= CONST.MOBILE_BREAKPOINT);
+        var eventCount = 0;
+        var searchResult = $('#searchResult');
+        for (var i = 0; i < searchResult.children().length; i++) {
+            var day = searchResult.children()[i];
+            var header = day.children[0];
+            var eventList = day.children[1];
+            header.style.display = "block";
+            for (var j = 0; j < eventList.children.length; j++) {
+                var event = eventList.children[j];
+                if (event.style.display === "none") {
+                    event.style.display = "block";
+                    eventsShown++;  // Events shown in total
+                    eventCount++; // Events shown after the last time 'Show more' was clicked.
+                }
+                if (isMobile && eventCount >= showMoreValue) {
+                    return;
+                }
             }
         }
-        showMore.className = CONST.HIDE_DIV_CLASS;
-        //Removes the vent listener
-        this.removeEventListener('click', arguments.callee, false);
     };
     
     //Helper function to check the today's events
@@ -498,12 +510,23 @@ var NHMSearchQuery = new function () {
             container:      document.getElementById("searchResult"),
             results:        []
         };
+        
+        inputs.showMore.addEventListener('click', function (e) {
+            e.preventDefault();
+            showMoreEvents();
+            
+            // Remove button in case all results have been displayed
+            if (eventsShown >= eventsCounter) {
+                showMore.className = CONST.HIDE_DIV_CLASS;
+            }
+        }, false);
     };
     
     //Populates the single events result content
     this.displayTodayEvents = function () {
         clearContainer();
         eventsCounter = 0;
+        eventsShown = showMoreValue;
         //Prevents if no carousel
         if (inputs.carousel) {
             var carousel = inputs.carousel[0];
@@ -535,11 +558,13 @@ var NHMSearchQuery = new function () {
             //Displays the results
             if (inputs.results.length > 0) {
                 //Appends the title
-                inputs.container.appendChild(titleH2);
-                inputs.container.appendChild(ul);
-
                 inputs.results = orderResults();
-                renderLayout(inputs.results, ul, false);
+                
+                var dayContainer = createDayContainer();
+                dayContainer.appendChild(titleH2);
+                dayContainer.appendChild(ul);
+                inputs.container.appendChild(dayContainer);
+                renderLayout(inputs.results, dayContainer, true);
             }
 
             //Displays the no results for today message
@@ -666,11 +691,12 @@ var NHMSearchQuery = new function () {
             //Displays the results
             if (inputs.results.length > 0) {
                 //Appends the title
-                inputs.container.appendChild(titleH2);
-                inputs.container.appendChild(ul);
-
                 inputs.results = orderResults();
-                renderLayout(inputs.results, ul, false);
+                var dayContainer = createDayContainer();
+                dayContainer.appendChild(titleH2);
+                dayContainer.appendChild(ul);
+                inputs.container.appendChild(dayContainer);
+                renderLayout(inputs.results, dayContainer, true);
             }
 
             //Displays the no results for today message
@@ -807,4 +833,5 @@ var NHMSearchQuery = new function () {
 $(document).ready(function () {
     $("#events-calendar-loading").hide();
     eventsCounter = 0;
+    eventsShown = showMoreValue;
 });

@@ -34,6 +34,8 @@
         // Do nothing
     }
     %>
+    var showMoreValue = <%=properties.get("./showmore","")%>;
+    showMoreValue = (showMoreValue.length > 0) ? showMoreValue : 6; // 6 = Default value when no 'Show more' property is set.
 </script>     
 <cq:includeClientLib categories="nhmwww.eventcalendarcomponent"/>
 
