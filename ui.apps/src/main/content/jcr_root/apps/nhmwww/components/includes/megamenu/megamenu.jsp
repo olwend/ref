@@ -122,11 +122,11 @@
                             </div>
                         </li>
                         <li class="nav-list__item has-children support-us">
-                            <a href="/content/nhmwww/en/home/support-us.html">Support us</a>
+                            <a href="/content/nhmwww/en/home/support-us.html">Join and support</a>
                             <div class="nav-list level-2">
                                 <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/support-us.html">Support us homepage</a>
+                                        <a href="/content/nhmwww/en/home/support-us.html">Join and support homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
