@@ -549,17 +549,6 @@ jQuery(document).ready(function() {
         }
     });
 
-    if (!$.cookie('feedbackBar-cookie')) {
-        $('#feedback-bar').show();
-    } else {
-        $('#feedback-bar').remove(); 
-    }
-
-    $('.feedback-close').click(function() {
-        $.cookie('feedbackBar-cookie', 'Feedback', { expires: 365, path: '/' });
-        $('#feedback-bar').remove();
-    });
-
     onYouTubeIframeAPIReady();
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){
