@@ -178,7 +178,7 @@
                             </div>
                         </li>
                         <li class="nav-list__item has-children shop">
-                            <a href="http://www.nhmshop.co.uk">Shop</a>
+                            <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
                             <div class="nav-list level-2">
                                 <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
