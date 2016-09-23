@@ -12,9 +12,35 @@
         <parentpar
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/parsys">
-            <row2cells21
+            <row2cells21a
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
+                sling:resourceType="nhmwww/components/functional/layout/row2cells21">
+				<par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+	                <imageandcta
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/imageandcta"/>
+                </par>
+                <par2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+	                <eventinformation
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/eventinformation"/>
+                </par2>
+			</row2cells21a>
+			<row2cells21b
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/row2cells21">
+				<par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+	                <eventschedule
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/eventschedule"/>
+                </par>
+			</row2cells21b>
         </parentpar>
     </jcr:content>
 </jcr:root>
