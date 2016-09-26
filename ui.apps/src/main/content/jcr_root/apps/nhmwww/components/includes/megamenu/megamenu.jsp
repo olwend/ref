@@ -122,11 +122,11 @@
                             </div>
                         </li>
                         <li class="nav-list__item has-children support-us">
-                            <a href="/content/nhmwww/en/home/support-us.html">Support us</a>
+                            <a href="/content/nhmwww/en/home/support-us.html">Join and support</a>
                             <div class="nav-list level-2">
                                 <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="/content/nhmwww/en/home/support-us.html">Support us homepage</a>
+                                        <a href="/content/nhmwww/en/home/support-us.html">Join and support homepage</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
@@ -178,23 +178,23 @@
                             </div>
                         </li>
                         <li class="nav-list__item has-children shop">
-                            <a href="http://www.nhmshop.co.uk">Shop</a>
+                            <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
                             <div class="nav-list level-2">
                                 <ul class="dropdown-section">
                                 	<li class="nav-list__item mobile touchonly first">
-                                        <a href="http://www.nhmshop.co.uk">Shop homepage</a>
+                                        <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/dinosaurs.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-dinosaurs&utm_content=meganav-link-1">Dinosaur shop</a>
+                                        <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link1">Wildlife Photographer of the Year shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/souvenirs.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-souvenirs&utm_content=meganav-link-2">Museum souvenirs</a>
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs/view-all-dinosaur-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino&utm_content=meganav-link2">Dinosaur shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/prints/wildlife-photographer-of-the-year-2015-prints.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-wpy&utm_content=meganav-link-3">Wildlife Photographer of the Year 2015 prints</a>
+                                        <a href="http://www.nhmshop.co.uk/souvenirs/view-all-souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=souvenirs&utm_content=meganav-link3">Museum souvenirs</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/jewellery.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-jewellery&utm_content=meganav-link-4">Jewellery</a>
+                                        <a href="http://www.nhmshop.co.uk/jewellery/view-all-jewellery.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=jewellery&utm_content=meganav-link4">Jewellery</a>
                                     </li>
                                 </ul>
                                 
@@ -208,7 +208,7 @@
 									<li class="nav-list__item">
                                         <ul class="nav-list level-3">
                                             <li>
-                                                <a class="nav-button arrow" data-gtm="CTA" href="http://www.nhmshop.co.uk?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=nhmcomm&utm_content=shop-now-button">Shop now
+                                                <a class="nav-button arrow" data-gtm="CTA" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav-shopnow">Shop now
                                             </a>
                                             </li>
                                         </ul>
@@ -217,9 +217,9 @@
                                 
                                   <ul class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=april16meganavchange&utm_medium=referral&utm_campaign=nhmcomm-kitsch-dino&utm_content=meganav-image">
+                                  		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino-adults&utm_content=meganav-promopic">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Wall prints from £20">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Kitsch dino for adults">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
                                                        Kitsch dino for adults

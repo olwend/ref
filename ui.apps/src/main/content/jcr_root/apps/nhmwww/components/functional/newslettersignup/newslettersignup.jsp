@@ -75,26 +75,4 @@
                 </div>
             </div>
         </footer>
-
-
-  <div id="feedback-bar" data-module="feedback-bar">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="small-11 medium-11 large-11 columns span11">
-					<p class="mobile">Leave <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a> about our new website. <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">More information</a>.</p>
-                	<p class="tablet desktop">You are viewing our new website - we would love to hear your <a href="https://www.surveymonkey.com/r/nhm-site-redesign" target="_blank">feedback</a>. Find out about our <a href="/about-us/we-are-redeveloping-our-website.html" target="_blank">website redevelopment project</a>.</p>
-            </div>
-             <div class="small-1 medium-1 large-1 columns span1">
-                <a class="feedback-close" title="Close feedback bar">
-						<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__general_close" data-stroke-width="8" data-base-color="#EEEEEE"></i>
-					</a>              
-            </div>
-        </div>
-
-    </div>
-
-
-</div>
 <!-- END OF FOOTER -->
