@@ -27,4 +27,7 @@
 		<cq:include script="content.jsp"/>
 	</div>
 	<cq:include script="footer.jsp"/>
+	
+	<!-- WR-927 Adobe Analytics/DTM trial -->
+	<script type="text/javascript">_satellite.pageBottom();</script>
 </body>
