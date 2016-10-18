@@ -20,8 +20,8 @@ NHM.HideComponentsPanel = {
     		    		var compTab = sk.panels["COMPONENTS"];
     		    		 
     		            if (compTab) {
-    		            	/*compTab.setVisible(false);*/
-    		                compTab.setDisabled(true);
+    		            	/*compTab.setVisible(false);
+    		                compTab.setDisabled(true);*/
     		            }
     		    	}
     		    	

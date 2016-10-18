@@ -116,7 +116,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	@Override
 	public void execute(final WorkItem item, final WorkflowSession wfsession, final MetaDataMap args) throws WorkflowException  {
 
-		if(args.get("xmlPath") != null) {
+		/**if(args.get("xmlPath") != null) {
 			this.xmlPath = args.get("xmlPath").toString();
 		} else {
 			LOG.error("xml path is null");
@@ -136,8 +136,13 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			if (!this.imagesPath.endsWith("/")) {
 				this.imagesPath = this.imagesPath + "/";
 			}
-		}
+		}*/
 
+        this.xmlPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM\\";
+        this.contentPath = "/content/nhmwww/en/home/our-science/departments-and-staff/staff-directory";
+        this.damPath = "/content/nhmwww/en/home/our-science/departments-and-staff/staff-directory";
+        this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
+		
 		final Path path = Paths.get(this.xmlPath);
 
 		try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(path, "*.xml");) {
