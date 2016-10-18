@@ -14,12 +14,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.NodeUtils;
+import uk.ac.nhm.nhm_www.core.utils.TextUtils;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -40,7 +42,8 @@ public class LinkListHelper extends ListHelper {
 	List<Boolean> hasHeadersList;
 	List<String[]> columnItemsList;
 	
-
+	TextUtils textUtils = new TextUtils();
+	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 	}
@@ -234,26 +237,36 @@ public class LinkListHelper extends ListHelper {
 		ret.append("<ul class=\"linklist--link-items\">");
 		if (this.columnItemsList.get(columnNumber) != null){
 		    for (String linkItem : this.columnItemsList.get(columnNumber)) {
-		        JSONObject json = new JSONObject(linkItem);
-				String linkTitle = json.getString("text");
-		        String linkURL = json.getString("url");
-				Boolean isNewWindow = json.getBoolean("openInNewWindow"); 
-				String windowTarget = "";
-				if (isNewWindow == true) {
-					windowTarget = "_blank";
-				}
-				else {
-					windowTarget = "_self";
-				}
-				ret.append(createListItem(linkTitle, linkURL, windowTarget));
+		    	//Check that @linkItem is not null
+		    	if(linkItem != null) {
+		    		//Check that @linkItem contains valid JSON
+			    	if(textUtils.isJSONValid(linkItem) == true) {
+				    	JSONObject json = new JSONObject(linkItem);
+						String linkTitle = json.getString("text");
+				        String linkURL = json.getString("url");
+						Boolean isNewWindow = json.getBoolean("openInNewWindow"); 
+						String windowTarget = "";
+						if (isNewWindow == true) {
+							windowTarget = "_blank";
+						}
+						else {
+							windowTarget = "_self";
+						}
+						ret.append(createListItem(linkTitle, linkURL, windowTarget));
+			    	}
+			    	else {
+			    		ret.append("<p>This component is not configured correctly</p>");
+			    	}
+		    	}
+		    	else {
+		    		ret.append("<p>This component is not configured correctly</p>");
+		    	}
 		    }
 		}
 		ret.append("</ul>");
 		
 		return ret;
 	}
-	
-
 	
 	public String hasHeaders(Integer columnNumber){
 		String ret = StringUtils.EMPTY;
