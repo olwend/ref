@@ -12,8 +12,16 @@ public class AccordeonHelper {
 
 	public AccordeonHelper(ValueMap properties) {
 		this.isOpen = properties.get("isOpen", false);
-		this.panelTitle = properties.get("panelTitle", String.class);
-		this.panelId = properties.get("panelTitle", String.class).replaceAll(" ", "-");
+		
+		if(properties.get("panelTitle", String.class) == null) {
+			this.panelTitle = "This component is not configured correctly";
+			this.panelId = "InvalidComponent";
+		}
+		else {
+			this.panelTitle = properties.get("panelTitle", String.class);
+			this.panelId = properties.get("panelTitle", String.class).replaceAll(" ", "-");
+		}
+		
 		this.panelId = this.panelId.replaceAll("\\(", "");
 		this.panelId = this.panelId.replaceAll("\\)", "");
 		this.panelId = this.panelId.replaceAll("#", "");
