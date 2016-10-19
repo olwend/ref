@@ -3,7 +3,6 @@ package uk.ac.nhm.nhm_www.core.componentHelpers;
 import org.apache.sling.api.resource.ValueMap;
 
 public class AccordeonHelper {
-
 	
 	private Boolean isOpen;
 	private Boolean isInitialised;
@@ -12,7 +11,6 @@ public class AccordeonHelper {
 	private String headingStyle;
 
 	public AccordeonHelper(ValueMap properties) {
-		
 		this.isOpen = properties.get("isOpen", false);
 		this.panelTitle = properties.get("panelTitle", String.class);
 		this.panelId = properties.get("panelTitle", String.class).replaceAll(" ", "-");
@@ -30,8 +28,6 @@ public class AccordeonHelper {
 		} else {
 			this.isInitialised = false;
 		}
-			
-		
 	}
 
 	public Boolean isOpen() {
@@ -69,8 +65,4 @@ public class AccordeonHelper {
 	public void setHeadingStyle(String headingStyle) {
 		this.headingStyle = headingStyle;
 	}
-	
-	
-	
-	
 }

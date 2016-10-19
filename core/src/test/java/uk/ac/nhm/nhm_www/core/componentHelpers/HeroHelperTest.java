@@ -1,4 +1,4 @@
-package uk.ac.nhm_www.core.componentHelpers;
+package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;

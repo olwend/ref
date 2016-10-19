@@ -1,4 +1,4 @@
-package uk.ac.nhm_www.core.componentHelpers;
+package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import uk.ac.nhm.nhm_www.core.componentHelpers.CarouselHelper;
 import uk.ac.nhm.nhm_www.core.model.CarouselElement;

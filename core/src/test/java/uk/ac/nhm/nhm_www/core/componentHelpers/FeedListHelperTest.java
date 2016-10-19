@@ -1,4 +1,4 @@
-package uk.ac.nhm_www.core.componentHelpers;
+package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper;
 import uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElementImpl;
