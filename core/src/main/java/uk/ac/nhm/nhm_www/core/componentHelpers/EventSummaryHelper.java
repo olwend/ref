@@ -16,7 +16,7 @@ public class EventSummaryHelper extends HelperBase {
 	private String text;
 	private String svgSection;
 
-	private String propertyNullError = "This component has not been configured correctly";
+	private String propertyNullError = "This component is not configured correctly";
 
 	public EventSummaryHelper(SlingHttpServletRequest request, String section) {
 		this.helperFactory = new HelperFactory(request);
@@ -24,9 +24,15 @@ public class EventSummaryHelper extends HelperBase {
 		this.svgSection = section.toLowerCase().trim();
 		init();
 	}
+	
+	public EventSummaryHelper(ValueMap properties, String section) {
+		this.properties = properties;
+		this.svgSection = section.toLowerCase().trim();
+		init();
+	}
 
 	private void init() {
-		this.text = this.properties.get("text",String.class) == null ? propertyNullError : this.properties.get("text", String.class);
+		this.text = this.properties.get("text", String.class) == null ? propertyNullError : this.properties.get("text", String.class);
 
 		if (this.properties.get("icon", String.class) != null) {
 			this.iconClass = this.properties.get("icon",String.class);
