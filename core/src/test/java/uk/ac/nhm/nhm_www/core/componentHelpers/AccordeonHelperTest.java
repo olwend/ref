@@ -24,6 +24,7 @@ public class AccordeonHelperTest {
 	public void testPageTitleNull() {
 		properties = initialiseProperties(false, null, "/content/nhmwww/en/home/press/press-releases");
 		helper = new AccordeonHelper(properties);
+		assertNotNull(helper.getPanelTitle());
 		assertEquals("This component is not configured correctly", helper.getPanelTitle());
 		assertEquals("InvalidComponent", helper.getPanelId());
 	}
