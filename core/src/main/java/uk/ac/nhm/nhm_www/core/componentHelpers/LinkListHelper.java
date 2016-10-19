@@ -235,11 +235,11 @@ public class LinkListHelper extends ListHelper {
 		StringBuffer ret = new StringBuffer();
 		
 		ret.append("<ul class=\"linklist--link-items\">");
-		if (this.columnItemsList.get(columnNumber) != null){
+		if (this.columnItemsList.get(columnNumber) != null) {
 		    for (String linkItem : this.columnItemsList.get(columnNumber)) {
-		    	//Check that @linkItem is not null
+		    	//Check that linkItem is not null
 		    	if(linkItem != null) {
-		    		//Check that @linkItem contains valid JSON
+		    		//Check that linkItem contains valid JSON
 			    	if(textUtils.isJSONValid(linkItem) == true) {
 				    	JSONObject json = new JSONObject(linkItem);
 						String linkTitle = json.getString("text");
@@ -256,10 +256,12 @@ public class LinkListHelper extends ListHelper {
 			    	}
 			    	else {
 			    		ret.append("<p>This component is not configured correctly</p>");
+			    		return ret;
 			    	}
 		    	}
 		    	else {
 		    		ret.append("<p>This component is not configured correctly</p>");
+		    		return ret;
 		    	}
 		    }
 		}
