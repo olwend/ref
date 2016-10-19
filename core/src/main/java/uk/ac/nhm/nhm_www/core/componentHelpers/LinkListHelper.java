@@ -256,11 +256,13 @@ public class LinkListHelper extends ListHelper {
 			    	}
 			    	else {
 			    		ret.append("<p>This component is not configured correctly</p>");
+			    		ret.append("</ul>");
 			    		return ret;
 			    	}
 		    	}
 		    	else {
 		    		ret.append("<p>This component is not configured correctly</p>");
+		    		ret.append("</ul>");
 		    		return ret;
 		    	}
 		    }
