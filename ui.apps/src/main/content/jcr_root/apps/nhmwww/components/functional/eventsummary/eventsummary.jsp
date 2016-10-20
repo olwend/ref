@@ -6,7 +6,7 @@
 <cq:defineObjects/>
 <cq:includeClientLib />
 <%
-EventSummaryHelper helper = new EventSummaryHelper(slingRequest, cssClassSection.toLowerCase());
+EventSummaryHelper helper = new EventSummaryHelper(properties, cssClassSection.toLowerCase());
 SVGImage svg = helper.getSVGImage();
 %>
 	<ul class="info-sidebar">

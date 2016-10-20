@@ -18,6 +18,9 @@ public class EventSummaryHelper extends HelperBase {
 
 	private String propertyNullError = "This component is not configured correctly";
 
+	//Unnecessary to create HelperFactory to create properties
+	//These are already provided by sling in the JSP
+	@Deprecated
 	public EventSummaryHelper(SlingHttpServletRequest request, String section) {
 		this.helperFactory = new HelperFactory(request);
 		properties = helperFactory.getProperties();
