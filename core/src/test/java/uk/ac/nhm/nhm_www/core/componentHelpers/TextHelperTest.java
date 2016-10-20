@@ -1,6 +1,5 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.TextHelper;
 import uk.ac.nhm.nhm_www.core.componentHelpers.*;
 
 import org.apache.sling.api.resource.ValueMap;
