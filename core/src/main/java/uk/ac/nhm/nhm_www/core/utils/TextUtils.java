@@ -6,17 +6,21 @@ import org.apache.sling.commons.json.JSONObject;
 
 public class TextUtils {
 
-	public boolean isJSONValid(String test) {
+    /**
+     * Returns a boolean value and is used to check if a supplied string is valid JSON data
+     */
+	public boolean isJSONValid(String jsonText) {
+		if(jsonText == null) return false;
+
 	    try {
-	        new JSONObject(test);
+	        new JSONObject(jsonText);
 	    } catch (JSONException ex) {
 	        try {
-	            new JSONArray(test);
+	            new JSONArray(jsonText);
 	        } catch (JSONException ex1) {
 	            return false;
 	        }
 	    }
 	    return true;
 	}
-	
 }
