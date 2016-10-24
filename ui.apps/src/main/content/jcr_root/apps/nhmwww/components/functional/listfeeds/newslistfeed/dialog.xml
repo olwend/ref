@@ -63,8 +63,7 @@
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Tags"
                         name="./cqTags"
-                        xtype="tags"
-                        allowBlank="false"/>
+                        xtype="tags"/>
                 </items>
             </basic>
         </items>
