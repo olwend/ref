@@ -36,15 +36,23 @@ public class EventSummaryHelper extends HelperBase {
 
 	private void init() {
 		this.text = this.properties.get("text", String.class) == null ? propertyNullError : this.properties.get("text", String.class);
-
-		if (this.properties.get("icon", String.class) != null) {
-			this.iconClass = this.properties.get("icon",String.class);
-		}
+		
+		//Set Calendar as default
+		this.iconClass = this.properties.get("icon",String.class) == null ? "dates" : this.properties.get("icon", String.class);
 
 		this.setSvgColour();
 		this.setEnumIcon();
 	}
 
+	public boolean isConfigured() {
+		if(this.text != null && this.iconClass != null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	private void setEnumIcon() {
 		if (this.iconClass.equals("dates")) {this.enumIcon = Icon.DATES;}
 		else if (this.iconClass.equals("times")) {this.enumIcon = Icon.TIMES;}
