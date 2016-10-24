@@ -35,6 +35,17 @@ public class EventSummaryHelperTest {
 	}
 	
 	@Test
+	public void testDefaultIcon() {
+		//Default is set as dates / calendar
+		properties = initialiseProperties("Test Title", null);
+		helper = new EventSummaryHelper(properties, "take-part");
+		assertEquals(helper.getSvgFallback(), "icon_l_feature_calendar");
+		assertEquals(helper.getSvgAlt(), "Calendar");
+		assertEquals(helper.getSvgTitle(), "icon__sidebar_calendar");
+		assertEquals(helper.getSvg(), "icon_l_feature_calendar.svg");
+	}
+	
+	@Test
 	public void testIconProperties() {
 		properties = initialiseProperties("Test Title", "times");
 		helper = new EventSummaryHelper(properties, "take-part");
