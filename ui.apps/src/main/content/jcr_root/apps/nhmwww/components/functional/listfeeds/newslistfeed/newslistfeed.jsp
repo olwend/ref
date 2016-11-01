@@ -25,6 +25,10 @@
 		final String[] tags = helper.getTags();
 		searchService.setCqTags(tags);
 	}
+	else {
+		%><p>This component is not configured correctly</p><%
+		return;
+	}
 
 	String path = "";
 	if(helper.getRootPagePath() !=null && !helper.getRootPagePath().equals("")) {

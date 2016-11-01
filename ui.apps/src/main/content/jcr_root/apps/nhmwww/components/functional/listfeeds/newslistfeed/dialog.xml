@@ -55,7 +55,7 @@
                     <rootPagePath
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Root page"
-                        fieldDescription="The page used to start rhe search retrieving news stories"
+                        fieldDescription="The page used to start the search retrieving news stories"
                         name="./rootPagePath"
                         width="155"
                         xtype="pathfield"/>
