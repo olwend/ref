@@ -5462,6 +5462,7 @@ h6 {
 .carousel-wrapper {
   max-width: 100%;
   margin-bottom: 1.5em;
+  /* WR-886 - tidy up styles for carousel in herosection */
 }
 .carousel-wrapper a:hover {
   text-decoration: none;
@@ -5513,10 +5514,20 @@ h6 {
     position: absolute;
   }
 }
+.herosection .carousel-wrapper .caption-inner-wrapper, .rowfullwidth .carousel-wrapper .caption-inner-wrapper {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1160px;
+}
 .carousel-wrapper .caption {
   background-color: rgba(0, 0, 0, 0.9);
   color: #FFFFFF;
   padding: 0.5em 0.75em;
+  /* WR-886 - fix display of carousel in fullwidthrow */
+  /* WR-886 - tidy up styles for carousel in herosection */
+  /* WR-886 - fix display of carousel in fullwidthrow */
 }
 @media screen and (min-width: 768px) {
   .carousel-wrapper .caption {
@@ -5536,6 +5547,89 @@ h6 {
   color: #FFFFFF;
   padding-bottom: 0;
   margin-top: 0;
+}
+.herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
+  position: relative;
+  z-index: 2;
+  height: 142px;
+}
+@media screen and (min-width: 480px) {
+  .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
+    height: 100px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
+    height: 85px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
+    height: auto;
+    max-height: 200px;
+    max-width: 70%;
+  }
+}
+.herosection .carousel-wrapper .caption {
+  font-size: 1.1em;
+  /** not sure where this is used **/
+}
+.herosection .carousel-wrapper .caption h1 {
+  color: #FFFFFF;
+  font-size: 2.5em;
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .herosection .carousel-wrapper .caption h1 {
+    font-size: 3em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .herosection .carousel-wrapper .caption h2 {
+    font-size: 1.7em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .herosection .carousel-wrapper .caption h2 {
+    font-size: 1.8333em;
+  }
+}
+.herosection .carousel-wrapper .caption p {
+  line-height: 1.25em;
+}
+.herosection .carousel-wrapper .caption .dates {
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1%;
+}
+.rowfullwidth .carousel-wrapper .caption h2 {
+  font-size: 1.35em;
+}
+@media screen and (min-width: 768px) {
+  .rowfullwidth .carousel-wrapper .caption h2 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .rowfullwidth .carousel-wrapper .caption h2 {
+    font-size: 1.625em;
+  }
+}
+.rowfullwidth .carousel-wrapper .caption p {
+  line-height: 1.25em;
+  font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  .rowfullwidth .carousel-wrapper .caption p {
+    font-size: 1.125em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .rowfullwidth .carousel-wrapper .caption p {
+    font-size: 1.25em;
+  }
 }
 
 /** REFACTOR-CTABUTTON PARTIAL **/
