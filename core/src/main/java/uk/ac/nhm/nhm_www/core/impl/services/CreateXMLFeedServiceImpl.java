@@ -22,6 +22,11 @@ import uk.ac.nhm.nhm_www.core.services.CreateXMLFeedService;
 import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
 import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
+import com.day.cq.tagging.JcrTagManagerFactory;
+
+
 @Component(immediate = true, metatype = false)
 @Service (value = CreateXMLFeedServiceImpl.class)
 public class CreateXMLFeedServiceImpl implements CreateXMLFeedService { 
@@ -36,12 +41,23 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	@Reference
 	private SlingRepository repository;
 	
+	@Reference
+	JcrTagManagerFactory jcrTagManagerFactory;
+	TagManager tagManager;
+    
+
 	@Override
 	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException{		
+		
+		eventCalendarLoginUtils = new EventCalendarLoginUtils();
+        session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+		tagManager = jcrTagManagerFactory.getTagManager(session);
+
 		createXMLFeedUtils = new CreateXMLFeedUtils();
-		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(getJSON()), root, session);
+		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(getJSON(), tagManager), root, session);
 	}
 		
+	
 	/**
 	 * Function to get the JSON from CRX
 	 *  
@@ -50,10 +66,13 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	 * @throws JSONException 
 	 */
 	private JSONArray getJSON() throws LoginException, RepositoryException, JSONException {
+		
+
 		JSONArray events = new JSONArray();
-		eventCalendarLoginUtils = new EventCalendarLoginUtils();
-        session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+		//eventCalendarLoginUtils = new EventCalendarLoginUtils();
+        //session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 		root = session.getRootNode();
+
 		if (root.hasNode(JSON_PATH)) {
 			Node eventsNode = root.getNode(JSON_PATH);
 			
