@@ -21,17 +21,22 @@ public class TorIframeHelper {
 		String eventConfigParam = request.getParameter("eventconfig");
 		
 		if(eventConfigParam != null && !eventConfigParam.equals("")) {
-			Pattern pattern = Pattern.compile("^\\d+?");
+			
+			//The value of the eventconfig parameter must be one or more digits
+			Pattern pattern = Pattern.compile("^\\d+");
 	        Matcher matcher = pattern.matcher(eventConfigParam);
 	        
 	        if(matcher.find()) {
+	        	//Deep linking page
 	        	this.iframeCode = 
-	        			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"https://www.maximweb.net/NHMResponsive_UI/day?eventconfig=" + eventConfigParam + "\" width=\"100%\"> </iframe>";
+	        			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"https://www.maximweb.net/NHMResponsive_UI/day?eventconfig=" + matcher.group(0) + "\" width=\"100%\"> </iframe>";
 	        } else {
+	        	//Default page
 	        	this.iframeCode = 
 	        			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"https://www.maximweb.net/NHMResponsive_UI/EventsList\" width=\"100%\"> </iframe>";
 	        }
 		} else {
+			//Default page
         	this.iframeCode = 
         			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"https://www.maximweb.net/NHMResponsive_UI/EventsList\" width=\"100%\"> </iframe>";
         }
