@@ -13,9 +13,7 @@ import org.slf4j.LoggerFactory;
 @Component
 @Service
 @Properties({
-	//schedule the service to run every 300s
-	@Property(name="scheduler.period", value="300"),
-	@Property(name="scheduler.expression", value="*/5 * * * ?")
+	@Property(name="scheduler.expression", value="0 0/5 * * * ? *")
 })
 public class XMLFeedDispatcherFlush implements Runnable {
 
@@ -26,18 +24,19 @@ public class XMLFeedDispatcherFlush implements Runnable {
 	
 	@Override
 	public void run() {
+		log.error("Test log message");
 		try { 
             //retrieve the request parameters
             String handle = xmlFeedPath;
             String page = xmlFeedPath;
  
             //TODO - Need to create a session to get server path from
-            String server = "aem-pblsh1-stg";
+            String server = "aem-pblsh1-stg.nhm.ac.uk";
             String port = "5434";
  
             HttpClient client = new HttpClient();
  
-            PostMethod post = new PostMethod("http://" + server + ":" + port + dispatcherFlushUrl);
+            PostMethod post = new PostMethod("https://" + server + ":" + port + dispatcherFlushUrl);
             post.setRequestHeader("CQ-Action", "Activate");
             post.setRequestHeader("CQ-Handle", handle);
 
@@ -47,7 +46,7 @@ public class XMLFeedDispatcherFlush implements Runnable {
             client.executeMethod(post);
             post.releaseConnection();
             //log the results
-            log.info("Dispatcher flush for page: " + post.getPath() + ", result: " + post.getResponseBodyAsString());
+            log.error("Dispatcher flush for page: " + post.getURI() + ", result: " + post.getResponseBodyAsString());
         } catch(Exception e){
             log.error("Flushcache servlet exception: " + e.getMessage());
         }
