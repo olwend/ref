@@ -18,38 +18,39 @@ import org.slf4j.LoggerFactory;
 public class XMLFeedDispatcherFlush implements Runnable {
 
 	private final String xmlFeedPath = "/content/nhmwww/visitorfeed.xml";
+	
+	private final String server = "aem-disp1-stg";
 	private final String dispatcherFlushUrl = "/dispatcher/invalidate.cache";
+	
+	private final String contentType = "text/plain";
 	
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
 	public void run() {
-		log.error("Test log message");
-		try { 
-            //retrieve the request parameters
+		try {
             String handle = xmlFeedPath;
             String page = xmlFeedPath;
  
-            //TODO - Need to create a session to get server path from
-            String server = "aem-pblsh1-stg.nhm.ac.uk";
-            String port = "5434";
- 
             HttpClient client = new HttpClient();
  
-            PostMethod post = new PostMethod("https://" + server + ":" + port + dispatcherFlushUrl);
+            //clear the cache
+            PostMethod post = new PostMethod("http://" + server + dispatcherFlushUrl);
             post.setRequestHeader("CQ-Action", "Activate");
             post.setRequestHeader("CQ-Handle", handle);
+            post.setRequestHeader("Content-Type", contentType);
 
-            //StringRequestEntity body = new StringRequestEntity(page, null, null);
-            //post.setRequestEntity(body);
-            //post.setRequestHeader("Content-length", String.valueOf(body.getContentLength()));
+            //rebuild the cache
+            StringRequestEntity body = new StringRequestEntity(page, null, null);
+            post.setRequestEntity(body);
+            post.setRequestHeader("Content-length", String.valueOf(body.getContentLength()));
+            
             client.executeMethod(post);
             post.releaseConnection();
-            //log the results
+            
             log.error("Dispatcher flush for page: " + post.getURI() + ", result: " + post.getResponseBodyAsString());
         } catch(Exception e){
             log.error("Flushcache servlet exception: " + e.getMessage());
         }
 	}
-
 }
