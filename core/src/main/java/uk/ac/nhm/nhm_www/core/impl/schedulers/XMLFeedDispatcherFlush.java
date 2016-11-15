@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 @Component
 @Service
 @Properties({
-	@Property(name="scheduler.expression", value="0 0/5 * * * ? *")
+	@Property(name="scheduler.expression", value="0 0 1 * * ? *")
 })
 public class XMLFeedDispatcherFlush implements Runnable {
 
