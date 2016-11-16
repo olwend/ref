@@ -1,10 +1,6 @@
 package uk.ac.nhm.nhm_www.core.impl.schedulers;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
@@ -22,8 +18,7 @@ import uk.ac.nhm.nhm_www.core.utils.TextUtils;
 @Component(label = "XML Feed Dispatcher Flush", description = "A scheduled service to clear the cache for the Events Calendar XML feed", metatype = true)
 @Service
 @Properties({
-	//@Property(name="scheduler.expression", value="0 0 1 * * ? *")
-	@Property(name="scheduler.expression", value="0 0/5 * * * ? *")
+	@Property(name="scheduler.expression", value="0 0 1 * * ? *")
 })
 public class XMLFeedDispatcherFlush implements Runnable {
 
@@ -63,14 +58,11 @@ public class XMLFeedDispatcherFlush implements Runnable {
             post.setRequestHeader("Content-length", String.valueOf(body.getContentLength()));
             
             client.executeMethod(post);
-            post.releaseConnection();
             
-            log.error("Dispatcher flush for page: " + post.getURI() + ", result: " + post.getResponseBodyAsString());
+            log.error("Dispatcher flush for page: " + post.getURI());
         }
 		catch(Exception e) {
             log.error("Flushcache servlet exception: " + e.getMessage());
         }
 	}
-	
-	
 }
