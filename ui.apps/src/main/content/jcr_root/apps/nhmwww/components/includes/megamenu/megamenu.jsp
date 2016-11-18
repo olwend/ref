@@ -370,7 +370,7 @@
 	                                        <button class="submit arrow">Sign up</button>
 	                                        <div class="errors"></div>
 	                                    </form>
-	                                    <label>We will use your personal information in accordance with the Data Protection Act 1998. <a href="/my-nhm/privacy-policy/index.html">View our privacy policy.</a></label>
+	                                    <label>We will use your personal information in accordance with the Data Protection Act 1998. <a href="/my-nhm/privacy-policy/index.html">View our privacy notice</a></label>
                                     </div>
                                 </li>
                             </ul>
