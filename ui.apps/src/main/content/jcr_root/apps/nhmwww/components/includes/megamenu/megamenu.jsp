@@ -130,35 +130,32 @@
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
-                                        <ul class="nav-list level-3">
-                                            <li>
-                                                <a class="nav-button arrow" data-gtm="CTA" href="/content/nhmwww/en/home/support-us/become-a-member.html ">Become a Member</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-	                                <li class="nav-list__item">
-	                                        <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
+                                    	<ul class="nav-list level-3">
+		                                    <li class="nav-list__item">
+		                                        <a href="/content/nhmwww/en/home/support-us/membership/costs-how-to-join/direct-debit/index.html">Become a Member</a>
+		                                    </li>
+		                                    <li class="nav-list__item">
+		                                        <a href="/content/nhmwww/en/home/support-us/gift-membership.html">Gift membership</a>
+		                                    </li>
+		                                </ul>
+		                                <li class="nav-list__item">
+		                                   <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Patrons </a>
+		                                </li>
 	                                </li>
                                 </ul>
                                 <ul class="dropdown-section">
-                                    <li class="nav-list__item">
-                                        <a href="/content/nhmwww/en/home/support-us/give.html">Give</a>
-                                        <ul class="nav-list level-3">
-                                            <li>
-                                                <a class="nav-button arrow" data-gtm="CTA" href="https://www.justgiving.com/naturalhistorymuseum/">Donate with JustGiving
-                                                 </a>
-                                            </li>
-                                            <li class="nav-list__item">
-                                                <a href="/content/nhmwww/en/home/support-us/patronage.html">Patronage</a>
-                                            </li>
-                                            <li class="nav-list__item">
-                                                <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Corporate partnerships</a>
-                                            </li>
-                                            <li class="nav-list__item">
-                                                <a href="/content/nhmwww/en/home/support-us/legacy-giving.html">Legacy giving</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/make-a-donation.html">Make a donation</a>
+	                                </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Corporate partnerships</a>
+	                                </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/a-gift-in-your-will.html">A gift in your will</a>
+	                                </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
+	                                </li>
                                 </ul>
                                
                                  <ul class="dropdown-section dropdown-section--thumb">
