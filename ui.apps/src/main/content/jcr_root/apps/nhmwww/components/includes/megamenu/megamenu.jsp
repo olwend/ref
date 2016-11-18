@@ -185,16 +185,16 @@
                                         <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link1">Wildlife Photographer of the Year shop</a>
+                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=xmas&utm_content=meganav-link1">Christmas shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/dinosaurs/view-all-dinosaur-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino&utm_content=meganav-link2">Dinosaur shop</a>
+                                        <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link2">Wildlife Photographer of the Year shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/souvenirs/view-all-souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=souvenirs&utm_content=meganav-link3">Museum souvenirs</a>
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs/view-all-dinosaur-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino&utm_content=meganav-link3">Dinosaur shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/jewellery/view-all-jewellery.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=jewellery&utm_content=meganav-link4">Jewellery</a>
+                                        <a href="http://www.nhmshop.co.uk/souvenirs/view-all-souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=souvenirs&utm_content=meganav-link4">Museum souvenirs</a>
                                     </li>
                                 </ul>
                                 
@@ -202,7 +202,7 @@
                                     <li class="nav-callout tablet desktop">
                                     	<p></p>
                                     	<p>
-                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £50 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
+                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £75 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
                                         <br/>
                                     </li>
 									<li class="nav-list__item">
