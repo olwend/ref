@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Calendar Component"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <filterOne
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Filter One:"
+            name="./filterOne"
+            allowBlank="false"
+            showPathInLabels="false"
+            nhmTagsBasePaths="[/etc/tags/nhmwww/audience,/etc/tags/nhmwww/events,/etc/tags/nhmwww/key-stage,/etc/tags/nhmwww/subject]"
+            xtype="nhmtags"/>
+        <filterOneLabel
+            jcr:primaryType="cq:Widget"
+            name="./filterOneLabel"
+            allowBlank="false"
+            fieldLabel="Filter One Label:"
+            xtype="textfield"/>
+        <filterTwo
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Filter Two:"
+            name="./filterTwo"
+            allowBlank="false"
+            showPathInLabels="false"
+            nhmTagsBasePaths="[/etc/tags/nhmwww/audience,/etc/tags/nhmwww/events,/etc/tags/nhmwww/key-stage,/etc/tags/nhmwww/subject]"
+            xtype="nhmtags"/>
+        <filterTwoLabel
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Filter Two Label:"
+            allowBlank="false"
+            name="./filterTwoLabel"
+            xtype="textfield"/>
+        <extraOptions
+            jcr:primaryType="cq:Widget"
+            name="./extraOptions"
+            fieldLabel="Display extra options?"
+            inputValue="true"
+            type="checkbox"
+            xtype="selection"/>
+        <showMore
+            jcr:primaryType="cq:Widget"
+            name="./showmore"      
+            fieldLabel="Show more button"
+            fieldDescription="Display 'Show more' button if more than (events) in the result"
+            xtype="numberfield"/>        
+    </items>
+</jcr:root>
