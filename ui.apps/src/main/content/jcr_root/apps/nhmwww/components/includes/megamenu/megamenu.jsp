@@ -135,23 +135,23 @@
 		                                        <a href="/content/nhmwww/en/home/support-us/membership/costs-how-to-join/direct-debit/index.html">Become a Member</a>
 		                                    </li>
 		                                    <li class="nav-list__item">
-		                                        <a href="/content/nhmwww/en/home/support-us/gift-membership.html">Gift membership</a>
+		                                        <a href="/content/nhmwww/en/home/support-us/membership/gift-membership.html">Gift membership</a>
 		                                    </li>
 		                                </ul>
 		                                <li class="nav-list__item">
-		                                   <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Patrons </a>
+		                                   <a href="/content/nhmwww/en/home/support-us/patronage.html">Patrons </a>
 		                                </li>
 	                                </li>
                                 </ul>
                                 <ul class="dropdown-section">
 	                                <li class="nav-list__item">
-	                                    <a href="/content/nhmwww/en/home/support-us/make-a-donation.html">Make a donation</a>
+	                                    <a href="/content/nhmwww/en/home/support-us/give.html">Make a donation</a>
 	                                </li>
 	                                <li class="nav-list__item">
 	                                    <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Corporate partnerships</a>
 	                                </li>
 	                                <li class="nav-list__item">
-	                                    <a href="/content/nhmwww/en/home/support-us/a-gift-in-your-will.html">A gift in your will</a>
+	                                    <a href="/content/nhmwww/en/home/support-us/legacy-giving.html">A gift in your will</a>
 	                                </li>
 	                                <li class="nav-list__item">
 	                                    <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
