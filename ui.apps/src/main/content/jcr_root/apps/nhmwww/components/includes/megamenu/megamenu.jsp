@@ -130,35 +130,32 @@
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
-                                        <ul class="nav-list level-3">
-                                            <li>
-                                                <a class="nav-button arrow" data-gtm="CTA" href="/content/nhmwww/en/home/support-us/become-a-member.html ">Become a Member</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-	                                <li class="nav-list__item">
-	                                        <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
+                                    	<ul class="nav-list level-3">
+		                                    <li class="nav-list__item">
+		                                        <a href="https://www.nhm.ac.uk/support-us/membership/costs-how-to-join/direct-debit/index.html">Become a Member</a>
+		                                    </li>
+		                                    <li class="nav-list__item">
+		                                        <a href="/content/nhmwww/en/home/support-us/membership/gift-membership.html">Gift membership</a>
+		                                    </li>
+		                                </ul>
+		                                <li class="nav-list__item">
+		                                   <a href="/content/nhmwww/en/home/support-us/patronage.html">Patrons </a>
+		                                </li>
 	                                </li>
                                 </ul>
                                 <ul class="dropdown-section">
-                                    <li class="nav-list__item">
-                                        <a href="/content/nhmwww/en/home/support-us/give.html">Give</a>
-                                        <ul class="nav-list level-3">
-                                            <li>
-                                                <a class="nav-button arrow" data-gtm="CTA" href="https://www.justgiving.com/naturalhistorymuseum/">Donate with JustGiving
-                                                 </a>
-                                            </li>
-                                            <li class="nav-list__item">
-                                                <a href="/content/nhmwww/en/home/support-us/patronage.html">Patronage</a>
-                                            </li>
-                                            <li class="nav-list__item">
-                                                <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Corporate partnerships</a>
-                                            </li>
-                                            <li class="nav-list__item">
-                                                <a href="/content/nhmwww/en/home/support-us/legacy-giving.html">Legacy giving</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/give.html">Make a donation</a>
+	                                </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/corporate-partnerships.html">Corporate partnerships</a>
+	                                </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/legacy-giving.html">A gift in your will</a>
+	                                </li>
+	                                <li class="nav-list__item">
+	                                    <a href="/content/nhmwww/en/home/support-us/why-support-us.html">Why support us?</a>
+	                                </li>
                                 </ul>
                                
                                  <ul class="dropdown-section dropdown-section--thumb">
@@ -185,16 +182,16 @@
                                         <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link1">Wildlife Photographer of the Year shop</a>
+                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=xmas&utm_content=meganav-link1">Christmas shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/dinosaurs/view-all-dinosaur-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino&utm_content=meganav-link2">Dinosaur shop</a>
+                                        <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link2">Wildlife Photographer of the Year shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/souvenirs/view-all-souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=souvenirs&utm_content=meganav-link3">Museum souvenirs</a>
+                                        <a href="http://www.nhmshop.co.uk/dinosaurs/view-all-dinosaur-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino&utm_content=meganav-link3">Dinosaur shop</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/jewellery/view-all-jewellery.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=jewellery&utm_content=meganav-link4">Jewellery</a>
+                                        <a href="http://www.nhmshop.co.uk/souvenirs/view-all-souvenirs.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=souvenirs&utm_content=meganav-link4">Museum souvenirs</a>
                                     </li>
                                 </ul>
                                 
@@ -202,7 +199,7 @@
                                     <li class="nav-callout tablet desktop">
                                     	<p></p>
                                     	<p>
-                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £50 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
+                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £75 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
                                         <br/>
                                     </li>
 									<li class="nav-list__item">
@@ -370,7 +367,7 @@
 	                                        <button class="submit arrow">Sign up</button>
 	                                        <div class="errors"></div>
 	                                    </form>
-	                                    <label>We will use your personal information in accordance with the Data Protection Act 1998. <a href="/my-nhm/privacy-policy/index.html">View our privacy policy.</a></label>
+	                                    <label>We will use your personal information in accordance with the Data Protection Act 1998. <a href="/my-nhm/privacy-policy/index.html">View our privacy notice</a></label>
                                     </div>
                                 </li>
                             </ul>

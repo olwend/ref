@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Panel"
+    itemId="prices"
+    title="Event Prices">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <eventPrices
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <adult
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Adult"
+                    name="./adultPrice"
+                    enableKeyEvents="true"
+                    xtype="textfield">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
+                        change="function(field,newValue,oldValue) {
+                                          setValidation(field,newValue,oldValue); }"/>
+                </adult>
+                <concession
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Concession"
+                    name="./concessionPrice"
+                    xtype="textfield">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
+                        change="function(field,newValue,oldValue) {
+                                          setValidation(field,newValue,oldValue); }"/>
+                </concession>
+                <member
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Member"
+                    name="./memberPrice"
+                    xtype="textfield">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
+                        change="function(field,newValue,oldValue) {
+                                          setValidation(field,newValue,oldValue); }"/>
+                </member>
+                <family
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Family"
+                    name="./familyPrice"
+                    xtype="textfield">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
+                        change="function(field,newValue,oldValue) {
+                                          setValidation(field,newValue,oldValue); }"/>
+                </family>
+                <custom
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Custom Price"
+                    name="./customPrice"
+                    xtype="textfield">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field,dataRecord,path) {
+                                          checkInitPrices(field,dataRecord,path); }"
+                        change="function(field,newValue,oldValue) {
+                                          setValidation(field,newValue,oldValue); }"/>
+                </custom>
+                <eventListing
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Event Listing Price"
+                    name="./eventListingPrice"
+                    xtype="textfield"/>
+            </items>
+        </eventPrices>
+    </items>
+</jcr:root>

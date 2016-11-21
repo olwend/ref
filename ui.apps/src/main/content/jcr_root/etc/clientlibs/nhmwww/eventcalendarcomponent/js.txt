@@ -1,0 +1,4 @@
+#base=js
+jquery.dotdotdot.js
+calendar.js
+calendar-date-picker.js
