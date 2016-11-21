@@ -132,7 +132,7 @@
                                         <a href="/content/nhmwww/en/home/support-us/membership.html">Membership</a>
                                     	<ul class="nav-list level-3">
 		                                    <li class="nav-list__item">
-		                                        <a href="/content/nhmwww/en/home/support-us/membership/costs-how-to-join/direct-debit/index.html">Become a Member</a>
+		                                        <a href="https://www.nhm.ac.uk/support-us/membership/costs-how-to-join/direct-debit/index.html">Become a Member</a>
 		                                    </li>
 		                                    <li class="nav-list__item">
 		                                        <a href="/content/nhmwww/en/home/support-us/membership/gift-membership.html">Gift membership</a>
