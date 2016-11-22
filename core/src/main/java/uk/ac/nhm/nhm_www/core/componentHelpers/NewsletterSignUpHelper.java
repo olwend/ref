@@ -77,7 +77,7 @@ public class NewsletterSignUpHelper extends HelperBase {
 	public String getDataPolicy() {
 		//TODO: tona - This is hard coded. It needs to be updated to be user configurable.
 		//return properties.get("datapolicy", String.class);
-		return "<label>We will use your personal information in accordance with the Data Protection Act 1998. <a href=\"/my-nhm/privacy-policy/index.html\">View our privacy policy.</a></label>";
+		return "<label>We will use your personal information in accordance with the Data Protection Act 1998. <a href=\"/my-nhm/privacy-policy/index.html\">View our privacy notice.</a></label>";
 	}
 	
 	/**
