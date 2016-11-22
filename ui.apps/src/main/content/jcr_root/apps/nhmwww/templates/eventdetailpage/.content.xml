@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template"
+    jcr:title="Natural History Museum Event Details Page"
+    allowedParents="[/apps/nhmwww/templates/eventspage]"
+    allowedPaths="[/content/nhmwww/(.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="nhmwww/components/page/eventdetailpage"
+        ctaLink="https://www.nhm.ac.uk/visit/book-tickets">
+        <parentpar
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <row2cells21a
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/row2cells21">
+				<par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+	                <imageandcta
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/imageandcta"/>
+                </par>
+                <par2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+	                <eventinformation
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/eventinformation"/>
+                </par2>
+			</row2cells21a>
+			<row2cells21b
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nhmwww/components/functional/layout/row2cells21">
+				<par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+	                <text
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/text"/>
+	                <eventschedule
+	                    jcr:primaryType="nt:unstructured"
+	                    sling:resourceType="nhmwww/components/functional/eventschedule"/>
+                </par>
+			</row2cells21b>
+        </parentpar>
+    </jcr:content>
+</jcr:root>
