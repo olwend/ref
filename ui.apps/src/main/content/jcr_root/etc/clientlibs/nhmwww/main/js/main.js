@@ -562,3 +562,25 @@ jQuery(document).ready(function() {
         });
     }
 });
+
+// WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
+
+//PARENT IFRAME NEEDS THIS SCRIPT
+// browser compatibility: get method for event 
+//addEventListener(FF, Webkit, Opera, IE9+) and attachEvent(IE5-8)
+var myEventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+
+// create event listener
+var myEventListener = window[myEventMethod];
+
+// browser compatibility: attach event uses onmessage
+var myEventMessage = myEventMethod == "attachEvent" ? "onmessage" : "message";
+
+// register callback function on incoming message
+myEventListener(myEventMessage, function (e) {
+// we will get a string (better browser support) and validate
+// if it is an int - detect the height required by the iframe with class "js--tor-iframe", set the height of the iframe and add 350px
+if (e.data === parseInt(e.data)) {
+        $('.js--tor-iframe').height(e.data + 350);
+    }                             
+}, false);
