@@ -32,16 +32,16 @@ public class TorIframeHelper {
 	        if(matcher.find()) {
 	        	//Deep linking page
 	        	iframeCode = 
-	        			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"" + ROOT_URL + "/day?eventconfig=" + matcher.group(0) + "\" width=\"100%\"> </iframe>";
+	        			"<iframe class=\"js--tor-iframe\" onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" src=\"" + ROOT_URL + "/day?eventconfig=" + matcher.group(0) + "\" width=\"100%\"> </iframe>";
 	        } else {
 	        	//Default page
 	        	iframeCode = 
-	        			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"" + ROOT_URL + "/EventsList\" width=\"100%\"> </iframe>";
+	        			"<iframe class=\"js--tor-iframe\" onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" src=\"" + ROOT_URL + "/EventsList\" width=\"100%\"> </iframe>";
 	        }
 		} else {
 			//Default page
         	iframeCode = 
-        			"<iframe onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" height=\"1500px\" src=\"" + ROOT_URL + "/EventsList\" width=\"100%\"> </iframe>";
+        			"<iframe class=\"js--tor-iframe\" onload=\"javascript:window.parent.parent.scrollTo(0,0)\" frameborder=\"0\" src=\"" + ROOT_URL + "/EventsList\" width=\"100%\"> </iframe>";
         }
 		return iframeCode;
 	}
