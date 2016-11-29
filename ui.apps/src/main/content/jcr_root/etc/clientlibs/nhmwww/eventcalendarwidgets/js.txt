@@ -1,0 +1,7 @@
+#base=js
+
+ui/rte.js
+ui/widgets.js
+searchpromote/widgets.js
+sidekick-customization/clientlib.js
+ui/widgets/themes/default.js
