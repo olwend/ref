@@ -1,7 +1,7 @@
 package uk.ac.nhm.nhm_www.core.utils;
 
 /**
- * Helper class to centralize the repository user credentials
+ * Helper class to centralise the repository user credentials
  * @author juanm
  *
  */

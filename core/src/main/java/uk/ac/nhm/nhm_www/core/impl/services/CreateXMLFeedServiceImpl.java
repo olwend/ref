@@ -59,7 +59,7 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 		
 		LOG.debug("Saving JSON feed");
 		
-        session = repository.login(new SimpleCredentials("calendar-user", "crxde1".toCharArray()));
+        session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 		root = session.getRootNode();
 		if (root.hasNode(JSON_PATH)) {
 			Node eventsNode = root.getNode(JSON_PATH);
