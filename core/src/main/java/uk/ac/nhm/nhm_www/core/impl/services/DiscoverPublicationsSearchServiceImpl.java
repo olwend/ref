@@ -56,7 +56,7 @@ import com.day.cq.wcm.api.PageManagerFactory;
 		@Property(name = "service.description", value = "Natural History Museum Discover properties", propertyPrivate = true), 
 		@Property(name = "queryLimit", intValue = 200, description = "Query Limit"),
 		@Property(name = "cacheExpired", intValue = 1, description = "Minutes Cache to expire"),
-		@Property(name = "concurrencyLevel" ,intValue = 16, description="Cache ConcurrentHashMap: estimated number of concurrently updating threads. The implementation performs internal sizing to try to accommodate this many threads."),
+		@Property(name = "concurrencyLevel", intValue = 16, description="Cache ConcurrentHashMap: estimated number of concurrently updating threads. The implementation performs internal sizing to try to accommodate this many threads."),
 		@Property(name = "mappedPath", value="", description="Repository path mapped, this path is going to be hide on the final link to the publication")
 })
 public class DiscoverPublicationsSearchServiceImpl implements DiscoverPublicationsSearchService {
