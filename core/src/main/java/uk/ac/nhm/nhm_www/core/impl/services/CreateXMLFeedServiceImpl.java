@@ -41,7 +41,8 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	private SlingRepository repository;
 	
 	@Override
-	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException{		
+	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException {
+		LOG.info("Attempting refresh of XML feed for Events Calendar");
 		createXMLFeedUtils = new CreateXMLFeedUtils();
 		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(getJSON()), root, session);
 	}
@@ -56,8 +57,6 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	private JSONArray getJSON() throws LoginException, RepositoryException, JSONException {
 		JSONArray events = new JSONArray();
 		eventCalendarLoginUtils = new EventCalendarLoginUtils();
-		
-		LOG.debug("Saving JSON feed");
 		
         session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 		root = session.getRootNode();
