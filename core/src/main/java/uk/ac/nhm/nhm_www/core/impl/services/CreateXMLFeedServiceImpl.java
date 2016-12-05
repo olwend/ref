@@ -58,7 +58,11 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 		JSONArray events = new JSONArray();
 		eventCalendarLoginUtils = new EventCalendarLoginUtils();
 		
-        session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+		session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+		
+		LOG.info("Admin session created with user " + session.getUserID());
+		LOG.info(String.valueOf(session.isLive()));
+		
 		root = session.getRootNode();
 		if (root.hasNode(JSON_PATH)) {
 			Node eventsNode = root.getNode(JSON_PATH);
