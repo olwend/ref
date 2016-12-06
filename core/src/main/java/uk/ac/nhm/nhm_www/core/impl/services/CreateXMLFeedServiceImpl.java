@@ -17,6 +17,8 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.services.CreateXMLFeedService;
 import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
@@ -31,6 +33,8 @@ import com.day.cq.tagging.JcrTagManagerFactory;
 @Service (value = CreateXMLFeedServiceImpl.class)
 public class CreateXMLFeedServiceImpl implements CreateXMLFeedService { 
 	private static final String JSON_PATH = "content/nhmwww/eventscontent";
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CreateXMLFeedServiceImpl.class);
 	
 	private CreateXMLFeedUtils createXMLFeedUtils;
 	private EventCalendarLoginUtils eventCalendarLoginUtils;
@@ -47,11 +51,14 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
     
 
 	@Override
+
 	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException{		
 		
 		eventCalendarLoginUtils = new EventCalendarLoginUtils();
         session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
 		tagManager = jcrTagManagerFactory.getTagManager(session);
+	
+		LOG.info("Attempting refresh of XML feed for Events Calendar");
 
 		createXMLFeedUtils = new CreateXMLFeedUtils();
 		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(getJSON(), tagManager), root, session);
@@ -69,8 +76,12 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 		
 
 		JSONArray events = new JSONArray();
+
 		//eventCalendarLoginUtils = new EventCalendarLoginUtils();
         //session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+
+		LOG.info("Admin session created with user " + session.getUserID());
+
 		root = session.getRootNode();
 
 		if (root.hasNode(JSON_PATH)) {

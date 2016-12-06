@@ -6,6 +6,8 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 import org.json.JSONException;
 import org.osgi.service.component.ComponentContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
@@ -21,6 +23,7 @@ import javax.xml.transform.TransformerException;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.felix.scr.annotations.Reference;
 
+import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
@@ -32,6 +35,8 @@ import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 @Component(immediate = true, metatype = false)
 @Service
 public class EventPagesListener implements EventListener {
+	private static final Logger LOG = LoggerFactory.getLogger(EventPagesListener.class);
+	
 	private static final String EVENTS_PATH = "content/nhmwww/en/home/events";
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions";
 	
@@ -80,6 +85,7 @@ public class EventPagesListener implements EventListener {
 	@Override
 	public void onEvent(EventIterator events) {		
 		try {
+			LOG.info("Found new or updated content in Events Calendar");
 			eventPagesUtils = new EventPagesUtils();
 			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);
 		} catch (PathNotFoundException e) {
