@@ -18,7 +18,7 @@
                                         <a href="/content/nhmwww/en/home/visit.html">Visit homepage</a>
                                     </li>
                                     <li class="nav-list__item ">
-                                        <a href="/visit/whats-on/day.html">What's on</a>
+                                        <a href="/visit/whats-on.html">What's on</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/exhibitions.html">Exhibitions and attractions</a>
