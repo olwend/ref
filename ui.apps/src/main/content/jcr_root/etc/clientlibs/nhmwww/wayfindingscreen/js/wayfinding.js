@@ -12,15 +12,19 @@
  *
  * */
 
+var windowProtocol = window.location.protocol;
+var windowHost = window.location.host;
+var XMLpath = "content/nhmwww/visitorfeed.xml";
 var pageLength = 4;
 // var ajaxUrl = "xml/day.html";
 // var ajaxUrl = "http://localhost:4502/content/nhmwww/visitorfeed.xml";
- var ajaxUrl = "http://localhost:4503/content/nhmwww/visitorfeed.xml";
+// var ajaxUrl = "http://localhost:4503/content/nhmwww/visitorfeed.xml";
 // var ajaxUrl = "https://wcm-pblsh1-dev.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
 // var ajaxUrl = "https://aem-pblsh2-stg.nhm.ac.uk:5434/content/nhmwww/visitorfeed.xml";
 // var ajaxUrl = "https://aem-disp1-stg.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
 // var ajaxUrl = "https://staging.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
 //var ajaxUrl = "https://www.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
+var ajaxUrl = windowProtocol + "//" + windowHost + "/" + XMLpath;
 var defDisplay = '<img src="/content/dam/nhmwww/wayfindingscreen/emergency.jpg" alt="" />';
 var displayDuration = 20000;
 var headline = "What&#146;s on today";
