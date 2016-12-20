@@ -144,23 +144,25 @@ function buildTable( itemPointer ) {
 }
 
 function buildInitial() {
-    if(eventsBuffer.length > 0) {
-        events = eventsBuffer;
-        window.clearInterval(poll);
-        var table = buildTable(0);
-        $('#main').html('<div id="header"><h1>' + headline + '</h1></div>');
-        $('#main').append(table);
-        curPage = 1;
-		var pageDisplay;
-		if(divideDuration) {
-			var numPages = Math.ceil(events.length / pageLength);
-			pageDisplay = Math.ceil(displayDuration / numPages);
-		} else {
-			pageDisplay = displayDuration;
-		}
-        slide = window.setInterval(slidePage,pageDisplay);
-        poll = window.setInterval(loadEvents,10000);
-    }
+	if(eventsBuffer) {
+		if(eventsBuffer.length > 0) {
+	        events = eventsBuffer;
+	        window.clearInterval(poll);
+	        var table = buildTable(0);
+	        $('#main').html('<div id="header"><h1>' + headline + '</h1></div>');
+	        $('#main').append(table);
+	        curPage = 1;
+			var pageDisplay;
+			if(divideDuration) {
+				var numPages = Math.ceil(events.length / pageLength);
+				pageDisplay = Math.ceil(displayDuration / numPages);
+			} else {
+				pageDisplay = displayDuration;
+			}
+	        slide = window.setInterval(slidePage,pageDisplay);
+	        poll = window.setInterval(loadEvents,10000);
+	    }
+	}
 }
 
 function slidePage() {
