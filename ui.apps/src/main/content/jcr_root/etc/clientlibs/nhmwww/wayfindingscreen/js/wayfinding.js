@@ -21,7 +21,7 @@ var pageLength = 4;
 // var ajaxUrl = "https://aem-disp1-stg.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
 // var ajaxUrl = "https://staging.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
 //var ajaxUrl = "https://www.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
-var defDisplay = '<img src="images/emergency.jpg" alt="" />';
+var defDisplay = '<img src="/content/dam/nhmwww/wayfindingscreen/emergency.jpg" alt="" />';
 var displayDuration = 20000;
 var headline = "What&#146;s on today";
 var divideDuration = false;
