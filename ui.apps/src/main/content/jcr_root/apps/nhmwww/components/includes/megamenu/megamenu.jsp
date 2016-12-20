@@ -18,7 +18,7 @@
                                         <a href="/content/nhmwww/en/home/visit.html">Visit homepage</a>
                                     </li>
                                     <li class="nav-list__item ">
-                                        <a href="/visit/whats-on/day.html">What's on</a>
+                                        <a href="/visit/whats-on.html">What's on</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/exhibitions.html">Exhibitions and attractions</a>
@@ -182,7 +182,7 @@
                                         <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=xmas&utm_content=meganav-link1">Christmas shop</a>
+                                        <a href="https://www.nhmshop.co.uk/christmas/sale.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=specialoffers&utm_content=meganav-link1">Sale</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link2">Wildlife Photographer of the Year shop</a>
@@ -214,12 +214,12 @@
                                 
                                   <ul class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino-adults&utm_content=meganav-promopic">
+                                  		<a href="http://www.nhmshop.co.uk/clothes-and-accessories/autumn-accessories.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=fashion-adults&utm_content=meganav-promopic ">
                                   			<div class="mega-thumb">
 	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Kitsch dino for adults">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Kitsch dino for adults
+                                                       Winter Fashion
                                                     </p>
 	                                            </div>
 	                                        </div>
