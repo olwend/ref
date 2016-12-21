@@ -216,10 +216,10 @@
                                   	<li class="nav-list__item">
                                   		<a href="http://www.nhmshop.co.uk/clothes-and-accessories/autumn-accessories.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=fashion-adults&utm_content=meganav-promopic ">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Kitsch dino for adults">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Winter fashion">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Winter Fashion
+                                                       Winter fashion
                                                     </p>
 	                                            </div>
 	                                        </div>
