@@ -47,6 +47,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="App Signups"
                                 value="App Signups"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="May South Ken enews"
+                                value="CMP-03201-Y3S7M4"/>
         
                         </options>
                     </campaign>
