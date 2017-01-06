@@ -163,7 +163,7 @@
 
                         <c:set var="memberPrice" value="<%= memberPrice %>"/>
                         <c:if test="${not empty memberPrice}">
-                            <p>Members: <strong>${memberPrice}</strong></p> 
+                            <p>Member: <strong>${memberPrice}</strong></p> 
                         </c:if> 
 
                         <c:set var="familyPrice" value="<%= familyPrice %>"/>
