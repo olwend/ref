@@ -137,7 +137,7 @@
 
                         <c:set var="eventDuration" value="<%= eventDuration %>"/>
                         <c:if test="${not empty eventDuration}">
-                            <p>Event duration: <strong>${eventDuration}</strong></p> 
+                            <p>Duration: <strong>${eventDuration}</strong></p> 
                         </c:if>
 
                         <c:set var="scienceSubjects" value="<%= scienceSubjects %>"/>
