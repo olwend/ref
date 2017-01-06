@@ -182,7 +182,7 @@
                                         <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="https://www.nhmshop.co.uk/christmas/sale.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=specialoffers&utm_content=meganav-link1">Sale</a>
+                                        <a href="http://www.nhmshop.co.uk/cyber-offers/sale.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=specialoffers&utm_content=meganav-link1">Sale</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link2">Wildlife Photographer of the Year shop</a>
