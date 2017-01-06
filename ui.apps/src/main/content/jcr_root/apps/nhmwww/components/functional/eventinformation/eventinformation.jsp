@@ -122,7 +122,7 @@
 
                         <c:set var="keyStage" value="<%= keyStage %>"/>
                         <c:if test="${not empty keyStage}">
-                            <p>Key Stage: <strong>${keyStage}</strong></p> 
+                            <p>Suitable for: <strong>${keyStage}</strong></p> 
                         </c:if>
                         
                         <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
