@@ -112,7 +112,7 @@
                     <div class="small-12 large-12 columns">
                         <c:set var="events" value="<%= events %>"/>
                         <c:if test="${not empty events}">
-                            <p>Event: <strong>${events}</strong></p> 
+                            <p>Event type: <strong>${events}</strong></p> 
                         </c:if>
 
                         <c:set var="eventVenue" value="<%= eventVenue %>"/>
