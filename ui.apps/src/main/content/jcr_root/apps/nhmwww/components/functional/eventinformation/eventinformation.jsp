@@ -112,7 +112,7 @@
                     <div class="small-12 large-12 columns">
                         <c:set var="events" value="<%= events %>"/>
                         <c:if test="${not empty events}">
-                            <p>Event: <strong>${events}</strong></p> 
+                            <p>Event type: <strong>${events}</strong></p> 
                         </c:if>
 
                         <c:set var="eventVenue" value="<%= eventVenue %>"/>
@@ -122,7 +122,7 @@
 
                         <c:set var="keyStage" value="<%= keyStage %>"/>
                         <c:if test="${not empty keyStage}">
-                            <p>Key Stage: <strong>${keyStage}</strong></p> 
+                            <p>Suitable for: <strong>${keyStage}</strong></p> 
                         </c:if>
                         
                         <c:set var="eventSubjects" value="<%= eventSubjects %>"/>
@@ -137,7 +137,7 @@
 
                         <c:set var="eventDuration" value="<%= eventDuration %>"/>
                         <c:if test="${not empty eventDuration}">
-                            <p>Event duration: <strong>${eventDuration}</strong></p> 
+                            <p>Duration: <strong>${eventDuration}</strong></p> 
                         </c:if>
 
                         <c:set var="scienceSubjects" value="<%= scienceSubjects %>"/>
@@ -163,7 +163,7 @@
 
                         <c:set var="memberPrice" value="<%= memberPrice %>"/>
                         <c:if test="${not empty memberPrice}">
-                            <p>Members: <strong>${memberPrice}</strong></p> 
+                            <p>Member: <strong>${memberPrice}</strong></p> 
                         </c:if> 
 
                         <c:set var="familyPrice" value="<%= familyPrice %>"/>
