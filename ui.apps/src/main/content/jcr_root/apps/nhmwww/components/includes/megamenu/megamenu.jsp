@@ -199,7 +199,7 @@
                                     <li class="nav-callout tablet desktop">
                                     	<p></p>
                                     	<p>
-                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend �75 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
+                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend &pound;75 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
                                         <br/>
                                     </li>
 									<li class="nav-list__item">
