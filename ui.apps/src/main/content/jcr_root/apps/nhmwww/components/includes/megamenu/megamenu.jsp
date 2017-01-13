@@ -18,7 +18,7 @@
                                         <a href="/content/nhmwww/en/home/visit.html">Visit homepage</a>
                                     </li>
                                     <li class="nav-list__item ">
-                                        <a href="/visit/whats-on/day.html">What's on</a>
+                                        <a href="/visit/whats-on.html">What's on</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/exhibitions.html">Exhibitions and attractions</a>
@@ -42,7 +42,7 @@
                                 <ul class="dropdown-section">
                                      <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/getting-here.html">Getting here</a>
-                                    	<p class="tablet desktop">Our main entrance is on Cromwell Road, just five minutes' walk from South Kensington Tube station.</p>
+                                    	<p class="tablet desktop">Enter the Museum via Exhibition Road or Queen&#39;s Gate. The front entrance on Cromwell Road is currently closed.</p>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/visit/tring.html">The Museum at Tring</a> 
@@ -182,7 +182,7 @@
                                         <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop homepage</a>
                                     </li>
                                     <li class="nav-list__item">
-                                        <a href="http://www.nhmshop.co.uk/christmas-gifts.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=xmas&utm_content=meganav-link1">Christmas shop</a>
+                                        <a href="http://www.nhmshop.co.uk/cyber-offers/sale.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=specialoffers&utm_content=meganav-link1">Sale</a>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="http://www.nhmshop.co.uk/wildlife-photographer-of-the-year.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=wpy&utm_content=meganav-link2">Wildlife Photographer of the Year shop</a>
@@ -199,7 +199,7 @@
                                     <li class="nav-callout tablet desktop">
                                     	<p></p>
                                     	<p>
-                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend £75 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
+                                        The home of nature-inspired gifts. Free UK next-day delivery when you spend &pound;75 on the Museum collection, plus new international delivery rates. All sales support the Museum.</p>
                                         <br/>
                                     </li>
 									<li class="nav-list__item">
@@ -214,12 +214,12 @@
                                 
                                   <ul class="dropdown-section dropdown-section--thumb">
                                   	<li class="nav-list__item">
-                                  		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino-adults&utm_content=meganav-promopic">
+                                  		<a href="http://www.nhmshop.co.uk/clothes-and-accessories/autumn-accessories.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=fashion-adults&utm_content=meganav-promopic ">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Kitsch dino for adults">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Winter fashion">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Kitsch dino for adults
+                                                       Winter fashion
                                                     </p>
 	                                            </div>
 	                                        </div>
