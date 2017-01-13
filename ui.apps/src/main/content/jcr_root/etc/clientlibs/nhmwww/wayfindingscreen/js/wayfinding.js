@@ -16,14 +16,6 @@ var windowProtocol = window.location.protocol;
 var windowHost = window.location.host;
 var XMLpath = "content/nhmwww/visitorfeed.xml";
 var pageLength = 4;
-// var ajaxUrl = "xml/day.html";
-// var ajaxUrl = "http://localhost:4502/content/nhmwww/visitorfeed.xml";
-// var ajaxUrl = "http://localhost:4503/content/nhmwww/visitorfeed.xml";
-// var ajaxUrl = "https://wcm-pblsh1-dev.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
-// var ajaxUrl = "https://aem-pblsh2-stg.nhm.ac.uk:5434/content/nhmwww/visitorfeed.xml";
-// var ajaxUrl = "https://aem-disp1-stg.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
-// var ajaxUrl = "https://staging.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
-//var ajaxUrl = "https://www.nhm.ac.uk/content/nhmwww/visitorfeed.xml";
 var ajaxUrl = windowProtocol + "//" + windowHost + "/" + XMLpath;
 var defDisplay = '<img src="/content/dam/nhmwww/wayfindingscreen/emergency.jpg" alt="" />';
 var displayDuration = 20000;
@@ -87,38 +79,6 @@ function buildTable( itemPointer ) {
             var price = $("<p></p>");
             var audienceInfo = $("<p></p>");
             var audienceType;
-            // var info = $("<p></p>");
-			// var free = curItem.find('custom_2').text();
-			// var fee;
-
-   //          // fix for "light up dippy" - miks - 2011/11
-   //          var tempTitle = curItem.find('title').text();
-
-   //          if(free.indexOf('Free') > -1) {
-
-   //              // this if/else is nasty hack to fix this for dippy (which is not really free, but doesn't have an admission fee as such either) - miks - 2011/11
-   //              if (tempTitle != 'Light up Dippy') {
-			// 		fee = "Free";   // original line - everything else in this block is to do with the dodgy hack
-   //              } else {
-			// 		fee = "";
-   //              }
-
-   //          } else {
-   //                  fee = "Admission fee applies";
-   //          }
-   //          // end fix for "light up dippy" - miks - 2011/11
-
-			// var eventStatus = curItem.find('status').text();
-			// if(eventStatus.length > 0) {
-			// 	fee = '<span class="highlight">' + eventStatus + '</span>';
-			// }
-
-			// var booking = curItem.find('booking').text();
-			// if(booking.length > 0) {
-			// 	booking = booking + ", " + fee.toLowerCase();
-			// } else {
-			// 	booking = fee;
-			// }
 
             title.html(curItem.find('> name').text());
             description.html(curItem.find('description').text());
@@ -178,13 +138,6 @@ function slidePage() {
     table.css('z-index',1);
     $('#main').append(table);
 	table.show();
-	/*$('table:first').remove();
-    table.css('z-index', 0);*/
-
-  /*  table.slideDown(2000, function() {
-        $('table:first').remove();
-        $(this).css('z-index', 0);
-    });*/
     curPage++;
 }
 
