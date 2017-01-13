@@ -15,94 +15,94 @@ import javax.jcr.RepositoryException;
 import javax.jcr.ValueFormatException;
 
 public class EventScheduleHelper {
-	
+
 	private String eventContentPath;
 	private String eventType;
 	private String eventDates;
 	private String eventAllDay;
 	private String eventTimes;
 	private String durations;
-	
+
 	private HashMap<String, String> datesMap;
 	private ArrayList<String> sortedDates;
-	
+
 	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
 		this.eventContentPath = currentPage.getPath() + "/jcr:content";
-		
+
 		Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
-		
+
 		this.eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
 		this.eventDates = contentNode.hasProperty("jcr:datesRecurrence") ? contentNode.getProperty("jcr:datesRecurrence").getString() : "";
 		this.eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
 		this.eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
 		this.durations = contentNode.hasProperty("jcr:durationsRecurrence") ? contentNode.getProperty("jcr:durationsRecurrence").getString() : "";
-		
+
 		this.datesMap = new HashMap<String, String>();
 		this.sortedDates = new ArrayList<String>();
-		
+
 		initialise();
 	}
 
-	public void initialise() throws ParseException {
+	public String getEventType() {
+		return eventType;
+	}
+
+	public ArrayList<String> getSortedDates() {
+		return sortedDates;
+	}
+
+	public HashMap<String, String> getDatesMap() {
+		return datesMap;
+	}
+
+	private void initialise() throws ParseException {
 		if (!eventDates.equals("")) {
 			LinkedHashSet<String> dates = createDatesArray(eventDates);
 			String[] times = createTimesArray(eventTimes, durations);
 			String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
-			
+
 			//Populates the Map
 			for (String date : dates) {
-				int index = Integer.parseInt(date.substring(date.length() - 1));
+				int index = Integer.parseInt(parseDateString(date, "(\\d+)$"));
 				String datesMapValue = "All day";
-				if (!allDayArray[index].equals("true")){
-					datesMapValue =  times[index]; 
+				if (!allDayArray[index].equals("true")) {
+					datesMapValue = times[index]; 
 				} 
-				datesMap.put(date.substring(0, date.length() - 1), datesMapValue);  
+				datesMap.put(parseDateString(date, "^([a-zA-Z0-9 ])+"), datesMapValue);
 			}
-			
+
 			//Populates an array list with the dates
 			for(Map.Entry<String,String> map : datesMap.entrySet()){
 				sortedDates.add(map.getKey());
 			}
-			
+
 			//Sorts the dates array
 			Collections.sort(sortedDates, new Comparator<String>() {
 				SimpleDateFormat f = new SimpleDateFormat("dd MMMM yyyy");
-			
+
 				@Override
 				public int compare(String o1, String o2) {
-				   	try {
-				      	return f.parse(o1).compareTo(f.parse(o2));
-				   	} catch (ParseException e) {
-				      	throw new IllegalArgumentException(e);
-				   	}
+					try {
+						return f.parse(o1).compareTo(f.parse(o2));
+					} catch (ParseException e) {
+						throw new IllegalArgumentException(e);
+					}
 				}
 			});
 		}
 	}
 	
-	public String getEventType() {
-		return eventType;
-	}
-	
-	public ArrayList<String> getSortedDates() {
-		return sortedDates;
-	}
-	
-	public HashMap<String, String> getDatesMap() {
-		return datesMap;
-	}
-	
-	private int getArrayValue(String date) {
-		int pos = -1;
+	private static String parseDateString(String date, String regex) {
+        String pos = null;
 
-		Pattern pattern = Pattern.compile("(\\d+)$");
+		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(date);
 		if(matcher.find()) {
-			pos = Integer.valueOf(matcher.group(0));
+			pos = matcher.group(0);
 		}
 
 		return pos;
-	}
+    }
 
 	private LinkedHashSet<String> createDatesArray(String stringValue) throws ParseException {
 		LinkedHashSet<String> datesSet = new LinkedHashSet<String>();
@@ -122,10 +122,10 @@ public class EventScheduleHelper {
 
 		String[] parts = dateString.split(" ");
 		String stringDateParsed = parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3];
-		String index = Integer.toString(getArrayValue(dateString));
+		String index = parseDateString(dateString, "(\\d+)$");
 		Date dateParsed = sdf.parse(stringDateParsed);
 
-		return finalSdf.format(dateParsed).toString() + index;
+		return finalSdf.format(dateParsed).toString() + "-" + index;
 	}
 
 	private String[] createTimesArray(String times, String durations) throws ParseException {
