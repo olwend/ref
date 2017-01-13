@@ -92,7 +92,7 @@ public class EventScheduleHelper {
 		}
 	}
 	
-	private static String parseDateString(String date, String regex) {
+	private String parseDateString(String date, String regex) {
         String pos = null;
 
 		Pattern pattern = Pattern.compile(regex);
