@@ -70,12 +70,17 @@ function buildTable( itemPointer ) {
             time.html(curItem.find('custom_3').text());
             location.html(curItem.find('placemark > name').text());
             
-            // WR-946-wayfinding-tag-names fix
-            // Sets event categories in an array to lowercase excluding the first item 
-			var eventString = curItem.find('categories').text(); 
-            var tmp_eventType = eventString.split(/,(.+)/);
-            tmp_eventType[1].toLowerCase();
-            eventString=temp_eventType[0].concat(', ', tmp_eventType[1]); 
+            // WR-946-wayfinding-tag-names
+            // Sets event categories in an array to lowercase
+            var eventString = curItem.find('categories').text();
+            	// Split string at first comma
+            var tmp_eventString = eventString.split(/,(.+)/);
+            	// Check if a second array item exists (i.e. more than one item in the array)
+            if (tmp_eventString[1]) { 
+            	tmp_eventString[1] = tmp_eventString[1].toLowerCase(); 
+				eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]); 
+			}
+            
             eventType.html(eventString);
             
             left.append(time);
