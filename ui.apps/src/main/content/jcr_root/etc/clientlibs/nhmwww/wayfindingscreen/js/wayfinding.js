@@ -70,6 +70,13 @@ function buildTable( itemPointer ) {
             time.html(curItem.find('custom_3').text());
             location.html(curItem.find('placemark > name').text());
             eventType.html(curItem.find('categories').text());
+            
+            // WR-946-wayfinding-tag-names fix
+            // Sets event categories in an array to lowercase excluding the first item 
+            var tmp_eventType = eventType.split(/,(.+)/);
+            tmp_eventType[1].toLowerCase();
+            eventType=temp_eventType[0].concat(', ', tmp_eventType[1]); 
+            
             left.append(time);
             left.append(location);
             left.append(eventType);
