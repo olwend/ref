@@ -135,7 +135,7 @@ function onYouTubeIframeAPIReady() {
 	            //height: '649',
 	            //width: '1440',
 	            videoId: nhmvideoId,
-	            playerVars: { 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white', 'loop': 1, 'rel': 0 },
+	            playerVars: { 'loop': 1, 'playlist': nhmvideoId, 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
                 events: { 
                     onReady: onPlayerReady
 	            }
