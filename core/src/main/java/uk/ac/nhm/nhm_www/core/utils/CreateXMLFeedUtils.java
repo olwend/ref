@@ -21,13 +21,18 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.felix.scr.annotations.Reference;
+import org.apache.sling.jcr.api.SlingRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.day.cq.tagging.TagManager;
+
 import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
+
 
 public class CreateXMLFeedUtils {
 	
@@ -62,7 +67,13 @@ public class CreateXMLFeedUtils {
 	private static final String CUSTOM_2 = "custom_2";
 	private static final String CUSTOM_3 = "custom_3";
 	private static final String ALL_DAY = "allday";
+	
+    @Reference
+    private SlingRepository repository;
     
+    private TagManager tagManager;
+
+	
     private static final String PRODUCTION_URL = "http://www.nhm.ac.uk";
 	
 	private ArrayList<Integer> dateIndex = new ArrayList<Integer>();
@@ -77,7 +88,9 @@ public class CreateXMLFeedUtils {
 	 * @throws JSONException
 	 * @throws ParseException 
 	 */
-	public ArrayList<EventPageDetail> getTodayEvents(JSONArray events) throws JSONException, ParseException {
+	public ArrayList<EventPageDetail> getTodayEvents(JSONArray events, TagManager tagMgr) throws JSONException, ParseException {
+		
+		tagManager = tagMgr;
 		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd yyyy");
 		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
 		//Clears the dateIndex array
@@ -119,6 +132,8 @@ public class CreateXMLFeedUtils {
 	 * @throws ParseException 
 	 */
 	public void storeXMLFromEvents(ArrayList<EventPageDetail> eventsParsed, Node root, Session session) throws ParserConfigurationException, PathNotFoundException, RepositoryException, TransformerException, ParseException {
+		
+
 		final String ntFile = "nt:file";
 		final String jcrContent = "jcr:content";
 		final String ntResource = "nt:resource";
@@ -426,11 +441,15 @@ public class CreateXMLFeedUtils {
         		if (!tag.equals("")) {
             		String[] tokens = tag.split("/");
             		String[] headers = tokens[0].split(":");
-                    
+            		//System.out.println("tagID:" + tag );
+               
             		if (type.equals("Event") && headers[1].equals("events")) {
-            			types = getEventTags(tokens[tokens.length - 1], types);
+            	
+            			types = getEventTags(tokens[tokens.length - 1], tag, types);
+            		    //System.out.println("event types:" + types);
                     } else if (type.equals("Audience") && headers[1].equals("audience")) {
-            			types = getEventTags(tokens[tokens.length - 1], types);
+            			types = getEventTags(tokens[tokens.length - 1], tag, types);
+            			 //System.out.println("audience types:" + types);
                     }
         		}
         	}
@@ -445,14 +464,20 @@ public class CreateXMLFeedUtils {
      * @param tags
      * @return String
      */
-    private String getEventTags(String token, String tags) {
+    private String getEventTags(String token, String tag, String tags) {
         String lastToken = token.replace("-", " ");
+        if(tagManager != null)
+           {
+           lastToken = tagManager.resolve(tag).getTitle();
+           }
 
         if (tags.equals("")) {
-           tags = lastToken;                               
+           tags = lastToken;    
+           //System.out.println("tags1:" + tags);
         } 
         else {
-           tags = tags.concat(", " + lastToken);                            
+           tags = tags.concat(", " + lastToken);    
+           //System.out.println("tags2:" + tags);
         }
         return tags;
      }

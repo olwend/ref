@@ -69,7 +69,20 @@ function buildTable( itemPointer ) {
             var eventType = $("<p></p>");
             time.html(curItem.find('custom_3').text());
             location.html(curItem.find('placemark > name').text());
-            eventType.html(curItem.find('categories').text());
+            
+            // WR-946-wayfinding-tag-names
+            // Sets event categories in an array to lowercase
+            var eventString = curItem.find('categories').text();
+            	// Split string at first comma
+            var tmp_eventString = eventString.split(/,(.+)/);
+            	// Check if a second array item exists (i.e. more than one item in the array)
+            if (tmp_eventString[1]) { 
+            	tmp_eventString[1] = tmp_eventString[1].toLowerCase(); 
+				eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]); 
+			}
+            
+            eventType.html(eventString);
+            
             left.append(time);
             left.append(location);
             left.append(eventType);
