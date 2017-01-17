@@ -42,7 +42,7 @@
                                 <ul class="dropdown-section">
                                      <li class="nav-list__item">
                                         <a href="/content/nhmwww/en/home/visit/getting-here.html">Getting here</a>
-                                    	<p class="tablet desktop">Enter the Museum via Exhibition Road or Queen’s Gate. The front entrance on Cromwell Road is currently closed.</p>
+                                    	<p class="tablet desktop">Enter the Museum via Exhibition Road or Queen&#39;s Gate. The front entrance on Cromwell Road is currently closed.</p>
                                     </li>
                                     <li class="nav-list__item">
                                         <a href="/visit/tring.html">The Museum at Tring</a> 
