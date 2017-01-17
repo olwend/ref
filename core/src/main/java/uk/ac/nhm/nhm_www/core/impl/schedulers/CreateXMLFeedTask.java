@@ -25,8 +25,8 @@ import org.slf4j.LoggerFactory;
 @Properties({
     // For your testing you can set this value to "0 * * * * ?"
     // it will set up the Cron Job to be executed every minute.
-    @Property(name = "scheduler.expression", value = "0 30 0 * * ?",  
-        description = "NHM cron-job expression"),
+     @Property(name = "scheduler.expression", value = "0 30 0 * * ?",  
+     description = "NHM cron-job expression"),
 })
 public class CreateXMLFeedTask implements Runnable {
     
