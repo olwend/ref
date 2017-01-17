@@ -26,6 +26,9 @@ import org.slf4j.LoggerFactory;
 import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 
+import com.day.cq.tagging.TagManager;
+
+
 public class EventPagesUtils {
 	private Node root;
 	
@@ -284,7 +287,9 @@ public class EventPagesUtils {
 		session.refresh(false);
 		
 		createXMLFeedUtils = new CreateXMLFeedUtils();
-		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(eventsJSONArray), root, session);
+		TagManager tagManager = null;
+		
+		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(eventsJSONArray, tagManager), root, session);
 	}
 
 	/**
