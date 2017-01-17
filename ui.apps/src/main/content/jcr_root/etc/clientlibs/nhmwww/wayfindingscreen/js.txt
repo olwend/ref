@@ -1,0 +1,5 @@
+#base=js
+
+jquery-1.3.2.min.js
+interface.js
+wayfinding.js
