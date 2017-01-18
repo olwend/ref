@@ -42,4 +42,9 @@
   padding-left: 0;
 }
 
+.legacy-css .subpanel li {
+  list-style: disc;
+  margin-left: 20px; 
+}
+
 /*# sourceMappingURL=nhm-legacy-contact-us-form.css.map */
