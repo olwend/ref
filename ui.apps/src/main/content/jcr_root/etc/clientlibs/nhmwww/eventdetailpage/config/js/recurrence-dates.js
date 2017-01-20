@@ -234,9 +234,15 @@ function resetTimeStamp(dates) {
     var datesString = [];
     for (var i = 0; i < dates.length; i++) {
         var dateArrayCompared = dates[i].split(' ');
-        datesString.push(dateArrayCompared[0] + ' ' + dateArrayCompared[1] + ' ' + dateArrayCompared[2] + ' ' + dateArrayCompared[3] + ' 00:00:00 ' + dateArrayCompared[5] + ' ' + dates[i].match(/\((.*)\)/)[0] + dates[i].slice(-1));
+        datesString.push(dateArrayCompared[0] + ' ' + dateArrayCompared[1] + ' ' + dateArrayCompared[2] + ' ' + dateArrayCompared[3] + ' 00:00:00 ' + dateArrayCompared[5] + ' ' + dates[i].match(/\((.*)\)/)[0] + getArrayValue(dates[i]));
     }
     return datesString;
+}
+
+//Function to get position of date group in array
+function getArrayValue(dates) {
+	var pos = dates.match(/(\d+)$/gm);
+	return pos;
 }
 
 //Function to generate Daily and Weekly dates
