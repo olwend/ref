@@ -90,6 +90,10 @@
 		templateType = "template--discover-section-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/dynamicapppage") ){
 		templateType = "template--dynamicapp-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/eventcalendarpage") ){
+		templateType = "template--eventcalendar-search-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/eventdetailpage") ){
+		templateType = "template--eventcalendar-detail-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/exhibitiondetailspage") ){
 		templateType = "template--exhibition-details-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/homepage") ){

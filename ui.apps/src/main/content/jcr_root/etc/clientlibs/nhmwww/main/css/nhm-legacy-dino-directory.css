@@ -17,8 +17,8 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
-.main-footer .framed-wrapper {
-  text-align: left;
+.main-footer .footer--frame-wrapper {
+  text-align: left; 
 }
 .main-footer .footer-utility legend, .main-footer .footer-utility .errors {
   color: #fff;
