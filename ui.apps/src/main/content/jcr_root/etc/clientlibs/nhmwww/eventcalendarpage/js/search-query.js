@@ -561,6 +561,14 @@ var NHMSearchQuery = new function () {
         
         displaySearchEvents("", "none", "none", dateFromFormatted, dateToFormatted);
         showMore.className = CONST.HIDE_DIV_CLASS; // Hide the 'Show more' button
+        
+        //WR-987 - display carousel when suggested events are triggered
+        if (inputs.carousel) {
+            var carousel = inputs.carousel[0];
+            if (carousel !== undefined || carousel !== null) {
+                carousel.style.display = "block";
+            }
+        }
     };
     
     //Populates the single events result content

@@ -10,63 +10,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .home a, .home a:hover {
   color: #A1164E;
 }
+
 .home.thumb-caption,
 .home .thumb-caption {
   background-color: #A1164E;
 }
+
 @media screen and (min-width: 768px) {
   .home.thumb-caption,
   .home .thumb-caption {
     background-color: rgba(161, 22, 78, 0.95);
   }
 }
+
 .home .nav-list__item.visit a {
   color: #A1164E;
 }
+
 .home .info-tout__action {
   border: 5px solid #A1164E !important;
 }
+
 .home .info-tout__action h3, .home .info-tout__action a {
   color: #A1164E;
 }
+
 .home .info-tout__action p {
   color: #A1164E;
 }
+
 .home .info-tout__action:hover {
   background-color: #F5E7ED;
 }
+
 .home .info-tout__share h3 {
   color: #A1164E;
 }
+
 .home .info-tout__share a {
   color: #A1164E;
   background-color: #f4f4f4;
   border: 5px solid #A1164E !important;
 }
+
 .home .info-tout__share p {
   color: #A1164E;
 }
+
 .home .info-tout__share a:hover {
   background-color: #A1164E;
 }
+
 .home .info-tout__share a:hover h3, .home .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .home .bottom-banner {
   background-color: #A1164E;
 }
+
 .home .GreyBox a {
   color: #A1164E;
 }
+
 .home .feature-box {
   background-color: #A1164E;
 }
+
 .home .feature-box h2, .home .feature-box h3, .home .feature-box p, .home .feature-box a {
   color: #ffffff;
 }
+
 .home .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -75,73 +93,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .visit .GreyBox {
     padding: 1.5em;
   }
 }
+
 .visit .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .visit .GreyBox {
     padding: 2.0em;
   }
 }
+
 .visit .GreyBox p {
   margin-bottom: 0px;
 }
+
 .visit .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .visit .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .visit .BlackBox {
     padding: 2.0em;
   }
 }
+
 .visit .BlackBox a {
   color: #aaaaaa;
 }
+
 .visit .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .visit .feature-box {
     padding: 2.0em;
   }
 }
+
 .visit .feature-box h2, .visit .feature-box h3, .visit .feature-box a, .visit .feature-box p, .visit .feature-box li {
   color: #ffffff;
 }
+
 .visit .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .visit .aside-box h2, .visit .aside-box h3, .visit .aside-box a, .visit .aside-box p, .visit .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .visit .aside-box {
     padding: 2.0em;
   }
 }
+
 .visit .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .visit .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .visit .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .visit .bottom-banner {
     padding: 1.0em 1.5em;
@@ -159,98 +195,126 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
   /** commented out for WR-751 (refactor of carousel component) **/
 }
+
 .visit a, .visit a:hover {
   color: #A1164E;
 }
+
 .visit.thumb-caption,
 .visit .thumb-caption {
   background-color: #A1164E;
 }
+
 @media screen and (min-width: 768px) {
   .visit.thumb-caption,
   .visit .thumb-caption {
     background-color: rgba(161, 22, 78, 0.95);
   }
 }
+
 .visit .nav-list__item.visit a {
   color: #A1164E;
 }
+
 .visit .info-tout__action {
   border: 5px solid #A1164E !important;
 }
+
 .visit .info-tout__action h3, .visit .info-tout__action a {
   color: #A1164E;
 }
+
 .visit .info-tout__action p {
   color: #A1164E;
 }
+
 .visit .info-tout__action:hover {
   background-color: #F5E7ED;
 }
+
 .visit .info-tout__share h3 {
   color: #A1164E;
 }
+
 .visit .info-tout__share a {
   color: #A1164E;
   background-color: #f4f4f4;
   border: 5px solid #A1164E !important;
 }
+
 .visit .info-tout__share p {
   color: #A1164E;
 }
+
 .visit .info-tout__share a:hover {
   background-color: #A1164E;
 }
+
 .visit .info-tout__share a:hover h3, .visit .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .visit .bottom-banner {
   background-color: #A1164E;
 }
+
 .visit .GreyBox a {
   color: #A1164E;
 }
+
 .visit .feature-box {
   background-color: #A1164E;
 }
+
 .visit .feature-box h2, .visit .feature-box h3, .visit .feature-box p, .visit .feature-box a {
   color: #ffffff;
 }
+
 .visit .feature-box.our-science {
   background-color: #eeeeee;
 }
+
 .visit a:hover {
   color: #A1164E;
 }
+
 .visit .summary {
   color: #565656;
 }
+
 .visit .summary.blue {
   color: #0983BB;
 }
+
 @media screen and (min-width: 768px) {
   .visit .GreyBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .visit .GreyBox {
     padding: 2.0em;
   }
 }
+
 .visit .audience {
   padding: 1.0em 0;
 }
+
 .visit .info-tout__action.visit-exhibitions {
   background-color: #ffffff;
   border: 5px solid #565656 !important;
 }
+
 .visit .info-tout__action.visit-exhibitions h3 {
   color: #565656;
 }
+
 .visit .info-tout__action.visit-exhibitions a {
   text-decoration: none;
 }
+
 .visit .info-tout__action.visit-exhibitions:hover {
   background-color: #f4f4f4;
 }
@@ -259,73 +323,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .take-part .GreyBox {
     padding: 1.5em;
   }
 }
+
 .take-part .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .take-part .GreyBox {
     padding: 2.0em;
   }
 }
+
 .take-part .GreyBox p {
   margin-bottom: 0px;
 }
+
 .take-part .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .take-part .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .take-part .BlackBox {
     padding: 2.0em;
   }
 }
+
 .take-part .BlackBox a {
   color: #aaaaaa;
 }
+
 .take-part .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .take-part .feature-box {
     padding: 2.0em;
   }
 }
+
 .take-part .feature-box h2, .take-part .feature-box h3, .take-part .feature-box a, .take-part .feature-box p, .take-part .feature-box li {
   color: #ffffff;
 }
+
 .take-part .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .take-part .aside-box h2, .take-part .aside-box h3, .take-part .aside-box a, .take-part .aside-box p, .take-part .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .take-part .aside-box {
     padding: 2.0em;
   }
 }
+
 .take-part .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .take-part .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .take-part .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .take-part .bottom-banner {
     padding: 1.0em 1.5em;
@@ -342,72 +424,93 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .take-part a, .take-part a:hover {
   color: #BF491F;
 }
+
 .take-part.thumb-caption,
 .take-part .thumb-caption {
   background-color: #BF491F;
 }
+
 @media screen and (min-width: 768px) {
   .take-part.thumb-caption,
   .take-part .thumb-caption {
     background-color: rgba(191, 73, 31, 0.95);
   }
 }
+
 .take-part .nav-list__item.take-part a {
   color: #BF491F;
 }
+
 .take-part .info-tout__action {
   border: 5px solid #BF491F !important;
 }
+
 .take-part .info-tout__action h3, .take-part .info-tout__action a {
   color: #BF491F;
 }
+
 .take-part .info-tout__action p {
   color: #BF491F;
 }
+
 .take-part .info-tout__action:hover {
   background-color: #F8ECE8;
 }
+
 .take-part .info-tout__share h3 {
   color: #BF491F;
 }
+
 .take-part .info-tout__share a {
   color: #BF491F;
   background-color: #f4f4f4;
   border: 5px solid #BF491F !important;
 }
+
 .take-part .info-tout__share p {
   color: #BF491F;
 }
+
 .take-part .info-tout__share a:hover {
   background-color: #BF491F;
 }
+
 .take-part .info-tout__share a:hover h3, .take-part .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .take-part .bottom-banner {
   background-color: #BF491F;
 }
+
 .take-part .GreyBox a {
   color: #BF491F;
 }
+
 .take-part .feature-box {
   background-color: #BF491F;
 }
+
 .take-part .feature-box h2, .take-part .feature-box h3, .take-part .feature-box p, .take-part .feature-box a {
   color: #ffffff;
 }
+
 .take-part .feature-box.our-science {
   background-color: #eeeeee;
 }
+
 .take-part .nav-list__item.take-part a {
   background-color: #EAF2E6;
 }
+
 .take-part .large4-padding {
   margin-bottom: 3%;
 }
+
 @media screen and (min-width: 768px) {
   .take-part .large4-padding {
     margin-bottom: 6%;
@@ -418,73 +521,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .about-us .GreyBox {
     padding: 1.5em;
   }
 }
+
 .about-us .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .about-us .GreyBox {
     padding: 2.0em;
   }
 }
+
 .about-us .GreyBox p {
   margin-bottom: 0px;
 }
+
 .about-us .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .about-us .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .about-us .BlackBox {
     padding: 2.0em;
   }
 }
+
 .about-us .BlackBox a {
   color: #aaaaaa;
 }
+
 .about-us .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .about-us .feature-box {
     padding: 2.0em;
   }
 }
+
 .about-us .feature-box h2, .about-us .feature-box h3, .about-us .feature-box a, .about-us .feature-box p, .about-us .feature-box li {
   color: #ffffff;
 }
+
 .about-us .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .about-us .aside-box h2, .about-us .aside-box h3, .about-us .aside-box a, .about-us .aside-box p, .about-us .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .about-us .aside-box {
     padding: 2.0em;
   }
 }
+
 .about-us .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .about-us .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .about-us .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .about-us .bottom-banner {
     padding: 1.0em 1.5em;
@@ -501,63 +622,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .about-us a, .about-us a:hover {
   color: #0B5C7B;
 }
+
 .about-us.thumb-caption,
 .about-us .thumb-caption {
   background-color: #0B5C7B;
 }
+
 @media screen and (min-width: 768px) {
   .about-us.thumb-caption,
   .about-us .thumb-caption {
     background-color: rgba(11, 92, 123, 0.95);
   }
 }
+
 .about-us .nav-list__item.about-us a {
   color: #0B5C7B;
 }
+
 .about-us .info-tout__action {
   border: 5px solid #0B5C7B !important;
 }
+
 .about-us .info-tout__action h3, .about-us .info-tout__action a {
   color: #0B5C7B;
 }
+
 .about-us .info-tout__action p {
   color: #0B5C7B;
 }
+
 .about-us .info-tout__action:hover {
   background-color: #E6EEF2;
 }
+
 .about-us .info-tout__share h3 {
   color: #0B5C7B;
 }
+
 .about-us .info-tout__share a {
   color: #0B5C7B;
   background-color: #f4f4f4;
   border: 5px solid #0B5C7B !important;
 }
+
 .about-us .info-tout__share p {
   color: #0B5C7B;
 }
+
 .about-us .info-tout__share a:hover {
   background-color: #0B5C7B;
 }
+
 .about-us .info-tout__share a:hover h3, .about-us .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .about-us .bottom-banner {
   background-color: #0B5C7B;
 }
+
 .about-us .GreyBox a {
   color: #0B5C7B;
 }
+
 .about-us .feature-box {
   background-color: #0B5C7B;
 }
+
 .about-us .feature-box h2, .about-us .feature-box h3, .about-us .feature-box p, .about-us .feature-box a {
   color: #ffffff;
 }
+
 .about-us .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -566,73 +705,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .schools .GreyBox {
     padding: 1.5em;
   }
 }
+
 .schools .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .schools .GreyBox {
     padding: 2.0em;
   }
 }
+
 .schools .GreyBox p {
   margin-bottom: 0px;
 }
+
 .schools .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .schools .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .schools .BlackBox {
     padding: 2.0em;
   }
 }
+
 .schools .BlackBox a {
   color: #aaaaaa;
 }
+
 .schools .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .schools .feature-box {
     padding: 2.0em;
   }
 }
+
 .schools .feature-box h2, .schools .feature-box h3, .schools .feature-box a, .schools .feature-box p, .schools .feature-box li {
   color: #ffffff;
 }
+
 .schools .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .schools .aside-box h2, .schools .aside-box h3, .schools .aside-box a, .schools .aside-box p, .schools .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .schools .aside-box {
     padding: 2.0em;
   }
 }
+
 .schools .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .schools .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .schools .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .schools .bottom-banner {
     padding: 1.0em 1.5em;
@@ -649,63 +806,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .schools a, .schools a:hover {
   color: #0983BB;
 }
+
 .schools.thumb-caption,
 .schools .thumb-caption {
   background-color: #0983BB;
 }
+
 @media screen and (min-width: 768px) {
   .schools.thumb-caption,
   .schools .thumb-caption {
     background-color: rgba(9, 131, 187, 0.95);
   }
 }
+
 .schools .nav-list__item.schools a {
   color: #0983BB;
 }
+
 .schools .info-tout__action {
   border: 5px solid #0983BB !important;
 }
+
 .schools .info-tout__action h3, .schools .info-tout__action a {
   color: #0983BB;
 }
+
 .schools .info-tout__action p {
   color: #0983BB;
 }
+
 .schools .info-tout__action:hover {
   background-color: #F2F2F2;
 }
+
 .schools .info-tout__share h3 {
   color: #0983BB;
 }
+
 .schools .info-tout__share a {
   color: #0983BB;
   background-color: #f4f4f4;
   border: 5px solid #0983BB !important;
 }
+
 .schools .info-tout__share p {
   color: #0983BB;
 }
+
 .schools .info-tout__share a:hover {
   background-color: #0983BB;
 }
+
 .schools .info-tout__share a:hover h3, .schools .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .schools .bottom-banner {
   background-color: #0983BB;
 }
+
 .schools .GreyBox a {
   color: #0983BB;
 }
+
 .schools .feature-box {
   background-color: #0983BB;
 }
+
 .schools .feature-box h2, .schools .feature-box h3, .schools .feature-box p, .schools .feature-box a {
   color: #ffffff;
 }
+
 .schools .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -714,73 +889,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .our-science .GreyBox {
     padding: 1.5em;
   }
 }
+
 .our-science .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .our-science .GreyBox {
     padding: 2.0em;
   }
 }
+
 .our-science .GreyBox p {
   margin-bottom: 0px;
 }
+
 .our-science .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .our-science .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .our-science .BlackBox {
     padding: 2.0em;
   }
 }
+
 .our-science .BlackBox a {
   color: #aaaaaa;
 }
+
 .our-science .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .our-science .feature-box {
     padding: 2.0em;
   }
 }
+
 .our-science .feature-box h2, .our-science .feature-box h3, .our-science .feature-box a, .our-science .feature-box p, .our-science .feature-box li {
   color: #ffffff;
 }
+
 .our-science .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .our-science .aside-box h2, .our-science .aside-box h3, .our-science .aside-box a, .our-science .aside-box p, .our-science .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .our-science .aside-box {
     padding: 2.0em;
   }
 }
+
 .our-science .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .our-science .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .our-science .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .our-science .bottom-banner {
     padding: 1.0em 1.5em;
@@ -798,104 +991,133 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
   /** commented out for WR-752 (refactor of carousel component) **/
 }
+
 .our-science a, .our-science a:hover {
   color: #357900;
 }
+
 .our-science.thumb-caption,
 .our-science .thumb-caption {
   background-color: #357900;
 }
+
 @media screen and (min-width: 768px) {
   .our-science.thumb-caption,
   .our-science .thumb-caption {
     background-color: rgba(53, 121, 0, 0.95);
   }
 }
+
 .our-science .nav-list__item.our-science a {
   color: #357900;
 }
+
 .our-science .info-tout__action {
   border: 5px solid #357900 !important;
 }
+
 .our-science .info-tout__action h3, .our-science .info-tout__action a {
   color: #357900;
 }
+
 .our-science .info-tout__action p {
   color: #357900;
 }
+
 .our-science .info-tout__action:hover {
   background-color: #EAF2E6;
 }
+
 .our-science .info-tout__share h3 {
   color: #357900;
 }
+
 .our-science .info-tout__share a {
   color: #357900;
   background-color: #f4f4f4;
   border: 5px solid #357900 !important;
 }
+
 .our-science .info-tout__share p {
   color: #357900;
 }
+
 .our-science .info-tout__share a:hover {
   background-color: #357900;
 }
+
 .our-science .info-tout__share a:hover h3, .our-science .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .our-science .bottom-banner {
   background-color: #357900;
 }
+
 .our-science .GreyBox a {
   color: #357900;
 }
+
 .our-science .feature-box {
   background-color: #357900;
 }
+
 .our-science .feature-box h2, .our-science .feature-box h3, .our-science .feature-box p, .our-science .feature-box a {
   color: #ffffff;
 }
+
 .our-science .feature-box.our-science {
   background-color: #eeeeee;
 }
+
 .our-science a:hover {
   color: #357900;
 }
+
 .our-science hr {
   height: 3px;
   color: #eeeeee;
   margin: 1em 0;
   width: 100%;
 }
+
 .our-science .link-box {
   padding: 0 0 0 20px;
 }
+
 .our-science .large4-padding {
   margin-bottom: 3%;
 }
+
 @media screen and (min-width: 768px) {
   .our-science .large4-padding {
     margin-bottom: 6%;
   }
 }
+
 .our-science .feature-box h2 {
   color: #565656;
   padding: 0;
 }
+
 .our-science .feature-box p {
   color: #565656;
 }
+
 .our-science .aside-box {
   padding: 1.0em 1.5em;
 }
+
 .our-science .aside-box h2 {
   font-size: 1.8em;
 }
+
 @media screen and (min-width: 768px) {
   .our-science .aside-box {
     padding: 1.2em 2.0em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .our-science .bottom-banner {
     padding: 2.0em;
@@ -906,73 +1128,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .support-us .GreyBox {
     padding: 1.5em;
   }
 }
+
 .support-us .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .support-us .GreyBox {
     padding: 2.0em;
   }
 }
+
 .support-us .GreyBox p {
   margin-bottom: 0px;
 }
+
 .support-us .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .support-us .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .support-us .BlackBox {
     padding: 2.0em;
   }
 }
+
 .support-us .BlackBox a {
   color: #aaaaaa;
 }
+
 .support-us .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .support-us .feature-box {
     padding: 2.0em;
   }
 }
+
 .support-us .feature-box h2, .support-us .feature-box h3, .support-us .feature-box a, .support-us .feature-box p, .support-us .feature-box li {
   color: #ffffff;
 }
+
 .support-us .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .support-us .aside-box h2, .support-us .aside-box h3, .support-us .aside-box a, .support-us .aside-box p, .support-us .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .support-us .aside-box {
     padding: 2.0em;
   }
 }
+
 .support-us .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .support-us .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .support-us .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .support-us .bottom-banner {
     padding: 1.0em 1.5em;
@@ -989,63 +1229,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .support-us a, .support-us a:hover {
   color: #7F206E;
 }
+
 .support-us.thumb-caption,
 .support-us .thumb-caption {
   background-color: #7F206E;
 }
+
 @media screen and (min-width: 768px) {
   .support-us.thumb-caption,
   .support-us .thumb-caption {
     background-color: rgba(127, 32, 110, 0.95);
   }
 }
+
 .support-us .nav-list__item.support-us a {
   color: #7F206E;
 }
+
 .support-us .info-tout__action {
   border: 5px solid #7F206E !important;
 }
+
 .support-us .info-tout__action h3, .support-us .info-tout__action a {
   color: #7F206E;
 }
+
 .support-us .info-tout__action p {
   color: #7F206E;
 }
+
 .support-us .info-tout__action:hover {
   background-color: #F2E8F0;
 }
+
 .support-us .info-tout__share h3 {
   color: #7F206E;
 }
+
 .support-us .info-tout__share a {
   color: #7F206E;
   background-color: #f4f4f4;
   border: 5px solid #7F206E !important;
 }
+
 .support-us .info-tout__share p {
   color: #7F206E;
 }
+
 .support-us .info-tout__share a:hover {
   background-color: #7F206E;
 }
+
 .support-us .info-tout__share a:hover h3, .support-us .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .support-us .bottom-banner {
   background-color: #7F206E;
 }
+
 .support-us .GreyBox a {
   color: #7F206E;
 }
+
 .support-us .feature-box {
   background-color: #7F206E;
 }
+
 .support-us .feature-box h2, .support-us .feature-box h3, .support-us .feature-box p, .support-us .feature-box a {
   color: #ffffff;
 }
+
 .support-us .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1054,73 +1312,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .discover .GreyBox {
     padding: 1.5em;
   }
 }
+
 .discover .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .discover .GreyBox {
     padding: 2.0em;
   }
 }
+
 .discover .GreyBox p {
   margin-bottom: 0px;
 }
+
 .discover .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .discover .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .discover .BlackBox {
     padding: 2.0em;
   }
 }
+
 .discover .BlackBox a {
   color: #aaaaaa;
 }
+
 .discover .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .discover .feature-box {
     padding: 2.0em;
   }
 }
+
 .discover .feature-box h2, .discover .feature-box h3, .discover .feature-box a, .discover .feature-box p, .discover .feature-box li {
   color: #ffffff;
 }
+
 .discover .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .discover .aside-box h2, .discover .aside-box h3, .discover .aside-box a, .discover .aside-box p, .discover .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .discover .aside-box {
     padding: 2.0em;
   }
 }
+
 .discover .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .discover .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .discover .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .discover .bottom-banner {
     padding: 1.0em 1.5em;
@@ -1137,63 +1413,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .discover a, .discover a:hover {
   color: #107B5E;
 }
+
 .discover.thumb-caption,
 .discover .thumb-caption {
   background-color: #107B5E;
 }
+
 @media screen and (min-width: 768px) {
   .discover.thumb-caption,
   .discover .thumb-caption {
     background-color: rgba(16, 123, 94, 0.95);
   }
 }
+
 .discover .nav-list__item.discover a {
   color: #107B5E;
 }
+
 .discover .info-tout__action {
   border: 5px solid #107B5E !important;
 }
+
 .discover .info-tout__action h3, .discover .info-tout__action a {
   color: #107B5E;
 }
+
 .discover .info-tout__action p {
   color: #107B5E;
 }
+
 .discover .info-tout__action:hover {
   background-color: #107B5E;
 }
+
 .discover .info-tout__share h3 {
   color: #107B5E;
 }
+
 .discover .info-tout__share a {
   color: #107B5E;
   background-color: #f4f4f4;
   border: 5px solid #107B5E !important;
 }
+
 .discover .info-tout__share p {
   color: #107B5E;
 }
+
 .discover .info-tout__share a:hover {
   background-color: #107B5E;
 }
+
 .discover .info-tout__share a:hover h3, .discover .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .discover .bottom-banner {
   background-color: #107B5E;
 }
+
 .discover .GreyBox a {
   color: #107B5E;
 }
+
 .discover .feature-box {
   background-color: #107B5E;
 }
+
 .discover .feature-box h2, .discover .feature-box h3, .discover .feature-box p, .discover .feature-box a {
   color: #ffffff;
 }
+
 .discover .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1202,73 +1496,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .press-office .GreyBox {
     padding: 1.5em;
   }
 }
+
 .press-office .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .press-office .GreyBox {
     padding: 2.0em;
   }
 }
+
 .press-office .GreyBox p {
   margin-bottom: 0px;
 }
+
 .press-office .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .press-office .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .press-office .BlackBox {
     padding: 2.0em;
   }
 }
+
 .press-office .BlackBox a {
   color: #aaaaaa;
 }
+
 .press-office .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .press-office .feature-box {
     padding: 2.0em;
   }
 }
+
 .press-office .feature-box h2, .press-office .feature-box h3, .press-office .feature-box a, .press-office .feature-box p, .press-office .feature-box li {
   color: #ffffff;
 }
+
 .press-office .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .press-office .aside-box h2, .press-office .aside-box h3, .press-office .aside-box a, .press-office .aside-box p, .press-office .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .press-office .aside-box {
     padding: 2.0em;
   }
 }
+
 .press-office .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .press-office .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .press-office .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .press-office .bottom-banner {
     padding: 1.0em 1.5em;
@@ -1285,63 +1597,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .press-office a, .press-office a:hover {
   color: #107E5E;
 }
+
 .press-office.thumb-caption,
 .press-office .thumb-caption {
   background-color: #107E5E;
 }
+
 @media screen and (min-width: 768px) {
   .press-office.thumb-caption,
   .press-office .thumb-caption {
     background-color: rgba(16, 126, 94, 0.95);
   }
 }
+
 .press-office .nav-list__item.press-office a {
   color: #107E5E;
 }
+
 .press-office .info-tout__action {
   border: 5px solid #107E5E !important;
 }
+
 .press-office .info-tout__action h3, .press-office .info-tout__action a {
   color: #107E5E;
 }
+
 .press-office .info-tout__action p {
   color: #107E5E;
 }
+
 .press-office .info-tout__action:hover {
   background-color: #E7F2EF;
 }
+
 .press-office .info-tout__share h3 {
   color: #107E5E;
 }
+
 .press-office .info-tout__share a {
   color: #107E5E;
   background-color: #f4f4f4;
   border: 5px solid #107E5E !important;
 }
+
 .press-office .info-tout__share p {
   color: #107E5E;
 }
+
 .press-office .info-tout__share a:hover {
   background-color: #107E5E;
 }
+
 .press-office .info-tout__share a:hover h3, .press-office .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .press-office .bottom-banner {
   background-color: #107E5E;
 }
+
 .press-office .GreyBox a {
   color: #107E5E;
 }
+
 .press-office .feature-box {
   background-color: #107E5E;
 }
+
 .press-office .feature-box h2, .press-office .feature-box h3, .press-office .feature-box p, .press-office .feature-box a {
   color: #ffffff;
 }
+
 .press-office .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1350,73 +1680,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .working .GreyBox {
     padding: 1.5em;
   }
 }
+
 .working .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .working .GreyBox {
     padding: 2.0em;
   }
 }
+
 .working .GreyBox p {
   margin-bottom: 0px;
 }
+
 .working .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .working .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .working .BlackBox {
     padding: 2.0em;
   }
 }
+
 .working .BlackBox a {
   color: #aaaaaa;
 }
+
 .working .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .working .feature-box {
     padding: 2.0em;
   }
 }
+
 .working .feature-box h2, .working .feature-box h3, .working .feature-box a, .working .feature-box p, .working .feature-box li {
   color: #ffffff;
 }
+
 .working .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .working .aside-box h2, .working .aside-box h3, .working .aside-box a, .working .aside-box p, .working .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .working .aside-box {
     padding: 2.0em;
   }
 }
+
 .working .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .working .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .working .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .working .bottom-banner {
     padding: 1.0em 1.5em;
@@ -1433,63 +1781,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .working a, .working a:hover {
   color: #956624;
 }
+
 .working.thumb-caption,
 .working .thumb-caption {
   background-color: #956624;
 }
+
 @media screen and (min-width: 768px) {
   .working.thumb-caption,
   .working .thumb-caption {
     background-color: rgba(149, 102, 36, 0.95);
   }
 }
+
 .working .nav-list__item.working a {
   color: #956624;
 }
+
 .working .info-tout__action {
   border: 5px solid #956624 !important;
 }
+
 .working .info-tout__action h3, .working .info-tout__action a {
   color: #956624;
 }
+
 .working .info-tout__action p {
   color: #956624;
 }
+
 .working .info-tout__action:hover {
   background-color: #F4EFE9;
 }
+
 .working .info-tout__share h3 {
   color: #956624;
 }
+
 .working .info-tout__share a {
   color: #956624;
   background-color: #f4f4f4;
   border: 5px solid #956624 !important;
 }
+
 .working .info-tout__share p {
   color: #956624;
 }
+
 .working .info-tout__share a:hover {
   background-color: #956624;
 }
+
 .working .info-tout__share a:hover h3, .working .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .working .bottom-banner {
   background-color: #956624;
 }
+
 .working .GreyBox a {
   color: #956624;
 }
+
 .working .feature-box {
   background-color: #956624;
 }
+
 .working .feature-box h2, .working .feature-box h3, .working .feature-box p, .working .feature-box a {
   color: #ffffff;
 }
+
 .working .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1498,73 +1864,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .business-services .GreyBox {
     padding: 1.5em;
   }
 }
+
 .business-services .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .business-services .GreyBox {
     padding: 2.0em;
   }
 }
+
 .business-services .GreyBox p {
   margin-bottom: 0px;
 }
+
 .business-services .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .business-services .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .business-services .BlackBox {
     padding: 2.0em;
   }
 }
+
 .business-services .BlackBox a {
   color: #aaaaaa;
 }
+
 .business-services .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .business-services .feature-box {
     padding: 2.0em;
   }
 }
+
 .business-services .feature-box h2, .business-services .feature-box h3, .business-services .feature-box a, .business-services .feature-box p, .business-services .feature-box li {
   color: #ffffff;
 }
+
 .business-services .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .business-services .aside-box h2, .business-services .aside-box h3, .business-services .aside-box a, .business-services .aside-box p, .business-services .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .business-services .aside-box {
     padding: 2.0em;
   }
 }
+
 .business-services .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .business-services .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .business-services .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .business-services .bottom-banner {
     padding: 1.0em 1.5em;
@@ -1581,63 +1965,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .business-services a, .business-services a:hover {
   color: #253480;
 }
+
 .business-services.thumb-caption,
 .business-services .thumb-caption {
   background-color: #253480;
 }
+
 @media screen and (min-width: 768px) {
   .business-services.thumb-caption,
   .business-services .thumb-caption {
     background-color: rgba(37, 52, 128, 0.95);
   }
 }
+
 .business-services .nav-list__item.business-services a {
   color: #253480;
 }
+
 .business-services .info-tout__action {
   border: 5px solid #253480 !important;
 }
+
 .business-services .info-tout__action h3, .business-services .info-tout__action a {
   color: #253480;
 }
+
 .business-services .info-tout__action p {
   color: #253480;
 }
+
 .business-services .info-tout__action:hover {
   background-color: #E9EAF2;
 }
+
 .business-services .info-tout__share h3 {
   color: #253480;
 }
+
 .business-services .info-tout__share a {
   color: #253480;
   background-color: #f4f4f4;
   border: 5px solid #253480 !important;
 }
+
 .business-services .info-tout__share p {
   color: #253480;
 }
+
 .business-services .info-tout__share a:hover {
   background-color: #253480;
 }
+
 .business-services .info-tout__share a:hover h3, .business-services .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .business-services .bottom-banner {
   background-color: #253480;
 }
+
 .business-services .GreyBox a {
   color: #253480;
 }
+
 .business-services .feature-box {
   background-color: #253480;
 }
+
 .business-services .feature-box h2, .business-services .feature-box h3, .business-services .feature-box p, .business-services .feature-box a {
   color: #ffffff;
 }
+
 .business-services .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1646,73 +2048,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .contact-us .GreyBox {
     padding: 1.5em;
   }
 }
+
 .contact-us .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .contact-us .GreyBox {
     padding: 2.0em;
   }
 }
+
 .contact-us .GreyBox p {
   margin-bottom: 0px;
 }
+
 .contact-us .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .contact-us .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .contact-us .BlackBox {
     padding: 2.0em;
   }
 }
+
 .contact-us .BlackBox a {
   color: #aaaaaa;
 }
+
 .contact-us .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .contact-us .feature-box {
     padding: 2.0em;
   }
 }
+
 .contact-us .feature-box h2, .contact-us .feature-box h3, .contact-us .feature-box a, .contact-us .feature-box p, .contact-us .feature-box li {
   color: #ffffff;
 }
+
 .contact-us .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .contact-us .aside-box h2, .contact-us .aside-box h3, .contact-us .aside-box a, .contact-us .aside-box p, .contact-us .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .contact-us .aside-box {
     padding: 2.0em;
   }
 }
+
 .contact-us .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .contact-us .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .contact-us .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .contact-us .bottom-banner {
     padding: 1.0em 1.5em;
@@ -1729,63 +2149,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .contact-us a, .contact-us a:hover {
   color: #808080;
 }
+
 .contact-us.thumb-caption,
 .contact-us .thumb-caption {
   background-color: #808080;
 }
+
 @media screen and (min-width: 768px) {
   .contact-us.thumb-caption,
   .contact-us .thumb-caption {
     background-color: rgba(128, 128, 128, 0.95);
   }
 }
+
 .contact-us .nav-list__item.contact-us a {
   color: #808080;
 }
+
 .contact-us .info-tout__action {
   border: 5px solid #808080 !important;
 }
+
 .contact-us .info-tout__action h3, .contact-us .info-tout__action a {
   color: #808080;
 }
+
 .contact-us .info-tout__action p {
   color: #808080;
 }
+
 .contact-us .info-tout__action:hover {
   background-color: #F2F2F2;
 }
+
 .contact-us .info-tout__share h3 {
   color: #808080;
 }
+
 .contact-us .info-tout__share a {
   color: #808080;
   background-color: #f4f4f4;
   border: 5px solid #808080 !important;
 }
+
 .contact-us .info-tout__share p {
   color: #808080;
 }
+
 .contact-us .info-tout__share a:hover {
   background-color: #808080;
 }
+
 .contact-us .info-tout__share a:hover h3, .contact-us .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .contact-us .bottom-banner {
   background-color: #808080;
 }
+
 .contact-us .GreyBox a {
   color: #808080;
 }
+
 .contact-us .feature-box {
   background-color: #808080;
 }
+
 .contact-us .feature-box h2, .contact-us .feature-box h3, .contact-us .feature-box p, .contact-us .feature-box a {
   color: #ffffff;
 }
+
 .contact-us .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1794,73 +2232,91 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 @media screen and (min-width: 1024px) {
   .shop .GreyBox {
     padding: 1.5em;
   }
 }
+
 .shop .GreyBox p {
   margin-bottom: 0px;
 }
+
 @media screen and (min-width: 1160px) {
   .shop .GreyBox {
     padding: 2.0em;
   }
 }
+
 .shop .GreyBox p {
   margin-bottom: 0px;
 }
+
 .shop .BlackBox {
   padding: 1.0em;
   background-color: #000;
 }
+
 @media screen and (min-width: 768px) {
   .shop .BlackBox {
     padding: 1.0em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .shop .BlackBox {
     padding: 2.0em;
   }
 }
+
 .shop .BlackBox a {
   color: #aaaaaa;
 }
+
 .shop .BlackBox p {
   color: #FFF;
 }
+
 @media screen and (min-width: 768px) {
   .shop .feature-box {
     padding: 2.0em;
   }
 }
+
 .shop .feature-box h2, .shop .feature-box h3, .shop .feature-box a, .shop .feature-box p, .shop .feature-box li {
   color: #ffffff;
 }
+
 .shop .aside-box {
   padding: 1.0em;
   background-color: #eeeeee;
 }
+
 .shop .aside-box h2, .shop .aside-box h3, .shop .aside-box a, .shop .aside-box p, .shop .aside-box li {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .shop .aside-box {
     padding: 2.0em;
   }
 }
+
 .shop .bottom-banner h2 {
   padding-bottom: 0;
   margin-bottom: 0.2rem;
 }
+
 .shop .bottom-banner > div.large-4 {
   position: relative;
   left: 1em;
 }
+
 .shop .bottom-banner > div.large-4 .info-tout__action {
   border: none !important;
 }
+
 @media screen and (min-width: 768px) {
   .shop .bottom-banner {
     padding: 1.0em 1.5em;
@@ -1877,63 +2333,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .shop a, .shop a:hover {
   color: #808080;
 }
+
 .shop.thumb-caption,
 .shop .thumb-caption {
   background-color: #808080;
 }
+
 @media screen and (min-width: 768px) {
   .shop.thumb-caption,
   .shop .thumb-caption {
     background-color: rgba(128, 128, 128, 0.95);
   }
 }
+
 .shop .nav-list__item.shop a {
   color: #808080;
 }
+
 .shop .info-tout__action {
   border: 5px solid #808080 !important;
 }
+
 .shop .info-tout__action h3, .shop .info-tout__action a {
   color: #808080;
 }
+
 .shop .info-tout__action p {
   color: #808080;
 }
+
 .shop .info-tout__action:hover {
   background-color: #F2F2F2;
 }
+
 .shop .info-tout__share h3 {
   color: #808080;
 }
+
 .shop .info-tout__share a {
   color: #808080;
   background-color: #f4f4f4;
   border: 5px solid #808080 !important;
 }
+
 .shop .info-tout__share p {
   color: #808080;
 }
+
 .shop .info-tout__share a:hover {
   background-color: #808080;
 }
+
 .shop .info-tout__share a:hover h3, .shop .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .shop .bottom-banner {
   background-color: #808080;
 }
+
 .shop .GreyBox a {
   color: #808080;
 }
+
 .shop .feature-box {
   background-color: #808080;
 }
+
 .shop .feature-box h2, .shop .feature-box h3, .shop .feature-box p, .shop .feature-box a {
   color: #ffffff;
 }
+
 .shop .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -1943,15 +2417,18 @@ CSS files should not be edited directly, as those edits will be overridden next 
   padding-bottom: 20px;
   overflow: hidden;
 }
+
 .shop .shop-slider-wrapper {
   width: 300px;
   margin: auto;
 }
+
 @media screen and (min-width: 768px) {
   .shop .shop-slider-wrapper .lSNext {
     right: 20px;
   }
 }
+
 .shop .lSSlideOuter,
 .shop .lSSlideWrapper {
   overflow: visible;
@@ -1964,63 +2441,81 @@ CSS files should not be edited directly, as those edits will be overridden next 
   /** commented out for WR-752 (carousel component refactor) **/
   /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
+
 .account a, .account a:hover {
   color: #00385D;
 }
+
 .account.thumb-caption,
 .account .thumb-caption {
   background-color: #00385D;
 }
+
 @media screen and (min-width: 768px) {
   .account.thumb-caption,
   .account .thumb-caption {
     background-color: rgba(0, 56, 93, 0.95);
   }
 }
+
 .account .nav-list__item.account a {
   color: #00385D;
 }
+
 .account .info-tout__action {
   border: 5px solid #00385D !important;
 }
+
 .account .info-tout__action h3, .account .info-tout__action a {
   color: #00385D;
 }
+
 .account .info-tout__action p {
   color: #00385D;
 }
+
 .account .info-tout__action:hover {
   background-color: #00385D;
 }
+
 .account .info-tout__share h3 {
   color: #00385D;
 }
+
 .account .info-tout__share a {
   color: #00385D;
   background-color: #f4f4f4;
   border: 5px solid #00385D !important;
 }
+
 .account .info-tout__share p {
   color: #00385D;
 }
+
 .account .info-tout__share a:hover {
   background-color: #00385D;
 }
+
 .account .info-tout__share a:hover h3, .account .info-tout__share a:hover p {
   color: #ffffff;
 }
+
 .account .bottom-banner {
   background-color: #00385D;
 }
+
 .account .GreyBox a {
   color: #00385D;
 }
+
 .account .feature-box {
   background-color: #00385D;
 }
+
 .account .feature-box h2, .account .feature-box h3, .account .feature-box p, .account .feature-box a {
   color: #ffffff;
 }
+
 .account .feature-box.our-science {
   background-color: #eeeeee;
 }
@@ -2035,6 +2530,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .herosection {
   margin-bottom: 20px;
 }
+
 @media screen and (min-width: 1024px) {
   .row,
   .full-width,
@@ -2046,6 +2542,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .row {
   width: 95%;
 }
+
 @media screen and (min-width: 1200px) {
   .row {
     width: 100%;
@@ -2055,6 +2552,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .full-width {
   background-color: #f4f4f4;
 }
+
 .full-width .row {
   margin-bottom: 0;
 }
@@ -2090,6 +2588,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .large4-margin.large-4 {
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .large4-margin {
     margin-left: 3%;
@@ -2099,6 +2598,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
     width: 31.33333%;
   }
 }
+
 .large4-margin:first-child {
   margin-left: 0;
   margin-top: 0;
@@ -2107,6 +2607,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .large6-margin.large-6 {
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .large6-margin {
     margin-left: 3%;
@@ -2116,6 +2617,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
     width: 48.5%;
   }
 }
+
 .large6-margin:first-child {
   margin-left: 0;
   margin-top: 0;
@@ -2127,12 +2629,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
     width: 64.94254%;
   }
 }
+
 @media only screen and (min-width: 48em) {
   .row2cells21 .large-8.medium-8.columns,
   .row2cells12 .large-8.medium-8.columns {
     width: 64.94254%;
   }
 }
+
 /** LEGACY FOOTER COMPONENT PARTIAL **/
 /** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
@@ -2174,20 +2678,20 @@ CSS files should not be edited directly, as those edits will be overridden next 
   .mobile {
     display: none;
   }
-
   .tablet {
     display: block;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .tablet {
     display: none;
   }
-
   .desktop {
     display: block;
   }
 }
+
 .ir {
   display: block;
   text-indent: -999em;
@@ -2210,10 +2714,12 @@ i.ico {
   font-style: normal;
   vertical-align: middle;
 }
+
 i.ico svg, i.ico img {
   max-height: 100%;
   max-width: 100%;
 }
+
 i.ico img {
   display: block;
 }
@@ -2225,10 +2731,12 @@ i.ico img {
   padding: 10px;
   background-color: #A1164E;
 }
+
 .back-button a {
   color: #ffffff;
   font-weight: bold;
 }
+
 .back-button a:hover {
   color: #ffffff;
 }
@@ -2248,9 +2756,11 @@ input.question {
   color: #fff;
   font-size: 0.95em;
 }
+
 .expandable:hover {
   color: #fff;
 }
+
 .expandable.open {
   background-image: url("/etc/designs/nhmwww/img/icons/minus.png");
 }
@@ -2258,6 +2768,7 @@ input.question {
 .thumbnail-scroll {
   display: none;
 }
+
 @media screen and (min-width: 768px) {
   .thumbnail-scroll {
     display: block;
@@ -2276,6 +2787,7 @@ input.question {
   width: 100%;
   border-top: 1px solid #ccc;
 }
+
 @media screen and (min-width: 768px) {
   .global-header {
     position: relative;
@@ -2289,6 +2801,7 @@ input.question {
 .global-header-bar {
   border-bottom: 1px solid #ccc;
 }
+
 .global-header-bar .row {
   width: 100%;
   margin-bottom: 0;
@@ -2297,6 +2810,7 @@ input.question {
 .global-info-menu {
   display: block;
 }
+
 @media screen and (min-width: 768px) {
   .sticky .global-info-menu {
     display: none;
@@ -2314,12 +2828,14 @@ input.question {
   background-size: 250px auto;
   text-indent: -9999px;
 }
+
 @media screen and (min-width: 1024px) {
   .global-header-logo {
     width: 335px;
     background-size: auto auto;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .global-header-logo {
     margin-left: 10px;
@@ -2363,6 +2879,7 @@ input.question {
 .header-img {
   display: none;
 }
+
 @media screen and (min-width: 1024px) {
   .header-img {
     background: url("/etc/designs/nhmwww/img/header-dinosaur-tablet.jpg") no-repeat top right;
@@ -2372,6 +2889,7 @@ input.question {
     float: right;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .header-img {
     background: url("/etc/designs/nhmwww/img/header-dinosaur.jpg") no-repeat top right;
@@ -2382,6 +2900,7 @@ input.question {
 .global-header-info {
   float: right;
 }
+
 @media screen and (min-width: 1024px) {
   .global-header-info {
     width: 53%;
@@ -2392,6 +2911,7 @@ input.question {
     right: 0;
   }
 }
+
 .global-header-info .global-header-info__item {
   display: block;
   float: left;
@@ -2404,17 +2924,21 @@ input.question {
   background-position: left center;
   background-repeat: no-repeat;
 }
+
 .global-header-info .global-header-info__item .ico {
   margin-right: 9px;
   height: 26px;
   width: 26px;
 }
+
 .global-header-info .global-header-info__item.hours {
   /* background-image: url('/etc/designs/nhmwww/img/icons/nav-clock.png');*/
 }
+
 .global-header-info .global-header-info__item.membership a {
   color: #565656;
 }
+
 @media screen and (min-width: 1024px) {
   .home .global-header-info {
     margin-top: 164px;
@@ -2436,6 +2960,7 @@ input.question {
   border-left: 1px solid #ccc;
   z-index: 100;
 }
+
 .global-menu-trigger .ico {
   width: 28px;
   height: 27px;
@@ -2443,27 +2968,33 @@ input.question {
   top: 9px;
   left: 10px;
 }
+
 .global-menu-trigger .ico-menu-close, .global-menu-trigger .ico-menu-return {
   display: none;
 }
+
 .global-menu-trigger .ir {
   text-indent: -9999px;
 }
+
 .global-menu-trigger.clicked .ico-menu-close {
   display: inline-block;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
 }
+
 .global-menu-trigger.clicked .ico-menu-open, .global-menu-trigger.clicked .ico-menu-return {
   display: none;
 }
+
 .global-menu-trigger.return .ico-menu-return {
   display: inline-block;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
 }
+
 .global-menu-trigger.return .ico-menu-open, .global-menu-trigger.return .ico-menu-close {
   display: none;
 }
@@ -2472,11 +3003,13 @@ input.question {
   display: none;
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .global-nav-menu {
     display: block !important;
   }
 }
+
 .global-nav-menu a:hover {
   text-decoration: none;
 }
@@ -2484,9 +3017,11 @@ input.question {
 .nav-list {
   margin: 20px 2.5%;
 }
+
 .nav-list.level-1 {
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list.level-1 {
     display: table;
@@ -2496,14 +3031,17 @@ input.question {
     border-right: 1px solid #ccc;
   }
 }
+
 .nav-list.level-1 > .nav-list__item {
   margin: 0 2.5%;
 }
+
 .nav-list.level-1 > .nav-list__item > a {
   padding: 0.2em 2.5% 0.3em;
   padding: 0.2em 0 0.3em 0;
   font-size: 1.375em;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list.level-1 > .nav-list__item {
     display: table-cell;
@@ -2515,12 +3053,14 @@ input.question {
     font-size: 0.9375em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .nav-list.level-1 > .nav-list__item > a {
     font-size: 1.375em;
     padding: 0.2em 0 0.3em 0;
   }
 }
+
 .nav-list.level-2 {
   position: absolute;
   top: -20px;
@@ -2536,9 +3076,11 @@ input.question {
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
+
 .nav-list.level-2 .ico {
   display: none;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list.level-2 {
     top: 47px;
@@ -2714,6 +3256,7 @@ input.question {
     padding: 0.1em 0 0;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .nav-list.level-2 {
     top: 49px;
@@ -2737,35 +3280,44 @@ input.question {
     width: 16%;
   }
 }
+
 .nav-list.level-2 .nav-list__item.has-children a {
   background-image: none;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list.level-2 .nav-list__item.has-children a:after {
     background-image: none;
   }
 }
+
 .nav-list.level-2 .nav-list__item a {
   padding: 0.3em 3.5%;
 }
+
 .nav-list.level-2 .nav-list__item a .ico {
   width: 27px;
   height: 27px;
 }
+
 .nav-list.level-3 {
   margin: 0;
 }
+
 .nav-list.level-3 .nav-list__item {
   border: 0;
 }
+
 .nav-list.level-3 .nav-list__item a {
   padding: 0.2em 3.5%;
   color: #000000;
   font-size: 16px;
 }
+
 .nav-list.level-3 .nav-list__item a:hover {
   color: #808080;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list.narrow {
     position: relative;
@@ -2777,9 +3329,11 @@ input.question {
     border-bottom: none;
   }
 }
+
 .nav-list .touchonly {
   display: none;
 }
+
 .nav-list .touch .touchonly,
 .nav-list .touch.touchonly {
   display: inherit;
@@ -2790,6 +3344,7 @@ input.question {
     width: 11.11%;
   }
 }
+
 @media screen and (min-width: 768px) {
   .no-js .nav-list__item.has-children:hover .nav-list.level-2, .no-js .nav-list__item.has-children.open .nav-list.level-2 {
     display: block;
@@ -2799,6 +3354,7 @@ input.question {
 .nav-list__item {
   border-top: 1px solid #ccc;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item {
     border-right: 1px solid #ccc;
@@ -2811,9 +3367,11 @@ input.question {
     border-right: none;
   }
 }
+
 .nav-list__item.first {
   border-top: none;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item.has-children:hover > a, .nav-list__item.has-children.open > a {
     position: relative;
@@ -2836,6 +3394,7 @@ input.question {
     transform: rotate(180deg);
   }
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item.has-children.open > a:before {
     bottom: -1px;
@@ -2844,15 +3403,18 @@ input.question {
     display: block;
   }
 }
+
 .nav-list__item.has-children > a {
   background: url("/etc/designs/nhmwww/img/arrows/mobile-menu-arrow.png") no-repeat 95% center;
   background-size: 10px auto;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item.has-children > a {
     background: none;
   }
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item.has-children > a:after {
     display: inline-block;
@@ -2867,58 +3429,74 @@ input.question {
     background-size: auto auto;
   }
 }
+
 .nav-list__item.selected {
   background: #000;
 }
-.nav-list__item.selected > a, .nav-list__item.selected > a:hover {
+
+.nav-list__item.selected > a,
+.nav-list__item.selected > a:hover {
   color: #fff;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item.selected {
     background: #fff;
   }
-  .nav-list__item.selected > a, .nav-list__item.selected > a:hover {
+  .nav-list__item.selected > a,
+  .nav-list__item.selected > a:hover {
     color: #000;
   }
 }
+
 .nav-list__item.selected .nav-list.level-2 {
   right: -2.5%;
 }
-.nav-list__item.selected-siblings > a, .nav-list__item.selected-siblings > a:hover {
+
+.nav-list__item.selected-siblings > a,
+.nav-list__item.selected-siblings > a:hover {
   color: #ccc;
 }
+
 .nav-list__item a {
   display: block;
   font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
   font-size: 1.125em;
   color: #000;
 }
+
 .nav-list__item a:hover {
   color: #808080;
 }
+
 @media screen and (min-width: 768px) {
   .nav-list__item a {
     font-size: 1.25em;
   }
 }
+
 .nav-list__item h4 {
   margin: 0.5em 2.5%;
   font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
 }
+
 .nav-list__item label {
   font-size: 12px;
   color: #565656;
 }
+
 .nav-list__item input,
 .nav-list__item button {
   width: 100%;
 }
+
 .nav-list__item .text {
   padding: 0.5em 2.5%;
   border: 1px solid #ccc;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
+
 .nav-list__item .submit {
   margin-top: 1em;
   padding: 0.75em 5%;
@@ -2935,6 +3513,7 @@ input.question {
   margin: 0;
   padding: 0.75em 0 !important;
 }
+
 .share-icons:hover {
   background: #fff !important;
 }
@@ -2951,60 +3530,73 @@ input.question {
   background-repeat: no-repeat;
   float: left;
 }
+
 @media screen and (min-width: 1024px) {
   .nav-icons .ico {
     float: none;
     margin-right: 0;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .nav-icons:before, .nav-icons:after {
     display: none !important;
   }
 }
+
 .nav-icons.share {
   text-indent: 0;
 }
+
 @media screen and (max-width: 1023px) {
   .nav-icons.share span {
     display: inline !important;
   }
 }
+
 .nav-icons.share .ico {
   height: 34px;
   top: 0;
   width: 28px;
 }
+
 @media screen and (max-width: 1023px) {
   .nav-icons.share .ico {
     display: none;
   }
 }
+
 .selected .nav-icons.share:before {
   background-image: url("/etc/designs/nhmwww/img/icons/share-nav-white.png");
 }
+
 .nav-icons.search {
   text-indent: 0;
 }
+
 @media screen and (max-width: 1023px) {
   .nav-icons.search span {
     display: inline !important;
   }
 }
+
 .nav-icons.search .ico {
   height: 35px;
   width: 30px;
   top: 0;
   padding: 0;
 }
+
 @media screen and (max-width: 1023px) {
   .nav-icons.search .ico {
     display: none;
   }
 }
+
 .nav-icons.search:before {
   width: 25px;
 }
+
 @media screen and (min-width: 768px) {
   .nav-icons {
     position: relative;
@@ -3014,6 +3606,7 @@ input.question {
     text-indent: -9999px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .nav-icons {
     top: 0;
@@ -3070,28 +3663,30 @@ input.question {
   .dropdown-section .nav-button.arrow:hover {
     background-color: #f4f4f4;
   }
-
   .dropdown-section--double {
     width: 50%;
   }
-
   .dropdown-section--thumb {
     width: 38%;
   }
 }
+
 .nav-detail-list li {
   float: left;
   width: 49%;
   padding: 0 0 1.5em;
 }
+
 .nav-detail-list li.odd {
   margin-right: 2%;
 }
+
 .nav-detail-list li p {
   margin: 0;
   color: #000;
   font-size: 15px;
 }
+
 .nav-detail-list li p.event-meta {
   padding: 0 0 0 20px;
   color: #565656;
@@ -3105,6 +3700,7 @@ input.question {
   border-bottom: 1px solid #ccc;
   margin-bottom: 45px;
 }
+
 .subnav.fixed {
   position: fixed;
   top: 48px;
@@ -3112,10 +3708,12 @@ input.question {
   background: #fff;
   z-index: 99998;
 }
+
 .subnav .row {
   margin-bottom: 0;
   text-align: center;
 }
+
 .subnav .subnav__item {
   width: 16%;
   display: inline-block;
@@ -3127,14 +3725,17 @@ input.question {
   font-size: 16px;
   line-height: 1;
 }
+
 .subnav .subnav__item a {
   display: block;
   color: #565656;
 }
+
 .subnav .subnav__item a:hover {
   color: #2a6cd9;
   text-decoration: none;
 }
+
 .subnav .subnav__item.active a {
   color: #2a6cd9;
 }
@@ -3179,6 +3780,7 @@ li.nav-list__item.first.cf h4 {
     right: 0px !important;
   }
 }
+
 .nav-list.level-2.share,
 .nav-list.level-2.search {
   width: 65% !important;
@@ -3190,6 +3792,7 @@ li.nav-list__item.first.cf h4 {
     width: 55% !important;
   }
 }
+
 span.st_email_large {
   padding-right: 9%;
 }
@@ -3214,11 +3817,13 @@ span.st_googleplus_large {
   position: relative;
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .mega-thumb {
     margin-right: 10px;
   }
 }
+
 .mega-thumb img {
   width: 100%;
 }
@@ -3233,6 +3838,7 @@ span.st_googleplus_large {
   z-index: 2;
   padding: 0.5em 1em 1em 1em;
 }
+
 .mega-thumb-caption p {
   color: #ffffff;
   font-size: 1em;
@@ -3240,31 +3846,39 @@ span.st_googleplus_large {
   margin-bottom: 0;
   padding: 0;
 }
+
 @media screen and (min-width: 768px) {
   .mega-thumb-caption p {
     font-size: 1.3em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .mega-thumb-caption p {
     font-size: 1.5em;
   }
 }
+
 .mega-thumb-caption.visit {
   background-color: rgba(161, 22, 78, 0.95);
 }
+
 .mega-thumb-caption.take-part {
   background-color: rgba(191, 73, 31, 0.95);
 }
+
 .mega-thumb-caption.our-science {
   background-color: rgba(53, 121, 0, 0.95);
 }
+
 .mega-thumb-caption.support-us {
   background-color: rgba(127, 32, 110, 0.95);
 }
+
 .mega-thumb-caption.schools {
   background-color: rgba(9, 131, 187, 0.95);
 }
+
 @media screen and (min-width: 768px) {
   .mega-thumb-caption {
     width: 80%;
@@ -3295,6 +3909,7 @@ span.st_googleplus_large {
   background-repeat: no-repeat;
   background-size: 18.9px 35px;
 }
+
 .arrow .ico {
   width: 24px;
   height: 35px;
@@ -3306,6 +3921,7 @@ span.st_googleplus_large {
 .link-arrow {
   position: relative;
 }
+
 .link-arrow .ico {
   position: absolute;
   width: 8px;
@@ -3318,11 +3934,13 @@ span.st_googleplus_large {
 .bottom-banner {
   padding: 1.0em;
 }
+
 @media screen and (min-width: 1024px) {
   .bottom-banner {
     padding: 2.0em;
   }
 }
+
 .bottom-banner h2 {
   color: #ffffff;
 }
@@ -3331,11 +3949,13 @@ span.st_googleplus_large {
 .promo {
   padding: 0 10px 10px;
 }
+
 @media screen and (min-width: 768px) {
   .promo {
     padding: 0px;
   }
 }
+
 .promo img {
   width: 100%;
 }
@@ -3346,6 +3966,7 @@ span.st_googleplus_large {
   font-size: 18px;
   padding: 20px;
 }
+
 .promo-link:hover {
   color: #fff;
 }
@@ -3357,21 +3978,25 @@ span.st_googleplus_large {
   background-position: 20px 20px;
   cursor: pointer;
 }
+
 .image-info .ico {
   float: left;
   height: 28px;
   width: 28px;
 }
+
 .image-info p {
   display: none;
   padding: 0 8% 0 16%;
   background: transparent url("/etc/designs/nhmwww/img/x.png") no-repeat top right;
 }
+
 @media screen and (min-width: 768px) {
   .image-info p {
     padding: 0 6% 0 12%;
   }
 }
+
 .image-info.open {
   width: auto;
   max-width: 455px;
@@ -3380,6 +4005,7 @@ span.st_googleplus_large {
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 .image-info.open p {
   display: block;
 }
@@ -3389,9 +4015,11 @@ span.st_googleplus_large {
   margin: 1em 0;
   background-color: #2a6cd9;
 }
+
 .link-with-icon.microscope {
   position: relative;
 }
+
 .link-with-icon.microscope .ico {
   position: absolute;
   width: 26px;
@@ -3399,6 +4027,7 @@ span.st_googleplus_large {
   bottom: 23px;
   height: 39px;
 }
+
 @media screen and (min-width: 768px) {
   .link-with-icon.microscope .ico {
     bottom: 21px;
@@ -3407,12 +4036,14 @@ span.st_googleplus_large {
     height: 42px;
   }
 }
+
 .link-with-icon.microscope .arrow .ico {
   left: auto;
   top: auto;
   width: 24px;
   height: 35px;
 }
+
 @media screen and (min-width: 768px) {
   .link-with-icon.microscope .arrow .ico {
     position: absolute;
@@ -3422,12 +4053,14 @@ span.st_googleplus_large {
     height: 13px;
   }
 }
+
 .link-with-icon a {
   display: block;
   padding: 30px 18%;
   color: #fff;
   font-size: 1.125em;
 }
+
 @media screen and (min-width: 768px) {
   .link-with-icon {
     margin: 0;
@@ -3457,6 +4090,7 @@ span.st_googleplus_large {
   font-weight: normal;
   font-size: 18px;
 }
+
 .section-link .ico-arrow {
   position: absolute;
   top: 8px;
@@ -3464,6 +4098,7 @@ span.st_googleplus_large {
   width: 8px;
   height: 13px;
 }
+
 @media screen and (min-width: 768px) {
   .section-link {
     display: inline-block;
@@ -3476,17 +4111,21 @@ span.st_googleplus_large {
     font-size: 14px;
   }
 }
+
 .section-link.calendar {
   padding-left: 0;
 }
+
 .section-link.calendar .ico-cal {
   margin-right: 10px;
   width: 23px;
   height: 22px;
 }
+
 .section-link.cart {
   position: relative;
 }
+
 .section-link.cart .ico {
   position: absolute;
   left: 0;
@@ -3501,19 +4140,24 @@ span.st_googleplus_large {
   position: relative;
   padding-top: 0px;
 }
+
 .hero.exhibitions {
   background: #f4f4f4;
 }
+
 .hero .video-wrapper iframe {
   display: none;
 }
+
 .hero .video-wrapper {
   position: relative;
   height: 100%;
 }
+
 .hero .video-wrapper.open {
   position: relative;
 }
+
 .hero .video-wrapper.open iframe {
   position: absolute;
   top: 0;
@@ -3521,20 +4165,24 @@ span.st_googleplus_large {
   width: 100% !important;
   height: 100% !important;
 }
+
 @media screen and (min-width: 768px) {
   .hero {
     margin-bottom: 60px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .hero {
     margin-bottom: 0;
   }
 }
+
 .hero img {
   width: 100%;
   max-width: 100%;
 }
+
 .hero .hero-summary {
   position: relative;
   width: 95%;
@@ -3543,9 +4191,11 @@ span.st_googleplus_large {
   background: #f4f4f4;
   color: #565656;
 }
+
 .hero .hero-summary p {
   padding: 1.5em 5%;
 }
+
 @media screen and (min-width: 768px) {
   .hero .hero-summary {
     position: absolute;
@@ -3565,16 +4215,19 @@ span.st_googleplus_large {
     line-height: 1.2;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .hero .hero-summary p {
     font-size: 25px;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .hero .hero-summary {
     top: 48%;
   }
 }
+
 .hero .promo-link {
   position: absolute;
   top: 0;
@@ -3582,12 +4235,14 @@ span.st_googleplus_large {
   width: 100%;
   padding: 1em 5%;
 }
+
 .hero .promo-link.video {
   padding: 1em 5% 1em 108px;
   background-image: url("/etc/designs/nhmwww/img/icons/video-white.png");
   background-repeat: no-repeat;
   background-position: 5% 45%;
 }
+
 .hero .promo-link.video .ico {
   position: absolute;
   width: 38px;
@@ -3595,11 +4250,13 @@ span.st_googleplus_large {
   left: 5%;
   top: 27%;
 }
+
 .hero .promo-link a {
   position: relative;
   display: block;
   color: #fff;
 }
+
 .hero .promo-link a.play-video .ico {
   position: absolute;
   width: 47px;
@@ -3608,6 +4265,7 @@ span.st_googleplus_large {
   right: 0;
   top: 0;
 }
+
 @media screen and (min-width: 768px) {
   .hero .promo-link {
     position: relative;
@@ -3623,6 +4281,7 @@ span.st_googleplus_large {
     background-image: none;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .hero .promo-link a {
     font-size: 25px;
@@ -3637,6 +4296,7 @@ span.st_googleplus_large {
 .close-video {
   display: none;
 }
+
 .close-video.open {
   display: block;
   width: 100%;
@@ -3646,6 +4306,7 @@ span.st_googleplus_large {
   background-size: 30px auto;
   text-indent: -9999px;
 }
+
 @media screen and (min-width: 768px) {
   .close-video.open {
     position: absolute;
@@ -3668,11 +4329,13 @@ span.st_googleplus_large {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   padding: 0px;
 }
+
 @media screen and (min-width: 768px) {
   .info-actions {
     margin-bottom: 35px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .info-actions .info-actions--buttons {
     float: right;
@@ -3687,6 +4350,7 @@ span.st_googleplus_large {
   background: #2a6cd9;
   background: rgba(42, 108, 217, 0.9);
 }
+
 .caption--cta h4 {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 20px;
@@ -3694,9 +4358,11 @@ span.st_googleplus_large {
   line-height: 1.6;
   margin: 0px;
 }
+
 .caption--cta a {
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .caption--cta a {
     display: inline;
@@ -3717,6 +4383,7 @@ span.st_googleplus_large {
   padding-right: 18%;
   color: #fff;
 }
+
 .info-tout h3 {
   margin-bottom: 0;
   color: #fff;
@@ -3724,10 +4391,12 @@ span.st_googleplus_large {
   font-size: 1.8em;
   line-height: 1;
 }
+
 .info-tout p {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout h3, .info-tout p {
     padding-left: 30%;
@@ -3753,6 +4422,7 @@ span.st_googleplus_large {
   padding: 25px 0;
   text-align: left;
 }
+
 .info-tout__share a .ico {
   height: 65%;
   width: 14%;
@@ -3760,6 +4430,7 @@ span.st_googleplus_large {
   position: absolute;
   left: 3.5%;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__share a .ico {
     position: static;
@@ -3767,9 +4438,11 @@ span.st_googleplus_large {
     width: 84px;
   }
 }
+
 .info-tout__share a p {
   margin: 0;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__share a {
     background-color: #f4f4f4;
@@ -3790,6 +4463,7 @@ span.st_googleplus_large {
     color: #fff;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .info-tout__share a {
     width: 100%;
@@ -3808,46 +4482,57 @@ span.st_googleplus_large {
   display: block;
   padding: 15px 0px;
 }
+
 .info-tout__action a {
   color: #2a6cd9;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   display: block;
   padding: 12px 0px;
 }
+
 .info-tout__action h3 {
   color: #2a6cd9;
 }
+
 .info-tout__action p {
   margin-bottom: 0;
   margin-top: 0;
 }
+
 .info-tout__action:hover {
   background-color: #d7e3f8;
 }
+
 .info-tout__action:hover img.desktop {
   display: none;
 }
+
 .info-tout__action:hover img.mobile {
   display: block;
 }
+
 .info-tout__action:hover h3, .info-tout__action:hover p {
   text-decoration: underline;
 }
+
 .info-tout__action.tickets, .info-tout__action.membership {
   position: relative;
 }
+
 .info-tout__action.tickets .ico, .info-tout__action.membership .ico {
   width: 12%;
   position: absolute;
   left: 4%;
   top: 1%;
 }
+
 .info-tout__action.tickets .ico.arrowl, .info-tout__action.membership .ico.arrowl {
   left: auto;
   right: 4%;
   top: 25%;
   height: 50%;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__action {
     padding: 6px 0;
@@ -3880,17 +4565,20 @@ span.st_googleplus_large {
   border-bottom: 5px solid #fff;
   padding: 16px 0;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__countdown {
     background: #f4f4f4;
     border-bottom: 2px solid #fff;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .info-tout__countdown {
     border-right: 2px solid #fff;
   }
 }
+
 .info-tout__countdown .countdown-circle--number {
   color: #fff;
   display: block;
@@ -3898,6 +4586,7 @@ span.st_googleplus_large {
   line-height: 1.4;
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__countdown .countdown-circle--number {
     color: #2a6cd9;
@@ -3906,10 +4595,12 @@ span.st_googleplus_large {
     margin-top: 12px;
   }
 }
+
 .info-tout__countdown .countdown-circle--unit,
 .info-tout__countdown .countdown-circle--prompt {
   display: none;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__countdown .countdown-circle--unit,
   .info-tout__countdown .countdown-circle--prompt {
@@ -3918,16 +4609,19 @@ span.st_googleplus_large {
     line-height: 1;
   }
 }
+
 .info-tout__countdown .countdown-circle--promo {
   float: left;
   color: #fff;
   font-size: 35px;
   line-height: 1.6;
 }
+
 .info-tout__countdown .countdown-circle--promo span {
   display: block;
   font-size: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__countdown .countdown-circle--promo {
     float: none;
@@ -3946,22 +4640,26 @@ span.st_googleplus_large {
   padding: 1em;
   padding-left: 2em;
 }
+
 .thumb-caption p {
   color: #ffffff;
   font-size: 1em;
   line-height: 1.3em;
   margin-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .thumb-caption p {
     font-size: 1.3em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .thumb-caption p {
     font-size: 1.5em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .thumb-caption {
     max-width: 70%;
@@ -3980,6 +4678,7 @@ span.st_googleplus_large {
 .home-thumb-left {
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .home-thumb-left {
     margin-right: 10px;
@@ -3990,6 +4689,7 @@ span.st_googleplus_large {
   position: relative;
   margin-top: 1.5em;
 }
+
 @media screen and (min-width: 768px) {
   .home-thumb-right {
     margin-left: 10px;
@@ -4006,19 +4706,23 @@ span.st_googleplus_large {
 .info-sidebar {
   padding: 25px 0px 0px 2em;
 }
+
 .info-sidebar p {
   margin-bottom: 0px;
   line-height: 1.5;
 }
+
 .info-sidebar li {
   position: relative;
   min-height: 40px;
   margin-top: 5%;
   padding: 0.625em 0.625em 0 20%;
 }
+
 .info-sidebar li:first-child {
   margin-top: 0;
 }
+
 .info-sidebar li .ico {
   display: inline-block;
   *vertical-align: auto;
@@ -4031,10 +4735,12 @@ span.st_googleplus_large {
   height: 40px;
   content: "";
 }
+
 .info-sidebar li.tickets .ico {
   width: 44px;
   height: 50px;
 }
+
 @media screen and (min-width: 768px) {
   .info-sidebar {
     padding-top: 0;
@@ -4043,6 +4749,7 @@ span.st_googleplus_large {
     padding-left: 19%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .info-sidebar li {
     padding-left: 16%;
@@ -4053,17 +4760,21 @@ span.st_googleplus_large {
   overflow: auto;
   margin-bottom: 1em;
 }
+
 .aside-box .info-sidebar-icon-list a {
   font-size: 1em;
 }
+
 .aside-box .info-sidebar-icon-list.about-us p {
   color: #BF491F;
   margin-bottom: 0;
   padding-left: 2em;
 }
+
 .aside-box .info-sidebar-icon-list a {
   color: #BF491F;
 }
+
 .aside-box .info-sidebar-icon-list .ico {
   position: absolute;
   height: 1.5em;
@@ -4075,9 +4786,11 @@ span.st_googleplus_large {
   margin: 0px auto;
   background: #f4f4f4;
 }
+
 .info-summary .info-summary__content {
   padding: 0 1.25em 0.5em;
 }
+
 @media screen and (min-width: 1024px) {
   .info-summary .info-summary__content {
     display: block !important;
@@ -4089,14 +4802,17 @@ span.st_googleplus_large {
   margin: 0 auto;
   padding: 10px 0 0;
 }
+
 .info-summary__sponsors div {
   height: 90px;
 }
+
 .info-summary__sponsors img {
   display: block;
   margin: 0.75em 0 0;
   max-width: 70%;
 }
+
 .info-summary__sponsors p {
   font-size: 13px;
 }
@@ -4104,10 +4820,12 @@ span.st_googleplus_large {
 ul.info-sidebar-box-visit {
   padding-left: 10%;
 }
+
 ul.info-sidebar-box-visit li {
   position: relative;
   padding: 0;
 }
+
 ul.info-sidebar-box-visit li .ico {
   display: inline-block;
   float: left;
@@ -4124,6 +4842,7 @@ ul.info-sidebar-box-visit li .ico {
   color: #2a6cd9;
   text-align: center;
 }
+
 .quote-slider-bar .quote-slider-wrap {
   margin: auto;
   padding: 70px 0 60px;
@@ -4131,12 +4850,15 @@ ul.info-sidebar-box-visit li .ico {
   overflow: hidden;
   position: relative;
 }
+
 .quote-slider-bar .quote-slider-wrap ul {
   margin-bottom: 0;
 }
+
 .quote-slider-bar .quote-slider-wrap li {
   position: relative;
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote {
   position: relative;
   width: 88%;
@@ -4144,6 +4866,7 @@ ul.info-sidebar-box-visit li .ico {
   margin: 0 auto;
   padding: 0 6%;
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote .ico {
   position: absolute;
   display: block;
@@ -4151,20 +4874,24 @@ ul.info-sidebar-box-visit li .ico {
   width: 54px;
   height: 41px;
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote .ico-before {
   top: -50px;
   left: -3%;
 }
+
 @media screen and (min-width: 768px) {
   .quote-slider-bar .quote-slider-wrap blockquote .ico-before {
     top: 8px;
     left: 0;
   }
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote .ico-after {
   bottom: -41px;
   right: -3%;
 }
+
 @media screen and (min-width: 768px) {
   .quote-slider-bar .quote-slider-wrap blockquote .ico-after {
     top: 8px;
@@ -4172,6 +4899,7 @@ ul.info-sidebar-box-visit li .ico {
     right: 0;
   }
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote p {
   color: #2a6cd9;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
@@ -4179,15 +4907,18 @@ ul.info-sidebar-box-visit li .ico {
   line-height: 1.2;
   margin-bottom: 0.2em;
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote cite {
   color: #2a6cd9;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
 }
+
 .quote-slider-bar .quote-slider-wrap blockquote cite:before {
   content: "";
 }
+
 @media screen and (min-width: 1024px) {
   .quote-slider-bar .quote-slider-wrap blockquote {
     width: 100%;
@@ -4195,6 +4926,7 @@ ul.info-sidebar-box-visit li .ico {
     padding: 0;
   }
 }
+
 @media screen and (min-width: 768px) {
   .quote-slider-bar {
     display: block;
@@ -4205,6 +4937,7 @@ ul.info-sidebar-box-visit li .ico {
 .feature {
   padding-top: 25px;
 }
+
 @media screen and (min-width: 768px) {
   .feature {
     padding-top: 60px;
@@ -4219,28 +4952,34 @@ ul.info-sidebar-box-visit li .ico {
   -webkit-transition: all 0.30s linear 0s;
   transition: all 0.30s linear 0s;
 }
+
 .feature--sections li {
   float: left;
   width: 18.4%;
   margin-left: 2%;
 }
+
 .feature--sections li:first-child {
   margin-left: 0;
 }
+
 .feature--sections li.selected img, .feature--sections li:hover img {
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
   filter: grayscale(0%);
   filter: gray;
 }
+
 .feature--sections li.selected img {
   padding: 2px;
   border: 2px solid #2a6cd9;
 }
+
 .feature--sections li:hover img {
   padding: 2px;
   border: 2px solid #565656;
 }
+
 .feature--sections li img {
   width: 100%;
   max-width: 95px;
@@ -4256,22 +4995,27 @@ ul.info-sidebar-box-visit li .ico {
 .feature--content li {
   display: none;
 }
+
 .feature--content li.selected {
   display: block;
 }
+
 .feature--content h3, .feature--content h4 {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
 .feature--content h3 {
   margin: 0;
   color: #2a6cd9;
   font-size: 1.125em;
   font-weight: bold;
 }
+
 .feature--content h4 {
   color: #565656;
   font-size: 0.9em;
 }
+
 .feature--content p {
   margin: 2em 0 0;
 }
@@ -4281,17 +5025,21 @@ ul.info-sidebar-box-visit li .ico {
   padding: 0px 5px;
   margin-bottom: 20px;
 }
+
 .feed-entry p {
   margin-bottom: 0px;
 }
+
 .feed-entry > img {
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .feed-entry {
     padding: 0 10px;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .feed-entry {
     height: auto;
@@ -4305,6 +5053,7 @@ ul.info-sidebar-box-visit li .ico {
   color: #fff;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
+
 .feed-entry__blockquote blockquote {
   color: #fff;
   font-size: 14px;
@@ -4312,9 +5061,11 @@ ul.info-sidebar-box-visit li .ico {
   line-height: 1.2;
   position: relative;
 }
+
 .feed-entry__blockquote blockquote.tweet {
   padding-top: 4em;
 }
+
 .feed-entry__blockquote blockquote.tweet .ico {
   position: absolute;
   top: 11%;
@@ -4322,6 +5073,7 @@ ul.info-sidebar-box-visit li .ico {
   width: 10%;
   height: 45%;
 }
+
 @media screen and (min-width: 768px) {
   .feed-entry__blockquote blockquote.tweet .ico {
     top: 21px;
@@ -4330,6 +5082,7 @@ ul.info-sidebar-box-visit li .ico {
     height: 45px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .feed-entry__blockquote {
     font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
@@ -4343,20 +5096,24 @@ ul.info-sidebar-box-visit li .ico {
   border: 1px solid #ccc;
   border-top: none;
 }
+
 .feed-entry__section.text {
   padding: 15px;
   line-height: 1.4;
 }
+
 .feed-entry__section.text h3 {
   margin: 0 0 0.25em;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: bold;
 }
+
 .feed-entry__section.text p {
   color: #565656;
   font-size: 14px;
 }
+
 .feed-entry__section .feed-entry--info-bar p {
   margin: 0.1em 0 0;
   color: #565656;
@@ -4364,13 +5121,16 @@ ul.info-sidebar-box-visit li .ico {
   font-size: 10px;
   line-height: 1.2;
 }
+
 .feed-entry__section .columns {
   padding: 7px 2px;
 }
+
 .feed-entry__section .columns img {
   margin: auto;
   display: block;
 }
+
 @media screen and (min-width: 768px) {
   .feed-entry__section .feed-entry--info-bar p {
     font-size: 12px;
@@ -4396,25 +5156,31 @@ ul.info-sidebar-box-visit li .ico {
   background-repeat: no-repeat;
   background-position: 5px center;
 }
+
 .feed-entry--meta p .ico {
   position: absolute;
   top: 17%;
   left: 5px;
 }
+
 .feed-entry--meta p.date .ico {
   width: 17px;
   height: 17px;
 }
+
 .feed-entry--meta p.favorite .ico {
   width: 20px;
   height: 19px;
 }
+
 .feed-entry--meta p.comment {
   background-image: url("/etc/designs/nhmwww/img/icons/comment.png");
 }
+
 .feed-entry--meta p.share {
   border-right: none;
 }
+
 .feed-entry--meta p.share .ico {
   width: 19px;
   height: 19px;
@@ -4424,18 +5190,21 @@ ul.info-sidebar-box-visit li .ico {
 .shop__entry {
   text-align: center;
 }
+
 .shop__entry img {
   margin: 20px;
   -webkit-box-shadow: 0px 0px 5px 3px #c9c9c9;
   -moz-box-shadow: 0px 0px 5px 3px #c9c9c9;
   box-shadow: 0px 0px 5px 3px #c9c9c9;
 }
+
 .shop__entry .shop__entry--title {
   border-top: 1px solid #565656;
   color: #565656;
   margin-bottom: 0.2em;
   padding-top: 0.6em;
 }
+
 .shop__entry .shop__entry--price {
   color: #2a6cd9;
 }
@@ -4454,15 +5223,18 @@ ul.info-sidebar-box-visit li .ico {
 .AsideBox {
   background-color: #eeeeee;
 }
+
 .AsideBox h2 {
   color: #A1164E !important;
   padding: 20px 0px 0.2em 10% !important;
   font-size: 2em;
 }
+
 .AsideBox p {
   margin-bottom: 0px;
   line-height: 1.5;
 }
+
 @media screen and (min-width: 768px) {
   .AsideBox h2 {
     font-size: 2em;
@@ -4495,6 +5267,7 @@ iframe.youtubeplayer {
 .foundation5image {
   position: relative;
 }
+
 .foundation5image .caption h2 {
   margin-bottom: 0.2rem;
   padding-bottom: 0;
@@ -4505,6 +5278,7 @@ iframe.youtubeplayer {
   margin-bottom: 0px;
   margin-top: 0.4em;
 }
+
 .row.title h1 {
   padding-left: 10px;
   padding-bottom: 0em;
@@ -4518,12 +5292,15 @@ iframe.youtubeplayer {
   font-size: 0.875em;
   padding: 0.5em;
 }
+
 .breadcrumb a {
   color: #D5D5D5;
 }
+
 .breadcrumb a:hover {
   color: #D5D5D5;
 }
+
 .breadcrumb .row {
   margin-bottom: 0;
 }
@@ -4663,7 +5440,9 @@ iframe.youtubeplayer {
 .lSSlideOuter {
   overflow: hidden;
 }
-.carousel-wrapper .lSSlideOuter, .event-slider-wrapper .lSSlideOuter {
+
+.carousel-wrapper .lSSlideOuter,
+.event-slider-wrapper .lSSlideOuter {
   position: relative !important;
 }
 
@@ -4742,12 +5521,15 @@ iframe.youtubeplayer {
   padding: 0;
   text-align: center;
 }
-.quote-slider-bar .lSSlideOuter .lSPager, .event-slider-wrapper .lSSlideOuter .lSPager {
+
+.quote-slider-bar .lSSlideOuter .lSPager,
+.event-slider-wrapper .lSSlideOuter .lSPager {
   position: absolute;
   bottom: 15px;
   width: 100%;
   margin: 0;
 }
+
 .event-slider-wrapper .lSSlideOuter .lSPager {
   bottom: 0;
 }
@@ -4780,6 +5562,7 @@ iframe.youtubeplayer {
   width: 15px;
   top: 4px;
 }
+
 .event-slider-wrapper .lSSlideOuter .lSPager.lSpg > li.active a {
   background-color: #fff;
 }
@@ -4790,6 +5573,7 @@ iframe.youtubeplayer {
   position: relative;
   margin-bottom: 0;
 }
+
 .lightSlider.event-slider {
   margin-bottom: 2em;
 }
@@ -4811,15 +5595,18 @@ iframe.youtubeplayer {
   user-select: none;
   overflow: hidden;
 }
+
 .lSSlideOuter .lSPager.lSGallery li {
   position: relative;
   max-height: 94px;
 }
+
 .lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
   overflow: hidden;
   max-height: 86px;
   opacity: 0.5;
 }
+
 .lSSlideOuter .lSPager.lSGallery li.video:after {
   display: block;
   content: "";
@@ -4830,6 +5617,7 @@ iframe.youtubeplayer {
   height: 100%;
   background: url("/etc/designs/nhmwww/img/icons/video.png") no-repeat -10px 15px;
 }
+
 .lSSlideOuter .lSPager.lSGallery img {
   display: block;
   height: auto;
@@ -4848,18 +5636,22 @@ iframe.youtubeplayer {
   cursor: pointer;
   display: none;
 }
+
 @media screen and (min-width: 768px) {
   .lSAction a {
     display: block;
   }
 }
+
 .lSAction a:hover {
   background: rgba(42, 108, 217, 0.8) url(/etc/designs/nhmwww/img/arrows/slider-arrow-hover.png) no-repeat 5px 20px;
 }
+
 .lSAction a.lSPrev {
   display: none;
   left: 0;
 }
+
 .lSAction a.lSNext {
   right: 0;
   -webkit-transform: scaleX(-1);
@@ -4869,6 +5661,7 @@ iframe.youtubeplayer {
   -ms-filter: "FlipH";
   filter: FlipH;
 }
+
 .event-slider-wrapper .lSAction a {
   top: 20%;
 }
@@ -4930,6 +5723,7 @@ iframe.youtubeplayer {
 .search .gs-imageResult a.gs-title:link b {
   color: #1155CC;
 }
+
 .search .gs-webResult.gs-result a.gs-title:hover,
 .search .gs-webResult.gs-result a.gs-title:hover b,
 .search .gs-webResult.gs-result a.gs-title:visited,
@@ -4940,12 +5734,14 @@ iframe.youtubeplayer {
 .search .gs-imageResult a.gs-title:visited b {
   color: #565656;
 }
+
 .search .gsc-table-result,
 .search .gsc-thumbnail-inside,
 .search .gsc-url-top {
   padding-left: 0;
   padding-right: 0;
 }
+
 .search .cse .gsc-search-button input.gsc-search-button-v2,
 .search input.gsc-search-button-v2 {
   background-color: #2a6cd9;
@@ -4957,35 +5753,43 @@ iframe.youtubeplayer {
   height: 28px;
   padding: 7px 31px;
 }
+
 .search .cse .gsc-search-button input.gsc-search-button-v2:hover,
 .search input.gsc-search-button-v2:hover {
   background-color: #6b99e5;
   border-color: #1f56b1;
 }
+
 .search input.gsc-search-button,
 .search input.gsc-search-button:hover,
 .search input.gsc-search-button:focus {
   border-color: #2a6cd9;
 }
+
 .search .gsc-input-box {
   height: 28px;
 }
+
 .search .gsc-selected-option-container {
   padding: 0;
   width: 100px !important;
 }
+
 .search .gsc-tabsArea {
   border-color: #2a6cd9;
 }
+
 .search .gsc-tabsArea > .gsc-tabHeader {
   height: 29px;
   padding: 0;
   overflow: hidden;
 }
+
 .search .gsc-tabHeader.gsc-tabhActive {
   border-color: #2a6cd9;
   border-bottom: 1px solid white;
 }
+
 .search .gsc-tabHeader.gsc-tabhInactive {
   border: 1px solid #e9e9e9;
   border-bottom: none;
@@ -4993,9 +5797,11 @@ iframe.youtubeplayer {
   position: relative;
   top: -1px;
 }
+
 .search td.gsib_a {
   padding-top: 2px;
 }
+
 .search .gsst_b {
   font-size: 14px;
   padding-top: 3px;
@@ -5004,9 +5810,11 @@ iframe.youtubeplayer {
 .nav-list.level-2.search a {
   padding: 0;
 }
+
 .nav-list.level-2.search .gsc-search-box table.gstl_50 td {
   vertical-align: top;
 }
+
 .nav-list.level-2.search td.gsib_a {
   padding-top: 3px;
 }
@@ -5020,15 +5828,19 @@ table.gssb_c {
   /*Form*/
   /*Profiles*/
 }
+
 .main-section.science-profile h2 {
   color: #000000;
 }
+
 .main-section.science-profile .search_content {
   width: 100% !important;
 }
+
 .main-section.science-profile .search_content p {
   margin-bottom: 5px;
 }
+
 .main-section.science-profile input#search {
   width: 15em;
   border: 2px solid #000;
@@ -5037,17 +5849,20 @@ table.gssb_c {
   background-color: #f4f4f4 !important;
   margin-top: 1.5em;
 }
+
 .main-section.science-profile .arrow {
   background-image: url("/etc/designs/nhmwww/img/arrows/nav-arrow-black.png");
   background-position: 95% center;
   background-repeat: no-repeat;
   background-size: auto;
 }
+
 .main-section.science-profile select {
   border: solid 2px #000;
   width: 100%;
   color: #222 !important;
 }
+
 .main-section.science-profile input[type="text"],
 .main-section.science-profile [type="button"] {
   color: #222;
@@ -5056,32 +5871,41 @@ table.gssb_c {
   font-size: 1.125em;
   width: 100%;
 }
+
 .main-section.science-profile .odd {
   background-color: #eeeeee !important;
 }
+
 .main-section.science-profile .even {
   background-color: #ffffff !important;
 }
+
 .main-section.science-profile .profile-content {
   padding: 10px !important;
 }
+
 .main-section.science-profile .profiles_table {
   color: #222 !important;
   font-style: normal !important;
   min-height: 2em !important;
 }
+
 .main-section.science-profile .row.profiles_row {
   margin-bottom: 10px;
 }
+
 .main-section.science-profile .profile-box {
   background-color: #eeeeee;
 }
+
 .main-section.science-profile .profile-box h2 {
   color: #565656 !important;
 }
+
 .main-section.science-profile .profile-img {
   padding: 40px;
 }
+
 .main-section.science-profile .profile-info {
   padding: 2.0em;
 }
@@ -5106,6 +5930,7 @@ li {
 a {
   color: #2a6cd9;
 }
+
 a:hover {
   color: #2a6cd9;
   text-decoration: underline;
@@ -5116,6 +5941,7 @@ p {
   margin-bottom: 1.0em;
   font-size: 1em;
 }
+
 @media screen and (min-width: 768px) {
   p {
     font-size: 1.125em;
@@ -5128,6 +5954,7 @@ h1 {
   padding-bottom: 0.5em;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
+
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 2.8em;
@@ -5143,14 +5970,17 @@ h2 {
   font-size: 1.7em;
   /** unclear where this is used - no reference in JSP's **/
 }
+
 @media screen and (min-width: 768px) {
   h2 {
     font-size: 2.1em;
   }
 }
+
 h2.padded {
   padding: 25px 18px;
 }
+
 h2 > p {
   display: inline;
   font-size: 1em;
@@ -5164,6 +5994,7 @@ h3 {
   padding-bottom: 0.3em;
   color: #565656;
 }
+
 @media screen and (min-width: 768px) {
   h3 {
     font-size: 1.8em;
@@ -5177,6 +6008,7 @@ h4 {
   line-height: 1.35em;
   padding-bottom: 0.3em;
 }
+
 @media screen and (min-width: 768px) {
   h4 {
     font-size: 1.5em;
@@ -5190,6 +6022,7 @@ h5 {
   padding-bottom: 0.3em;
   color: #565656;
 }
+
 @media screen and (min-width: 768px) {
   h5 {
     font-size: 1.3em;
@@ -5209,6 +6042,7 @@ h6 {
   font-size: 1.4em;
   line-height: 1.35em;
 }
+
 @media screen and (min-width: 768px) {
   .intro-text {
     font-size: 1.8em;
@@ -5218,6 +6052,7 @@ h6 {
 .pagesummarytext {
   padding: 0 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .pagesummarytext {
     padding: 0 1.5em;
@@ -5227,6 +6062,7 @@ h6 {
 .list__no-bullet {
   margin-left: 0 !important;
 }
+
 .list__no-bullet li {
   list-style-type: none !important;
 }
@@ -5286,16 +6122,19 @@ h6 {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .discover .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .search .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
   padding: 0;
   color: #ffffff !important;
 }
+
 .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .discover .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
   color: #ffffff;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
+
 @media screen and (min-width: 768px) {
   .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .discover .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
     padding: 1em 1.5em;
@@ -5308,11 +6147,13 @@ h6 {
 .about-us .GreyBox, .account .GreyBox, .business-services .GreyBox, .contact-us .GreyBox, .discover .GreyBox, .our-science .GreyBox, .press-office .GreyBox, .schools .GreyBox, .support-us .GreyBox, .take-part .GreyBox, .visit .GreyBox {
   padding: 0.5em 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .about-us .GreyBox, .account .GreyBox, .business-services .GreyBox, .contact-us .GreyBox, .discover .GreyBox, .our-science .GreyBox, .press-office .GreyBox, .schools .GreyBox, .support-us .GreyBox, .take-part .GreyBox, .visit .GreyBox {
     padding: 1em 1.5em;
   }
 }
+
 .about-us .GreyBox p, .account .GreyBox p, .business-services .GreyBox p, .contact-us .GreyBox p, .discover .GreyBox p, .our-science .GreyBox p, .press-office .GreyBox p, .schools .GreyBox p, .support-us .GreyBox p, .take-part .GreyBox p, .visit .GreyBox p {
   font-size: 1.125em;
   margin-bottom: 1.2em;
@@ -5332,6 +6173,7 @@ h6 {
   width: 100%;
   max-width: 1160px;
 }
+
 .herosection .carousel-wrapper .caption {
   font-size: 1.1em;
   position: relative;
@@ -5339,16 +6181,19 @@ h6 {
   height: 142px;
   /** not sure where this is used **/
 }
+
 @media screen and (min-width: 480px) {
   .herosection .carousel-wrapper .caption {
     height: 100px;
   }
 }
+
 @media screen and (min-width: 640px) {
   .herosection .carousel-wrapper .caption {
     height: 85px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .herosection .carousel-wrapper .caption {
     height: auto;
@@ -5356,29 +6201,35 @@ h6 {
     max-width: 70%;
   }
 }
+
 .herosection .carousel-wrapper .caption h1 {
   color: #FFFFFF;
   font-size: 2.5em;
   padding-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .herosection .carousel-wrapper .caption h1 {
     font-size: 3em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .herosection .carousel-wrapper .caption h2 {
     font-size: 1.7em;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .herosection .carousel-wrapper .caption h2 {
     font-size: 1.8333em;
   }
 }
+
 .herosection .carousel-wrapper .caption p {
   line-height: 1.25em;
 }
+
 .herosection .carousel-wrapper .caption .dates {
   background-color: #000000;
   position: absolute;
@@ -5393,6 +6244,7 @@ h6 {
   clear: both;
   margin-bottom: 1.2em !important;
 }
+
 .accordion .accordion-navigation > a,
 .accordion dd > a {
   background-repeat: no-repeat;
@@ -5400,24 +6252,28 @@ h6 {
   background-color: #EEE;
   padding: 1em 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .accordion .accordion-navigation > a,
   .accordion dd > a {
     padding: 1em 1.5em;
   }
 }
+
 .accordion .accordion-navigation > a:hover,
 .accordion dd > a:hover {
   background-repeat: no-repeat;
   background-position: 97% center;
   background-color: #E3E3E3;
 }
+
 .accordion .accordion-navigation.active > a,
 .accordion dd.active > a {
   background-repeat: no-repeat;
   background-position: 97% center;
   background-color: #EEE;
 }
+
 .accordion .accordion-navigation.active > a:hover,
 .accordion dd.active > a:hover {
   background-repeat: no-repeat;
@@ -5435,11 +6291,13 @@ h6 {
 .bottom-banner h2 {
   font-size: 1.5em;
 }
+
 @media screen and (min-width: 768px) {
   .bottom-banner h2 {
     font-size: 1.75em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .bottom-banner h2 {
     font-size: 1.8em;
@@ -5455,6 +6313,7 @@ h6 {
   bottom: 0;
   width: 100%;
 }
+
 .caption p {
   margin-bottom: 0;
 }
@@ -5464,31 +6323,39 @@ h6 {
   margin-bottom: 1.5em;
   /* WR-886 - tidy up styles for carousel in herosection */
 }
+
 .carousel-wrapper a:hover {
   text-decoration: none;
 }
+
 .carousel-wrapper .carousel {
   margin-bottom: 4px;
   margin-left: 0;
 }
+
 .carousel-wrapper .carousel li {
   position: relative;
 }
+
 .carousel-wrapper .carousel li iframe {
   display: block;
   max-width: 100%;
 }
+
 .carousel-wrapper .carousel [data-type="video"] .caption {
   display: none;
 }
+
 .carousel-wrapper .lSGallery {
   width: 9999px !important;
   background: #f4f4f4;
 }
+
 .carousel-wrapper .lSGallery:hover + .lSAction {
   filter: alpha(opacity=100);
   opacity: 1;
 }
+
 .carousel-wrapper .lSAction {
   zoom: 1;
   filter: alpha(opacity=0);
@@ -5499,21 +6366,25 @@ h6 {
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
+
 .carousel-wrapper .lSSlideWrapper:hover .lSAction {
   filter: alpha(opacity=100);
   opacity: 1;
 }
+
 .carousel-wrapper .caption-outer-wrapper {
   width: 100%;
   position: static;
   bottom: 0;
   left: 0;
 }
+
 @media screen and (min-width: 768px) {
   .carousel-wrapper .caption-outer-wrapper {
     position: absolute;
   }
 }
+
 .herosection .carousel-wrapper .caption-inner-wrapper, .rowfullwidth .carousel-wrapper .caption-inner-wrapper {
   display: table;
   margin-left: auto;
@@ -5521,6 +6392,7 @@ h6 {
   width: 100%;
   max-width: 1160px;
 }
+
 .carousel-wrapper .caption {
   background-color: rgba(0, 0, 0, 0.9);
   color: #FFFFFF;
@@ -5529,40 +6401,48 @@ h6 {
   /* WR-886 - tidy up styles for carousel in herosection */
   /* WR-886 - fix display of carousel in fullwidthrow */
 }
+
 @media screen and (min-width: 768px) {
   .carousel-wrapper .caption {
     padding: 1em 1.5em;
   }
 }
+
 .carousel-wrapper .caption p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
 }
+
 @media screen and (min-width: 768px) {
   .carousel-wrapper .caption p {
     font-size: 1.15em;
   }
 }
+
 .carousel-wrapper .caption h2 {
   color: #FFFFFF;
   padding-bottom: 0;
   margin-top: 0;
 }
+
 .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
   position: relative;
   z-index: 2;
   height: 142px;
 }
+
 @media screen and (min-width: 480px) {
   .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
     height: 100px;
   }
 }
+
 @media screen and (min-width: 640px) {
   .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
     height: 85px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .herosection .carousel-wrapper .caption, .rowfullwidth .carousel-wrapper .caption {
     height: auto;
@@ -5570,33 +6450,40 @@ h6 {
     max-width: 70%;
   }
 }
+
 .herosection .carousel-wrapper .caption {
   font-size: 1.1em;
   /** not sure where this is used **/
 }
+
 .herosection .carousel-wrapper .caption h1 {
   color: #FFFFFF;
   font-size: 2.5em;
   padding-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .herosection .carousel-wrapper .caption h1 {
     font-size: 3em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .herosection .carousel-wrapper .caption h2 {
     font-size: 1.7em;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .herosection .carousel-wrapper .caption h2 {
     font-size: 1.8333em;
   }
 }
+
 .herosection .carousel-wrapper .caption p {
   line-height: 1.25em;
 }
+
 .herosection .carousel-wrapper .caption .dates {
   background-color: #000000;
   position: absolute;
@@ -5604,28 +6491,34 @@ h6 {
   right: 0;
   padding: 1%;
 }
+
 .rowfullwidth .carousel-wrapper .caption h2 {
   font-size: 1.35em;
 }
+
 @media screen and (min-width: 768px) {
   .rowfullwidth .carousel-wrapper .caption h2 {
     font-size: 1.5em;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .rowfullwidth .carousel-wrapper .caption h2 {
     font-size: 1.625em;
   }
 }
+
 .rowfullwidth .carousel-wrapper .caption p {
   line-height: 1.25em;
   font-size: 1em;
 }
+
 @media screen and (min-width: 768px) {
   .rowfullwidth .carousel-wrapper .caption p {
     font-size: 1.125em;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .rowfullwidth .carousel-wrapper .caption p {
     font-size: 1.25em;
@@ -5637,6 +6530,7 @@ h6 {
   padding: 0.5em 0.75em;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
+
 @media screen and (min-width: 768px) {
   .thumb-caption {
     padding: 1em 1.5em;
@@ -5651,20 +6545,24 @@ h6 {
   margin-top: 0;
   margin-left: 0;
 }
+
 .ctabutton .home-thumb-right h2 {
   padding: 0 0.5em;
   font-size: 2em;
 }
+
 @media screen and (min-width: 768px) {
   .ctabutton .home-thumb-right h2 {
     font-size: 2.2em;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .ctabutton .home-thumb-right h2 {
     font-size: 2.4em;
   }
 }
+
 .ctabutton .home-thumb-right h3 {
   padding: 0 0.5em;
 }
@@ -5672,22 +6570,26 @@ h6 {
 .info-tout {
   margin-top: 1em;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout {
     margin-top: 0;
   }
 }
+
 .info-tout h3 {
   font-size: 1.5em;
   padding-left: 20%;
   padding-right: 13%;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout h3 {
     padding-left: 30%;
     padding-right: 18%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .info-tout h3 {
     padding-left: 26.5%;
@@ -5695,14 +6597,17 @@ h6 {
     font-size: 1.75em;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .info-tout h3 {
     font-size: 1.8em;
   }
 }
+
 .info-tout .ico {
   height: 98%;
 }
+
 @media screen and (min-width: 1160px) {
   .info-tout .ico {
     height: 65%;
@@ -5713,19 +6618,23 @@ h6 {
   background-color: #ffffff;
   padding: 0.5em 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__action {
     padding: 6px 0;
   }
 }
+
 .info-tout__action a {
   padding: 0;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__action a {
     padding: 12px 0;
   }
 }
+
 .info-tout__action:hover {
   background-color: #ffffff !important;
 }
@@ -5734,6 +6643,7 @@ h6 {
   height: 40%;
   top: 30%;
 }
+
 @media screen and (min-width: 768px) {
   .info-tout__action.tickets .ico.arrowl, .info-tout__action.membership .ico.arrowl {
     height: 36%;
@@ -5746,17 +6656,21 @@ h6 {
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;
 }
+
 .directory-search.row {
   width: 100%;
 }
+
 .directory-search a {
   color: #B7B7B7;
   font-size: 0.9em;
   text-decoration: underline;
 }
+
 .directory-search a:hover {
   color: #B7B7B7;
 }
+
 .directory-search select {
   background-image: url(/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
   padding-left: 1em;
@@ -5768,16 +6682,19 @@ h6 {
   font-size: 1.2em;
   margin-bottom: 0.2em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search--label {
     font-size: 1em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search--label {
     font-size: 1.2em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .directory-search--label {
     margin-bottom: 0.6em;
@@ -5787,6 +6704,7 @@ h6 {
 .directory-search--fields-block-grid li {
   padding-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search--fields-block-grid li:last-child {
     padding-right: 0;
@@ -5800,12 +6718,14 @@ h6 {
   margin-top: 1em;
   margin-bottom: 1.2em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-button--container {
     padding-top: 1.95em;
     margin-top: 2.25em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-button--container {
     padding-top: 1.5em;
@@ -5813,15 +6733,18 @@ h6 {
     margin-bottom: 0;
   }
 }
+
 .directory-search-button--container .ico {
   position: absolute;
 }
+
 .directory-search-button--container .ico.directory-search-button--icon {
   top: -12px;
   left: -3%;
   width: 63%;
   height: 50px;
 }
+
 @media screen and (min-width: 480px) {
   .directory-search-button--container .ico.directory-search-button--icon {
     top: -9px;
@@ -5829,6 +6752,7 @@ h6 {
     width: 58%;
   }
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-button--container .ico.directory-search-button--icon {
     top: -11px;
@@ -5836,6 +6760,7 @@ h6 {
     width: 68%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-button--container .ico.directory-search-button--icon {
     width: 63%;
@@ -5843,18 +6768,21 @@ h6 {
     left: -3px;
   }
 }
+
 .directory-search-button--container .ico.directory-search-button--arrow {
   top: -5px;
   right: -8px;
   width: 33%;
   height: 40px;
 }
+
 @media screen and (min-width: 480px) {
   .directory-search-button--container .ico.directory-search-button--arrow {
     top: -3px;
     width: 28%;
   }
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-button--container .ico.directory-search-button--arrow {
     top: -11px;
@@ -5863,6 +6791,7 @@ h6 {
     height: 54px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-button--container .ico.directory-search-button--arrow {
     top: -8px;
@@ -5882,12 +6811,14 @@ h6 {
   color: #ffffff;
   text-decoration: none;
 }
+
 @media screen and (min-width: 480px) {
   .directory-search-button--text {
     left: 86%;
     font-size: 1.8em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-button--text {
     top: 2px;
@@ -5895,12 +6826,14 @@ h6 {
     font-size: 1.3em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-button--text {
     left: 58%;
     font-size: 1.75em;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .directory-search-button--text {
     left: 68%;
@@ -5937,22 +6870,27 @@ h6 {
   color: #000000;
   margin-bottom: 2em;
 }
+
 .directory-search-results--table .row {
   margin-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--table .row {
     width: 98%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-results--table .row {
     width: 100%;
   }
 }
+
 .directory-search-results--table .row .row {
   margin: 0;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--table .row .row {
     width: 100%;
@@ -5965,6 +6903,7 @@ h6 {
   border-bottom: 1px solid #ffffff;
   font-size: 1em;
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-results--row {
     padding: 2.2em;
@@ -5976,11 +6915,13 @@ h6 {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--row-header {
     font-size: 1em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-results--row-header {
     font-size: 1.2em;
@@ -5992,11 +6933,13 @@ h6 {
   color: #565656;
   font-size: 0.95em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--row-content {
     font-size: 0.9em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .directory-search-results--row-content {
     font-size: 1em;
@@ -6006,6 +6949,7 @@ h6 {
 .directory-search-results--row-content--name {
   font-size: 1.2em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--row-content--name {
     font-size: 1em;
@@ -6018,6 +6962,7 @@ h6 {
   line-height: 1.2em;
   margin-bottom: 0.5em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--row-content--job-title {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -6030,6 +6975,7 @@ h6 {
   float: left;
   margin-right: 0.25em;
 }
+
 @media screen and (min-width: 768px) {
   .directory-search-results--row-content--label {
     font-weight: normal;
@@ -6042,12 +6988,15 @@ h6 {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #000000;
 }
+
 .discover-element .element-title:hover {
   color: #000000;
 }
+
 .discover-element .element-text {
   margin-top: 0.6em;
 }
+
 .discover-element .element-text p {
   font-size: 1em;
 }
@@ -6057,6 +7006,7 @@ h6 {
   padding-top: 0.5em !important;
   padding-left: 0.75em !important;
 }
+
 .discoverrelated .discover .discover-element-text p {
   font-size: 1em;
 }
@@ -6065,14 +7015,17 @@ h6 {
 .discoverpublication h1 {
   padding: 0 0.5em !important;
 }
+
 @media screen and (min-width: 768px) {
   .discoverpublication h1 {
     padding: 0 1.5em;
   }
 }
+
 .discoverpublication .introduction {
   padding: 0 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .discoverpublication .introduction {
     padding: 0 1.5em;
@@ -6086,41 +7039,49 @@ h6 {
   padding: 1.5em 1.5em 1em 1.5em;
   color: #FFFFFF;
 }
+
 @media screen and (max-width: 1024px) {
   .event--calendar--wrapper {
     margin: 0;
     width: 100%;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .event--calendar--wrapper .event-calendar--keyword-search--wrapper {
     padding-right: 0.9em;
   }
 }
+
 @media screen and (min-width: 641px) {
   .event--calendar--wrapper .event-calendar--date-pickers--wrapper {
     padding-left: 0.9em;
   }
 }
+
 @media screen and (max-width: 640px) {
   .event--calendar--wrapper .event-calendar--date-pickers--wrapper {
     margin-top: 1em;
   }
 }
+
 .event--calendar--wrapper .calendar--search--label {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin-bottom: 0.6em;
   font-size: 1.375em;
 }
+
 .event--calendar--wrapper .search-keywords input {
   border: none;
   height: 2.8em;
 }
+
 @media screen and (min-width: 1025px) {
   .event--calendar--wrapper .search-keywords input {
     height: 4.48em;
   }
 }
+
 .event--calendar--wrapper .search-icon {
   background-color: #EEEEEE;
   text-align: center;
@@ -6128,16 +7089,19 @@ h6 {
   height: 3.5em;
   padding-top: 0.75em;
 }
+
 @media screen and (min-width: 1025px) {
   .event--calendar--wrapper .search-icon {
     height: 5.6em;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .event--calendar--wrapper .search-icon {
     padding-top: 1.7em;
   }
 }
+
 .event--calendar--wrapper .search-keywords input,
 .event--calendar--wrapper .calendar--select select,
 .event--calendar--wrapper .dates--label,
@@ -6145,10 +7109,12 @@ h6 {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.25em;
 }
+
 .event--calendar--wrapper .calendar--select select {
   background-image: url(../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
   padding: 0.35rem 0.5rem 0.2rem;
 }
+
 .event--calendar--wrapper .reset--filter {
   font-family: Arial;
   font-size: 1em;
@@ -6157,15 +7123,18 @@ h6 {
   color: #B6B6B6;
   cursor: pointer;
 }
+
 .event--calendar--wrapper .date--picker {
   margin: 0 0 1rem 0;
   line-height: 1.6em;
 }
+
 .event--calendar--wrapper .date--wrapper {
   background: #FFFFFF;
   color: #565656;
   padding-right: 0.3em;
 }
+
 .event--calendar--wrapper .date--wrapper input,
 .event--calendar--wrapper .date--wrapper input[type="text"][readonly] {
   border: none;
@@ -6176,20 +7145,25 @@ h6 {
   padding: 0 0 0 0.3em;
   font-size: 1em;
 }
+
 .event--calendar--wrapper .date--wrapper input:focus {
   background: none;
 }
+
 .event--calendar--wrapper .calendar--text,
 .event--calendar--wrapper .calendar--icon {
   margin-top: -1.2em;
 }
+
 .event--calendar--wrapper .calendar--icon {
   text-align: center;
 }
+
 .event--calendar--wrapper .dates--label {
   font-size: 1em;
   padding-left: 0.3em;
 }
+
 .event--calendar--wrapper .date--button {
   cursor: pointer;
   position: relative;
@@ -6202,42 +7176,50 @@ h6 {
   text-decoration: none;
   text-align: center;
 }
+
 @media screen and (min-width: 360px) {
   .event--calendar--wrapper .date--button {
     font-size: 1.125em;
   }
 }
+
 @media screen and (min-width: 640px) {
   .event--calendar--wrapper .date--button {
     font-size: 1em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .event--calendar--wrapper .date--button {
     font-size: 1.125em;
   }
 }
+
 .event--calendar--wrapper .date--button input {
   padding: 0;
   background: none;
   border: none;
   line-height: 2.65em;
 }
+
 @media screen and (min-width: 360px) {
   .event--calendar--wrapper .date--button input {
     line-height: 2.1em;
   }
 }
+
 @media screen and (min-width: 640px) {
   .event--calendar--wrapper .date--button input {
     line-height: 2.2em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .event--calendar--wrapper .date--button input {
     line-height: 1.9em;
   }
 }
+
 .event--calendar--wrapper .date--button:hover,
 .event--calendar--wrapper .date--button--selected {
   background: #FFFFFF;
@@ -6263,9 +7245,11 @@ h6 {
   display: inline-block;
   width: 100%;
 }
+
 .event--information--wrapper .hti-box p {
   margin-bottom: 0;
 }
+
 .event--information--wrapper .event--information--new-section {
   margin-top: 1.0em;
 }
@@ -6274,10 +7258,12 @@ h6 {
 .event--schedule--wrapper {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
 .event--schedule--wrapper .event--schedule--title {
   padding: 1em;
   color: #FFFFFF;
 }
+
 .event--schedule--wrapper .event--schedule--tbody .event--schedule--td,
 .event--schedule--wrapper .event--schedule--tbody .event--schedule--times {
   padding: 1em;
@@ -6285,10 +7271,12 @@ h6 {
   border-bottom: 1px solid #FFFFFF;
   vertical-align: top;
 }
+
 .event--schedule--wrapper .event--schedule--tbody .event--schedule--times {
   color: #000000;
   padding-left: 0;
 }
+
 .event--schedule--wrapper .event--schedule--show--more {
   text-align: center;
   padding: 1em;
@@ -6297,6 +7285,7 @@ h6 {
   cursor: pointer;
   border-top: 1px solid #FFFFFF;
 }
+
 .event--schedule--wrapper .event--schedule--show--more:after {
   display: inline-block;
   zoom: 1;
@@ -6313,21 +7302,26 @@ h6 {
 .event-slider-wrapper {
   /** WR-617 - change event slider H4 to H3 **/
 }
+
 .event-slider-wrapper h3 {
   padding: 0.5em;
 }
+
 @media screen and (min-width: 768px) {
   .event-slider-wrapper h3 {
     padding: 0.5em 0.75em;
   }
 }
+
 .event-slider-wrapper .event-slider li {
   float: left;
   width: 33%;
 }
+
 .event-slider-wrapper .event-slider li img {
   width: 100%;
 }
+
 .event-slider-wrapper .event-slider li h4 {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
@@ -6336,17 +7330,21 @@ h6 {
   margin: 0;
   padding: 0;
 }
+
 .event-slider-wrapper .event-slider li p {
   margin: 0.4em 0 0;
   font-size: 0.875em;
   color: #565656;
 }
+
 .event-slider-wrapper .event-slider li p a {
   padding-right: 1em;
 }
+
 .event-slider-wrapper .event-slider .event-slide-meta {
   padding: 0.3125em 6%;
 }
+
 .event-slider-wrapper .event-slider .event-slide-content {
   padding: 1.25em 6%;
 }
@@ -6366,6 +7364,7 @@ h6 {
   color: #2a6cd9;
   font-size: 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .event-slider .event-time,
   .event-slider .event-tag {
@@ -6374,6 +7373,7 @@ h6 {
     padding-left: 12%;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .event-slider .event-time,
   .event-slider .event-tag {
@@ -6385,32 +7385,38 @@ h6 {
     padding-left: 8%;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .event-slider .event-time,
   .event-slider .event-tag {
     width: 46%;
   }
 }
+
 .event-slider .event-time .ico,
 .event-slider .event-tag .ico {
   position: absolute;
   top: 0;
   left: 0;
 }
+
 .event-slider .event-time .ico {
   width: 19px;
   height: 19px;
 }
+
 @media screen and (min-width: 768px) {
   .event-slider .event-time {
     padding-bottom: 1em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .event-slider .event-time {
     padding-bottom: 0;
   }
 }
+
 .event-slider .event-tag .ico {
   width: 17px;
   height: 16px;
@@ -6420,12 +7426,15 @@ h6 {
 .event--calendar--search--result .event--calendar--search--result--title {
   padding: 0.5em 0.7em 0 0.7em;
 }
+
 .event--calendar--search--result .event--calendar--search--result--description {
   max-height: 6.2em;
 }
+
 .event--calendar--search--result .event--calendar--search--result--item--content {
   padding: 0.5em 1.25em;
 }
+
 .event--calendar--search--result .event--calendar--search--result--content--text {
   margin-bottom: 0.4em;
 }
@@ -6440,11 +7449,13 @@ h6 {
     padding-left: 24%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .info-sidebar li {
     padding-left: 18%;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .info-sidebar li {
     padding-left: 16%;
@@ -6462,11 +7473,13 @@ h6 {
   width: 100%;
   position: relative;
 }
+
 @media screen and (max-width: 1024px) {
   .image--and--cta--wrapper {
     margin-bottom: 1em;
   }
 }
+
 .image--and--cta--wrapper .cta--wrapper {
   background-color: #FFFFFF;
   right: 0;
@@ -6476,21 +7489,25 @@ h6 {
   display: block;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
+
 @media screen and (min-width: 768px) {
   .image--and--cta--wrapper .cta--wrapper {
     top: 65%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .image--and--cta--wrapper .cta--wrapper {
     top: 70%;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .image--and--cta--wrapper .cta--wrapper {
     top: 75%;
   }
 }
+
 .image--and--cta--wrapper .cta--wrapper .cta--text {
   padding-bottom: 0;
   margin-top: 0.4em;
@@ -6500,35 +7517,42 @@ h6 {
   font-family: "Elysio-Regular";
   color: #565656;
 }
+
 @media screen and (min-width: 768px) {
   .image--and--cta--wrapper .cta--wrapper .cta--text {
     margin-top: 0.25em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .image--and--cta--wrapper .cta--wrapper .cta--text {
     font-size: 1.35em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .image--and--cta--wrapper .cta--wrapper .cta--text {
     font-size: 1.8em;
   }
 }
+
 .image--and--cta--wrapper .svg-ico {
   height: 40px;
   width: 100%;
   position: relative;
   top: 0;
 }
+
 .image--and--cta--wrapper .image--and--cta--image {
   height: 435px;
 }
+
 @media screen and (max-width: 1024px) {
   .image--and--cta--wrapper .image--and--cta--image {
     height: auto;
   }
 }
+
 .image--and--cta--wrapper .image--not--matching--ratio {
   width: 100%;
 }
@@ -6546,14 +7570,17 @@ h6 {
     width: 32%;
   }
 }
+
 @media screen and (min-width: 1160px) {
   .global-header-info {
     right: -55px;
   }
 }
+
 .global-header-info .global-header-info__item--last {
   padding-right: 0;
 }
+
 @media screen and (min-width: 768px) {
   .global-header-info .global-header-info__item--last {
     padding-right: 20px;
@@ -6591,6 +7618,7 @@ h6 {
   background-color: #ffffff;
   padding-bottom: 0;
 }
+
 .nav-list.level-1 > .nav-list__item.shop {
   overflow: visible;
 }
@@ -6601,6 +7629,7 @@ h6 {
   z-index: auto;
   /** set z-index back to original value on tablets and above **/
 }
+
 @media screen and (min-width: 768px) {
   .global-header {
     z-index: 99999;
@@ -6610,31 +7639,38 @@ h6 {
 .nav-list.level-1 > .nav-list__item a:hover {
   color: #000000;
 }
+
 @media screen and (min-width: 1160px) {
   .nav-list.level-1 > .nav-list__item a:hover {
     color: #808080;
   }
 }
+
 .nav-list.level-1 > .nav-list__item.selected {
   background-color: #000000;
 }
+
 .nav-list.level-1 > .nav-list__item.selected a {
   color: #ffffff;
 }
+
 .nav-list.level-1 > .nav-list__item.selected .nav-list.level-2 {
   right: -2.5%;
   /** set to 100 to ensure mobile sub-nav displays above all other page elements **/
   z-index: 100;
   transition: 1s linear;
 }
+
 .nav-list.level-1 .level-2 {
   transition: none;
   right: 0;
   z-index: -100;
 }
+
 .nav-list.level-1 .level-2 .nav-list__item a {
   color: #000000;
 }
+
 @media screen and (min-width: 1160px) {
   .nav-list.level-1 .level-2 .nav-list__item a:hover {
     color: #808080;
@@ -6657,18 +7693,22 @@ h6 {
   color: #fff;
   /** overrides Foundation forms styles **/
 }
+
 .main-footer label {
   color: #FFFFFF;
 }
+
 .main-footer fieldset legend {
   background: none;
   font-weight: normal;
   padding: 0;
 }
+
 .main-footer .row {
   position: relative;
   margin-bottom: 0;
 }
+
 .main-footer .footer--frame-wrapper {
   position: relative;
   border-radius: 0 30px;
@@ -6676,17 +7716,20 @@ h6 {
   margin-bottom: 6em;
   padding: 2em 5%;
 }
+
 @media screen and (min-width: 768px) {
   .main-footer .footer--frame-wrapper {
     padding: 1.5em 2%;
     margin-bottom: 0;
   }
 }
+
 .main-footer .footer--frame-wrapper:before, .main-footer .footer--frame-wrapper:after {
   display: block;
   content: "";
   position: absolute;
 }
+
 .main-footer .footer--frame-wrapper:before {
   bottom: -2px;
   left: 10%;
@@ -6695,6 +7738,7 @@ h6 {
   border-top: 2px solid #565656;
   border-bottom: 2px solid #565656;
 }
+
 .main-footer .footer--frame-wrapper:after {
   right: -2px;
   top: 12.5%;
@@ -6703,11 +7747,13 @@ h6 {
   border-left: 2px solid #565656;
   border-right: 2px solid #565656;
 }
+
 .main-footer .footer--frame:before, .main-footer .footer--frame:after {
   display: block;
   content: "";
   position: absolute;
 }
+
 .main-footer .footer--frame:before {
   top: -2px;
   left: 10%;
@@ -6716,6 +7762,7 @@ h6 {
   border-top: 2px solid #565656;
   border-bottom: 2px solid #565656;
 }
+
 .main-footer .footer--frame:after {
   left: -2px;
   top: 12.5%;
@@ -6724,18 +7771,22 @@ h6 {
   border-left: 2px solid #565656;
   border-right: 2px solid #565656;
 }
+
 .main-footer .footer-nav {
   z-index: 100;
 }
+
 .main-footer .footer-nav ul {
   margin: 0;
 }
+
 .main-footer .footer-nav li {
   padding-top: 0.75em;
   font-size: 1.1em;
   margin-right: 1em;
   line-height: 1.4;
 }
+
 @media screen and (min-width: 640px) {
   .main-footer .footer-nav li {
     padding-top: 0.5em;
@@ -6743,50 +7794,61 @@ h6 {
     line-height: 1.9;
   }
 }
+
 .main-footer .footer-nav li:first-child {
   padding-top: 0;
 }
+
 .main-footer .footer-nav a {
   color: #fff;
 }
+
 .main-footer .footer-nav .footer--icon-list-container {
   padding-top: 0;
 }
+
 .main-footer .footer-nav .footer--icon-list-title {
   line-height: 1.6;
   margin-top: 20px;
   font-size: 1em;
 }
+
 .main-footer .footer-nav .icon-list li {
   padding: 0.8em 0.8em 0 0;
   width: 33%;
   margin-right: 0;
 }
+
 @media screen and (min-width: 480px) {
   .main-footer .footer-nav .icon-list li {
     width: 28%;
   }
 }
+
 @media screen and (min-width: 768px) {
   .main-footer .footer-nav .icon-list li {
     width: 21%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .main-footer .footer-nav .icon-list li {
     width: 18%;
   }
 }
+
 .main-footer .footer-nav .icon-list a {
   padding: 0;
   display: inline;
   width: 30%;
 }
+
 @media screen and (min-width: 480px) {
   .main-footer .footer-nav .icon-list a {
     width: auto;
   }
 }
+
 .main-footer .footer-utility {
   position: relative;
   z-index: 100;
@@ -6794,6 +7856,7 @@ h6 {
   padding-top: 1.5em;
   border-top: 1px solid #FFFFFF;
 }
+
 @media screen and (min-width: 1025px) {
   .main-footer .footer-utility {
     margin-top: 0;
@@ -6802,16 +7865,19 @@ h6 {
     border-top: 0;
   }
 }
+
 .main-footer .footer-utility fieldset {
   margin: 0 0 1em;
   padding: 0;
   border: 0;
 }
+
 .main-footer .footer-utility .newslettersignup--footer-label {
   display: block;
   margin: 0.5em 0 0.1em;
   font-size: 0.875em;
 }
+
 .main-footer .footer-utility .newslettersignup--footer-input {
   width: 94%;
   border: 0;
@@ -6821,11 +7887,13 @@ h6 {
   color: #565656;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
+
 @media screen and (min-width: 768px) {
   .main-footer .footer-utility .newslettersignup--footer-input {
     padding: 0.5em 3%;
   }
 }
+
 .main-footer .footer-utility .newslettersignup--footer-submit-button {
   width: 94%;
   display: block;
@@ -6836,14 +7904,17 @@ h6 {
   border: 2px solid #FFFFFF;
   padding: 0.9em 0.3em 1em 1em;
 }
+
 @media screen and (min-width: 768px) {
   .main-footer .footer-utility .newslettersignup--footer-submit-button {
     padding: 0.7em 0.3em 0.7em 1em;
   }
 }
+
 .main-footer .footer-utility p {
   font-size: 1.1em;
 }
+
 .main-footer .footer-utility .errors {
   background-color: #F5E6E6;
   border: 2px solid #AE3C39;
@@ -6855,6 +7926,7 @@ h6 {
   width: 94%;
   margin-bottom: 0.5em;
 }
+
 .main-footer .footer-info {
   float: none;
   position: absolute;
@@ -6865,17 +7937,20 @@ h6 {
   background: url(/etc/designs/nhmwww/img/nhm-logo-white.png) no-repeat center top;
   background-size: 35% auto;
 }
+
 @media screen and (min-width: 480px) {
   .main-footer .footer-info {
     background-size: 20% auto;
   }
 }
+
 @media screen and (min-width: 640px) {
   .main-footer .footer-info {
     background-size: 25% auto;
     width: 75%;
   }
 }
+
 @media screen and (min-width: 768px) {
   .main-footer .footer-info {
     bottom: auto;
@@ -6890,19 +7965,23 @@ h6 {
     text-align: left;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .main-footer .footer-info {
     background-size: 85% auto;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .main-footer .footer-info {
     background-size: auto;
   }
 }
+
 .main-footer .footer-info-text {
   font-size: 0.8em;
 }
+
 @media screen and (min-width: 768px) {
   .main-footer .footer-info-text {
     position: absolute;
@@ -6913,12 +7992,14 @@ h6 {
     line-height: 1.3;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .main-footer .footer-info-text {
     left: 33%;
     bottom: 33%;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .main-footer .footer-info-text {
     bottom: 20%;
@@ -6952,10 +8033,12 @@ h6 {
   line-height: 1.5em;
   padding: 0;
 }
+
 .feed--item--title a {
   color: #000000;
   font-weight: bold;
 }
+
 .feed--item--title a:hover {
   color: #000000;
 }
@@ -6970,6 +8053,7 @@ h6 {
   color: #ffffff;
   font-size: 0.95em;
 }
+
 @media screen and (min-width: 768px) {
   .feed--item--caption {
     font-size: 1em;
@@ -6983,20 +8067,24 @@ h6 {
 .feed--list .feed--item--content-wrapper {
   padding: 0;
 }
+
 @media screen and (min-width: 768px) {
   .feed--list .feed--item--content-wrapper {
     padding: 1.25em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .feed--list .feed--item--content {
     padding-top: 0;
     padding-right: 0;
   }
 }
+
 .feed--list .feed--item--title {
   margin-top: 0.5em;
 }
+
 @media screen and (min-width: 768px) {
   .feed--list .feed--item--title {
     margin-top: 0;
@@ -7009,9 +8097,11 @@ h6 {
   background-color: #f4f4f4;
   clear: both;
 }
+
 .grand-summary--wrapper .row {
   margin-bottom: 0;
 }
+
 @media screen and (max-width: 768px) {
   .grand-summary--wrapper .row {
     width: 100%;
@@ -7019,14 +8109,17 @@ h6 {
     margin-left: 0;
   }
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .row .row {
     margin: 0;
   }
 }
+
 .grand-summary--wrapper.grand-summary--exhibition {
   padding-bottom: 1.5em;
 }
+
 .grand-summary--wrapper.grand-summary--exhibition .grand-summary--caption-container .caption {
   padding: 0;
 }
@@ -7035,6 +8128,7 @@ h6 {
   padding-top: 0.75em;
   padding-left: 1.5em;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--exhibition-details-grid {
     padding-top: 1.5em;
@@ -7044,6 +8138,7 @@ h6 {
 .grand-summary--exhibition-details-grid li:first-child {
   padding-right: 1em;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--exhibition-details-grid li:first-child {
     padding-left: 1em;
@@ -7065,11 +8160,13 @@ h6 {
   padding-top: 0;
   padding-left: 0;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--wrapper .info-sidebar {
     margin-top: 0;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .grand-summary--wrapper .info-sidebar {
     padding-left: 2em;
@@ -7098,11 +8195,13 @@ h6 {
   padding: 0;
   height: auto;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption {
     padding-bottom: 1em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--caption-container .caption.grand-summary--exhibition {
     height: 146px;
@@ -7112,6 +8211,7 @@ h6 {
 .grand-summary--caption-title--container {
   padding: 1em 1.5em 0.2em 1.5em;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--caption-title--container {
     padding-top: 0.75em;
@@ -7126,16 +8226,19 @@ h6 {
 .grand-summary--caption-description--container {
   padding: 0 1em 0.75em 1.5em;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--caption-description--container {
     padding-bottom: 0;
     padding-left: 1.5em;
   }
 }
+
 .grand-summary--caption-description--container p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1em !important;
 }
+
 @media screen and (min-width: 768px) {
   .grand-summary--caption-description--container p {
     font-size: 1.15em !important;
@@ -7162,14 +8265,17 @@ h6 {
   border: 3px solid #565656;
   background-color: #FFFFFF;
 }
+
 .grand-summary--wrapper .ctabutton:hover h3 {
   text-decoration: underline;
 }
+
 .grand-summary--wrapper .ctabutton .svg-ico {
   height: 40px;
   top: 30%;
   width: 100%;
 }
+
 .grand-summary--wrapper .ctabutton--cta-text {
   color: #565656;
   padding-bottom: 0;
@@ -7219,48 +8325,42 @@ a.button-cta {
   .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
     width: 64.94254%;
   }
-
   .headertextimage .right-box.large-6.medium-6.columns,
   .headertextimage .left-box.large-6.medium-6.columns {
     width: 48.67198%;
   }
-
   .headertextimage .GreyBox.large-6.medium-6.columns,
   .headertextimage .GreyBox.right-box.large-6.medium-6.columns {
     width: 51.32802%;
   }
-
   .row2cells21 .large-4.medium-4.columns .headertextimage {
     margin-top: 0px;
   }
-
   .row2cells12 .large-8.medium-8.columns .headertextimage {
     margin-top: 0px;
   }
 }
+
 @media only screen and (min-width: 64.063em) {
   .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
     width: 64.94254%;
   }
-
   .headertextimage .right-box.large-6.medium-6.columns,
   .headertextimage .left-box.large-6.medium-6.columns {
     width: 48.67198%;
   }
-
   .headertextimage .GreyBox.large-6.medium-6.columns,
   .headertextimage .GreyBox.right-box.large-6.medium-6.columns {
     width: 51.32802%;
   }
-
   .row2cells21 .large-4.medium-4.columns .headertextimage {
     margin-top: 0px;
   }
-
   .row2cells12 .large-8.medium-8.columns .headertextimage {
     margin-top: 0px;
   }
 }
+
 .cq-wcm-edit .headertextimage {
   overflow: auto;
 }
@@ -7272,18 +8372,22 @@ a.button-cta {
   /** this can eventually apply to generic ctabutton only **/
   /** this can eventually apply to generic ctabutton only **/
 }
+
 .hti-box p {
   font-size: 1.125em;
   margin-bottom: 1.2em;
 }
+
 .hti-box h3 {
   padding-left: 0;
   padding-bottom: 0.3em;
   color: #565656;
 }
+
 .hti-box .ctabutton--inside-hti:hover h3 {
   text-decoration: underline;
 }
+
 .hti-box .ctabutton--inside-hti--cta-text {
   padding-bottom: 0;
   margin-top: 0.4em;
@@ -7292,6 +8396,7 @@ a.button-cta {
   font-family: "Elysio-Regular";
   color: #565656;
 }
+
 @media screen and (min-width: 768px) {
   .hti-box .ctabutton--inside-hti--cta-text {
     margin-top: 0.25em;
@@ -7307,12 +8412,15 @@ a.button-cta {
   background-color: #808080 !important;
   color: #ffffff;
 }
+
 .hti-box__dark-grey h3 {
   color: #ffffff;
 }
+
 .hti-box__dark-grey a {
   color: #D5D5D5;
 }
+
 .hti-box__dark-grey a:hover {
   color: #D5D5D5;
 }
@@ -7321,12 +8429,15 @@ a.button-cta {
 .hti-box__feature-box {
   color: #ffffff;
 }
+
 .hti-box__feature-box h3 {
   color: #ffffff;
 }
+
 .hti-box__feature-box a {
   color: #D5D5D5;
 }
+
 .hti-box__feature-box a:hover {
   color: #D5D5D5;
 }
@@ -7334,14 +8445,17 @@ a.button-cta {
 .hti-box--text-wrapper {
   padding: 0.5em 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .hti-box--text-wrapper {
     padding: 1em 1.5em;
   }
 }
+
 .hti-box--text-wrapper ul {
   margin-left: 1em;
 }
+
 .hti-box--text-wrapper ul li {
   list-style-type: disc;
   list-style-position: outside;
@@ -7382,17 +8496,18 @@ a.button-cta {
   /*width: 60%;*/
   width: 100%;
   /*
-  	@media screen and (min-width: $tablet) {
-  		height: 36%;
-  		top: 34%;
-  		right: 0;
-  	}*/
+	@media screen and (min-width: $tablet) {
+		height: 36%;
+		top: 34%;
+		right: 0;
+	}*/
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
 .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
     width: 65.7%;
@@ -7404,6 +8519,7 @@ a.button-cta {
   padding: 0.5em 0.75em;
   margin-bottom: 1.2em;
 }
+
 @media screen and (min-width: 768px) {
   .linklist--container {
     padding: 1em 1.5em;
@@ -7421,11 +8537,13 @@ a.button-cta {
 .linklist--column--no-header {
   padding-top: 0px;
 }
+
 @media screen and (min-width: 768px) {
   .linklist--column--no-header {
     padding-top: 5.625em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .linklist--column--no-header {
     padding-top: 3.438em;
@@ -7436,6 +8554,7 @@ a.button-cta {
   padding-bottom: 0 !important;
   margin-bottom: 0.4em;
 }
+
 .linklist--container--header a {
   color: #565656;
 }
@@ -7447,6 +8566,7 @@ a.button-cta {
 .linklist--column-container li {
   padding-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .linklist--column-container li {
     padding-bottom: 1.25em;
@@ -7456,16 +8576,19 @@ a.button-cta {
 .linklist--link-items {
   margin-left: 0;
 }
+
 .linklist--link-items li {
   padding-bottom: 0;
   margin-bottom: 0.6em;
 }
+
 .linklist--link-items li a {
   text-decoration: none;
   font-weight: bold;
   color: #000000;
   border-bottom: 1px dotted #000000;
 }
+
 .linklist--link-items li a:hover {
   border-bottom-style: solid;
   text-decoration: none;
@@ -7483,9 +8606,11 @@ a.button-cta {
   clear: both;
   text-align: center;
 }
+
 .more-results a {
   color: #565656;
 }
+
 .more-results a:hover {
   color: #565656;
 }
@@ -7493,6 +8618,7 @@ a.button-cta {
 .more-results-text__directory-search-results {
   font-size: 1.3em;
 }
+
 @media screen and (min-width: 768px) {
   .more-results-text__directory-search-results {
     font-size: 1.4em;
@@ -7512,6 +8638,7 @@ a.button-cta {
   line-height: 1.2em;
   font-size: 1.3em;
 }
+
 @media screen and (min-width: 768px) {
   .more-results-text__event--calendar--search--results {
     font-size: 1.4em;
@@ -7533,38 +8660,46 @@ a.button-cta {
   margin: 1.3em 0;
   clear: both;
 }
+
 @media screen and (min-width: 768px) {
   .secondary-nav-wrapper {
     margin: 0 0 1.3em 0;
   }
 }
+
 .secondary-nav-wrapper .side-nav {
   padding: 0;
 }
+
 .secondary-nav-wrapper .side-nav li {
   margin-bottom: 0.3em;
   border: none;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1em;
 }
+
 @media screen and (min-width: 768px) {
   .secondary-nav-wrapper .side-nav li {
     font-size: 1.2em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .secondary-nav-wrapper .side-nav li {
     font-size: 1.4em;
   }
 }
+
 .secondary-nav-wrapper .side-nav li a {
   color: #107E5E;
   padding: 1em 1.5em;
 }
+
 .secondary-nav-wrapper .side-nav li a:hover {
   color: #107E5E;
   text-decoration: none;
 }
+
 .secondary-nav-wrapper .side-nav li.selected a:hover {
   text-decoration: none;
 }
@@ -7577,19 +8712,23 @@ a.button-cta {
 .science-profiles-detail-page--personal-group h2 {
   padding-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .science-profiles-detail-page--personal-group h2 {
     font-size: 1.8333em;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .science-profiles-detail-page--personal-group h2 {
     font-size: 2.1em;
   }
 }
+
 .science-profiles-detail-page--personal-group h3 {
   padding-bottom: 0.1em;
 }
+
 .science-profiles-detail-page--personal-group .hti-box {
   padding-bottom: 0;
 }
@@ -7598,6 +8737,7 @@ a.button-cta {
   margin-bottom: 1.2em;
   font-size: 1.125em;
 }
+
 @media screen and (min-width: 768px) {
   .science-profiles-detail-page--personal {
     margin-bottom: 0;
@@ -7624,23 +8764,28 @@ a.button-cta {
   background-color: #808080;
   margin-top: 0;
 }
+
 .science-profiles-detail-page--tabs-container .tab-title {
   border-right: 1px solid #ffffff;
 }
+
 .science-profiles-detail-page--tabs-container .tab-title a {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   background-color: #808080;
   color: #ffffff;
 }
+
 .science-profiles-detail-page--tabs-container .tab-title a:hover {
   background-color: #aaaaaa;
   text-decoration: none;
 }
+
 .science-profiles-detail-page--tabs-container .tab-title.active a {
   color: #357900;
   background-color: #eeeeee;
 }
+
 .science-profiles-detail-page--tabs-container .tab-title.active a:hover {
   background-color: #eeeeee;
 }
@@ -7650,6 +8795,7 @@ a.button-cta {
     padding: 0 1.8em 0 1em;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .science-profiles-detail-page--tabs-content-container {
     padding-left: 2em;
@@ -7681,7 +8827,7 @@ a.button-cta {
   margin-bottom: 1.2em;
 }
 
-.events .title-bar {
+.template--eventcalendar-detail-page .title-bar {
   margin-bottom: 1.2em;
 }
 
@@ -7689,19 +8835,23 @@ a.button-cta {
 .text {
   padding: 0 0.75em;
 }
+
 @media screen and (min-width: 768px) {
   .text {
     padding: 0 1.5em;
   }
 }
+
 .text ul {
   padding-left: 1.5em;
 }
+
 .text ul li {
   font-size: 1em;
   list-style: disc outside;
   margin-bottom: 0.5em;
 }
+
 @media screen and (min-width: 768px) {
   .text ul li {
     font-size: 1.125em;
@@ -7714,23 +8864,28 @@ a.button-cta {
   background-color: #EEEEEE;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
 .enews-signup-form-container a {
   text-decoration: none;
   border-bottom: 1px dotted #000000;
   color: #000000;
 }
+
 .enews-signup-form-container a:hover {
   border-bottom-style: solid;
   border-bottom-color: #565656;
   color: #565656;
 }
+
 .enews-signup-form-container form {
   margin-bottom: 0;
 }
+
 .enews-signup-form-container label {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.125em;
 }
+
 .enews-signup-form-container .errors {
   margin-top: 10px;
   color: #A1164E;
@@ -7747,6 +8902,7 @@ a.button-cta {
 input.searchBox {
   display: inline;
 }
+
 input.searchGo {
   display: inline;
   padding: 0 5px !important;
@@ -7759,24 +8915,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .about-us .title-bar {
   background-color: #0B5C7B;
 }
+
 .about-us h1 {
   color: #0B5C7B;
 }
+
 .about-us .intro-text {
   color: #0B5C7B;
 }
+
 .about-us .button__enews-signup {
   background-color: #0B5C7B;
 }
+
 .about-us .button__enews-signup:hover {
   background-color: rgba(11, 92, 123, 0.75);
 }
+
 .about-us .button__enews-signup:focus {
   background-color: rgba(11, 92, 123, 0.75);
 }
+
 .about-us .carousel .caption {
   background-color: rgba(11, 92, 123, 0.9);
 }
@@ -7784,23 +8947,29 @@ input.searchGo {
 .about-us .secondary-nav-wrapper .side-nav li {
   background-color: rgba(11, 92, 123, 0.1);
 }
+
 .about-us .secondary-nav-wrapper .side-nav li a {
   color: #0B5C7B;
 }
+
 .about-us .secondary-nav-wrapper .side-nav li a:hover {
   color: #0B5C7B;
   background-color: rgba(11, 92, 123, 0.25);
 }
+
 .about-us .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(11, 92, 123, 0.25);
   color: #0B5C7B;
 }
+
 .about-us .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(11, 92, 123, 0.25);
 }
+
 .about-us .secondary-nav-wrapper .side-nav li.selected a {
   color: #0B5C7B;
 }
+
 .about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #0B5C7B;
 }
@@ -7808,9 +8977,11 @@ input.searchGo {
 .about-us .linklist--container--header a {
   color: #0B5C7B;
 }
+
 .about-us .linklist--link-items li a:hover {
   border-bottom-color: #0B5C7B;
 }
+
 .about-us .linklist--column--header a {
   color: #0B5C7B;
 }
@@ -7819,6 +8990,7 @@ input.searchGo {
 .about-us .ctabutton--inside-hti--cta-text {
   color: #0B5C7B;
 }
+
 .about-us .hti-box__feature-box {
   background-color: #0B5C7B;
 }
@@ -7832,14 +9004,17 @@ input.searchGo {
 .about-us .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png");
 }
+
 .about-us .accordion .accordion-navigation > a:hover,
 .about-us .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .about-us .accordion .accordion-navigation.active > a,
 .about-us .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-about-us.png");
 }
+
 .about-us .accordion .accordion-navigation.active > a:hover,
 .about-us .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -7849,12 +9024,15 @@ input.searchGo {
 .about-us .lSAction a:hover {
   background-color: rgba(11, 92, 123, 0.7);
 }
+
 .about-us .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #0B5C7B;
 }
+
 .about-us .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .about-us .event-slide-content a {
   color: #0B5C7B;
 }
@@ -7864,24 +9042,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .account .title-bar {
   background-color: #00385D;
 }
+
 .account h1 {
   color: #00385D;
 }
+
 .account .intro-text {
   color: #00385D;
 }
+
 .account .button__enews-signup {
   background-color: #00385D;
 }
+
 .account .button__enews-signup:hover {
   background-color: rgba(0, 56, 93, 0.75);
 }
+
 .account .button__enews-signup:focus {
   background-color: rgba(0, 56, 93, 0.75);
 }
+
 .account .carousel .caption {
   background-color: rgba(0, 56, 93, 0.9);
 }
@@ -7889,23 +9074,29 @@ input.searchGo {
 .account .secondary-nav-wrapper .side-nav li {
   background-color: rgba(0, 56, 93, 0.1);
 }
+
 .account .secondary-nav-wrapper .side-nav li a {
   color: #00385D;
 }
+
 .account .secondary-nav-wrapper .side-nav li a:hover {
   color: #00385D;
   background-color: rgba(0, 56, 93, 0.25);
 }
+
 .account .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(0, 56, 93, 0.25);
   color: #00385D;
 }
+
 .account .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(0, 56, 93, 0.25);
 }
+
 .account .secondary-nav-wrapper .side-nav li.selected a {
   color: #00385D;
 }
+
 .account .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #00385D;
 }
@@ -7915,14 +9106,17 @@ input.searchGo {
 .account .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-account.png");
 }
+
 .account .accordion .accordion-navigation > a:hover,
 .account .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .account .accordion .accordion-navigation.active > a,
 .account .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-account.png");
 }
+
 .account .accordion .accordion-navigation.active > a:hover,
 .account .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -7932,12 +9126,15 @@ input.searchGo {
 .account .lSAction a:hover {
   background-color: rgba(0, 56, 93, 0.7);
 }
+
 .account .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #00385D;
 }
+
 .account .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .account .event-slide-content a {
   color: #00385D;
 }
@@ -7947,24 +9144,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .business-services .title-bar {
   background-color: #253480;
 }
+
 .business-services h1 {
   color: #253480;
 }
+
 .business-services .intro-text {
   color: #253480;
 }
+
 .business-services .button__enews-signup {
   background-color: #253480;
 }
+
 .business-services .button__enews-signup:hover {
   background-color: rgba(37, 52, 128, 0.75);
 }
+
 .business-services .button__enews-signup:focus {
   background-color: rgba(37, 52, 128, 0.75);
 }
+
 .business-services .carousel .caption {
   background-color: rgba(37, 52, 128, 0.9);
 }
@@ -7972,23 +9176,29 @@ input.searchGo {
 .business-services .secondary-nav-wrapper .side-nav li {
   background-color: rgba(37, 52, 128, 0.1);
 }
+
 .business-services .secondary-nav-wrapper .side-nav li a {
   color: #253480;
 }
+
 .business-services .secondary-nav-wrapper .side-nav li a:hover {
   color: #253480;
   background-color: rgba(37, 52, 128, 0.25);
 }
+
 .business-services .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(37, 52, 128, 0.25);
   color: #253480;
 }
+
 .business-services .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(37, 52, 128, 0.25);
 }
+
 .business-services .secondary-nav-wrapper .side-nav li.selected a {
   color: #253480;
 }
+
 .business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #253480;
 }
@@ -7996,9 +9206,11 @@ input.searchGo {
 .business-services .linklist--container--header a {
   color: #253480;
 }
+
 .business-services .linklist--link-items li a:hover {
   border-bottom-color: #253480;
 }
+
 .business-services .linklist--column--header a {
   color: #253480;
 }
@@ -8007,6 +9219,7 @@ input.searchGo {
 .business-services .ctabutton--inside-hti--cta-text {
   color: #253480;
 }
+
 .business-services .hti-box__feature-box {
   background-color: #253480;
 }
@@ -8016,14 +9229,17 @@ input.searchGo {
 .business-services .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-business.png");
 }
+
 .business-services .accordion .accordion-navigation > a:hover,
 .business-services .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .business-services .accordion .accordion-navigation.active > a,
 .business-services .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-business.png");
 }
+
 .business-services .accordion .accordion-navigation.active > a:hover,
 .business-services .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8033,12 +9249,15 @@ input.searchGo {
 .business-services .lSAction a:hover {
   background-color: rgba(37, 52, 128, 0.7);
 }
+
 .business-services .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #253480;
 }
+
 .business-services .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .business-services .event-slide-content a {
   color: #253480;
 }
@@ -8048,24 +9267,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .contact-us .title-bar {
   background-color: #808080;
 }
+
 .contact-us h1 {
   color: #808080;
 }
+
 .contact-us .intro-text {
   color: #808080;
 }
+
 .contact-us .button__enews-signup {
   background-color: #808080;
 }
+
 .contact-us .button__enews-signup:hover {
   background-color: rgba(128, 128, 128, 0.75);
 }
+
 .contact-us .button__enews-signup:focus {
   background-color: rgba(128, 128, 128, 0.75);
 }
+
 .contact-us .carousel .caption {
   background-color: rgba(128, 128, 128, 0.9);
 }
@@ -8073,23 +9299,29 @@ input.searchGo {
 .contact-us .secondary-nav-wrapper .side-nav li {
   background-color: rgba(128, 128, 128, 0.1);
 }
+
 .contact-us .secondary-nav-wrapper .side-nav li a {
   color: #808080;
 }
+
 .contact-us .secondary-nav-wrapper .side-nav li a:hover {
   color: #808080;
   background-color: rgba(128, 128, 128, 0.25);
 }
+
 .contact-us .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(128, 128, 128, 0.25);
   color: #808080;
 }
+
 .contact-us .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(128, 128, 128, 0.25);
 }
+
 .contact-us .secondary-nav-wrapper .side-nav li.selected a {
   color: #808080;
 }
+
 .contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #808080;
 }
@@ -8097,9 +9329,11 @@ input.searchGo {
 .contact-us .linklist--container--header a {
   color: #808080;
 }
+
 .contact-us .linklist--link-items li a:hover {
   border-bottom-color: #808080;
 }
+
 .contact-us .linklist--column--header a {
   color: #808080;
 }
@@ -8108,6 +9342,7 @@ input.searchGo {
 .contact-us .ctabutton--inside-hti--cta-text {
   color: #808080;
 }
+
 .contact-us .hti-box__feature-box {
   background-color: #808080;
 }
@@ -8117,14 +9352,17 @@ input.searchGo {
 .contact-us .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-contact-us.png");
 }
+
 .contact-us .accordion .accordion-navigation > a:hover,
 .contact-us .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .contact-us .accordion .accordion-navigation.active > a,
 .contact-us .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-contact-us.png");
 }
+
 .contact-us .accordion .accordion-navigation.active > a:hover,
 .contact-us .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8134,12 +9372,15 @@ input.searchGo {
 .contact-us .lSAction a:hover {
   background-color: rgba(128, 128, 128, 0.7);
 }
+
 .contact-us .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #808080;
 }
+
 .contact-us .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .contact-us .event-slide-content a {
   color: #808080;
 }
@@ -8150,28 +9391,36 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .discover .title-bar {
   background-color: #565656;
   margin-bottom: 1.2em;
 }
+
 .discover h1 {
   color: #107B5E;
 }
+
 .discover .discoverpublication h1 {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
+
 .discover .intro-text {
   color: #565656;
 }
+
 .discover .button__enews-signup {
   background-color: #565656;
 }
+
 .discover .button__enews-signup:hover {
   background-color: rgba(86, 86, 86, 0.75);
 }
+
 .discover .button__enews-signup:focus {
   background-color: rgba(86, 86, 86, 0.75);
 }
+
 .discover .carousel .caption {
   background-color: rgba(86, 86, 86, 0.9);
 }
@@ -8181,14 +9430,17 @@ input.searchGo {
 .discover .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .discover .accordion .accordion-navigation > a:hover,
 .discover .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .discover .accordion .accordion-navigation.active > a,
 .discover .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
 }
+
 .discover .accordion .accordion-navigation.active > a:hover,
 .discover .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8198,12 +9450,15 @@ input.searchGo {
 .discover .lSAction a:hover {
   background-color: rgba(86, 86, 86, 0.7);
 }
+
 .discover .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #565656;
 }
+
 .discover .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .discover .event-slide-content a {
   color: #565656;
 }
@@ -8212,12 +9467,15 @@ input.searchGo {
 .home a {
   color: #A1164E;
 }
+
 .home h2 {
   /** not sure where this is used **/
 }
+
 .home h2 #search-calendar select {
   margin-bottom: 10px;
 }
+
 .home .carousel-wrapper .caption {
   background-color: rgba(161, 22, 78, 0.9);
 }
@@ -8226,12 +9484,15 @@ input.searchGo {
 .home .lSAction a:hover {
   background-color: rgba(161, 22, 78, 0.7);
 }
+
 .home .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #A1164E;
 }
+
 .home .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .home .event-slide-content a {
   color: #A1164E;
 }
@@ -8241,24 +9502,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .our-science .title-bar {
   background-color: #357900;
 }
+
 .our-science h1 {
   color: #357900;
 }
+
 .our-science .intro-text {
   color: #357900;
 }
+
 .our-science .button__enews-signup {
   background-color: #357900;
 }
+
 .our-science .button__enews-signup:hover {
   background-color: rgba(53, 121, 0, 0.75);
 }
+
 .our-science .button__enews-signup:focus {
   background-color: rgba(53, 121, 0, 0.75);
 }
+
 .our-science .carousel .caption {
   background-color: rgba(53, 121, 0, 0.9);
 }
@@ -8266,23 +9534,29 @@ input.searchGo {
 .our-science .secondary-nav-wrapper .side-nav li {
   background-color: rgba(53, 121, 0, 0.1);
 }
+
 .our-science .secondary-nav-wrapper .side-nav li a {
   color: #357900;
 }
+
 .our-science .secondary-nav-wrapper .side-nav li a:hover {
   color: #357900;
   background-color: rgba(53, 121, 0, 0.25);
 }
+
 .our-science .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(53, 121, 0, 0.25);
   color: #357900;
 }
+
 .our-science .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(53, 121, 0, 0.25);
 }
+
 .our-science .secondary-nav-wrapper .side-nav li.selected a {
   color: #357900;
 }
+
 .our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #357900;
 }
@@ -8290,9 +9564,11 @@ input.searchGo {
 .our-science .linklist--container--header a {
   color: #357900;
 }
+
 .our-science .linklist--link-items li a:hover {
   border-bottom-color: #357900;
 }
+
 .our-science .linklist--column--header a {
   color: #357900;
 }
@@ -8301,6 +9577,7 @@ input.searchGo {
 .our-science .ctabutton--inside-hti--cta-text {
   color: #357900;
 }
+
 .our-science .hti-box__feature-box {
   background-color: #357900;
 }
@@ -8310,14 +9587,17 @@ input.searchGo {
 .our-science .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-our-science.png");
 }
+
 .our-science .accordion .accordion-navigation > a:hover,
 .our-science .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .our-science .accordion .accordion-navigation.active > a,
 .our-science .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-our-science.png");
 }
+
 .our-science .accordion .accordion-navigation.active > a:hover,
 .our-science .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8327,12 +9607,15 @@ input.searchGo {
 .our-science .lSAction a:hover {
   background-color: rgba(53, 121, 0, 0.7);
 }
+
 .our-science .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #357900;
 }
+
 .our-science .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .our-science .event-slide-content a {
   color: #357900;
 }
@@ -8352,6 +9635,7 @@ input.searchGo {
 .our-science .event--schedule--wrapper .event--schedule--title {
   background-color: #357900;
 }
+
 .our-science .event--schedule--wrapper .event--schedule--tbody {
   color: #357900;
 }
@@ -8361,48 +9645,63 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .press-office h1 {
   color: #107E5E;
 }
+
 .press-office .intro-text {
   color: #107E5E;
 }
+
 .press-office .button__enews-signup {
   background-color: #107E5E;
 }
+
 .press-office .button__enews-signup:hover {
   background-color: rgba(16, 126, 94, 0.75);
 }
+
 .press-office .button__enews-signup:focus {
   background-color: rgba(16, 126, 94, 0.75);
 }
+
 .press-office .pressreleaselistfeed {
   /** h3 here is the title of the press release listfeed component, not HTI **/
 }
+
 .press-office .pressreleaselistfeed h3 {
   color: #107E5E;
 }
+
 .press-office .pressreleasetilefeed {
   /** h3 here is the title of the press release tilefeed component, not HTI **/
 }
+
 .press-office .pressreleasetilefeed h3 {
   color: #107E5E;
 }
+
 .press-office .title-bar {
   background-color: #107E5E;
 }
+
 .press-office .carousel-wrapper .caption {
   background-color: rgba(16, 126, 94, 0.9);
 }
+
 .press-office .feature-box a {
   color: #ffffff;
 }
+
 .press-office .feature-box h3 {
   padding-left: 0;
 }
+
 .press-office .aside-box h3 {
   padding-left: 0;
 }
+
 .press-office .event-slider-wrapper h4 {
   color: #107E5E;
 }
@@ -8410,23 +9709,29 @@ input.searchGo {
 .press-office .secondary-nav-wrapper .side-nav li {
   background-color: rgba(16, 126, 94, 0.1);
 }
+
 .press-office .secondary-nav-wrapper .side-nav li a {
   color: #107E5E;
 }
+
 .press-office .secondary-nav-wrapper .side-nav li a:hover {
   color: #107E5E;
   background-color: rgba(16, 126, 94, 0.25);
 }
+
 .press-office .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(16, 126, 94, 0.25);
   color: #107E5E;
 }
+
 .press-office .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(16, 126, 94, 0.25);
 }
+
 .press-office .secondary-nav-wrapper .side-nav li.selected a {
   color: #107E5E;
 }
+
 .press-office .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #107E5E;
 }
@@ -8434,9 +9739,11 @@ input.searchGo {
 .press-office .linklist--container--header a {
   color: #107E5E;
 }
+
 .press-office .linklist--link-items li a:hover {
   border-bottom-color: #107E5E;
 }
+
 .press-office .linklist--column--header a {
   color: #107E5E;
 }
@@ -8445,6 +9752,7 @@ input.searchGo {
 .press-office .ctabutton--inside-hti--cta-text {
   color: #107E5E;
 }
+
 .press-office .hti-box__feature-box {
   background-color: #107E5E;
 }
@@ -8454,14 +9762,17 @@ input.searchGo {
 .press-office .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-news-press.png");
 }
+
 .press-office .accordion .accordion-navigation > a:hover,
 .press-office .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .press-office .accordion .accordion-navigation.active > a,
 .press-office .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-news-press.png");
 }
+
 .press-office .accordion .accordion-navigation.active > a:hover,
 .press-office .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8471,12 +9782,15 @@ input.searchGo {
 .press-office .lSAction a:hover {
   background-color: rgba(16, 126, 94, 0.7);
 }
+
 .press-office .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #107E5E;
 }
+
 .press-office .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .press-office .event-slide-content a {
   color: #107E5E;
 }
@@ -8486,24 +9800,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .schools .title-bar {
   background-color: #0983BB;
 }
+
 .schools h1 {
   color: #0983BB;
 }
+
 .schools .intro-text {
   color: #0983BB;
 }
+
 .schools .button__enews-signup {
   background-color: #0983BB;
 }
+
 .schools .button__enews-signup:hover {
   background-color: rgba(9, 131, 187, 0.75);
 }
+
 .schools .button__enews-signup:focus {
   background-color: rgba(9, 131, 187, 0.75);
 }
+
 .schools .carousel .caption {
   background-color: rgba(9, 131, 187, 0.9);
 }
@@ -8511,23 +9832,29 @@ input.searchGo {
 .schools .secondary-nav-wrapper .side-nav li {
   background-color: rgba(9, 131, 187, 0.1);
 }
+
 .schools .secondary-nav-wrapper .side-nav li a {
   color: #0983BB;
 }
+
 .schools .secondary-nav-wrapper .side-nav li a:hover {
   color: #0983BB;
   background-color: rgba(9, 131, 187, 0.25);
 }
+
 .schools .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(9, 131, 187, 0.25);
   color: #0983BB;
 }
+
 .schools .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(9, 131, 187, 0.25);
 }
+
 .schools .secondary-nav-wrapper .side-nav li.selected a {
   color: #0983BB;
 }
+
 .schools .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #0983BB;
 }
@@ -8535,9 +9862,11 @@ input.searchGo {
 .schools .linklist--container--header a {
   color: #0983BB;
 }
+
 .schools .linklist--link-items li a:hover {
   border-bottom-color: #0983BB;
 }
+
 .schools .linklist--column--header a {
   color: #0983BB;
 }
@@ -8546,6 +9875,7 @@ input.searchGo {
 .schools .ctabutton--inside-hti--cta-text {
   color: #0983BB;
 }
+
 .schools .hti-box__feature-box {
   background-color: #0983BB;
 }
@@ -8555,14 +9885,17 @@ input.searchGo {
 .schools .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-schools.png");
 }
+
 .schools .accordion .accordion-navigation > a:hover,
 .schools .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .schools .accordion .accordion-navigation.active > a,
 .schools .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-schools.png");
 }
+
 .schools .accordion .accordion-navigation.active > a:hover,
 .schools .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8572,12 +9905,15 @@ input.searchGo {
 .schools .lSAction a:hover {
   background-color: rgba(9, 131, 187, 0.7);
 }
+
 .schools .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #0983BB;
 }
+
 .schools .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .schools .event-slide-content a {
   color: #0983BB;
 }
@@ -8597,6 +9933,7 @@ input.searchGo {
 .schools .event--schedule--wrapper .event--schedule--title {
   background-color: #0983BB;
 }
+
 .schools .event--schedule--wrapper .event--schedule--tbody {
   color: #0983BB;
 }
@@ -8611,24 +9948,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .support-us .title-bar {
   background-color: #7F206E;
 }
+
 .support-us h1 {
   color: #7F206E;
 }
+
 .support-us .intro-text {
   color: #7F206E;
 }
+
 .support-us .button__enews-signup {
   background-color: #7F206E;
 }
+
 .support-us .button__enews-signup:hover {
   background-color: rgba(127, 32, 110, 0.75);
 }
+
 .support-us .button__enews-signup:focus {
   background-color: rgba(127, 32, 110, 0.75);
 }
+
 .support-us .carousel .caption {
   background-color: rgba(127, 32, 110, 0.9);
 }
@@ -8636,23 +9980,29 @@ input.searchGo {
 .support-us .secondary-nav-wrapper .side-nav li {
   background-color: rgba(127, 32, 110, 0.1);
 }
+
 .support-us .secondary-nav-wrapper .side-nav li a {
   color: #7F206E;
 }
+
 .support-us .secondary-nav-wrapper .side-nav li a:hover {
   color: #7F206E;
   background-color: rgba(127, 32, 110, 0.25);
 }
+
 .support-us .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(127, 32, 110, 0.25);
   color: #7F206E;
 }
+
 .support-us .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(127, 32, 110, 0.25);
 }
+
 .support-us .secondary-nav-wrapper .side-nav li.selected a {
   color: #7F206E;
 }
+
 .support-us .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #7F206E;
 }
@@ -8660,9 +10010,11 @@ input.searchGo {
 .support-us .linklist--container--header a {
   color: #7F206E;
 }
+
 .support-us .linklist--link-items li a:hover {
   border-bottom-color: #7F206E;
 }
+
 .support-us .linklist--column--header a {
   color: #7F206E;
 }
@@ -8671,6 +10023,7 @@ input.searchGo {
 .support-us .ctabutton--inside-hti--cta-text {
   color: #7F206E;
 }
+
 .support-us .hti-box__feature-box {
   background-color: #7F206E;
 }
@@ -8680,14 +10033,17 @@ input.searchGo {
 .support-us .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-support-us.png");
 }
+
 .support-us .accordion .accordion-navigation > a:hover,
 .support-us .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .support-us .accordion .accordion-navigation.active > a,
 .support-us .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-support-us.png");
 }
+
 .support-us .accordion .accordion-navigation.active > a:hover,
 .support-us .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8697,12 +10053,15 @@ input.searchGo {
 .support-us .lSAction a:hover {
   background-color: rgba(127, 32, 110, 0.7);
 }
+
 .support-us .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #7F206E;
 }
+
 .support-us .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .support-us .event-slide-content a {
   color: #7F206E;
 }
@@ -8712,24 +10071,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .take-part .title-bar {
   background-color: #BF491F;
 }
+
 .take-part h1 {
   color: #BF491F;
 }
+
 .take-part .intro-text {
   color: #BF491F;
 }
+
 .take-part .button__enews-signup {
   background-color: #BF491F;
 }
+
 .take-part .button__enews-signup:hover {
   background-color: rgba(191, 73, 31, 0.75);
 }
+
 .take-part .button__enews-signup:focus {
   background-color: rgba(191, 73, 31, 0.75);
 }
+
 .take-part .carousel .caption {
   background-color: rgba(191, 73, 31, 0.9);
 }
@@ -8737,23 +10103,29 @@ input.searchGo {
 .take-part .secondary-nav-wrapper .side-nav li {
   background-color: rgba(191, 73, 31, 0.1);
 }
+
 .take-part .secondary-nav-wrapper .side-nav li a {
   color: #BF491F;
 }
+
 .take-part .secondary-nav-wrapper .side-nav li a:hover {
   color: #BF491F;
   background-color: rgba(191, 73, 31, 0.25);
 }
+
 .take-part .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(191, 73, 31, 0.25);
   color: #BF491F;
 }
+
 .take-part .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(191, 73, 31, 0.25);
 }
+
 .take-part .secondary-nav-wrapper .side-nav li.selected a {
   color: #BF491F;
 }
+
 .take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #BF491F;
 }
@@ -8761,9 +10133,11 @@ input.searchGo {
 .take-part .linklist--container--header a {
   color: #BF491F;
 }
+
 .take-part .linklist--link-items li a:hover {
   border-bottom-color: #BF491F;
 }
+
 .take-part .linklist--column--header a {
   color: #BF491F;
 }
@@ -8772,6 +10146,7 @@ input.searchGo {
 .take-part .ctabutton--inside-hti--cta-text {
   color: #BF491F;
 }
+
 .take-part .hti-box__feature-box {
   background-color: #BF491F;
 }
@@ -8781,14 +10156,17 @@ input.searchGo {
 .take-part .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-take-part.png");
 }
+
 .take-part .accordion .accordion-navigation > a:hover,
 .take-part .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .take-part .accordion .accordion-navigation.active > a,
 .take-part .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-take-part.png");
 }
+
 .take-part .accordion .accordion-navigation.active > a:hover,
 .take-part .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8798,12 +10176,15 @@ input.searchGo {
 .take-part .lSAction a:hover {
   background-color: rgba(191, 73, 31, 0.7);
 }
+
 .take-part .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #BF491F;
 }
+
 .take-part .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .take-part .event-slide-content a {
   color: #BF491F;
 }
@@ -8813,24 +10194,31 @@ input.searchGo {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
   /** enews signup form styles **/
 }
+
 .visit .title-bar {
   background-color: #A1164E;
 }
+
 .visit h1 {
   color: #A1164E;
 }
+
 .visit .intro-text {
   color: #A1164E;
 }
+
 .visit .button__enews-signup {
   background-color: #A1164E;
 }
+
 .visit .button__enews-signup:hover {
   background-color: rgba(161, 22, 78, 0.75);
 }
+
 .visit .button__enews-signup:focus {
   background-color: rgba(161, 22, 78, 0.75);
 }
+
 .visit .carousel .caption {
   background-color: rgba(161, 22, 78, 0.9);
 }
@@ -8838,23 +10226,29 @@ input.searchGo {
 .visit .secondary-nav-wrapper .side-nav li {
   background-color: rgba(161, 22, 78, 0.1);
 }
+
 .visit .secondary-nav-wrapper .side-nav li a {
   color: #A1164E;
 }
+
 .visit .secondary-nav-wrapper .side-nav li a:hover {
   color: #A1164E;
   background-color: rgba(161, 22, 78, 0.25);
 }
+
 .visit .secondary-nav-wrapper .side-nav li a:focus {
   background-color: rgba(161, 22, 78, 0.25);
   color: #A1164E;
 }
+
 .visit .secondary-nav-wrapper .side-nav li.selected {
   background-color: rgba(161, 22, 78, 0.25);
 }
+
 .visit .secondary-nav-wrapper .side-nav li.selected a {
   color: #A1164E;
 }
+
 .visit .secondary-nav-wrapper .side-nav li.selected a:hover {
   color: #A1164E;
 }
@@ -8862,9 +10256,11 @@ input.searchGo {
 .visit .linklist--container--header a {
   color: #A1164E;
 }
+
 .visit .linklist--link-items li a:hover {
   border-bottom-color: #A1164E;
 }
+
 .visit .linklist--column--header a {
   color: #A1164E;
 }
@@ -8873,6 +10269,7 @@ input.searchGo {
 .visit .ctabutton--inside-hti--cta-text {
   color: #A1164E;
 }
+
 .visit .hti-box__feature-box {
   background-color: #A1164E;
 }
@@ -8882,14 +10279,17 @@ input.searchGo {
 .visit .accordion dd > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-visit.png");
 }
+
 .visit .accordion .accordion-navigation > a:hover,
 .visit .accordion dd > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
 }
+
 .visit .accordion .accordion-navigation.active > a,
 .visit .accordion dd.active > a {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-visit.png");
 }
+
 .visit .accordion .accordion-navigation.active > a:hover,
 .visit .accordion dd.active > a:hover {
   background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
@@ -8899,12 +10299,15 @@ input.searchGo {
 .visit .lSAction a:hover {
   background-color: rgba(161, 22, 78, 0.7);
 }
+
 .visit .lSSlideOuter .lSPager.lSpg > li.active a {
   border: 2px solid #A1164E;
 }
+
 .visit .event-slide-content {
   background-color: #f4f4f4;
 }
+
 .visit .event-slide-content a {
   color: #A1164E;
 }
@@ -8924,8 +10327,7 @@ input.searchGo {
 .visit .event--schedule--wrapper .event--schedule--title {
   background-color: #A1164E;
 }
+
 .visit .event--schedule--wrapper .event--schedule--tbody {
   color: #A1164E;
 }
-
-/*# sourceMappingURL=styles.css.map */
