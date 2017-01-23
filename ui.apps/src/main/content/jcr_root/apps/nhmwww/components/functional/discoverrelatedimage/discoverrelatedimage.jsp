@@ -24,14 +24,14 @@
 			<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 		<% } %>
 		    <img alt='<%= helper.getAlt() %>' data-interchange="
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 768px) and (orientation: landscape))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 768px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1160px))]">
+		    [<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (default)],
+		    [<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (small)], 
+	        [<%= helper.getPath() + ".img.620.high." + helper.getExtension() + helper.getSuffix() %>, (retina)],
+	        [<%= helper.getPath() + ".img.480.medium." + helper.getExtension() + helper.getSuffix() %>, (medium)],
+		    [<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (large)]">
 		<%-- Fallback content for non-JS browsers. --%>
 		<noscript>
-		    <img src='<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>
+		    <img src='<%= helper.getPath() + ".img.480.medium." + helper.getExtension() + helper.getSuffix() %>' alt='<%= helper.getAlt() %>'>
 		</noscript>
 		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 			</a>

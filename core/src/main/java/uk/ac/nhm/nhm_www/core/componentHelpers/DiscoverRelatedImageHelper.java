@@ -98,13 +98,11 @@ public class DiscoverRelatedImageHelper {
 		}
 	}
 	
-	private int getImageHeight()
-	{
+	private int getImageHeight() {
 		return Integer.parseInt(this.getAsset().getMetadataValue("tiff:imageLength"));
 	}
 	
-	private int getImageWidth()
-	{
+	private int getImageWidth() {
 		String damAssetPath = this.getAsset().getPath();
 		Resource  imageMedataData = this.resourceResolver.getResource(damAssetPath+"/jcr:content/metadata");
 		ValueMap imageProperies = imageMedataData.getValueMap();
@@ -112,8 +110,7 @@ public class DiscoverRelatedImageHelper {
 		return Integer.parseInt(imageWidth);
 	}
 	
-	private Asset getAsset()
-	{
+	private Asset getAsset() {
 		if (this.asset == null)
 		{
 			String path = this.getPath();
@@ -127,109 +124,13 @@ public class DiscoverRelatedImageHelper {
 		return this.asset;
 	}
 
-
 	public String getPath() {
 		return path;
 	}
-	
-	//If image is placed in a row that contains multiple cells then the maximum image width can be a maximum of approximately 768px in width
-	//If an image is in a row by itself then the image could be anything up to 1920 depending on screen resolution.
-	public boolean IsImageInCell() throws AccessDeniedException, ItemNotFoundException, RepositoryException
-	{
-		this.parentNode = this.rs.getParent().adaptTo(Node.class); // 1 = parent node
-		
-		NodeUtils.RowType rowType = NodeUtils.getRowType(parentNode);
-		
-		if (rowType == NodeUtils.RowType.ROWFULLWIDTH || rowType == NodeUtils.RowType.HEROSECTION)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-	
-	public String getPath(ImageInterchangeSize imageSize) throws AccessDeniedException, ItemNotFoundException, RepositoryException {
-		
-/*		if (this.IsImageInCell())
-		{*/
-		switch (imageSize) {
-            case DEFAULT:
-            	//if (this.getImageWidth() > 1920) {
-            		return this.getPath() + ".img.320.high." + this.getExtension() + this.getSuffix();
-            	//}
-            	//else
-            	//{
-            		//Maybe use the following instead?
-            		//return this.getPath() + ".img.full.high." + this.getExtension() + this.getSuffix();
-            		//return this.getOriginalImagePath();
-            	//}
-                    
-            case SMALL:
-            	if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
-        			return this.getMobileImagePath();
-            	}	
-            	if (this.getImageWidth() > 768) {
-            		return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
-            	}
-            	else
-            	{
-            		return this.getOriginalImagePath();
-            	}
-
-            case MEDIUM:
-            	if (this.getImageWidth() > 1024) {
-            		return this.getPath() + ".img.1024.high." + this.getExtension() + this.getSuffix();
-            	}
-            	else
-            	{
-            		return this.getOriginalImagePath();
-            	}
-            case SMALL_RETINA:
-            	return this.getOriginalImagePath();
-            case LARGE: case RETINA:
-            	return this.getPath() + ".img.320.high." + this.getExtension() + this.getSuffix();
-                
-            default:
-            	throw new UnsupportedOperationException("Image Interchange size not supported");}
-		/*}
-		else
-		{
-			switch (imageSize) {
-	            case DEFAULT: case MEDIUM:
-	            	if (this.getImageWidth() > 768) {
-	            		return this.getPath() + ".img.768.high." + this.getExtension() + this.getSuffix();
-	            	}
-	            	else
-	            	{
-	            		//Maybe use the following instead?
-	            		//return this.getPath() + ".img.full.high." + this.getExtension() + this.getSuffix();
-	            		return this.getOriginalImagePath();
-	            	}
-	                    
-	            case SMALL:
-	            	if (this.getImageWidth() > 768) {
-	            		return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
-	            	}
-	            	else
-	            	{
-	            		return this.getOriginalImagePath();
-	            	}
-	            	
-	            case LARGE: case RETINA:
-	                return this.getOriginalImagePath();
-	                
-	            default:
-	            	throw new UnsupportedOperationException("Image Interchange size not supported");}
-		}*/
-	}
-
 
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
 	
 	public String getOriginalImagePath() {
 		return originalImagePath;
@@ -242,7 +143,6 @@ public class DiscoverRelatedImageHelper {
 	public String getExtension() {
 		return extension;
 	}
-
 
 	public void setExtension(String extension) {
 		this.extension = extension;
