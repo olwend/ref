@@ -78,7 +78,7 @@ public class EventScheduleHelper {
 
 			//Sorts the dates array
 			Collections.sort(sortedDates, new Comparator<String>() {
-				SimpleDateFormat f = new SimpleDateFormat("dd MMMM yyyy");
+				SimpleDateFormat f = new SimpleDateFormat("d MMMM yyyy");
 
 				@Override
 				public int compare(String o1, String o2) {
@@ -117,8 +117,8 @@ public class EventScheduleHelper {
 	}
 
 	private String getDateParsed(String dateString) throws ParseException {
-		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd yyyy");
-		final SimpleDateFormat finalSdf = new SimpleDateFormat("dd MMMM yyyy");
+		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM d yyyy");
+		final SimpleDateFormat finalSdf = new SimpleDateFormat("d MMMM yyyy");
 
 		String[] parts = dateString.split(" ");
 		String stringDateParsed = parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3];
