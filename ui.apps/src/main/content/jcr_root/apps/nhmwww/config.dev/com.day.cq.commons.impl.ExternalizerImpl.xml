@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    externalizer.domains="[local http://aem-authr1-dev:4502,author http://aem-authr1-dev:4502,publish http://aem-pblsh1-dev.nhm.ac.uk]"/>

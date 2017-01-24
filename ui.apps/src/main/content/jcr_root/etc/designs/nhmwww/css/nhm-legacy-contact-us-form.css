@@ -4,42 +4,55 @@
   border-bottom: 1px dotted #000000;
   color: #000000;
 }
+
 .legacy-css a:hover {
   text-decoration: none;
   border-bottom-style: solid;
   border-bottom-color: #808080;
   color: #808080;
 }
+
 .legacy-css p {
   margin-bottom: 10px;
 }
+
 .legacy-css #column-a {
   background-color: #eeeeee;
   padding: 1em 1.5em;
 }
+
 .legacy-css fieldset {
   border: none;
   padding: 0;
 }
+
 .legacy-css .mainInputWidth, .legacy-css .wide {
   width: 100%;
   margin-bottom: 5px;
 }
+
 .legacy-css input.spam {
   display: none;
 }
+
 .legacy-css .icon {
   padding-bottom: 6px;
   padding-left: 10px;
 }
+
 .legacy-css .requiredField {
   color: #aa0000;
 }
+
 .legacy-css.teacher-enews-form label {
   display: inline;
 }
+
 .legacy-css.teacher-enews-form .icon {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=nhm-legacy-contact-us-form.css.map */
+.legacy-css .subPanel li {
+  list-style: disc;
+  margin-left: 20px;
+}

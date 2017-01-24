@@ -12,7 +12,7 @@ var NHMSearchQuery = new function () {
         CONTAINER_DIV_CLASS:    "small-12 columns",
         DISPLAY_SHOW_MORE:      "row event--calendar--more--results",
         EVENT_TITLE_CLASS:      "event--calendar--search--result--main--title",
-        EVENT_TITLE_TODAY:      "Today's Events",
+        EVENT_TITLE_TODAY:      "Today's events",
         EVENT_TITLE_SEARCH:     "Search results",
         EVENT_MONTH_DATES:      ["Jan",  "Feb", "Mar",
                                  "Apr",  "May", "Jun",
@@ -561,6 +561,14 @@ var NHMSearchQuery = new function () {
         
         displaySearchEvents("", "none", "none", dateFromFormatted, dateToFormatted);
         showMore.className = CONST.HIDE_DIV_CLASS; // Hide the 'Show more' button
+        
+        //WR-987 - display carousel when suggested events are triggered
+        if (inputs.carousel) {
+            var carousel = inputs.carousel[0];
+            if (carousel !== undefined || carousel !== null) {
+                carousel.style.display = "block";
+            }
+        }
     };
     
     //Populates the single events result content
