@@ -311,7 +311,7 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
                     return filterMonthDates(parserText, startDate, endDate, repeatListValue, 5, strDaysCounter);                    
             }
         }
-        
+
         if (daysListValue.length === 0){
             
             parserText = 'on ';

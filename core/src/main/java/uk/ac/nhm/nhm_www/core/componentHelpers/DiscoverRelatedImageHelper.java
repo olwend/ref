@@ -11,7 +11,6 @@ import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.componentHelpers.Foundation5ImageHelper.ImageInterchangeSize;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 
 import com.adobe.granite.xss.XSSAPI;
@@ -19,6 +18,7 @@ import com.day.cq.commons.ImageResource;
 import com.day.cq.dam.api.Asset;
 
 public class DiscoverRelatedImageHelper {
+	
 	private String path;
 	private String originalImagePath;
 	private String extension;
@@ -92,27 +92,26 @@ public class DiscoverRelatedImageHelper {
 		case DEFAULT:
 			return this.getOriginalImagePath();
 
+		case SMALL_RETINA:
+			/*if (this.getImageWidth() > 640) {
+				return this.getPath() + ".img.1024.high." + this.getExtension() + this.getSuffix();
+			} else {*/
+				return this.getOriginalImagePath();
+			//}
+			
 		case SMALL:
-			if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
-				return this.getMobileImagePath();
-			}	
 			if (this.getImageWidth() > 768) {
-				return this.getPath() + ".img.320.medium." + this.getExtension() + this.getSuffix();
-			}
-			else {
+				return this.getPath() + ".img.480.medium." + this.getExtension() + this.getSuffix();
+			} else {
 				return this.getOriginalImagePath();
 			}
 
 		case MEDIUM:
 			if (this.getImageWidth() > 1024) {
 				return this.getPath() + ".img.480.high." + this.getExtension() + this.getSuffix();
-			}
-			else {
+			} else {
 				return this.getOriginalImagePath();
 			}
-
-		case SMALL_RETINA:
-			return this.getPath() + ".img.620.high." + this.getExtension() + this.getSuffix();
 
 		case LARGE: case RETINA:
 			return this.getPath() + ".img.320.medium." + this.getExtension() + this.getSuffix();
@@ -130,8 +129,7 @@ public class DiscoverRelatedImageHelper {
 	}
 
 	private Asset getAsset() {
-		if (this.asset == null)
-		{
+		if (this.asset == null) {
 			String path = this.getPath();
 			String extension = this.getExtension();
 			String suffix = this.getSuffix();
