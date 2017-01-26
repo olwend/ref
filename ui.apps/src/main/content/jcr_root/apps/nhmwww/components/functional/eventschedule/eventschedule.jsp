@@ -28,6 +28,7 @@
                 
                     <% int loopIndex = 0;
                     
+                    //WR-962
                     //Get today's date but decrement by one day as Date comparator doesn't work
                     //when date is equal to current date.
                     Date today = new Date();
