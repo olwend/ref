@@ -19,7 +19,7 @@
             <table id="datesTable" class="small-12 medium-12 large-12">
                 <thead>
                     <tr>
-                        <td class="small-5 medium-5 large-3 event--schedule--td event--schedule--title">Event dates ${today}</td>
+                        <td class="small-5 medium-5 large-3 event--schedule--td event--schedule--title">Event dates</td>
                         <td class="small-7 medium-7 large-9  event--schedule--td event--schedule--title"></td>
 
                     </tr>
