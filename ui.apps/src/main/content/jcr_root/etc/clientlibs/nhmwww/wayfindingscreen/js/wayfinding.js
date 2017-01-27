@@ -28,7 +28,7 @@ var divideDuration = false;
  * */
 
 var events;
-var eventsBuffer;
+var eventsBuffer = [];
 var poll;
 var slide;
 var curPage = 0;
@@ -41,7 +41,13 @@ function blankScreen() {
 
 function loadEvents() {
     $.get(ajaxUrl, function( data ) {
-        eventsBuffer = $(data).find("item");
+        $(data).find("item").each(function () {
+            var calendar_type = $(this).find('calendar_type').text();
+            if (calendar_type === "Visitor") {  // Only append those if search text matches with title
+                eventsBuffer.push($(data).find("item"));
+            }
+        });
+
         if(eventsBuffer.length > events.length) {
             window.location.reload();
         }
@@ -62,54 +68,59 @@ function buildTable( itemPointer ) {
         table.append(row);
 
         if(itemPointer < events.length) {
-            var curItem = $(events.get(itemPointer));
 
-            var time = $("<h2></h2>");
-            var location = $("<p></p>");
-            var eventType = $("<p></p>");
-            time.html(curItem.find('custom_3').text());
-            location.html(curItem.find('placemark > name').text());
-            
-            // WR-946-wayfinding-tag-names
-            // Sets event categories in an array to lowercase
-            var eventString = curItem.find('categories').text();
-            	// Split string at first comma
-            var tmp_eventString = eventString.split(/,(.+)/);
-            	// Check if a second array item exists (i.e. more than one item in the array)
-            if (tmp_eventString[1]) { 
-            	tmp_eventString[1] = tmp_eventString[1].toLowerCase(); 
-				eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]); 
-			}
-            
-            eventType.html(eventString);
-            
-            left.append(time);
-            left.append(location);
-            left.append(eventType);
+            var curEventBit = events[i];
+                        var curItem = $(curEventBit.get(itemPointer));
+console.log(curItem);
+			var calendar_type = curItem.find('calendar_type').text();
 
-            var title = $("<h2></h2>");
-            var description = $("<p></p>");
-            var price = $("<p></p>");
-            var audienceInfo = $("<p></p>");
-            var audienceType;
-
-            title.html(curItem.find('> name').text());
-            description.html(curItem.find('description').text());
-            price.html(curItem.find('custom_2').text());
-			// var audience = curItem.find('audience').text().replace('aged all ages','of all ages');
-            var audienceType = curItem.find('custom_1').text();
-
-            if (audienceType) {
-                audienceInfo.html("Suitable for "  + audienceType);
-            } else {
-                audienceInfo.html("suitable for is blank");
+            if(calendar_type === "Visitor") { 
+                var time = $("<h2></h2>");
+                var location = $("<p></p>");
+                var eventType = $("<p></p>");
+                time.html(curItem.find('custom_3').text());
+                location.html(curItem.find('placemark > name').text());
+                
+                // WR-946-wayfinding-tag-names
+                // Sets event categories in an array to lowercase
+                var eventString = curItem.find('categories').text();
+                    // Split string at first comma
+                var tmp_eventString = eventString.split(/,(.+)/);
+                    // Check if a second array item exists (i.e. more than one item in the array)
+                if (tmp_eventString[1]) { 
+                    tmp_eventString[1] = tmp_eventString[1].toLowerCase(); 
+                    eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]); 
+                }
+                
+                eventType.html(eventString);
+                
+                left.append(time);
+                left.append(location);
+                left.append(eventType);
+    
+                var title = $("<h2></h2>");
+                var description = $("<p></p>");
+                var price = $("<p></p>");
+                var audienceInfo = $("<p></p>");
+                var audienceType;
+    
+                title.html(curItem.find('> name').text());
+                description.html(curItem.find('description').text());
+                price.html(curItem.find('custom_2').text());
+                // var audience = curItem.find('audience').text().replace('aged all ages','of all ages');
+                var audienceType = curItem.find('custom_1').text();
+    
+                if (audienceType) {
+                    audienceInfo.html("Suitable for "  + audienceType);
+                } else {
+                    audienceInfo.html("suitable for is blank");
+                }
+    
+                right.append(title);
+                right.append(description);
+                right.append(audienceInfo);
+                right.append(price);
             }
-
-            right.append(title);
-            right.append(description);
-            right.append(audienceInfo);
-            right.append(price);
-
             itemPointer++;
         }
     }
