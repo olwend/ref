@@ -12,16 +12,10 @@
 		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 	<% } %>
 	    <img alt='<%= helper.getAlt() %>' data-interchange="
-	    	[<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 480px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL_RETINA) %>, (only screen and (max-width: 640px) and (orientation: landscape))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 1024px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1024px))]">
-		    <%--[<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 768px) and (orientation: landscape))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 768px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1160px))]">--%>
+	    	[<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)],
+		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 480px))],
+		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 481px))],
+		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (min-width: 1025px))],">
 	<%-- Fallback content for non-JS browsers. --%>
 	<noscript>
 	    <img src='<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>
