@@ -18,7 +18,7 @@ import com.day.cq.commons.ImageResource;
 import com.day.cq.dam.api.Asset;
 
 public class DiscoverRelatedImageHelper {
-	
+
 	private String path;
 	private String originalImagePath;
 	private String extension;
@@ -32,7 +32,7 @@ public class DiscoverRelatedImageHelper {
 	private ResourceResolver resourceResolver;
 	private Resource rs;
 	private Asset asset;
-	public enum ImageInterchangeSize {DEFAULT, SMALL, MEDIUM, LARGE, RETINA, SMALL_RETINA}
+	public enum ImageInterchangeSize {DEFAULT, SMALL, MEDIUM, LARGE}
 
 	protected static final Logger logger = LoggerFactory.getLogger(DiscoverRelatedImageHelper.class);
 
@@ -90,31 +90,16 @@ public class DiscoverRelatedImageHelper {
 		switch (imageSize) {
 
 		case DEFAULT:
-			return this.getOriginalImagePath();
-
-		case SMALL_RETINA:
-			/*if (this.getImageWidth() > 640) {
-				return this.getPath() + ".img.1024.high." + this.getExtension() + this.getSuffix();
-			} else {*/
-				return this.getOriginalImagePath();
-			//}
-			
-		case SMALL:
-			if (this.getImageWidth() > 768) {
-				return this.getPath() + ".img.480.medium." + this.getExtension() + this.getSuffix();
-			} else {
-				return this.getOriginalImagePath();
-			}
-
-		case MEDIUM:
-			if (this.getImageWidth() > 1024) {
-				return this.getPath() + ".img.480.high." + this.getExtension() + this.getSuffix();
-			} else {
-				return this.getOriginalImagePath();
-			}
-
-		case LARGE: case RETINA:
 			return this.getPath() + ".img.320.medium." + this.getExtension() + this.getSuffix();
+
+		case SMALL:
+			return this.getPath() + ".img.320.medium." + this.getExtension() + this.getSuffix();
+			
+		case MEDIUM:
+			return this.getPath() + ".img.480.medium." + this.getExtension() + this.getSuffix();
+			
+		case LARGE:
+			return this.getPath() + ".img.620.high." + this.getExtension() + this.getSuffix();
 
 		default:
 			throw new UnsupportedOperationException("Image Interchange size not supported");}
