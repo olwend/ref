@@ -1,14 +1,14 @@
 /* The follwing variables can be used to configure
  * the behaviour of the wayfinding events display.
  *
- * pageLength:  	The number of events to show per page.
- * ajaxUrl:     	URL of XML file to read events from.
- * defDisplay:  	Default HTML to display if no events can be loaded.
+ * pageLength:    The number of events to show per page.
+ * ajaxUrl:       URL of XML file to read events from.
+ * defDisplay:    Default HTML to display if no events can be loaded.
  * displayDuration:     Either the total length of time this display appears for in the playlist (ms)
- *			or the length of time to display each page for (see divideDuration)
- * headline:		The header text for the top of the page.
- * divideDuration:	Divide the display duration equally between pages (true) or display each page
- *			for the displayDuration (false)
+ *      or the length of time to display each page for (see divideDuration)
+ * headline:    The header text for the top of the page.
+ * divideDuration:  Divide the display duration equally between pages (true) or display each page
+ *      for the displayDuration (false)
  *
  * */
 
@@ -40,16 +40,18 @@ function blankScreen() {
 }
 
 function loadEvents() {
+    eventsBuffer = [];
     $.get(ajaxUrl, function( data ) {
         $(data).find("item").each(function () {
             var calendar_type = $(this).find('calendar_type').text();
             if (calendar_type === "Visitor") {  // Only append those if search text matches with title
-                eventsBuffer.push($(data).find("item"));
+                eventsBuffer.push($(this));
             }
         });
-
+        if (events) {
         if(eventsBuffer.length > events.length) {
             window.location.reload();
+        }
         }
     },"xml");
 }
@@ -68,13 +70,8 @@ function buildTable( itemPointer ) {
         table.append(row);
 
         if(itemPointer < events.length) {
-
-            var curEventBit = events[i];
-                        var curItem = $(curEventBit.get(itemPointer));
-console.log(curItem);
-			var calendar_type = curItem.find('calendar_type').text();
-
-            if(calendar_type === "Visitor") { 
+            var curEventBit = events[itemPointer];
+            var curItem = $(curEventBit.get());
                 var time = $("<h2></h2>");
                 var location = $("<p></p>");
                 var eventType = $("<p></p>");
@@ -120,7 +117,6 @@ console.log(curItem);
                 right.append(description);
                 right.append(audienceInfo);
                 right.append(price);
-            }
             itemPointer++;
         }
     }
@@ -128,25 +124,25 @@ console.log(curItem);
 }
 
 function buildInitial() {
-	if(eventsBuffer) {
-		if(eventsBuffer.length > 0) {
-	        events = eventsBuffer;
-	        window.clearInterval(poll);
-	        var table = buildTable(0);
-	        $('#main').html('<div id="header"><h1>' + headline + '</h1></div>');
-	        $('#main').append(table);
-	        curPage = 1;
-			var pageDisplay;
-			if(divideDuration) {
-				var numPages = Math.ceil(events.length / pageLength);
-				pageDisplay = Math.ceil(displayDuration / numPages);
-			} else {
-				pageDisplay = displayDuration;
-			}
-	        slide = window.setInterval(slidePage,pageDisplay);
-	        poll = window.setInterval(loadEvents,10000);
-	    }
-	}
+  if(eventsBuffer) {
+    if(eventsBuffer.length > 0) {
+        events = eventsBuffer;
+        window.clearInterval(poll);
+        var table = buildTable(0);
+        $('#main').html('<div id="header"><h1>' + headline + '</h1></div>');
+        $('#main').append(table);
+        curPage = 1;
+        var pageDisplay;
+      if(divideDuration) {
+        var numPages = Math.ceil(events.length / pageLength);
+        pageDisplay = Math.ceil(displayDuration / numPages);
+      } else {
+        pageDisplay = displayDuration;
+      }
+        slide = window.setInterval(slidePage,pageDisplay);
+        poll = window.setInterval(loadEvents,10000);
+      }
+  }
 }
 
 function slidePage() {
@@ -161,7 +157,7 @@ function slidePage() {
     table.hide();
     table.css('z-index',1);
     $('#main').append(table);
-	table.show();
+    table.show(); 
     curPage++;
 }
 
