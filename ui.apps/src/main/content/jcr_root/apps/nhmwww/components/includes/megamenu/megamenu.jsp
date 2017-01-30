@@ -236,7 +236,10 @@
                                         <a href="/content/nhmwww/en/home/schools.html">Schools homepage</a>
                                     </li>
                                     <li class="nav-list__item first">
-                                        <a href="/content/nhmwww/en/home/schools/things-to-do-schools.html">Things to do</a>
+                                        <a href="/content/nhmwww/en/home/schools/things-to-do-schools.html">Things to do for schools</a>
+                                    </li>
+                                    <li class="nav-list__item first">
+                                        <a href="/content/nhmwww/en/home/schools/school-events-calendar.html">School events calendar</a>
                                     </li>
                                     <li class="nav-list__item first">
                                         <a href="/content/nhmwww/en/home/schools/essential-information-schools.html">Essential information</a>
