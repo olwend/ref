@@ -115,12 +115,10 @@ function buildTable( itemPointer ) {
                 description.html(curItem.find('description').text());
                 price.html(curItem.find('custom_2').text());
                 // var audience = curItem.find('audience').text().replace('aged all ages','of all ages');
-                var audienceType = curItem.find('custom_1').text();
+                var audienceType = curItem.find('custom_1').text().toLowerCase();
     
                 if (audienceType) {
                     audienceInfo.html("Suitable for "  + audienceType);
-                } else {
-                    audienceInfo.html("suitable for is blank");
                 }
     
                 right.append(title);
