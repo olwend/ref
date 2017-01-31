@@ -17,7 +17,7 @@ var windowHost = window.location.host;
 var XMLpath = "content/nhmwww/visitorfeed.xml";
 var pageLength = 4;
 var ajaxUrl = windowProtocol + "//" + windowHost + "/" + XMLpath;
-var defDisplay = '<img src="/content/dam/nhmwww/wayfindingscreen/emergency.jpg" alt="" />';
+var defDisplay = '<img src="/content/dam/nhmwww/events/n-placeholder.jpg" alt="" />';
 var displayDuration = 20000;
 var headline = "What&#146;s on today";
 var divideDuration = false;
@@ -87,46 +87,47 @@ function buildTable( itemPointer ) {
                 var eventType = $("<p></p>");
                 time.html(curItem.find('custom_3').text());
                 location.html(curItem.find('placemark > name').text());
-                
+
                 // WR-946-wayfinding-tag-names
                 // Sets event categories in an array to lowercase
                 var eventString = curItem.find('categories').text();
                     // Split string at first comma
                 var tmp_eventString = eventString.split(/,(.+)/);
                     // Check if a second array item exists (i.e. more than one item in the array)
-                if (tmp_eventString[1]) { 
-                    tmp_eventString[1] = tmp_eventString[1].toLowerCase(); 
-                    eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]); 
+                if (tmp_eventString[1]) {
+                    tmp_eventString[1] = tmp_eventString[1].toLowerCase();
+                    eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]);
                 }
-                
+
                 eventType.html(eventString);
-                
+
                 left.append(time);
                 left.append(location);
                 left.append(eventType);
-    
+
                 var title = $("<h2></h2>");
                 var description = $("<p></p>");
                 var price = $("<p></p>");
                 var audienceInfo = $("<p></p>");
                 var audienceType;
-    
+
                 title.html(curItem.find('> name').text());
                 description.html(curItem.find('description').text());
                 price.html(curItem.find('custom_2').text());
                 // var audience = curItem.find('audience').text().replace('aged all ages','of all ages');
                 var audienceType = curItem.find('custom_1').text().toLowerCase();
-    
+
                 if (audienceType) {
                     audienceInfo.html("Suitable for "  + audienceType);
                 } else {
                     audienceInfo.html("suitable for is blank");
                 }
-    
+
                 right.append(title);
                 right.append(description);
                 right.append(audienceInfo);
                 right.append(price);
+
             itemPointer++;
         }
     }
@@ -167,7 +168,7 @@ function slidePage() {
     table.hide();
     table.css('z-index',1);
     $('#main').append(table);
-    table.show(); 
+    table.show();
     curPage++;
 }
 
