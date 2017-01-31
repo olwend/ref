@@ -48,6 +48,16 @@ function loadEvents() {
                 eventsBuffer.push($(this));
             }
         });
+
+        /* Sort array */
+        eventsBuffer.sort(function (a, b) {
+            var timeA = a.find('custom_3').text();
+            var timeB = b.find('custom_3').text();
+            if (timeA < timeB) { return -1; }
+            if (timeA > timeB) { return 1; }
+        });
+        /* End sort */
+
         if (events) {
         if(eventsBuffer.length > events.length) {
             window.location.reload();
