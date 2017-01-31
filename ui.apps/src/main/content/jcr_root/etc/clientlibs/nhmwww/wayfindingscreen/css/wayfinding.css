@@ -1,5 +1,5 @@
 body {
-    font-family: 'elysioregular', arial, sans-serif;
+    font-family: 'Elysio-Regular', arial, sans-serif;
 }
 #main {
 	width: 990px;
@@ -24,7 +24,7 @@ h1 {
     line-height: 215px;
     vertical-align: middle;
     padding-left: 45px;
-    font-family: 'elysiomedium', arial, sans-serif;
+    font-family: 'Elysio-Medium', arial, sans-serif;
 }
 h2 {
     font-size: 47px;
