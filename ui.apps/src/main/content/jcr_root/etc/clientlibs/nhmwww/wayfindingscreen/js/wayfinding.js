@@ -17,7 +17,7 @@ var windowHost = window.location.host;
 var XMLpath = "content/nhmwww/visitorfeed.xml";
 var pageLength = 4;
 var ajaxUrl = windowProtocol + "//" + windowHost + "/" + XMLpath;
-var defDisplay = '<img src="/content/dam/nhmwww/wayfindingscreen/emergency.jpg" alt="" />';
+var defDisplay = '<img src="/content/dam/nhmwww/events/n-placeholder.jpg" alt="" />';
 var displayDuration = 20000;
 var headline = "What&#146;s on today";
 var divideDuration = false;
@@ -101,8 +101,6 @@ function buildTable( itemPointer ) {
 
             if (audienceType) {
                 audienceInfo.html("Suitable for "  + audienceType);
-            } else {
-                audienceInfo.html("suitable for is blank");
             }
 
             right.append(title);
