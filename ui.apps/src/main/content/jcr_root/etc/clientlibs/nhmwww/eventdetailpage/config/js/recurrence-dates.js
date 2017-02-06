@@ -21,9 +21,9 @@ function createDates(dlg) {
     //Sets the page path
     eventPagePath.setValue(CQ.WCM.getPagePath());
     
-    for (var m=0;m<datesSubpanels.length;m++){
+    for (var m=0;m<datesSubpanels.length;m++) {
         var subpanel = datesSubpanels[m];
-        if(subpanel.name === './dateAndTime'){
+        if(subpanel.name === './dateAndTime') {
 
             var multi               = subpanel.findByType('multifield'),
                 dates               = subpanel.findByType('datetime'),
@@ -288,7 +288,7 @@ function createWeekDates (weekdays, numberfield, startDate, endDate, strDaysCoun
     }
     
     var sched       = later.parse.text(parserText),
-        occurrences = later.schedule(sched).next(1000);
+        occurrences = later.schedule(sched).next(1000, startDate);
     
     //WR-971, alisp2: Apologies this is a bit of a hack job
     //Use function to get diff between desired week numbers and week numbers
@@ -305,7 +305,7 @@ function createWeekDates (weekdays, numberfield, startDate, endDate, strDaysCoun
       var test = sched;
       
       var sched = later.parse.text(parserText),
-      occurrences = later.schedule(test).next(1000);
+      occurrences = later.schedule(test).next(1000, startDate);
 
     parserText = occurrences[0] + strDaysCounter;
     
@@ -369,7 +369,7 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
                     return filterMonthDates(parserText, startDate, endDate, repeatListValue, 5, strDaysCounter);                    
             }
         }
-        
+
         if (daysListValue.length === 0){
             
             parserText = 'on ';

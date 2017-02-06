@@ -1,14 +1,14 @@
 /* The follwing variables can be used to configure
  * the behaviour of the wayfinding events display.
  *
- * pageLength:  	The number of events to show per page.
- * ajaxUrl:     	URL of XML file to read events from.
- * defDisplay:  	Default HTML to display if no events can be loaded.
+ * pageLength:    The number of events to show per page.
+ * ajaxUrl:       URL of XML file to read events from.
+ * defDisplay:    Default HTML to display if no events can be loaded.
  * displayDuration:     Either the total length of time this display appears for in the playlist (ms)
- *			or the length of time to display each page for (see divideDuration)
- * headline:		The header text for the top of the page.
- * divideDuration:	Divide the display duration equally between pages (true) or display each page
- *			for the displayDuration (false)
+ *      or the length of time to display each page for (see divideDuration)
+ * headline:    The header text for the top of the page.
+ * divideDuration:  Divide the display duration equally between pages (true) or display each page
+ *      for the displayDuration (false)
  *
  * */
 
@@ -17,7 +17,7 @@ var windowHost = window.location.host;
 var XMLpath = "content/nhmwww/visitorfeed.xml";
 var pageLength = 4;
 var ajaxUrl = windowProtocol + "//" + windowHost + "/" + XMLpath;
-var defDisplay = '<img src="/content/dam/nhmwww/wayfindingscreen/emergency.jpg" alt="" />';
+var defDisplay = '<img src="/content/dam/nhmwww/events/n-placeholder.jpg" alt="" />';
 var displayDuration = 20000;
 var headline = "What&#146;s on today";
 var divideDuration = false;
@@ -28,7 +28,7 @@ var divideDuration = false;
  * */
 
 var events;
-var eventsBuffer;
+var eventsBuffer = [];
 var poll;
 var slide;
 var curPage = 0;
@@ -40,10 +40,28 @@ function blankScreen() {
 }
 
 function loadEvents() {
+    eventsBuffer = [];
     $.get(ajaxUrl, function( data ) {
-        eventsBuffer = $(data).find("item");
+        $(data).find("item").each(function () {
+            var calendar_type = $(this).find('calendar_type').text();
+            if (calendar_type === "Visitor") {  // Only append those if search text matches with title
+                eventsBuffer.push($(this));
+            }
+        });
+
+        /* Sort array */
+        eventsBuffer.sort(function (a, b) {
+            var timeA = a.find('custom_3').text();
+            var timeB = b.find('custom_3').text();
+            if (timeA < timeB) { return -1; }
+            if (timeA > timeB) { return 1; }
+        });
+        /* End sort */
+
+        if (events) {
         if(eventsBuffer.length > events.length) {
             window.location.reload();
+        }
         }
     },"xml");
 }
@@ -62,53 +80,53 @@ function buildTable( itemPointer ) {
         table.append(row);
 
         if(itemPointer < events.length) {
-            var curItem = $(events.get(itemPointer));
+            var curEventBit = events[itemPointer];
+            var curItem = $(curEventBit.get());
+                var time = $("<h2></h2>");
+                var location = $("<p></p>");
+                var eventType = $("<p></p>");
+                time.html(curItem.find('custom_3').text());
+                location.html(curItem.find('placemark > name').text());
 
-            var time = $("<h2></h2>");
-            var location = $("<p></p>");
-            var eventType = $("<p></p>");
-            time.html(curItem.find('custom_3').text());
-            location.html(curItem.find('placemark > name').text());
-            
-            // WR-946-wayfinding-tag-names
-            // Sets event categories in an array to lowercase
-            var eventString = curItem.find('categories').text();
-            	// Split string at first comma
-            var tmp_eventString = eventString.split(/,(.+)/);
-            	// Check if a second array item exists (i.e. more than one item in the array)
-            if (tmp_eventString[1]) { 
-            	tmp_eventString[1] = tmp_eventString[1].toLowerCase(); 
-				eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]); 
-			}
-            
-            eventType.html(eventString);
-            
-            left.append(time);
-            left.append(location);
-            left.append(eventType);
+                // WR-946-wayfinding-tag-names
+                // Sets event categories in an array to lowercase
+                var eventString = curItem.find('categories').text();
+                    // Split string at first comma
+                var tmp_eventString = eventString.split(/,(.+)/);
+                    // Check if a second array item exists (i.e. more than one item in the array)
+                if (tmp_eventString[1]) {
+                    tmp_eventString[1] = tmp_eventString[1].toLowerCase();
+                    eventString = tmp_eventString[0].concat(", ", tmp_eventString[1]);
+                }
 
-            var title = $("<h2></h2>");
-            var description = $("<p></p>");
-            var price = $("<p></p>");
-            var audienceInfo = $("<p></p>");
-            var audienceType;
+                eventType.html(eventString);
 
-            title.html(curItem.find('> name').text());
-            description.html(curItem.find('description').text());
-            price.html(curItem.find('custom_2').text());
-			// var audience = curItem.find('audience').text().replace('aged all ages','of all ages');
-            var audienceType = curItem.find('custom_1').text();
+                left.append(time);
+                left.append(location);
+                left.append(eventType);
 
-            if (audienceType) {
-                audienceInfo.html("Suitable for "  + audienceType);
-            } else {
-                audienceInfo.html("suitable for is blank");
-            }
+                var title = $("<h2></h2>");
+                var description = $("<p></p>");
+                var price = $("<p></p>");
+                var audienceInfo = $("<p></p>");
+                var audienceType;
 
-            right.append(title);
-            right.append(description);
-            right.append(audienceInfo);
-            right.append(price);
+                title.html(curItem.find('> name').text());
+                description.html(curItem.find('description').text());
+                price.html(curItem.find('custom_2').text());
+                // var audience = curItem.find('audience').text().replace('aged all ages','of all ages');
+                var audienceType = curItem.find('custom_1').text().toLowerCase();
+
+                if (audienceType) {
+                    audienceInfo.html("Suitable for "  + audienceType);
+                } else {
+                    audienceInfo.html("suitable for is blank");
+                }
+
+                right.append(title);
+                right.append(description);
+                right.append(audienceInfo);
+                right.append(price);
 
             itemPointer++;
         }
@@ -117,25 +135,25 @@ function buildTable( itemPointer ) {
 }
 
 function buildInitial() {
-	if(eventsBuffer) {
-		if(eventsBuffer.length > 0) {
-	        events = eventsBuffer;
-	        window.clearInterval(poll);
-	        var table = buildTable(0);
-	        $('#main').html('<div id="header"><h1>' + headline + '</h1></div>');
-	        $('#main').append(table);
-	        curPage = 1;
-			var pageDisplay;
-			if(divideDuration) {
-				var numPages = Math.ceil(events.length / pageLength);
-				pageDisplay = Math.ceil(displayDuration / numPages);
-			} else {
-				pageDisplay = displayDuration;
-			}
-	        slide = window.setInterval(slidePage,pageDisplay);
-	        poll = window.setInterval(loadEvents,10000);
-	    }
-	}
+  if(eventsBuffer) {
+    if(eventsBuffer.length > 0) {
+        events = eventsBuffer;
+        window.clearInterval(poll);
+        var table = buildTable(0);
+        $('#main').html('<div id="header"><h1>' + headline + '</h1></div>');
+        $('#main').append(table);
+        curPage = 1;
+        var pageDisplay;
+      if(divideDuration) {
+        var numPages = Math.ceil(events.length / pageLength);
+        pageDisplay = Math.ceil(displayDuration / numPages);
+      } else {
+        pageDisplay = displayDuration;
+      }
+        slide = window.setInterval(slidePage,pageDisplay);
+        poll = window.setInterval(loadEvents,10000);
+      }
+  }
 }
 
 function slidePage() {
@@ -150,7 +168,7 @@ function slidePage() {
     table.hide();
     table.css('z-index',1);
     $('#main').append(table);
-	table.show();
+    table.show();
     curPage++;
 }
 

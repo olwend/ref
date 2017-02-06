@@ -47,6 +47,7 @@ public class CreateXMLFeedUtils {
 	private static final String DURATIONS = "durations";
 	private static final String EVENT_LISTING_PRICE = "eventListingPrice";
 	private static final String IMAGE_LINK = "imageLink";
+	private static final String EVENT_TYPE = "eventType";
 	
 	public final static String visitorFeed = "visitorfeed.xml";
 	public final static String contentUrl = "content/nhmwww";
@@ -67,6 +68,7 @@ public class CreateXMLFeedUtils {
 	private static final String CUSTOM_2 = "custom_2";
 	private static final String CUSTOM_3 = "custom_3";
 	private static final String ALL_DAY = "allday";
+	private static final String CALENDAR_TYPE = "calendar_type";
 	
     @Reference
     private SlingRepository repository;
@@ -247,6 +249,7 @@ public class CreateXMLFeedUtils {
 		eventDetail.setDurations(createDurationsArray(event.getJSONArray(DURATIONS).toString()));
 		eventDetail.setEventListingPrice(event.getString(EVENT_LISTING_PRICE));
 		eventDetail.setImageLink(event.getString(IMAGE_LINK));
+		eventDetail.setEventType(event.getString(EVENT_TYPE));
 		
 		return eventDetail;
 	}
@@ -379,6 +382,8 @@ public class CreateXMLFeedUtils {
 			item.appendChild(categories);
 			//Sets the description
 			item.appendChild(createCDATA(doc, item, DESCRIPTION, event.getDescription()));
+			//Set the event type (e.g. visitor, schools, etc...)
+			item.appendChild(createEventElement(doc, item, CALENDAR_TYPE, event.getEventType()));
 			//Sets the audience in custom_1
 			item.appendChild(createEventElement(doc, item, CUSTOM_1,  getTypeTags(event.getTags(), "Audience")));
 			//Sets the listing price in custom_2
