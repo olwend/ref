@@ -22,8 +22,10 @@ public class EventScheduleHelper {
 	private String eventAllDay;
 	private String eventTimes;
 	private String durations;
+	private String soldOut;
 
 	private HashMap<String, String> datesMap;
+	private HashMap<String[], String[]> soldOutMap;
 	private ArrayList<String> sortedDates;
 
 	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
@@ -36,6 +38,7 @@ public class EventScheduleHelper {
 		this.eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
 		this.eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
 		this.durations = contentNode.hasProperty("jcr:durationsRecurrence") ? contentNode.getProperty("jcr:durationsRecurrence").getString() : "";
+		this.soldOut = contentNode.hasProperty("jcr:soldOut") ? contentNode.getProperty("jcr:soldOut").getString() : "";
 
 		this.datesMap = new HashMap<String, String>();
 		this.sortedDates = new ArrayList<String>();
@@ -60,6 +63,7 @@ public class EventScheduleHelper {
 			LinkedHashSet<String> dates = createDatesArray(eventDates);
 			String[] times = createTimesArray(eventTimes, durations);
 			String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
+			times = createSoldOutArray(soldOut, times);
 
 			//Populates the Map
 			for (String date : dates) {
@@ -91,7 +95,7 @@ public class EventScheduleHelper {
 			});
 		}
 	}
-	
+
 	private String parseDateString(String date, String regex) {
         String pos = null;
 
@@ -145,7 +149,7 @@ public class EventScheduleHelper {
 
 			String[] stringArray = new String[stringArrayList.size()];
 			stringArray = stringArrayList.toArray(stringArray);
-
+			
 			return stringArray;
 		} else {
 			return new String[0];    
@@ -204,4 +208,29 @@ public class EventScheduleHelper {
 			return "";                               
 		}
 	}
+	
+	private static String[] createSoldOutArray(String soldOut, String[] times) {
+        String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\],\\[");
+        String[] c = new String[soldOutArray.length];
+        
+        for(int i=0; i < soldOutArray.length; i++) {
+            soldOutArray[i] = soldOutArray[i].replaceAll("[\\[\\]]","");
+            
+            String[] a = soldOutArray[i].split(",");
+            String[] b = times[i].replaceAll(" ", "").split(",");
+            
+            for(int j=0; j < a.length; j++) {
+                if(a[j].equals("true")) {
+                    b[j] = b[j] + " Sold out";
+                }
+                
+                if(c[i] == null) {
+                    c[i] = b[j];
+                } else {
+                    c[i] = c[i] + " " + b[j];
+                }
+            } 
+        }
+        return c;
+    }
 }
