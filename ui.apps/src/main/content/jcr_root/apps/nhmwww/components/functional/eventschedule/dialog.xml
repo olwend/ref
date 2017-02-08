@@ -3,4 +3,35 @@
           jcr:primaryType="cq:Dialog"
           title="Event schedule"
           xtype="panel">
+          <items jcr:primaryType="cq:WidgetCollection">
+          	<text jcr:primaryType="cq:Widget"
+          		name="../../../../textali"
+          		xtype="textfield">
+          		<listeners jcr:primaryType="nt:unstructured"
+          			beforeloadcontent="
+          			function(field, record, path) {
+					  var targetField=field.getName().replace('./','');
+					  
+					  var pathParts=path.split('/');
+					  pathParts.pop();
+					  pathParts.pop();
+					  pathParts.pop();
+					  pathParts.pop();
+
+					  var jcrContentPath=pathParts.join('/');
+					  
+					  var response = CQ.utils.HTTP.get(jcrContentPath +'.json');
+					  eval('var data ='+response.responseText);
+					  var originalPropName=&quot;textali&quot;;
+					  
+					  if(data[originalPropName]!=undefined) {
+					      var originalPropVal=data[originalPropName];
+					      this.setValue(originalPropVal);
+					      return false;
+					  }
+					}"/>
+          	</text>
+          	
+          	
+          </items>
 </jcr:root>
