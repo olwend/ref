@@ -216,10 +216,10 @@
                                   	<li class="nav-list__item">
                                   		<a href="http://www.nhmshop.co.uk/souvenirs/new-kitsch-dino.html?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=dino-adults&utm_content=meganav-promopic">
                                   			<div class="mega-thumb">
-	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Dino Kitsch for Adults">
+	                                        	<img src="/etc/designs/nhmwww/img/megamenu/cta-header-shop.jpg" alt="Kitsch dino for adults">
 	                                        	<div class="mega-thumb-caption shop">
                                                     <p>
-                                                       Dino Kitsch for Adults
+                                                       Kitsch dino for adults
                                                     </p>
 	                                            </div>
 	                                        </div>
