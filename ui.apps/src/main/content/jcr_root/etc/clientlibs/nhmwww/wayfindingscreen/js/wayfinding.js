@@ -17,7 +17,7 @@ var windowHost = window.location.host;
 var XMLpath = "content/nhmwww/visitorfeed.xml";
 var pageLength = 4;
 var ajaxUrl = windowProtocol + "//" + windowHost + "/" + XMLpath;
-var defDisplay = '<img src="/content/dam/nhmwww/events/n-placeholder.jpg" alt="" />';
+var defDisplay = '<img src="/content/dam/nhmwww/home/events-calendar/n-placeholder.jpg" alt="" />';
 var displayDuration = 20000;
 var headline = "What&#146;s on today";
 var divideDuration = false;
@@ -85,7 +85,7 @@ function buildTable( itemPointer ) {
                 var time = $("<h2></h2>");
                 var location = $("<p></p>");
                 var eventType = $("<p></p>");
-                time.html(curItem.find('custom_3').text());
+                time.html(curItem.find('custom_3').text().replace(":", "."));
                 location.html(curItem.find('placemark > name').text());
 
                 // WR-946-wayfinding-tag-names
