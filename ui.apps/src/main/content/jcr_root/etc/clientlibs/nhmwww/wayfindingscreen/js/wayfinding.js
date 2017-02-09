@@ -85,7 +85,7 @@ function buildTable( itemPointer ) {
                 var time = $("<h2></h2>");
                 var location = $("<p></p>");
                 var eventType = $("<p></p>");
-                time.html(curItem.find('custom_3').text());
+                time.html(curItem.find('custom_3').text().replace(":", "."));
                 location.html(curItem.find('placemark > name').text());
 
                 // WR-946-wayfinding-tag-names
