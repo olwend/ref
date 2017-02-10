@@ -63,6 +63,12 @@
                         selectionchanged="function(field,value) {
                                           displayEventConfig(field,value); }"/>
                 </eventsList>
+                <soldOut
+                    jcr:primaryType="cq:Widget"
+                    hidden="true"
+                    fieldLabel="Sold Out"
+                    name="./jcr:soldOut"
+                    xtype="textfield"/>
             </items>
         </elementType>
         <basic
@@ -425,10 +431,10 @@
                         <listeners
                             jcr:primaryType="nt:unstructured"
                             beforeadd="function(list, component, index) {
-                                        var length = list.items.length;
-                                        var addButton = list.items.items[length - 1];
-                                        addButton.hide();
-                                        }"
+                                       var length = list.items.length;
+                                       var addButton = list.items.items[length - 1];
+                                       addButton.hide();
+                                       }"
                             removeditem="function(list) {
                                          var length = list.items.length;
                                          var addButton = list.items.items[length - 1];

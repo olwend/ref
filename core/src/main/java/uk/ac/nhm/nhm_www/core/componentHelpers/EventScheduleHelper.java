@@ -144,6 +144,7 @@ public class EventScheduleHelper {
 
 			for (int i = 0; i < values.length; i++) {
 				String [] timeArray = values[i].replaceAll("[^\\w\\s\\,\\:]", "").split(",");
+				
 				stringArrayList.add(createTimeAndDuration(timeArray, intDurationArray[i]));
 			}
 
@@ -186,6 +187,7 @@ public class EventScheduleHelper {
 				String initialTime = times[i].replace(":",".");
 				String finalTime = calculateEndTime(times[i], duration).replace(":",".");  
 				timeAndDuration += initialTime.replace("00.00","midnight") + "-" + finalTime.replace("00.00","midnight");
+
 				if (i < times.length - 1) {
 					timeAndDuration += ", ";                       
 				}
@@ -209,7 +211,7 @@ public class EventScheduleHelper {
 		}
 	}
 	
-	private static String[] createSoldOutArray(String soldOut, String[] times) {
+	private String[] createSoldOutArray(String soldOut, String[] times) {
         String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\],\\[");
         String[] c = new String[soldOutArray.length];
         
@@ -221,13 +223,13 @@ public class EventScheduleHelper {
             
             for(int j=0; j < a.length; j++) {
                 if(a[j].equals("true")) {
-                    b[j] = b[j] + " Sold out";
+                    b[j] = b[j] + " (Sold out)";
                 }
                 
                 if(c[i] == null) {
                     c[i] = b[j];
                 } else {
-                    c[i] = c[i] + " " + b[j];
+                    c[i] = c[i] + ", " + b[j];
                 }
             } 
         }

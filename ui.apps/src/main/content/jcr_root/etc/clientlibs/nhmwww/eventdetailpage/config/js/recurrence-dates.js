@@ -7,6 +7,7 @@ function createDates(dlg) {
         timesRecurrence     = dlg.findByType('textfield')[2],
         durationsRecurrence = dlg.findByType('textfield')[3],
         eventPagePath       = dlg.findByType('textfield')[4],
+        soldOut 			= dlg.findByType('textfield')[5],
         jsonString          = '',
         mainDates           = [],
         allDays             = [],
@@ -15,12 +16,41 @@ function createDates(dlg) {
         daysCounter         = 0,
         EventDates          = '',
         isRecurring         = true;
-    
+
+    //Initialise arrays for sold out
+    //Get current times array and dates array
+    var currentTimesArray = timesRecurrence.getValue().split("],["),
+        tempDatesArray = [],
+        currentDatesArray = [],
+    	countDatesArray = [];
+
+    for(var i=0; i<currentTimesArray.length; i++) {
+        currentTimesArray[i] = currentTimesArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+    }
+
+    if(datesRecurrence.value != undefined) {
+        if(datesRecurrence.value.includes(',')) {
+            tempDatesArray = datesRecurrence.getValue().split(",");
+        } else {
+            tempDatesArray.push(datesRecurrence.value);
+        }
+
+        var currentIndex = -1;
+        for(var i=0; i<tempDatesArray.length; i++) {
+            if(tempDatesArray[i].match(/(\d)+$/)[0] > currentIndex) {
+                currentIndex++;
+                currentDatesArray[currentIndex] = tempDatesArray[i];
+            }
+        }
+    }
+
+    //Reset dialog values - to be populated later
     datesRecurrence.setValue('');
     timesRecurrence.setValue('');
+
     //Sets the page path
     eventPagePath.setValue(CQ.WCM.getPagePath());
-    
+
     for (var m=0;m<datesSubpanels.length;m++) {
         var subpanel = datesSubpanels[m];
         if(subpanel.name === './dateAndTime') {
@@ -29,7 +59,7 @@ function createDates(dlg) {
                 dates               = subpanel.findByType('datetime'),
                 selectionFields     = subpanel.findByType('selection'),
                 durations           = subpanel.findByType('numberfield');
-            
+
             isRecurring = true;
             
             //Gets the main days and if it's an All day event
@@ -148,14 +178,94 @@ function createDates(dlg) {
             }
         }
     }
+
+    //Replace needed to remove empty ,,
+    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(','));
     
-    allDayRecurrence.setValue(JSON.stringify(allDays));
+	//Populate sold out array
+	var soldOutArray = [];
+
+    if(soldOut.value !== undefined) {
+    	soldOutArray = soldOut.getValue().split("],[");
+    }
+
+    for(var i=0;i<soldOutArray.length;i++) {
+		soldOutArray[i] = soldOutArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+    }
+
+    //A new date is added
+    var diff = 0;
+
+    if(currentTimesArray.length == 1 && currentTimesArray[0] == "") {
+        diff = timesArray.length;
+    } else if(timesArray.length > currentTimesArray.length) {
+        diff = timesArray.length - currentTimesArray.length;
+    }
+
+    if(diff > 0) {
+        for(var i=0; i<diff; i++) {
+        	soldOutArray.push(['false']);
+        }
+    }
+
+    //A date is removed
+    if(currentDatesArray.length > aggregatedDates.length) {
+        for(var i=0; i<currentDatesArray.length; i++) {
+            var dateExists = false;
+            for(var j=0; j<aggregatedDates.length; j++) {
+                if(currentDatesArray[i].match('^([a-zA-Z0-9:( +]+)\\)')[0] == aggregatedDates[j].match('^([a-zA-Z0-9:( +]+)\\)')[0]) {
+					dateExists = true;
+                }
+            }
+            if(dateExists == false) {
+                soldOutArray.splice(i, 1);
+            }
+        }
+    }
+
+    //Compare arrays within arrays
+    if(timesArray.length == currentTimesArray.length) {
+        for(var i=0; i<currentTimesArray.length; i++) {
+            //A time has been added to an existing date
+            if(timesArray[i].length > currentTimesArray[i].length) {
+                for(var j=0; j<timesArray[i].length; j++) {
+                    var cur = timesArray[i][j];
+                    var exists = false;
+                    for(var k=0; k<currentTimesArray[i].length; k++) {
+                        if(currentTimesArray[i][k] == cur) {
+                            exists = true;
+                        }
+                    }
+                    if(exists == false) {
+                        soldOutArray[i].splice(j, 0, "false");
+                    }
+                }
+            }
+
+            //A time has been removed from an existing date
+            if(timesArray[i].length < currentTimesArray[i].length) {
+                for(var j=0; j<currentTimesArray[i].length; j++) {
+                    console.log(currentTimesArray[i][j]);
+					var timeExists = false;
+                    for(var k=0; k<timesArray[i].length; k++) {
+                        console.log(timesArray[i][k]);
+                        if(currentTimesArray[i][j] == timesArray[i][k]) {
+							timeExists = true;
+                        }
+                    }
+                    if(timeExists == false) {
+						soldOutArray[i].splice(j, 1);
+                    }
+                }
+            }
+        }
+    }
+
+	allDayRecurrence.setValue(JSON.stringify(allDays));
     durationsRecurrence.setValue(JSON.stringify(durationsArray));
     timesRecurrence.setValue(JSON.stringify(timesArray));
-    
-        //Replace needed to remove empty ,,
-    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(','));
-    datesRecurrence.setValue(aggregatedDates);
+	datesRecurrence.setValue(aggregatedDates);
+    soldOut.setValue(JSON.stringify(soldOutArray).replace(new RegExp('"', 'g'), ''));
 }
 
 //Function to remove conflict dates
@@ -229,7 +339,7 @@ function createDateString(date) {
     return dateArray[1] + dateArray[2] + dateArray[3];
 }
 
-//Function to remove the timestamp and set all the tomes to 00:00:00
+//Function to remove the timestamp and set all the times to 00:00:00
 function resetTimeStamp(dates) {
     var datesString = [];
     for (var i = 0; i < dates.length; i++) {
