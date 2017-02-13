@@ -4194,7 +4194,7 @@ function Paper(w, h) {
         defs = w.getElementsByTagName("defs")[0];
         if (!desc) {
             desc = $("desc");
-            desc.appendChild(glob.doc.createTextNode("Created with Snap"));
+            desc.appendChild(glob.doc.createTextNode(""));
             res.node.appendChild(desc);
         }
         if (!defs) {
