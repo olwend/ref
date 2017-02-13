@@ -3,10 +3,31 @@
 	jcr:primaryType="cq:Dialog" title="Event schedule" xtype="dialog">
 	<listeners jcr:primaryType="nt:unstructured"
 		beforesubmit="
-			function(dialogObj){
-  			  alert(&quot;This needs to be replaced&quot;);
-  			  return true;
-			}" />
+			function(dialog){
+				console.log(dialog);
+				  var dialogItems = dialog.initialConfig.items.items.items;
+				  console.log(dialog.initialConfig.items.items.items);
+				  
+				  var newItems = {'jcr:primaryType':'cq:Widget', name:'../../../../jcr:datesRecurrence', stateful:false, xtype:'textfield, msgTarget:qtip, anchor:94%};
+				  console.log(newItems);
+				
+				  dialog.initialConfig.items.items.items[dialogItems.length] = newItems;
+				  console.log(dialog.initialConfig.items.items.items);
+				
+				  var path = dialog.path;
+				  
+				  var pathParts=path.split('/');
+				  pathParts.pop();
+				  pathParts.pop();
+				  pathParts.pop();
+				  pathParts.pop();
+				  
+				  var jcrContentPath=pathParts.join('/');
+				  
+				  var response = CQ.utils.HTTP.get(jcrContentPath +'.json');
+				
+				  return true;
+				}" />
 	<items jcr:primaryType="cq:Widget" 
 		xtype="tabpanel">
 		<items jcr:primaryType="cq:WidgetCollection">
