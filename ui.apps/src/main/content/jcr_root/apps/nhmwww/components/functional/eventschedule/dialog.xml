@@ -87,6 +87,15 @@
 								  }
 								}" />
 					</soldout>
+					<links jcr:primaryType="cq:Widget"
+						fieldDescription="Press + to add more links"
+						fieldLabel="Links"
+						hideLabel="true"
+						name="./links"
+						xtype="multifield">
+						<fieldConfig jcr:primaryType="cq:Widget"
+							xtype="CustomMultiField"/>
+					</links>
 				</items>
 			</tab1>
 		</items>
