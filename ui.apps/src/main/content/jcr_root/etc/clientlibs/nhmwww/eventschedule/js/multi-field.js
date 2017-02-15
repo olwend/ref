@@ -1,43 +1,13 @@
-/**
-* @class MyClientLib.CustomPathFieldWidget
-* @extends CQ.form.CompositeField
-* This is a custom path field with a Link Text and a Link URL
-* @param {Object} config the config object
-*/
-/**
-* @class Ejst.CustomWidget
-* @extends CQ.form.CompositeField
-* This is a custom widget based on {@link CQ.form.CompositeField}.
-* @constructor
-* Creates a new CustomWidget.
-* @param {Object} config The config object
-*/
-
 CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
-    /**
-    * @private
-    * @type CQ.Ext.form.TextField
-    */
     hiddenField: null,
-
-    /**
-    * @private
-    * @type CQ.Ext.form.TextField
-    */
-    linkText: null,
-
-    /**
-    * @private
-    * @type CQ.Ext.form.PathField
-    */
-    linkURL: null,
 
     soldOutArray: null,
     timesArray: null,
     datesArray: null,
 
     constructor: function (field, config) {
+
         var path = field.ownerCt.path;
 		var pathParts=path.split('/');
         pathParts.pop();
@@ -105,43 +75,6 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
         });
         this.add(this.hiddenField);
 
-    	// Text TextField to enter Title
-        this.linkText = new CQ.Ext.form.TextField({
-            cls: "customwidget-1",
-            maxLength: 100,
-            emptyText: "Enter Title",
-            maxLengthText: "A maximum of 100 characters is allowed for the Link Text.",
-            width: 335,
-            allowBlank: true,
-            name : "item",
-            listeners: {
-                change: {
-                    scope: this,
-                    fn: this.updateHidden
-        		}
-        	}
-        }); 
-        //this.add(this.linkText);
-
-    	// Link PathField to map a URL
-        this.linkURL = new CQ.form.PathField({
-            cls: "customwidget-2",
-            allowBlank: true,
-            emptyText: "Enter Title URL",
-      		width: 335,
-            listeners: {
-                change: {
-                    scope: this,
-                    fn: this.updateHidden
-            	},     
-            	dialogclose: {
-                    scope: this,
-                    fn: this.updateHidden
-            	}
-           }
-        });
-        //this.add(this.linkURL);
-
         for(var i=0; i<this.soldOutArray.length; i++) {
 
             var dateString = this.datesArray[i];
@@ -183,17 +116,8 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
     	}
     },
 
-    processInit: function (path, record) { 
-        this.linkText.processInit(path, record);
-        this.linkURL.processInit(path, record);
-        //this.openInNewWindow.processInit(path, record);
-    },
-
     setValue: function (value) {
         var link = JSON.parse(value);
-        this.linkText.setValue(link.text);
-        this.linkURL.setValue(link.url);
-        //this.openInNewWindow.setValue(link.openInNewWindow);
     },
 
     getValue: function () {
@@ -202,9 +126,7 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
     getRawValue: function () { 
         var link = {
-            "url": this.linkURL.getValue(),
-            "text": this.linkText.getValue(),
-            //"openInNewWindow": this.openInNewWindow.getValue()
+
         }; 
         return JSON.stringify(link);
     },
