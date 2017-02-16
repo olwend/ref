@@ -185,12 +185,25 @@ function createDates(dlg) {
 	//Populate sold out array
 	var soldOutArray = [];
 
+	console.log(allDays);
+
     if(soldOut.value !== undefined) {
     	soldOutArray = soldOut.getValue().split("],[");
     }
 
     for(var i=0;i<soldOutArray.length;i++) {
 		soldOutArray[i] = soldOutArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+    }
+
+	//Initialise existing pages
+    if(soldOutArray.length == 0 && currentTimesArray.length != 0) {
+        for(var i=0; i<currentTimesArray.length; i++) {
+            var subArray = [];
+            for(var j=0; j<currentTimesArray[i].length; j++) {
+				subArray[j] = "false";
+            }
+            soldOutArray[i] = subArray;
+        }
     }
 
     //A new date is added
@@ -218,7 +231,13 @@ function createDates(dlg) {
                 }
             }
             if(dateExists == false) {
-                soldOutArray.splice(i, 1);
+                soldOutArray[i] = [];
+            }
+        }
+
+        for(var i=(soldOutArray.length - 1); i>-1; i--) {
+            if(soldOutArray[i] == "") {
+				soldOutArray.splice(i, 1);
             }
         }
     }
@@ -597,7 +616,7 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
 
 //Helper function to parse the dates
 function parseDate(str) {
-    
+
     var day         = str.getDate(),
         monthIndex  = str.getMonth(),
         year        = str.getFullYear();
