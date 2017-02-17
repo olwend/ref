@@ -355,7 +355,6 @@
                                 </li>
                                 <li class="nav-list__item">
                                     <div class="newslettersignup">
-	                                    <cq:includeClientLib categories="nhm-www.newsletter" />
 	                                    <h4> Sign up for our emails</h4>
 	                                    <form action="<%= helper.getProtocol() + hostPort  + pathForSignup %>/jcr:content.newslettersignup.html" method="get">
 	                                        <div class="form-field firstname">

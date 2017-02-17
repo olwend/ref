@@ -3,7 +3,6 @@
 <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <% DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request); %>
-<cq:includeClientLib categories="nhm-www.newsletter" />
 <!-- START OF FOOTER -->
 <footer class="main-footer">
             <div class="row">
