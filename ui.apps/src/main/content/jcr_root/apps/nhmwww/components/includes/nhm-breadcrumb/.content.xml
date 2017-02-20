@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="NHM Breadcrumb"
     allowedParents="[*/*parsys]"
-    componentGroup="hidden"/>
+    componentGroup=".hidden"/>
