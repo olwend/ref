@@ -185,8 +185,6 @@ function createDates(dlg) {
 	//Populate sold out array
 	var soldOutArray = [];
 
-	console.log(allDays);
-
     if(soldOut.value !== undefined) {
     	soldOutArray = soldOut.getValue().split("],[");
     }
@@ -231,12 +229,12 @@ function createDates(dlg) {
                 }
             }
             if(dateExists == false) {
-                soldOutArray[i] = [];
+                soldOutArray[i] = "todelete";
             }
         }
 
         for(var i=(soldOutArray.length - 1); i>-1; i--) {
-            if(soldOutArray[i] == "") {
+            if(soldOutArray[i] == "todelete") {
 				soldOutArray.splice(i, 1);
             }
         }
@@ -551,7 +549,7 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
         if (monthYear === concatDates(occurrences[i])) {
             datesArray[counter].push(occurrences[i]);
         }
-        
+
         else {
             counter++;
             datesArray[counter] = []; 

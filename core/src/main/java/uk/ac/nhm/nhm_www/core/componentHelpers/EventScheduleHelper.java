@@ -63,7 +63,9 @@ public class EventScheduleHelper {
 			LinkedHashSet<String> dates = createDatesArray(eventDates);
 			String[] times = createTimesArray(eventTimes, durations);
 			String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
-			times = createSoldOutArray(soldOut, times);
+			String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\],\\[");
+			
+			times = addSoldOutText(soldOutArray, times);
 
 			//Populates the Map
 			for (String date : dates) {
@@ -71,7 +73,11 @@ public class EventScheduleHelper {
 				String datesMapValue = "All day";
 				if (!allDayArray[index].equals("true")) {
 					datesMapValue = times[index]; 
-				} 
+				}
+				else if(soldOutArray[index].equals("true")) {
+					datesMapValue += " (Sold out)";
+				}
+				
 				datesMap.put(parseDateString(date, "^([a-zA-Z0-9 ])+"), datesMapValue);
 			}
 
@@ -211,8 +217,7 @@ public class EventScheduleHelper {
 		}
 	}
 	
-	private String[] createSoldOutArray(String soldOut, String[] times) {
-        String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\],\\[");
+	private String[] addSoldOutText(String[] soldOutArray, String[] times) {
         String[] c = new String[soldOutArray.length];
         
         for(int i=0; i < soldOutArray.length; i++) {
