@@ -1,4 +1,4 @@
-/* The follwing variables can be used to configure
+/* The following variables can be used to configure
  * the behaviour of the wayfinding events display.
  *
  * pageLength:    The number of events to show per page.
@@ -44,8 +44,21 @@ function loadEvents() {
     $.get(ajaxUrl, function( data ) {
         $(data).find("item").each(function () {
             var calendar_type = $(this).find('calendar_type').text();
-            if (calendar_type === "Visitor") {  // Only append those if search text matches with title
-                eventsBuffer.push($(this));
+            
+            // Get DateTime of event end - Format = "MMM DD, YYYY HH:mm"
+            var calendar_time = $(this).find('dtend').text(); 
+            // Convert DateTime string to Date object format and select only the time component as an object
+            var calendar_datetime = new Date(calendar_time).getTime(); 
+            // Select simple time field to check for All Day events
+            var calendar_time_simple = $(this).find('custom_3').text();
+            // Get time now
+            var time_now = new Date().getTime(); 
+            // Only append if event is tagged Visitor
+            if (calendar_type === "Visitor") {  
+                // Only append if event starts after current time, or event is All Day
+                if (calendar_datetime > time_now || calendar_time_simple=="All day") { 
+                    eventsBuffer.push($(this));
+                }
             }
         });
 
