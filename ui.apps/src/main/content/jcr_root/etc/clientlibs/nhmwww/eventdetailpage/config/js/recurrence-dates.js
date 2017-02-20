@@ -19,10 +19,14 @@ function createDates(dlg) {
 
     //Initialise arrays for sold out
     //Get current times array and dates array
-    var currentTimesArray = timesRecurrence.getValue().split("],["),
+    var currentTimesArray = [],
         tempDatesArray = [],
         currentDatesArray = [],
     	countDatesArray = [];
+
+    if(timesRecurrence.getValue() != "") {
+        currentTimesArray = timesRecurrence.getValue().split("],[");
+    }
 
     for(var i=0; i<currentTimesArray.length; i++) {
         currentTimesArray[i] = currentTimesArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
@@ -214,8 +218,15 @@ function createDates(dlg) {
     }
 
     if(diff > 0) {
-        for(var i=0; i<diff; i++) {
-        	soldOutArray.push(['false']);
+        for(var i=currentTimesArray.length; i<timesArray.length; i++) {
+            var emptySubArray = [];
+            var soldOutSubArray = [];
+            for(var j=0; j < timesArray[i].length; j++) {
+            	emptySubArray[j] = "";
+                soldOutSubArray[j] = "false";
+            }
+            currentTimesArray[i] = emptySubArray;
+            soldOutArray[i] = soldOutSubArray;
         }
     }
 
@@ -236,6 +247,7 @@ function createDates(dlg) {
         for(var i=(soldOutArray.length - 1); i>-1; i--) {
             if(soldOutArray[i] == "todelete") {
 				soldOutArray.splice(i, 1);
+                currentTimesArray.splice(i, 1);
             }
         }
     }
@@ -594,7 +606,7 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
             else {
                 finalArray += ',' + datesArray[x][weekdays * repeatNumber] + strDaysCounter;   
             }
-            
+
             for (var z = 1; z < weekdays; z++) {
                 
                 if (repeatListValue.toString() === 'Last') {
