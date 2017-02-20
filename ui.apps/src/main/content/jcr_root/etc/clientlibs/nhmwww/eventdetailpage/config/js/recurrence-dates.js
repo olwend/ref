@@ -221,9 +221,15 @@ function createDates(dlg) {
         for(var i=currentTimesArray.length; i<timesArray.length; i++) {
             var emptySubArray = [];
             var soldOutSubArray = [];
-            for(var j=0; j < timesArray[i].length; j++) {
-            	emptySubArray[j] = "";
-                soldOutSubArray[j] = "false";
+
+            if(allDays[i]) {
+				emptySubArray[0] = "";
+                soldOutSubArray[0] = "false";
+            } else {
+                for(var j=0; j < timesArray[i].length; j++) {
+                    emptySubArray[j] = "";
+                    soldOutSubArray[j] = "false";
+                }
             }
             currentTimesArray[i] = emptySubArray;
             soldOutArray[i] = soldOutSubArray;
@@ -255,35 +261,37 @@ function createDates(dlg) {
     //Compare arrays within arrays
     if(timesArray.length == currentTimesArray.length) {
         for(var i=0; i<currentTimesArray.length; i++) {
-            //A time has been added to an existing date
-            if(timesArray[i].length > currentTimesArray[i].length) {
-                for(var j=0; j<timesArray[i].length; j++) {
-                    var cur = timesArray[i][j];
-                    var exists = false;
-                    for(var k=0; k<currentTimesArray[i].length; k++) {
-                        if(currentTimesArray[i][k] == cur) {
-                            exists = true;
+            if(!allDays[i]) {
+                //A time has been added to an existing date
+                if(timesArray[i].length > currentTimesArray[i].length) {
+                    for(var j=0; j<timesArray[i].length; j++) {
+                        var cur = timesArray[i][j];
+                        var exists = false;
+                        for(var k=0; k<currentTimesArray[i].length; k++) {
+                            if(currentTimesArray[i][k] == cur) {
+                                exists = true;
+                            }
                         }
-                    }
-                    if(exists == false) {
-                        soldOutArray[i].splice(j, 0, "false");
+                        if(exists == false) {
+                            soldOutArray[i].splice(j, 0, "false");
+                        }
                     }
                 }
-            }
-
-            //A time has been removed from an existing date
-            if(timesArray[i].length < currentTimesArray[i].length) {
-                for(var j=0; j<currentTimesArray[i].length; j++) {
-                    console.log(currentTimesArray[i][j]);
-					var timeExists = false;
-                    for(var k=0; k<timesArray[i].length; k++) {
-                        console.log(timesArray[i][k]);
-                        if(currentTimesArray[i][j] == timesArray[i][k]) {
-							timeExists = true;
+    
+                //A time has been removed from an existing date
+                if(timesArray[i].length < currentTimesArray[i].length) {
+                    for(var j=0; j<currentTimesArray[i].length; j++) {
+                        console.log(currentTimesArray[i][j]);
+                        var timeExists = false;
+                        for(var k=0; k<timesArray[i].length; k++) {
+                            console.log(timesArray[i][k]);
+                            if(currentTimesArray[i][j] == timesArray[i][k]) {
+                                timeExists = true;
+                            }
                         }
-                    }
-                    if(timeExists == false) {
-						soldOutArray[i].splice(j, 1);
+                        if(timeExists == false) {
+                            soldOutArray[i].splice(j, 1);
+                        }
                     }
                 }
             }
