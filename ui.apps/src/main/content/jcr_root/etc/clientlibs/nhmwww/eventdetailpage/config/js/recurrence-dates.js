@@ -628,7 +628,7 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
             }
         }
     }
-    
+
     return finalArray;
 }
 
