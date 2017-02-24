@@ -24,28 +24,23 @@ function createDates(dlg) {
         currentDatesArray = [],
     	countDatesArray = [];
 
-    if(timesRecurrence.getValue() != "") {
-        currentTimesArray = timesRecurrence.getValue().split("],[");
-    }
-
-    for(var i=0; i<currentTimesArray.length; i++) {
-        currentTimesArray[i] = currentTimesArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
-    }
-
+    //Dates
     if(datesRecurrence.value != undefined) {
         if(datesRecurrence.value.includes(',')) {
             tempDatesArray = datesRecurrence.getValue().split(",");
         } else {
             tempDatesArray.push(datesRecurrence.value);
         }
+        currentDatesArray = getMixedDatesArray(tempDatesArray);
+    }
 
-        var currentIndex = -1;
-        for(var i=0; i<tempDatesArray.length; i++) {
-            if(tempDatesArray[i].match(/(\d)+$/)[0] > currentIndex) {
-                currentIndex++;
-                currentDatesArray[currentIndex] = tempDatesArray[i];
-            }
-        }
+    //Times
+	if(timesRecurrence.getValue() != "") {
+        currentTimesArray = timesRecurrence.getValue().split("],[");
+    }
+
+    for(var i=0; i<currentTimesArray.length; i++) {
+        currentTimesArray[i] = currentTimesArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
     }
 
     //Reset dialog values - to be populated later
@@ -183,18 +178,65 @@ function createDates(dlg) {
         }
     }
 
-    //Replace needed to remove empty ,,
-    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(','));
-    
+	//Replace needed to remove empty ,,
+    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(',')),
+        newDatesArray = getMixedDatesArray(aggregatedDates);
+
+	//All day
+    var tempAllDayArray = [];
+
+    for(var i=0; i<newDatesArray.length; i++) {
+        if(Array.isArray(newDatesArray[i])) {
+            for(var j=0; j<newDatesArray[i].length; j++) {
+				tempAllDayArray.push(allDays[i]);
+            }
+        } else {
+			tempAllDayArray.push(allDays[i]);
+        }	
+    }
+
+    //Populate times arrays to be used for adding/removing dates/times
+    var reccurrenceTimesArray = [];
+    for(var i=0; i<timesArray.length; i++) {
+		reccurrenceTimesArray.push(timesArray[i]);
+    }
+
+    for(var i=0; i<currentDatesArray.length; i++) {
+        if(Array.isArray(currentDatesArray[i])) {
+            var tempCurrentTimesArray = [];
+            for(var j=0; j<currentDatesArray[i].length; j++) {
+				tempCurrentTimesArray.push(currentTimesArray[i]);
+            }
+            currentTimesArray[i] = tempCurrentTimesArray;
+        }
+    }
+
+    for(var i=0; i<newDatesArray.length; i++) {
+        if(Array.isArray(newDatesArray[i])) {
+            var tempCurrentTimesArray = [];
+            for(var j=0; j<newDatesArray[i].length; j++) {
+				tempCurrentTimesArray.push(reccurrenceTimesArray[i]);
+            }
+            reccurrenceTimesArray[i] = tempCurrentTimesArray;
+        }
+    }
+
 	//Populate sold out array
 	var soldOutArray = [];
 
     if(soldOut.value !== undefined) {
-    	soldOutArray = soldOut.getValue().split("],[");
+    	soldOutArray = soldOut.getValue().split("], [");
     }
 
     for(var i=0;i<soldOutArray.length;i++) {
-		soldOutArray[i] = soldOutArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+        if(soldOutArray[i].match('\\],\\[')) {
+			soldOutArray[i] = soldOutArray[i].split("],[");
+            for(var j=0; j<soldOutArray[i].length; j++) {
+				soldOutArray[i][j] = soldOutArray[i][j].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+            }
+        } else {
+        	soldOutArray[i] = soldOutArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+        }
     }
 
 	//Initialise existing pages
@@ -202,13 +244,22 @@ function createDates(dlg) {
         for(var i=0; i<currentTimesArray.length; i++) {
             var subArray = [];
             for(var j=0; j<currentTimesArray[i].length; j++) {
-				subArray[j] = "false";
+                if(Array.isArray(currentTimesArray[i][j])) {
+					var subSubArray = [];
+                    for(var k=0; k<currentTimesArray[i][j].length; k++) {
+						subSubArray[k] = "false";
+                    }
+                    subArray[j] = subSubArray;
+                } else {
+					subArray[j] = "false";
+                }
             }
+
             soldOutArray[i] = subArray;
         }
     }
 
-    //A new date is added
+    //A date is added
     var diff = 0;
 
     if(currentTimesArray.length == 1 && currentTimesArray[0] == "") {
@@ -219,24 +270,53 @@ function createDates(dlg) {
 
     if(diff > 0) {
         for(var i=currentTimesArray.length; i<timesArray.length; i++) {
-            var emptySubArray = [];
+			var emptySubArray = [];
             var soldOutSubArray = [];
 
-            if(allDays[i]) {
-				emptySubArray[0] = "";
-                soldOutSubArray[0] = "false";
-            } else {
-                for(var j=0; j < timesArray[i].length; j++) {
-                    emptySubArray[j] = "";
-                    soldOutSubArray[j] = "false";
+            //If recurrence date
+            if(Array.isArray(newDatesArray[i])) {
+                if(allDays[i]) {
+					for(var j=0; j<newDatesArray[i].length; j++) {
+						var emptySubSubArray = [];
+                        var soldOutSubSubArray = [];
+
+                        for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
+                            emptySubSubArray[0] = "";
+                            soldOutSubSubArray[0] = "false";
+                        }
+						emptySubArray[j] = emptySubSubArray;
+                        soldOutSubArray[j] = soldOutSubSubArray;
+                    }
+                } else {
+					for(var j=0; j<newDatesArray[i].length; j++) {
+                        var emptySubSubArray = [];
+                        var soldOutSubSubArray = [];
+
+                        for(var k=0; k<reccurrenceTimesArray[i][j].length; k++) {
+                            emptySubSubArray[k] = "";
+                            soldOutSubSubArray[k] = "false";
+                        }
+                        emptySubArray[j] = emptySubSubArray;
+                        soldOutSubArray[j] = soldOutSubSubArray;
+                    }
                 }
-            }
+            } else {
+                if(allDays[i]) {
+                    emptySubArray[0] = "";
+                    soldOutSubArray[0] = "false";
+                } else {
+                    for(var j=0; j < timesArray[i].length; j++) {
+                        emptySubArray[j] = "";
+                        soldOutSubArray[j] = "false";
+                    }
+                }
+        	}
             currentTimesArray[i] = emptySubArray;
             soldOutArray[i] = soldOutSubArray;
         }
     }
 
-    //A date is removed
+    //A date is removed - TODO
     if(currentDatesArray.length > aggregatedDates.length) {
         for(var i=0; i<currentDatesArray.length; i++) {
             var dateExists = false;
@@ -258,14 +338,14 @@ function createDates(dlg) {
         }
     }
 
-    //Compare arrays within arrays
-    if(timesArray.length == currentTimesArray.length) {
+    //A time is added/removed - TODO
+    if(reccurrenceTimesArray.length == currentTimesArray.length) {
         for(var i=0; i<currentTimesArray.length; i++) {
             if(!allDays[i]) {
-                //A time has been added to an existing date
-                if(timesArray[i].length > currentTimesArray[i].length) {
-                    for(var j=0; j<timesArray[i].length; j++) {
-                        var cur = timesArray[i][j];
+                //A time has been added to an existing date - TODO
+                if(reccurrenceTimesArray[i].length > currentTimesArray[i].length) {
+                    for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
+                        var cur = reccurrenceTimesArray[i][j];
                         var exists = false;
                         for(var k=0; k<currentTimesArray[i].length; k++) {
                             if(currentTimesArray[i][k] == cur) {
@@ -278,14 +358,14 @@ function createDates(dlg) {
                     }
                 }
     
-                //A time has been removed from an existing date
-                if(timesArray[i].length < currentTimesArray[i].length) {
+                //A time has been removed from an existing date - TODO
+                if(reccurrenceTimesArray[i].length < currentTimesArray[i].length) {
                     for(var j=0; j<currentTimesArray[i].length; j++) {
                         console.log(currentTimesArray[i][j]);
                         var timeExists = false;
-                        for(var k=0; k<timesArray[i].length; k++) {
-                            console.log(timesArray[i][k]);
-                            if(currentTimesArray[i][j] == timesArray[i][k]) {
+                        for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
+                            console.log(reccurrenceTimesArray[i][k]);
+                            if(currentTimesArray[i][j] == reccurrenceTimesArray[i][k]) {
                                 timeExists = true;
                             }
                         }
@@ -298,11 +378,64 @@ function createDates(dlg) {
         }
     }
 
-	allDayRecurrence.setValue(JSON.stringify(allDays));
+    //Create sold out string to store in repo
+    var soldOutString = "[";
+
+    for(var i=0; i<soldOutArray.length; i++) {
+        soldOutString += "[";
+        if(Array.isArray(soldOutArray[i])) {
+            for(var j=0; j<soldOutArray[i].length; j++) {
+                if(Array.isArray(soldOutArray[i][j])) {
+                    soldOutString += "[";
+                    for(var k=0; k<soldOutArray[i][j].length; k++) {
+						soldOutString += soldOutArray[i][j][k] + ",";
+                    }
+                    soldOutString = soldOutString.slice(0,-1) + "],";
+                } else {
+					soldOutString += soldOutArray[i][j] + ",";
+                }
+            }
+        }
+        soldOutString = soldOutString.slice(0,-1) + "], ";
+    }
+    soldOutString = soldOutString.slice(0,-2) + "]";
+
+    //Save values back to repo
+	allDayRecurrence.setValue(JSON.stringify(tempAllDayArray));
     durationsRecurrence.setValue(JSON.stringify(durationsArray));
     timesRecurrence.setValue(JSON.stringify(timesArray));
 	datesRecurrence.setValue(aggregatedDates);
-    soldOut.setValue(JSON.stringify(soldOutArray).replace(new RegExp('"', 'g'), ''));
+    soldOut.setValue(soldOutString);
+}
+
+//Function to get mixed array of recurring dates (in array) and single dates (in string)
+function getMixedDatesArray(currentArray) {
+	var currentIndex = 0;
+    var subArray = [];
+    var newDatesArray = [];
+    for(var i=0; i<currentArray.length; i++) {
+        var dateIndex = currentArray[i].match(/(\d)+$/)[0];
+        if(dateIndex == currentIndex) {
+            subArray.push(currentArray[i]);
+        } else {
+            if(subArray.length == 1) {
+                newDatesArray.push(subArray[0]);
+            } else {
+                newDatesArray.push(subArray);
+            }
+            subArray = [];
+            subArray.push(currentArray[i]);
+            currentIndex++;
+        }
+    }
+    //Push last date set
+    if(subArray.length == 1) {
+        newDatesArray.push(subArray[0]);
+    } else {
+        newDatesArray.push(subArray);
+    }
+
+	return newDatesArray;
 }
 
 //Function to remove conflict dates

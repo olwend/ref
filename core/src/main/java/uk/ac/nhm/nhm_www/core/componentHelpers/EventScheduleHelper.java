@@ -6,6 +6,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.sling.api.resource.ResourceResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 
 import com.day.cq.wcm.api.Page;
 
@@ -28,6 +32,8 @@ public class EventScheduleHelper {
 	private HashMap<String[], String[]> soldOutMap;
 	private ArrayList<String> sortedDates;
 
+	private static final Logger LOG = LoggerFactory.getLogger(EventScheduleHelper.class);
+	
 	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
 		this.eventContentPath = currentPage.getPath() + "/jcr:content";
 
@@ -63,22 +69,23 @@ public class EventScheduleHelper {
 			LinkedHashSet<String> dates = createDatesArray(eventDates);
 			String[] times = createTimesArray(eventTimes, durations);
 			String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
-			String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\],\\[");
+			String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\], \\[");
 			
 			times = addSoldOutText(soldOutArray, times);
+			int index = 0;
 
 			//Populates the Map
 			for (String date : dates) {
-				int index = Integer.parseInt(parseDateString(date, "(\\d+)$"));
 				String datesMapValue = "All day";
 				if (!allDayArray[index].equals("true")) {
 					datesMapValue = times[index]; 
 				}
-				else if(soldOutArray[index].equals("true")) {
-					datesMapValue += " (Sold out)";
-				}
-				
+				//TODO - need sub arrays in soldOutArray
+				//else if(soldOutArray[index].equals("true")) {
+				//	datesMapValue += " (Sold out)";
+				//}
 				datesMap.put(parseDateString(date, "^([a-zA-Z0-9 ])+"), datesMapValue);
+				index++;
 			}
 
 			//Populates an array list with the dates
@@ -218,25 +225,63 @@ public class EventScheduleHelper {
 	}
 	
 	private String[] addSoldOutText(String[] soldOutArray, String[] times) {
-        String[] c = new String[soldOutArray.length];
+        
+		int cLength = 0;
+		for(int i=0; i<soldOutArray.length; i++) {
+        	if(soldOutArray[i].contains("],[")) {
+        		String[] temp = soldOutArray[i].split("\\],\\[");
+        		for(int j=0; j<temp.length; j++) {
+        			cLength++;
+        		}
+        	} else {
+        		cLength++;
+        	}
+        }
+		
+		String[] c = new String[cLength];
+        int index = 0;
         
         for(int i=0; i < soldOutArray.length; i++) {
-            soldOutArray[i] = soldOutArray[i].replaceAll("[\\[\\]]","");
-            
-            String[] a = soldOutArray[i].split(",");
-            String[] b = times[i].replaceAll(" ", "").split(",");
-            
-            for(int j=0; j < a.length; j++) {
-                if(a[j].equals("true")) {
-                    b[j] = b[j] + " (Sold out)";
-                }
-                
-                if(c[i] == null) {
-                    c[i] = b[j];
-                } else {
-                    c[i] = c[i] + ", " + b[j];
-                }
-            } 
+        	if(soldOutArray[i].contains("],[")) {
+        		String[] temp = soldOutArray[i].split("\\],\\[");
+        		for(int j=0; j<temp.length; j++) {
+        			temp[j] = temp[j].replaceAll("[\\[\\]]","");
+
+        			String[] a = temp[j].split(",");
+        			String[] b = times[i].replaceAll(" ", "").split(",");
+
+    	            for(int k=0; k < a.length; k++) {
+    	                if(a[k].equals("true")) {
+    	                    b[k] = b[k] + " (Sold out)";
+    	                }
+    	                
+    	                if(c[index] == null) {
+		                    c[index] = b[k];
+		                } else {
+		                    c[index] = c[index] + ", " + b[k];
+		                }
+    	            }
+    	            index++;
+        		}
+        	} else {
+	        	soldOutArray[i] = soldOutArray[i].replaceAll("[\\[\\]]","");
+	            
+	            String[] a = soldOutArray[i].split(",");
+	            String[] b = times[i].replaceAll(" ", "").split(",");
+
+	            for(int j=0; j < a.length; j++) {
+	                if(a[j].equals("true")) {
+	                    b[j] = b[j] + " (Sold out)";
+	                }
+	                
+	                if(c[index] == null) {
+	                    c[index] = b[j];
+	                } else {
+	                    c[index] = c[index] + ", " + b[j];
+	                }
+	            }
+	            index++;
+	        }
         }
         return c;
     }

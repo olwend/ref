@@ -26,11 +26,18 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
         this.soldOutArray = [];
         if(soldOutMatch[0] != null) {
             var s = soldOutMatch[0];
-            this.soldOutArray = s.replace("jcr:soldOut\":\"","").split("],[");
+            this.soldOutArray = s.replace("jcr:soldOut\":\"","").split("], [");
         }
 
-        for(var i=0; i<this.soldOutArray.length; i++) {
-            this.soldOutArray[i] = this.soldOutArray[i].replace(new RegExp('\\[|\\]|"| ', 'g'), '').split(",");
+        for(var i=0;i<this.soldOutArray.length;i++) {
+            if(this.soldOutArray[i].match('\\],\\[')) {
+                this.soldOutArray[i] = this.soldOutArray[i].split("],[");
+                for(var j=0; j<this.soldOutArray[i].length; j++) {
+                    this.soldOutArray[i][j] = this.soldOutArray[i][j].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+                }
+            } else {
+                this.soldOutArray[i] = this.soldOutArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
+            }
         }
 
 		//Get times array
@@ -51,9 +58,11 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
 		this.datesArray = [];
 		if(datesMatch[0] != null) {
-            var s = datesMatch[0];
-            this.datesArray = s.replace("jcr:datesRecurrence\":\"","").split(",");
+            this.datesArray = datesMatch[0].replace("jcr:datesRecurrence\":\"","").split(",");
         }
+
+        this.datesArray = getMixedDatesArray(this.datesArray);
+        console.log(this.datesArray);
 
         config = config || {};
         var defaults = {
@@ -77,41 +86,85 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
         for(var i=0; i<this.soldOutArray.length; i++) {
 
-            var dateString = this.datesArray[i];
+            if(Array.isArray(this.datesArray[i])) {
+                for(var j=0; j<this.datesArray[i].length; j++) {
+					var dateString = this.datesArray[i][j];
+    
+                    labelTest = new CQ.Ext.form.Label({
+                        text: dateString
+                    });
+                    this.add(labelTest);
 
-			labelTest = new CQ.Ext.form.Label({
-            	text: dateString
-            });
-            this.add(labelTest);
-
-            for(var j=0; j<this.soldOutArray[i].length; j++) {
-                var clsNum = 'customwidget-' + (i+1);
-
-                var onOff = null;
-
-                if(this.soldOutArray[i][j] == "true") {
-					onOff = true;
-                } else {
-					onOff = false;
-                }
-
-                // Link openInNewWindow
-                window["soldOut" + i] = new CQ.Ext.form.Checkbox({
-                    cls: clsNum,
-                    boxLabel: this.timesArray[i][j],
-                    checked: onOff,
-                    listeners: {
-                        change: {
-                            scope: this,
-                            fn: this.updateHidden
-                        },
-                        check: {
-                            scope: this,
-                            fn: this.updateHidden
+                    for(k=0; k<this.soldOutArray[i][j].length; k++) {
+                        console.log(this.soldOutArray[i][j][k]);
+                        var clsNum = 'customwidget-' + (i+1) + j + k;
+						console.log(clsNum);
+                        var onOff = null;
+        
+                        if(this.soldOutArray[i][j][k] == "true") {
+                            onOff = true;
+                        } else {
+                            onOff = false;
                         }
+
+                        // Link openInNewWindow
+                        window["soldOut" + i + j + k] = new CQ.Ext.form.Checkbox({
+                            cls: clsNum,
+                            boxLabel: this.timesArray[i][k],
+                            checked: onOff,
+                            listeners: {
+                                change: {
+                                    scope: this,
+                                    fn: this.updateHidden
+                                },
+                                check: {
+                                    scope: this,
+                                    fn: this.updateHidden
+                                }
+                            }
+                        });
+                        this.add(window["soldOut" + i + j + k]);
                     }
+
+
+                }
+            } else {
+                var dateString = this.datesArray[i];
+    
+                labelTest = new CQ.Ext.form.Label({
+                    text: dateString
                 });
-                this.add(window["soldOut" + i]);
+                this.add(labelTest);
+    
+                for(var j=0; j<this.soldOutArray[i].length; j++) {
+                    var clsNum = 'customwidget-' + (i+1);
+
+                    var onOff = null;
+    
+                    if(this.soldOutArray[i][j] == "true") {
+                        onOff = true;
+                    } else {
+                        onOff = false;
+                    }
+    
+                    // Link openInNewWindow
+                    window["soldOut" + i] = new CQ.Ext.form.Checkbox({
+                        cls: clsNum,
+                        boxLabel: this.timesArray[i][j],
+                        checked: onOff,
+                        listeners: {
+                            change: {
+                                scope: this,
+                                fn: this.updateHidden
+                            },
+                            check: {
+                                scope: this,
+                                fn: this.updateHidden
+                            }
+                        }
+                    });
+                    this.add(window["soldOut" + i]);
+                }
             }
     	}
     },

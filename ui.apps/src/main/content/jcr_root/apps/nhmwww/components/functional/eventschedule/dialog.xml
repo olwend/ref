@@ -13,6 +13,10 @@
 			<tab1 jcr:primaryType="cq:Panel" 
 				title="Sold Out Events">
 				<items jcr:primaryType="cq:WidgetCollection">
+					<soldout jcr:primaryType="cq:Widget" 
+						name="../../../../jcr:soldOut"
+						xtype="textfield"
+						hidden="{Boolean}true">
 					<links jcr:primaryType="cq:Widget"
 						fieldDescription="Press + to add more links"
 						fieldLabel="Links"
