@@ -146,7 +146,7 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
                     } else {
                         onOff = false;
                     }
-    
+
                     // Link openInNewWindow
                     window["soldOut" + i] = new CQ.Ext.form.Checkbox({
                         cls: clsNum,

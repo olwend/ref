@@ -12,13 +12,19 @@ function saveSoldOutArray(dialog) {
 
     var count = -1,
         subCount = 0,
-        soldOutArray = [];
+        soldOutArray = [],
+    	index = -1;
 
     for(var i=0; i<items.length; i++) {
         if(items[i].text != undefined) {
 			count++;
             subCount = 0;
             var subArray = [];
+
+            if(items[i].text.match(/(\d)+$/)[0] > index) {
+
+            }
+            console.log(index);
         }
         if(items[i].checked != undefined) {
             subArray[subCount] = items[i].checked;
