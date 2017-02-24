@@ -2,7 +2,8 @@
  * Saves value of sold out array back to correct place in repo using
  * hidden field in dialog.
  * 
- * @param dialog
+ * @param dialog - dialog provided by beforesubmit listener in dialog
+ * 				   properties
  */
 function saveSoldOutArray(dialog) {
     var soldOutField = dialog.getField('../../../../jcr:soldOut'),

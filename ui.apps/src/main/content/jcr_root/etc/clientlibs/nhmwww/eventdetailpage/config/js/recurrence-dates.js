@@ -343,21 +343,40 @@ function createDates(dlg) {
         for(var i=0; i<currentTimesArray.length; i++) {
             if(!allDays[i]) {
                 //A time has been added to an existing date - TODO
-                if(reccurrenceTimesArray[i].length > currentTimesArray[i].length) {
-                    for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
-                        var cur = reccurrenceTimesArray[i][j];
-                        var exists = false;
-                        for(var k=0; k<currentTimesArray[i].length; k++) {
-                            if(currentTimesArray[i][k] == cur) {
-                                exists = true;
+                if(Array.isArray(reccurrenceTimesArray[i][0])) {
+                    if(reccurrenceTimesArray[i][0].length > currentTimesArray[i][0].length) {
+                        for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
+                            for(var k=0; k<reccurrenceTimesArray[i][j].length; k++) {
+                                var cur = reccurrenceTimesArray[i][j][k];
+                                var exists = false;
+                                for(var l=0; l<currentTimesArray[i][j].length; l++) {
+                                    if(currentTimesArray[i][j][l] == cur) {
+										exists = true;
+                                    }
+                                }
+                                if(exists == false) {
+									soldOutArray[i][j].splice(k, 0, "false");
+                                }
                             }
                         }
-                        if(exists == false) {
-                            soldOutArray[i].splice(j, 0, "false");
+                    }
+                } else {
+                    if(reccurrenceTimesArray[i].length > currentTimesArray[i].length) {
+                        for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
+                            var cur = reccurrenceTimesArray[i][j];
+                            var exists = false;
+                            for(var k=0; k<currentTimesArray[i].length; k++) {
+                                if(currentTimesArray[i][k] == cur) {
+                                    exists = true;
+                                }
+                            }
+                            if(exists == false) {
+                                soldOutArray[i].splice(j, 0, "false");
+                            }
                         }
                     }
                 }
-    
+
                 //A time has been removed from an existing date - TODO
                 if(reccurrenceTimesArray[i].length < currentTimesArray[i].length) {
                     for(var j=0; j<currentTimesArray[i].length; j++) {

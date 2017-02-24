@@ -88,7 +88,7 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
             if(Array.isArray(this.datesArray[i])) {
                 for(var j=0; j<this.datesArray[i].length; j++) {
-					var dateString = this.datesArray[i][j];
+					var dateString = this.datesArray[i][j]//.match(/^([A-Za-z0-9 ])+ 201[(0-9)]/)[0];
     
                     labelTest = new CQ.Ext.form.Label({
                         text: dateString
@@ -96,9 +96,7 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
                     this.add(labelTest);
 
                     for(k=0; k<this.soldOutArray[i][j].length; k++) {
-                        console.log(this.soldOutArray[i][j][k]);
                         var clsNum = 'customwidget-' + (i+1) + j + k;
-						console.log(clsNum);
                         var onOff = null;
         
                         if(this.soldOutArray[i][j][k] == "true") {
@@ -107,10 +105,17 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
                             onOff = false;
                         }
 
+						var checkboxLabel = "";
+                        if(this.timesArray[i][k] == "") {
+							checkboxLabel = "All day";
+                        } else {
+							checkboxLabel = this.timesArray[i][k];
+                        }
+
                         // Link openInNewWindow
                         window["soldOut" + i + j + k] = new CQ.Ext.form.Checkbox({
                             cls: clsNum,
-                            boxLabel: this.timesArray[i][k],
+                            boxLabel: checkboxLabel,
                             checked: onOff,
                             listeners: {
                                 change: {
@@ -129,8 +134,8 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
                 }
             } else {
-                var dateString = this.datesArray[i];
-    
+                var dateString = this.datesArray[i]//.match(/^([A-Za-z0-9 ])+ 201[(0-9)]/)[0];
+
                 labelTest = new CQ.Ext.form.Label({
                     text: dateString
                 });
@@ -147,10 +152,17 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
                         onOff = false;
                     }
 
+                    var checkboxLabel = "";
+                    if(this.timesArray[i][j] == "") {
+                        checkboxLabel = "All day";
+                    } else {
+                        checkboxLabel = this.timesArray[i][j];
+                    }
+
                     // Link openInNewWindow
                     window["soldOut" + i] = new CQ.Ext.form.Checkbox({
                         cls: clsNum,
-                        boxLabel: this.timesArray[i][j],
+                        boxLabel: checkboxLabel,
                         checked: onOff,
                         listeners: {
                             change: {
