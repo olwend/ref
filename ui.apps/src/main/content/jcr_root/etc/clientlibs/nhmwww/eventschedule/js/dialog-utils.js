@@ -10,30 +10,49 @@ function saveSoldOutArray(dialog) {
         datesSubpanels = datesPanel.findByType('CustomMultiField'),
     	items = datesSubpanels[0].items.items;
 
-    var count = -1,
-        subCount = 0,
-        soldOutArray = [],
-    	index = -1;
+    var index = -1;
+    var subArray = [];
+    var recurArray = [];
+    var soldOutArray = [];
 
     for(var i=0; i<items.length; i++) {
         if(items[i].text != undefined) {
-			count++;
-            subCount = 0;
-            var subArray = [];
-
             if(items[i].text.match(/(\d)+$/)[0] > index) {
-
+				index++;
+                if(recurArray[0] != undefined) {
+                    recurArray.push(subArray);
+					soldOutArray.push(recurArray);
+                    subArray = [];
+                    recurArray = [];
+                }
+                if(subArray[0] != undefined) {
+					soldOutArray.push(subArray);
+                    subArray = [];
+                }
+            } else if(items[i].text.match(/(\d)+$/)[0] == index) {
+				recurArray.push(subArray);
+                subArray = [];
             }
-            console.log(index);
         }
         if(items[i].checked != undefined) {
-            subArray[subCount] = items[i].checked;
-            subCount++;
-        }
-        if(count > -1) {
-			soldOutArray[count] = subArray;
+            subArray.push(items[i].checked);
+
         }
     }
 
-    soldOutField.setValue(JSON.stringify(soldOutArray));
+    //Add final subArray
+	if(recurArray[0] != undefined) {
+        recurArray.push(subArray);
+        soldOutArray.push(recurArray);
+        subArray = [];
+        recurArray = [];
+    }
+    if(subArray[0] != undefined) {
+        soldOutArray.push(subArray);
+        subArray = [];
+    }
+
+	var soldOutString = stringifySoldOutArray(soldOutArray);
+
+    soldOutField.setValue(soldOutString);
 }

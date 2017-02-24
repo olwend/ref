@@ -379,6 +379,18 @@ function createDates(dlg) {
     }
 
     //Create sold out string to store in repo
+    var soldOutString = stringifySoldOutArray(soldOutArray);
+
+    //Save values back to repo
+	allDayRecurrence.setValue(JSON.stringify(tempAllDayArray));
+    durationsRecurrence.setValue(JSON.stringify(durationsArray));
+    timesRecurrence.setValue(JSON.stringify(timesArray));
+	datesRecurrence.setValue(aggregatedDates);
+    soldOut.setValue(soldOutString);
+}
+
+//Function to turn soldOutArray into 'array' string
+function stringifySoldOutArray(soldOutArray) {
     var soldOutString = "[";
 
     for(var i=0; i<soldOutArray.length; i++) {
@@ -400,12 +412,7 @@ function createDates(dlg) {
     }
     soldOutString = soldOutString.slice(0,-2) + "]";
 
-    //Save values back to repo
-	allDayRecurrence.setValue(JSON.stringify(tempAllDayArray));
-    durationsRecurrence.setValue(JSON.stringify(durationsArray));
-    timesRecurrence.setValue(JSON.stringify(timesArray));
-	datesRecurrence.setValue(aggregatedDates);
-    soldOut.setValue(soldOutString);
+    return soldOutString;
 }
 
 //Function to get mixed array of recurring dates (in array) and single dates (in string)
