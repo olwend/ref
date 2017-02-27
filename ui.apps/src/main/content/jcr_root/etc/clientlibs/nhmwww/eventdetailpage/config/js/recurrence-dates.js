@@ -260,15 +260,13 @@ function createDates(dlg) {
     }
 
     //A date is added
-    var diff = 0;
+    var diff = false;
 
-    if(currentTimesArray.length == 1 && currentTimesArray[0] == "") {
-        diff = timesArray.length;
-    } else if(timesArray.length > currentTimesArray.length) {
-        diff = timesArray.length - currentTimesArray.length;
+    if(newDatesArray.length > currentDatesArray.length) {
+		diff = true;
     }
 
-    if(diff > 0) {
+    if(diff) {
         for(var i=currentTimesArray.length; i<timesArray.length; i++) {
 			var emptySubArray = [];
             var soldOutSubArray = [];
@@ -313,6 +311,59 @@ function createDates(dlg) {
         	}
             currentTimesArray[i] = emptySubArray;
             soldOutArray[i] = soldOutSubArray;
+        }
+    }
+
+    //A new date within a recurrence set is added
+	diff = false;
+
+    for(var i=0; i<newDatesArray.length; i++) {
+        if(Array.isArray(newDatesArray[i])) {
+            if(newDatesArray[i].length > currentDatesArray[i].length) {
+                diff = true;
+                break;
+            }
+        }
+    }
+
+    if(diff) {
+        for(var i=0; i<timesArray.length; i++) {
+			var emptySubArray = [];
+            var soldOutSubArray = [];
+
+            //If recurrence date
+            if(Array.isArray(newDatesArray[i])) {
+                if(newDatesArray[i].length > currentDatesArray[i].length) {
+                    if(allDays[i]) {
+                        for(var j=0; j<newDatesArray[i].length; j++) {
+                            var emptySubSubArray = [];
+                            var soldOutSubSubArray = [];
+    
+                            for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
+                                emptySubSubArray[0] = "";
+                                soldOutSubSubArray[0] = "false";
+                            }
+                            emptySubArray[j] = emptySubSubArray;
+                            soldOutSubArray[j] = soldOutSubSubArray;
+                        }
+                    } else {
+                        for(var j=0; j<newDatesArray[i].length; j++) {
+                            var emptySubSubArray = [];
+                            var soldOutSubSubArray = [];
+    
+                            for(var k=0; k<reccurrenceTimesArray[i][j].length; k++) {
+                                emptySubSubArray[k] = "";
+                                soldOutSubSubArray[k] = "false";
+                            }
+                            emptySubArray[j] = emptySubSubArray;
+                            soldOutSubArray[j] = soldOutSubSubArray;
+                        }
+                    }
+
+                    currentTimesArray[i] = emptySubArray;
+            		soldOutArray[i] = soldOutSubArray;
+                }
+            }
         }
     }
 
