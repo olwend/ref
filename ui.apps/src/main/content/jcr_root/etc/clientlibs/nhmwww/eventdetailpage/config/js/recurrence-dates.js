@@ -20,18 +20,18 @@ function createDates(dlg) {
     //Initialise arrays for sold out
     //Get current times array and dates array
     var currentTimesArray = [],
-        tempDatesArray = [],
+        currentDatesList = [],
         currentDatesArray = [],
     	countDatesArray = [];
 
     //Dates
     if(datesRecurrence.value != undefined) {
         if(datesRecurrence.value.includes(',')) {
-            tempDatesArray = datesRecurrence.getValue().split(",");
+            currentDatesList = datesRecurrence.getValue().split(",");
         } else {
-            tempDatesArray.push(datesRecurrence.value);
+            currentDatesList.push(datesRecurrence.value);
         }
-        currentDatesArray = getMixedDatesArray(tempDatesArray);
+        currentDatesArray = getMixedDatesArray(currentDatesList);
     }
 
     //Times
@@ -317,32 +317,56 @@ function createDates(dlg) {
     }
 
     //A date is removed - TODO
-    if(currentDatesArray.length > aggregatedDates.length) {
+    if(currentDatesList.length > aggregatedDates.length) {
         for(var i=0; i<currentDatesArray.length; i++) {
-            var dateExists = false;
-            for(var j=0; j<aggregatedDates.length; j++) {
-                if(currentDatesArray[i].match('^([a-zA-Z0-9:( +]+)\\)')[0] == aggregatedDates[j].match('^([a-zA-Z0-9:( +]+)\\)')[0]) {
-					dateExists = true;
+            if(Array.isArray(currentDatesArray[i])) {
+                for(var j=0; j<currentDatesArray[i].length; j++) {
+                    var dateExists = false;
+                    for(var k=0; k<aggregatedDates.length; k++) {
+						if(currentDatesArray[i][j].match('^([a-zA-Z0-9:( +]+)\\)')[0] == aggregatedDates[k].match('^([a-zA-Z0-9:( +]+)\\)')[0]) {
+                            dateExists = true;
+                            break;
+                        }
+                    }
+                    if(dateExists == false) {
+						soldOutArray[i][j] = "todelete";
+                    }
+                }
+            } else {
+				var dateExists = false;
+                for(var j=0; j<aggregatedDates.length; j++) {
+                    if(currentDatesArray[i].match('^([a-zA-Z0-9:( +]+)\\)')[0] == aggregatedDates[j].match('^([a-zA-Z0-9:( +]+)\\)')[0]) {
+                        dateExists = true;
+                        break;
+                    }
+                }
+                if(dateExists == false) {
+                    soldOutArray[i] = "todelete";
                 }
             }
-            if(dateExists == false) {
-                soldOutArray[i] = "todelete";
-            }
         }
-
         for(var i=(soldOutArray.length - 1); i>-1; i--) {
-            if(soldOutArray[i] == "todelete") {
-				soldOutArray.splice(i, 1);
-                currentTimesArray.splice(i, 1);
+            if(Array.isArray(soldOutArray[i][0])) {
+                for(var j=(soldOutArray[i].length -1); j>-1; j--) {
+                    if(soldOutArray[i][j] == "todelete") {
+						soldOutArray[i].splice(j, 1);
+                        currentDatesArray[i].splice(j, 1);
+                    }
+                }
+            } else {
+                if(soldOutArray[i] == "todelete") {
+                    soldOutArray.splice(i, 1);
+                    currentDatesArray.splice(i, 1);
+                }
             }
         }
     }
 
-    //A time is added/removed - TODO
+    //A time is added/removed
     if(reccurrenceTimesArray.length == currentTimesArray.length) {
         for(var i=0; i<currentTimesArray.length; i++) {
             if(!allDays[i]) {
-                //A time has been added to an existing date - TODO
+                //A time has been added to an existing date
                 if(Array.isArray(reccurrenceTimesArray[i][0])) {
                     if(reccurrenceTimesArray[i][0].length > currentTimesArray[i][0].length) {
                         for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
@@ -377,19 +401,37 @@ function createDates(dlg) {
                     }
                 }
 
-                //A time has been removed from an existing date - TODO
-                if(reccurrenceTimesArray[i].length < currentTimesArray[i].length) {
-                    for(var j=0; j<currentTimesArray[i].length; j++) {
-                        console.log(currentTimesArray[i][j]);
-                        var timeExists = false;
-                        for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
-                            console.log(reccurrenceTimesArray[i][k]);
-                            if(currentTimesArray[i][j] == reccurrenceTimesArray[i][k]) {
-                                timeExists = true;
+                //A time has been removed from an existing date
+                if(Array.isArray(currentTimesArray[i][0])) {
+                    //This could be made more efficient by only going through the first array - the same value
+                    //will be spliced from all instances within soldOutArray
+                    if(reccurrenceTimesArray[i][0].length < currentTimesArray[i][0].length) {
+                        for(var j=0; j<currentTimesArray[i].length; j++) {
+                            for(var k=0; k<currentTimesArray[i][j].length; k++) {
+                                var timeExists = false;
+                                for(var l=0; l<reccurrenceTimesArray[i][j].length; l++) {
+                                    if(currentTimesArray[i][j][k] === reccurrenceTimesArray[i][j][l]) {
+                                        timeExists = true;
+                                    }
+                                }
+                                if(timeExists == false) {
+                                    soldOutArray[i][j].splice(k, 1);
+                                }
                             }
                         }
-                        if(timeExists == false) {
-                            soldOutArray[i].splice(j, 1);
+                    }
+                } else {
+                    if(reccurrenceTimesArray[i].length < currentTimesArray[i].length) {
+                        for(var j=0; j<currentTimesArray[i].length; j++) {
+                            var timeExists = false;
+                            for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
+                                if(currentTimesArray[i][j] == reccurrenceTimesArray[i][k]) {
+                                    timeExists = true;
+                                }
+                            }
+                            if(timeExists == false) {
+                                soldOutArray[i].splice(j, 1);
+                            }
                         }
                     }
                 }
