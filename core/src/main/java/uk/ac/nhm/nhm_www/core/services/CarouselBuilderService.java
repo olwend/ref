@@ -40,7 +40,7 @@ public class CarouselBuilderService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CarouselBuilderService.class);
 	
-	public  static final String FOUNDATION_5_IMAGE_RESOURCE_TYPE = "nhmwww/components/functional/foundation5image";
+	public  static final String FOUNDATION_5_IMAGE_RESOURCE_TYPE = "nhmwww/components/functional/carousel-image";
 	public  static final String IMAGE_NODE_NAME_PREFIX 			 = "image_";
 	private static final String FILEREFERENCE_ATTRIBUTE 		 = "fileReference";
 	private static final String MOBILEFILEREFERENCE_ATTRIBUTE 	 = "mobileFileReference";
