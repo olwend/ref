@@ -195,9 +195,9 @@ function createDates(dlg) {
     }
 
     //Populate times arrays to be used for adding/removing dates/times
-    var recurrenceTimesArray = [];
+    var reccurrenceTimesArray = [];
     for(var i=0; i<timesArray.length; i++) {
-		recurrenceTimesArray.push(timesArray[i]);
+		reccurrenceTimesArray.push(timesArray[i]);
     }
 
     for(var i=0; i<currentDatesArray.length; i++) {
@@ -214,9 +214,9 @@ function createDates(dlg) {
         if(Array.isArray(newDatesArray[i])) {
             var tempCurrentTimesArray = [];
             for(var j=0; j<newDatesArray[i].length; j++) {
-				tempCurrentTimesArray.push(recurrenceTimesArray[i]);
+				tempCurrentTimesArray.push(reccurrenceTimesArray[i]);
             }
-            recurrenceTimesArray[i] = tempCurrentTimesArray;
+            reccurrenceTimesArray[i] = tempCurrentTimesArray;
         }
     }
 
@@ -285,7 +285,7 @@ function createDates(dlg) {
                         var emptySubSubArray = [];
                         var soldOutSubSubArray = [];
 
-                        for(var k=0; k<recurrenceTimesArray[i][j].length; k++) {
+                        for(var k=0; k<reccurrenceTimesArray[i][j].length; k++) {
                             emptySubSubArray[k] = "";
                             soldOutSubSubArray[k] = "false";
                         }
@@ -335,7 +335,7 @@ function createDates(dlg) {
                             var emptySubSubArray = [];
                             var soldOutSubSubArray = [];
 
-                            for(var k=0; k<recurrenceTimesArray[i].length; k++) {
+                            for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
                                 emptySubSubArray[0] = "";
                                 soldOutSubSubArray[0] = "false";
                             }
@@ -347,7 +347,7 @@ function createDates(dlg) {
                             var emptySubSubArray = [];
                             var soldOutSubSubArray = [];
     
-                            for(var k=0; k<recurrenceTimesArray[i][j].length; k++) {
+                            for(var k=0; k<reccurrenceTimesArray[i][j].length; k++) {
                                 emptySubSubArray[k] = "";
                                 soldOutSubSubArray[k] = "false";
                             }
@@ -405,21 +405,22 @@ function createDates(dlg) {
                 if(soldOutArray[i] == "todelete") {
                     soldOutArray.splice(i, 1);
                     currentDatesArray.splice(i, 1);
+                    currentTimesArray.splice(i, 1);
                 }
             }
         }
     }
 
     //A time is added/removed
-    if(recurrenceTimesArray.length == currentTimesArray.length) {
+    if(reccurrenceTimesArray.length == currentTimesArray.length) {
         for(var i=0; i<currentTimesArray.length; i++) {
             if(!allDays[i]) {
                 //A time has been added to an existing date
-                if(Array.isArray(recurrenceTimesArray[i][0])) {
-                    if(recurrenceTimesArray[i][0].length > currentTimesArray[i][0].length) {
-                        for(var j=0; j<recurrenceTimesArray[i].length; j++) {
-                            for(var k=0; k<recurrenceTimesArray[i][j].length; k++) {
-                                var cur = recurrenceTimesArray[i][j][k];
+                if(Array.isArray(reccurrenceTimesArray[i][0])) {
+                    if(reccurrenceTimesArray[i][0].length > currentTimesArray[i][0].length) {
+                        for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
+                            for(var k=0; k<reccurrenceTimesArray[i][j].length; k++) {
+                                var cur = reccurrenceTimesArray[i][j][k];
                                 var exists = false;
                                 for(var l=0; l<currentTimesArray[i][j].length; l++) {
                                     if(currentTimesArray[i][j][l] == cur) {
@@ -433,9 +434,9 @@ function createDates(dlg) {
                         }
                     }
                 } else {
-                    if(recurrenceTimesArray[i].length > currentTimesArray[i].length) {
-                        for(var j=0; j<recurrenceTimesArray[i].length; j++) {
-                            var cur = recurrenceTimesArray[i][j];
+                    if(reccurrenceTimesArray[i].length > currentTimesArray[i].length) {
+                        for(var j=0; j<reccurrenceTimesArray[i].length; j++) {
+                            var cur = reccurrenceTimesArray[i][j];
                             var exists = false;
                             for(var k=0; k<currentTimesArray[i].length; k++) {
                                 if(currentTimesArray[i][k] == cur) {
@@ -453,12 +454,12 @@ function createDates(dlg) {
                 if(Array.isArray(currentTimesArray[i][0])) {
                     //This could be made more efficient by only going through the first array - the same value
                     //will be spliced from all instances within soldOutArray
-                    if(recurrenceTimesArray[i][0].length < currentTimesArray[i][0].length) {
+                    if(reccurrenceTimesArray[i][0].length < currentTimesArray[i][0].length) {
                         for(var j=0; j<currentTimesArray[i].length; j++) {
                             for(var k=0; k<currentTimesArray[i][j].length; k++) {
                                 var timeExists = false;
-                                for(var l=0; l<recurrenceTimesArray[i][j].length; l++) {
-                                    if(currentTimesArray[i][j][k] === recurrenceTimesArray[i][j][l]) {
+                                for(var l=0; l<reccurrenceTimesArray[i][j].length; l++) {
+                                    if(currentTimesArray[i][j][k] === reccurrenceTimesArray[i][j][l]) {
                                         timeExists = true;
                                     }
                                 }
@@ -469,11 +470,11 @@ function createDates(dlg) {
                         }
                     }
                 } else {
-                    if(recurrenceTimesArray[i].length < currentTimesArray[i].length) {
+                    if(reccurrenceTimesArray[i].length < currentTimesArray[i].length) {
                         for(var j=0; j<currentTimesArray[i].length; j++) {
                             var timeExists = false;
-                            for(var k=0; k<recurrenceTimesArray[i].length; k++) {
-                                if(currentTimesArray[i][j] == recurrenceTimesArray[i][k]) {
+                            for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
+                                if(currentTimesArray[i][j] == reccurrenceTimesArray[i][k]) {
                                     timeExists = true;
                                 }
                             }
