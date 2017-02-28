@@ -275,13 +275,9 @@ function createDates(dlg) {
             if(Array.isArray(newDatesArray[i])) {
                 if(allDays[i]) {
 					for(var j=0; j<newDatesArray[i].length; j++) {
-						var emptySubSubArray = [];
-                        var soldOutSubSubArray = [];
+						var emptySubSubArray = [""];
+                        var soldOutSubSubArray = ["false"];
 
-                        for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
-                            emptySubSubArray[0] = "";
-                            soldOutSubSubArray[0] = "false";
-                        }
 						emptySubArray[j] = emptySubSubArray;
                         soldOutSubArray[j] = soldOutSubSubArray;
                     }
@@ -310,6 +306,7 @@ function createDates(dlg) {
                 }
         	}
             currentTimesArray[i] = emptySubArray;
+            currentDatesArray[i] = emptySubArray;
             soldOutArray[i] = soldOutSubArray;
         }
     }
@@ -338,7 +335,7 @@ function createDates(dlg) {
                         for(var j=0; j<newDatesArray[i].length; j++) {
                             var emptySubSubArray = [];
                             var soldOutSubSubArray = [];
-    
+
                             for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
                                 emptySubSubArray[0] = "";
                                 soldOutSubSubArray[0] = "false";
@@ -367,7 +364,7 @@ function createDates(dlg) {
         }
     }
 
-    //A date is removed - TODO
+    //A date is removed
     if(currentDatesList.length > aggregatedDates.length) {
         for(var i=0; i<currentDatesArray.length; i++) {
             if(Array.isArray(currentDatesArray[i])) {
@@ -402,6 +399,7 @@ function createDates(dlg) {
                     if(soldOutArray[i][j] == "todelete") {
 						soldOutArray[i].splice(j, 1);
                         currentDatesArray[i].splice(j, 1);
+                        currentTimesArray[i].splice(j, 1);
                     }
                 }
             } else {
@@ -870,11 +868,11 @@ function filterMonthDates(parserText, startDate, endDate, repeatListValue, weekd
             for (var z = 1; z < weekdays; z++) {
                 
                 if (repeatListValue.toString() === 'Last') {
-                    
+
                     finalArray += ',' + datesArray[x][z + datesArray[x].length - weekdays] + strDaysCounter;  
                 }
                 else {
-                    
+
                     finalArray += ',' + datesArray[x][z + (weekdays * repeatNumber)] + strDaysCounter;  
                 }
             }
