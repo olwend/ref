@@ -71,15 +71,15 @@ public class EventScheduleHelper {
 			String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
 			String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\], \\[");
 			
-			times = addSoldOutText(soldOutArray, times);
+			times = addSoldOutText(soldOutArray, times, allDayArray);
 			int index = 0;
 
 			//Populates the Map
 			for (String date : dates) {
-				String datesMapValue = "All day";
-				if (!allDayArray[index].equals("true")) {
-					datesMapValue = times[index]; 
-				}
+				//String datesMapValue = "All day";
+				//if (!allDayArray[index].equals("true")) {
+					String datesMapValue = times[index]; 
+				//}
 				//TODO - need sub arrays in soldOutArray
 				//else if(soldOutArray[index].equals("true")) {
 				//	datesMapValue += " (Sold out)";
@@ -224,7 +224,7 @@ public class EventScheduleHelper {
 		}
 	}
 	
-	private String[] addSoldOutText(String[] soldOutArray, String[] times) {
+	private String[] addSoldOutText(String[] soldOutArray, String[] times, String[] allDays) {
         
 		int cLength = 0;
 		for(int i=0; i<soldOutArray.length; i++) {
@@ -251,10 +251,12 @@ public class EventScheduleHelper {
         			String[] b = times[i].replaceAll(" ", "").split(",");
 
     	            for(int k=0; k < a.length; k++) {
+    	            	if(b[k].equals("-")) b[k] = "All Day";
+    	            	
     	                if(a[k].equals("true")) {
     	                    b[k] = b[k] + " (Sold out)";
     	                }
-    	                
+
     	                if(c[index] == null) {
 		                    c[index] = b[k];
 		                } else {
@@ -270,6 +272,8 @@ public class EventScheduleHelper {
 	            String[] b = times[i].replaceAll(" ", "").split(",");
 
 	            for(int j=0; j < a.length; j++) {
+	            	if(b[j].equals("-")) b[j] = "All Day";
+	            	
 	                if(a[j].equals("true")) {
 	                    b[j] = b[j] + " (Sold out)";
 	                }
