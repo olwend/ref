@@ -340,6 +340,10 @@ jQuery(document).ready(function() {
                 prev.fadeIn(100);
                 next.fadeIn(100); 
             }
+        },
+        
+        onBeforeStart: function() {
+            $('.js--carousel-image').css('display','block');
         }
     });
 
