@@ -31,7 +31,7 @@
             <source media="(min-width: 769px) and (max-width: 1024px)"
 					srcset="<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %> 1024w" />
             <source media="(min-width: 1025px)"
-					srcset="<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %> 100w" />
+					srcset="<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>" />
 			<img class="js--carousel-image" src="<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>" alt="<%= helper.getAlt() %>" />
 		</picture>
 		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
