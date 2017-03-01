@@ -393,13 +393,18 @@ function createDates(dlg) {
             }
         }
         for(var i=(soldOutArray.length - 1); i>-1; i--) {
-            if(Array.isArray(soldOutArray[i][0])) {
+            if(Array.isArray(soldOutArray[i][0]) || soldOutArray[i][0] == "todelete") {
                 for(var j=(soldOutArray[i].length -1); j>-1; j--) {
                     if(soldOutArray[i][j] == "todelete") {
 						soldOutArray[i].splice(j, 1);
                         currentDatesArray[i].splice(j, 1);
                         currentTimesArray[i].splice(j, 1);
                     }
+                }
+                if(soldOutArray[i] == "") {
+					soldOutArray.splice(i, 1);
+                    currentDatesArray.splice(i, 1);
+                    currentTimesArray.splice(i, 1);
                 }
             } else {
                 if(soldOutArray[i] == "todelete") {
