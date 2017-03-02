@@ -16,14 +16,23 @@ import javax.jcr.ValueFormatException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.eclipse.jetty.util.log.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
+
+import com.day.cq.tagging.TagManager;
+
 
 public class EventPagesUtils {
 	private Node root;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(EventPagesUtils.class);
 	
 	private CreateXMLFeedUtils createXMLFeedUtils;
 	
@@ -266,17 +275,21 @@ public class EventPagesUtils {
 		Node content = root.getNode("content/nhmwww");
 		Node events = null;
 		if (!content.hasNode(eventscontent)) {
+			LOG.info("Creating new eventscontent node in /content/nhmwww");
 			events = content.addNode(eventscontent, "nt:unstructured");
 		} else {
 			events = content.getNode(eventscontent);
 		}
+		LOG.info("Attempting update of JSON feed for Events Calendar");
 		events.setProperty("events", eventsObject.toString());
 		
 		session.save();
 		session.refresh(false);
 		
 		createXMLFeedUtils = new CreateXMLFeedUtils();
-		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(eventsJSONArray), root, session);
+		TagManager tagManager = null;
+		
+		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(eventsJSONArray, tagManager), root, session);
 	}
 
 	/**

@@ -50,7 +50,7 @@
 				WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
 	  			WCMMode.PREVIEW.toRequest(slingRequest);
 %>
-				<cq:include path="<%= postResource.getPath() + "/image" %>" resourceType="nhmwww/components/functional/foundation5image" />
+				<cq:include path="<%= postResource.getPath() + "/image" %>" resourceType="nhmwww/components/functional/discoverrelatedimage" />
 <%
 				beforeMode.toRequest(slingRequest);
 			} else {

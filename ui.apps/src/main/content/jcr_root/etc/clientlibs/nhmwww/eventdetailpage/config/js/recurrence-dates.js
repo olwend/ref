@@ -21,9 +21,9 @@ function createDates(dlg) {
     //Sets the page path
     eventPagePath.setValue(CQ.WCM.getPagePath());
     
-    for (var m=0;m<datesSubpanels.length;m++){
+    for (var m=0;m<datesSubpanels.length;m++) {
         var subpanel = datesSubpanels[m];
-        if(subpanel.name === './dateAndTime'){
+        if(subpanel.name === './dateAndTime') {
 
             var multi               = subpanel.findByType('multifield'),
                 dates               = subpanel.findByType('datetime'),
@@ -112,7 +112,7 @@ function createDates(dlg) {
 
                             case 'daily':
 
-                                EventDates += createDayAndWeekDates(weekdays, null, startDateValue, endDateValue, strDaysCounter);
+                                EventDates += createDayDates(weekdays, null, startDateValue, endDateValue, strDaysCounter);
 
                                 break;
 
@@ -121,7 +121,7 @@ function createDates(dlg) {
                                 var weekRepeat  = multi[i].findByType('numberfield')[0],
                                     numberfield = weekRepeat.getValue();
 
-                                EventDates += createDayAndWeekDates(weekdays, numberfield, startDateValue, endDateValue, strDaysCounter);
+                                EventDates += createWeekDates(weekdays, numberfield, startDateValue, endDateValue, strDaysCounter);
 
                                 break;
 
@@ -234,13 +234,19 @@ function resetTimeStamp(dates) {
     var datesString = [];
     for (var i = 0; i < dates.length; i++) {
         var dateArrayCompared = dates[i].split(' ');
-        datesString.push(dateArrayCompared[0] + ' ' + dateArrayCompared[1] + ' ' + dateArrayCompared[2] + ' ' + dateArrayCompared[3] + ' 00:00:00 ' + dateArrayCompared[5] + ' ' + dates[i].match(/\((.*)\)/)[0] + dates[i].slice(-1));
+        datesString.push(dateArrayCompared[0] + ' ' + dateArrayCompared[1] + ' ' + dateArrayCompared[2] + ' ' + dateArrayCompared[3] + ' 00:00:00 ' + dateArrayCompared[5] + ' ' + dates[i].match(/\((.*)\)/)[0] + getArrayValue(dates[i]));
     }
     return datesString;
 }
 
+//Function to get position of date group in array
+function getArrayValue(dates) {
+	var pos = dates.match(/(\d+)$/gm);
+	return pos;
+}
+
 //Function to generate Daily and Weekly dates
-function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
+function createDayDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
     var parserText = 'on ';
     
     parserText += weekdays[0];
@@ -265,6 +271,64 @@ function createDayAndWeekDates (weekdays, numberfield, startDate, endDate, strDa
         parserText += ',' + occurrences[x] + strDaysCounter;
     }
     return parserText;
+}
+
+//Function to generate Weekly dates
+function createWeekDates (weekdays, numberfield, startDate, endDate, strDaysCounter) {
+    var parserText = 'on ';
+    
+    parserText += weekdays[0];
+    
+    for (var i = 1; i < weekdays.length; i++) {
+        parserText += ', ' + weekdays[i];
+    }
+    
+    if (numberfield !== null) {
+        parserText += ' every ' + numberfield + ' weeks';
+    }
+    
+    var sched       = later.parse.text(parserText),
+        occurrences = later.schedule(sched).next(1000, startDate);
+    
+    //WR-971, alisp2: Apologies this is a bit of a hack job
+    //Use function to get diff between desired week numbers and week numbers
+    //provided by Later.js then re-run to find new occurrences
+    
+    var weekNumber = getWeekNumber(startDate);
+    var diff = weekNumber - sched.schedules[0].wy[0];
+    
+    for(var i=0; i<sched.schedules[0].wy.length; i++) {
+        sched.schedules[0].wy[i] = sched.schedules[0].wy[i] + diff;
+        console.log(sched.schedules[0].wy[i]);
+      }
+      
+      var test = sched;
+      
+      var sched = later.parse.text(parserText),
+      occurrences = later.schedule(test).next(1000, startDate);
+
+    parserText = occurrences[0] + strDaysCounter;
+    
+    for (var x = 1; x < occurrences.length; x ++) {
+        if (parseDate(occurrences[x]) - endDate > 0) {
+            break;
+        }
+        parserText += ',' + occurrences[x] + strDaysCounter;
+    }
+    return parserText;
+}
+
+//Function to get week number of date
+function getWeekNumber(dateString) {
+	var date = new Date(dateString);
+    date.setHours(0, 0, 0, 0);
+    // Thursday in current week decides the year.
+    date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+    // January 4 is always in week 1.
+    var week1 = new Date(date.getFullYear(), 0, 4);
+    // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+    var weekNumber = 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+	return weekNumber;
 }
 
 //Function to generate the montly recurrence dates
@@ -305,7 +369,7 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
                     return filterMonthDates(parserText, startDate, endDate, repeatListValue, 5, strDaysCounter);                    
             }
         }
-        
+
         if (daysListValue.length === 0){
             
             parserText = 'on ';

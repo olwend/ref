@@ -12,7 +12,6 @@
                   uk.ac.nhm.nhm_www.core.componentHelpers.Foundation5ImageHelper"%><%
 %>
 <cq:defineObjects />
-<cq:includeClientLib categories="uk.ac.nhm.foundation5image"/>
 
 <%
 	Foundation5ImageHelper helper = new Foundation5ImageHelper(properties, resource, resourceResolver, request, xssAPI);
