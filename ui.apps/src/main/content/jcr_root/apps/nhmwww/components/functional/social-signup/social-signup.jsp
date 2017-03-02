@@ -22,47 +22,45 @@
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.enews-signup" />
 
-<div class="text parbase section">
-<%
-  ENewsSignupHelper helper = new ENewsSignupHelper(properties, resource);
-  DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
-%>
-<p><%=helper.getTitle()%></p>
-<%
-  if (helper.getDescription() != null) {
-%>
-<p><%=helper.getDescription()%></p>
-<%
-  }
-%>
+<div class="text parbase section social-signup">
+  <%
+    ENewsSignupHelper helper = new ENewsSignupHelper(properties, resource);
+    DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
+  %>
+  <div class="row">
+    <div class="small-12 columns">
+      <p class="social-signup--title"><%=helper.getTitle()%></p>
+    </div>
+  </div>
 </div>
-<div class="js-enews-signup enews-signup-form-container">
+
+<div class="js-enews-signup enews-signup-form-container social-signup--container">
+    <div class="row">
+      <div class="small-12 social-signup--description">
+        <%=helper.getDataProtection()%>
+      </div>
+    </div>
   <form
     action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
     method="get">
     <div class="row">
-      <div class="small-12">
-        <p><%=helper.getDataProtection()%></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 medium-6 large-3 columns" style="padding-right: 10px;">
+      <div class="small-12 medium-6 large-3 columns">
         <div class="form-field firstname">
           <input type="text" name="firstname" class="item-input" placeholder="First name">
         </div>
       </div>
-      <div class="small-12 medium-6 large-3 columns" style="padding-right: 10px;">
+      <div class="small-12 medium-6 large-3 columns">
         <div class="form-field lastname">
           <input type="text" name="lastname" class="item-input" placeholder="Surname">
         </div>
       </div>
-      <div class="small-12 medium-9 large-3 columns" style="padding-right: 10px;">
+      <div class="small-12 medium-9 large-3 columns">
         <div class="form-field email">
           <input type="text" name="email" class="item-input" placeholder="Email address">
         </div>
       </div>
       <div class="small-12 medium-3 large-3 columns">
-        <button class="button__enews-signup" style="width: 100%;">Sign up</button>
+        <button class="button__enews-signup social-signup--button">Sign up</button>
       </div>
     </div>
     <input type="text" name="question" class="question"> 
@@ -73,4 +71,15 @@
       </div>
     </div>
   </form>
+  <div class="row">
+    <div class="small-12 social-signup--link-icons">
+      <p><%=helper.getDescription()%></p>
+      <a href="https://www.facebook.com/naturalhistorymuseum" ><img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/facebook.png" alt="" class="social-signup--img__social" /></a>
+      <a href="https://twitter.com/NHM_London" ><img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/twitter.png" alt="" class="social-signup--img__social" /></a>
+      <a href="https://www.youtube.com/user/naturalhistorymuseum" ><img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/youtube.png" alt="" class="social-signup--img__social" /></a>
+      <a href="https://instagram.com/natural_history_museum" ><img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/instagram.png" alt="" class="social-signup--img__social" /></a>
+      <a href="http://www.pinterest.com/nhmlondon" ><img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/pinterest.png" alt="" class="social-signup--img__social" /></a>
+      <a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts" ><img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/gplus.png" alt="" class="social-signup--img__social" /></a>
+    </div>
+  </div>
 </div>

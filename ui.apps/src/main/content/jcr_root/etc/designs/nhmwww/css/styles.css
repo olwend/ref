@@ -8901,6 +8901,64 @@ a.button-cta {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
 
+/** WR-1023 social signup component **/
+.social-signup p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.social-signup--title {
+  margin-bottom: 0;
+  padding-left: 0.5em;
+}
+
+@media (max-width: 767px) {
+  .social-signup--title {
+    padding-left: 1.2em;
+  }
+}
+
+.social-signup--container {
+  padding-top: 10px;
+  background-color: #565656;
+  color: #FFFFFF;
+}
+
+.social-signup--container .columns {
+  padding-right: 10px;
+}
+
+.social-signup--description a {
+  color: #FFFFFF;
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+.social-signup--description a:hover {
+  color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.social-signup--link-icons a {
+  border-bottom: 0;
+}
+
+.social-signup--button {
+  width: 100%;
+  background-color: #565656;
+  border: 2px solid #FFFFFF;
+  max-height: 37px;
+  padding-top: 7px;
+}
+
+.social-signup--button:hover {
+  background-color: #565656;
+}
+
+.social-signup--img__social {
+  max-height: 38px;
+  max-width: 14%;
+  padding: 0 2px 0 2px;
+}
+
 /** WR-707 - fix positioning of events calendar search button **/
 /** overrides foundation.calendar.css in events calendar app **/
 input.searchBox {

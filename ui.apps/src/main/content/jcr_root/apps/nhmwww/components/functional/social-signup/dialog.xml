@@ -2,7 +2,7 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="cq:Dialog"
           height="{Long}400"
-          title="News List Feed"
+          title="Social Signup"
           width="1000"
           xtype="dialog">
     <items
@@ -16,16 +16,11 @@
                 <items jcr:primaryType="cq:WidgetCollection">
                     <title
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Introduction"
+                        fieldLabel="Title"
                         name="./title"
                         width="155"
                         xtype="textfield"/>
-                    <description
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Description"
-                        name="./description"
-                        width="155"
-                        xtype="textfield"/>
+                    
                     <campaign
                         jcr:primaryType="cq:Widget"
                         defaultValue="eNewsletters"
@@ -86,7 +81,7 @@
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Data Protection Statement"
                         name="./dataProtection"
-                        xtype="richtext"/>                    
+                        xtype="richtext"/><description jcr:primaryType="cq:Widget" fieldLabel="Description" name="./description" width="155" xtype="textfield" />                    
                 </items>
             </basic>
         </items>
