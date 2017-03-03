@@ -19,7 +19,7 @@
                                     <li><a href="/content/nhmwww/en/home/business-services/touring-exhibitions.html">Touring Exhibitions</a></li>
                                 </ul>
                                 <ul class="small-6 medium-6 large-6 columns">
-                                	<li><a href="/about-us/privacy-policy.html">Privacy policy</a></li>
+                                	<li><a href="/about-us/privacy-policy.html">Privacy notice</a></li>
                                 	<li><a href="/about-us/website-terms-conditions.html">Terms and conditions</a></li>
                                     <li><a href="/content/nhmwww/en/home/contact-us.html">Contact us</a></li>
                                     <li class="footer--icon-list-title">Follow us</li>
