@@ -48,23 +48,23 @@ import com.day.cq.wcm.api.PageManagerFactory;
 
 @Service(value = EventsCalendarRestServiceImpl.class)
 @Component(metatype = true,
-	immediate = true)
+immediate = true)
 @Path("/calendarservice")
 public class EventsCalendarRestServiceImpl implements EventsCalendarRestService {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(EventsCalendarRestServiceImpl.class);
-	
+
 	@Reference
-    private SlingRepository repository;
-	
+	private SlingRepository repository;
+
 	@Reference
 	private ResourceResolverFactory resourceResolverFactory;
 
 	@Reference
 	private PageManagerFactory pageManagerFactory;
-	
+
 	private final static String QUERY = "SELECT * FROM [cq:Page] as E WHERE ISDESCENDANTNODE (E, '/content/nhmwww/en/home/events')";
-	
+
 	@GET
 	@Path("/all")
 	@Produces("application/json")
@@ -72,12 +72,12 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	public Response getAll() throws RepositoryException, JSONException {
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "all");
-		
+
 		String s = jsonArray.toString();
-		
+
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
-	
+
 	@GET
 	@Path("/week")
 	@Produces("application/json")
@@ -94,12 +94,12 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	public Response getDay() throws RepositoryException, JSONException  {
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "day");
-		
+
 		String s = jsonArray.toString();
-		
+
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
-	
+
 	private ArrayList<Page> getCache() throws RepositoryException {
 		ArrayList<Page> list = new ArrayList<Page>();
 
@@ -139,14 +139,16 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		return list;
 	}
-	
+
 	public JSONArray getJSON(ArrayList<Page> events, String filter) throws JSONException {
 		JSONArray array = new JSONArray();
-		
+
 		try {
 			for(Page event : events) {
 				JSONObject object = getJsonObject(event, filter);
-				array.put(object);
+				if(object.getJSONArray("dates").length() > 0) {
+					array.put(object);
+				}
 			}
 		}
 		catch (Exception e) {
@@ -154,64 +156,109 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		}
 		return array;
 	}
-	
+
 	private JSONObject getJsonObject(Page event, String filter) throws LoginException, JSONException, ParseException {
 		JSONObject jsonObject = new JSONObject();
-		
+
 		final ResourceResolver resolver = resourceResolverFactory.getAdministrativeResourceResolver(null);
 		final Resource resource = resolver.getResource(event.getPath() + "/jcr:content");
 		final ValueMap properties = resource.adaptTo(ValueMap.class);
-		
+
 		String[] dates = properties.get("jcr:datesRecurrence", String.class).split(",");
 		String[] times = properties.get("jcr:timesRecurrence", String.class).split("\\],\\[");
-		
+		String[] durations = properties.get("jcr:durationsRecurrence", String.class).split(",");
+		LOG.error(String.valueOf(durations.length));
 		JSONArray dateArray = new JSONArray();
 		for(int i=0; i<dates.length; i++) {
 			JSONObject object = new JSONObject();
-			
+
 			//Convert date string into date object
 			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :+(]+\\)");
-		    Matcher matcher = pattern.matcher(dates[i]);
-			
-		    DateFormat format = new SimpleDateFormat("E MMM d yyyy", Locale.ENGLISH);
-		    Date eventDate = null;
-		    
-		    if(matcher.find()) {
-		    	eventDate = format.parse(matcher.group(0));
+			Matcher matcher = pattern.matcher(dates[i]);
 
-		    	switch(filter) {
-					case "all": 
+			DateFormat format = new SimpleDateFormat("E MMM d yyyy", Locale.ENGLISH);
+			Date eventDate = null;
+
+			if(matcher.find()) {
+				eventDate = format.parse(matcher.group(0));
+
+				switch(filter) {
+				case "all": 
+					/*object.put("date", matcher.group(0));
+
+					int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
+					String[] time = times[x].split(",");
+
+					JSONArray timesArray = new JSONArray();
+					for(int j=0; j<time.length; j++) {
+						timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
+					}
+
+					object.put("times", (Object)timesArray);
+					object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));*/
+
+					object = processDates(matcher, i, dates, times, durations);
+					
+					dateArray.put(object);
+
+					break;
+				case "week":
+					//TODO
+					object.put("date", matcher.group(0));
+					break;
+				case "day":
+					if(matcher.group(0).startsWith("Fri Mar 03 2017")) {
 						object.put("date", matcher.group(0));
-						break;
-					case "week":
-						//TODO
-						object.put("date", matcher.group(0));
-						break;
-					case "day":
-						//TODO
-						object.put("date", matcher.group(0));
-		    	}
-		    	
-		    } else {
-		    	object.put("date", dates[i]);
-		    }
-			
-			int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
-			String[] time = times[x].split(",");
-			
-			JSONArray timesArray = new JSONArray();
-			for(int j=0; j<time.length; j++) {
-				timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
+
+						int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
+						String[] time = times[x].split(",");
+
+						JSONArray timesArray = new JSONArray();
+						for(int j=0; j<time.length; j++) {
+							timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
+						}
+
+						object.put("times", (Object)timesArray);
+						object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
+
+						dateArray.put(object);
+					}
+					break;
+				}
+
+			} else {
+				object.put("date", dates[i]);
 			}
-
-			object.put("times", (Object)timesArray);
-			dateArray.put(object);
 		}
-		
-		jsonObject.put("title", event.getTitle());
+
+		jsonObject.put("title", properties.get("jcr:eventTitle", String.class));
+		jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
 		jsonObject.put("dates", (Object)dateArray);
-		
+
 		return jsonObject;
 	}
 
+
+	private JSONObject processDates(Matcher matcher, int index, String[] dates, String[] times, String[] durations) throws JSONException {
+		JSONObject object = new JSONObject();
+		
+		//Get date
+		object.put("date", matcher.group(0));
+
+		//Get times from times[] given index
+		int x = Integer.parseInt(dates[index].substring(dates[index].length()-1, dates[index].length()));
+		String[] time = times[x].split(",");
+
+		JSONArray timesArray = new JSONArray();
+		for(int j=0; j<time.length; j++) {
+			timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
+		}
+
+		object.put("times", (Object)timesArray);
+		
+		//Get duration from durations[] given index
+		object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
+		
+		return object;
+	}
 }
