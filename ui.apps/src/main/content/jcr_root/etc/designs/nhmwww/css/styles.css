@@ -8902,29 +8902,27 @@ a.button-cta {
 }
 
 /** WR-1023 social signup component **/
-.social-signup p {
+.social-signup h2, .social-signup p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
-.social-signup--title {
-  margin-bottom: 0;
-  padding-left: 0.5em;
+.social-signup--title-wrapper {
+  padding-left: 0;
 }
 
-@media (max-width: 767px) {
-  .social-signup--title {
-    padding-left: 1.2em;
-  }
+.social-signup--title-row {
+  margin-left: 0 !important;
+}
+
+.social-signup--title-header {
+  margin-bottom: 0;
+  padding-left: 0.5em;
 }
 
 .social-signup--container {
   padding-top: 10px;
   background-color: #565656;
   color: #FFFFFF;
-}
-
-.social-signup--container .columns {
-  padding-right: 10px;
 }
 
 .social-signup--description a {
