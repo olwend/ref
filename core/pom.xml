@@ -143,5 +143,13 @@
 			<version>1.2.4</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-web-api</artifactId>
+			</dependency>
 	</dependencies>
 </project>

@@ -1,6 +1,5 @@
-package uk.ac.nhm.nhm_www.core.impl.servlets;
+package uk.ac.nhm.nhm_www.core.impl.services;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,22 +11,20 @@ import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
@@ -35,53 +32,61 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.ac.nhm.nhm_www.core.impl.servlets.EventsCalendarServlet;
+import uk.ac.nhm.nhm_www.core.services.EventsCalendarRestService;
+
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.PageManagerFactory;
 
-@Component(label = "Natural History Events Calendar API", description = "API for returning event details from the Natural History Museum events calendar", metatype = true, immediate = true)
-@Service(value = Servlet.class)
-@Properties({
-	@Property(name = "sling.servlet.paths", value = { "/bin/api/calendar" }, propertyPrivate = true),
-	@Property(name = "sling.servlet.extensions", value = {"json"}),
-	@Property(name = "sling.servlet.methods", value = { "GET" }, propertyPrivate = true),
-	@Property(name = "service.description", value = "Return **"),
-
-	//Properties for parameters in URL
-	//@Property(name = "pageId", value = "home", description = "The default item ID")
-})
-public class EventsCalendarServlet extends SlingAllMethodsServlet {
-
-	private static final Logger LOG = LoggerFactory.getLogger(EventsCalendarServlet.class);
-
-	private static final long serialVersionUID = 1L;
-
+@Service(value = EventsCalendarRestServiceImpl.class)
+@Component(metatype = true,
+	immediate = true)
+@Path("/calendarservice")
+public class EventsCalendarRestServiceImpl implements EventsCalendarRestService {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(EventsCalendarRestServiceImpl.class);
+	
 	@Reference
-	private SlingRepository repository;
-
+    private SlingRepository repository;
+	
 	@Reference
 	private ResourceResolverFactory resourceResolverFactory;
 
 	@Reference
 	private PageManagerFactory pageManagerFactory;
-
+	
 	private final static String QUERY = "SELECT * FROM [cq:Page] as E WHERE ISDESCENDANTNODE (E, '/content/nhmwww/en/home/events')";
-
+	
+	@GET
+	@Path("/all")
+	@Produces("application/json")
 	@Override
-	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+	public Response getAll() throws RepositoryException, JSONException {
+		ArrayList<Page> cache = getCache();
+		JSONArray jsonArray = getJSON(cache);
+		
+		String s = jsonArray.toString();
+		
+		return Response.ok(s, MediaType.APPLICATION_JSON).build();
+	}
+	
+	@GET
+	@Path("/week")
+	@Produces("application/json")
+	@Override
+	public Response getWeek() throws RepositoryException, JSONException  {
 
-		ArrayList<Page> events = null;
-		JSONArray jsonArray = null;
+		return Response.ok("testWeek", MediaType.APPLICATION_JSON).build();
+	}
+
+	@GET
+	@Path("/day")
+	@Produces("application/json")
+	@Override
+	public Response getDay() throws RepositoryException, JSONException  {
 		
-		try {
-			events = getCache();
-			jsonArray = getJSON(events);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		response.getWriter().write(jsonArray.toString());
+		return Response.ok("testDay", MediaType.APPLICATION_JSON).build();
 	}
 	
 	private ArrayList<Page> getCache() throws RepositoryException {
@@ -90,6 +95,7 @@ public class EventsCalendarServlet extends SlingAllMethodsServlet {
 		try {
 			//Bad code - do this correctly!
 			final Session session = repository.loginAdministrative(null);//loginService("searchService", null);
+			LOG.error(repository.toString());
 			try {
 				final QueryManager queryMgr = session.getWorkspace().getQueryManager();
 				final Query query = queryMgr.createQuery(QUERY, Query.JCR_SQL2);
@@ -170,5 +176,4 @@ public class EventsCalendarServlet extends SlingAllMethodsServlet {
 		
 		return jsonObject;
 	}
-	
 }
