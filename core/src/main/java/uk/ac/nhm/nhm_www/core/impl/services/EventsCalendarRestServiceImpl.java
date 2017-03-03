@@ -1,8 +1,15 @@
 package uk.ac.nhm.nhm_www.core.impl.services;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -64,7 +71,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Override
 	public Response getAll() throws RepositoryException, JSONException {
 		ArrayList<Page> cache = getCache();
-		JSONArray jsonArray = getJSON(cache);
+		JSONArray jsonArray = getJSON(cache, "all");
 		
 		String s = jsonArray.toString();
 		
@@ -85,8 +92,12 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getDay() throws RepositoryException, JSONException  {
+		ArrayList<Page> cache = getCache();
+		JSONArray jsonArray = getJSON(cache, "day");
 		
-		return Response.ok("testDay", MediaType.APPLICATION_JSON).build();
+		String s = jsonArray.toString();
+		
+		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
 	
 	private ArrayList<Page> getCache() throws RepositoryException {
@@ -129,12 +140,12 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		return list;
 	}
 	
-	public JSONArray getJSON(ArrayList<Page> events) throws JSONException {
+	public JSONArray getJSON(ArrayList<Page> events, String filter) throws JSONException {
 		JSONArray array = new JSONArray();
 		
 		try {
 			for(Page event : events) {
-				JSONObject object = getJsonObject(event);
+				JSONObject object = getJsonObject(event, filter);
 				array.put(object);
 			}
 		}
@@ -144,7 +155,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		return array;
 	}
 	
-	private JSONObject getJsonObject(Page event) throws LoginException, JSONException {
+	private JSONObject getJsonObject(Page event, String filter) throws LoginException, JSONException, ParseException {
 		JSONObject jsonObject = new JSONObject();
 		
 		final ResourceResolver resolver = resourceResolverFactory.getAdministrativeResourceResolver(null);
@@ -157,7 +168,33 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		JSONArray dateArray = new JSONArray();
 		for(int i=0; i<dates.length; i++) {
 			JSONObject object = new JSONObject();
-			object.put("date", dates[i]);
+			
+			//Convert date string into date object
+			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :+(]+\\)");
+		    Matcher matcher = pattern.matcher(dates[i]);
+			
+		    DateFormat format = new SimpleDateFormat("E MMM d yyyy", Locale.ENGLISH);
+		    Date eventDate = null;
+		    
+		    if(matcher.find()) {
+		    	eventDate = format.parse(matcher.group(0));
+
+		    	switch(filter) {
+					case "all": 
+						object.put("date", matcher.group(0));
+						break;
+					case "week":
+						//TODO
+						object.put("date", matcher.group(0));
+						break;
+					case "day":
+						//TODO
+						object.put("date", matcher.group(0));
+		    	}
+		    	
+		    } else {
+		    	object.put("date", dates[i]);
+		    }
 			
 			int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
 			String[] time = times[x].split(",");
@@ -176,4 +213,5 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		
 		return jsonObject;
 	}
+
 }
