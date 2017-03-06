@@ -16,7 +16,7 @@
 					<soldout jcr:primaryType="cq:Widget" 
 						name="../../../../jcr:soldOut"
 						xtype="textfield"
-						hidden="{Boolean}true">
+						hidden="{Boolean}true"/>
 					<links jcr:primaryType="cq:Widget"
 						fieldDescription="Press + to add more links"
 						fieldLabel="Links"
