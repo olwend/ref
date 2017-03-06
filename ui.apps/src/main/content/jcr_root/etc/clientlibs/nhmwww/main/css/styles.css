@@ -7567,7 +7567,7 @@ h6 {
 @media screen and (min-width: 1024px) {
   .global-header-info {
     right: 9px;
-    width: 32%;
+    width: 37%;
   }
 }
 
@@ -7585,6 +7585,10 @@ h6 {
   .global-header-info .global-header-info__item--last {
     padding-right: 20px;
   }
+}
+
+.global-header-info .global-header-info__item a {
+  color: #565656;
 }
 
 @media screen and (min-width: 768px) {
