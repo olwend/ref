@@ -39,7 +39,6 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.impl.servlets.EventsCalendarServlet;
 import uk.ac.nhm.nhm_www.core.services.EventsCalendarRestService;
 
 import com.day.cq.wcm.api.Page;
@@ -48,7 +47,7 @@ import com.day.cq.wcm.api.PageManagerFactory;
 
 @Service(value = EventsCalendarRestServiceImpl.class)
 @Component(metatype = true,
-immediate = true)
+	immediate = true)
 @Path("/calendarservice")
 public class EventsCalendarRestServiceImpl implements EventsCalendarRestService {
 
@@ -167,12 +166,12 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		String[] dates = properties.get("jcr:datesRecurrence", String.class).split(",");
 		String[] times = properties.get("jcr:timesRecurrence", String.class).split("\\],\\[");
 		String[] durations = properties.get("jcr:durationsRecurrence", String.class).split(",");
-		LOG.error(String.valueOf(durations.length));
+
 		JSONArray dateArray = new JSONArray();
+		
 		for(int i=0; i<dates.length; i++) {
 			JSONObject object = new JSONObject();
 
-			//Convert date string into date object
 			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :+(]+\\)");
 			Matcher matcher = pattern.matcher(dates[i]);
 
@@ -184,23 +183,8 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 				switch(filter) {
 				case "all": 
-					/*object.put("date", matcher.group(0));
-
-					int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
-					String[] time = times[x].split(",");
-
-					JSONArray timesArray = new JSONArray();
-					for(int j=0; j<time.length; j++) {
-						timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
-					}
-
-					object.put("times", (Object)timesArray);
-					object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));*/
-
 					object = processDates(matcher, i, dates, times, durations);
-					
 					dateArray.put(object);
-
 					break;
 				case "week":
 					//TODO
@@ -208,19 +192,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					break;
 				case "day":
 					if(matcher.group(0).startsWith("Fri Mar 03 2017")) {
-						object.put("date", matcher.group(0));
-
-						int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
-						String[] time = times[x].split(",");
-
-						JSONArray timesArray = new JSONArray();
-						for(int j=0; j<time.length; j++) {
-							timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
-						}
-
-						object.put("times", (Object)timesArray);
-						object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
-
+						object = processDates(matcher, i, dates, times, durations);
 						dateArray.put(object);
 					}
 					break;
