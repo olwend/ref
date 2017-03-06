@@ -19,7 +19,7 @@
 	<parent>
         <groupId>uk.ac.nhm</groupId>
         <artifactId>nhm-www</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>nhm-www.core</artifactId>

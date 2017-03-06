@@ -19,7 +19,7 @@
 	<groupId>uk.ac.nhm</groupId>
 	<artifactId>nhm-www</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<description>nhm-www</description>
     
 	<modules>
