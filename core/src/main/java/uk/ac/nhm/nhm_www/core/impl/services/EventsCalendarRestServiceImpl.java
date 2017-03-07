@@ -36,6 +36,10 @@ import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.jcr.api.SlingRepository;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +51,7 @@ import com.day.cq.wcm.api.PageManagerFactory;
 
 @Service(value = EventsCalendarRestServiceImpl.class)
 @Component(metatype = true,
-	immediate = true)
+immediate = true)
 @Path("/calendarservice")
 public class EventsCalendarRestServiceImpl implements EventsCalendarRestService {
 
@@ -82,8 +86,12 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getWeek() throws RepositoryException, JSONException  {
+		ArrayList<Page> cache = getCache();
+		JSONArray jsonArray = getJSON(cache, "week");
 
-		return Response.ok("testWeek", MediaType.APPLICATION_JSON).build();
+		String s = jsonArray.toString();
+
+		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
 
 	@GET
@@ -168,30 +176,41 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		String[] durations = properties.get("jcr:durationsRecurrence", String.class).split(",");
 
 		JSONArray dateArray = new JSONArray();
-		
+
 		for(int i=0; i<dates.length; i++) {
 			JSONObject object = new JSONObject();
 
-			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :+(]+\\)");
+			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :]+00");
 			Matcher matcher = pattern.matcher(dates[i]);
 
-			DateFormat format = new SimpleDateFormat("E MMM d yyyy", Locale.ENGLISH);
-			Date eventDate = null;
+			//Get today's date as object for comparing with later...
+			LocalDate currentDate = new LocalDate();
+
+			//Get date for one week away
+			LocalDate oneWeekDate = currentDate.plusDays(7);
 
 			if(matcher.find()) {
-				eventDate = format.parse(matcher.group(0));
+				//Get date object for event
+				DateTimeFormatter formatter = DateTimeFormat.forPattern("E MMM d yyyy HH:mm:ss");
+				LocalDate eventDate = formatter.parseLocalDate((matcher.group(0)));				
 
 				switch(filter) {
 				case "all": 
 					object = processDates(matcher, i, dates, times, durations);
 					dateArray.put(object);
 					break;
+
 				case "week":
-					//TODO
-					object.put("date", matcher.group(0));
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
+							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
+						object = processDates(matcher, i, dates, times, durations);
+						dateArray.put(object);
+					}
 					break;
+
 				case "day":
-					if(matcher.group(0).startsWith("Fri Mar 03 2017")) {
+					if(eventDate.toDateTimeAtStartOfDay().equals(currentDate.toDateTimeAtStartOfDay())) {
 						object = processDates(matcher, i, dates, times, durations);
 						dateArray.put(object);
 					}
@@ -210,10 +229,9 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		return jsonObject;
 	}
 
-
 	private JSONObject processDates(Matcher matcher, int index, String[] dates, String[] times, String[] durations) throws JSONException {
 		JSONObject object = new JSONObject();
-		
+
 		//Get date
 		object.put("date", matcher.group(0));
 
@@ -227,10 +245,10 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		}
 
 		object.put("times", (Object)timesArray);
-		
+
 		//Get duration from durations[] given index
 		object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
-		
+
 		return object;
 	}
 }
