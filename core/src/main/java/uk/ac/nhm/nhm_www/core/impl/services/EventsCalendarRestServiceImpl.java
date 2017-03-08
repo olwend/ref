@@ -1,12 +1,8 @@
 package uk.ac.nhm.nhm_www.core.impl.services;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,7 +32,6 @@ import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.jcr.api.SlingRepository;
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -50,8 +45,7 @@ import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.PageManagerFactory;
 
 @Service(value = EventsCalendarRestServiceImpl.class)
-@Component(metatype = true,
-immediate = true)
+@Component(label = "Natural History Museum Events Calendar Rest API", metatype = true, immediate = true)
 @Path("/calendarservice")
 public class EventsCalendarRestServiceImpl implements EventsCalendarRestService {
 
@@ -112,7 +106,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		try {
 			//Bad code - do this correctly!
-			final Session session = repository.loginAdministrative(null);//loginService("searchService", null);
+			final Session session = repository.loginService("searchService", null);
 			LOG.error(repository.toString());
 			try {
 				final QueryManager queryMgr = session.getWorkspace().getQueryManager();
@@ -124,7 +118,8 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 				/* Get Resource resolver using resource resolver factory. */
 				final Map<String, Object> param = new HashMap<String, Object>();
 				param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
-				final ResourceResolver resolver = resourceResolverFactory.getAdministrativeResourceResolver(null);//getServiceResourceResolver(param);
+				final ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(param);
+				
 				/* Get page manager object using page manager Factory */
 				final PageManager pmanager = pageManagerFactory.getPageManager(resolver);
 
@@ -167,7 +162,10 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	private JSONObject getJsonObject(Page event, String filter) throws LoginException, JSONException, ParseException {
 		JSONObject jsonObject = new JSONObject();
 
-		final ResourceResolver resolver = resourceResolverFactory.getAdministrativeResourceResolver(null);
+		final Map<String, Object> param = new HashMap<String, Object>();
+		param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
+		final ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(param);
+		
 		final Resource resource = resolver.getResource(event.getPath() + "/jcr:content");
 		final ValueMap properties = resource.adaptTo(ValueMap.class);
 
