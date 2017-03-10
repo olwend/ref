@@ -8010,6 +8010,123 @@ h6 {
   }
 }
 
+.columns {
+  /*border: 1px solid white;*/
+}
+
+.main-footer {
+  /*min-height: 60vh;*/
+  background-color: #565656;
+  color: white;
+}
+
+.nhm-address, .tring-address {
+  text-align: left;
+}
+
+.copyright--div {
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .copyright--div {
+    text-align: left;
+  }
+}
+
+h2, h3, h4 {
+  color: white;
+}
+
+.footer--section h4 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.footer--section p {
+  margin-bottom: 0;
+}
+
+.footer--section {
+  margin-bottom: 1em;
+}
+
+.footer--address, .footer--links {
+  margin-top: 20px;
+}
+
+.footer--logo {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1025px) {
+  .footer--links .footer--section:nth-child(1) {
+    min-height: 215px;
+  }
+  .footer--links .footer--section:nth-child(2) {
+    min-height: 190px;
+  }
+  .footer--links__first .footer--section:nth-child(2) p:nth-child(3) {
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer--address, .footer--links {
+    min-height: 70vh;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer--links {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer--links {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .footer--address, .footer--links {
+    min-height: 60vh;
+  }
+  .footer--links__first {
+    padding-top: 110px;
+  }
+  .footer--links__second, .footer--links__third {
+    margin-top: 0;
+  }
+}
+
+.footer--address p, .footer--links p {
+  font-size: 16px;
+}
+
+.footer--address a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dotted white;
+}
+
+.footer--address a:hover {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+}
+
+.footer--links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer--links a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /** REFACTOR-FEEDBACK-BAR PARTIAL - REMOVED (WR-929) **/
 .pressreleaselistfeed h3 {
   padding-bottom: 10px;
