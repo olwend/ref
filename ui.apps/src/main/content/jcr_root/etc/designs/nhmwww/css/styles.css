@@ -7705,8 +7705,13 @@ h6 {
 .main-footer h4 {
   color: #FFFFFF;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  font-size: 19px;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-footer h4 {
+    padding-top: 20px;
+  }
 }
 
 .main-footer p {
@@ -7730,11 +7735,14 @@ h6 {
   border-bottom: 1px solid #FFFFFF;
 }
 
-.main-footer--address-section__wrapper, .main-footer--links-section__wrapper {
-  margin-top: 20px;
+@media screen and (min-width: 1025px) {
+  .main-footer--links-section__wrapper {
+    margin-top: 20px;
+  }
 }
 
 .main-footer--copyright {
+  padding-top: 50px;
   text-align: right;
 }
 
@@ -7742,10 +7750,6 @@ h6 {
   .main-footer--copyright {
     text-align: left;
   }
-}
-
-.main-footer--section {
-  margin-bottom: 1em;
 }
 
 .main-footer--section p {
@@ -7762,10 +7766,10 @@ h6 {
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .main-footer--links-section__first {
-    padding-top: 125px;
-    min-height: 580px;
+    padding-top: 105px;
+    min-height: 640px;
   }
 }
 
@@ -7780,7 +7784,15 @@ h6 {
   }
   .main-footer--links-section__wrapper .main-footer--section:nth-child(2) {
     min-height: 190px;
+    margin-top: 25px;
   }
+  .main-footer--links-section__wrapper .main-footer--section:nth-child(3) {
+    margin-top: 60px;
+  }
+}
+
+.main-footer--link__map {
+  padding-top: 14px;
 }
 
 /** REFACTOR-FEEDBACK-BAR PARTIAL - REMOVED (WR-929) **/

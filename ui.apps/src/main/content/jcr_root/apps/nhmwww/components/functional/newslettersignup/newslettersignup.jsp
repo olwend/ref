@@ -8,28 +8,31 @@
       <!-- Address section -->
       <img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/nhm-logo-white.png" alt="" class="main-footer--logo">
       <p class="main-footer--address-section__nhm">
-        <a href="http://www.nhm.ac.uk/" class="main-footer--link">The Natural History Museum</a> <br>
-        Cromwell Road <br>
-        London SW7 5BD<br>
-        <a href="https://www.google.co.uk/maps/place/Natural+History+Museum/@51.4967183,-0.1785559,17z/data=!3m2!4b1!5s0x4876055d2a62ace7:0xf1f051390954c55!4m5!3m4!1s0x48760542e6182f3f:0x7bb7e385c39764c4!8m2!3d51.496715!4d-0.1763672?hl=en" class="main-footer--link">Map</a><br>
-        <br>
-        Open daily 10.00-17.50<br>
-        Last entry 17.30<br>
-        Closed 24-26 December<br>
-        
+        <ul>
+        <li><a href="http://www.nhm.ac.uk/" class="main-footer--link">The Natural History Museum</a> </li>
+        <li>Cromwell Road, </li>
+        <li>London, SW7 5BD</li>
+        <li class="main-footer--link__map"><a href="https://www.google.co.uk/maps/place/Natural+History+Museum/@51.4967183,-0.1785559,17z/data=!3m2!4b1!5s0x4876055d2a62ace7:0xf1f051390954c55!4m5!3m4!1s0x48760542e6182f3f:0x7bb7e385c39764c4!8m2!3d51.496715!4d-0.1763672?hl=en" target="_blank" class="main-footer--link">Map</a></li>
+        </ul>
+        <ul>
+        <li>Open daily 10.00-17.50</li>
+        <li>Last entry 17.30</li>
+        <li>Closed 24-26 December</li>
+        </ul>
       </p>
       <p class="main-footer--address-section__tring">
-        <a href="http://www.nhm.ac.uk/visit/tring.html" class="main-footer--link">The Natural History Museum at Tring</a> <br>
-        Akeman Street <br>
-        Tring <br>
-        Hertfordshire HP23 6AP<br>
-        <a href="https://www.google.co.uk/maps/place/Natural+History+Museum+at+Tring/@51.7907453,-0.6634277,17z/data=!3m1!4b1!4m5!3m4!1s0x48765bdea86d0a7d:0x169a990130daab9a!8m2!3d51.790742!4d-0.661239?hl=en" class="main-footer--link">Map</a><br>
-        <br>
-        Open Monday - Saturday <br>
-        10.00-17.00<br>
-        Sunday 14.00-17.00<br>
-        Closed 24-26 December<br>
-        
+        <ul>
+        <li><a href="http://www.nhm.ac.uk/visit/tring.html" class="main-footer--link">The Natural History<br>Museum at Tring</a> </li>
+        <li>Akeman Street, Tring, </li>
+        <li>Hertfordshire, HP23 6AP</li>
+        <li class="main-footer--link__map"><a href="https://www.google.co.uk/maps/place/Natural+History+Museum+at+Tring/@51.7907453,-0.6634277,17z/data=!3m1!4b1!4m5!3m4!1s0x48765bdea86d0a7d:0x169a990130daab9a!8m2!3d51.790742!4d-0.661239?hl=en" target="_blank" class="main-footer--link">Map</a></li>
+        </ul>
+        <ul>
+        <li>Open Monday - Saturday </li>
+        <li>10.00-17.00</li>
+        <li>Sunday 14.00-17.00</li>
+        <li>Closed 24-26 December</li>
+        </ul>
       </p>
     </div>
       
@@ -40,11 +43,11 @@
         <p><a href="http://www.nhm.ac.uk/visit/whats-on.html" class="main-footer--link">What's on</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/exhibitions.html" class="main-footer--link">Exhibitions and attractions</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/galleries-and-museum-map.html" class="main-footer--link">Galleries and Museum map</a></p>
-        <p><a href="http://www.nhm.ac.uk/visit/exhibitions/lates.html" class="main-footer--link">Lates</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/facilities-and-access.html" class="main-footer--link">Access</a></p>
       </div>
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/schools.html" class="main-footer--link">For schools</a></h4>
+        <p><a href="http://www.nhm.ac.uk/schools/things-to-do-schools.html" class="main-footer--link">Things to do</a></p>
         <p><a href="http://www.nhm.ac.uk/schools/essential-information-schools.html" class="main-footer--link">Essential visiting information</a></p>
         <p><a href="http://www.nhm.ac.uk/schools/teaching-resources.html" class="main-footer--link">Teaching resources</a></p>
 
@@ -71,14 +74,14 @@
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/take-part.html" class="main-footer--link" class="main-footer--link">Take part</a></h4>
         <p><a href="http://www.nhm.ac.uk/take-part/citizen-science.html" class="main-footer--link">Citizen science</a></p>
-        <p><a href="http://www.nhm.ac.uk/take-part/identify-nature.html" class="main-footer--link">Identify a specimen</a></p>
-        <p><a href="http://www.nhm.ac.uk/take-part/identification-trainers-for-the-future.html" class="main-footer--link">Identification Trainers for the Future</a></p>
-        <p><a href="http://www.nhm.ac.uk/visit/wpy/competition.html" class="main-footer--link">Wildlife Photographer of the Year competition</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/identify-nature.html" class="main-footer--link">Identify UK nature</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/centre-for-uk-biodiversity.html" class="main-footer--link">Use the Centre for UK Biodiversity</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/volunteer.html" class="main-footer--link">Volunteer</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/wpy/competition.html" class="main-footer--link">Wildlife Photographer<br>of the Year competition</a></p>
       </div>
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/about-us/careers.html" class="main-footer--link">Careers</a></h4>
         <p><a href="https://nhm.irecruittotal.com/CONFIG/NHM/StaticPages/CAC/SearchVacancy.aspx?EmploymentTypeID=0&Intranet=0" class="main-footer--link" target="_blank">Current vacancies</a></p>
-        <p><a href="http://www.nhm.ac.uk/take-part/volunteer.html" class="main-footer--link">Volunteering</a></p>
       </div>
     </div>
     <div class="small-12 medium-6 large-3 columns main-footer--links-section__wrapper main-footer--links-section__third">
