@@ -60,6 +60,7 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	
 		LOG.info("Attempting refresh of XML feed for Events Calendar");
 
+				
 		createXMLFeedUtils = new CreateXMLFeedUtils();
 		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(getJSON(), tagManager), root, session);
 	}
