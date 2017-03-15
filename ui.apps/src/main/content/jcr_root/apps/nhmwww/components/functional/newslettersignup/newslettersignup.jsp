@@ -4,15 +4,15 @@
 <!-- START OF FOOTER -->
 <footer class="main-footer">
   <div class="row">
-    <div class="small-12 medium-6 large-3 columns main-footer--address-section__wrapper">
       <!-- Address section -->
+    <div class="small-12 medium-6 large-3 columns main-footer--address-section__wrapper">
       <img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/nhm-logo-white.png" alt="" class="main-footer--logo">
       <p class="main-footer--address-section__nhm">
         <ul>
         <li><a href="http://www.nhm.ac.uk/" class="main-footer--link">The Natural History Museum</a> </li>
         <li>Cromwell Road, </li>
         <li>London, SW7 5BD</li>
-        <li class="main-footer--link__map"><a href="https://www.google.co.uk/maps/place/Natural+History+Museum/@51.4967183,-0.1785559,17z/data=!3m2!4b1!5s0x4876055d2a62ace7:0xf1f051390954c55!4m5!3m4!1s0x48760542e6182f3f:0x7bb7e385c39764c4!8m2!3d51.496715!4d-0.1763672?hl=en" target="_blank" class="main-footer--link">Map</a></li>
+        <li><a href="https://www.google.co.uk/maps/place/Natural+History+Museum/@51.4967183,-0.1785559,17z/data=!3m2!4b1!5s0x4876055d2a62ace7:0xf1f051390954c55!4m5!3m4!1s0x48760542e6182f3f:0x7bb7e385c39764c4!8m2!3d51.496715!4d-0.1763672?hl=en" target="_blank" class="main-footer--link">Map</a></li>
         </ul>
         <ul>
         <li>Open daily 10.00-17.50</li>
@@ -25,7 +25,7 @@
         <li><a href="http://www.nhm.ac.uk/visit/tring.html" class="main-footer--link">The Natural History<br>Museum at Tring</a> </li>
         <li>Akeman Street, Tring, </li>
         <li>Hertfordshire, HP23 6AP</li>
-        <li class="main-footer--link__map"><a href="https://www.google.co.uk/maps/place/Natural+History+Museum+at+Tring/@51.7907453,-0.6634277,17z/data=!3m1!4b1!4m5!3m4!1s0x48765bdea86d0a7d:0x169a990130daab9a!8m2!3d51.790742!4d-0.661239?hl=en" target="_blank" class="main-footer--link">Map</a></li>
+        <li><a href="https://www.google.co.uk/maps/place/Natural+History+Museum+at+Tring/@51.7907453,-0.6634277,17z/data=!3m1!4b1!4m5!3m4!1s0x48765bdea86d0a7d:0x169a990130daab9a!8m2!3d51.790742!4d-0.661239?hl=en" target="_blank" class="main-footer--link">Map</a></li>
         </ul>
         <ul>
         <li>Open Monday - Saturday </li>
@@ -73,10 +73,10 @@
       </div>
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/take-part.html" class="main-footer--link" class="main-footer--link">Take part</a></h4>
+        <p><a href="http://www.nhm.ac.uk/take-part/volunteer.html" class="main-footer--link">Volunteer</a></p>
         <p><a href="http://www.nhm.ac.uk/take-part/citizen-science.html" class="main-footer--link">Citizen science</a></p>
         <p><a href="http://www.nhm.ac.uk/take-part/identify-nature.html" class="main-footer--link">Identify UK nature</a></p>
-        <p><a href="http://www.nhm.ac.uk/take-part/centre-for-uk-biodiversity.html" class="main-footer--link">Use the Centre for UK Biodiversity</a></p>
-        <p><a href="http://www.nhm.ac.uk/take-part/volunteer.html" class="main-footer--link">Volunteer</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/centre-for-uk-biodiversity.html" class="main-footer--link">Centre for UK Biodiversity</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/wpy/competition.html" class="main-footer--link">Wildlife Photographer<br>of the Year competition</a></p>
       </div>
       <div class="main-footer--section">

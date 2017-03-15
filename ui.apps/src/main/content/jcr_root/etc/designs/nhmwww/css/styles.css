@@ -7784,15 +7784,10 @@ h6 {
   }
   .main-footer--links-section__wrapper .main-footer--section:nth-child(2) {
     min-height: 190px;
+  }
+  .main-footer--links-section__wrapper .main-footer--section:nth-child(2), .main-footer--links-section__wrapper .main-footer--section:nth-child(3) {
     margin-top: 25px;
   }
-  .main-footer--links-section__wrapper .main-footer--section:nth-child(3) {
-    margin-top: 60px;
-  }
-}
-
-.main-footer--link__map {
-  padding-top: 14px;
 }
 
 /** REFACTOR-FEEDBACK-BAR PARTIAL - REMOVED (WR-929) **/
