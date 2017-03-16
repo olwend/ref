@@ -7695,6 +7695,7 @@ h6 {
   padding: 2.5em 0;
   background: #565656;
   color: #FFFFFF;
+  text-align: left;
 }
 
 .main-footer .row {
@@ -7716,6 +7717,7 @@ h6 {
 
 .main-footer p {
   font-size: 16px;
+  margin-left: 0;
 }
 
 .main-footer--address-section {
