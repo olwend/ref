@@ -20,7 +20,7 @@
 <%@page
   import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
 <cq:defineObjects />
-<cq:includeClientLib categories="uk.ac.nhm.enews-signup" />
+<cq:includeClientLib categories="uk.ac.nhm.social-signup" />
 
 <div class="social-signup">
   <div class="text parbase section social-signup--title-wrapper">
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <div class="js-enews-signup enews-signup-form-container social-signup--container">
+  <div class="js-enews-signup js-social-signup social-signup--container">
       <div class="row">
         <div class="small-12 social-signup--description">
           <%=helper.getDataProtection()%>
@@ -45,23 +45,23 @@
       action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
       method="get">
       <div class="row">
-        <div class="small-12 medium-6 large-3 columns pr-10">
+        <div class="small-12 medium-6 large-3 columns pr-10 social-signup--form__first-name">
           <div class="form-field firstname">
             <input type="text" name="firstname" class="item-input" placeholder="First name">
           </div>
         </div>
-        <div class="small-12 medium-6 large-3 columns pr-10">
+        <div class="small-12 medium-6 large-3 columns pr-10 social-signup--form__last-name">
           <div class="form-field lastname">
             <input type="text" name="lastname" class="item-input" placeholder="Surname">
           </div>
         </div>
-        <div class="small-12 medium-9 large-3 columns pr-10">
+        <div class="small-12 medium-9 large-3 columns pr-10 social-signup--form__email-address">
           <div class="form-field email">
             <input type="text" name="email" class="item-input" placeholder="Email address">
           </div>
         </div>
-        <div class="small-12 medium-3 large-3 columns pr-10">
-          <button class="button__enews-signup social-signup--button" type="submit">Sign up</button>
+        <div class="small-12 medium-3 large-3 columns pr-10 social-signup--form__button-submit">
+          <button class="button__social-signup" type="submit">Sign up</button>
         </div>
       </div>
       <input type="text" name="question" class="question"> 

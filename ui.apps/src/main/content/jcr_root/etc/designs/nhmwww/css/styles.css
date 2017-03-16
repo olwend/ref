@@ -8920,7 +8920,7 @@ a.button-cta {
 }
 
 .social-signup--container {
-  padding-top: 10px;
+  padding: 2em 2em 1em 2em;
   background-color: #565656;
   color: #FFFFFF;
 }
@@ -8939,7 +8939,25 @@ a.button-cta {
   border-bottom: 0;
 }
 
-.social-signup--button {
+.social-signup--img__social {
+  max-height: 38px;
+  max-width: 14%;
+  padding: 0 2px 0 2px;
+}
+
+.social-signup .errors {
+  background-color: #F5E6E6;
+  border: 2px solid #AE3C39;
+  padding: 0.75em;
+  color: #AE3C39;
+  font-size: 0.875em;
+  line-height: 1.5;
+  display: none;
+  width: 94%;
+  margin-bottom: 0.5em;
+}
+
+.button__social-signup {
   width: 100%;
   background-color: #565656;
   border: 2px solid #FFFFFF;
@@ -8947,14 +8965,37 @@ a.button-cta {
   padding-top: 7px;
 }
 
-.social-signup--button:hover {
+.button__social-signup:hover {
   background-color: #565656;
 }
 
-.social-signup--img__social {
-  max-height: 38px;
-  max-width: 14%;
-  padding: 0 2px 0 2px;
+.large-4 .social-signup.parbase .social-signup--form__first-name,
+.large-4 .social-signup.parbase .social-signup--form__last-name,
+.large-4 .social-signup.parbase .social-signup--form__email-address,
+.large-4 .social-signup.parbase .social-signup--form__button-submit {
+  width: 100%;
+}
+
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__last-name {
+  width: 50%;
+}
+
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  width: 67%;
+}
+
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  width: 33%;
+}
+
+@media screen and (max-width: 768px) {
+  .large-8 .social-signup.parbase .social-signup--form__first-name,
+  .large-8 .social-signup.parbase .social-signup--form__last-name,
+  .large-8 .social-signup.parbase .social-signup--form__email-address,
+  .large-8 .social-signup.parbase .social-signup--form__button-submit {
+    width: 100%;
+  }
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
