@@ -1,9 +1,10 @@
 $(document).ready(function() {
 	$('.js-social-signup form').each(function() {
 		var $this = $(this);
-		$(this).validate({
+		$($this).validate({
 			rules: {
-				name: 'required',
+				firstname: 'required',
+				lastname: 'required',
 				email: {
 					required: true,
 					email: true
@@ -14,14 +15,17 @@ $(document).ready(function() {
 			},
 			showErrors: function(errorMap, errorList) {
 				if (this.numberOfInvalids() > 0) {
-					$this.find('.errors').html('Please enter a valid email address and fill in the necessary fields.');
+					$this.find('.errors').html('Please fill in the required fields.');
 					$this.find('.errors').show();
-					$this.find('.policy').hide();
+					// $this.find('.policy').hide();
+					$this.find(".item-input").css({"background-color":"#F5E6E6", "border":"2px solid #AE3C39"});
+					$this.find(".item-input[aria-invalid='false']").removeAttr("style");
 					
 				} else {
 					$this.find('.errors').hide();
 					$this.find('.errors').html('');
-					$this.find('.policy').show();
+					// $this.find('.policy').show();
+					$this.find('.item-input').removeAttr("style");
 				}
 			},
 			submitHandler: function (form) {

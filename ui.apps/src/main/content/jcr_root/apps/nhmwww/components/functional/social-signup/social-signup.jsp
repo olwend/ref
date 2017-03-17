@@ -16,7 +16,7 @@
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.ENewsSignupHelper"%>
+  import="uk.ac.nhm.nhm_www.core.componentHelpers.SocialSignupHelper"%>
 <%@page
   import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
 <cq:defineObjects />
@@ -25,7 +25,7 @@
 <div class="social-signup">
   <div class="text parbase section social-signup--title-wrapper">
     <%
-      ENewsSignupHelper helper = new ENewsSignupHelper(properties, resource);
+      SocialSignupHelper helper = new SocialSignupHelper(properties, resource);
       DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
     %>
     <div class="row social-signup--title-row">
@@ -35,13 +35,14 @@
     </div>
   </div>
 
-  <div class="js-enews-signup js-social-signup social-signup--container">
+  <div class="js-social-signup social-signup--container">
       <div class="row">
         <div class="small-12 social-signup--description">
           <%=helper.getDataProtection()%>
         </div>
       </div>
     <form
+      id="newsletter_signup"
       action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
       method="get">
       <div class="row">
@@ -55,13 +56,13 @@
             <input type="text" name="lastname" class="item-input" placeholder="Surname">
           </div>
         </div>
-        <div class="small-12 medium-9 large-3 columns pr-10 social-signup--form__email-address">
+        <div class="small-12 medium-10 large-3 columns pr-10 social-signup--form__email-address">
           <div class="form-field email">
             <input type="text" name="email" class="item-input" placeholder="Email address">
           </div>
         </div>
-        <div class="small-12 medium-3 large-3 columns pr-10 social-signup--form__button-submit">
-          <button class="button__social-signup" type="submit">Sign up</button>
+        <div class="small-12 medium-2 large-3 columns pr-10 social-signup--form__button-submit">
+          <button class="button__newsletter-signup" type="submit">Sign up</button>
         </div>
       </div>
       <input type="text" name="question" class="question"> 

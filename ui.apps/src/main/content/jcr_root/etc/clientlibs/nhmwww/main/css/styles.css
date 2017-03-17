@@ -8933,6 +8933,7 @@ a.button-cta {
 .social-signup--description a:hover {
   color: #FFFFFF;
   border-bottom: 1px solid #FFFFFF;
+  text-decoration: none;
 }
 
 .social-signup--link-icons a {
@@ -8957,7 +8958,7 @@ a.button-cta {
   margin-bottom: 0.5em;
 }
 
-.button__social-signup {
+.button__newsletter-signup {
   width: 100%;
   background-color: #565656;
   border: 2px solid #FFFFFF;
@@ -8965,7 +8966,7 @@ a.button-cta {
   padding-top: 7px;
 }
 
-.button__social-signup:hover {
+.button__newsletter-signup:hover {
   background-color: #565656;
 }
 
@@ -8982,11 +8983,11 @@ a.button-cta {
 }
 
 .large-8 .social-signup.parbase .social-signup--form__email-address {
-  width: 67%;
+  width: 75%;
 }
 
 .large-8 .social-signup.parbase .social-signup--form__button-submit {
-  width: 33%;
+  width: 25%;
 }
 
 @media screen and (max-width: 768px) {
