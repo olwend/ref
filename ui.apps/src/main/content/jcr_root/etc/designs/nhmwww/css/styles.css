@@ -8902,6 +8902,11 @@ a.button-cta {
 }
 
 /** WR-1023 social signup component **/
+.social-signup .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .social-signup h2, .social-signup p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
@@ -8917,12 +8922,18 @@ a.button-cta {
 .social-signup--title-header {
   margin-bottom: 0;
   padding-left: 0.5em;
+  padding-top: 0.5em;
 }
 
 .social-signup--container {
-  padding: 2em 2em 1em 2em;
-  background-color: #565656;
+  padding: 20px;
+  background-color: #808080;
   color: #FFFFFF;
+}
+
+.social-signup--description p {
+  font-size: 20px;
+  line-height: 26px;
 }
 
 .social-signup--description a {
@@ -8936,12 +8947,17 @@ a.button-cta {
   text-decoration: none;
 }
 
+.social-signup--link-icons p {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
 .social-signup--link-icons a {
   border-bottom: 0;
 }
 
 .social-signup--img__social {
-  max-height: 38px;
+  max-height: 40px;
   max-width: 14%;
   padding: 0 2px 0 2px;
 }
@@ -8960,14 +8976,14 @@ a.button-cta {
 
 .button__newsletter-signup {
   width: 100%;
-  background-color: #565656;
+  background-color: #808080;
   border: 2px solid #FFFFFF;
   max-height: 37px;
   padding-top: 7px;
 }
 
-.button__newsletter-signup:hover {
-  background-color: #565656;
+.button__newsletter-signup:hover, .button__newsletter-signup:focus {
+  background-color: #808080;
 }
 
 .large-4 .social-signup.parbase .social-signup--form__first-name,
@@ -8990,12 +9006,77 @@ a.button-cta {
   width: 25%;
 }
 
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-8 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .large-8 .social-signup.parbase .social-signup--form__first-name,
   .large-8 .social-signup.parbase .social-signup--form__last-name,
   .large-8 .social-signup.parbase .social-signup--form__email-address,
   .large-8 .social-signup.parbase .social-signup--form__button-submit {
     width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.large-12 .social-signup.parbase .social-signup--description p {
+  font-size: 26px;
+  line-height: 38px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__first-name,
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address,
+.large-12 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .large-12 .social-signup.parbase .social-signup--description p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-right: 10px;
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-left: 10px;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
