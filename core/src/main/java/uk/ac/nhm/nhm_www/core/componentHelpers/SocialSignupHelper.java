@@ -11,7 +11,7 @@ public class SocialSignupHelper extends HelperBase {
 	 * Provide a default data protection statement
 	 */
 	private String dataProtection = "<p>Sign up for our emails and receive regular updates about upcoming events and exhibitions."
-			+ " <a href=\"http://www.nhm.ac.uk/my-nhm/privacy-statement/index.html\">Privacy notice</a>.</p>";
+			+ " <a href=\"http://www.nhm.ac.uk/about-us/privacy-policy.html\">Privacy notice</a>.</p>";
 
 	private String title = "Don't miss a thing";
 	private String description = "Follow us on social media";

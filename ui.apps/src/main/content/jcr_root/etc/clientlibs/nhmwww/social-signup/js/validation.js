@@ -17,14 +17,11 @@ $(document).ready(function() {
 				if (this.numberOfInvalids() > 0) {
 					$this.find('.errors').html('Please fill in the required fields.');
 					$this.find('.errors').show();
-					// $this.find('.policy').hide();
 					$this.find(".item-input").css({"background-color":"#F5E6E6", "border":"2px solid #AE3C39"});
 					$this.find(".item-input[aria-invalid='false']").removeAttr("style");
-					
 				} else {
 					$this.find('.errors').hide();
 					$this.find('.errors').html('');
-					// $this.find('.policy').show();
 					$this.find('.item-input').removeAttr("style");
 				}
 			},
@@ -45,13 +42,11 @@ $(document).ready(function() {
 		    			} else {
 		    				$this.find('.errors').html(data.errorMessage);
 		    				$this.find('.errors').show();
-							$this.find('.policy').hide();
 		    			}
 		    		},
 		    	    error :function( jqxhr, textStatus, error ) { 
 		    	    	$this.find('.errors').html('There has been an error and we cannot subscribe you to the newsletter at this time.');
 		    	    	$this.find('.errors').show();
-						$this.find('.policy').hide();
 		    	    }
 		    	});
 				return false;
