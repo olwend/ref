@@ -17,12 +17,14 @@ $(document).ready(function() {
 				if (this.numberOfInvalids() > 0) {
 					$this.find('.errors').html('Please fill in the required fields.');
 					$this.find('.errors').show();
-					$this.find(".item-input").css({"background-color":"#F5E6E6", "border":"2px solid #AE3C39"});
+					$this.find('.item-input').css({"background-color":"#F5E6E6", "border":"2px solid #AE3C39"});
 					$this.find(".item-input[aria-invalid='false']").removeAttr("style");
+					$this.find('.social-signup--link-icons').hide();
 				} else {
 					$this.find('.errors').hide();
 					$this.find('.errors').html('');
 					$this.find('.item-input').removeAttr("style");
+					$this.find('.social-signup--link-icons').show();
 				}
 			},
 			submitHandler: function (form) {

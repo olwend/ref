@@ -30,7 +30,7 @@
     %>
     <div class="row social-signup--title-row">
       <div class="small-12 columns">
-        <h2 class="social-signup--title-header"><%=helper.getTitle()%></h2>
+        <h3 class="social-signup--title-header"><%=helper.getTitle()%></h3>
       </div>
     </div>
   </div>
@@ -73,17 +73,17 @@
           <div class="errors"></div>
         </div>
       </div>
-    </form>
-    <div class="row">
-      <div class="small-12 social-signup--link-icons">
-        <p><%=helper.getDescription()%></p>
-        <a href="https://www.facebook.com/naturalhistorymuseum" ><img src="/etc/designs/nhmwww/img/icons/facebook.png" alt="" class="social-signup--img__social" /></a>
-        <a href="https://twitter.com/NHM_London" ><img src="/etc/designs/nhmwww/img/icons/twitter.png" alt="" class="social-signup--img__social" /></a>
-        <a href="https://www.youtube.com/user/naturalhistorymuseum" ><img src="/etc/designs/nhmwww/img/icons/youtube.png" alt="" class="social-signup--img__social" /></a>
-        <a href="https://instagram.com/natural_history_museum" ><img src="/etc/designs/nhmwww/img/icons/instagram-logo-white.png" alt="" class="social-signup--img__social" /></a>
-        <a href="http://www.pinterest.com/nhmlondon" ><img src="/etc/designs/nhmwww/img/icons/pinterest.png" alt="" class="social-signup--img__social" /></a>
-        <a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts" ><img src="/etc/designs/nhmwww/img/icons/gplus.png" alt="" class="social-signup--img__social" /></a>
+      <div class="row">
+        <div class="small-12 social-signup--link-icons">
+          <p><%=helper.getDescription()%></p>
+          <a href="https://www.facebook.com/naturalhistorymuseum" ><img src="/etc/designs/nhmwww/img/icons/facebook.png" alt="" class="social-signup--img__social" /></a>
+          <a href="https://twitter.com/NHM_London" ><img src="/etc/designs/nhmwww/img/icons/twitter.png" alt="" class="social-signup--img__social" /></a>
+          <a href="https://www.youtube.com/user/naturalhistorymuseum" ><img src="/etc/designs/nhmwww/img/icons/youtube.png" alt="" class="social-signup--img__social" /></a>
+          <a href="https://instagram.com/natural_history_museum" ><img src="/etc/designs/nhmwww/img/icons/instagram-logo-white.png" alt="" class="social-signup--img__social" /></a>
+          <a href="http://www.pinterest.com/nhmlondon" ><img src="/etc/designs/nhmwww/img/icons/pinterest.png" alt="" class="social-signup--img__social" /></a>
+          <a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts" ><img src="/etc/designs/nhmwww/img/icons/gplus.png" alt="" class="social-signup--img__social" /></a>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
