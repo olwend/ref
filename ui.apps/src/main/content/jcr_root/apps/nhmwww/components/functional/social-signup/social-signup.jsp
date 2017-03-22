@@ -66,6 +66,7 @@
         </div>
       </div>
       <input type="text" name="question" class="question"> 
+      <input type="hidden" name="source" value="www.nhm.ac.uk"> 
       <input type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
       <div class="row">
         <div class="small-12 columns">
