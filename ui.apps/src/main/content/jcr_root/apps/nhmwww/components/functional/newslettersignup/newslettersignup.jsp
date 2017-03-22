@@ -10,8 +10,8 @@
       <p class="main-footer--address-section__nhm">
         <ul>
         <li><a href="http://www.nhm.ac.uk/" class="main-footer--link">The Natural History Museum</a> </li>
-        <li>Cromwell Road, </li>
-        <li>London, SW7 5BD</li>
+        <li>Cromwell Road </li>
+        <li>London SW7 5BD</li>
         <li><a href="https://www.google.co.uk/maps/place/Natural+History+Museum/@51.4967183,-0.1785559,17z/data=!3m2!4b1!5s0x4876055d2a62ace7:0xf1f051390954c55!4m5!3m4!1s0x48760542e6182f3f:0x7bb7e385c39764c4!8m2!3d51.496715!4d-0.1763672?hl=en" target="_blank" class="main-footer--link">Map</a></li>
         </ul>
         <ul>
@@ -23,8 +23,9 @@
       <p class="main-footer--address-section__tring">
         <ul>
         <li><a href="http://www.nhm.ac.uk/visit/tring.html" class="main-footer--link">The Natural History<br>Museum at Tring</a> </li>
-        <li>Akeman Street, Tring, </li>
-        <li>Hertfordshire, HP23 6AP</li>
+        <li>Akeman Street</li>
+        <li>Tring </li>
+        <li>Hertfordshire HP23 6AP</li>
         <li><a href="https://www.google.co.uk/maps/place/Natural+History+Museum+at+Tring/@51.7907453,-0.6634277,17z/data=!3m1!4b1!4m5!3m4!1s0x48765bdea86d0a7d:0x169a990130daab9a!8m2!3d51.790742!4d-0.661239?hl=en" target="_blank" class="main-footer--link">Map</a></li>
         </ul>
         <ul>
