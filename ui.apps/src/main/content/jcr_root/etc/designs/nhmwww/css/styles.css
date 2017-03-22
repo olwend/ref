@@ -7703,6 +7703,12 @@ h6 {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 480px) {
+  .main-footer .row {
+    margin-left: 20px;
+  }
+}
+
 .main-footer h4 {
   color: #FFFFFF;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
