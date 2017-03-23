@@ -114,6 +114,7 @@ public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
         }
         if (firstname != null) {
           postMethod.addParameter("firstname", firstname);
+          /* WR-1023 - Add IF statement to capture source parameter from social signup form */
           if (source != null) {
             postMethod.addParameter("source", source);
           } else {
