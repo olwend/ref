@@ -39,6 +39,7 @@
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
 	
+	<meta name="apple-itunes-app" content="app-id=948082332">
 	<meta name="google-play-app" content="app-id=uk.ac.nhmexplorer">
 	
 	<link rel="stylesheet" href="/etc/clientlibs/nhmwww/smartbanner.css" type="text/css">

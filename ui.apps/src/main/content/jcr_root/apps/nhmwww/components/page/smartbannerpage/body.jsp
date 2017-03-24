@@ -39,13 +39,15 @@
           author: 'Natural History Museum',
           button: 'VIEW',
           store: {
+        	  ios: 'On the App Store',
               android: 'In Google Play'
           },
           price: {
+        	  ios: 'FREE',
               android: 'FREE'
           }
           // , theme: '' // put platform type ('ios', 'android', etc.) here to force single theme on all device
-          // , icon: '' // full path to icon image if not using website icon image
+          , icon: '//i.imgur.com/iYm9rKI.jpg' // full path to icon image if not using website icon image
           // , force: 'ios' // Uncomment for platform emulation
       });
     </script>
