@@ -37,6 +37,7 @@ import uk.ac.nhm.nhm_www.core.services.NewslettersService;
  * If the Success is <code>true</code> then the servlet returns the Thank You Page where has to go the Page where the Form is.
  * If the Success is <code>false</code> then the servlet returns the Error Message to show in the form.
  */
+
 @Component(metatype = false)
 @Service(value = Servlet.class)
 @Properties({
@@ -46,14 +47,14 @@ import uk.ac.nhm.nhm_www.core.services.NewslettersService;
         @Property(name = "service.description", value = "Validate the information of a Newsletter Sign Up Form and send the request to the right NHM Service.", propertyPrivate = false),
         @Property(name = "nhm.newsletter.service", label = "NHM Newsletter Service", description = "URL to request for the Newsletter Sign Up Service.")
 })
-public class NewsletterSingUpServlet extends SlingAllMethodsServlet {
+public class NewsletterSignUpServlet extends SlingAllMethodsServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private static final String NOT_VALIDATED_MESSAGE = "Not Validated";
 	//private static final String INTERNAL_ERROR_MESSAGE = "There has been an error and we cannot collect your email at this time.";
 	
-	protected static final Logger LOG = LoggerFactory.getLogger(NewsletterSingUpServlet.class);
+	protected static final Logger LOG = LoggerFactory.getLogger(NewsletterSignUpServlet.class);
 	
 	// /publicwifi-signups/form.json
 	
