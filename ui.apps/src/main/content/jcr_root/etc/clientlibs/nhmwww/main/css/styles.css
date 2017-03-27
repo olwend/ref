@@ -8694,6 +8694,198 @@ a.button-cta {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
 
+/** WR-1023 social signup component **/
+.social-signup .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.social-signup h3, .social-signup p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.social-signup h3 {
+  padding: 0 0.75em;
+}
+
+.social-signup--title-wrapper {
+  padding-left: 0;
+}
+
+.social-signup--title-row {
+  margin-left: 0 !important;
+}
+
+.social-signup--container {
+  padding: 20px;
+  background-color: #808080;
+  color: #FFFFFF;
+}
+
+.social-signup--description p {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.social-signup--description a {
+  color: #FFFFFF !important;
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+.social-signup--description a:hover {
+  color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  text-decoration: none;
+}
+
+.social-signup--link-icons p {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.social-signup--link-icons a {
+  border-bottom: 0;
+}
+
+.social-signup--img__social {
+  max-height: 40px;
+  max-width: 14%;
+  padding: 0 2px 0 2px;
+}
+
+.social-signup .errors {
+  background-color: #F5E6E6;
+  border: 2px solid #AE3C39;
+  padding: 0.75em;
+  color: #AE3C39;
+  font-size: 0.875em;
+  line-height: 1.5;
+  display: none;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.button__newsletter-signup {
+  width: 100%;
+  background-color: #808080;
+  border: 2px solid #FFFFFF;
+  max-height: 37px;
+  padding-top: 7px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.button__newsletter-signup:hover, .button__newsletter-signup:focus {
+  background-color: #808080;
+}
+
+.large-4 .social-signup.parbase .social-signup--form__first-name,
+.large-4 .social-signup.parbase .social-signup--form__last-name,
+.large-4 .social-signup.parbase .social-signup--form__email-address,
+.large-4 .social-signup.parbase .social-signup--form__button-submit {
+  width: 100%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__first-name,
+.large-6 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__last-name {
+  width: 50%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__email-address,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  width: 75%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__button-submit,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  width: 25%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__first-name,
+.large-6 .social-signup.parbase .social-signup--form__email-address,
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__last-name,
+.large-6 .social-signup.parbase .social-signup--form__button-submit,
+.large-8 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .large-6 .social-signup.parbase .social-signup--form__first-name,
+  .large-6 .social-signup.parbase .social-signup--form__last-name,
+  .large-6 .social-signup.parbase .social-signup--form__email-address,
+  .large-6 .social-signup.parbase .social-signup--form__button-submit,
+  .large-8 .social-signup.parbase .social-signup--form__first-name,
+  .large-8 .social-signup.parbase .social-signup--form__last-name,
+  .large-8 .social-signup.parbase .social-signup--form__email-address,
+  .large-8 .social-signup.parbase .social-signup--form__button-submit {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.large-12 .social-signup.parbase .social-signup--description p {
+  font-size: 26px;
+  line-height: 38px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__first-name,
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address,
+.large-12 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .large-12 .social-signup.parbase .social-signup--description p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-right: 10px;
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-left: 10px;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 /** WR-707 - fix positioning of events calendar search button **/
 /** overrides foundation.calendar.css in events calendar app **/
 input.searchBox {

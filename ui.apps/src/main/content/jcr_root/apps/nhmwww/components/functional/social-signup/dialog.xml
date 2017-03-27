@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Dialog"
+          height="{Long}400"
+          title="Social Signup"
+          width="1000"
+          xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <basic
+                jcr:primaryType="cq:Widget"
+                title="Basic"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        name="./title"
+                        width="155"
+                        xtype="textfield"/>
+                    
+                    <campaign
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="eNewsletters"
+                        fieldLabel="Marketing Campaign"
+                        name="./campaign"
+                        width="155"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="eNewsletters"
+                                value="eNewsletters"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="WiFi Signups"
+                                value="WiFi Signups"/>
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="App Signups"
+                                value="App Signups"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours Lates"
+                                value="After Hours Lates"/>
+                            <five
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours After-school club"
+                                value="After Hours After-school club"/>
+                            <six
+                                jcr:primaryType="nt:unstructured"
+                                text="Dino Snores for Kids"
+                                value="Dino Snores for Kids"/>
+                            <seven
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours Dino Snores for Grown-ups"
+                                value="After Hours Dino Snores for Grow"/>
+                            <eight
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours Crime Scene Live"
+                                value="After Hours Crime Scene Live"/>
+                            <nine
+                                jcr:primaryType="nt:unstructured"
+                                text="Tring"
+                                value="Tring"/>
+                            <ten
+                                jcr:primaryType="nt:unstructured"
+                                text="Ice Rink"
+                                value="Ice Rink"/>
+                            <eleven
+                                jcr:primaryType="nt:unstructured"
+                                text="Teachers"
+                                value="Teachers"/>
+        
+                        </options>
+                    </campaign>
+                    <dataProtection
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Data Protection Statement"
+                        name="./dataProtection"
+                        xtype="richtext"/><description jcr:primaryType="cq:Widget" fieldLabel="Description" name="./description" width="155" xtype="textfield" />                    
+                </items>
+            </basic>
+        </items>
+    </items>
+</jcr:root>
