@@ -7691,6 +7691,15 @@ h6 {
 }
 
 /** WR-1035 Search bar replacement **/
+body.noScroll {
+  overflow: hidden;
+  padding-right: 17px;
+}
+
+.global-menu-trigger {
+  z-index: 99;
+}
+
 .search_bar_container, .search_bar_overlay, .search_bar {
   display: none;
 }
@@ -7706,13 +7715,26 @@ h6 {
   z-index: 99;
 }
 
+@media screen and (max-width: 640px) {
+  .search_bar_container .search_bar_overlay {
+    height: 350px;
+  }
+}
+
 .search_bar_container .search_bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 300px;
   padding-top: 50px;
   z-index: 99;
+}
+
+@media screen and (max-width: 640px) {
+  .search_bar_container .search_bar {
+    height: 350px;
+  }
 }
 
 .search_bar_container .search_bar_close_icon {
@@ -7722,8 +7744,8 @@ h6 {
   right: 0;
   height: 25px;
   width: 25px;
-  margin-right: 5px;
-  margin-top: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .search_bar_container .search_bar_form {
@@ -7739,6 +7761,12 @@ h6 {
   margin: 0;
 }
 
+@media screen and (max-width: 640px) {
+  .search_bar_container .search_bar_text_input {
+    width: 250px;
+  }
+}
+
 .search_bar_container .search_bar_submit_button {
   background-color: black;
   height: 50px;
@@ -7750,14 +7778,21 @@ h6 {
 }
 
 .search_bar_container .search_bar_search_icon {
-  stroke-width: 3;
-  height: 43px;
-  width: 43px;
+  stroke-width: 2;
+  height: 38px;
+  width: 38px;
 }
 
 .search_bar_container .popular_search_terms {
   text-align: center;
-  margin-bottom: 50px;
+  height: 150px;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 640px) {
+  .search_bar_container .popular_search_terms {
+    height: 200px;
+  }
 }
 
 .search_bar_container .search_bar_header {
@@ -7766,17 +7801,31 @@ h6 {
 }
 
 .search_bar_container .search_bar_link {
+  display: inline;
   padding-top: 7px;
   padding-bottom: 7px;
   background-color: #B5B5B5;
-  color: black;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 0;
-  font-family: 'Elysio-Light', Helvetica, Arial, sans-serif;
   font-size: 18px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.search_bar_container .search_bar_link a {
+  color: black;
+  font-family: 'Elysio-Light', Helvetica, Arial, sans-serif;
+}
+
+.search_bar_container .search_bar_link a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+  .search_bar_container .search_bar_link {
+    line-height: 3rem;
+  }
 }
 
 /** REFACTOR-FOOTER PARTIAL **/
