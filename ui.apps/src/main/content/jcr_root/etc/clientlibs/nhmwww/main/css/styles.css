@@ -7701,7 +7701,12 @@ h6 {
 .main-footer .row {
   position: relative;
   margin-bottom: 0;
-  padding-left: 1.35rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-footer .row {
+    padding-left: 1.35rem;
+  }
 }
 
 @media screen and (max-width: 640px) {
