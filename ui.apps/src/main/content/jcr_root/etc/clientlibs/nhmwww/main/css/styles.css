@@ -7690,6 +7690,95 @@ h6 {
   background-color: rgba(78, 134, 178, 0.95);
 }
 
+/** WR-1035 Search bar replacement **/
+.search_bar_container, .search_bar_overlay, .search_bar {
+  display: none;
+}
+
+.search_bar_container .search_bar_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  opacity: 0.95;
+  z-index: 99;
+}
+
+.search_bar_container .search_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 50px;
+  z-index: 99;
+}
+
+.search_bar_container .search_bar_close_icon {
+  stroke-width: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.search_bar_container .search_bar_form {
+  text-align: center;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+.search_bar_container .search_bar_text_input {
+  display: inline;
+  width: 570px;
+  height: 50px;
+  margin: 0;
+}
+
+.search_bar_container .search_bar_submit_button {
+  background-color: black;
+  height: 50px;
+  width: 50px;
+  margin-bottom: 0;
+  margin-left: -5px;
+  padding: 0;
+  top: -1px;
+}
+
+.search_bar_container .search_bar_search_icon {
+  stroke-width: 3;
+  height: 43px;
+  width: 43px;
+}
+
+.search_bar_container .popular_search_terms {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.search_bar_container .search_bar_header {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.search_bar_container .search_bar_link {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #B5B5B5;
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  font-family: 'Elysio-Light', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 /** REFACTOR-FOOTER PARTIAL **/
 .main-footer {
   padding: 2.5em 0;
