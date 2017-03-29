@@ -20,6 +20,8 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.json.JSONException;
 import org.osgi.service.component.ComponentContext;
 
+import com.day.cq.tagging.JcrTagManagerFactory;
+
 import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
 
@@ -42,6 +44,9 @@ public class ExhibitionPagesListener implements EventListener {
 
 	@Reference
 	private SlingRepository repository;
+	
+	@Reference
+	private JcrTagManagerFactory jcrTagManagerFactory;
 	
 	/**
 	 * Logic to define the Exhibition Custom Event Handler
@@ -80,7 +85,7 @@ public class ExhibitionPagesListener implements EventListener {
 	public void onEvent(EventIterator events) {		
 		try {
 			eventPagesUtils = new EventPagesUtils();
-			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);
+			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH, jcrTagManagerFactory);
 		} catch (PathNotFoundException e) {
 			System.out.println(e);
 			e.printStackTrace();
