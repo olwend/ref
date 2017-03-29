@@ -541,10 +541,12 @@ jQuery(document).ready(function() {
 
     jQuery('#search-bar-close').on('click', function(e){
         e.preventDefault();
-        jQuery('body').removeClass('noScroll');
         jQuery('.search_bar_container').slideUp('slow');
         jQuery('.search_bar_overlay').slideUp('slow');
-        jQuery('.search_bar').slideUp('slow');        
+        jQuery('.search_bar').slideUp('slow');
+        setTimeout(function() {
+            jQuery('body').removeClass('noScroll');
+        }, 500);        
     });
 
     jQuery(document).scroll(function() {

@@ -7693,7 +7693,12 @@ h6 {
 /** WR-1035 Search bar replacement **/
 body.noScroll {
   overflow: hidden;
-  padding-right: 17px;
+}
+
+@media screen and (min-width: 1440px) {
+  body.noScroll {
+    padding-right: 17px;
+  }
 }
 
 .global-menu-trigger {
