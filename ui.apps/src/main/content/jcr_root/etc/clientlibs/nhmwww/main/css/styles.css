@@ -7703,12 +7703,6 @@ h6 {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 1024px) {
-  .main-footer .row {
-    padding-left: 1.35rem;
-  }
-}
-
 @media screen and (max-width: 640px) {
   .main-footer .row {
     padding-left: 0.75rem;
@@ -7785,7 +7779,7 @@ h6 {
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 640px) and (max-width: 1024px) {
   .main-footer--links-section__first {
     padding-top: 105px;
     min-height: 640px;
