@@ -53,12 +53,12 @@
                     <div class="megamenu--search-bar__popular-search-terms">
                       <h2 class="megamenu--search-bar__heading">Popular search terms:</h2>
                       <ul>
-                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Dinosaurs">Dinosaurs</a></li>
-                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Darwin">Darwin</a></li>
-                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Whales">Whales</a></li>
-                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Fossils">Fossils</a></li>
-                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=is+the+dodo+really+extinct">The Dodo</a></li>
-                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Skeletons">Skeletons</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/national-impact/diplodocus-on-tour.html">Dippy on tour</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/news.html">News</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/after-hours.html">Evening events</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify an insect</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a plant</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
                       </ul>
                     </div>
                 </div>

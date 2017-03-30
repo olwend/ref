@@ -7706,6 +7706,11 @@ body.noScroll {
   z-index: 99;
 }
 
+/** WR-1035 Adjust z-index to display the carousel slide icons beneath the search menu element **/
+.lSSlideOuter .lSPager.lSpg > li a {
+  z-index: 98;
+}
+
 .megamenu--search-bar,
 .megamenu--search-bar__overlay,
 .megamenu--search-bar__content {
@@ -7858,6 +7863,7 @@ body.noScroll {
 .megamenu--search-bar__link a {
   color: black;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  white-space: nowrap;
 }
 
 .megamenu--search-bar__link a:hover {
