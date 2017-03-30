@@ -32,33 +32,33 @@
                             <a href="/content/nhmwww/en/home/our-science.html">Our science</a>
                         </li>
                         <li class="nav-list__item utility last">
-                            <a href="#" id="search-button" class="nav-icons search">Search</a>
+                            <a href="#" id="megamenu--search-bar__button" class="nav-icons search">Search</a>
                         </li>
                     </ul>
                 </div>
             </nav>
-            <div class="search_bar_container">
-                <div class="search_bar_overlay"></div>
-                <div class="search_bar">
-                    <a href="#" id="search-bar-close"><i class="ico svg-ico ico-menu-close search_bar_close_icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png" id="svg-icon__menu_close-4"></i></a>
-                        <form action="/content/nhmwww/en/home/search.html" method="get" class="search_bar_form">
+            <div class="megamenu--search-bar">
+                <div class="megamenu--search-bar__overlay"></div>
+                <div class="megamenu--search-bar__content">
+                    <a href="#" id="megamenu--search-bar__close"><i class="ico svg-ico ico-menu-close megamenu--search-bar__close-icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png" id="svg-icon__menu_close-4"></i></a>
+                        <form action="/content/nhmwww/en/home/search.html" method="get" class="megamenu--search-bar__form">
                             
-                                <input type="text" name="q" class="text search_bar_text_input">
-                                <button class="submit search_bar_submit_button">
-                                    <i class="ico svg-ico desktop search_bar_search_icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_general_search_small.svg" data-svg-title="icon__search" data-alt="Search" data-stroke-width="2" data-base-color="#FFFFFF" data-fallback="/etc/designs/nhmwww/img/icons/search-nav.png" id="svg-icon__search-6"></i>
+                                <input type="text" name="q" class="text megamenu--search-bar__input" placeholder="Search">
+                                <button class="submit megamenu--search-bar__submit-button">
+                                    <i class="ico svg-ico desktop megamenu--search-bar__search-icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_general_search_small.svg" data-svg-title="icon__search" data-alt="Search" data-stroke-width="2" data-base-color="#FFFFFF" data-fallback="/etc/designs/nhmwww/img/icons/search-nav.png" id="svg-icon__search-6"></i>
                                 </button>
                             
                         </form>
 
-                    <div class="popular_search_terms">
-                      <h2 class="search_bar_header">Popular search terms:</h2>
+                    <div class="megamenu--search-bar__popular-search-terms">
+                      <h2 class="megamenu--search-bar__heading">Popular search terms:</h2>
                       <ul>
-                        <li class="search_bar_link"><a href="/content/nhmwww/en/home/search.html?q=Dinosaurs">Dinosaurs</a></li>
-                        <li class="search_bar_link"><a href="/content/nhmwww/en/home/search.html?q=Darwin">Darwin</a></li>
-                        <li class="search_bar_link"><a href="/content/nhmwww/en/home/search.html?q=Whales">Whales</a></li>
-                        <li class="search_bar_link"><a href="/content/nhmwww/en/home/search.html?q=Fossils">Fossils</a></li>
-                        <li class="search_bar_link"><a href="/content/nhmwww/en/home/search.html?q=is+the+dodo+really+extinct">The Dodo</a></li>
-                        <li class="search_bar_link"><a href="/content/nhmwww/en/home/search.html?q=Skeletons">Skeletons</a></li>
+                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Dinosaurs">Dinosaurs</a></li>
+                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Darwin">Darwin</a></li>
+                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Whales">Whales</a></li>
+                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Fossils">Fossils</a></li>
+                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=is+the+dodo+really+extinct">The Dodo</a></li>
+                        <li class="megamenu--search-bar__link"><a href="/content/nhmwww/en/home/search.html?q=Skeletons">Skeletons</a></li>
                       </ul>
                     </div>
                 </div>
