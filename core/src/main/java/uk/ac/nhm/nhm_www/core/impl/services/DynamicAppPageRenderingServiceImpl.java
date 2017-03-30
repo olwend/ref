@@ -1,6 +1,5 @@
 package uk.ac.nhm.nhm_www.core.impl.services;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -10,8 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.PathNotFoundException;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
@@ -33,21 +30,15 @@ import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper;
+import uk.ac.nhm.nhm_www.core.model.DynamicApp.PageResourceArray;
+import uk.ac.nhm.nhm_www.core.services.DynamicAppPageRenderingService;
+import uk.ac.nhm.nhm_www.core.utils.PageUtils;
+
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.PageManagerFactory;
-
-import uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper;
-import uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper;
-import uk.ac.nhm.nhm_www.core.model.DynamicApp.PageResourceArray;
-import uk.ac.nhm.nhm_www.core.model.discover.Image;
-import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponent;
-import uk.ac.nhm.nhm_www.core.model.discover.ResourceComponentArray;
-import uk.ac.nhm.nhm_www.core.model.discover.Video;
-import uk.ac.nhm.nhm_www.core.services.DiscoverPublicationsSearchService;
-import uk.ac.nhm.nhm_www.core.services.DynamicAppPageRenderingService;
-import uk.ac.nhm.nhm_www.core.utils.PageUtils;
 
 @Component(label = "Natural History Museum Dynamic App Page Rendering", description = "Natural History Museum Dynamic App Page Rendering Service", metatype = true, immediate = true)
 @Service(value = DynamicAppPageRenderingService.class)
@@ -56,7 +47,7 @@ import uk.ac.nhm.nhm_www.core.utils.PageUtils;
 		@Property(name = "service.description", value = "Natural History Museum Discover properties", propertyPrivate = true), 
 		@Property(name = "queryLimit", intValue = 200, description = "Query Limit"),
 		@Property(name = "cacheExpired", intValue = 1, description = "Minutes Cache to expire"),
-		@Property(name = "concurrencyLevel" ,intValue = 16, description="Cache ConcurrentHashMap: estimated number of concurrently updating threads. The implementation performs internal sizing to try to accommodate this many threads."),
+		@Property(name = "concurrencyLevel", intValue = 16, description="Cache ConcurrentHashMap: estimated number of concurrently updating threads. The implementation performs internal sizing to try to accommodate this many threads."),
 		@Property(name = "mappedPath", value="", description="Repository path mapped, this path is going to be hide on the final link to the publication")
 })
 public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderingService {
@@ -147,10 +138,6 @@ public class DynamicAppPageRenderingServiceImpl implements DynamicAppPageRenderi
 	
 	private String getItemQuery(String itemID) {
 		return "SELECT * FROM [cq:Page] WHERE NAME() = '" + itemID + "'";
-		
-		
-		
-		
 	}
 	
 	

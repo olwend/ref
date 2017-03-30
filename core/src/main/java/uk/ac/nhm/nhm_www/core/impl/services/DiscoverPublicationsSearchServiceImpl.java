@@ -308,10 +308,7 @@ public class DiscoverPublicationsSearchServiceImpl implements DiscoverPublicatio
 		if (rendition == null) {
 			return fileReference;
 		}
-		return rendition.getPath();
-		
-		
-		
+		return rendition.getPath();		
 	}
 	
 	private int getInteger(final Object value, final int defaultValue) {
