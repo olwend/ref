@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 import uk.ac.nhm.nhm_www.core.model.EventPageDetail;
 
+import com.day.cq.tagging.JcrTagManagerFactory;
 import com.day.cq.tagging.TagManager;
 
 
@@ -48,7 +49,7 @@ public class EventPagesUtils {
 	 * @throws TransformerException 
 	 * @throws ParserConfigurationException 
 	 */
-	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath) throws RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException  {		
+	public void getEventsDetails(Session session, String eventsPath, String exhibitionsPath, JcrTagManagerFactory jcrTagManagerFactory) throws RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException  {		
 		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
 		
 		root = session.getRootNode();
@@ -61,7 +62,7 @@ public class EventPagesUtils {
 		Node exhibitionsNode = root.getNode(exhibitionsPath);
 		eventsArray = populateEventsArray(exhibitionsNode, eventsArray);
 
-		createFeed(eventsArray, session);
+		createFeed(eventsArray, session, jcrTagManagerFactory);
 	}
 	
 	/**
@@ -229,7 +230,7 @@ public class EventPagesUtils {
 	 * @throws ParserConfigurationException 
 	 * @throws ParseException 
 	 */
-	private void createFeed(ArrayList<EventPageDetail> eventsArray, Session session) throws JSONException, PathNotFoundException, RepositoryException, ParseException, ParserConfigurationException, TransformerException  {
+	private void createFeed(ArrayList<EventPageDetail> eventsArray, Session session, JcrTagManagerFactory jcrTagManagerFactory) throws JSONException, PathNotFoundException, RepositoryException, ParseException, ParserConfigurationException, TransformerException  {
 		final String eventscontent = "eventscontent";
 		
 		JSONObject eventsObject = new JSONObject();
@@ -286,8 +287,11 @@ public class EventPagesUtils {
 		session.save();
 		session.refresh(false);
 		
+		LOG.info("Attempting update of XML feed for Events Calendar from listener");
+		
 		createXMLFeedUtils = new CreateXMLFeedUtils();
-		TagManager tagManager = null;
+		
+		TagManager tagManager = jcrTagManagerFactory.getTagManager(session);
 		
 		createXMLFeedUtils.storeXMLFromEvents(createXMLFeedUtils.getTodayEvents(eventsJSONArray, tagManager), root, session);
 	}

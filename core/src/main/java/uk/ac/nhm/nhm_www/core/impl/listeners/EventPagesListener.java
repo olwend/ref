@@ -23,6 +23,8 @@ import javax.xml.transform.TransformerException;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.felix.scr.annotations.Reference;
 
+import com.day.cq.tagging.JcrTagManagerFactory;
+
 import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.nhm_www.core.utils.EventPagesUtils;
@@ -48,6 +50,9 @@ public class EventPagesListener implements EventListener {
 
 	@Reference
 	private SlingRepository repository;
+	
+	@Reference
+	private JcrTagManagerFactory jcrTagManagerFactory;
 
 	/**
 	 * Logic to define the Events Custom Event Handler
@@ -87,7 +92,7 @@ public class EventPagesListener implements EventListener {
 		try {
 			LOG.info("Found new or updated content in Events Calendar");
 			eventPagesUtils = new EventPagesUtils();
-			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH);
+			eventPagesUtils.getEventsDetails(session, EVENTS_PATH, EXHIBITIONS_PATH, jcrTagManagerFactory);
 		} catch (PathNotFoundException e) {
 			System.out.println(e);
 			e.printStackTrace();
