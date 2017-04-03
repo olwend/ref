@@ -56,9 +56,10 @@
                       <ul>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/national-impact/diplodocus-on-tour.html">Dippy on tour</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/news.html">News</a></li>
-                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/after-hours.html">Evening events</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/search.html?q=blue+whale">Blue whale</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/evening-events.html">Evening events</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify an insect</a></li>
-                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a plant</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a fossil</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
                       </ul>
                     </div>
