@@ -1,4 +1,4 @@
-package uk.ac.nhm.nhm_www.core.impl.services;
+package uk.ac.nhm.nhm_www.core.impl.services.rest;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -38,11 +38,11 @@ import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.services.EventsCalendarRestService;
-
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.PageManagerFactory;
+
+import uk.ac.nhm.nhm_www.core.services.EventsCalendarRestService;
 
 @Service(value = EventsCalendarRestServiceImpl.class)
 @Component(label = "Natural History Museum Events Calendar Rest API", metatype = true, immediate = true)
@@ -67,6 +67,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getAll() throws RepositoryException, JSONException {
+		LOG.info("- all - ");
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "all");
 
@@ -80,6 +81,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getWeek() throws RepositoryException, JSONException  {
+		LOG.info("- week - ");
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "week");
 
@@ -93,6 +95,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getDay() throws RepositoryException, JSONException  {
+		LOG.info("- day - ");
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "day");
 
@@ -107,7 +110,6 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		try {
 			//Bad code - do this correctly!
 			final Session session = repository.loginService("searchService", null);
-			LOG.error(repository.toString());
 			try {
 				final QueryManager queryMgr = session.getWorkspace().getQueryManager();
 				final Query query = queryMgr.createQuery(QUERY, Query.JCR_SQL2);
