@@ -7739,7 +7739,7 @@ body.noScroll {
 
 @media screen and (max-width: 640px) {
   .megamenu--search-bar__overlay {
-    height: 350px;
+    height: 395px;
   }
 }
 
@@ -7842,7 +7842,6 @@ body.noScroll {
 .megamenu--search-bar__popular-search-terms {
   text-align: center;
   height: 150px;
-  padding-bottom: 50px;
 }
 
 @media screen and (max-width: 640px) {
