@@ -7694,18 +7694,8 @@ h6 {
 .main-footer {
   padding: 2.5em 0;
   background: #565656;
-  color: #fff;
-  /** overrides Foundation forms styles **/
-}
-
-.main-footer label {
   color: #FFFFFF;
-}
-
-.main-footer fieldset legend {
-  background: none;
-  font-weight: normal;
-  padding: 0;
+  text-align: left;
 }
 
 .main-footer .row {
@@ -7713,300 +7703,103 @@ h6 {
   margin-bottom: 0;
 }
 
-.main-footer .footer--frame-wrapper {
-  position: relative;
-  border-radius: 0 30px;
-  border: 2px solid #fff;
-  margin-bottom: 6em;
-  padding: 2em 5%;
-}
-
-@media screen and (min-width: 768px) {
-  .main-footer .footer--frame-wrapper {
-    padding: 1.5em 2%;
-    margin-bottom: 0;
+@media screen and (max-width: 640px) {
+  .main-footer .row {
+    padding-left: 0.75rem;
   }
 }
 
-.main-footer .footer--frame-wrapper:before, .main-footer .footer--frame-wrapper:after {
-  display: block;
-  content: "";
-  position: absolute;
+.main-footer h4 {
+  color: #FFFFFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 19px;
 }
 
-.main-footer .footer--frame-wrapper:before {
-  bottom: -2px;
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  border-top: 2px solid #565656;
-  border-bottom: 2px solid #565656;
-}
-
-.main-footer .footer--frame-wrapper:after {
-  right: -2px;
-  top: 12.5%;
-  width: 100%;
-  height: 75%;
-  border-left: 2px solid #565656;
-  border-right: 2px solid #565656;
-}
-
-.main-footer .footer--frame:before, .main-footer .footer--frame:after {
-  display: block;
-  content: "";
-  position: absolute;
-}
-
-.main-footer .footer--frame:before {
-  top: -2px;
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  border-top: 2px solid #565656;
-  border-bottom: 2px solid #565656;
-}
-
-.main-footer .footer--frame:after {
-  left: -2px;
-  top: 12.5%;
-  width: 100%;
-  height: 75%;
-  border-left: 2px solid #565656;
-  border-right: 2px solid #565656;
-}
-
-.main-footer .footer-nav {
-  z-index: 100;
-}
-
-.main-footer .footer-nav ul {
-  margin: 0;
-}
-
-.main-footer .footer-nav li {
-  padding-top: 0.75em;
-  font-size: 1.1em;
-  margin-right: 1em;
-  line-height: 1.4;
-}
-
-@media screen and (min-width: 640px) {
-  .main-footer .footer-nav li {
-    padding-top: 0.5em;
-    margin-right: 0;
-    line-height: 1.9;
+@media screen and (max-width: 1024px) {
+  .main-footer h4 {
+    padding-top: 25px;
+    padding-bottom: 0;
   }
 }
 
-.main-footer .footer-nav li:first-child {
-  padding-top: 0;
+.main-footer p {
+  font-size: 16px;
+  margin-left: 0;
 }
 
-.main-footer .footer-nav a {
-  color: #fff;
+.main-footer--address-section {
+  text-align: left;
 }
 
-.main-footer .footer-nav .footer--icon-list-container {
-  padding-top: 0;
+.main-footer--address-section__wrapper a, .main-footer--address-section__wrapper a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
-.main-footer .footer-nav .footer--icon-list-title {
-  line-height: 1.6;
-  margin-top: 20px;
-  font-size: 1em;
+.main-footer--address-section__wrapper a {
+  border-bottom: 1px dotted #FFFFFF;
 }
 
-.main-footer .footer-nav .icon-list li {
-  padding: 0.8em 0.8em 0 0;
-  width: 33%;
-  margin-right: 0;
+.main-footer--address-section__wrapper a:hover {
+  border-bottom: 1px solid #FFFFFF;
 }
 
-@media screen and (min-width: 480px) {
-  .main-footer .footer-nav .icon-list li {
-    width: 28%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .main-footer .footer-nav .icon-list li {
-    width: 21%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .main-footer .footer-nav .icon-list li {
-    width: 18%;
-  }
-}
-
-.main-footer .footer-nav .icon-list a {
-  padding: 0;
-  display: inline;
-  width: 30%;
-}
-
-@media screen and (min-width: 480px) {
-  .main-footer .footer-nav .icon-list a {
-    width: auto;
-  }
-}
-
-.main-footer .footer-utility {
-  position: relative;
-  z-index: 100;
-  margin-top: 1.5em;
-  padding-top: 1.5em;
-  border-top: 1px solid #FFFFFF;
+.main-footer--address-section__wrapper ul {
+  font-size: 16px;
 }
 
 @media screen and (min-width: 1025px) {
-  .main-footer .footer-utility {
-    margin-top: 0;
-    padding-top: 0;
-    padding-right: 2%;
-    border-top: 0;
+  .main-footer--links-section__wrapper {
+    margin-top: 20px;
   }
 }
 
-.main-footer .footer-utility fieldset {
-  margin: 0 0 1em;
-  padding: 0;
-  border: 0;
+.main-footer--copyright {
+  padding-top: 50px;
+  text-align: right;
 }
 
-.main-footer .footer-utility .newslettersignup--footer-label {
-  display: block;
-  margin: 0.5em 0 0.1em;
-  font-size: 0.875em;
-}
-
-.main-footer .footer-utility .newslettersignup--footer-input {
-  width: 94%;
-  border: 0;
-  height: auto !important;
-  font-size: 0.875em;
-  margin-bottom: 0.5em;
-  color: #565656;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility .newslettersignup--footer-input {
-    padding: 0.5em 3%;
-  }
-}
-
-.main-footer .footer-utility .newslettersignup--footer-submit-button {
-  width: 94%;
-  display: block;
-  margin: 1em 0 0;
-  background: none;
-  text-align: left;
-  font-weight: normal;
-  border: 2px solid #FFFFFF;
-  padding: 0.9em 0.3em 1em 1em;
-}
-
-@media screen and (min-width: 768px) {
-  .main-footer .footer-utility .newslettersignup--footer-submit-button {
-    padding: 0.7em 0.3em 0.7em 1em;
-  }
-}
-
-.main-footer .footer-utility p {
-  font-size: 1.1em;
-}
-
-.main-footer .footer-utility .errors {
-  background-color: #F5E6E6;
-  border: 2px solid #AE3C39;
-  padding: 0.75em;
-  color: #AE3C39;
-  font-size: 0.875em;
-  line-height: 1.5;
-  display: none;
-  width: 94%;
-  margin-bottom: 0.5em;
-}
-
-.main-footer .footer-info {
-  float: none;
-  position: absolute;
-  bottom: -0.5em;
-  left: 0;
-  padding-top: 4.5em;
-  text-align: center;
-  background: url(/etc/designs/nhmwww/img/nhm-logo-white.png) no-repeat center top;
-  background-size: 35% auto;
-}
-
-@media screen and (min-width: 480px) {
-  .main-footer .footer-info {
-    background-size: 20% auto;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .main-footer .footer-info {
-    background-size: 25% auto;
-    width: 75%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .main-footer .footer-info {
-    bottom: auto;
-    left: auto;
-    top: 0;
-    right: 0;
-    width: 25%;
-    height: 100%;
-    padding: 0;
-    background-position: left center;
-    background-size: 100% auto;
+@media screen and (max-width: 1024px) {
+  .main-footer--copyright {
     text-align: left;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .main-footer .footer-info {
-    background-size: 85% auto;
-  }
+.main-footer--section p {
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 1025px) {
-  .main-footer .footer-info {
-    background-size: auto;
+  .main-footer--section__pull-bottom {
+    margin-top: 50px;
   }
 }
 
-.main-footer .footer-info-text {
-  font-size: 0.8em;
+.main-footer--logo {
+  margin-bottom: 20px;
 }
 
-@media screen and (min-width: 768px) {
-  .main-footer .footer-info-text {
-    position: absolute;
-    bottom: 30%;
-    left: 44%;
-    margin: 0;
-    padding: 0;
-    line-height: 1.3;
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .main-footer--links-section__first {
+    padding-top: 105px;
+    min-height: 640px;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .main-footer .footer-info-text {
-    left: 33%;
-    bottom: 33%;
-  }
+.main-footer--links-section__wrapper a, .main-footer--links-section__wrapper a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 1025px) {
-  .main-footer .footer-info-text {
-    bottom: 20%;
+  .main-footer--links-section__wrapper .main-footer--section:nth-child(1) {
+    min-height: 215px;
+  }
+  .main-footer--links-section__wrapper .main-footer--section:nth-child(2) {
+    min-height: 190px;
+  }
+  .main-footer--links-section__wrapper .main-footer--section:nth-child(2), .main-footer--links-section__wrapper .main-footer--section:nth-child(3) {
+    margin-top: 25px;
   }
 }
 
@@ -8899,6 +8692,198 @@ a.button-cta {
   padding: 0.6em 2em;
   margin-bottom: 0;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+
+/** WR-1023 social signup component **/
+.social-signup .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.social-signup h3, .social-signup p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.social-signup h3 {
+  padding: 0 0.75em;
+}
+
+.social-signup--title-wrapper {
+  padding-left: 0;
+}
+
+.social-signup--title-row {
+  margin-left: 0 !important;
+}
+
+.social-signup--container {
+  padding: 20px;
+  background-color: #808080;
+  color: #FFFFFF;
+}
+
+.social-signup--description p {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.social-signup--description a {
+  color: #FFFFFF !important;
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+.social-signup--description a:hover {
+  color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  text-decoration: none;
+}
+
+.social-signup--link-icons p {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.social-signup--link-icons a {
+  border-bottom: 0;
+}
+
+.social-signup--img__social {
+  max-height: 40px;
+  max-width: 14%;
+  padding: 0 2px 0 2px;
+}
+
+.social-signup .errors {
+  background-color: #F5E6E6;
+  border: 2px solid #AE3C39;
+  padding: 0.75em;
+  color: #AE3C39;
+  font-size: 0.875em;
+  line-height: 1.5;
+  display: none;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.button__newsletter-signup {
+  width: 100%;
+  background-color: #808080;
+  border: 2px solid #FFFFFF;
+  max-height: 37px;
+  padding-top: 7px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.button__newsletter-signup:hover, .button__newsletter-signup:focus {
+  background-color: #808080;
+}
+
+.large-4 .social-signup.parbase .social-signup--form__first-name,
+.large-4 .social-signup.parbase .social-signup--form__last-name,
+.large-4 .social-signup.parbase .social-signup--form__email-address,
+.large-4 .social-signup.parbase .social-signup--form__button-submit {
+  width: 100%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__first-name,
+.large-6 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__last-name {
+  width: 50%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__email-address,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  width: 75%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__button-submit,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  width: 25%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__first-name,
+.large-6 .social-signup.parbase .social-signup--form__email-address,
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__last-name,
+.large-6 .social-signup.parbase .social-signup--form__button-submit,
+.large-8 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .large-6 .social-signup.parbase .social-signup--form__first-name,
+  .large-6 .social-signup.parbase .social-signup--form__last-name,
+  .large-6 .social-signup.parbase .social-signup--form__email-address,
+  .large-6 .social-signup.parbase .social-signup--form__button-submit,
+  .large-8 .social-signup.parbase .social-signup--form__first-name,
+  .large-8 .social-signup.parbase .social-signup--form__last-name,
+  .large-8 .social-signup.parbase .social-signup--form__email-address,
+  .large-8 .social-signup.parbase .social-signup--form__button-submit {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.large-12 .social-signup.parbase .social-signup--description p {
+  font-size: 26px;
+  line-height: 38px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__first-name,
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address,
+.large-12 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .large-12 .social-signup.parbase .social-signup--description p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-right: 10px;
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-left: 10px;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
