@@ -7691,14 +7691,10 @@ h6 {
 }
 
 /** WR-1035 Search bar replacement **/
-body.noScroll {
-  overflow: hidden;
-}
-
-@media screen and (min-width: 1440px) {
-  body.noScroll {
-    padding-right: 17px;
-  }
+html.noScroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
@@ -7737,9 +7733,15 @@ body.noScroll {
   z-index: 99;
 }
 
+@media screen and (max-width: 768px) {
+  .megamenu--search-bar__overlay {
+    height: 350px;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .megamenu--search-bar__overlay {
-    height: 395px;
+    height: 450px;
   }
 }
 
@@ -7759,9 +7761,15 @@ body.noScroll {
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   .megamenu--search-bar__content {
     height: 350px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .megamenu--search-bar__content {
+    height: 450px;
   }
 }
 
@@ -7803,7 +7811,7 @@ body.noScroll {
 
 @media screen and (min-width: 1025px) {
   .megamenu--search-bar__input[type="text"] {
-    height: 47px;
+    height: 48px;
   }
 }
 
@@ -7828,8 +7836,8 @@ body.noScroll {
 
 @media screen and (min-width: 1025px) {
   .megamenu--search-bar__submit-button {
-    height: 47px;
-    width: 47px;
+    height: 48px;
+    width: 48px;
   }
 }
 
@@ -7848,6 +7856,10 @@ body.noScroll {
   .megamenu--search-bar__popular-search-terms {
     height: 200px;
   }
+}
+
+.megamenu--search-bar__popular-search-terms ul {
+  line-height: 50px;
 }
 
 .megamenu--search-bar__heading {
