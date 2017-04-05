@@ -32,47 +32,32 @@
 /* @import must be at top of file, otherwise CSS will not work */
 @import url("//hello.myfonts.net/count/2cfbf8");
 
+/* WR-1007: Removed declarations for eot, svg, ttf fonts */
   
 @font-face {
 	font-family: 'Elysio-Light';
-	src: url('2CFBF8_0_0.eot');
-	src: url('2CFBF8_0_0.eot?#iefix') format('embedded-opentype'),
-		 url('2CFBF8_0_0.woff2') format('woff2'),
-		 url('2CFBF8_0_0.woff') format('woff'),
-		 url('2CFBF8_0_0.ttf') format('truetype'),
-		 url('2CFBF8_0_0.svg#wf') format('svg');
+	src: url('2CFBF8_0_0.woff2') format('woff2'),
+		 url('2CFBF8_0_0.woff') format('woff');
  }
  
   
 @font-face {
 	font-family: 'Elysio-Medium';
-	src: url('2CFBF8_1_0.eot');
-	src: url('2CFBF8_1_0.eot?#iefix') format('embedded-opentype'),
-		 url('2CFBF8_1_0.woff2') format('woff2'),
-		 url('2CFBF8_1_0.woff') format('woff'),
-		 url('2CFBF8_1_0.ttf') format('truetype'),
-		 url('2CFBF8_1_0.svg#wf') format('svg');
+	src: url('2CFBF8_1_0.woff2') format('woff2'),
+		 url('2CFBF8_1_0.woff') format('woff');
  }
  
   
 @font-face {
 	font-family: 'Elysio-Regular';
-	src: url('2CFBF8_2_0.eot');
-	src: url('2CFBF8_2_0.eot?#iefix') format('embedded-opentype'),
-		 url('2CFBF8_2_0.woff2') format('woff2'),
-		 url('2CFBF8_2_0.woff') format('woff'),
-		 url('2CFBF8_2_0.ttf') format('truetype'),
-		 url('2CFBF8_2_0.svg#wf') format('svg');
+	src: url('2CFBF8_2_0.woff2') format('woff2'),
+		 url('2CFBF8_2_0.woff') format('woff');
  }
  
   
 @font-face {
 	font-family: 'Elysio-Thin';
-	src: url('2CFBF8_3_0.eot');
-	src: url('2CFBF8_3_0.eot?#iefix') format('embedded-opentype'),
-		 url('2CFBF8_3_0.woff2') format('woff2'),
-		 url('2CFBF8_3_0.woff') format('woff'),
-		 url('2CFBF8_3_0.ttf') format('truetype'),
-		 url('2CFBF8_3_0.svg#wf') format('svg');
+	src: url('2CFBF8_3_0.woff2') format('woff2'),
+		 url('2CFBF8_3_0.woff') format('woff');
  }
  

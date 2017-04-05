@@ -15,10 +15,11 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.utils.TextUtils;
 
-@Component(label = "XML Feed Dispatcher Flush", description = "A scheduled service to clear the cache for the Events Calendar XML feed", metatype = true)
+@Component(label = "XML Feed Dispatcher Flush", description = "A scheduled service to clear the cache for the Events Calendar XML feed at 5 minutes past every hour", metatype = true)
 @Service
 @Properties({
-	@Property(name="scheduler.expression", value="0 0 1 * * ? *")
+    // WR-1004 - flush dispatcher at 5 minutes past every hour
+    @Property(name="scheduler.expression", value="0 5 * * * ? *")
 })
 public class XMLFeedDispatcherFlush implements Runnable {
 

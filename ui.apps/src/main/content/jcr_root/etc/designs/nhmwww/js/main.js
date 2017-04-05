@@ -293,6 +293,10 @@ jQuery(document).ready(function() {
             prev.fadeOut(100);
             next.fadeIn(100);
           }
+        },
+        
+        onBeforeStart: function() {
+            $('.js--carousel-image').css('display','block');
         }
       });
 
@@ -336,6 +340,10 @@ jQuery(document).ready(function() {
                 prev.fadeIn(100);
                 next.fadeIn(100); 
             }
+        },
+        
+        onBeforeStart: function() {
+            $('.js--carousel-image').css('display','block');
         }
     });
 
@@ -512,6 +520,36 @@ jQuery(document).ready(function() {
                 }
             });
         }
+    });
+
+    jQuery('#megamenu--search-bar__button').on('click', function(e){
+        e.preventDefault();
+        if(jQuery('.global-menu-trigger').hasClass('return')) {
+            jQuery('.nav-list__item').removeClass('selected selected-siblings');
+            jQuery('.global-menu-trigger').removeClass('return');
+        } else {
+            if(jQuery('.global-menu-trigger').hasClass('clicked')) {
+                jQuery('.global-nav-menu').slideUp('slow');
+                setTimeout(function() {
+                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                }, 600);
+                
+            }
+        }
+        jQuery('html').addClass('js-noScroll');
+        jQuery('.megamenu--search-bar').slideDown('slow');
+        jQuery('.megamenu--search-bar__overlay').slideDown('slow');
+        jQuery('.megamenu--search-bar__content').slideDown('slow');
+    });
+
+    jQuery('#megamenu--search-bar__close').on('click', function(e){
+        e.preventDefault();
+        jQuery('.megamenu--search-bar').slideUp('slow');
+        jQuery('.megamenu--search-bar__overlay').slideUp('slow');
+        jQuery('.megamenu--search-bar__content').slideUp('slow');
+        setTimeout(function() {
+            jQuery('html').removeClass('js-noScroll');
+        }, 600);        
     });
 
     jQuery(document).scroll(function() {

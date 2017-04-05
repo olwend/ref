@@ -34,13 +34,3 @@
 		</script>
          
         <cq:includeClientLib categories="nhm-www.scienceprofiles" />
-        <script type="text/javascript">var switchTo5x=true;</script>
-		<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
-		<script type="text/javascript">stLight.options({publisher: "4069e561-f5e3-40c7-a58e-a86ba8d470ac", doNotHash: false, doNotCopy: false, hashAddressBar: false, onhover: false});</script>
-		
-		<!-- WR-927 Adobe Analytics/DTM trial -->
-		<%if(request.getServerName().equals("www.nhm.ac.uk")) {%>
-			<script src="//assets.adobedtm.com/b018ac1d55b0c810cb8357c0a52ba0b195706b2a/satelliteLib-2e3a2d951df95a7f9b84f5addda482287d462b79.js"></script>
-		<%} else {%>
-			<script src="//assets.adobedtm.com/b018ac1d55b0c810cb8357c0a52ba0b195706b2a/satelliteLib-2e3a2d951df95a7f9b84f5addda482287d462b79-staging.js"></script>
-		<%}%>
