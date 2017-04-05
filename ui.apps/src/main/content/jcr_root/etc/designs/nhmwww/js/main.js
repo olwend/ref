@@ -536,7 +536,7 @@ jQuery(document).ready(function() {
                 
             }
         }
-        jQuery('html').addClass('noScroll');
+        jQuery('html').addClass('js-noScroll');
         jQuery('.megamenu--search-bar').slideDown('slow');
         jQuery('.megamenu--search-bar__overlay').slideDown('slow');
         jQuery('.megamenu--search-bar__content').slideDown('slow');
@@ -548,7 +548,7 @@ jQuery(document).ready(function() {
         jQuery('.megamenu--search-bar__overlay').slideUp('slow');
         jQuery('.megamenu--search-bar__content').slideUp('slow');
         setTimeout(function() {
-            jQuery('html').removeClass('noScroll');
+            jQuery('html').removeClass('js-noScroll');
         }, 600);        
     });
 

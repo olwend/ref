@@ -6164,6 +6164,13 @@ h6 {
   max-width: rem-calc(1160);
 }
 
+/** WR-1035 Search bar replacement - prevents scroll when search is open **/
+html.js-noScroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 /** REFACTOR-HERO PARTIAL **/
 /** These styles apply when a component is placed in a Herosection row system **/
 .herosection .caption-inner-wrapper {
@@ -7688,13 +7695,6 @@ h6 {
 
 .mega-thumb-caption.shop {
   background-color: rgba(78, 134, 178, 0.95);
-}
-
-/** WR-1035 Search bar replacement **/
-html.noScroll {
-  position: fixed;
-  overflow-y: scroll;
-  width: 100%;
 }
 
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
