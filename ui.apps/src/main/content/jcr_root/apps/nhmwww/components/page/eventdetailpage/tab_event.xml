@@ -83,7 +83,7 @@
                     fieldLabel="Event Description"
                     maxLength="125"
                     maxLengthText="The max length for this field is 125 characters" 
-                    name="./jcr:eventDescription"
+                    name="./jcr:description"
                     xtype="textarea"/>
                 <eventVenue
                     jcr:primaryType="cq:Widget"
