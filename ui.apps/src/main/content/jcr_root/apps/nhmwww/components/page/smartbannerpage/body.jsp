@@ -47,7 +47,7 @@
               android: 'FREE'
           }
           // , theme: '' // put platform type ('ios', 'android', etc.) here to force single theme on all device
-          , icon: '//i.imgur.com/iYm9rKI.jpg' // full path to icon image if not using website icon image
+          , icon: '/etc/designs/nhmwww/img/icons/nhm-app-icon.jpg' // full path to icon image if not using website icon image
           // , force: 'ios' // Uncomment for platform emulation
       });
     </script>
