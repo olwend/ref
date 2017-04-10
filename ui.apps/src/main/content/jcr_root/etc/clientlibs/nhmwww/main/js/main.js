@@ -135,7 +135,7 @@ function onYouTubeIframeAPIReady() {
 	            //height: '649',
 	            //width: '1440',
 	            videoId: nhmvideoId,
-	            playerVars: { 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
+	            playerVars: { 'loop': 1, 'playlist': nhmvideoId, 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
                 events: { 
                     onReady: onPlayerReady
 	            }
@@ -170,12 +170,11 @@ function resizeYoutubeFrames() {
 
 		//var newWidth = $fluidEl.width(); //dhis - dont use 1st video-wrapper
 	
-		
 		// Resize all videos according to their own aspect ratio
 		$allVideos.each(function() {
+			
 			var $el = $(this);
 			var newWidth = $el.closest('.video-wrapper').width();  //dhis use items video-wrapper parent width instead
-			
 			
 			if(newWidth == $el.data('originalWidth')) {
 				$el
@@ -523,6 +522,36 @@ jQuery(document).ready(function() {
         }
     });
 
+    jQuery('#megamenu--search-bar__button').on('click', function(e){
+        e.preventDefault();
+        if(jQuery('.global-menu-trigger').hasClass('return')) {
+            jQuery('.nav-list__item').removeClass('selected selected-siblings');
+            jQuery('.global-menu-trigger').removeClass('return');
+        } else {
+            if(jQuery('.global-menu-trigger').hasClass('clicked')) {
+                jQuery('.global-nav-menu').slideUp('slow');
+                setTimeout(function() {
+                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                }, 600);
+                
+            }
+        }
+        jQuery('html').addClass('js-noScroll');
+        jQuery('.megamenu--search-bar').slideDown('slow');
+        jQuery('.megamenu--search-bar__overlay').slideDown('slow');
+        jQuery('.megamenu--search-bar__content').slideDown('slow');
+    });
+
+    jQuery('#megamenu--search-bar__close').on('click', function(e){
+        e.preventDefault();
+        jQuery('.megamenu--search-bar').slideUp('slow');
+        jQuery('.megamenu--search-bar__overlay').slideUp('slow');
+        jQuery('.megamenu--search-bar__content').slideUp('slow');
+        setTimeout(function() {
+            jQuery('html').removeClass('js-noScroll');
+        }, 600);        
+    });
+
     jQuery(document).scroll(function() {
         if (jQuery(window).width() > 767) {
             var position=jQuery(this).scrollTop(),
@@ -571,24 +600,24 @@ jQuery(document).ready(function() {
     }
 });
 
-// WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
+//WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
 
 //PARENT IFRAME NEEDS THIS SCRIPT
-// browser compatibility: get method for event 
+//browser compatibility: get method for event 
 //addEventListener(FF, Webkit, Opera, IE9+) and attachEvent(IE5-8)
 var myEventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 
-// create event listener
+//create event listener
 var myEventListener = window[myEventMethod];
 
-// browser compatibility: attach event uses onmessage
+//browser compatibility: attach event uses onmessage
 var myEventMessage = myEventMethod == "attachEvent" ? "onmessage" : "message";
 
-// register callback function on incoming message
+//register callback function on incoming message
 myEventListener(myEventMessage, function (e) {
-// we will get a string (better browser support) and validate
-// if it is an int - detect the height required by the iframe with class "js--tor-iframe", set the height of the iframe and add 350px
+//we will get a string (better browser support) and validate
+//if it is an int - detect the height required by the iframe with class "js--tor-iframe", set the height of the iframe and add 350px
 if (e.data === parseInt(e.data)) {
-        $('.js--tor-iframe').height(e.data + 350);
-    }                             
+      $('.js--tor-iframe').height(e.data + 350);
+  }                             
 }, false);

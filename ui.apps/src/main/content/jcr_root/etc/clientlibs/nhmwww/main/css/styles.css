@@ -6164,6 +6164,13 @@ h6 {
   max-width: rem-calc(1160);
 }
 
+/** WR-1035 Search bar replacement - prevents scroll when search is open **/
+html.js-noScroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 /** REFACTOR-HERO PARTIAL **/
 /** These styles apply when a component is placed in a Herosection row system **/
 .herosection .caption-inner-wrapper {
@@ -7688,6 +7695,205 @@ h6 {
 
 .mega-thumb-caption.shop {
   background-color: rgba(78, 134, 178, 0.95);
+}
+
+/** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
+.global-menu-trigger {
+  z-index: 99;
+}
+
+/** WR-1035 Adjust z-index to display the carousel slide icons beneath the search menu element **/
+.lSSlideOuter .lSPager.lSpg > li a {
+  z-index: 98;
+}
+
+.megamenu--search-bar,
+.megamenu--search-bar__overlay,
+.megamenu--search-bar__content {
+  display: none;
+}
+
+.megamenu--search-bar__blocking-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+.megamenu--search-bar__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  opacity: 0.95;
+  z-index: 99;
+}
+
+@media screen and (max-width: 768px) {
+  .megamenu--search-bar__overlay {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .megamenu--search-bar__overlay {
+    height: 450px;
+  }
+}
+
+.megamenu--search-bar__content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  padding-top: 50px;
+  z-index: 99;
+}
+
+@media screen and (min-width: 1025px) {
+  .megamenu--search-bar__content {
+    padding-top: 51px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .megamenu--search-bar__content {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .megamenu--search-bar__content {
+    height: 450px;
+  }
+}
+
+.megamenu--search-bar__close-icon {
+  stroke-width: 10;
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  height: 28px;
+  width: 27px;
+}
+
+@media screen and (min-width: 1025px) {
+  .megamenu--search-bar__close-icon {
+    right: 17px;
+  }
+}
+
+.megamenu--search-bar__form {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.megamenu--search-bar__input[type="text"] {
+  display: inline;
+  width: 570px;
+  height: 50px;
+  margin: 0;
+  border: 2px solid #000000;
+  font-size: 24px;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+}
+
+.megamenu--search-bar__input[type="text"]:focus {
+  border: 2px solid #000000;
+}
+
+@media screen and (min-width: 1025px) {
+  .megamenu--search-bar__input[type="text"] {
+    height: 48px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .megamenu--search-bar__input[type="text"] {
+    width: 250px;
+  }
+}
+
+.megamenu--search-bar__submit-button {
+  background-color: #000000;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: -5px;
+}
+
+.megamenu--search-bar__submit-button:hover {
+  background-color: #000000;
+}
+
+@media screen and (min-width: 1025px) {
+  .megamenu--search-bar__submit-button {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.megamenu--search-bar__search-icon {
+  stroke-width: 2;
+  height: 36px;
+  width: 36px;
+}
+
+.megamenu--search-bar__popular-search-terms {
+  text-align: center;
+  height: 150px;
+}
+
+@media screen and (max-width: 640px) {
+  .megamenu--search-bar__popular-search-terms {
+    height: 200px;
+  }
+}
+
+.megamenu--search-bar__popular-search-terms ul {
+  line-height: 50px;
+}
+
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.megamenu--search-bar__link {
+  display: inline;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #B5B5B5;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.megamenu--search-bar__link a {
+  color: black;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.megamenu--search-bar__link a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+  .megamenu--search-bar__link {
+    line-height: 3rem;
+  }
 }
 
 /** REFACTOR-FOOTER PARTIAL **/
