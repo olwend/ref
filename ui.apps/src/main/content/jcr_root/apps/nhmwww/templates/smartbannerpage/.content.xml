@@ -11,24 +11,6 @@
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/parsys">
-            <herosection
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/herosection">
-                <par2
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/parsys">
-                    <nhm_carousel
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="nhmwww/components/functional/nhm-carousel"/>
-                </par2>
-            </herosection>
-            <row2cells21
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
-            <row3cells
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
-            
         </par>
     </jcr:content>
 </jcr:root>
