@@ -88,7 +88,7 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
             if(Array.isArray(this.datesArray[i])) {
                 for(var j=0; j<this.datesArray[i].length; j++) {
-					var dateString = this.datesArray[i][j]//.match(/^([A-Za-z0-9 ])+ 201[(0-9)]/)[0];
+					var dateString = this.datesArray[i][j];//.match(/^([A-Za-z0-9 ])+ 201[(0-9)]/)[0];
     
                     labelTest = new CQ.Ext.form.Label({
                         text: dateString
@@ -134,7 +134,7 @@ CQ.form.CustomMultiField = CQ.Ext.extend(CQ.form.CompositeField, {
 
                 }
             } else {
-                var dateString = this.datesArray[i]//.match(/^([A-Za-z0-9 ])+ 201[(0-9)]/)[0];
+                var dateString = this.datesArray[i];//.match(/^([A-Za-z0-9 ])+ 201[(0-9)]/)[0];
 
                 labelTest = new CQ.Ext.form.Label({
                     text: dateString

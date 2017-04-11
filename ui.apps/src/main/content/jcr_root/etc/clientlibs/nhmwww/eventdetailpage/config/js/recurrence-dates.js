@@ -546,6 +546,20 @@ function createDates(dlg) {
         }
     }
 
+	console.log(soldOutArray);
+    console.log(isEqual);
+    console.log(newSoldOutOrder);
+
+    if(!isEqual) {
+		var soldOutArrayCopy = [];
+
+        for(var i=0; i<newSoldOutOrder.length; i++) {
+			soldOutArrayCopy[i] = soldOutArray[newSoldOutOrder[i]];
+        }
+    }
+
+    soldOutArray= soldOutArrayCopy;
+
     //Create sold out string to store in repo
     var soldOutString = stringifySoldOutArray(soldOutArray);
 
