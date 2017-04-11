@@ -21,7 +21,8 @@ function createDates(dlg) {
     //Get current times array and dates array
     var currentTimesArray = [],
         currentDatesList = [],
-        currentDatesArray = [];
+        currentDatesArray = [],
+        newDatesArray = [];
 
     //Dates
     if(datesRecurrence.value != undefined) {
@@ -32,6 +33,8 @@ function createDates(dlg) {
         }
         currentDatesArray = getMixedDatesArray(currentDatesList);
     }
+
+    console.log(currentDatesArray);
 
     //Times
 	if(timesRecurrence.getValue() != "") {
@@ -59,7 +62,17 @@ function createDates(dlg) {
                 durations           = subpanel.findByType('numberfield');
 
             isRecurring = true;
-            
+
+            if(dates.length > 1) {
+                var subNewDatesArray = [];
+                for(var i=1; i<dates.length; i++) {
+					subNewDatesArray.push(String(dates[i].dateValue).match('^([A-Za-z 0-9])+2([0-9])+')[0]);
+                }
+                newDatesArray.push(subNewDatesArray);
+            } else {
+                newDatesArray.push(String(dates[0].dateValue).match('^([A-Za-z 0-9])+2([0-9])+')[0]);
+            }
+
             //Gets the main days and if it's an All day event
             //Populates All Day array
             for (var k = 0; k < selectionFields.length; k++) {
@@ -176,6 +189,8 @@ function createDates(dlg) {
             }
         }
     }
+
+	console.log(newDatesArray);
 
 	//Replace needed to remove empty ,,
     var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(',')),
