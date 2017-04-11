@@ -22,6 +22,7 @@ function createDates(dlg) {
     var currentTimesArray = [],
         currentDatesList = [],
         currentDatesArray = [],
+        shortCurrentDatesArray = [],
         newDatesArray = [];
 
     //Dates
@@ -34,7 +35,18 @@ function createDates(dlg) {
         currentDatesArray = getMixedDatesArray(currentDatesList);
     }
 
-    console.log(currentDatesArray);
+    for(var i=0; i<currentDatesArray.length; i++) {
+        if(Array.isArray(currentDatesArray[i])) {
+            var subCurrentDatesArray = [];
+            for(var j=0; j<currentDatesArray[i].length; j++) {
+				subCurrentDatesArray.push(currentDatesArray[i][j].match('^([A-Za-z 0-9])+2([0-9])+')[0]);
+            }
+            shortCurrentDatesArray.push(subCurrentDatesArray);
+        } else {
+			shortCurrentDatesArray.push(currentDatesArray[i].match('^([A-Za-z 0-9])+2([0-9])+')[0]);
+        }
+    }
+
 
     //Times
 	if(timesRecurrence.getValue() != "") {
@@ -190,7 +202,33 @@ function createDates(dlg) {
         }
     }
 
+    console.log(shortCurrentDatesArray);
 	console.log(newDatesArray);
+
+    var isEqual = testArraysEqual(shortCurrentDatesArray, newDatesArray);
+	var newSoldOutOrder = [];
+
+    if(!isEqual) {
+        if(shortCurrentDatesArray.length == newDatesArray.length) {
+            for(var i=0; i<shortCurrentDatesArray.length; i++) {
+				var curDate = shortCurrentDatesArray[i];
+
+                for(var j=0; j<newDatesArray.length; j++) {
+                    if(Array.isArray(newDatesArray[j]) && Array.isArray(curDate)) {
+                        if(newDatesArray[j][0] == curDate[0]) {
+                            newSoldOutOrder.push(j);
+                            break;
+                        }
+                    } else if(newDatesArray[j] == curDate) {
+                        newSoldOutOrder.push(j);
+                        break;
+                    }
+                }
+            }
+        } else {
+			//Do something else
+        }
+    }
 
 	//Replace needed to remove empty ,,
     var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(',')),
@@ -517,6 +555,21 @@ function createDates(dlg) {
     timesRecurrence.setValue(JSON.stringify(timesArray));
 	datesRecurrence.setValue(aggregatedDates);
     soldOut.setValue(soldOutString);
+}
+
+//Function to test if two arrays are same
+function testArraysEqual(array1, array2) {
+    if(array1.length !== array2.length) {
+		return false;
+    }
+    for(var i=0; i<array1.length; i++) {
+        if(Array.isArray(array1[i]) && Array.isArray(array2[i])) {
+			testArraysEqual(array1[i], array2[i]);
+        } else if(array1[i] !== array2[i]) {
+			return false;
+        }
+    }
+    return true;
 }
 
 //Function to turn soldOutArray into 'array' string
