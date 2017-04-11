@@ -108,7 +108,7 @@ public class EventPagesUtils {
 		final String eventPagePath = "./jcr:eventPagePath";
 		final String eventSelect = "eventSelect";
 		final String eventTitle = "jcr:eventTitle";
-		final String eventDescription = "jcr:eventDescription";
+		final String eventDescription = "jcr:description";
 		final String eventVenue = "eventVenue";
 		final String eventGroup = "eventGroup";
 		final String eventTileLink = "eventTileLink";

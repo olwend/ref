@@ -6,7 +6,7 @@
   <div class="row">
       <!-- Address section -->
     <div class="small-12 medium-6 large-3 columns main-footer--address-section__wrapper">
-      <img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/nhm-logo-white.png" alt="" class="main-footer--logo">
+      <img src="/etc/designs/nhmwww/img/nhm-logo-white.png" alt="" class="main-footer--logo">
       <p class="main-footer--address-section__nhm">
         <ul>
         <li><a href="http://www.nhm.ac.uk/" class="main-footer--link">The Natural History Museum</a> </li>

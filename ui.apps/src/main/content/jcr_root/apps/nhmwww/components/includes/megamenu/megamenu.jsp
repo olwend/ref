@@ -31,22 +31,38 @@
                         <li class="nav-list__item">
                             <a href="/content/nhmwww/en/home/our-science.html">Our science</a>
                         </li>
-                        <li class="nav-list__item utility has-children last">
-                            <a href="#" class="nav-icons search">
-                                <i class="ico svg-ico desktop" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_general_search_small.svg" data-svg-title="icon__search" data-alt="Search" data-stroke-width="3" data-base-color="#9D9D9D" data-fallback="/etc/designs/nhmwww/img/icons/search-nav.png"></i>
-                                <span class="mobile tablet">Search</span>
-                            </a>
-                            <ul class="nav-list level-2 search">
-                                <li class="nav-list__item first">
-                                    <form action="/content/nhmwww/en/home/search.html" method="get">
-                                        <input type="text" name="q" class="text" />
-                                        <button class="submit arrow">Search</button>
-                                    </form>
-                                </li>
-                            </ul>
+                        <li class="nav-list__item utility last">
+                            <a href="#" id="megamenu--search-bar__button" class="nav-icons search">Search</a>
                         </li>
                     </ul>
                 </div>
             </nav>
-  
+            <div class="megamenu--search-bar">
+                <div class="megamenu--search-bar__blocking-overlay"></div>
+                <div class="megamenu--search-bar__overlay"></div>
+                <div class="megamenu--search-bar__content">
+                    <a href="#" id="megamenu--search-bar__close"><i class="ico svg-ico ico-menu-close megamenu--search-bar__close-icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png" id="svg-icon__menu_close-4"></i></a>
+                        <form action="/content/nhmwww/en/home/search.html" method="get" class="megamenu--search-bar__form">
+                            
+                                <input type="text" name="q" class="text megamenu--search-bar__input" placeholder="Search">
+                                <button class="submit megamenu--search-bar__submit-button">
+                                    <i class="ico svg-ico desktop megamenu--search-bar__search-icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_general_search_small.svg" data-svg-title="icon__search" data-alt="Search" data-stroke-width="2" data-base-color="#FFFFFF" data-fallback="/etc/designs/nhmwww/img/icons/search-nav.png" id="svg-icon__search-6"></i>
+                                </button>
+                            
+                        </form>
+
+                    <div class="megamenu--search-bar__popular-search-terms">
+                      <h2 class="megamenu--search-bar__heading">Popular search terms:</h2>
+                      <ul>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/national-impact/diplodocus-on-tour.html">Dippy on tour</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/news.html">News</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/search.html?q=blue+whale">Blue whale</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/evening-events.html">Evening events</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify an insect</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a fossil</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
 <!-- END OF MEGAMENU -->

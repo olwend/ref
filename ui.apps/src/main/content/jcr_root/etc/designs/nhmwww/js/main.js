@@ -135,7 +135,7 @@ function onYouTubeIframeAPIReady() {
 	            //height: '649',
 	            //width: '1440',
 	            videoId: nhmvideoId,
-	            playerVars: { 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
+	            playerVars: { 'loop': 1, 'playlist': nhmvideoId, 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
                 events: { 
                     onReady: onPlayerReady
 	            }
@@ -520,6 +520,36 @@ jQuery(document).ready(function() {
                 }
             });
         }
+    });
+
+    jQuery('#megamenu--search-bar__button').on('click', function(e){
+        e.preventDefault();
+        if(jQuery('.global-menu-trigger').hasClass('return')) {
+            jQuery('.nav-list__item').removeClass('selected selected-siblings');
+            jQuery('.global-menu-trigger').removeClass('return');
+        } else {
+            if(jQuery('.global-menu-trigger').hasClass('clicked')) {
+                jQuery('.global-nav-menu').slideUp('slow');
+                setTimeout(function() {
+                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                }, 600);
+                
+            }
+        }
+        jQuery('html').addClass('js-noScroll');
+        jQuery('.megamenu--search-bar').slideDown('slow');
+        jQuery('.megamenu--search-bar__overlay').slideDown('slow');
+        jQuery('.megamenu--search-bar__content').slideDown('slow');
+    });
+
+    jQuery('#megamenu--search-bar__close').on('click', function(e){
+        e.preventDefault();
+        jQuery('.megamenu--search-bar').slideUp('slow');
+        jQuery('.megamenu--search-bar__overlay').slideUp('slow');
+        jQuery('.megamenu--search-bar__content').slideUp('slow');
+        setTimeout(function() {
+            jQuery('html').removeClass('js-noScroll');
+        }, 600);        
     });
 
     jQuery(document).scroll(function() {
