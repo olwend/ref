@@ -47,7 +47,6 @@ function createDates(dlg) {
         }
     }
 
-
     //Times
 	if(timesRecurrence.getValue() != "") {
         currentTimesArray = timesRecurrence.getValue().split("],[");
@@ -56,6 +55,8 @@ function createDates(dlg) {
     for(var i=0; i<currentTimesArray.length; i++) {
         currentTimesArray[i] = currentTimesArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
     }
+
+	console.log(currentTimesArray);
 
     //Reset dialog values - to be populated later
     datesRecurrence.setValue('');
@@ -205,28 +206,57 @@ function createDates(dlg) {
     console.log(shortCurrentDatesArray);
 	console.log(newDatesArray);
 
-    var isEqual = testArraysEqual(shortCurrentDatesArray, newDatesArray);
+    var isDatesEqual = testArraysEqual(shortCurrentDatesArray, newDatesArray);
+    var isTimesEqual = testArraysEqual(currentTimesArray, timesArray);
 	var newSoldOutOrder = [];
+    var newTimesSoldOutOrder = [];
 
-    if(!isEqual) {
+    if(!isDatesEqual) {
         if(shortCurrentDatesArray.length == newDatesArray.length) {
-            for(var i=0; i<shortCurrentDatesArray.length; i++) {
-				var curDate = shortCurrentDatesArray[i];
+            for(var i=0; i<newDatesArray.length; i++) {
+				var curDate = newDatesArray[i];	
 
-                for(var j=0; j<newDatesArray.length; j++) {
-                    if(Array.isArray(newDatesArray[j]) && Array.isArray(curDate)) {
-                        if(newDatesArray[j][0] == curDate[0]) {
+				for(var j=0; j<shortCurrentDatesArray.length; j++) {
+                    if(Array.isArray(shortCurrentDatesArray[j]) && Array.isArray(curDate)) {
+                        if(shortCurrentDatesArray[j][0] == curDate[0]) {
                             newSoldOutOrder.push(j);
                             break;
                         }
-                    } else if(newDatesArray[j] == curDate) {
+                    } else if(shortCurrentDatesArray[j] == curDate) {
                         newSoldOutOrder.push(j);
                         break;
                     }
                 }
+
+                if(currentTimesArray[i] == timesArray[i]) {
+					console.log(i);
+                }
             }
         } else {
-			//Do something else
+			//Check if all 
+        }
+    }
+
+    if(!isTimesEqual) {
+        if(currentTimesArray.length == timesArray.length) {
+            for(var i=0; i<timesArray.length; i++) {
+                if(timesArray[i].length > 1) {
+                    var subNewTimesSOOArray = [];
+
+                    for(var j=0; j<timesArray[i].length; j++) {
+                        for(var k=0; k<currentTimesArray[i].length; k++) {
+                            if(timesArray[i][j] == currentTimesArray[i][k]) {
+								subNewTimesSOOArray.push(k);
+                                break;
+                            }
+                        }
+                    }
+
+                    newTimesSoldOutOrder.push(subNewTimesSOOArray);
+                } else {
+					newTimesSoldOutOrder.push([0]);
+                }
+            }
         }
     }
 
@@ -547,18 +577,18 @@ function createDates(dlg) {
     }
 
 	console.log(soldOutArray);
-    console.log(isEqual);
+    console.log(isDatesEqual);
     console.log(newSoldOutOrder);
 
-    if(!isEqual) {
+    if(!isDatesEqual && (soldOutArray.length == newSoldOutOrder.length)) {
 		var soldOutArrayCopy = [];
 
         for(var i=0; i<newSoldOutOrder.length; i++) {
 			soldOutArrayCopy[i] = soldOutArray[newSoldOutOrder[i]];
         }
-    }
 
-    soldOutArray= soldOutArrayCopy;
+        soldOutArray= soldOutArrayCopy;
+    }
 
     //Create sold out string to store in repo
     var soldOutString = stringifySoldOutArray(soldOutArray);
@@ -578,7 +608,9 @@ function testArraysEqual(array1, array2) {
     }
     for(var i=0; i<array1.length; i++) {
         if(Array.isArray(array1[i]) && Array.isArray(array2[i])) {
-			testArraysEqual(array1[i], array2[i]);
+            if(!testArraysEqual(array1[i], array2[i])) {
+                return false;
+            }
         } else if(array1[i] !== array2[i]) {
 			return false;
         }
