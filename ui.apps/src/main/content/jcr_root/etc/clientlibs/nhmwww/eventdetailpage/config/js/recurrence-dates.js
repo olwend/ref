@@ -251,7 +251,6 @@ function createDates(dlg) {
                             }
                         }
                     }
-
                     newTimesSoldOutOrder.push(subNewTimesSOOArray);
                 } else {
 					newTimesSoldOutOrder.push([0]);
@@ -579,6 +578,20 @@ function createDates(dlg) {
 	console.log(soldOutArray);
     console.log(isDatesEqual);
     console.log(newSoldOutOrder);
+
+	if(!isTimesEqual) {
+        for(var i=0; i<newTimesSoldOutOrder.length; i++) {
+            if(newTimesSoldOutOrder[i].length > 1) {
+                var soldOutArrayCopy = [];
+
+				for(var j=0; j<newTimesSoldOutOrder[i].length; j++) {
+					soldOutArrayCopy[j] = soldOutArray[i][newTimesSoldOutOrder[i][j]];
+                }	
+
+                soldOutArray[i] = soldOutArrayCopy;
+            }
+        }
+    }
 
     if(!isDatesEqual && (soldOutArray.length == newSoldOutOrder.length)) {
 		var soldOutArrayCopy = [];
