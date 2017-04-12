@@ -207,9 +207,7 @@ function createDates(dlg) {
 	console.log(newDatesArray);
 
     var isDatesEqual = testArraysEqual(shortCurrentDatesArray, newDatesArray);
-    var isTimesEqual = testArraysEqual(currentTimesArray, timesArray);
 	var newSoldOutOrder = [];
-    var newTimesSoldOutOrder = [];
 
     if(!isDatesEqual) {
         if(shortCurrentDatesArray.length == newDatesArray.length) {
@@ -232,10 +230,23 @@ function createDates(dlg) {
 					console.log(i);
                 }
             }
+
+
         } else {
 			//Check if all 
         }
+        //Re-order current times
+        var currentTimesArrayCopy = [];
+
+        for(var i=0; i<newSoldOutOrder.length; i++) {
+			currentTimesArrayCopy[i] = currentTimesArray[newSoldOutOrder[i]];
+        }
+
+        currentTimesArray = currentTimesArrayCopy;
     }
+
+	var isTimesEqual = testArraysEqual(currentTimesArray, timesArray);
+    var newTimesSoldOutOrder = [];
 
     if(!isTimesEqual) {
         if(currentTimesArray.length == timesArray.length) {
@@ -579,6 +590,16 @@ function createDates(dlg) {
     console.log(isDatesEqual);
     console.log(newSoldOutOrder);
 
+    if(!isDatesEqual && (soldOutArray.length == newSoldOutOrder.length)) {
+		var soldOutArrayCopy = [];
+
+        for(var i=0; i<newSoldOutOrder.length; i++) {
+			soldOutArrayCopy[i] = soldOutArray[newSoldOutOrder[i]];
+        }
+
+        soldOutArray= soldOutArrayCopy;
+    }
+
 	if(!isTimesEqual) {
         for(var i=0; i<newTimesSoldOutOrder.length; i++) {
             if(newTimesSoldOutOrder[i].length > 1) {
@@ -591,16 +612,6 @@ function createDates(dlg) {
                 soldOutArray[i] = soldOutArrayCopy;
             }
         }
-    }
-
-    if(!isDatesEqual && (soldOutArray.length == newSoldOutOrder.length)) {
-		var soldOutArrayCopy = [];
-
-        for(var i=0; i<newSoldOutOrder.length; i++) {
-			soldOutArrayCopy[i] = soldOutArray[newSoldOutOrder[i]];
-        }
-
-        soldOutArray= soldOutArrayCopy;
     }
 
     //Create sold out string to store in repo
