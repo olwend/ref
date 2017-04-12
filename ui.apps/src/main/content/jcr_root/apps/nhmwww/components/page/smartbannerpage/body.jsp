@@ -36,7 +36,7 @@
           daysReminder: 0, // days to hide banner after "VIEW" button is clicked (defaults to 90)
           appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
           title: 'NHM Visitor app',
-          author: 'Natural History Museum',
+          author: 'Use our map for phones',
           button: 'VIEW',
           store: {
         	  ios: 'On the App Store',
