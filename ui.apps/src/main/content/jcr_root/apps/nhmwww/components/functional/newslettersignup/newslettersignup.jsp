@@ -45,6 +45,7 @@
         <p><a href="http://www.nhm.ac.uk/visit/exhibitions.html" class="main-footer--link">Exhibitions and attractions</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/galleries-and-museum-map.html" class="main-footer--link">Galleries and Museum map</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/facilities-and-access.html" class="main-footer--link">Access</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/visitor-app.html" class="main-footer--link">Download our free visitor app</a></p>
       </div>
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/schools.html" class="main-footer--link">For schools</a></h4>
