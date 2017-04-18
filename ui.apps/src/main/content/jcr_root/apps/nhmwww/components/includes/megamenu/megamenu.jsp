@@ -4,35 +4,35 @@
 <!-- START OF MEGAMENU -->
             <nav class="global-header-bar global-nav-menu">
                 <div class="row">
-                    <ul class="nav-list level-1 cf">
+                    <ul class="nav-list cf">
                         <li class="sticky-logo tablet desktop">
                             <a href="/">
                               <span class="ir">Natural History Museum</span>
                             </a>
                         </li>
-                        <li class="nav-list__item first">
-                            <a href="/content/nhmwww/en/home/visit.html">Visit</a>
+                        <li class="nav-list__item">
+                            <a class="nav-list__link link-visit" href="/content/nhmwww/en/home/visit.html">Visit</a>
                         </li>
                         <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/discover.html">Discover</a>
+                            <a class="nav-list__link link-discover" href="/content/nhmwww/en/home/discover.html">Discover</a>
                         </li>
                         <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/take-part.html">Take part</a>
+                            <a class="nav-list__link link-take-part" href="/content/nhmwww/en/home/take-part.html">Take part</a>
                         </li>
                         <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/support-us.html">Join and support</a>
+                            <a class="nav-list__link link-support-us" href="/content/nhmwww/en/home/support-us.html">Join and support</a>
                         </li>
                         <li class="nav-list__item">
-                            <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
+                            <a class="nav-list__link link-shop" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
                         </li>
                         <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/schools.html">Schools</a>
+                            <a class="nav-list__link link-schools" href="/content/nhmwww/en/home/schools.html">Schools</a>
                         </li>
                         <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/our-science.html">Our science</a>
+                            <a class="nav-list__link link-our-science" href="/content/nhmwww/en/home/our-science.html">Our science</a>
                         </li>
-                        <li class="nav-list__item utility last">
-                            <a href="#" id="megamenu--search-bar__button" class="nav-icons search">Search</a>
+                        <li class="nav-list__item">
+                            <a class="nav-list__link link-search" href="#" id="megamenu--search-bar__button" >Search</a>
                         </li>
                     </ul>
                 </div>
