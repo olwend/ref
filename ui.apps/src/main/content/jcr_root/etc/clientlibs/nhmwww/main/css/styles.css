@@ -6445,6 +6445,27 @@ html.js-noScroll {
 
 /** REFACTOR-MEGAMENU PARTIAL **/
 /** Copied from Legacy **/
+.global-header {
+  position: relative;
+  z-index: 99999;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header {
+    position: relative;
+  }
+  .global-header.sticky {
+    position: fixed !important;
+    top: 0;
+  }
+  .global-header.sticky .global-info-menu {
+    display: none;
+  }
+}
+
 .global-header-logo {
   display: block;
   float: left;
@@ -6470,7 +6491,8 @@ html.js-noScroll {
     display: none;
   }
   .sticky .sticky-logo {
-    display: table-cell;
+    display: inline-flex;
+    padding-right: 20px;
   }
   .sticky-logo a {
     display: block;
@@ -6530,6 +6552,10 @@ ul.nav-list {
   padding: 0;
 }
 
+.sticky ul.nav-list li {
+  display: inline-flex;
+}
+
 .nav-list__item {
   display: inline;
   margin: 0 34px 0 0;
@@ -6543,6 +6569,11 @@ ul.nav-list {
 
 a.nav-list__link {
   padding-bottom: 13px;
+}
+
+.sticky a.nav-list__link {
+  padding-top: 5px;
+  padding-bottom: 2px;
 }
 
 a.nav-list__link:hover {
@@ -6581,6 +6612,10 @@ a.nav-list__link:hover.link-our-science {
 
 a.nav-list__link:hover.link-search {
   border-bottom-color: #D5D5D5;
+}
+
+.global-nav-menu {
+  box-shadow: 0 2px 1px 1px #EEEEEE;
 }
 
 /** WR-409 **/
