@@ -6445,12 +6445,72 @@ html.js-noScroll {
 
 /** REFACTOR-MEGAMENU PARTIAL **/
 /** Copied from Legacy **/
+.global-menu-trigger {
+  position: relative;
+  float: right;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+}
+
+.global-menu-trigger .ico {
+  width: 28px;
+  height: 27px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+}
+
+.global-menu-trigger .ico-menu-close, .global-menu-trigger .ico-menu-return {
+  display: none;
+}
+
+.global-menu-trigger .ir {
+  text-indent: -9999px;
+}
+
+.global-menu-trigger.clicked .ico-menu-close {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+.global-menu-trigger.clicked .ico-menu-open, .global-menu-trigger.clicked .ico-menu-return {
+  display: none;
+}
+
+.global-menu-trigger.return .ico-menu-return {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+.global-menu-trigger.return .ico-menu-open, .global-menu-trigger.return .ico-menu-close {
+  display: none;
+}
+
+.global-nav-menu {
+  display: none;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .global-nav-menu {
+    display: block !important;
+  }
+}
+
+.global-nav-menu a:hover {
+  text-decoration: none;
+}
+
 .global-header {
   position: relative;
   z-index: 99999;
   background: #fff;
   width: 100%;
-  border-top: 1px solid #ccc;
 }
 
 @media screen and (min-width: 768px) {
@@ -6513,10 +6573,28 @@ html.js-noScroll {
 }
 
 /** WR-1040 new **/
-.global-header-bar .row, .megamenu .row {
+@media screen and (max-width: 768px) {
+  .global-nav-menu {
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .global-info-menu .row {
+    width: 100%;
+  }
+}
+
+.global-info-menu .row, .global-nav-menu .row {
   margin-bottom: 0;
-  padding: 0 20px;
+  padding: 0;
   height: 50px;
+}
+
+@media screen and (min-width: 1025px) {
+  .global-info-menu .row, .global-nav-menu .row {
+    padding: 0 20px;
+  }
 }
 
 .global-header-info {
@@ -6546,6 +6624,12 @@ html.js-noScroll {
   padding: 0.8rem 0 0.4rem 0;
 }
 
+.global-header-info.clicked {
+  display: block;
+  position: absolute;
+  top: 400px;
+}
+
 ul.nav-list {
   height: 50px;
   margin-bottom: 0;
@@ -6559,6 +6643,13 @@ ul.nav-list {
 .nav-list__item {
   display: inline;
   margin: 0 34px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-list__item {
+    display: flex;
+    margin: 0 0 0 20px;
+  }
 }
 
 .nav-list__item a {
@@ -6614,13 +6705,18 @@ a.nav-list__link:hover.link-search {
   border-bottom-color: #D5D5D5;
 }
 
-.global-nav-menu {
+.megamenu {
   box-shadow: 0 2px 1px 1px #EEEEEE;
 }
 
 /** WR-409 **/
 /** WR-680 **/
 /** WR-710 (WR-480) HTML5 validation fixes **/
+/** WR-1040 Bug fix - add padding to main section when nav bar is sticky to help ease page jump **/
+.main-section .js-top-padding {
+  padding-top: 130px;
+}
+
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
 .global-menu-trigger {
   z-index: 99;
@@ -6634,7 +6730,7 @@ a.nav-list__link:hover.link-search {
 /** WR-1038 - Prevent 1px bar appearing on Search button click**/
 @media screen and (min-width: 768px) {
   .megamenu {
-    height: 47px;
+    height: 50px;
   }
 }
 

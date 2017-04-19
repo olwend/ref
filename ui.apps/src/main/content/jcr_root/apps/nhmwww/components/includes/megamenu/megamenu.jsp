@@ -4,7 +4,7 @@
 <!-- START OF MEGAMENU -->
             <nav class="global-header-bar global-nav-menu">
                 <div class="row">
-                    <ul class="nav-list cf">
+                    <ul class="nav-list level-1 cf">
                         <li class="sticky-logo tablet desktop">
                             <a href="/">
                               <span class="ir">Natural History Museum</span>

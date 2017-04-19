@@ -514,9 +514,9 @@ jQuery(document).ready(function() {
         } else {
             jQuery('.global-nav-menu').toggle(function() {
                 if(jQuery('.global-menu-trigger').hasClass('clicked')) {
-                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                    jQuery('.global-menu-trigger, .global-nav-menu, .global-header-info').removeClass('clicked');
                 } else {
-                    jQuery('.global-menu-trigger, .global-nav-menu').addClass('clicked');
+                    jQuery('.global-menu-trigger, .global-nav-menu, .global-header-info').addClass('clicked');
                 }
             });
         }
@@ -555,35 +555,38 @@ jQuery(document).ready(function() {
     jQuery(document).scroll(function() {
         if (jQuery(window).width() > 767) {
             var position=jQuery(this).scrollTop(),
-                subNav = jQuery('.subnav'),
+                // subNav = jQuery('.subnav'),
                 mainNav = jQuery('.global-header'),
+                mainBody = jQuery('.main-section'),
                 globalHeaderBar = jQuery('.global-header-bar');
-                hero = jQuery('.hero'),
-                infoSection = jQuery('.row.info'),
-                heroPos = hero.position();
+                // hero = jQuery('.hero'),
+                // infoSection = jQuery('.row.info'),
+                // heroPos = hero.position();
 
             if(position > globalHeaderBar.height()) {
                 mainNav.addClass('sticky');
+                mainBody.addClass('js-top-padding');
             } else {
                 mainNav.removeClass('sticky');
+                mainBody.removeClass('js-top-padding');
             }
 
-            if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
-                subNav.addClass('fixed');
-                infoSection.addClass('fixed');
+            // if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
+            //     subNav.addClass('fixed');
+            //     infoSection.addClass('fixed');
 
-                jQuery('.subnav-section').each(function(i){
-                    var fixedNav = mainNav.height() + subNav.height(),
-                        section = jQuery(this);
-                    if(section.position().top <= position + fixedNav){
-                        jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
-                    }
-                });
-            } else {
-                subNav.removeClass('fixed');
-                infoSection.removeClass('fixed');
-                subNav.find('.subnav__item').removeClass('active');
-            }
+            //     jQuery('.subnav-section').each(function(i){
+            //         var fixedNav = mainNav.height() + subNav.height(),
+            //             section = jQuery(this);
+            //         if(section.position().top <= position + fixedNav){
+            //             jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
+            //         }
+            //     });
+            // } else {
+            //     subNav.removeClass('fixed');
+            //     infoSection.removeClass('fixed');
+            //     subNav.find('.subnav__item').removeClass('active');
+            // }
         }
     });
 
