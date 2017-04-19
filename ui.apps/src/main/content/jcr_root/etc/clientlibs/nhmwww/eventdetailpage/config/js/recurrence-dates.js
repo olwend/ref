@@ -267,6 +267,8 @@ function createDates(dlg) {
 					newTimesSoldOutOrder.push([0]);
                 }
             }
+        } else {
+			//Do something
         }
     }
 
