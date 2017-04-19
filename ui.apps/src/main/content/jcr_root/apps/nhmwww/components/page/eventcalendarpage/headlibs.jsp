@@ -12,9 +12,11 @@
         <!--[if gt IE 8]><!-->
         <cq:includeClientLib css="nhmwww.main.normalize" />
         <cq:includeClientLib css="nhmwww.main.foundation" />
+        <cq:includeClientLib css="cq.jquery.ui" />
         <cq:includeClientLib css="nhmwww.main" />
         <!--<![endif]-->
         <cq:includeClientLib js="cq.jquery" />
+        <cq:includeClientLib js="cq.jquery.ui" />
         <cq:includeClientLib js="nhmwww.main" />
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
