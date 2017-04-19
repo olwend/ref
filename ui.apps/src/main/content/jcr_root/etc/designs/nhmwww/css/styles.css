@@ -7707,6 +7707,14 @@ html.js-noScroll {
   z-index: 98;
 }
 
+/** WR-1038 - Prevent 1px bar appearing on Search button click**/
+@media screen and (min-width: 768px) {
+  .megamenu {
+    height: 47px;
+  }
+}
+
+/** WR-1035 - Create Search Bar **/
 .megamenu--search-bar,
 .megamenu--search-bar__overlay,
 .megamenu--search-bar__content {

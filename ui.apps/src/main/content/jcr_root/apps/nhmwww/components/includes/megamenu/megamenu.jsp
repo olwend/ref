@@ -54,13 +54,13 @@
                     <div class="megamenu--search-bar__popular-search-terms">
                       <h2 class="megamenu--search-bar__heading">Popular search terms:</h2>
                       <ul>
-                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/national-impact/diplodocus-on-tour.html">Dippy on tour</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/news.html">News</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/search.html?q=blue+whale">Blue whale</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/evening-events.html">Evening events</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify an insect</a></li>
                         <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a fossil</a></li>
-                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
+                        <li class="megamenu--search-bar__link"><a href="http://www.nhm.ac.uk/about-us/national-impact/diplodocus-on-tour.html">Dippy on tour</a></li>
                       </ul>
                     </div>
                 </div>
