@@ -514,9 +514,9 @@ jQuery(document).ready(function() {
         } else {
             jQuery('.global-nav-menu').toggle(function() {
                 if(jQuery('.global-menu-trigger').hasClass('clicked')) {
-                    jQuery('.global-menu-trigger, .global-nav-menu, .global-header-info').removeClass('clicked');
+                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
                 } else {
-                    jQuery('.global-menu-trigger, .global-nav-menu, .global-header-info').addClass('clicked');
+                    jQuery('.global-menu-trigger, .global-nav-menu').addClass('clicked');
                 }
             });
         }

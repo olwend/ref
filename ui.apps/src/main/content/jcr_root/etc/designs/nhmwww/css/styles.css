@@ -6450,7 +6450,7 @@ html.js-noScroll {
   float: right;
   width: 50px;
   height: 50px;
-  z-index: 100;
+  /** z-index: 100; // Changed in WR-1035  **/
 }
 
 .global-menu-trigger .ico {
@@ -6597,9 +6597,26 @@ html.js-noScroll {
   }
 }
 
-.global-header-info {
+.global-header-info__container {
   position: relative;
-  float: right;
+  margin-bottom: 0;
+  bottom: 40px;
+  display: inline-grid;
+}
+
+@media screen and (max-width: 768px) {
+  .global-header-info {
+    display: inline-flex;
+  }
+  .global-header-info__container {
+    display: block;
+    bottom: 0;
+    padding-top: 25px;
+    background-color: #EEEEEE;
+    margin: 5px -10px 0 -10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
 }
 
 .global-header-info .svg-ico {
@@ -6610,30 +6627,43 @@ html.js-noScroll {
 
 .global-header-info a {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #000000;
 }
 
+@media screen and (max-width: 768px) {
+  .global-header-info a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .global-header-info a {
+    font-size: 0.8rem;
+  }
+}
+
 .global-header-info__item {
-  height: 50px;
+  height: 40px;
   padding: 0;
   margin: 0;
 }
 
-.global-header-info__item.tickets {
-  padding: 0.8rem 0 0.4rem 0;
+@media screen and (max-width: 768px) {
+  .global-header-info__item:first-child {
+    padding-right: 20px;
+  }
 }
 
-.global-header-info.clicked {
-  display: block;
-  position: absolute;
-  top: 400px;
+.sticky .global-header-info {
+  display: none;
 }
 
 ul.nav-list {
   height: 50px;
   margin-bottom: 0;
   padding: 0;
+  display: inline-block;
 }
 
 .sticky ul.nav-list li {
@@ -6664,7 +6694,7 @@ a.nav-list__link {
 
 .sticky a.nav-list__link {
   padding-top: 5px;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
 }
 
 a.nav-list__link:hover {
@@ -6690,7 +6720,7 @@ a.nav-list__link:hover.link-support-us {
 }
 
 a.nav-list__link:hover.link-shop {
-  border-bottom-color: #D5D5D5;
+  border-bottom-color: #397FBD;
 }
 
 a.nav-list__link:hover.link-schools {
@@ -6705,8 +6735,20 @@ a.nav-list__link:hover.link-search {
   border-bottom-color: #D5D5D5;
 }
 
+@media screen and (max-width: 768px) {
+  a.nav-list__link:hover {
+    border-bottom: none;
+  }
+}
+
 .megamenu {
   box-shadow: 0 2px 1px 1px #EEEEEE;
+}
+
+@media screen and (max-width: 768px) {
+  .global-header {
+    position: static;
+  }
 }
 
 /** WR-409 **/
@@ -6714,7 +6756,7 @@ a.nav-list__link:hover.link-search {
 /** WR-710 (WR-480) HTML5 validation fixes **/
 /** WR-1040 Bug fix - add padding to main section when nav bar is sticky to help ease page jump **/
 .main-section .js-top-padding {
-  padding-top: 130px;
+  padding-top: 105px;
 }
 
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
