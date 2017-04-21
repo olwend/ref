@@ -587,7 +587,6 @@ jQuery(document).ready(function() {
         }
     });
 
-    onYouTubeIframeAPIReady();
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){
         $('[data-interchange]').each(function(){
