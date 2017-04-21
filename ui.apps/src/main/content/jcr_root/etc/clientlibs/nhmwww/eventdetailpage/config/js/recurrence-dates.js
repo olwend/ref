@@ -56,8 +56,6 @@ function createDates(dlg) {
         currentTimesArray[i] = currentTimesArray[i].replace(new RegExp('\\[|\\]|"', 'g'), '').split(",");
     }
 
-	console.log(currentTimesArray);
-
     //Reset dialog values - to be populated later
     datesRecurrence.setValue('');
     timesRecurrence.setValue('');
@@ -203,43 +201,38 @@ function createDates(dlg) {
         }
     }
 
-    console.log(shortCurrentDatesArray);
-	console.log(newDatesArray);
-
+    //Re-order 
     var isDatesEqual = testArraysEqual(shortCurrentDatesArray, newDatesArray);
 	var newSoldOutOrder = [];
 
     if(!isDatesEqual) {
-        if(shortCurrentDatesArray.length == newDatesArray.length) {
-            for(var i=0; i<newDatesArray.length; i++) {
-				var curDate = newDatesArray[i];	
+        var currentTimesArrayCopy = [];
+        var newVal = shortCurrentDatesArray.length;
 
-				for(var j=0; j<shortCurrentDatesArray.length; j++) {
-                    if(Array.isArray(shortCurrentDatesArray[j]) && Array.isArray(curDate)) {
-                        if(shortCurrentDatesArray[j][0] == curDate[0]) {
-                            newSoldOutOrder.push(j);
-                            break;
-                        }
-                    } else if(shortCurrentDatesArray[j] == curDate) {
+        for(var i=0; i<newDatesArray.length; i++) {
+			var curDate = newDatesArray[i];
+            var exists = false;
+
+			for(var j=0; j<shortCurrentDatesArray.length; j++) {
+                if(Array.isArray(shortCurrentDatesArray[j]) && Array.isArray(curDate)) {
+                    if(shortCurrentDatesArray[j][0] == curDate[0]) {
                         newSoldOutOrder.push(j);
+                        currentTimesArrayCopy[j] = currentTimesArray[j];
+                        exists = true;
                         break;
                     }
-                }
-
-                if(currentTimesArray[i] == timesArray[i]) {
-					console.log(i);
+                } else if(shortCurrentDatesArray[j] == curDate) {
+                    newSoldOutOrder.push(j);
+                    currentTimesArrayCopy[j] = currentTimesArray[j];
+                    exists = true;
+                    break;
                 }
             }
 
-
-        } else {
-			//Check if all 
-        }
-        //Re-order current times
-        var currentTimesArrayCopy = [];
-
-        for(var i=0; i<newSoldOutOrder.length; i++) {
-			currentTimesArrayCopy[i] = currentTimesArray[newSoldOutOrder[i]];
+            if(!exists) {
+				newSoldOutOrder.push(newVal);
+                newVal++;
+            }
         }
 
         currentTimesArray = currentTimesArrayCopy;
@@ -249,26 +242,37 @@ function createDates(dlg) {
     var newTimesSoldOutOrder = [];
 
     if(!isTimesEqual) {
-        if(currentTimesArray.length == timesArray.length) {
-            for(var i=0; i<timesArray.length; i++) {
-                if(timesArray[i].length > 1) {
-                    var subNewTimesSOOArray = [];
+        for(var i=0; i<timesArray.length; i++) {
+            if(timesArray[i].length > 1) {
+                var subNewTimesSOOArray = [];
+				var val = currentTimesArray[i].length;
 
-                    for(var j=0; j<timesArray[i].length; j++) {
-                        for(var k=0; k<currentTimesArray[i].length; k++) {
-                            if(timesArray[i][j] == currentTimesArray[i][k]) {
-								subNewTimesSOOArray.push(k);
+                for(var j=0; j<timesArray[i].length; j++) {
+					var exists = false;
+
+                    for(var k=0; k<currentTimesArray[i].length; k++) {
+                        if(timesArray[i][j] == currentTimesArray[i][k]) {
+                            if(timesArray[i].length < currentTimesArray[i].length) {
+								subNewTimesSOOArray.push(j);
+                                exists = true;
+                                break;
+                            } else {
+                                subNewTimesSOOArray.push(k);
+                                exists = true;
                                 break;
                             }
                         }
                     }
-                    newTimesSoldOutOrder.push(subNewTimesSOOArray);
-                } else {
-					newTimesSoldOutOrder.push([0]);
+
+                    if(!exists) {
+						subNewTimesSOOArray.push(val);
+                        val++;
+                    }
                 }
+                newTimesSoldOutOrder.push(subNewTimesSOOArray);
+            } else {
+                newTimesSoldOutOrder.push([0]);
             }
-        } else {
-			//Do something
         }
     }
 
@@ -588,18 +592,14 @@ function createDates(dlg) {
         }
     }
 
-	console.log(soldOutArray);
-    console.log(isDatesEqual);
-    console.log(newSoldOutOrder);
-
-    if(!isDatesEqual && (soldOutArray.length == newSoldOutOrder.length)) {
+    if(!isDatesEqual) {
 		var soldOutArrayCopy = [];
 
         for(var i=0; i<newSoldOutOrder.length; i++) {
 			soldOutArrayCopy[i] = soldOutArray[newSoldOutOrder[i]];
         }
 
-        soldOutArray= soldOutArrayCopy;
+        soldOutArray = soldOutArrayCopy;
     }
 
 	if(!isTimesEqual) {
@@ -875,7 +875,7 @@ function getWeekNumber(dateString) {
 
 //Function to generate the montly recurrence dates
 function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatListValue, daysListValue, startDate, endDate, strDaysCounter) {
-    
+
     var parserText,
         dates;
     
