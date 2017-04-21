@@ -1,7 +1,14 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@ page session="false" %>
+<%@ page import="uk.ac.nhm.nhm_www.core.componentHelpers.DefaultPageHelper" %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    
+    <%
+    	DefaultPageHelper helper = new DefaultPageHelper(resource, properties, request);
+    %>
+    
+    <%if(helper.getUseBanner()) { %>
     
     <!-- WR-1031: smartbanner configuration -->
 	<meta name="smartbanner:title" content="NHM Visitor app">
@@ -18,6 +25,8 @@
 	
 	<cq:includeClientLib categories="nhmwww.smartbanner" />
 	<!-- End smartbanner configuration -->
+	
+	<% } %>
 	
 	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
