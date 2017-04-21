@@ -39,12 +39,21 @@
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
 	
-	<meta name="apple-itunes-app" content="app-id=948082332">
-	<meta name="google-play-app" content="app-id=uk.ac.nhmexplorer">
+	<!-- Start SmartBanner configuration -->
+	<meta name="smartbanner:title" content="NHM Visitor app">
+	<meta name="smartbanner:author" content="Use our map for phones">
+	<meta name="smartbanner:price" content="FREE">
+	<meta name="smartbanner:price-suffix-apple" content=" - On the App Store">
+	<meta name="smartbanner:price-suffix-google" content=" - In Google Play">
+	<meta name="smartbanner:icon-apple" content="/etc/designs/nhmwww/img/icons/nhm-app-icon.jpg">
+	<meta name="smartbanner:icon-google" content="/etc/designs/nhmwww/img/icons/nhm-app-icon.jpg">
+	<meta name="smartbanner:button" content="VIEW">
+	<meta name="smartbanner:button-url-apple" content="https://itunes.apple.com/gb/app/natural-history-museum-app/id948082332?mt=8">
+	<meta name="smartbanner:button-url-google" content="market://details?id=uk.ac.nhmexplorer&hl=en_GB">
+	<meta name="smartbanner:enabled-platforms" content="android,ios">
+	<!-- End SmartBanner configuration -->
 	
-	<cq:includeClientLib css="nhmwww.smartbanner" />
-	
-	
+	<cq:includeClientLib categories="nhmwww.smartbanner" />
 	
 	<title><%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum</title>
     <cq:include script="headlibs.jsp"/>
