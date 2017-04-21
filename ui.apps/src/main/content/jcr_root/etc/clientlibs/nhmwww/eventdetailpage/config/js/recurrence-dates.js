@@ -217,13 +217,13 @@ function createDates(dlg) {
                 if(Array.isArray(shortCurrentDatesArray[j]) && Array.isArray(curDate)) {
                     if(shortCurrentDatesArray[j][0] == curDate[0]) {
                         newSoldOutOrder.push(j);
-                        currentTimesArrayCopy[j] = currentTimesArray[j];
+                        currentTimesArrayCopy[i] = currentTimesArray[j];
                         exists = true;
                         break;
                     }
                 } else if(shortCurrentDatesArray[j] == curDate) {
                     newSoldOutOrder.push(j);
-                    currentTimesArrayCopy[j] = currentTimesArray[j];
+                    currentTimesArrayCopy[i] = currentTimesArray[j];
                     exists = true;
                     break;
                 }
@@ -532,7 +532,8 @@ function createDates(dlg) {
                                     }
                                 }
                                 if(exists == false) {
-									soldOutArray[i][j].splice(k, 0, "false");
+									//soldOutArray[i][j].splice(k, 0, "false");
+                                    soldOutArray[i][j].push("false");
                                 }
                             }
                         }
@@ -548,7 +549,8 @@ function createDates(dlg) {
                                 }
                             }
                             if(exists == false) {
-                                soldOutArray[i].splice(j, 0, "false");
+                                //soldOutArray[i].splice(j, 0, "false");
+                                soldOutArray[i].push("false");
                             }
                         }
                     }
