@@ -6507,23 +6507,11 @@ html.js-noScroll {
 }
 
 .global-header {
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 99999;
   background: #fff;
   width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .global-header {
-    position: relative;
-  }
-  .global-header.sticky {
-    position: fixed !important;
-    top: 0;
-  }
-  .global-header.sticky .global-info-menu {
-    display: none;
-  }
 }
 
 .global-header-logo {
@@ -6543,32 +6531,6 @@ html.js-noScroll {
     width: 335px;
     background-size: auto auto;
     margin-left: 0;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .sticky-logo {
-    display: none;
-  }
-  .sticky .sticky-logo {
-    display: inline-flex;
-    padding-right: 20px;
-  }
-  .sticky-logo a {
-    display: block;
-    position: relative;
-    height: 30px;
-    width: 28px;
-    background: url("/etc/designs/nhmwww/img/logo.png") no-repeat left center;
-    vertical-align: top;
-    margin-right: auto;
-    margin-left: auto;
-    top: -.1em;
-    left: -1px;
-  }
-  .sticky-logo .ico {
-    height: 30px;
-    width: 28px;
   }
 }
 
@@ -6600,11 +6562,11 @@ html.js-noScroll {
 .global-header-info__container {
   position: relative;
   margin-bottom: 0;
-  bottom: 40px;
-  display: inline-grid;
+  bottom: 45px;
+  display: inline-table;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .global-header-info {
     display: inline-flex;
   }
@@ -6649,25 +6611,23 @@ html.js-noScroll {
   margin: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .global-header-info__item:first-child {
     padding-right: 20px;
   }
 }
 
-.sticky .global-header-info {
-  display: none;
-}
-
-ul.nav-list {
+.nav-list {
   height: 50px;
   margin-bottom: 0;
   padding: 0;
   display: inline-block;
 }
 
-.sticky ul.nav-list li {
-  display: inline-flex;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .nav-list {
+    margin-top: 10px;
+  }
 }
 
 .nav-list__item {
@@ -6675,7 +6635,13 @@ ul.nav-list {
   margin: 0 34px 0 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .nav-list__item {
+    margin: 0 15px 0 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .nav-list__item {
     display: flex;
     margin: 0 0 0 20px;
@@ -6688,13 +6654,14 @@ ul.nav-list {
   color: #000000;
 }
 
-a.nav-list__link {
-  padding-bottom: 13px;
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .nav-list__item a {
+    font-size: 0.8rem;
+  }
 }
 
-.sticky a.nav-list__link {
-  padding-top: 5px;
-  padding-bottom: 5px;
+a.nav-list__link {
+  padding-bottom: 13px;
 }
 
 a.nav-list__link:hover {
@@ -6741,7 +6708,7 @@ a.nav-list__link:hover.link-search {
   }
 }
 
-.megamenu {
+.global-header {
   box-shadow: 0 2px 1px 1px #EEEEEE;
 }
 
@@ -6754,11 +6721,6 @@ a.nav-list__link:hover.link-search {
 /** WR-409 **/
 /** WR-680 **/
 /** WR-710 (WR-480) HTML5 validation fixes **/
-/** WR-1040 Bug fix - add padding to main section when nav bar is sticky to help ease page jump **/
-.main-section .js-top-padding {
-  padding-top: 105px;
-}
-
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
 .global-menu-trigger {
   z-index: 99;

@@ -552,43 +552,46 @@ jQuery(document).ready(function() {
         }, 600);        
     });
 
-    jQuery(document).scroll(function() {
-        if (jQuery(window).width() > 767) {
-            var position=jQuery(this).scrollTop(),
-                // subNav = jQuery('.subnav'),
-                mainNav = jQuery('.global-header'),
-                mainBody = jQuery('.main-section'),
-                globalHeaderBar = jQuery('.global-header-bar');
-                // hero = jQuery('.hero'),
-                // infoSection = jQuery('.row.info'),
-                // heroPos = hero.position();
+    // jQuery(document).scroll(function() {
+    //     if (jQuery(window).width() > 767) {
+    //         var position=jQuery(this).scrollTop(),
+    //             // subNav = jQuery('.subnav'),
+    //             mainNav = jQuery('.global-header'),
+    //             // upperNav = jQuery('.global-info-menu'),
+    //             // mainBody = jQuery('.main-section'),
+    //             globalHeaderBar = jQuery('.global-header-bar');
+    //             // hero = jQuery('.hero'),
+    //             // infoSection = jQuery('.row.info'),
+    //             // heroPos = hero.position();
 
-            if(position > globalHeaderBar.height()) {
-                mainNav.addClass('sticky');
-                mainBody.addClass('js-top-padding');
-            } else {
-                mainNav.removeClass('sticky');
-                mainBody.removeClass('js-top-padding');
-            }
+    //         if(position > globalHeaderBar.height()) {
+    //             // upperNav.slideUp();
+    //             mainNav.addClass('sticky');
+    //             // mainBody.addClass('js-top-padding');
+    //         } else {
+    //             mainNav.removeClass('sticky');
+    //             // mainBody.removeClass('js-top-padding');
+    //             // upperNav.slideDown();
+    //         }
 
-            // if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
-            //     subNav.addClass('fixed');
-            //     infoSection.addClass('fixed');
+    //         // if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
+    //         //     subNav.addClass('fixed');
+    //         //     infoSection.addClass('fixed');
 
-            //     jQuery('.subnav-section').each(function(i){
-            //         var fixedNav = mainNav.height() + subNav.height(),
-            //             section = jQuery(this);
-            //         if(section.position().top <= position + fixedNav){
-            //             jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
-            //         }
-            //     });
-            // } else {
-            //     subNav.removeClass('fixed');
-            //     infoSection.removeClass('fixed');
-            //     subNav.find('.subnav__item').removeClass('active');
-            // }
-        }
-    });
+    //         //     jQuery('.subnav-section').each(function(i){
+    //         //         var fixedNav = mainNav.height() + subNav.height(),
+    //         //             section = jQuery(this);
+    //         //         if(section.position().top <= position + fixedNav){
+    //         //             jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
+    //         //         }
+    //         //     });
+    //         // } else {
+    //         //     subNav.removeClass('fixed');
+    //         //     infoSection.removeClass('fixed');
+    //         //     subNav.find('.subnav__item').removeClass('active');
+    //         // }
+    //     }
+    // });
 
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){

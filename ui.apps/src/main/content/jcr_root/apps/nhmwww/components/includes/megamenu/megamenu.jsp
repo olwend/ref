@@ -5,11 +5,11 @@
             <nav class="global-header-bar global-nav-menu">
                 <div class="row">
                     <ul class="nav-list level-1 cf">
-                        <li class="sticky-logo tablet desktop">
+<!--                         <li class="sticky-logo tablet desktop">
                             <a href="/">
                               <span class="ir">Natural History Museum</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-list__item">
                             <a class="nav-list__link link-visit" href="/content/nhmwww/en/home/visit.html">Visit</a>
                         </li>
