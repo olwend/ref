@@ -25,6 +25,18 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+
 #page-body .dino-home h1 {
   background-size: contain;
   height: 555px;
