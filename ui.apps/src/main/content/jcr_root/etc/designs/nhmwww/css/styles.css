@@ -6535,6 +6535,12 @@ html.js-noScroll {
 }
 
 /** WR-1040 new **/
+@media screen and (min-width: 1024px) {
+  .main-section {
+    margin-top: 100px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .global-nav-menu {
     height: 450px;
@@ -6576,7 +6582,6 @@ html.js-noScroll {
     padding-top: 25px;
     background-color: #EEEEEE;
     margin: 5px -10px 0 -10px;
-    padding-bottom: 10px;
     text-align: center;
   }
 }
@@ -6595,7 +6600,7 @@ html.js-noScroll {
 
 @media screen and (max-width: 768px) {
   .global-header-info a {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -6654,9 +6659,15 @@ html.js-noScroll {
   color: #000000;
 }
 
-@media screen and (min-width: 640px) and (max-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 768px -1) {
   .nav-list__item a {
     font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .nav-list__item a {
+    font-size: 0.9rem;
   }
 }
 
@@ -6687,7 +6698,7 @@ a.nav-list__link:hover.link-support-us {
 }
 
 a.nav-list__link:hover.link-shop {
-  border-bottom-color: #397FBD;
+  border-bottom-color: #01395E;
 }
 
 a.nav-list__link:hover.link-schools {
@@ -6699,7 +6710,7 @@ a.nav-list__link:hover.link-our-science {
 }
 
 a.nav-list__link:hover.link-search {
-  border-bottom-color: #D5D5D5;
+  border-bottom-color: #AAAAAA;
 }
 
 @media screen and (max-width: 768px) {
