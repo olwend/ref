@@ -236,24 +236,27 @@ function createDates(dlg) {
         }
 
         currentTimesArray = currentTimesArrayCopy;
+
+        //Re-order currentDatesArray
+		currentDatesArray = reorderArray(currentDatesArray, newSoldOutOrder);
     }
 
-	var isTimesEqual = testArraysEqual(currentTimesArray, timesArray);
+    var isTimesEqual = testArraysEqual(currentTimesArray, timesArray);
     var newTimesSoldOutOrder = [];
-
-    if(!isTimesEqual) {
+    
+    if(!isTimesEqual && currentTimesArray.length > 0) {
         for(var i=0; i<timesArray.length; i++) {
             if(timesArray[i].length > 1) {
                 var subNewTimesSOOArray = [];
-				var val = currentTimesArray[i].length;
-
+                var val = currentTimesArray[i].length;
+                
                 for(var j=0; j<timesArray[i].length; j++) {
-					var exists = false;
-
+                    var exists = false;
+                    
                     for(var k=0; k<currentTimesArray[i].length; k++) {
                         if(timesArray[i][j] == currentTimesArray[i][k]) {
                             if(timesArray[i].length < currentTimesArray[i].length) {
-								subNewTimesSOOArray.push(j);
+                                subNewTimesSOOArray.push(j);
                                 exists = true;
                                 break;
                             } else {
@@ -263,9 +266,9 @@ function createDates(dlg) {
                             }
                         }
                     }
-
+                    
                     if(!exists) {
-						subNewTimesSOOArray.push(val);
+                        subNewTimesSOOArray.push(val);
                         val++;
                     }
                 }
@@ -298,6 +301,8 @@ function createDates(dlg) {
     for(var i=0; i<timesArray.length; i++) {
 		reccurrenceTimesArray.push(timesArray[i]);
     }
+
+
 
     for(var i=0; i<currentDatesArray.length; i++) {
         if(Array.isArray(currentDatesArray[i])) {
@@ -567,10 +572,11 @@ function createDates(dlg) {
                                 for(var l=0; l<reccurrenceTimesArray[i][j].length; l++) {
                                     if(currentTimesArray[i][j][k] === reccurrenceTimesArray[i][j][l]) {
                                         timeExists = true;
+                                        break;
                                     }
                                 }
                                 if(timeExists == false) {
-                                    soldOutArray[i][j].splice(k, 1);
+                                    soldOutArray[newSoldOutOrder[i]][j].splice(k, 1);
                                 }
                             }
                         }
@@ -582,10 +588,11 @@ function createDates(dlg) {
                             for(var k=0; k<reccurrenceTimesArray[i].length; k++) {
                                 if(currentTimesArray[i][j] == reccurrenceTimesArray[i][k]) {
                                     timeExists = true;
+                                    break;
                                 }
                             }
                             if(timeExists == false) {
-                                soldOutArray[i].splice(j, 1);
+                                soldOutArray[newSoldOutOrder[i]].splice(j, 1);
                             }
                         }
                     }
@@ -595,16 +602,10 @@ function createDates(dlg) {
     }
 
     if(!isDatesEqual) {
-		var soldOutArrayCopy = [];
-
-        for(var i=0; i<newSoldOutOrder.length; i++) {
-			soldOutArrayCopy[i] = soldOutArray[newSoldOutOrder[i]];
-        }
-
-        soldOutArray = soldOutArrayCopy;
+        soldOutArray = reorderArray(soldOutArray, newSoldOutOrder);
     }
 
-	if(!isTimesEqual) {
+	if(!isTimesEqual && newTimesSoldOutOrder.length > 0) {
         for(var i=0; i<newTimesSoldOutOrder.length; i++) {
             if(newTimesSoldOutOrder[i].length > 1) {
                 var soldOutArrayCopy = [];
@@ -627,6 +628,17 @@ function createDates(dlg) {
     timesRecurrence.setValue(JSON.stringify(timesArray));
 	datesRecurrence.setValue(aggregatedDates);
     soldOut.setValue(soldOutString);
+}
+
+//Re-order array based on order list
+function reorderArray(array1, array2) {
+	var tempArray = [];
+
+    for(var i=0; i<array1.length; i++) {
+        tempArray[i] = array1[array2[i]];
+    }
+    
+    return tempArray;
 }
 
 //Function to test if two arrays are same
