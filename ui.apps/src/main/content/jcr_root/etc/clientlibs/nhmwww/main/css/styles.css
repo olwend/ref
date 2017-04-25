@@ -6450,15 +6450,14 @@ html.js-noScroll {
   float: right;
   width: 50px;
   height: 50px;
-  /** z-index: 100; // Changed in WR-1035  **/
 }
 
 .global-menu-trigger .ico {
-  width: 28px;
-  height: 27px;
+  width: 23px;
+  height: 23px;
   position: absolute;
-  top: 9px;
-  left: 10px;
+  top: 13px;
+  right: 10px;
 }
 
 .global-menu-trigger .ico-menu-close, .global-menu-trigger .ico-menu-return {
@@ -6519,7 +6518,6 @@ html.js-noScroll {
   float: left;
   min-width: 250px;
   height: 50px;
-  margin-left: 2.5%;
   padding: 0.625em 0;
   background: url("/etc/designs/nhmwww/img/logo.png") no-repeat left center;
   background-size: 250px auto;
@@ -6534,6 +6532,7 @@ html.js-noScroll {
   }
 }
 
+/** End legacy CSS **/
 /** WR-1040 new **/
 @media screen and (min-width: 1024px) {
   .main-section {
@@ -6541,15 +6540,17 @@ html.js-noScroll {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .global-nav-menu {
-    height: 450px;
-  }
+.global-nav-menu {
+  height: 485px;
 }
 
-@media screen and (max-width: 768px) {
-  .global-info-menu .row {
-    width: 100%;
+@media screen and (min-width: 768px) {
+  .global-nav-menu {
+    height: 50px;
+  }
+  .global-nav-menu .row {
+    display: flex;
+    align-items: flex-end;
   }
 }
 
@@ -6557,6 +6558,13 @@ html.js-noScroll {
   margin-bottom: 0;
   padding: 0;
   height: 50px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .global-info-menu .row, .global-nav-menu .row {
+    width: 95%;
+  }
 }
 
 @media screen and (min-width: 1025px) {
@@ -6565,48 +6573,54 @@ html.js-noScroll {
   }
 }
 
-.global-header-info__container {
-  position: relative;
+.global-header-info {
   margin-bottom: 0;
-  bottom: 45px;
-  display: inline-table;
+  display: inline-flex;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
   .global-header-info {
-    display: inline-flex;
-  }
-  .global-header-info__container {
     display: block;
-    bottom: 0;
-    padding-top: 25px;
-    background-color: #EEEEEE;
-    margin: 5px -10px 0 -10px;
-    text-align: center;
+  }
+}
+
+.global-header-info__container {
+  bottom: 0;
+  padding-top: 15px;
+  background-color: #EEEEEE;
+  margin: 15px -10px 0 -10px;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header-info__container {
+    text-align: left;
+    margin: 0;
+    padding: 0;
   }
 }
 
 .global-header-info .svg-ico {
-  height: 28px;
-  width: 28px;
+  height: 25px;
+  width: 25px;
   margin-right: 5px;
 }
 
 .global-header-info a {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.1rem;
   color: #000000;
+  font-size: 0.9rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 360px) {
   .global-header-info a {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 768px) {
   .global-header-info a {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -6616,40 +6630,29 @@ html.js-noScroll {
   margin: 0;
 }
 
-@media screen and (max-width: 767px) {
+.global-header-info__item:first-child {
+  padding-right: 10px;
+}
+
+@media screen and (min-width: 768px) {
   .global-header-info__item:first-child {
-    padding-right: 20px;
+    padding-right: 0;
   }
 }
 
 .nav-list {
-  height: 50px;
   margin-bottom: 0;
-  padding: 0;
-  display: inline-block;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .nav-list {
-    margin-top: 10px;
-  }
 }
 
 .nav-list__item {
-  display: inline;
-  margin: 0 34px 0 0;
+  display: flex;
+  margin: 0 0 0 20px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) {
   .nav-list__item {
     margin: 0 15px 0 0;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .nav-list__item {
-    display: flex;
-    margin: 0 0 0 20px;
+    display: inline;
   }
 }
 
@@ -6659,68 +6662,63 @@ html.js-noScroll {
   color: #000000;
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px -1) {
-  .nav-list__item a {
-    font-size: 0.8rem;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) {
   .nav-list__item a {
     font-size: 0.9rem;
   }
 }
 
-a.nav-list__link {
-  padding-bottom: 13px;
+.nav-list__link {
+  padding: 15px 0;
+  line-height: 1em;
 }
 
-a.nav-list__link:hover {
+.nav-list__link:hover {
   text-decoration: none;
   border-bottom-width: 5px;
   border-bottom-style: solid;
 }
 
-a.nav-list__link:hover.link-visit {
+.nav-list__link:hover.link-visit {
   border-bottom-color: #A1164E;
 }
 
-a.nav-list__link:hover.link-discover {
+.nav-list__link:hover.link-discover {
   border-bottom-color: #565656;
 }
 
-a.nav-list__link:hover.link-take-part {
+.nav-list__link:hover.link-take-part {
   border-bottom-color: #BF491F;
 }
 
-a.nav-list__link:hover.link-support-us {
+.nav-list__link:hover.link-support-us {
   border-bottom-color: #7F206E;
 }
 
-a.nav-list__link:hover.link-shop {
+.nav-list__link:hover.link-shop {
   border-bottom-color: #01395E;
 }
 
-a.nav-list__link:hover.link-schools {
+.nav-list__link:hover.link-schools {
   border-bottom-color: #0983BB;
 }
 
-a.nav-list__link:hover.link-our-science {
+.nav-list__link:hover.link-our-science {
   border-bottom-color: #357900;
 }
 
-a.nav-list__link:hover.link-search {
+.nav-list__link:hover.link-search {
   border-bottom-color: #AAAAAA;
 }
 
 @media screen and (max-width: 768px) {
-  a.nav-list__link:hover {
+  .nav-list__link:hover {
     border-bottom: none;
   }
 }
 
 .global-header {
-  box-shadow: 0 2px 1px 1px #EEEEEE;
+  border-bottom: 1px solid #D5D5D5;
 }
 
 @media screen and (max-width: 768px) {
@@ -6729,9 +6727,16 @@ a.nav-list__link:hover.link-search {
   }
 }
 
-/** WR-409 **/
-/** WR-680 **/
-/** WR-710 (WR-480) HTML5 validation fixes **/
+.global-header-logo {
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header-logo {
+    margin-left: 0;
+  }
+}
+
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
 .global-menu-trigger {
   z-index: 99;
