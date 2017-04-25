@@ -239,6 +239,11 @@ function createDates(dlg) {
 
         //Re-order currentDatesArray
 		currentDatesArray = reorderArray(currentDatesArray, newSoldOutOrder);
+    }  else {
+		//Need a new sold out order array anyway - make it 0, 1, 2 ... n
+        for(var i=0; i<shortCurrentDatesArray.length; i++) {
+			newSoldOutOrder.push(i);
+        }
     }
 
     var isTimesEqual = testArraysEqual(currentTimesArray, timesArray);
@@ -534,11 +539,12 @@ function createDates(dlg) {
                                 for(var l=0; l<currentTimesArray[i][j].length; l++) {
                                     if(currentTimesArray[i][j][l] == cur) {
 										exists = true;
+                                        break;
                                     }
                                 }
                                 if(exists == false) {
 									//soldOutArray[i][j].splice(k, 0, "false");
-                                    soldOutArray[i][j].push("false");
+                                    soldOutArray[newSoldOutOrder[i]][j].push("false");
                                 }
                             }
                         }
@@ -551,11 +557,12 @@ function createDates(dlg) {
                             for(var k=0; k<currentTimesArray[i].length; k++) {
                                 if(currentTimesArray[i][k] == cur) {
                                     exists = true;
+                                    break;
                                 }
                             }
                             if(exists == false) {
                                 //soldOutArray[i].splice(j, 0, "false");
-                                soldOutArray[i].push("false");
+                                soldOutArray[newSoldOutOrder[i]].push("false");
                             }
                         }
                     }
@@ -956,7 +963,7 @@ function createMonthDates (weekdays, isCustom, dayNumber, monthNumber, repeatLis
         
         parserText += ',' + occurrences[x] + strDaysCounter;
     }
-    
+
     return '';
 }
 
