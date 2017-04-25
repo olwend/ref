@@ -13,59 +13,90 @@ body {
   min-height: 600px;
 }
 
+/* WR-1046: fix font size of copyright in footer */
+.copyright--span {
+  font-size: 16px;
+}
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+
 div#container {
   margin: 0;
   padding-bottom: 20px;
 }
+
 div#container h1 {
   font-size: 18.25px;
   margin-top: 0;
   padding-top: 8px;
 }
+
 div#container h3 {
   margin: 0;
   padding: 0;
   color: #015b28;
 }
+
 div#container p {
   margin: 0;
 }
+
 div#container p a {
   color: #015b28;
 }
+
 div#container p a:hover {
   color: #015b28;
 }
+
 div#container input {
   height: auto;
   padding: 1px 3px;
   font-size: 12.1667px;
   margin-bottom: 0;
 }
+
 div#container input[type="submit"] {
   padding: 1px 5px;
 }
+
 div#container th, div#container td {
   padding: 3px;
 }
+
 div#container #ech-data-container ul li {
   list-style: inherit;
 }
+
 div#container #ech-data-container ul li a {
   color: #015b28;
 }
+
 div#container #ech-data-container ul li a:hover {
   color: #015b28;
 }
+
 div#container #ech-data-container #key-to-colours h6 {
   font-size: 12.1667px;
   color: #015b28;
   margin-bottom: 2px;
 }
+
 div#container blockquote {
   border-left: none;
   color: #000;
 }
+
 div#container blockquote p {
   color: #000;
   margin: 0 10px 10px 0;
@@ -75,62 +106,80 @@ div#container blockquote p {
   min-height: 600px;
   width: 750px;
 }
+
 #container h2 {
   font-size: 18.25px;
   margin-bottom: 0;
   margin-top: 0;
   color: #000;
 }
+
 #container ul {
   font-size: 12.1667px;
 }
+
 #container #ech-header .echIndexTitle, #container #ech-header p {
   margin-top: 10px;
 }
+
 #container #ech-header img {
   height: 120px;
 }
+
 #container #ech-main-menu a {
   color: #015b28;
 }
+
 #container #ech-main-menu a:hover {
   color: #015b28;
 }
+
 #container #ech-main-menu td, #container #ech-main-menu th {
   padding: 10px;
 }
+
 #container #ech-main-menu img {
   vertical-align: bottom;
 }
+
 #container #ech-stat-container a {
   color: #015b28;
 }
+
 #container #ech-stat-container a:hover {
   color: #015b28;
 }
+
 #container #ech-stat-container dl {
   font-size: 12.1667px;
 }
+
 #container #ech-stat-container dl dt {
   font-weight: normal;
 }
+
 #container #ech-stat-container ol {
   font-size: 12.1667px;
 }
+
 #container #ech-stat-container ol li {
   list-style: inherit;
 }
+
 #container #ech-stat-container #main, #container #ech-stat-container #menu {
   border-collapse: initial;
   border-spacing: 2px;
 }
+
 #container #ech-stat-container #menu td {
   padding: 10px;
 }
+
 #container #ech-stat-container .mainIndex {
   border-collapse: initial;
   border-spacing: 2px;
 }
+
 #container #ech-stat-container .mainIndex h4 {
   margin: 0 10px 10px 10px;
   padding: 0;
@@ -138,118 +187,150 @@ div#container blockquote p {
   color: #015b28;
   font-weight: bold;
 }
+
 #container #ech-stat-container .mainIndex img {
   box-sizing: initial;
   height: 120px;
 }
+
 #container #ech-stat-container .mainIndex a {
   color: #015b28;
 }
+
 #container #ech-stat-container .mainIndex input[type="text"] {
   display: inline-block;
   width: 25%;
 }
+
 #container #ech-stat-container .mainIndex input[name="email"] {
   width: 100%;
 }
+
 #container #ech-stat-container .mainIndex dl {
   font-size: 12.1667px;
 }
+
 #container #ech-stat-container .mainIndex .glossary {
   margin: 0 10px 20px 10px;
 }
+
 #container #ech-stat-container .mainIndex .glossary dt {
   margin-bottom: 0;
 }
+
 #container #ech-stat-container .mainIndex .glossary img {
   height: auto;
   max-width: 620px;
 }
+
 #container #ech-data-container {
   margin-bottom: 5px;
 }
+
 #container #ech-data-container p {
   margin-bottom: 10px;
 }
+
 #container #ech-data-container ul li {
   list-style: inherit;
 }
+
 #container #ech-data-container a {
   color: #015b28;
 }
+
 #container #ech-data-container a:hover {
   color: #015b28;
 }
+
 #container #ech-data-container dl {
   font-size: 12.1667px;
 }
+
 #container #ech-data-container dl dt {
   font-weight: normal;
 }
+
 #container #ech-data-container th {
   padding: 5px 3px 5px 10px;
 }
+
 #container #ech-data-container table td {
   padding: 5px 10px 5px 20px;
 }
+
 #container #ech-data-container table td ul {
   margin-left: 15px;
 }
+
 #container #ech-key-container a {
   color: #015b28;
 }
+
 #container #ech-key-container a:hover {
   color: #015b28;
 }
+
 #container #ech-key-container dl {
   font-size: 12.1667px;
 }
+
 #container #ech-key-container dl dt {
   font-weight: normal;
 }
+
 #container #ech-stat-container-special #main {
   border-collapse: initial;
   border-spacing: 2px;
 }
+
 #container #ech-stat-container-special #main img {
   width: 232px;
 }
+
 #container #ech-data-header label {
   display: inline;
   font-size: 12.1667px;
 }
+
 #container #ech-data-header #input-rank {
   width: 24%;
   height: auto;
   padding: 1px 3px;
   font-size: 12.1667px;
 }
+
 #container #ech-data-header label[for="input-name"], #container #ech-data-header label[for="input-authorship"] {
   margin-left: 7px;
 }
+
 #container #ech-data-header #input-name, #container #ech-data-header #input-authorship {
   display: inline-block;
   width: 26%;
   padding: 3px 2px;
 }
+
 #container #ech-data-header #input-synonomy {
   max-width: 678px;
 }
+
 #container #ech-image-container input[type="file"] {
   width: 20%;
 }
+
 #container .echGallery td {
   padding-bottom: 15px;
   padding-top: 15px;
 }
+
 #container div.navMenubar ul li a {
   font-weight: bold;
 }
+
 #container blockquote {
   border-left: none;
 }
+
 #container blockquote p {
   color: #000;
 }
-
-/*# sourceMappingURL=nhm-legacy-echinoids.css.map */
