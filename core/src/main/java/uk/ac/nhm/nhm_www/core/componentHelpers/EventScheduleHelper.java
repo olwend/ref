@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +28,9 @@ public class EventScheduleHelper {
 	private String eventTimes;
 	private String durations;
 	private String soldOut;
+	private Boolean oneColumn;
+	
+	private ValueMap properties;
 
 	private HashMap<String, String> datesMap;
 	private HashMap<String[], String[]> soldOutMap;
@@ -34,7 +38,7 @@ public class EventScheduleHelper {
 
 	private static final Logger LOG = LoggerFactory.getLogger(EventScheduleHelper.class);
 	
-	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
+	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage, ValueMap properties) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
 		this.eventContentPath = currentPage.getPath() + "/jcr:content";
 
 		Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
@@ -49,6 +53,8 @@ public class EventScheduleHelper {
 		this.datesMap = new HashMap<String, String>();
 		this.sortedDates = new ArrayList<String>();
 
+		setProperties(properties);
+		
 		initialise();
 	}
 
@@ -106,6 +112,12 @@ public class EventScheduleHelper {
 					}
 				}
 			});
+		}
+		
+		if(getProperties().get("oneColumn") != null) {
+			this.oneColumn = getProperties().get("oneColumn", false);
+		} else {
+			this.oneColumn = false;
 		}
 	}
 
@@ -289,4 +301,21 @@ public class EventScheduleHelper {
         }
         return c;
     }
+	
+	public ValueMap getProperties() {
+		return properties;
+	}
+
+	public void setProperties(ValueMap properties) {
+		this.properties = properties;
+	}
+
+	public Boolean getOneColumn() {
+		return oneColumn;
+	}
+
+	public void setOneColumn(Boolean oneColumn) {
+		this.oneColumn = oneColumn;
+	}
+
 }

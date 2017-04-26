@@ -7,8 +7,9 @@
 <%@include file="/libs/foundation/global.jsp" %>
 
 <%
-	final EventScheduleHelper helper = new EventScheduleHelper(resourceResolver, currentPage);
+	final EventScheduleHelper helper = new EventScheduleHelper(resourceResolver, currentPage, properties);
 %>
+
 <cq:includeClientLib categories="nhmwww.eventschedule"/>
 <c:set var="eventType" value="<%= helper.getEventType() %>" />
 <c:set var="sortedDates" value="<%= helper.getSortedDates() %>" />
@@ -19,7 +20,7 @@
             <table id="datesTable" class="small-12 medium-12 large-12">
                 <thead>
                     <tr>
-                        <td class="small-5 medium-5 large-3 event--schedule--td event--schedule--title">Event dates</td>
+                        <td class="small-5 medium-5 large-3 <%if(helper.getOneColumn()) {%>testClass<% } %> event--schedule--td event--schedule--title">Event dates</td>
                         <td class="small-7 medium-7 large-9  event--schedule--td event--schedule--title"></td>
 
                     </tr>

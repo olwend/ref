@@ -11,7 +11,19 @@
 		xtype="tabpanel">
 		<items jcr:primaryType="cq:WidgetCollection">
 			<tab1 jcr:primaryType="cq:Panel" 
-				title="Sold Out Events">
+				title="Display Options">
+				<items jcr:primaryType="cq:WidgetCollection">
+					<onecolumn jcr:primaryType="cq:Widget" 
+						name="./oneColumn"
+                        fieldLabel="Is this component in a one column?"
+                        checked="false"
+                        defaultValue="{Boolean}false"
+                        type="checkbox"
+                        xtype="selection"/>
+				</items>
+			</tab1>
+			<tab2 jcr:primaryType="cq:Panel" 
+				title="Sold Out">
 				<items jcr:primaryType="cq:WidgetCollection">
 					<soldout jcr:primaryType="cq:Widget" 
 						name="../../../../jcr:soldOut"
@@ -27,7 +39,7 @@
 							xtype="CustomMultiField"/>
 					</links>
 				</items>
-			</tab1>
+			</tab2>
 		</items>
 	</items>
 </jcr:root>
