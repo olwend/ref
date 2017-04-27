@@ -6754,38 +6754,38 @@ html.js-noScroll {
   }
 }
 
-.nav-list__link:hover {
+.nav-list__link:hover, .nav-list__link.menuSelected {
   border-bottom: none;
   text-decoration: none;
 }
 
 @media screen and (min-width: 1025px) {
-  .nav-list__link:hover {
+  .nav-list__link:hover, .nav-list__link.menuSelected {
     border-bottom-style: solid;
     border-bottom-width: 5px;
   }
-  .nav-list__link:hover.link-visit {
+  .nav-list__link:hover.link-visit, .nav-list__link.menuSelected.link-visit {
     border-bottom-color: #A1164E;
   }
-  .nav-list__link:hover.link-discover {
+  .nav-list__link:hover.link-discover, .nav-list__link.menuSelected.link-discover {
     border-bottom-color: #565656;
   }
-  .nav-list__link:hover.link-take-part {
+  .nav-list__link:hover.link-take-part, .nav-list__link.menuSelected.link-take-part {
     border-bottom-color: #BF491F;
   }
-  .nav-list__link:hover.link-support-us {
+  .nav-list__link:hover.link-support-us, .nav-list__link.menuSelected.link-support-us {
     border-bottom-color: #7F206E;
   }
-  .nav-list__link:hover.link-shop {
+  .nav-list__link:hover.link-shop, .nav-list__link.menuSelected.link-shop {
     border-bottom-color: #01395E;
   }
-  .nav-list__link:hover.link-schools {
+  .nav-list__link:hover.link-schools, .nav-list__link.menuSelected.link-schools {
     border-bottom-color: #0983BB;
   }
-  .nav-list__link:hover.link-our-science {
+  .nav-list__link:hover.link-our-science, .nav-list__link.menuSelected.link-our-science {
     border-bottom-color: #357900;
   }
-  .nav-list__link:hover.link-search {
+  .nav-list__link:hover.link-search, .nav-list__link.menuSelected.link-search {
     border-bottom-color: #AAAAAA;
   }
 }
