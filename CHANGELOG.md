@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.46 - Fabulous Flamingo - 19-Apr-2017
+
+- WR-1031 - Create smart app banner for visit page
+- WR-1036 - Add a link to the footer to promote visitor app
+- WR-1038 - Change order of 'popular search terms' in search UI
+- WR-1042 - Captions in Discover publication pages not working when videos are embedded in pages
+
+## 1.1.45 - Eager Eagle - 5-Apr-2017
+
+- WR-467 - Only allow NHM videos for playback in YouTube plugin
+- WR-1022 - Fat footer icon path bug fix
+- WR-1034 - Add meta description box to dialog for events
+- WR-1035 - Site navigation: improve search UI
+
 ## 1.1.44 - Dishevelled Dodo - 30-Mar-2017
 
 - WR-1022 - Fat footer
