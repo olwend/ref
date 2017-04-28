@@ -207,14 +207,13 @@ jQuery(document).ready(function() {
     jQuery(document).foundation();
 
     var urlForMenu = window.location.pathname;
-    var baseUrl = 'nhm.ac.uk';
     jQuery('.nav-list__link').removeClass('menuSelected');
-    if (urlForMenu.includes(baseUrl + '/visit')) { jQuery('.link-visit').addClass('menuSelected'); }
-    if (urlForMenu.includes(baseUrl + '/discover')) { jQuery('.link-discover').addClass('menuSelected'); }
-    if (urlForMenu.includes(baseUrl + '/take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
-    if (urlForMenu.includes(baseUrl + '/support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
-    if (urlForMenu.includes(baseUrl + '/schools')) { jQuery('.link-schools').addClass('menuSelected'); }
-    if (urlForMenu.includes(baseUrl + '/our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
+    if (urlForMenu.includes('/visit')) { jQuery('.link-visit').addClass('menuSelected'); }
+    if (urlForMenu.includes('/discover')) { jQuery('.link-discover').addClass('menuSelected'); }
+    if (urlForMenu.includes('/take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
+    if (urlForMenu.includes('/support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
+    if (urlForMenu.includes('/schools')) { jQuery('.link-schools').addClass('menuSelected'); }
+    if (urlForMenu.includes('/our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
 	
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
