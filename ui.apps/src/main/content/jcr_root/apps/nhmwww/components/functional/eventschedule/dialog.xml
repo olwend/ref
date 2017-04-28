@@ -37,6 +37,13 @@
 						xtype="multifield">
 						<fieldConfig jcr:primaryType="cq:Widget"
 							xtype="CustomMultiField"/>
+						<listeners jcr:primaryType="nt:unstructured"
+							loadcontent="
+								function(field, record) { 
+									if(record.get('paths') == undefined) { 
+										field.addItem(); field.doLayout(); 
+									}  
+								}" />
 					</links>
 				</items>
 			</tab2>
