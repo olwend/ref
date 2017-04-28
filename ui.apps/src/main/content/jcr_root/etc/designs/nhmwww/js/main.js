@@ -207,7 +207,7 @@ jQuery(document).ready(function() {
     jQuery(document).foundation();
 
     var urlForMenu = window.location.pathname;
-    var baseUrl = '/content/nhmwww/en/home';
+    var baseUrl = 'nhm.ac.uk';
     jQuery('.nav-list__link').removeClass('menuSelected');
     if (urlForMenu.includes(baseUrl + '/visit')) { jQuery('.link-visit').addClass('menuSelected'); }
     if (urlForMenu.includes(baseUrl + '/discover')) { jQuery('.link-discover').addClass('menuSelected'); }
