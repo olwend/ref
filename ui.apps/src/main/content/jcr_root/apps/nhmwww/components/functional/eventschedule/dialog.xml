@@ -30,11 +30,12 @@
 						xtype="textfield"
 						hidden="{Boolean}true"/>
 					<links jcr:primaryType="cq:Widget"
-						fieldDescription="Press + to add more links"
 						fieldLabel="Links"
 						hideLabel="true"
 						name="./links"
-						xtype="multifield">
+						xtype="multifield"
+						orderable="{Boolean}false"
+						border="{Boolean}false" >
 						<fieldConfig jcr:primaryType="cq:Widget"
 							xtype="CustomMultiField"/>
 						<listeners jcr:primaryType="nt:unstructured"
@@ -43,7 +44,17 @@
 									if(record.get('paths') == undefined) { 
 										field.addItem(); field.doLayout(); 
 									}  
-								}" />
+								}"
+							beforeadd="
+								var removeButton = panel.items.items[1].items.items[0]; 
+								removeButton.hide();
+							
+								function(list) { 
+									for(var i=1; i<3; i++) {
+										var addButton = list.items.items[length - 1].items.items[0].items.items[i]; 
+										addButton.hide();
+									}
+								}"/>
 					</links>
 				</items>
 			</tab2>
