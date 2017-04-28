@@ -215,6 +215,7 @@ jQuery(document).ready(function() {
     if (urlForMenu.includes('/support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
     if (urlForMenu.includes('/schools')) { jQuery('.link-schools').addClass('menuSelected'); }
     if (urlForMenu.includes('/our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
+    if (urlForMenu.includes('/search')) { jQuery('.link-search').addClass('menuSelected'); }
 	/** End WR-1040 **/
 
     //var thumbnails = $(this).data('nhm-thumbnails');

@@ -6555,6 +6555,7 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .global-header {
     position: fixed;
+    height: 100px;
   }
 }
 
@@ -6687,6 +6688,7 @@ html.js-noScroll {
 
 .nav-list {
   margin-bottom: 0;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
@@ -6750,7 +6752,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1025px) {
   .nav-list__link {
-    padding-bottom: 11px;
+    padding-bottom: 10px;
   }
 }
 
@@ -6786,7 +6788,7 @@ html.js-noScroll {
     border-bottom-color: #357900;
   }
   .nav-list__link:hover.link-search, .nav-list__link.menuSelected.link-search {
-    border-bottom-color: #AAAAAA;
+    border-bottom-color: #808080;
   }
 }
 
