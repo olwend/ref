@@ -206,15 +206,17 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
-    var urlForMenu = window.location.pathname;
-    jQuery('.nav-list__link').removeClass('menuSelected');
+    /** WR-1040 - Nav bar redesign - add "Active Page" class **/
+    var urlForMenu = window.location.pathname; // Get URL (exluding domain)
+    jQuery('.nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
     if (urlForMenu.includes('/visit')) { jQuery('.link-visit').addClass('menuSelected'); }
     if (urlForMenu.includes('/discover')) { jQuery('.link-discover').addClass('menuSelected'); }
     if (urlForMenu.includes('/take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
     if (urlForMenu.includes('/support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
     if (urlForMenu.includes('/schools')) { jQuery('.link-schools').addClass('menuSelected'); }
     if (urlForMenu.includes('/our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
-	
+	/** End WR-1040 **/
+
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
@@ -426,13 +428,6 @@ jQuery(document).ready(function() {
         if (jQuery(window).width() < 768) { jQuery('.hero .promo-link').fadeIn(); }
     });
 
-    // Still needed? Can't see any subnav-class elements in current HTML
-    // jQuery('.subnav').on('click', 'a', function(e){
-    //     e.preventDefault();
-    //     var adjust = jQuery('.global-header').height() + jQuery('.subnav').height();
-    //     jQuery('html, body').animate({ scrollTop: jQuery('a[name='+jQuery(this).attr('href').replace('#','')+']').offset().top - adjust }, 1000);
-    // });
-
     // Dynamic hover code to override CSS and provide a bit of delay before open/close
     jQuery('.level-1 > .nav-list__item.has-children').hoverIntent({ 
         over: function(){ jQuery(this).addClass('open'); }, 
@@ -516,47 +511,6 @@ jQuery(document).ready(function() {
             jQuery('html').removeClass('js-noScroll');
         }, 600);        
     });
-
-    // jQuery(document).scroll(function() {
-    //     if (jQuery(window).width() > 767) {
-    //         var position=jQuery(this).scrollTop(),
-    //             // subNav = jQuery('.subnav'),
-    //             mainNav = jQuery('.global-header'),
-    //             // upperNav = jQuery('.global-info-menu'),
-    //             // mainBody = jQuery('.main-section'),
-    //             globalHeaderBar = jQuery('.global-header-bar');
-    //             // hero = jQuery('.hero'),
-    //             // infoSection = jQuery('.row.info'),
-    //             // heroPos = hero.position();
-
-    //         if(position > globalHeaderBar.height()) {
-    //             // upperNav.slideUp();
-    //             mainNav.addClass('sticky');
-    //             // mainBody.addClass('js-top-padding');
-    //         } else {
-    //             mainNav.removeClass('sticky');
-    //             // mainBody.removeClass('js-top-padding');
-    //             // upperNav.slideDown();
-    //         }
-
-    //         // if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
-    //         //     subNav.addClass('fixed');
-    //         //     infoSection.addClass('fixed');
-
-    //         //     jQuery('.subnav-section').each(function(i){
-    //         //         var fixedNav = mainNav.height() + subNav.height(),
-    //         //             section = jQuery(this);
-    //         //         if(section.position().top <= position + fixedNav){
-    //         //             jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
-    //         //         }
-    //         //     });
-    //         // } else {
-    //         //     subNav.removeClass('fixed');
-    //         //     infoSection.removeClass('fixed');
-    //         //     subNav.find('.subnav__item').removeClass('active');
-    //         // }
-    //     }
-    // });
 
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){
