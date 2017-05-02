@@ -1,35 +1,531 @@
-(function(u){"object"===typeof exports&&"undefined"!==typeof module?module.exports=u():"function"===typeof define&&define.amd?define([],u):("undefined"!==typeof window?window:"undefined"!==typeof global?global:"undefined"!==typeof self?self:this).SmartBanner=u()})(function(){return function c(f,h,e){function b(d,v){if(!h[d]){if(!f[d]){var g="function"==typeof require&&require;if(!v&&g)return g(d,!0);if(a)return a(d,!0);g=Error("Cannot find module '"+d+"'");throw g.code="MODULE_NOT_FOUND",g;}g=h[d]=
-{exports:{}};f[d][0].call(g.exports,function(a){var e=f[d][1][a];return b(e?e:a)},g,g.exports,c,f,h,e)}return h[d].exports}for(var a="function"==typeof require&&require,d=0;d<e.length;d++)b(e[d]);return b}({1:[function(c,f,h){var e=c("xtend/mutable"),b=c("component-query"),a=c("get-doc"),d=c("cookie-cutter"),g=c("ua-parser-js"),v=(navigator.language||navigator.userLanguage||navigator.browserLanguage).slice(-2)||"us",p=a&&a.documentElement,l={ios:{appMeta:"apple-itunes-app",iconRels:["apple-touch-icon-precomposed",
-"apple-touch-icon"],getStoreLink:function(){return"https://itunes.apple.com/"+this.options.appStoreLanguage+"/app/id"+this.appId}},android:{appMeta:"google-play-app",iconRels:["android-touch-icon","apple-touch-icon-precomposed","apple-touch-icon"],getStoreLink:function(){return"http://play.google.com/store/apps/details?id="+this.appId}},windows:{appMeta:"msApplication-ID",iconRels:["windows-touch-icon","apple-touch-icon-precomposed","apple-touch-icon"],getStoreLink:function(){return"http://www.windowsphone.com/s?appid="+
-this.appId}}};c=function(a){var b=g(navigator.userAgent);this.options=e({},{daysHidden:15,daysReminder:90,appStoreLanguage:v,button:"OPEN",store:{ios:"On the App Store",android:"In Google Play",windows:"In the Windows Store"},price:{ios:"FREE",android:"FREE",windows:"FREE"},theme:"",icon:"",force:""},a||{});this.options.force?this.type=this.options.force:"Windows Phone"===b.os.name||"Windows Mobile"===b.os.name?this.type="windows":"iOS"===b.os.name?this.type="ios":"Android"===b.os.name&&(this.type=
-"android");a=!this.type;var b="ios"===this.type&&"Mobile Safari"===b.browser.name&&6<=Number(b.os.version),m=navigator.standalone,r=d.get("smartbanner-closed"),w=d.get("smartbanner-installed");a||b||m||r||w||(e(this,l[this.type]),this.parseAppId()&&(this.create(),this.show()))};c.prototype={constructor:c,create:function(){var d=this.getStoreLink(),e=this.options.price[this.type]+" - "+this.options.store[this.type],m;if(this.options.icon)m=this.options.icon;else for(var r=0;r<this.iconRels.length;r++){var g=
-b('link[rel="'+this.iconRels[r]+'"]');if(g){m=g.getAttribute("href");break}}var q=a.createElement("div");q.className="smartbanner smartbanner-"+(this.options.theme||this.type);q.innerHTML='<div class="smartbanner-container"><a href="javascript:void(0);" class="smartbanner-close">&times;</a><span class="smartbanner-icon" style="background-image: url('+m+')"></span><div class="smartbanner-info"><div class="smartbanner-title">'+this.options.title+"</div><div>"+this.options.author+"</div><span>"+e+'</span></div><a href="'+
-d+'" class="smartbanner-button"><span class="smartbanner-button-text">'+this.options.button+"</span></a></div>";a.body?a.body.appendChild(q):a&&a.addEventListener("DOMContentLoaded",function(){a.body.appendChild(q)});b(".smartbanner-button",q).addEventListener("click",this.install.bind(this),!1);b(".smartbanner-close",q).addEventListener("click",this.close.bind(this),!1)},hide:function(){p.classList.remove("smartbanner-show")},show:function(){p.classList.add("smartbanner-show")},close:function(){this.hide();
-d.set("smartbanner-closed","true",{path:"/",expires:new Date(Number(new Date)+864E5*this.options.daysHidden)})},install:function(){this.hide();d.set("smartbanner-installed","true",{path:"/",expires:new Date(Number(new Date)+864E5*this.options.daysReminder)})},parseAppId:function(){var a=b('meta[name="'+this.appMeta+'"]');if(a)return this.appId="windows"===this.type?a.getAttribute("content"):/app-id=([^\s,]+)/.exec(a.getAttribute("content"))[1]}};f.exports=c},{"component-query":2,"cookie-cutter":3,
-"get-doc":4,"ua-parser-js":6,"xtend/mutable":7}],2:[function(c,f,h){function e(b,a){return a.querySelector(b)}h=f.exports=function(b,a){a=a||document;return e(b,a)};h.all=function(b,a){a=a||document;return a.querySelectorAll(b)};h.engine=function(b){if(!b.one)throw Error(".one callback required");if(!b.all)throw Error(".all callback required");e=b.one;h.all=b.all;return h}},{}],3:[function(c,f,h){h=f.exports=function(e){e||(e={});"string"===typeof e&&(e={cookie:e});void 0===e.cookie&&(e.cookie="");
-return{get:function(b){for(var a=e.cookie.split(/;\s*/),d=0;d<a.length;d++){var g=a[d].split("=");if(unescape(g[0])===b)return unescape(g[1])}},set:function(b,a,d){d||(d={});b=escape(b)+"="+escape(a);d.expires&&(b+="; expires="+d.expires);d.path&&(b+="; path="+escape(d.path));return e.cookie=b}}};"undefined"!==typeof document&&(c=h(document),h.get=c.get,h.set=c.set)},{}],4:[function(c,f,h){c=c("has-dom");f.exports=c()?document:null},{"has-dom":5}],5:[function(c,f,h){f.exports=function(){return"undefined"!==
-typeof window&&"undefined"!==typeof document&&"function"===typeof document.createElement}},{}],6:[function(c,f,h){(function(e,b){var a={extend:function(a,b){var d={},m;for(m in a)d[m]=b[m]&&0===b[m].length%2?b[m].concat(a[m]):a[m];return d},has:function(a,b){return"string"===typeof a?-1!==b.toLowerCase().indexOf(a.toLowerCase()):!1},lowerize:function(a){return a.toLowerCase()},major:function(a){return"string"===typeof a?a.split(".")[0]:b},trim:function(a){return a.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
-"")}},d=function(){for(var a,d=0,e,g,c,k,h,f,l=arguments;d<l.length&&!h;){var p=l[d],n=l[d+1];if("undefined"===typeof a)for(c in a={},n)n.hasOwnProperty(c)&&(k=n[c],"object"===typeof k?a[k[0]]=b:a[k]=b);for(e=g=0;e<p.length&&!h;)if(h=p[e++].exec(this.getUA()))for(c=0;c<n.length;c++)f=h[++g],k=n[c],"object"===typeof k&&0<k.length?2==k.length?a[k[0]]="function"==typeof k[1]?k[1].call(this,f):k[1]:3==k.length?a[k[0]]="function"!==typeof k[1]||k[1].exec&&k[1].test?f?f.replace(k[1],k[2]):b:f?k[1].call(this,
-f,k[2]):b:4==k.length&&(a[k[0]]=f?k[3].call(this,f.replace(k[1],k[2])):b):a[k]=f?f:b;d+=2}return a},g=function(d,e){for(var c in e)if("object"===typeof e[c]&&0<e[c].length)for(var g=0;g<e[c].length;g++){if(a.has(e[c][g],d))return"?"===c?b:c}else if(a.has(e[c],d))return"?"===c?b:c;return d},c={ME:"4.90","NT 3.11":"NT3.51","NT 4.0":"NT4.0",2E3:"NT 5.0",XP:["NT 5.1","NT 5.2"],Vista:"NT 6.0",7:"NT 6.1",8:"NT 6.2","8.1":"NT 6.3",10:["NT 6.4","NT 10.0"],RT:"ARM"},p={browser:[[/(opera\smini)\/([\w\.-]+)/i,
-/(opera\s[mobiletab]+).+version\/([\w\.-]+)/i,/(opera).+version\/([\w\.]+)/i,/(opera)[\/\s]+([\w\.]+)/i],["name","version"],[/(OPiOS)[\/\s]+([\w\.]+)/i],[["name","Opera Mini"],"version"],[/\s(opr)\/([\w\.]+)/i],[["name","Opera"],"version"],[/(kindle)\/([\w\.]+)/i,/(lunascape|maxthon|netfront|jasmine|blazer)[\/\s]?([\w\.]+)*/i,/(avant\s|iemobile|slim|baidu)(?:browser)?[\/\s]?([\w\.]*)/i,/(?:ms|\()(ie)\s([\w\.]+)/i,/(rekonq)\/([\w\.]+)*/i,/(chromium|flock|rockmelt|midori|epiphany|silk|skyfire|ovibrowser|bolt|iron|vivaldi|iridium|phantomjs)\/([\w\.-]+)/i],
-["name","version"],[/(trident).+rv[:\s]([\w\.]+).+like\sgecko/i],[["name","IE"],"version"],[/(edge)\/((\d+)?[\w\.]+)/i],["name","version"],[/(yabrowser)\/([\w\.]+)/i],[["name","Yandex"],"version"],[/(comodo_dragon)\/([\w\.]+)/i],[["name",/_/g," "],"version"],[/(chrome|omniweb|arora|[tizenoka]{5}\s?browser)\/v?([\w\.]+)/i],["name","version"],[/(MicroMessenger)\/([\w\.]+)/i],[["name","WeChat"],"version"],[/(qqbrowser)[\/\s]?([\w\.]+)/i],["name","version"],[/(uc\s?browser)[\/\s]?([\w\.]+)/i,/ucweb.+(ucbrowser)[\/\s]?([\w\.]+)/i,
-/JUC.+(ucweb)[\/\s]?([\w\.]+)/i],[["name","UCBrowser"],"version"],[/(dolfin)\/([\w\.]+)/i],[["name","Dolphin"],"version"],[/((?:android.+)crmo|crios)\/([\w\.]+)/i],[["name","Chrome"],"version"],[/XiaoMi\/MiuiBrowser\/([\w\.]+)/i],["version",["name","MIUI Browser"]],[/android.+version\/([\w\.]+)\s+(?:mobile\s?safari|safari)/i],["version",["name","Android Browser"]],[/FBAV\/([\w\.]+);/i],["version",["name","Facebook"]],[/fxios\/([\w\.-]+)/i],["version",["name","Firefox"]],[/version\/([\w\.]+).+?mobile\/\w+\s(safari)/i],
-["version",["name","Mobile Safari"]],[/version\/([\w\.]+).+?(mobile\s?safari|safari)/i],["version","name"],[/webkit.+?(mobile\s?safari|safari)(\/[\w\.]+)/i],["name",["version",g,{"1.0":"/8","1.2":"/1","1.3":"/3","2.0":"/412","2.0.2":"/416","2.0.3":"/417","2.0.4":"/419","?":"/"}]],[/(konqueror)\/([\w\.]+)/i,/(webkit|khtml)\/([\w\.]+)/i],["name","version"],[/(navigator|netscape)\/([\w\.-]+)/i],[["name","Netscape"],"version"],[/(swiftfox)/i,/(icedragon|iceweasel|camino|chimera|fennec|maemo\sbrowser|minimo|conkeror)[\/\s]?([\w\.\+]+)/i,
-/(firefox|seamonkey|k-meleon|icecat|iceape|firebird|phoenix)\/([\w\.-]+)/i,/(mozilla)\/([\w\.]+).+rv\:.+gecko\/\d+/i,/(polaris|lynx|dillo|icab|doris|amaya|w3m|netsurf|sleipnir)[\/\s]?([\w\.]+)/i,/(links)\s\(([\w\.]+)/i,/(gobrowser)\/?([\w\.]+)*/i,/(ice\s?browser)\/v?([\w\._]+)/i,/(mosaic)[\/\s]([\w\.]+)/i],["name","version"]],cpu:[[/(?:(amd|x(?:(?:86|64)[_-])?|wow|win)64)[;\)]/i],[["architecture","amd64"]],[/(ia32(?=;))/i],[["architecture",a.lowerize]],[/((?:i[346]|x)86)[;\)]/i],[["architecture",
-"ia32"]],[/windows\s(ce|mobile);\sppc;/i],[["architecture","arm"]],[/((?:ppc|powerpc)(?:64)?)(?:\smac|;|\))/i],[["architecture",/ower/,"",a.lowerize]],[/(sun4\w)[;\)]/i],[["architecture","sparc"]],[/((?:avr32|ia64(?=;))|68k(?=\))|arm(?:64|(?=v\d+;))|(?=atmel\s)avr|(?:irix|mips|sparc)(?:64)?(?=;)|pa-risc)/i],[["architecture",a.lowerize]]],device:[[/hbbtv\/\d+\.\d+\.\d+\s+\([\w\s]*;\s*(\w[^;]*);([^;]*)/i],[["vendor",a.trim],["model",a.trim],["type","smarttv"]],[/\((ipad|playbook);[\w\s\);-]+(rim|apple)/i],
-["model","vendor",["type","tablet"]],[/applecoremedia\/[\w\.]+ \((ipad)/],["model",["vendor","Apple"],["type","tablet"]],[/(apple\s{0,1}tv)/i],[["model","Apple TV"],["vendor","Apple"]],[/(archos)\s(gamepad2?)/i,/(hp).+(touchpad)/i,/(hp).+(tablet)/i,/(kindle)\/([\w\.]+)/i,/\s(nook)[\w\s]+build\/(\w+)/i,/(dell)\s(strea[kpr\s\d]*[\dko])/i],["vendor","model",["type","tablet"]],[/(kf[A-z]+)\sbuild\/[\w\.]+.*silk\//i],["model",["vendor","Amazon"],["type","tablet"]],[/(sd|kf)[0349hijorstuw]+\sbuild\/[\w\.]+.*silk\//i],
-[["model",g,{"Fire Phone":["SD","KF"]}],["vendor","Amazon"],["type","mobile"]],[/\((ip[honed|\s\w*]+);.+(apple)/i],["model","vendor",["type","mobile"]],[/\((ip[honed|\s\w*]+);/i],["model",["vendor","Apple"],["type","mobile"]],[/(blackberry)[\s-]?(\w+)/i,/(blackberry|benq|palm(?=\-)|sonyericsson|acer|asus|dell|huawei|meizu|motorola|polytron)[\s_-]?([\w-]+)*/i,/(hp)\s([\w\s]+\w)/i,/(asus)-?(\w+)/i],["vendor","model",["type","mobile"]],[/\(bb10;\s(\w+)/i],["model",["vendor","BlackBerry"],["type","mobile"]],
-[/android.+(transfo[prime\s]{4,10}\s\w+|eeepc|slider\s\w+|nexus 7)/i],["model",["vendor","Asus"],["type","tablet"]],[/(sony)\s(tablet\s[ps])\sbuild\//i,/(sony)?(?:sgp.+)\sbuild\//i],[["vendor","Sony"],["model","Xperia Tablet"],["type","tablet"]],[/(?:sony)?(?:(?:(?:c|d)\d{4})|(?:so[-l].+))\sbuild\//i],[["vendor","Sony"],["model","Xperia Phone"],["type","mobile"]],[/\s(ouya)\s/i,/(nintendo)\s([wids3u]+)/i],["vendor","model",["type","console"]],[/android.+;\s(shield)\sbuild/i],["model",["vendor","Nvidia"],
-["type","console"]],[/(playstation\s[34portablevi]+)/i],["model",["vendor","Sony"],["type","console"]],[/(sprint\s(\w+))/i],[["vendor",g,{HTC:"APA",Sprint:"Sprint"}],["model",g,{"Evo Shift 4G":"7373KT"}],["type","mobile"]],[/(lenovo)\s?(S(?:5000|6000)+(?:[-][\w+]))/i],["vendor","model",["type","tablet"]],[/(htc)[;_\s-]+([\w\s]+(?=\))|\w+)*/i,/(zte)-(\w+)*/i,/(alcatel|geeksphone|huawei|lenovo|nexian|panasonic|(?=;\s)sony)[_\s-]?([\w-]+)*/i],["vendor",["model",/_/g," "],["type","mobile"]],[/(nexus\s9)/i],
-["model",["vendor","HTC"],["type","tablet"]],[/[\s\(;](xbox(?:\sone)?)[\s\);]/i],["model",["vendor","Microsoft"],["type","console"]],[/(kin\.[onetw]{3})/i],[["model",/\./g," "],["vendor","Microsoft"],["type","mobile"]],[/\s(milestone|droid(?:[2-4x]|\s(?:bionic|x2|pro|razr))?(:?\s4g)?)[\w\s]+build\//i,/mot[\s-]?(\w+)*/i,/(XT\d{3,4}) build\//i,/(nexus\s[6])/i],["model",["vendor","Motorola"],["type","mobile"]],[/android.+\s(mz60\d|xoom[\s2]{0,2})\sbuild\//i],["model",["vendor","Motorola"],["type","tablet"]],
-[/android.+((sch-i[89]0\d|shw-m380s|gt-p\d{4}|gt-n8000|sgh-t8[56]9|nexus 10))/i,/((SM-T\w+))/i],[["vendor","Samsung"],"model",["type","tablet"]],[/((s[cgp]h-\w+|gt-\w+|galaxy\snexus|sm-\w[\w\d]+))/i,/(sam[sung]*)[\s-]*(\w+-?[\w-]*)*/i,/sec-((sgh\w+))/i],[["vendor","Samsung"],"model",["type","mobile"]],[/hbbtv.+maple;(\d+)/i],[["model",/^/,"SmartTV"],["vendor","Samsung"],["type","smarttv"]],[/\(dtv[\);].+(aquos)/i],["model",["vendor","Sharp"],["type","smarttv"]],[/sie-(\w+)*/i],["model",["vendor",
-"Siemens"],["type","mobile"]],[/(maemo|nokia).*(n900|lumia\s\d+)/i,/(nokia)[\s_-]?([\w-]+)*/i],[["vendor","Nokia"],"model",["type","mobile"]],[/android\s3\.[\s\w;-]{10}(a\d{3})/i],["model",["vendor","Acer"],["type","tablet"]],[/android\s3\.[\s\w;-]{10}(lg?)-([06cv9]{3,4})/i],[["vendor","LG"],"model",["type","tablet"]],[/(lg) netcast\.tv/i],["vendor","model",["type","smarttv"]],[/(nexus\s[45])/i,/lg[e;\s\/-]+(\w+)*/i],["model",["vendor","LG"],["type","mobile"]],[/android.+(ideatab[a-z0-9\-\s]+)/i],
-["model",["vendor","Lenovo"],["type","tablet"]],[/linux;.+((jolla));/i],["vendor","model",["type","mobile"]],[/((pebble))app\/[\d\.]+\s/i],["vendor","model",["type","wearable"]],[/android.+;\s(glass)\s\d/i],["model",["vendor","Google"],["type","wearable"]],[/android.+(\w+)\s+build\/hm\1/i,/android.+(hm[\s\-_]*note?[\s_]*(?:\d\w)?)\s+build/i,/android.+(mi[\s\-_]*(?:one|one[\s_]plus)?[\s_]*(?:\d\w)?)\s+build/i],[["model",/_/g," "],["vendor","Xiaomi"],["type","mobile"]],[/\s(tablet)[;\/]/i,/\s(mobile)[;\/]/i],
-[["type",a.lowerize],"vendor","model"]],engine:[[/windows.+\sedge\/([\w\.]+)/i],["version",["name","EdgeHTML"]],[/(presto)\/([\w\.]+)/i,/(webkit|trident|netfront|netsurf|amaya|lynx|w3m)\/([\w\.]+)/i,/(khtml|tasman|links)[\/\s]\(?([\w\.]+)/i,/(icab)[\/\s]([23]\.[\d\.]+)/i],["name","version"],[/rv\:([\w\.]+).*(gecko)/i],["version","name"]],os:[[/microsoft\s(windows)\s(vista|xp)/i],["name","version"],[/(windows)\snt\s6\.2;\s(arm)/i,/(windows\sphone(?:\sos)*|windows\smobile|windows)[\s\/]?([ntce\d\.\s]+\w)/i],
-["name",["version",g,c]],[/(win(?=3|9|n)|win\s9x\s)([nt\d\.]+)/i],[["name","Windows"],["version",g,c]],[/\((bb)(10);/i],[["name","BlackBerry"],"version"],[/(blackberry)\w*\/?([\w\.]+)*/i,/(tizen)[\/\s]([\w\.]+)/i,/(android|webos|palm\sos|qnx|bada|rim\stablet\sos|meego|contiki)[\/\s-]?([\w\.]+)*/i,/linux;.+(sailfish);/i],["name","version"],[/(symbian\s?os|symbos|s60(?=;))[\/\s-]?([\w\.]+)*/i],[["name","Symbian"],"version"],[/\((series40);/i],["name"],[/mozilla.+\(mobile;.+gecko.+firefox/i],[["name",
-"Firefox OS"],"version"],[/(nintendo|playstation)\s([wids34portablevu]+)/i,/(mint)[\/\s\(]?(\w+)*/i,/(mageia|vectorlinux)[;\s]/i,/(joli|[kxln]?ubuntu|debian|[open]*suse|gentoo|(?=\s)arch|slackware|fedora|mandriva|centos|pclinuxos|redhat|zenwalk|linpus)[\/\s-]?([\w\.-]+)*/i,/(hurd|linux)\s?([\w\.]+)*/i,/(gnu)\s?([\w\.]+)*/i],["name","version"],[/(cros)\s[\w]+\s([\w\.]+\w)/i],[["name","Chromium OS"],"version"],[/(sunos)\s?([\w\.]+\d)*/i],[["name","Solaris"],"version"],[/\s([frentopc-]{0,4}bsd|dragonfly)\s?([\w\.]+)*/i],
-["name","version"],[/(ip[honead]+)(?:.*os\s([\w]+)*\slike\smac|;\sopera)/i],[["name","iOS"],["version",/_/g,"."]],[/(mac\sos\sx)\s?([\w\s\.]+\w)*/i,/(macintosh|mac(?=_powerpc)\s)/i],[["name","Mac OS"],["version",/_/g,"."]],[/((?:open)?solaris)[\/\s-]?([\w\.]+)*/i,/(haiku)\s(\w+)/i,/(aix)\s((\d)(?=\.|\)|\s)[\w\.]*)*/i,/(plan\s9|minix|beos|os\/2|amigaos|morphos|risc\sos|openvms)/i,/(unix)\s?([\w\.]+)*/i],["name","version"]]},l=function(b,c){if(!(this instanceof l))return(new l(b,c)).getResult();var g=
-b||(e&&e.navigator&&e.navigator.userAgent?e.navigator.userAgent:""),f=c?a.extend(p,c):p;this.getBrowser=function(){var b=d.apply(this,f.browser);b.major=a.major(b.version);return b};this.getCPU=function(){return d.apply(this,f.cpu)};this.getDevice=function(){return d.apply(this,f.device)};this.getEngine=function(){return d.apply(this,f.engine)};this.getOS=function(){return d.apply(this,f.os)};this.getResult=function(){return{ua:this.getUA(),browser:this.getBrowser(),engine:this.getEngine(),os:this.getOS(),
-device:this.getDevice(),cpu:this.getCPU()}};this.getUA=function(){return g};this.setUA=function(a){g=a;return this};return this};l.VERSION="0.7.11";l.BROWSER={NAME:"name",MAJOR:"major",VERSION:"version"};l.CPU={ARCHITECTURE:"architecture"};l.DEVICE={MODEL:"model",VENDOR:"vendor",TYPE:"type",CONSOLE:"console",MOBILE:"mobile",SMARTTV:"smarttv",TABLET:"tablet",WEARABLE:"wearable",EMBEDDED:"embedded"};l.ENGINE={NAME:"name",VERSION:"version"};l.OS={NAME:"name",VERSION:"version"};"undefined"!==typeof h?
-("undefined"!==typeof f&&f.exports&&(h=f.exports=l),h.UAParser=l):e.UAParser=l;var n=e.jQuery||e.Zepto;if("undefined"!==typeof n){var t=new l;n.ua=t.getResult();n.ua.get=function(){return t.getUA()};n.ua.set=function(a){t.setUA(a);a=t.getResult();for(var b in a)n.ua[b]=a[b]}}})("object"===typeof window?window:this)},{}],7:[function(c,f,h){f.exports=function(b){for(var a=1;a<arguments.length;a++){var d=arguments[a],c;for(c in d)e.call(d,c)&&(b[c]=d[c])}return b};var e=Object.prototype.hasOwnProperty},
-{}]},{},[1])(1)});
+/*!
+ * smartbanner.js v1.5.0 <https://github.com/ain/smartbanner.js>
+ * Copyright © 2017 Ain Tohvri, contributors. Licensed under GPL-3.0.
+ */
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Bakery = function () {
+  function Bakery() {
+    _classCallCheck(this, Bakery);
+  }
+
+  _createClass(Bakery, null, [{
+    key: 'bake',
+    value: function bake() {
+      document.cookie = 'smartbanner_exited=1';
+    }
+  }, {
+    key: 'unbake',
+    value: function unbake() {
+      document.cookie = 'smartbanner_exited=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+  }, {
+    key: 'baked',
+    get: function get() {
+      var value = document.cookie.replace(/(?:(?:^|.*;\s*)smartbanner_exited\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+      return value === '1';
+    }
+  }]);
+
+  return Bakery;
+}();
+
+exports.default = Bakery;
+
+},{}],2:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Detector = function () {
+  function Detector() {
+    _classCallCheck(this, Detector);
+  }
+
+  _createClass(Detector, null, [{
+    key: 'platform',
+    value: function platform() {
+      if (/iPhone|iPad|iPod/i.test(window.navigator.userAgent)) {
+        return 'ios';
+      } else if (/Android/i.test(window.navigator.userAgent)) {
+        return 'android';
+      }
+    }
+  }, {
+    key: 'userAgentMatchesRegex',
+    value: function userAgentMatchesRegex(regexString) {
+      return new RegExp(regexString).test(window.navigator.userAgent);
+    }
+  }, {
+    key: 'jQueryMobilePage',
+    value: function jQueryMobilePage() {
+      return typeof global.$ !== 'undefined' && global.$.mobile !== 'undefined' && document.querySelector('.ui-page') !== null;
+    }
+  }, {
+    key: 'wrapperElement',
+    value: function wrapperElement() {
+      var selector = Detector.jQueryMobilePage() ? '.ui-page' : 'html';
+      return document.querySelectorAll(selector);
+    }
+  }]);
+
+  return Detector;
+}();
+
+exports.default = Detector;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],3:[function(require,module,exports){
+'use strict';
+
+var _smartbanner = require('./smartbanner.js');
+
+var _smartbanner2 = _interopRequireDefault(_smartbanner);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var smartbanner = void 0;
+
+window.addEventListener('load', function () {
+  smartbanner = new _smartbanner2.default();
+  smartbanner.publish();
+});
+
+},{"./smartbanner.js":7}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('./polyfills/array/from.js');
+
+require('./polyfills/array/includes.js');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function valid(name) {
+  // TODO: validate against options dictionary
+  return name.indexOf('smartbanner:') !== -1 && name.split(':')[1].length > 0;
+}
+
+function convertToCamelCase(name) {
+  var parts = name.split('-');
+  parts.map(function (part, index) {
+    if (index > 0) {
+      parts[index] = part.charAt(0).toUpperCase() + part.substring(1);
+    }
+  });
+  return parts.join('');
+}
+
+var OptionParser = function () {
+  function OptionParser() {
+    _classCallCheck(this, OptionParser);
+  }
+
+  _createClass(OptionParser, [{
+    key: 'parse',
+    value: function parse() {
+      var metas = document.getElementsByTagName('meta');
+      var options = {};
+      var optionName = null;
+      Array.from(metas).forEach(function (meta) {
+        var name = meta.getAttribute('name');
+        var content = meta.getAttribute('content');
+        if (name && content && valid(name) && content.length > 0) {
+          optionName = name.split(':')[1];
+          if (Array.from(optionName).includes('-')) {
+            optionName = convertToCamelCase(optionName);
+          }
+          options[optionName] = content;
+        }
+      });
+      return options;
+    }
+  }]);
+
+  return OptionParser;
+}();
+
+exports.default = OptionParser;
+
+},{"./polyfills/array/from.js":5,"./polyfills/array/includes.js":6}],5:[function(require,module,exports){
+'use strict';
+
+// Production steps of ECMA-262, Edition 6, 22.1.2.1
+// Reference: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-array.from
+if (!Array.from) {
+  Array.from = function () {
+    var toStr = Object.prototype.toString;
+    var isCallable = function isCallable(fn) {
+      return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
+    };
+    var toInteger = function toInteger(value) {
+      var number = Number(value);
+      if (isNaN(number)) {
+        return 0;
+      }
+      if (number === 0 || !isFinite(number)) {
+        return number;
+      }
+      return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
+    };
+    var maxSafeInteger = Math.pow(2, 53) - 1;
+    var toLength = function toLength(value) {
+      var len = toInteger(value);
+      return Math.min(Math.max(len, 0), maxSafeInteger);
+    };
+
+    // The length property of the from method is 1.
+    return function from(arrayLike /*, mapFn, thisArg */) {
+      // 1. Let C be the this value.
+      var C = this;
+
+      // 2. Let items be ToObject(arrayLike).
+      var items = Object(arrayLike);
+
+      // 3. ReturnIfAbrupt(items).
+      if (arrayLike == null) {
+        throw new TypeError("Array.from requires an array-like object - not null or undefined");
+      }
+
+      // 4. If mapfn is undefined, then let mapping be false.
+      var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
+      var T;
+      if (typeof mapFn !== 'undefined') {
+        // 5. else
+        // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
+        if (!isCallable(mapFn)) {
+          throw new TypeError('Array.from: when provided, the second argument must be a function');
+        }
+
+        // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
+        if (arguments.length > 2) {
+          T = arguments[2];
+        }
+      }
+
+      // 10. Let lenValue be Get(items, "length").
+      // 11. Let len be ToLength(lenValue).
+      var len = toLength(items.length);
+
+      // 13. If IsConstructor(C) is true, then
+      // 13. a. Let A be the result of calling the [[Construct]] internal method of C with an argument list containing the single item len.
+      // 14. a. Else, Let A be ArrayCreate(len).
+      var A = isCallable(C) ? Object(new C(len)) : new Array(len);
+
+      // 16. Let k be 0.
+      var k = 0;
+      // 17. Repeat, while k < len… (also steps a - h)
+      var kValue;
+      while (k < len) {
+        kValue = items[k];
+        if (mapFn) {
+          A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
+        } else {
+          A[k] = kValue;
+        }
+        k += 1;
+      }
+      // 18. Let putStatus be Put(A, "length", len, true).
+      A.length = len;
+      // 20. Return A.
+      return A;
+    };
+  }();
+}
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function (searchElement /*, fromIndex*/) {
+    'use strict';
+
+    if (this == null) {
+      throw new TypeError('Array.prototype.includes called on null or undefined');
+    }
+
+    var O = Object(this);
+    var len = parseInt(O.length, 10) || 0;
+    if (len === 0) {
+      return false;
+    }
+    var n = parseInt(arguments[1], 10) || 0;
+    var k;
+    if (n >= 0) {
+      k = n;
+    } else {
+      k = len + n;
+      if (k < 0) {
+        k = 0;
+      }
+    }
+    var currentElement;
+    while (k < len) {
+      currentElement = O[k];
+      if (searchElement === currentElement || searchElement !== searchElement && currentElement !== currentElement) {
+        // NaN !== NaN
+        return true;
+      }
+      k++;
+    }
+    return false;
+  };
+}
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _optionparser = require('./optionparser.js');
+
+var _optionparser2 = _interopRequireDefault(_optionparser);
+
+var _detector = require('./detector.js');
+
+var _detector2 = _interopRequireDefault(_detector);
+
+var _bakery = require('./bakery.js');
+
+var _bakery2 = _interopRequireDefault(_bakery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DEFAULT_PLATFORMS = 'android,ios';
+
+var datas = {
+  originalTop: 'data-smartbanner-original-top',
+  originalMarginTop: 'data-smartbanner-original-margin-top'
+};
+
+function handleExitClick(event, self) {
+  self.exit();
+  event.preventDefault();
+}
+
+function handleJQueryMobilePageLoad(event) {
+  if (!this.positioningDisabled) {
+    setContentPosition(event.data.height);
+  }
+}
+
+function addEventListeners(self) {
+  var closeIcon = document.querySelector('.js_smartbanner__exit');
+  closeIcon.addEventListener('click', function (event) {
+    return handleExitClick(event, self);
+  });
+  if (_detector2.default.jQueryMobilePage()) {
+    $(document).on('pagebeforeshow', self, handleJQueryMobilePageLoad);
+  }
+}
+
+function removeEventListeners() {
+  if (_detector2.default.jQueryMobilePage()) {
+    $(document).off('pagebeforeshow', handleJQueryMobilePageLoad);
+  }
+}
+
+function setContentPosition(value) {
+  var wrappers = _detector2.default.wrapperElement();
+  for (var i = 0, l = wrappers.length, wrapper; i < l; i++) {
+    wrapper = wrappers[i];
+    if (_detector2.default.jQueryMobilePage()) {
+      if (wrapper.getAttribute(datas.originalTop)) {
+        continue;
+      }
+      var top = parseFloat(getComputedStyle(wrapper).top);
+      wrapper.setAttribute(datas.originalTop, isNaN(top) ? 0 : top);
+      wrapper.style.top = value + 'px';
+    } else {
+      if (wrapper.getAttribute(datas.originalMarginTop)) {
+        continue;
+      }
+      var margin = parseFloat(getComputedStyle(wrapper).marginTop);
+      wrapper.setAttribute(datas.originalMarginTop, isNaN(margin) ? 0 : margin);
+      wrapper.style.marginTop = value + 'px';
+    }
+  }
+}
+
+function restoreContentPosition() {
+  var wrappers = _detector2.default.wrapperElement();
+  for (var i = 0, l = wrappers.length, wrapper; i < l; i++) {
+    wrapper = wrappers[i];
+    if (_detector2.default.jQueryMobilePage() && wrapper.getAttribute(datas.originalTop)) {
+      wrapper.style.top = wrapper.getAttribute(datas.originalTop) + 'px';
+    } else if (wrapper.getAttribute(datas.originalMarginTop)) {
+      wrapper.style.marginTop = wrapper.getAttribute(datas.originalMarginTop) + 'px';
+    }
+  }
+}
+
+var SmartBanner = function () {
+  function SmartBanner() {
+    _classCallCheck(this, SmartBanner);
+
+    var parser = new _optionparser2.default();
+    this.options = parser.parse();
+    this.platform = _detector2.default.platform();
+  }
+
+  // DEPRECATED. Will be removed.
+
+
+  _createClass(SmartBanner, [{
+    key: 'publish',
+    value: function publish() {
+      if (Object.keys(this.options).length === 0) {
+        throw new Error('No options detected. Please consult documentation.');
+      }
+
+      if (_bakery2.default.baked) {
+        return false;
+      }
+
+      // User Agent was explicetely excluded by defined excludeUserAgentRegex
+      if (this.userAgentExcluded) {
+        return false;
+      }
+
+      // User agent was neither included by platformEnabled,
+      // nor by defined includeUserAgentRegex
+      if (!(this.platformEnabled || this.userAgentIncluded)) {
+        return false;
+      }
+
+      var bannerDiv = document.createElement('div');
+      document.querySelector('body').appendChild(bannerDiv);
+      bannerDiv.outerHTML = this.html;
+      if (!this.positioningDisabled) {
+        setContentPosition(this.height);
+      }
+      addEventListeners(this);
+    }
+  }, {
+    key: 'exit',
+    value: function exit() {
+      removeEventListeners();
+      if (!this.positioningDisabled) {
+        restoreContentPosition();
+      }
+      var banner = document.querySelector('.js_smartbanner');
+      document.querySelector('body').removeChild(banner);
+      _bakery2.default.bake();
+    }
+  }, {
+    key: 'originalTop',
+    get: function get() {
+      var wrapper = _detector2.default.wrapperElement()[0];
+      return parseFloat(wrapper.getAttribute(datas.originalTop));
+    }
+
+    // DEPRECATED. Will be removed.
+
+  }, {
+    key: 'originalTopMargin',
+    get: function get() {
+      var wrapper = _detector2.default.wrapperElement()[0];
+      return parseFloat(wrapper.getAttribute(datas.originalMarginTop));
+    }
+  }, {
+    key: 'priceSuffix',
+    get: function get() {
+      if (this.platform === 'ios') {
+        return this.options.priceSuffixApple;
+      } else if (this.platform === 'android') {
+        return this.options.priceSuffixGoogle;
+      }
+      return '';
+    }
+  }, {
+    key: 'icon',
+    get: function get() {
+      if (this.platform === 'android') {
+        return this.options.iconGoogle;
+      } else {
+        return this.options.iconApple;
+      }
+    }
+  }, {
+    key: 'buttonUrl',
+    get: function get() {
+      if (this.platform === 'android') {
+        return this.options.buttonUrlGoogle;
+      } else if (this.platform === 'ios') {
+        return this.options.buttonUrlApple;
+      }
+      return '#';
+    }
+  }, {
+    key: 'html',
+    get: function get() {
+      return '<div class="smartbanner smartbanner--' + this.platform + ' js_smartbanner">\n      <a href="javascript:void();" class="smartbanner__exit js_smartbanner__exit"></a>\n      <div class="smartbanner__icon" style="background-image: url(' + this.icon + ');"></div>\n      <div class="smartbanner__info">\n        <div>\n          <div class="smartbanner__info__title">' + this.options.title + '</div>\n          <div class="smartbanner__info__author">' + this.options.author + '</div>\n          <div class="smartbanner__info__price">' + this.options.price + this.priceSuffix + '</div>\n        </div>\n      </div>\n      <a href="' + this.buttonUrl + '" target="_blank" class="smartbanner__button"><span class="smartbanner__button__label">' + this.options.button + '</span></a>\n    </div>';
+    }
+  }, {
+    key: 'height',
+    get: function get() {
+      var height = document.querySelector('.js_smartbanner').offsetHeight;
+      return height !== undefined ? height : 0;
+    }
+  }, {
+    key: 'platformEnabled',
+    get: function get() {
+      var enabledPlatforms = this.options.enabledPlatforms || DEFAULT_PLATFORMS;
+      return enabledPlatforms && enabledPlatforms.replace(/\s+/g, '').split(',').indexOf(this.platform) !== -1;
+    }
+  }, {
+    key: 'positioningDisabled',
+    get: function get() {
+      return this.options.disablePositioning === 'true';
+    }
+  }, {
+    key: 'userAgentExcluded',
+    get: function get() {
+      if (!this.options.excludeUserAgentRegex) {
+        return false;
+      }
+      return _detector2.default.userAgentMatchesRegex(this.options.excludeUserAgentRegex);
+    }
+  }, {
+    key: 'userAgentIncluded',
+    get: function get() {
+      if (!this.options.includeUserAgentRegex) {
+        return false;
+      }
+      return _detector2.default.userAgentMatchesRegex(this.options.includeUserAgentRegex);
+    }
+  }]);
+
+  return SmartBanner;
+}();
+
+exports.default = SmartBanner;
+
+},{"./bakery.js":1,"./detector.js":2,"./optionparser.js":4}]},{},[3]);
