@@ -214,14 +214,16 @@ function createDates(dlg) {
             var exists = false;
 
 			for(var j=0; j<shortCurrentDatesArray.length; j++) {
+				var intersect = findArrayIntersection(shortCurrentDatesArray[j], curDate);
+
                 if(Array.isArray(shortCurrentDatesArray[j]) && Array.isArray(curDate)) {
-                    if(shortCurrentDatesArray[j][0] == curDate[0]) {
+                    if(intersect.length > 0) {
                         newSoldOutOrder.push(j);
                         currentTimesArrayCopy[i] = currentTimesArray[j];
                         exists = true;
                         break;
                     }
-                } else if(shortCurrentDatesArray[j] == curDate) {
+                } else if(intersect.length > 0) {
                     newSoldOutOrder.push(j);
                     currentTimesArrayCopy[i] = currentTimesArray[j];
                     exists = true;
@@ -253,28 +255,38 @@ function createDates(dlg) {
         for(var i=0; i<timesArray.length; i++) {
             if(timesArray[i].length > 1) {
                 var subNewTimesSOOArray = [];
-                var val = currentTimesArray[i].length;
-                
+                var val = 0;
+
+                if(currentTimesArray[i] != undefined) {
+					val = currentTimesArray[i].length;
+                }
+
                 for(var j=0; j<timesArray[i].length; j++) {
                     var exists = false;
-                    
-                    for(var k=0; k<currentTimesArray[i].length; k++) {
-                        if(timesArray[i][j] == currentTimesArray[i][k]) {
-                            if(timesArray[i].length < currentTimesArray[i].length) {
-                                subNewTimesSOOArray.push(j);
-                                exists = true;
-                                break;
-                            } else {
-                                subNewTimesSOOArray.push(k);
-                                exists = true;
-                                break;
+
+                    if(currentTimesArray[i] != undefined) {
+                        for(var k=0; k<currentTimesArray[i].length; k++) {
+                            if(timesArray[i][j] == currentTimesArray[i][k]) {
+                                if(timesArray[i].length < currentTimesArray[i].length) {
+                                    subNewTimesSOOArray.push(j);
+                                    exists = true;
+                                    break;
+                                } else {
+                                    subNewTimesSOOArray.push(k);
+                                    exists = true;
+                                    break;
+                                }
                             }
                         }
-                    }
-                    
-                    if(!exists) {
-                        subNewTimesSOOArray.push(val);
-                        val++;
+                        
+                        if(!exists) {
+                            subNewTimesSOOArray.push(val);
+                            val++;
+                        }
+                    } else {
+                        for(var k=0; k<timesArray[i].length; k++) {
+							subNewTimesSOOArray.push(k);
+                        }
                     }
                 }
                 newTimesSoldOutOrder.push(subNewTimesSOOArray);
@@ -489,15 +501,20 @@ function createDates(dlg) {
                     }
                 }
             } else {
-				var dateExists = false;
-                for(var j=0; j<aggregatedDates.length; j++) {
-                    if(currentDatesArray[i].match('^([a-zA-Z0-9:( +]+)\\)')[0] == aggregatedDates[j].match('^([a-zA-Z0-9:( +]+)\\)')[0]) {
-                        dateExists = true;
-                        break;
+                if(currentDatesArray[i] === undefined) {
+					soldOutArray[i] = "todelete";
+                } else {
+                    var dateExists = false;
+
+                    for(var j=0; j<aggregatedDates.length; j++) {
+                        if(currentDatesArray[i].match('^([a-zA-Z0-9:( +]+)\\)')[0] == aggregatedDates[j].match('^([a-zA-Z0-9:( +]+)\\)')[0]) {
+                            dateExists = true;
+                            break;
+                        }
                     }
-                }
-                if(dateExists == false) {
-                    soldOutArray[i] = "todelete";
+                    if(dateExists == false) {
+                        soldOutArray[i] = "todelete";
+                    }
                 }
             }
         }
@@ -613,13 +630,21 @@ function createDates(dlg) {
     }
 
 	if(!isTimesEqual && newTimesSoldOutOrder.length > 0) {
-        for(var i=0; i<newTimesSoldOutOrder.length; i++) {
-            if(newTimesSoldOutOrder[i].length > 1) {
-                var soldOutArrayCopy = [];
+        for(var i=0; i<soldOutArray.length; i++) {
+            if(soldOutArray[i].length > 1) {
+				var soldOutArrayCopy = [];
 
-				for(var j=0; j<newTimesSoldOutOrder[i].length; j++) {
-					soldOutArrayCopy[j] = soldOutArray[i][newTimesSoldOutOrder[i][j]];
-                }	
+                for(var j=0; j<soldOutArray[i].length; j++) {
+                    if(Array.isArray(soldOutArray[i][j])) {
+                        var subSoldOutArrayCopy = [];
+                        for(var k=0; k<soldOutArray[i][j].length; k++) {
+							subSoldOutArrayCopy[k] = soldOutArray[i][j][newTimesSoldOutOrder[i][k]];
+                        }
+                        soldOutArrayCopy[j] = subSoldOutArrayCopy;
+                    } else {
+						soldOutArrayCopy[j] = soldOutArray[i][newTimesSoldOutOrder[i][j]];
+                    }
+                }
 
                 soldOutArray[i] = soldOutArrayCopy;
             }
@@ -635,6 +660,18 @@ function createDates(dlg) {
     timesRecurrence.setValue(JSON.stringify(timesArray));
 	datesRecurrence.setValue(aggregatedDates);
     soldOut.setValue(soldOutString);
+}
+
+function findArrayIntersection(a, b) {
+    if(!Array.isArray(a) || !Array.isArray(b)) {
+        if(a === b) return [true];
+        else return [];
+    }
+    var t;
+    if (b.length > a.length) t = b, b = a, a = t; // indexOf to loop over shorter
+    return a.filter(function (e) {
+        return b.indexOf(e) > -1;
+    });
 }
 
 //Re-order array based on order list
