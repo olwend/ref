@@ -6456,7 +6456,7 @@ html.js-noScroll {
   width: 23px;
   height: 23px;
   position: absolute;
-  top: 13px;
+  top: 16px;
   right: 10px;
 }
 
@@ -6586,12 +6586,13 @@ html.js-noScroll {
 
 .global-header-info {
   display: inline-flex;
-  margin-bottom: 0;
+  margin: 0 20px;
 }
 
 @media screen and (min-width: 768px) {
   .global-header-info {
     display: block;
+    margin: 0;
   }
 }
 
@@ -6636,7 +6637,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 360px) {
   .global-header-info a {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -6660,9 +6661,16 @@ html.js-noScroll {
 }
 
 .global-header-info .svg-ico {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   margin-right: 5px;
+}
+
+@media screen and (min-width: 360px) {
+  .global-header-info .svg-ico {
+    height: 25px;
+    width: 25px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -6700,6 +6708,7 @@ html.js-noScroll {
 @media screen and (min-width: 1024px) {
   .nav-list {
     margin-bottom: 15px;
+    line-height: 24px;
   }
 }
 
@@ -6717,7 +6726,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1025px) {
   .nav-list__item {
-    margin: 0 34px 0 0;
+    margin: 0 32px 0 0;
   }
 }
 
@@ -6729,7 +6738,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .nav-list__item a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -6746,13 +6755,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .nav-list__link {
-    padding: 0;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .nav-list__link {
-    padding-bottom: 10px;
+    padding: 0 0 10px 0;
   }
 }
 
@@ -6761,7 +6764,7 @@ html.js-noScroll {
   text-decoration: none;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 768px) {
   .nav-list__link:hover, .nav-list__link.menuSelected {
     border-bottom-style: solid;
     border-bottom-width: 5px;
