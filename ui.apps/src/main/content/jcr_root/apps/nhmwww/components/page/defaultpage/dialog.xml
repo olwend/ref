@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+		xtype="tabpanel">
+        
+        <items jcr:primaryType="cq:WidgetCollection">
+            <Basic
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_basic.infinity.json"
+                xtype="cqinclude"/>
+            <Advanced
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_advanced.infinity.json"
+                xtype="cqinclude"/>
+            <Image
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_image.infinity.json"
+                xtype="cqinclude"/>
+            <SmartAppBanner
+            	jcr:primaryType="cq:Widget"
+                title="Smart App Banner"
+                xtype="panel">
+            	<items jcr:primaryType="cq:WidgetCollection">
+            		<usebanner
+            			jcr:primaryType="cq:Widget"
+            			name="./usebanner"
+            			type="checkbox"
+            			xtype="selection"
+            			checked="false"
+	                    defaultValue="{Boolean}false"
+            			fieldLabel="Use banner"/>
+            	</items>
+           	</SmartAppBanner>
+        </items>
+        
+    </items>
+    
+</jcr:root>
