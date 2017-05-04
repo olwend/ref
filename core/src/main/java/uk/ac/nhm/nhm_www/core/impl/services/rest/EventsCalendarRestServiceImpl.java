@@ -138,6 +138,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			}
 		} catch (Exception e) {
 			LOG.error("Exception ", e);
+			LOG.error("test");
 			return null;
 		}
 
@@ -157,6 +158,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		}
 		catch (Exception e) {
 			LOG.error(e.getMessage());
+			LOG.error("test");
 		}
 		return array;
 	}
@@ -196,11 +198,16 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 				switch(filter) {
 				case "all": 
-					object = processDates(matcher, i, dates, times, durations);
-					dateArray.put(object);
+					//All future events
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay())
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))) {
+						object = processDates(matcher, i, dates, times, durations);
+						dateArray.put(object);
+					}
 					break;
 
 				case "week":
+					//All events for the coming week including the current day
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
 							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
 							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
@@ -210,6 +217,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					break;
 
 				case "day":
+					//All events for the current day
 					if(eventDate.toDateTimeAtStartOfDay().equals(currentDate.toDateTimeAtStartOfDay())) {
 						object = processDates(matcher, i, dates, times, durations);
 						dateArray.put(object);
