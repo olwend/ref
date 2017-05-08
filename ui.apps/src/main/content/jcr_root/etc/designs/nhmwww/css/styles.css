@@ -6599,9 +6599,9 @@ html.js-noScroll {
 .global-header-info__container {
   background-color: #EEEEEE;
   bottom: 0;
-  margin: 15px -10px 0 -10px;
+  margin: 15px 0 0 0;
   padding-top: 15px;
-  text-align: center;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
@@ -6609,7 +6609,6 @@ html.js-noScroll {
     background-color: #FFFFFF;
     margin: 0 0 10px auto;
     padding: 0;
-    text-align: left;
   }
 }
 
@@ -6644,26 +6643,18 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .global-header-info a {
     font-size: 0.9rem;
-    font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .global-header-info a {
     font-size: 1.1rem;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .global-header-info a {
-    font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   }
 }
 
 .global-header-info .svg-ico {
   height: 20px;
   width: 20px;
-  margin-right: 5px;
 }
 
 @media screen and (min-width: 360px) {
@@ -6677,6 +6668,7 @@ html.js-noScroll {
   .global-header-info .svg-ico {
     height: 22px;
     width: 22px;
+    margin-right: 5px;
   }
 }
 
@@ -6688,6 +6680,13 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 1025px) {
+  .global-header-info .svg-ico {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   .global-header-info .svg-ico {
     height: 28px;
     width: 28px;
@@ -6744,6 +6743,12 @@ html.js-noScroll {
 
 @media screen and (min-width: 1024px) {
   .nav-list__item a {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nav-list__item a {
     font-size: 1.4rem;
   }
 }
@@ -6754,6 +6759,18 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 768px) {
+  .nav-list__link {
+    padding: 0 0 18px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-list__link {
+    padding: 0 0 12px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   .nav-list__link {
     padding: 0 0 10px 0;
   }
