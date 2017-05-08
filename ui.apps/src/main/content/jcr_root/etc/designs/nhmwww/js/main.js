@@ -209,15 +209,15 @@ jQuery(document).ready(function() {
     /** WR-1040 - Nav bar redesign - add "Active Page" class **/
     jQuery('.nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
 
-    if (jQuery('.main-section')) {
-        if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
-        if (jQuery('.main-section').hasClass('discover')) { jQuery('.link-discover').addClass('menuSelected'); }
-        if (jQuery('.main-section').hasClass('take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
-        if (jQuery('.main-section').hasClass('support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
-        if (jQuery('.main-section').hasClass('schools')) { jQuery('.link-schools').addClass('menuSelected'); }
-        if (jQuery('.main-section').hasClass('our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
-        if (jQuery('.main-section').hasClass('search')) { jQuery('.link-search').addClass('menuSelected'); }
-    } else {
+    
+    if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('discover')) { jQuery('.link-discover').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('schools')) { jQuery('.link-schools').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('search')) { jQuery('.link-search').addClass('menuSelected'); }
+    else {
         var urlForMenu = window.location.href; // Get current URL
         if (urlForMenu.indexOf('nhm.ac.uk/visit') !== -1) { jQuery('.link-visit').addClass('menuSelected'); }
         if (urlForMenu.indexOf('nhm.ac.uk/discover') !== -1) { jQuery('.link-discover').addClass('menuSelected'); }
