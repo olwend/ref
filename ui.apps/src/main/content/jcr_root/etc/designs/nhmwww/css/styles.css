@@ -5050,6 +5050,13 @@ html.js-noScroll {
   width: 100%;
 }
 
+/** WR-1040 Nav bar redesign - adds padding to top of page to offset position:static of nav bar **/
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 100px;
+  }
+}
+
 /** REFACTOR-HERO PARTIAL **/
 /** These styles apply when a component is placed in a Herosection row system **/
 .herosection .caption-inner-wrapper {
@@ -6492,17 +6499,6 @@ html.js-noScroll {
 
 /** End legacy CSS **/
 /** WR-1040 new **/
-@media screen and (min-width: 768px) {
-  [class*="template--"],
-  .breadcrumb {
-    margin-top: 100px;
-  }
-  .main-section [class*="template--"], .main-section
-  .breadcrumb {
-    margin-top: 0;
-  }
-}
-
 .global-nav-menu {
   display: none;
   height: 485px;
@@ -6636,7 +6632,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 360px) {
   .global-header-info a {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 }
 
@@ -6669,6 +6665,7 @@ html.js-noScroll {
     height: 22px;
     width: 22px;
     margin-right: 5px;
+    margin-top: -5px;
   }
 }
 
