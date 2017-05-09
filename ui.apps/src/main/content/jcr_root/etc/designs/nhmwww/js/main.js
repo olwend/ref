@@ -206,8 +206,30 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
+    /** WR-1040 - Nav bar redesign - add "Active Page" class **/
+    jQuery('.nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
+
     
-	
+    if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('discover')) { jQuery('.link-discover').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('schools')) { jQuery('.link-schools').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('search')) { jQuery('.link-search').addClass('menuSelected'); }
+    else {
+        var urlForMenu = window.location.href; // Get current URL
+        if (urlForMenu.indexOf('nhm.ac.uk/visit') !== -1) { jQuery('.link-visit').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/discover') !== -1) { jQuery('.link-discover').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/take-part') !== -1) { jQuery('.link-take-part').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/support-us') !== -1) { jQuery('.link-support-us').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/schools') !== -1) { jQuery('.link-schools').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/our-science') !== -1) { jQuery('.link-our-science').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/search') !== -1) { jQuery('.link-search').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/events') !== -1) { jQuery('.nav-list__link').removeClass('menuSelected'); }
+    }
+	/** End WR-1040 **/
+
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
@@ -419,13 +441,6 @@ jQuery(document).ready(function() {
         if (jQuery(window).width() < 768) { jQuery('.hero .promo-link').fadeIn(); }
     });
 
-    // Still needed? Can't see any subnav-class elements in current HTML
-    // jQuery('.subnav').on('click', 'a', function(e){
-    //     e.preventDefault();
-    //     var adjust = jQuery('.global-header').height() + jQuery('.subnav').height();
-    //     jQuery('html, body').animate({ scrollTop: jQuery('a[name='+jQuery(this).attr('href').replace('#','')+']').offset().top - adjust }, 1000);
-    // });
-
     // Dynamic hover code to override CSS and provide a bit of delay before open/close
     jQuery('.level-1 > .nav-list__item.has-children').hoverIntent({ 
         over: function(){ jQuery(this).addClass('open'); }, 
@@ -461,49 +476,7 @@ jQuery(document).ready(function() {
           }
         }
       });
-
-      // if a link in the sub-nav is clicked...
-      jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
-      // allow the link to work as normal
-      	return true;
-      // set variable for "this"
-        var $this = jQuery(this);
-
-        // if the main nav link already has a "selected" class, remove all the classes that make it "selected" and allow the link to work as normal
-        if($this.hasClass('selected')) {
-					return true;
-          jQuery('.global-menu-trigger').removeClass('return');
-          $this.removeClass('selected').siblings().removeClass('selected-siblings');
-        }
-      });
-    } else {
-	    // Megamenu touch handling for screens above 768px
-	    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
-        if(jQuery(e.target).closest('li').hasClass('has-children')){
-          e.preventDefault(); // stop touch acting as a click on items with submenus
-          e.stopPropagation(); // stop a click event from also firing
-          var $this = jQuery(this);
-
-          if($this.hasClass('open')) {
-            $this.removeClass('open').removeClass('touch');
-          } else {
-            jQuery('.nav-list__item').removeClass('open');
-            $this.addClass('open').addClass('touch');
-          }
-
-          if(jQuery(window).width() < 768){
-            if($this.hasClass('selected')) {
-              jQuery('.global-menu-trigger').removeClass('return');
-              $this.removeClass('selected').siblings().removeClass('selected-siblings');
-            } else {
-              jQuery('.global-menu-trigger').addClass('return');
-              jQuery('.nav-list__item').removeClass('selected');
-              $this.addClass('selected').siblings().addClass('selected-siblings');
-            }
-          }
-        }
-	    });
-		}
+    }
 
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){
@@ -550,41 +523,6 @@ jQuery(document).ready(function() {
         setTimeout(function() {
             jQuery('html').removeClass('js-noScroll');
         }, 600);        
-    });
-
-    jQuery(document).scroll(function() {
-        if (jQuery(window).width() > 767) {
-            var position=jQuery(this).scrollTop(),
-                subNav = jQuery('.subnav'),
-                mainNav = jQuery('.global-header'),
-                globalHeaderBar = jQuery('.global-header-bar');
-                hero = jQuery('.hero'),
-                infoSection = jQuery('.row.info'),
-                heroPos = hero.position();
-
-            if(position > globalHeaderBar.height()) {
-                mainNav.addClass('sticky');
-            } else {
-                mainNav.removeClass('sticky');
-            }
-
-            if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
-                subNav.addClass('fixed');
-                infoSection.addClass('fixed');
-
-                jQuery('.subnav-section').each(function(i){
-                    var fixedNav = mainNav.height() + subNav.height(),
-                        section = jQuery(this);
-                    if(section.position().top <= position + fixedNav){
-                        jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
-                    }
-                });
-            } else {
-                subNav.removeClass('fixed');
-                infoSection.removeClass('fixed');
-                subNav.find('.subnav__item').removeClass('active');
-            }
-        }
     });
 
     // IE8 interchange image shim - SVG support began with IE9
