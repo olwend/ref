@@ -37,8 +37,6 @@ function createDates(dlg) {
         currentDatesArray = getMixedDatesArray(currentDatesList);
     }
 
-
-
     //Times
 	if(timesRecurrence.getValue() != "") {
         currentTimesArray = timesRecurrence.getValue().split("],[");
@@ -278,18 +276,27 @@ function createDates(dlg) {
     if(soldOutArray.length == 0 && newTimesArray.length != 0) {
         for(var i=0; i<newTimesArray.length; i++) {
             var subArray = [];
-            for(var j=0; j<newTimesArray[i].length; j++) {
-                if(Array.isArray(newTimesArray[i][j])) {
-					var subSubArray = [];
-                    for(var k=0; k<newTimesArray[i][j].length; k++) {
-						subSubArray[k] = "false";
+            if(allDays[i] == true) {
+				if(Array.isArray(newTimesArray[i][0])) {
+                    for(var j=0; j<newTimesArray[i].length; j++) {
+                        subArray.push(["false"]);
                     }
-                    subArray[j] = subSubArray;
                 } else {
-					subArray[j] = "false";
+                    subArray.push("false");
+                }
+            } else {
+                for(var j=0; j<newTimesArray[i].length; j++) {
+                    if(Array.isArray(newTimesArray[i][j])) {
+                        var subSubArray = [];
+                        for(var k=0; k<newTimesArray[i][j].length; k++) {
+                            subSubArray[k] = "false";
+                        }
+                        subArray[j] = subSubArray;
+                    } else {
+                        subArray[j] = "false";
+                    }
                 }
             }
-
             soldOutArray[i] = subArray;
         }
     //Else operate on existing dates/times
@@ -328,68 +335,92 @@ function createDates(dlg) {
                     }
                 }
                 if(!exists) {
-					currentTimesArray.splice(i, 1);
+                    currentTimesArray[i] = "todelete";
                 }
             }
         }
 
-        if(newSoldOutArray != undefined && newSoldOutArray.length > 0) {
-            soldOutArray = newSoldOutArray;
+        for(var i=currentTimesArray.length - 1; i>-1; i--) {
+            if(currentTimesArray[i] == "todelete") currentTimesArray.splice(i, 1);
         }
+
+        if(newSoldOutArray != undefined && newSoldOutArray.length > 0) soldOutArray = newSoldOutArray;
 
         //Check times
         for(var i=0; i<newTimesArray.length; i++) {
 
             if(newSoldOutArray[i] == "placeholder") {
                 var subArray = [];
-                for(var j=0; j<newTimesArray[i].length; j++) {
-                    if(Array.isArray(newTimesArray[i][j])) {
-                        var subSubArray = [];
-                        for(var k=0; k<newTimesArray[i][j].length; k++) {
-                            subSubArray[k] = "false";
+                if(allDays[i] == true) {
+                    if(Array.isArray(newTimesArray[i][0])) {
+                        for(var j=0; j<newTimesArray[i].length; j++) {
+                            subArray.push(["false"]);
                         }
-                        subArray[j] = subSubArray;
                     } else {
-                        subArray[j] = "false";
+                		subArray.push("false");
                     }
+                } else {
+	                for(var j=0; j<newTimesArray[i].length; j++) {
+	                    if(Array.isArray(newTimesArray[i][j])) {
+	                        var subSubArray = [];
+	                        for(var k=0; k<newTimesArray[i][j].length; k++) {
+	                            subSubArray[k] = "false";
+	                        }
+	                        subArray[j] = subSubArray;
+	                    } else {
+	                        subArray[j] = "false";
+	                    }
+	                }
                 }
                 newSoldOutArray[i] = subArray;
             }
 
-			var isTimesEqual = testArraysEqual(currentTimesArray[i], newTimesArray[i]);
-
-            if(!isTimesEqual) {
-                if(!Array.isArray(newTimesArray[i][0])) {
-                    var soldOutSubArray = [];
-                    for(var j=0; j<newTimesArray[i].length; j++) {
-                        var curTime = newTimesArray[i][j];
-                        var exists = false;
-                        for(var k=0; k<currentTimesArray[i].length; k++) {
-                            if(currentTimesArray[i][k] == curTime) {
-                                soldOutSubArray.push(soldOutArray[i][k]);
-                                exists = true;
-                                break;
-                            }
+            if(allDays[i] == true) {
+                if(currentTimesArray[i] != "") {
+    				if(Array.isArray(newTimesArray[i][0])) {
+                        for(var j=0; j<newTimesArray[i].length; j++) {
+                            subArray.push(["false"]);
                         }
-                        if(!exists) soldOutSubArray.push("false");
+                        soldOutArray[i] = subArray;
+                    } else {
+                        soldOutArray[i] = ["false"];
                     }
-                    soldOutArray[i] = soldOutSubArray;
-            	}  else {
-                    for(var j=0; j<newTimesArray[i].length; j++) {
-						var soldOutSubArray = [];
-                        for(var k=0; k<newTimesArray[i][j].length; k++) {
-                            var curTime = newTimesArray[i][j][k];
-                            var exists = false;
-                            for(var l=0; l<currentTimesArray[i][j].length; l++) {
-                                if(currentTimesArray[i][j][l] == curTime) {
-                                    soldOutSubArray.push(soldOutArray[i][j][l]);
+                }
+            } else {
+				var isTimesEqual = testArraysEqual(currentTimesArray[i], newTimesArray[i]);
+                if(!isTimesEqual) {
+                    if(!Array.isArray(newTimesArray[i][0])) {
+                        var soldOutSubArray = [];
+                        for(var j=0; j<newTimesArray[i].length; j++) {
+                            var curTime = newTimesArray[i][j],
+                                exists = false;
+                            for(var k=0; k<currentTimesArray[i].length; k++) {
+                                if(currentTimesArray[i][k] == curTime) {
+                                    soldOutSubArray.push(soldOutArray[i][k]);
                                     exists = true;
                                     break;
                                 }
                             }
                             if(!exists) soldOutSubArray.push("false");
                         }
-                        soldOutArray[i][j] = soldOutSubArray;
+                        soldOutArray[i] = soldOutSubArray;
+                    } else {
+                        for(var j=0; j<newTimesArray[i].length; j++) {
+                            var soldOutSubArray = [];
+                            for(var k=0; k<newTimesArray[i][j].length; k++) {
+                                var curTime = newTimesArray[i][j][k],
+                                    exists = false;
+                                for(var l=0; l<currentTimesArray[i][j].length; l++) {
+                                    if(currentTimesArray[i][j][l] == curTime) {
+                                        soldOutSubArray.push(soldOutArray[i][j][l]);
+                                        exists = true;
+                                        break;
+                                    }
+                                }
+                                if(!exists) soldOutSubArray.push("false");
+                            }
+                            soldOutArray[i][j] = soldOutSubArray;
+                        }
                     }
                 }
             }
