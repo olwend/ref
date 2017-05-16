@@ -6602,7 +6602,7 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .global-header-info__container {
     background-color: #FFFFFF;
-    margin: 0 0 2px auto;
+    margin: 0 0 0 auto;
     padding: 0;
   }
 }
