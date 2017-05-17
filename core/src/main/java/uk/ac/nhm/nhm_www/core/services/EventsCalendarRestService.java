@@ -11,6 +11,10 @@ public interface EventsCalendarRestService {
 	
 	public Response getWeek() throws RepositoryException, JSONException;
 	
+	public Response getWeekByDate(int year, int month, int day) throws RepositoryException, JSONException;
+	
 	public Response getDay() throws RepositoryException, JSONException;
+	
+	public Response getDay(int year, int month, int day) throws RepositoryException, JSONException;
 	
 }
