@@ -302,46 +302,60 @@ function createDates(dlg) {
     //Else operate on existing dates/times
     } else {
 		//Check dates
-        var isDatesEqual = testArraysEqual(currentDatesArray, newDatesArray),
-        	newSoldOutOrder = [],
-        	newSoldOutArray = [];
+        var isDatesEqual         = testArraysEqual(currentDatesArray, newDatesArray),
+        	newSoldOutOrder      = [],
+        	newSoldOutArray      = [],
+            newCurrentTimesArray = [];
 
         if(!isDatesEqual) {
-            //First iterate through newDatesArray to...
             for(var i=0; i<newDatesArray.length; i++) {
                 var exists = false;
                 for(var j=0; j<currentDatesArray.length; j++) {
                     var intersect = findArrayIntersection(shortCurrentDatesArray[j], shortNewDatesArray[i]);
                     if(intersect.length > 0) {
+
+                        //Compare dates in recurrences to find added/removed/re-ordered
+                        if(Array.isArray(shortNewDatesArray[i])) {
+							var isRecurDatesEqual = testArraysEqual(currentDatesArray[j], newDatesArray[i]);
+
+                            if(!isRecurDatesEqual) {
+                                var recurSoldOutArray = [];
+                                for(var k=0; k<newDatesArray[i].length; k++) {
+                                    var exists = false,
+                                        curDate = newDatesArray[i][k];
+                                    for(var l=0; l<currentDatesArray[j].length; l++) {
+                                        if(currentDatesArray[j][l] == curDate) {
+                                            recurSoldOutArray.push(soldOutArray[j][l]);
+                                            exists = true;
+                                            break;
+                                        }
+                                    }
+                                    if(!exists) {
+                                        var recurSoldOutSubArray = [];
+                                        for(var m=0; m<newTimesArray[i][k].length; m++) {
+											recurSoldOutSubArray.push("false");
+                                        }
+                                        recurSoldOutArray.push(recurSoldOutSubArray);
+                                        currentTimesArray[j].push(currentTimesArray[j][0]);
+                                    }
+                                }
+                            }
+                            soldOutArray[j] = recurSoldOutArray;
+                        }
+
                         newSoldOutArray.push(soldOutArray[j]);
+                        newCurrentTimesArray.push(currentTimesArray[j]);
                         exists = true;
                         break;
                     }
                 }
                 if(!exists) {
                     newSoldOutArray.push("placeholder");
-                    currentTimesArray.splice(i, 0, newTimesArray[i]);
+                    newCurrentTimesArray.push(newTimesArray[i]);
                 }
             }
 
-            //Second iterate through currentDatesArray to find dates that have been removed
-            for(var i=0; i<currentDatesArray.length; i++) {
-				var exists = false;
-                for(var j=0; j<newDatesArray.length; j++) {
-                    var intersect = findArrayIntersection(shortNewDatesArray[j], shortCurrentDatesArray[i]);
-                    if(intersect.length > 0) {
-						exists = true;
-                        break;
-                    }
-                }
-                if(!exists) {
-                    currentTimesArray[i] = "todelete";
-                }
-            }
-        }
-
-        for(var i=currentTimesArray.length - 1; i>-1; i--) {
-            if(currentTimesArray[i] == "todelete") currentTimesArray.splice(i, 1);
+            currentTimesArray = newCurrentTimesArray;
         }
 
         if(newSoldOutArray != undefined && newSoldOutArray.length > 0) soldOutArray = newSoldOutArray;
