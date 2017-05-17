@@ -6601,7 +6601,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .global-header-info__container {
-    background-color: #FFFFFF;
+    background: none;
     margin: 0 0 0 auto;
     padding: 0;
   }
@@ -6759,7 +6759,7 @@ html.js-noScroll {
 }
 
 .nav-list__link {
-  padding: 10px 0;
+  padding: 0.53rem 0;
 }
 
 @media screen and (min-width: 768px) {
