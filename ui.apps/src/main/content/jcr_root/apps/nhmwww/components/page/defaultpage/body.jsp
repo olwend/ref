@@ -28,4 +28,9 @@
 	</div>
 	<cq:include script="footer.jsp"/>
 	
+	<!-- BrowserSync for localhost build environment -->
+	<%if(request.getServerName().equals("localhost")) {%>
+		<cq:includeClientLib js="nhmwww.aembrowsersync" />		
+	<%} %>
+		
 </body>

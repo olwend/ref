@@ -6533,7 +6533,7 @@ html.js-noScroll {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1160px) {
   .global-info-menu .row, .global-nav-menu .row {
     padding: 0 20px;
   }
@@ -6556,11 +6556,9 @@ html.js-noScroll {
 }
 
 .global-header-logo {
-  display: block;
-  float: left;
+  position: absolute;
   min-width: 250px;
   height: 50px;
-  padding: 0.625em 0;
   background: url("/etc/designs/nhmwww/img/logo.png") no-repeat left center;
   background-size: 250px auto;
   text-indent: -9999px;
@@ -6570,6 +6568,7 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .global-header-logo {
     margin-left: 0;
+    top: 5px;
   }
 }
 
@@ -6602,8 +6601,8 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .global-header-info__container {
-    background-color: #FFFFFF;
-    margin: 0 0 10px auto;
+    background: none;
+    margin: 0 0 0 auto;
     padding: 0;
   }
 }
@@ -6638,11 +6637,11 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .global-header-info a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
   .global-header-info a {
     font-size: 1.1rem;
   }
@@ -6669,27 +6668,6 @@ html.js-noScroll {
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .global-header-info .svg-ico {
-    height: 27px;
-    width: 27px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .global-header-info .svg-ico {
-    height: 24px;
-    width: 24px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .global-header-info .svg-ico {
-    height: 28px;
-    width: 28px;
-  }
-}
-
 .nav-list {
   margin-bottom: 0;
   text-align: left;
@@ -6697,14 +6675,9 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .nav-list {
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nav-list {
-    margin-bottom: 15px;
-    line-height: 24px;
+    margin-bottom: 0;
+    height: 100%;
+    padding-top: 2px;
   }
 }
 
@@ -6715,14 +6688,49 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .nav-list__item {
-    display: inline;
+    display: inline-flex;
     margin: 0 15px 0 0;
+    height: 100%;
+  }
+  .nav-list__item:hover, .nav-list__item.menuSelected {
+    border-bottom: none;
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .nav-list__item:hover, .nav-list__item.menuSelected {
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+  }
+  .nav-list__item:hover.link-visit, .nav-list__item.menuSelected.link-visit {
+    border-bottom-color: #A1164E;
+  }
+  .nav-list__item:hover.link-discover, .nav-list__item.menuSelected.link-discover {
+    border-bottom-color: #565656;
+  }
+  .nav-list__item:hover.link-take-part, .nav-list__item.menuSelected.link-take-part {
+    border-bottom-color: #BF491F;
+  }
+  .nav-list__item:hover.link-support-us, .nav-list__item.menuSelected.link-support-us {
+    border-bottom-color: #7F206E;
+  }
+  .nav-list__item:hover.link-shop, .nav-list__item.menuSelected.link-shop {
+    border-bottom-color: #01395E;
+  }
+  .nav-list__item:hover.link-schools, .nav-list__item.menuSelected.link-schools {
+    border-bottom-color: #0983BB;
+  }
+  .nav-list__item:hover.link-our-science, .nav-list__item.menuSelected.link-our-science {
+    border-bottom-color: #357900;
+  }
+  .nav-list__item:hover.link-search, .nav-list__item.menuSelected.link-search {
+    border-bottom-color: #808080;
+  }
+}
+
+@media screen and (min-width: 1160px) {
   .nav-list__item {
-    margin: 0 32px 0 0;
+    margin: 0 30px 0 0;
   }
 }
 
@@ -6751,61 +6759,13 @@ html.js-noScroll {
 }
 
 .nav-list__link {
-  line-height: 1em;
-  padding: 15px 0;
+  padding: 0.53rem 0;
 }
 
 @media screen and (min-width: 768px) {
   .nav-list__link {
-    padding: 0 0 18px 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nav-list__link {
-    padding: 0 0 12px 0;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .nav-list__link {
-    padding: 0 0 10px 0;
-  }
-}
-
-.nav-list__link:hover, .nav-list__link.menuSelected {
-  border-bottom: none;
-  text-decoration: none;
-}
-
-@media screen and (min-width: 768px) {
-  .nav-list__link:hover, .nav-list__link.menuSelected {
-    border-bottom-style: solid;
-    border-bottom-width: 5px;
-  }
-  .nav-list__link:hover.link-visit, .nav-list__link.menuSelected.link-visit {
-    border-bottom-color: #A1164E;
-  }
-  .nav-list__link:hover.link-discover, .nav-list__link.menuSelected.link-discover {
-    border-bottom-color: #565656;
-  }
-  .nav-list__link:hover.link-take-part, .nav-list__link.menuSelected.link-take-part {
-    border-bottom-color: #BF491F;
-  }
-  .nav-list__link:hover.link-support-us, .nav-list__link.menuSelected.link-support-us {
-    border-bottom-color: #7F206E;
-  }
-  .nav-list__link:hover.link-shop, .nav-list__link.menuSelected.link-shop {
-    border-bottom-color: #01395E;
-  }
-  .nav-list__link:hover.link-schools, .nav-list__link.menuSelected.link-schools {
-    border-bottom-color: #0983BB;
-  }
-  .nav-list__link:hover.link-our-science, .nav-list__link.menuSelected.link-our-science {
-    border-bottom-color: #357900;
-  }
-  .nav-list__link:hover.link-search, .nav-list__link.menuSelected.link-search {
-    border-bottom-color: #808080;
+    padding: 0;
+    margin: 0;
   }
 }
 
