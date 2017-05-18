@@ -191,6 +191,10 @@ function createDates(dlg) {
         }
     }
 
+    //Replace needed to remove empty ,,
+    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(',')),
+        newDatesArray = getMixedDatesArray(aggregatedDates);
+
 	for(var i=0; i<currentDatesArray.length; i++) {
         if(Array.isArray(currentDatesArray[i])) {
             var subCurrentDatesArray = [];
@@ -233,9 +237,7 @@ function createDates(dlg) {
         }
     }
 
-    //Replace needed to remove empty ,,
-    var aggregatedDates = removeConflictDates(EventDates.replace(/,,/g,',').split(',')),
-        newDatesArray = getMixedDatesArray(aggregatedDates);
+
     
     //All day
     var tempAllDayArray = [];
@@ -322,9 +324,9 @@ function createDates(dlg) {
                                 var recurSoldOutArray = [];
                                 for(var k=0; k<newDatesArray[i].length; k++) {
                                     var exists = false,
-                                        curDate = newDatesArray[i][k];
+                                        curDate = shortNewDatesArray[i][k];
                                     for(var l=0; l<currentDatesArray[j].length; l++) {
-                                        if(currentDatesArray[j][l] == curDate) {
+                                        if(shortCurrentDatesArray[j][l] == curDate) {
                                             recurSoldOutArray.push(soldOutArray[j][l]);
                                             exists = true;
                                             break;
