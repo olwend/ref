@@ -34,7 +34,6 @@ import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -70,7 +69,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getAll() throws RepositoryException, JSONException {
-		LOG.info("- all - ");
+		LOG.info("- all");
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "all", null);
 
@@ -78,13 +77,62 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
+	
+	@GET
+	@Path("/month/{year}/{month}")
+	@Produces("application/json")
+	@Override
+	public Response getMonth(
+			@PathParam("year") int year,
+			@PathParam("month") String month) throws RepositoryException, JSONException {
+		LOG.info("- month - year=" + year + ", month=" + month);
+		
+		int monthInt = -1;
+		ArrayList<Page> cache = getCache();
+		JSONArray jsonArray;
+		
+		try {
+			monthInt = Integer.parseInt(month);
+		}
+		catch (Exception e) {
+			LOG.error("Exception", e);
+		}
+		
+		if(monthInt > -1) {
+			DateTime dt = new DateTime(year, monthInt, 1, 0, 0);
+			jsonArray = getJSON(cache, "month", dt);
+		} else {
+			month = month.toLowerCase();
+			switch(month) {
+				case "january": monthInt = 1; break;
+				case "february": monthInt = 2; break;
+				case "march": monthInt = 3; break;
+				case "april": monthInt = 4; break;
+				case "may": monthInt = 5; break;
+				case "june": monthInt = 6; break;
+				case "july": monthInt = 7; break;
+				case "august": monthInt = 8; break;
+				case "september": monthInt = 9; break;
+				case "october": monthInt = 10; break;
+				case "november": monthInt = 11; break;
+				case "december": monthInt = 12; break;
+			}
+			
+			DateTime dt = new DateTime(year, monthInt, 1, 0, 0);
+			jsonArray = getJSON(cache, "month", dt);
+		}
+		
+		String s = jsonArray.toString();
 
+		return Response.ok(s, MediaType.APPLICATION_JSON).build();
+	}
+	
 	@GET
 	@Path("/week")
 	@Produces("application/json")
 	@Override
 	public Response getWeek() throws RepositoryException, JSONException  {
-		LOG.info("- week - ");
+		LOG.info("- week");
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "week", null);
 
@@ -104,7 +152,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		
 		DateTime dt = new DateTime(year, month, day, 0, 0);
 		
-		LOG.info("- week by date - ");
+		LOG.info("- week by date - year=" + year + ", month=" + month + ", day=" + day);
 		
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "weekByDate", dt);
@@ -119,7 +167,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	@Produces("application/json")
 	@Override
 	public Response getDay() throws RepositoryException, JSONException  {
-		LOG.info("- day - ");
+		LOG.info("- day");
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "day", null);
 
@@ -139,7 +187,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		
 		DateTime dt = new DateTime(year, month, day, 0, 0);
 		
-		LOG.info("- day by date - ");
+		LOG.info("- day by date - year=" + year + ", month=" + month + ", day=" + day);
 		
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "dayByDate", dt);
@@ -183,7 +231,6 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			}
 		} catch (Exception e) {
 			LOG.error("Exception ", e);
-			LOG.error("test");
 			return null;
 		}
 
@@ -197,13 +244,13 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			for(Page event : events) {
 				JSONObject object = getJsonObject(event, filter, dt);
 				if(object.getJSONArray("dates").length() > 0) {
-					LOG.error(object.getJSONArray("dates").toString());
 					array.put(object);
 				}
 			}
 		}
 		catch (Exception e) {
-			LOG.error(e.getMessage());
+			//Fix this exception logging!
+			//LOG.error("Exception", e);
 		}
 		return array;
 	}
@@ -250,7 +297,19 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 						dateArray.put(object);
 					}
 					break;
-
+					
+				case "month":
+					//All events for a specified month
+					DateTime dtOneMonthDate = dt.plusMonths(1);
+					
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
+							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneMonthDate.withTimeAtStartOfDay())) {
+						object = processDates(matcher, i, dates, times, durations);
+						dateArray.put(object);
+					}
+					break;
+					
 				case "week":
 					//All events for the coming week including the current day
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
@@ -262,7 +321,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					break;
 					
 				case "weekByDate":
-					//All events for the coming week including the current day	
+					//All events for a week-long period with a specified start date
 					DateTime dtOneWeekDate = dt.plusDays(7);
 					
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
@@ -282,7 +341,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					break;
 					
 				case "dayByDate":
-					//All events for the current day					
+					//All events for a specified day				
 					if(eventDate.toDateTimeAtStartOfDay().equals(dt.withTimeAtStartOfDay())) {
 						object = processDates(matcher, i, dates, times, durations);
 						dateArray.put(object);
