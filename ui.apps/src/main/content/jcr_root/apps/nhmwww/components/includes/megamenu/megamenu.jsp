@@ -5,36 +5,45 @@
             <nav class="global-header-bar global-nav-menu">
                 <div class="row">
                     <ul class="nav-list level-1 cf">
-                        <li class="sticky-logo tablet desktop">
-                            <a href="/">
-                              <span class="ir">Natural History Museum</span>
-                            </a>
+                        <li class="nav-list__item link-visit">
+                            <a class="nav-list__link" href="/content/nhmwww/en/home/visit.html">Visit</a>
                         </li>
-                        <li class="nav-list__item first">
-                            <a href="/content/nhmwww/en/home/visit.html">Visit</a>
+                        <li class="nav-list__item link-discover">
+                            <a class="nav-list__link" href="/content/nhmwww/en/home/discover.html">Discover</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/discover.html">Discover</a>
+                        <li class="nav-list__item link-take-part">
+                            <a class="nav-list__link" href="/content/nhmwww/en/home/take-part.html">Take part</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/take-part.html">Take part</a>
+                        <li class="nav-list__item link-support-us">
+                            <a class="nav-list__link" href="/content/nhmwww/en/home/support-us.html">Join and support</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/support-us.html">Join and support</a>
+                        <li class="nav-list__item link-shop">
+                            <a class="nav-list__link" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
+                        <li class="nav-list__item link-schools">
+                            <a class="nav-list__link" href="/content/nhmwww/en/home/schools.html">Schools</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/schools.html">Schools</a>
+                        <li class="nav-list__item link-our-science">
+                            <a class="nav-list__link" href="/content/nhmwww/en/home/our-science.html">Our science</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a href="/content/nhmwww/en/home/our-science.html">Our science</a>
-                        </li>
-                        <li class="nav-list__item utility last">
-                            <a href="#" id="megamenu--search-bar__button" class="nav-icons search">Search</a>
+                        <li class="nav-list__item link-search">
+                            <a class="nav-list__link" href="#" id="megamenu--search-bar__button" >Search</a>
                         </li>
                     </ul>
+                    <div class="global-header-info__container">
+                      <ul class="global-header-info">
+                        <li class="global-header-info__item">
+                          <a href="/visit/getting-here.html">
+                            <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_ticket_small.svg" data-svg-title="icon__ticket" data-alt="Admission" data-base-color="#000000" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-ticket.png"></i>
+                            Hours and admission</a>
+                        </li>
+                        <li class="global-header-info__item">
+                          <a href="/support-us/membership.html">
+                          <i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_s_feature_membership_small.svg" data-svg-title="icon__membership" data-alt="Membership" data-base-color="#000000" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/icons/nav-id.png"></i>
+                          Become a Member</a>
+                        </li>
+                      </ul>
+                    </div>
                 </div>
             </nav>
             <div class="megamenu--search-bar">

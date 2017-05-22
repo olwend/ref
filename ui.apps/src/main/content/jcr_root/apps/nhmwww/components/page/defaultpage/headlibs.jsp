@@ -40,8 +40,19 @@
         <cq:includeClientLib css="nhmwww.main.foundation" />
         <cq:includeClientLib css="nhmwww.main" />
         <!--<![endif]-->
-        <cq:includeClientLib js="cq.jquery" />
+        <!-- START CQ.JQUERY FOR AUTHOR ONLY -->
+        <% if (isOnEditMode || isOnDesignMode) {%>
+        	<cq:includeClientLib css="cq.jquery.ui" />
+        	<cq:includeClientLib js="cq.jquery" />
+         	<cq:includeClientLib js="cq.jquery.ui" />
+        <%}%>
+        <!-- END CQ.JQUERY FOR AUTHOR ONLY -->
+        <!-- START JQUERY 1.11.2 CDN -->
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
+        <!-- END JQUERY 1.11.2 CDN -->
+        <!--  START NHMWWW.MAIN -->
         <cq:includeClientLib js="nhmwww.main" />
+        <!--  END NHMWWW.MAIN -->
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
         <%}%>

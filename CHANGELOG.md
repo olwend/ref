@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.48 - Hypnotic Heron - 11-May-2017
+
+- WR-1008 - Remove cq.jQuery ClientLibrary
+- WR-1040 - Site navigation: adjustments as part of design coherence
+
+## 1.1.47 - Gullible Gull - 27-Apr-2017
+
+- WR-1031 - Create smart app banner for visit page 
+- WR-1041 - Search UI: CSS issues on app pages, Eg. Lichen ID
+- WR-1043 - Footer: change 'Current vacancies' URL to new careers site link 
+- WR-1046 - Dynamic apps: Fix font size of copyright in footer
+
 ## 1.1.46 - Fabulous Flamingo - 19-Apr-2017
 
 - WR-1031 - Create smart app banner for visit page
