@@ -8,6 +8,7 @@
 
 <%
 	final EventScheduleHelper helper = new EventScheduleHelper(resourceResolver, currentPage, properties);
+
 %>
 
 <cq:includeClientLib categories="nhmwww.eventschedule"/>
@@ -54,11 +55,32 @@
                         if(today.before(calDate)) { %>
 	                        <tr>
                                 <% if(loopIndex < 7) { %>
+                                <c:set var="times" value="${fn:split(datesMap[date], ',')}" />
+
                                 <td class="event--schedule--td">${date}</td>
-                                <td class="event--schedule--times">${datesMap[date]}</td>
+                                <td class="event--schedule--times">
+                                    <%if(helper.getOneColumn()) { %>
+                                        <c:forEach var="time" items="${times}" varStatus="loop">
+                                            ${time}<br>
+                                        </c:forEach>
+                                    <% } else { %>
+										${datesMap[date]}
+                                    <% } %>
+                                </td>
+
                                 <% } else { %>
+
                                 <td style="display:none;" class="event--schedule--td">${date}</td>
-                                <td style="display:none;" class="event--schedule--times">${datesMap[date]}</td>
+                                <td style="display:none;" class="event--schedule--times">
+                                    <%if(helper.getOneColumn()) { %>
+                                        <c:forEach var="time" items="${times}" varStatus="loop">
+                                            ${time}<br>
+                                        </c:forEach>
+                                    <% } else { %>
+										${datesMap[date]}
+                                    <% } %>
+                                </td>
+
                                 <% } %>
 	                        </tr>
                         <% loopIndex++;
