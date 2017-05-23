@@ -6557,6 +6557,7 @@ html.js-noScroll {
 
 .global-header-logo {
   position: absolute;
+  float: left;
   min-width: 250px;
   height: 50px;
   background: url("/etc/designs/nhmwww/img/logo.png") no-repeat left center;
