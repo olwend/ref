@@ -6736,13 +6736,14 @@ html.js-noScroll {
 }
 
 .nav-list__link {
-  padding: 0.53rem 0;
+  padding: 10px 0;
+  line-height: 2rem;
 }
 
 @media screen and (min-width: 768px) {
   .nav-list__link {
-    padding: 0;
-    margin: 0;
+    padding: 5px 0;
+    line-height: inherit;
   }
 }
 
