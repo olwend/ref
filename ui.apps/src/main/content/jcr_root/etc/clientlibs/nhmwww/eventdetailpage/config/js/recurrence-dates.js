@@ -319,9 +319,9 @@ function createDates(dlg) {
                         //Compare dates in recurrences to find added/removed/re-ordered
                         if(Array.isArray(shortNewDatesArray[i])) {
 							var isRecurDatesEqual = testArraysEqual(currentDatesArray[j], newDatesArray[i]);
+							var recurSoldOutArray = [];
 
                             if(!isRecurDatesEqual) {
-                                var recurSoldOutArray = [];
                                 for(var k=0; k<newDatesArray[i].length; k++) {
                                     var exists = false,
                                         curDate = shortNewDatesArray[i][k];
@@ -342,7 +342,7 @@ function createDates(dlg) {
                                     }
                                 }
                             }
-                            soldOutArray[j] = recurSoldOutArray;
+                            if(recurSoldOutArray != undefined && recurSoldOutArray.length > 0) soldOutArray[j] = recurSoldOutArray;
                         }
 
                         newSoldOutArray.push(soldOutArray[j]);
