@@ -53,6 +53,13 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 	private static final Logger LOG = LoggerFactory.getLogger(EventsCalendarRestServiceImpl.class);
 
+	private static final String ADDRESS_LOCALITY = "London";
+	private static final String ADDRESS_REGION = "United Kingdom";
+	private static final String POSTAL_CODE = "SW7 5BD";
+	private static final String STREET_ADDRESS = "Cromwell Road";
+	private static final String LOCATION_NAME = "Natural History Museum";
+	private static final String LOCATION_URL = "http://www.nhm.ac.uk";
+	
 	@Reference
 	private SlingRepository repository;
 
@@ -353,7 +360,10 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			}
 		}
 
-		jsonObject.put("title", properties.get("jcr:eventTitle", String.class));
+		jsonObject.put("@context", "http://schema.org");
+		jsonObject.put("@type", "Event");
+		jsonObject.put("location", getLocationJsonObject());
+		jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
 		jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
 		jsonObject.put("dates", (Object)dateArray);
 
@@ -381,5 +391,23 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
 
 		return object;
+	}
+	
+	private JSONObject getLocationJsonObject() throws JSONException {
+		JSONObject locationObject = new JSONObject();
+		
+		JSONObject addressObject = new JSONObject();
+		addressObject.put("@type", "PostalAddress");
+		addressObject.put("addressLocality", ADDRESS_LOCALITY);
+		addressObject.put("addressRegion", ADDRESS_REGION);
+		addressObject.put("postalCode", POSTAL_CODE);
+		addressObject.put("streetAddress", STREET_ADDRESS);
+
+		locationObject.put("@type", "Place");
+		locationObject.put("name", LOCATION_NAME);
+		locationObject.put("url", LOCATION_URL);
+		locationObject.put("address", addressObject);
+		
+		return locationObject;
 	}
 }
