@@ -36,6 +36,7 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
+import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
@@ -359,7 +360,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 							jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
 							jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
 							
-							LocalDate dt1 = dateFormatter.parseLocalDate(matcher.group(0));
+							DateTime dt1 = dateFormatter.parseDateTime(matcher.group(0));
 							
 							String t = time[j].replaceAll("\\[|\"|\\]|\\\\", "");
 							
@@ -367,10 +368,16 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 								jsonObject.put("startDate", dt1.toString());
 								jsonObject.put("endDate", dt1.toString());
 							} else {
-								jsonObject.put("startDate", dt1.toString() + "T" + t);
-								LocalTime localTime = new LocalTime(Integer.valueOf(t.split(":")[0]), Integer.valueOf(t.split(":")[1]));
-								LocalDate localDate = new LocalDate();
-								localTime.plusMinutes(Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
+								jsonObject.put("startDate", dt1.toString() + "T" + t);						
+								int z = Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")).intValue();
+								MutableDateTime mdt = dt1.toMutableDateTime();
+								
+								mdt.setHourOfDay(Integer.valueOf(t.split(":")[0]));
+								mdt.setMinuteOfHour(Integer.valueOf(t.split(":")[1]));
+								DateTime dt2 = mdt.toDateTime();
+								LOG.error(mdt.toString());
+								
+								jsonObject.put("endDate", dt1.toString());
 							}
 							
 							dateArray.put(jsonObject);
