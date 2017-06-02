@@ -35,6 +35,7 @@ import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
@@ -249,9 +250,11 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		try {
 			for(Page event : events) {
-				JSONObject object = getJsonObject(event, filter, dt);
-				if(object.getJSONArray("dates").length() > 0) {
-					array.put(object);
+				JSONArray array2 = getJsonObject(event, filter, dt);
+				if(!array2.isNull(0)) {
+					for(int i=0; i<array2.length(); i++) {
+						array.put(array2.get(i));
+					}
 				}
 			}
 		}
@@ -262,8 +265,8 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		return array;
 	}
 
-	private JSONObject getJsonObject(Page event, String filter, DateTime dt) throws LoginException, JSONException, ParseException {
-		JSONObject jsonObject = new JSONObject();
+	private JSONArray getJsonObject(Page event, String filter, DateTime dt) throws LoginException, JSONException, ParseException {
+		
 
 		final Map<String, Object> param = new HashMap<String, Object>();
 		param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
@@ -279,95 +282,118 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		JSONArray dateArray = new JSONArray();
 
 		for(int i=0; i<dates.length; i++) {
-			JSONObject object = new JSONObject();
+			//JSONObject object = new JSONObject();
+			
 
 			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :]+00");
 			Matcher matcher = pattern.matcher(dates[i]);
 
 			//Get today's date as object for comparing with later...
 			LocalDate currentDate = new LocalDate();
-
-			//Get date for one week away
-			LocalDate oneWeekDate = currentDate.plusDays(7);
-
+//
+//			//Get date for one week away
+//			LocalDate oneWeekDate = currentDate.plusDays(7);
+//
 			if(matcher.find()) {
 				//Get date object for event
 				DateTimeFormatter formatter = DateTimeFormat.forPattern("E MMM d yyyy HH:mm:ss");
 				LocalDate eventDate = formatter.parseLocalDate((matcher.group(0)));				
 
 				switch(filter) {
-				case "all": 
-					//All future events
-					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay())
-							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))) {
-						object = processDates(matcher, i, dates, times, durations);
-						dateArray.put(object);
-					}
-					break;
-					
-				case "month":
-					//All events for a specified month
-					DateTime dtOneMonthDate = dt.plusMonths(1);
-					
-					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
-							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
-							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneMonthDate.withTimeAtStartOfDay())) {
-						object = processDates(matcher, i, dates, times, durations);
-						dateArray.put(object);
-					}
-					break;
-					
-				case "week":
-					//All events for the coming week including the current day
-					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
-							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
-							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
-						object = processDates(matcher, i, dates, times, durations);
-						dateArray.put(object);
-					}
-					break;
-					
-				case "weekByDate":
-					//All events for a week-long period with a specified start date
-					DateTime dtOneWeekDate = dt.plusDays(7);
-					
-					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
-							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
-							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneWeekDate.withTimeAtStartOfDay())) {
-						object = processDates(matcher, i, dates, times, durations);
-						dateArray.put(object);
-					}
-					break;
-
+//				case "all": 
+//					//All future events
+//					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay())
+//							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))) {
+//						object = processDates(matcher, i, dates, times, durations);
+//						dateArray.put(object);
+//					}
+//					break;
+//					
+//				case "month":
+//					//All events for a specified month
+//					DateTime dtOneMonthDate = dt.plusMonths(1);
+//					
+//					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
+//							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
+//							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneMonthDate.withTimeAtStartOfDay())) {
+//						object = processDates(matcher, i, dates, times, durations);
+//						dateArray.put(object);
+//					}
+//					break;
+//					
+//				case "week":
+//					//All events for the coming week including the current day
+//					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
+//							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
+//							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
+//						object = processDates(matcher, i, dates, times, durations);
+//						dateArray.put(object);
+//					}
+//					break;
+//					
+//				case "weekByDate":
+//					//All events for a week-long period with a specified start date
+//					DateTime dtOneWeekDate = dt.plusDays(7);
+//					
+//					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
+//							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
+//							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneWeekDate.withTimeAtStartOfDay())) {
+//						object = processDates(matcher, i, dates, times, durations);
+//						dateArray.put(object);
+//					}
+//					break;
+//
 				case "day":
 					//All events for the current day
 					if(eventDate.toDateTimeAtStartOfDay().equals(currentDate.toDateTimeAtStartOfDay())) {
-						object = processDates(matcher, i, dates, times, durations);
-						dateArray.put(object);
+						int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
+						String[] time = times[x].split(",");
+						
+						for(int j=0; j<time.length; j++) {
+							JSONObject jsonObject = new JSONObject();
+							DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("E MMM d yyyy HH:mm:ss");
+							
+							jsonObject.put("@context", "http://schema.org");
+							jsonObject.put("@type", "Event");
+							jsonObject.put("location", getLocationJsonObject());
+							jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
+							jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
+							
+							LocalDate dt1 = dateFormatter.parseLocalDate(matcher.group(0));
+							
+							String t = time[j].replaceAll("\\[|\"|\\]|\\\\", "");
+							
+							if(t.equals("")) {
+								jsonObject.put("startDate", dt1.toString());
+								jsonObject.put("endDate", dt1.toString());
+							} else {
+								jsonObject.put("startDate", dt1.toString() + "T" + t);
+								LocalTime localTime = new LocalTime(Integer.valueOf(t.split(":")[0]), Integer.valueOf(t.split(":")[1]));
+								LocalDate localDate = new LocalDate();
+								localTime.plusMinutes(Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
+							}
+							
+							dateArray.put(jsonObject);
+						}
 					}
 					break;
 					
-				case "dayByDate":
-					//All events for a specified day				
-					if(eventDate.toDateTimeAtStartOfDay().equals(dt.withTimeAtStartOfDay())) {
-						object = processDates(matcher, i, dates, times, durations);
-						dateArray.put(object);
-					}
-					break;
-				}
-			} else {
-				object.put("date", dates[i]);
-			}
-		}
+//				case "dayByDate":
+//					//All events for a specified day				
+//					if(eventDate.toDateTimeAtStartOfDay().equals(dt.withTimeAtStartOfDay())) {
+//						object = processDates(matcher, i, dates, times, durations);
+//						dateArray.put(object);
+//					}
+//					break;
+//				}
+//			} else {
+//				object.put("date", dates[i]);
+//			}
+		}}}
 
-		jsonObject.put("@context", "http://schema.org");
-		jsonObject.put("@type", "Event");
-		jsonObject.put("location", getLocationJsonObject());
-		jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
-		jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
-		jsonObject.put("dates", (Object)dateArray);
+		
 
-		return jsonObject;
+		return dateArray;
 	}
 
 	private JSONObject processDates(Matcher matcher, int index, String[] dates, String[] times, String[] durations) throws JSONException {
