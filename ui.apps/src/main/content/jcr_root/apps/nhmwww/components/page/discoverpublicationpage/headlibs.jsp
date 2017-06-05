@@ -30,7 +30,6 @@
         Design Mode is <% if (isOnDesignMode) {%>on<%} else {%>off<%}%>
         Preview Mode is <% if (isOnPreviewMode) {%>on<%} else {%>off<%}%>
          -->
-        <script>dataLayer = [];</script>
         
 		<script>dataLayer = [];</script>
 		<!-- Google Tag Manager -->
