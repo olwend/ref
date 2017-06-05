@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+		xtype="tabpanel">
+        
+        <items jcr:primaryType="cq:WidgetCollection">
+            <Basic
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_basic.infinity.json"
+                xtype="cqinclude"/>
+            <Advanced
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_advanced.infinity.json"
+                xtype="cqinclude"/>
+            <Image
+                jcr:primaryType="cq:Widget"
+                path="/libs/foundation/components/page/tab_image.infinity.json"
+                xtype="cqinclude"/>
+            <SmartAppBanner
+            	jcr:primaryType="cq:Widget"
+                title="Smart App Banner"
+                xtype="panel">
+            	<items jcr:primaryType="cq:WidgetCollection">
+            		<usebanner
+            			jcr:primaryType="cq:Widget"
+            			name="./usebanner"
+            			type="checkbox"
+            			xtype="selection"
+            			checked="false"
+	                    defaultValue="{Boolean}false"
+            			fieldLabel="Use banner"/>
+            	</items>
+           	</SmartAppBanner>
+           	<Content
+            	jcr:primaryType="cq:Widget"
+                title="Content"
+                xtype="panel">
+            	<items jcr:primaryType="cq:WidgetCollection">
+            		<iframe
+            			jcr:primaryType="cq:Widget"
+            			name="./useiframe"
+            			type="checkbox"
+            			xtype="selection"
+            			checked="false"
+	                    defaultValue="{Boolean}false"
+            			fieldLabel="Use iframe">
+            			<listeners
+            				jcr:primaryType="nt:unstructured"
+            				selectionchanged="function(comp, val, isChecked) {
+					        	var dlg = comp.findParentByType('dialog'); var textfield = dlg.getField('./iframesource'); isChecked ? textfield.enable() : textfield.disable();
+					    		}" />
+          			</iframe>
+           			<iframesource
+	                    jcr:primaryType="cq:Widget"
+	                    name="./iframesource"
+	                    xtype="textfield" 
+	                    fieldLabel="iframe URL"/>
+            	</items>
+           	</Content>
+        </items>
+        
+    </items>
+    
+</jcr:root>
