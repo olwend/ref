@@ -370,14 +370,18 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 							} else {
 								jsonObject.put("startDate", dt1.toString() + "T" + t);						
 								int z = Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")).intValue();
-								MutableDateTime mdt = dt1.toMutableDateTime();
+								MutableDateTime mdt1 = dt1.toMutableDateTime();
+								MutableDateTime mdt2 = dt1.toMutableDateTime();
 								
-								mdt.setHourOfDay(Integer.valueOf(t.split(":")[0]));
-								mdt.setMinuteOfHour(Integer.valueOf(t.split(":")[1]));
-								DateTime dt2 = mdt.toDateTime();
-								LOG.error(mdt.toString());
+								mdt1.setHourOfDay(Integer.valueOf(t.split(":")[0]));
+								mdt1.setMinuteOfHour(Integer.valueOf(t.split(":")[1]));
+								mdt1.addMinutes(z);
 								
-								jsonObject.put("endDate", dt1.toString());
+								if(mdt1.getDayOfYear() > mdt2.getDayOfYear()){
+									
+								} else {
+									jsonObject.put("endDate", dt1.toString() + "T" + t);
+								}								
 							}
 							
 							dateArray.put(jsonObject);
