@@ -44,7 +44,6 @@
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
         <%}%>
-        <script>dataLayer = [];</script>
         
 		<script>dataLayer = [];</script>
 		<!-- Google Tag Manager -->
