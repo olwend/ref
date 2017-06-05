@@ -7,8 +7,10 @@
 <%@include file="/libs/foundation/global.jsp" %>
 
 <%
-	final EventScheduleHelper helper = new EventScheduleHelper(resourceResolver, currentPage);
+	final EventScheduleHelper helper = new EventScheduleHelper(resourceResolver, currentPage, properties);
+
 %>
+
 <cq:includeClientLib categories="nhmwww.eventschedule"/>
 <c:set var="eventType" value="<%= helper.getEventType() %>" />
 <c:set var="sortedDates" value="<%= helper.getSortedDates() %>" />
@@ -19,8 +21,8 @@
             <table id="datesTable" class="small-12 medium-12 large-12">
                 <thead>
                     <tr>
-                        <td class="small-5 medium-5 large-3 event--schedule--td event--schedule--title">Event dates</td>
-                        <td class="small-7 medium-7 large-9  event--schedule--td event--schedule--title"></td>
+                        <td class="<%if(helper.getOneColumn()) {%>small-7 medium-8 large-6<% } else {%>small-7 medium-5 large-3<% } %> event--schedule--td event--schedule--title">Event dates</td>
+                        <td class="<%if(helper.getOneColumn()) {%>small-5 medium-4 large-6<% } else {%>small-5 medium-7 large-9<% } %> event--schedule--td event--schedule--title"></td>
 
                     </tr>
                 </thead>
@@ -53,11 +55,32 @@
                         if(today.before(calDate)) { %>
 	                        <tr>
                                 <% if(loopIndex < 7) { %>
+                                <c:set var="times" value="${fn:split(datesMap[date], ',')}" />
+
                                 <td class="event--schedule--td">${date}</td>
-                                <td class="event--schedule--times">${datesMap[date]}</td>
+                                <td class="event--schedule--times">
+                                    <%if(helper.getOneColumn()) { %>
+                                        <c:forEach var="time" items="${times}" varStatus="loop">
+                                            ${time}<br>
+                                        </c:forEach>
+                                    <% } else { %>
+										${datesMap[date]}
+                                    <% } %>
+                                </td>
+
                                 <% } else { %>
+
                                 <td style="display:none;" class="event--schedule--td">${date}</td>
-                                <td style="display:none;" class="event--schedule--times">${datesMap[date]}</td>
+                                <td style="display:none;" class="event--schedule--times">
+                                    <%if(helper.getOneColumn()) { %>
+                                        <c:forEach var="time" items="${times}" varStatus="loop">
+                                            ${time}<br>
+                                        </c:forEach>
+                                    <% } else { %>
+										${datesMap[date]}
+                                    <% } %>
+                                </td>
+
                                 <% } %>
 	                        </tr>
                         <% loopIndex++;

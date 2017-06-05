@@ -1,0 +1,3 @@
+#base=css
+vendor/smartbanner.css
+smartbanner-nhm.css
