@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.51 - Kingly Kookaburra - 1-Jun-2017
+- WR-1048 - Remove Google Tag Manager code sitewide
+- WR-1057 - Enable sub-landing page and NHM content page templates to be used in Discover
+B WR-960 - Events Calendar 'sold out': array initialisation bug fix
+
+## 1.1.50 - Jolly Jabiru - 25-May-2017
+- WR-1059 - Remove gap between logo and nav (in AEM Author only)
+- WR-1045 - Event dates component: Make layout tweaks to enable use in sidebar
+- WR-960 - Events Calendar: individual events cannot be marked 'sold out'
+- WR-1056 - Site nav: Fix alignment issue on Dino Directory mobile and tablet
+
 ## 1.1.49 - Invisible 'I'iwi - 18-May-2017
 - WR-1049 - Font size, line height reset for Dynamic Apps
 - WR-1051 - Nav menu icon doesn't appear in Internet Explorer
