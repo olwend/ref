@@ -29,30 +29,6 @@
                     jcr:primaryType="cq:Widget"
                     path="/apps/nhmwww/components/page/eventdetailpage/tab_science.infinity.json"
                     xtype="cqinclude"/>
-                <basic
-                    jcr:primaryType="cq:Widget"
-                    path="/libs/foundation/components/page/tab_basic.infinity.json"
-                    xtype="cqinclude"/>
-                <advanced
-                    jcr:primaryType="cq:Widget"
-                    path="/libs/foundation/components/page/tab_advanced.infinity.json"
-                    xtype="cqinclude"/>
-                <image
-                    jcr:primaryType="cq:Widget"
-                    path="/libs/foundation/components/page/tab_image.infinity.json"
-                    xtype="cqinclude"/>
-                <cloudservices
-                    jcr:primaryType="cq:Widget"
-                    path="/libs/foundation/components/page/tab_cloudservices.infinity.json"
-                    xtype="cqinclude"/>
-                <blueprint
-                    jcr:primaryType="cq:Widget"
-                    path="/libs/foundation/components/page/tab_blueprint.infinity.json"
-                    xtype="cqinclude"/>
-                <livecopy
-                    jcr:primaryType="cq:Widget"
-                    path="/libs/foundation/components/page/tab_livecopy.infinity.json"
-                    xtype="cqinclude"/>
             </items>
         </tabs>
     </items>
