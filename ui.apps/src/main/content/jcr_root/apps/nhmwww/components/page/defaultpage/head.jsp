@@ -46,5 +46,4 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="<%= xssAPI.getValidHref(favIcon) %>"<%=xs%>>
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="<%= xssAPI.getValidHref(favIcon) %>"<%=xs%>>
     <% } %>
-    <cq:includeClientLib categories="nhmwww.youtubefluid" />
 </head>
