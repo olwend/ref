@@ -6703,30 +6703,6 @@ html.js-noScroll {
     border-bottom-style: solid;
     border-bottom-width: 5px;
   }
-  .nav-list__item:hover.link-visit, .nav-list__item.menuSelected.link-visit {
-    border-bottom-color: #A1164E;
-  }
-  .nav-list__item:hover.link-discover, .nav-list__item.menuSelected.link-discover {
-    border-bottom-color: #565656;
-  }
-  .nav-list__item:hover.link-take-part, .nav-list__item.menuSelected.link-take-part {
-    border-bottom-color: #BF491F;
-  }
-  .nav-list__item:hover.link-support-us, .nav-list__item.menuSelected.link-support-us {
-    border-bottom-color: #7F206E;
-  }
-  .nav-list__item:hover.link-shop, .nav-list__item.menuSelected.link-shop {
-    border-bottom-color: #01395E;
-  }
-  .nav-list__item:hover.link-schools, .nav-list__item.menuSelected.link-schools {
-    border-bottom-color: #0983BB;
-  }
-  .nav-list__item:hover.link-our-science, .nav-list__item.menuSelected.link-our-science {
-    border-bottom-color: #357900;
-  }
-  .nav-list__item:hover.link-search, .nav-list__item.menuSelected.link-search {
-    border-bottom-color: #808080;
-  }
 }
 
 @media screen and (min-width: 1160px) {
@@ -6760,13 +6736,14 @@ html.js-noScroll {
 }
 
 .nav-list__link {
-  padding: 0.53rem 0;
+  padding: 10px 0;
+  line-height: 2rem;
 }
 
 @media screen and (min-width: 768px) {
   .nav-list__link {
-    padding: 0;
-    margin: 0;
+    padding: 5px 0;
+    line-height: inherit;
   }
 }
 
@@ -8186,6 +8163,96 @@ input.searchGo {
 }
 
 /** FOOTER PARTIAL - MERGED **/
+/** IMMERSIVE HEADER PARTIAL **/
+.immersive-header {
+  height: 75px;
+  color: #FFFFFF;
+  background-color: #000000;
+  margin-bottom: 20px;
+}
+
+.immersive-header .row {
+  padding: 0 40px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.immersive-header-logo {
+  position: absolute;
+  float: left;
+  min-width: 250px;
+  height: 50px;
+  background: url("/etc/designs/nhmwww/img/nhm-logo-one-line-white.png") no-repeat left center;
+  background-size: 250px auto;
+  text-indent: -9999px;
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .immersive-header-logo {
+    margin-left: 0;
+    top: 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-header-logo {
+    width: 335px;
+    background-size: auto auto;
+  }
+}
+
+/** IMMERSIVE FOOTER PARTIAL **/
+.immersive-footer {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  height: 75px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: #FFFFFF;
+  background-color: #000000;
+}
+
+.immersive-footer .row {
+  padding: 0 40px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.immersive-footer a {
+  color: #FFFFFF;
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+.immersive-footer a:hover {
+  text-decoration: none;
+}
+
+.immersive-footer ul {
+  margin: 25px 0;
+}
+
+.immersive-footer ul li {
+  display: inline;
+  padding-left: 40px;
+}
+
+.immersive-footer ul li:first-child {
+  padding-left: 0;
+}
+
+.immersive-footer-social {
+  float: left;
+}
+
+.immersive-footer-social a {
+  border-bottom: none;
+}
+
+.immersive-footer-links {
+  float: right;
+}
+
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -8739,6 +8806,11 @@ input.searchGo {
   color: #565656;
 }
 
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-discover, .nav-list__item.menuSelected.link-discover {
+  border-bottom-color: #565656;
+}
+
 /** HOME THEME PARTIAL **/
 .home a {
   color: #A1164E;
@@ -8914,6 +8986,11 @@ input.searchGo {
 
 .our-science .event--schedule--wrapper .event--schedule--tbody {
   color: #357900;
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-our-science, .nav-list__item.menuSelected.link-our-science {
+  border-bottom-color: #357900;
 }
 
 /** PRESS OFFICE THEME PARTIAL **/
@@ -9214,9 +9291,19 @@ input.searchGo {
   color: #0983BB;
 }
 
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-schools, .nav-list__item.menuSelected.link-schools {
+  border-bottom-color: #0983BB;
+}
+
 /** SEARCH THEME PARTIAL **/
 .search .title-bar {
   background-color: #808080;
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-search, .nav-list__item.menuSelected.link-search {
+  border-bottom-color: #808080;
 }
 
 /** SUPPORT-US THEME PARTIAL **/
@@ -9342,6 +9429,11 @@ input.searchGo {
   color: #7F206E;
 }
 
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-support-us, .nav-list__item.menuSelected.link-support-us {
+  border-bottom-color: #7F206E;
+}
+
 /** TAKE-PART THEME PARTIAL **/
 .take-part {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -9463,6 +9555,11 @@ input.searchGo {
 
 .take-part .event-slide-content a {
   color: #BF491F;
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-take-part, .nav-list__item.menuSelected.link-take-part {
+  border-bottom-color: #BF491F;
 }
 
 /** VISIT THEME PARTIAL **/
@@ -9606,4 +9703,9 @@ input.searchGo {
 
 .visit .event--schedule--wrapper .event--schedule--tbody {
   color: #A1164E;
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.nav-list__item:hover.link-visit, .nav-list__item.menuSelected.link-visit {
+  border-bottom-color: #A1164E;
 }
