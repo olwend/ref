@@ -51,7 +51,6 @@
 		<!-- End Google Tag Manager -->
         
         <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-        <cq:includeClientLib css="nhm-www.profilelisting" />
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
         
          <cq:includeClientLib categories="nhm-www.sciencelist" />
