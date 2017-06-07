@@ -24,7 +24,7 @@
 	<cq:include script="footer.jsp"/>
 	
 	
-	<%if(!request.getServerName().equals("nhm.ac.uk")) {%>
+	<%if(request.getServerName().equals("localhost")) {%>
 	<!-- Inject BrowserSync JS for localhost build environment. Does not load for live sites. Handles auto reload of local AEM instances -->
 		<cq:includeClientLib js="nhmwww.aembrowsersync" />		
 	<%} %>
