@@ -55,12 +55,13 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 	private static final Logger LOG = LoggerFactory.getLogger(EventsCalendarRestServiceImpl.class);
 
-	private static final String ADDRESS_LOCALITY = "London";
-	private static final String ADDRESS_REGION = "United Kingdom";
+	private static final String ADDRESS_LOCALITY = "South Kensington";
+	private static final String ADDRESS_REGION = "London";
 	private static final String POSTAL_CODE = "SW7 5BD";
 	private static final String STREET_ADDRESS = "Cromwell Road";
 	private static final String LOCATION_NAME = "Natural History Museum";
-	private static final String LOCATION_URL = "http://www.nhm.ac.uk";
+	private static final String LOCATION_URL = "http://www.nhm.ac.uk/whats-on.html";
+	private static final String BASE_URL = "http://www.nhm.ac.uk";
 	
 	@Reference
 	private SlingRepository repository;
@@ -279,6 +280,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		String[] dates = properties.get("jcr:datesRecurrence", String.class).split(",");
 		String[] times = properties.get("jcr:timesRecurrence", String.class).split("\\],\\[");
 		String[] durations = properties.get("jcr:durationsRecurrence", String.class).split(",");
+		String imageUrl = properties.get("fileReference", String.class);
 
 		JSONArray dateArray = new JSONArray();
 
@@ -359,6 +361,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 							jsonObject.put("location", getLocationJsonObject());
 							jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
 							jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
+							jsonObject.put("image", BASE_URL + imageUrl);
 							
 							DateTime dt1 = dateFormatter.parseDateTime(matcher.group(0));
 							
