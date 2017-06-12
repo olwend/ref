@@ -555,7 +555,7 @@ function removeConflictDates(eventDates) {
     var toRemoveIndex = [];
     
     //Removes the empty values
-    eventDates = eventDates.filter(date => date !== '');
+    eventDates = eventDates.filter(date >= date !== "");
 
     toRemoveIndex = getIndexToRemove(getSingleItemsIndex(eventDates), eventDates);
 
