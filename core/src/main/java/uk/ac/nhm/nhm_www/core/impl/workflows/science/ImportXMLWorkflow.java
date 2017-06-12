@@ -138,12 +138,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			}
 		}*/
 
-        //this.xmlPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM\\";
-        //this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
+        this.xmlPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM\\";
+        this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
         
-        this.xmlPath = "C:\\science-profiles\\NHM\\";
-        this.imagesPath = "C:\\science-profiles\\NHM-images\\";
-		
         this.contentPath = "/content/nhmwww/en/home/our-science/departments-and-staff/staff-directory";
         this.damPath = "/content/dam/nhmwww/our-science/dpts-facilities-staff/staff-directory/";
         
