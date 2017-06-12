@@ -139,18 +139,12 @@
 							<cssSourceIncludes>
 								<cssSourceInclude>**/*.css</cssSourceInclude>
 							</cssSourceIncludes>
-							<cssSourceExcludes>
-								<cssSourceExclude>**/*.min.css</cssSourceExclude>
-							</cssSourceExcludes>
 							<cssTargetDir>clientlibs</cssTargetDir>
 							
 							<jsSourceDir>src/main/content/jcr_root/etc/clientlibs/</jsSourceDir>
 							<jsSourceIncludes>
 								<jsSourceInclude>**/*.js</jsSourceInclude>
 							</jsSourceIncludes>
-							<jsSourceExcludes>
-								<jsSourceExclude>**/*.min.js</jsSourceExclude>
-							</jsSourceExcludes>
 							<jsTargetDir>clientlibs</jsTargetDir>
 						</configuration>
 						<goals>
