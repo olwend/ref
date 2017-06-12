@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.52 - Laughing Limpkin - 8-Jun-2017
+- WR-1063 - Smart banner for app download: fix display issues on tablet
+- WR-1065 - Google Analytics: remove duplicate datalayer script tags
+- WR-1061 - Remove sitewide references to conditional IE8 CSS files
+- WR-1062 - Remove references to empty clientlibs files
+- WR-1060 - Tidy up header SASS file and theming
+
 ## 1.1.51 - Kingly Kookaburra - 1-Jun-2017
 - WR-1048 - Remove Google Tag Manager code sitewide
 - WR-1057 - Enable sub-landing page and NHM content page templates to be used in Discover
