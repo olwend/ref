@@ -54,7 +54,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .GreyBox,
 .contact-us .GreyBox,
 .shop .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
   padding: 1.5em;
 }
@@ -98,10 +98,10 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .BlackBox,
 .contact-us .BlackBox,
 .shop .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
-  padding: 1.0em;
-  padding: 2.0em;
+  padding: 1em;
+  padding: 2em;
 }
 .visit .BlackBox a,
 .take-part .BlackBox a,
@@ -143,7 +143,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .feature-box,
 .contact-us .feature-box,
 .shop .feature-box {
-  padding: 2.0em;
+  padding: 2em;
 }
 .visit .feature-box h2, .visit .feature-box h3, .visit .feature-box a, .visit .feature-box p, .visit .feature-box li,
 .take-part .feature-box h2,
@@ -215,9 +215,9 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .aside-box,
 .contact-us .aside-box,
 .shop .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
-  padding: 2.0em;
+  padding: 2em;
 }
 .visit .aside-box h2, .visit .aside-box h3, .visit .aside-box a, .visit .aside-box p, .visit .aside-box li,
 .take-part .aside-box h2,
@@ -289,7 +289,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 .business-services .bottom-banner,
 .contact-us .bottom-banner,
 .shop .bottom-banner {
-  padding: 1.0em 1.5em;
+  padding: 1em 1.5em;
 }
 .visit .bottom-banner h2,
 .take-part .bottom-banner h2,
@@ -586,11 +586,11 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: rgba(9, 131, 187, 0.8);
 }
 .visit .GreyBox {
-  padding: 1.0em;
-  padding: 2.0em;
+  padding: 1em;
+  padding: 2em;
 }
 .visit .audience {
-  padding: 1.0em 0;
+  padding: 1em 0;
 }
 .visit .info-tout__action.visit-exhibitions {
   background-color: #ffffff;
@@ -1034,14 +1034,14 @@ CSS files should not be edited directly, as those edits will be overridden next 
   color: #565656;
 }
 .our-science .aside-box {
-  padding: 1.0em 1.5em;
-  padding: 1.2em 2.0em;
+  padding: 1em 1.5em;
+  padding: 1.2em 2em;
 }
 .our-science .aside-box h2 {
   font-size: 1.8em;
 }
 .our-science .bottom-banner {
-  padding: 2.0em;
+  padding: 2em;
 }
 
 .support-us h1, .support-us a, .support-us a:hover {
@@ -7852,10 +7852,10 @@ a:hover {
 }
 
 p {
-  font-size: 1.0em;
+  font-size: 1em;
   line-height: 1.5em;
-  margin-bottom: 1.0em;
-  font-size: 1.0em;
+  margin-bottom: 1em;
+  font-size: 1em;
 }
 
 h1 {
@@ -8940,8 +8940,8 @@ input.question {
 }
 
 .bottom-banner {
-  padding: 1.0em;
-  padding: 2.0em;
+  padding: 1em;
+  padding: 2em;
 }
 .bottom-banner h2 {
   color: #ffffff;
@@ -8996,7 +8996,7 @@ input.question {
 .caption {
   color: #565656;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.0em;
+  font-size: 1em;
   max-width: 100%;
   bottom: 0;
   width: 100%;
@@ -10992,7 +10992,7 @@ table.gssb_c {
   padding: 40px;
 }
 .main-section.science-profile .profile-info {
-  padding: 2.0em;
+  padding: 2em;
 }
 
 body {
