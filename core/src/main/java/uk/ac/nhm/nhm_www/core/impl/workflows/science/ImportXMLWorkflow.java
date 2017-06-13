@@ -141,6 +141,10 @@ public class ImportXMLWorkflow implements WorkflowProcess {
         this.xmlPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM\\";
         this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
         
+        //Local testing - alisp2
+//        this.xmlPath = "C:\\science-profiles\\NHM\\";
+//        this.imagesPath = "C:\\science-profiles\\NHM-images\\";
+        
         this.contentPath = "/content/nhmwww/en/home/our-science/departments-and-staff/staff-directory";
         this.damPath = "/content/dam/nhmwww/our-science/dpts-facilities-staff/staff-directory/";
         
@@ -1899,6 +1903,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		final Node jcrContentNode = profileNode.addNode(JcrConstants.JCR_CONTENT, "cq:PageContent");
 		jcrContentNode.setProperty("sling:resourceType", SCIENCE_PROFILE_PAGE_RESOURCE_TYPE);
 		jcrContentNode.setProperty(JcrConstants.JCR_TITLE, titleOutput + firstNameOutput + " " + profile.getObject().getLastName());
+		jcrContentNode.setProperty("pageTitle", titleOutput + firstNameOutput + " " + profile.getObject().getLastName());
 		
 		// Node : personalInformation
 		final Node personalInfo = jcrContentNode.addNode(ScientistProfileHelper.PERSONAL_INFORMATION_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
@@ -1966,19 +1971,16 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		}
 		
 		String departmentName = department.getProperty(ScientistProfileHelper.NAME_ATTRIBUTE).getString();
-		departmentName = departmentName + " Department";
+		if(department.equals("Life Sciences") || department.equals("Earth Sciences")) {
+			departmentName = departmentName + " Department";
+		}
 		
 		String specialismsString = "";
 		if(personalInfo.hasProperty(ScientistProfileHelper.SPECIALISMS_ATTRIBUTE)) {
 			Value[] specialisms = personalInfo.getProperty(ScientistProfileHelper.SPECIALISMS_ATTRIBUTE).getValues();
 			specialismsString += "Specialises in ";
 			for(int i=0; i<specialisms.length; i++) {
-				if(i > 0) {
-					specialismsString += specialisms[i].getString().toLowerCase();
-				} else {
-					specialismsString += specialisms[i].getString();
-				}
-				
+				specialismsString += specialisms[i];
 				if(i == specialisms.length - 1) {
 					specialismsString += ".";
 				} else {
@@ -1989,13 +1991,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		
 		String description = position + ", " + division + ", " + departmentName + ". " + specialismsString;
 		
-		if(description.length() > 156) {
-			description = description.substring(0, 156).trim();
-			if(description.endsWith(".")) description = description.substring(0, description.length() - 1);
-			description += "...";
-		}
-		
-		return description;
+		return description.trim();
 	}
 
 	/**
