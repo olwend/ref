@@ -535,6 +535,21 @@ jQuery(document).ready(function() {
             }
         });
     }
+
+    /** WR-1063 - smart banner nav bar fix **/
+    $('body').on('DOMNodeInserted', 'div', function () { // Fire when a div is inserted into DOM
+        if ($(this).hasClass('js_smartbanner')) {
+            jQuery('.global-header').css('position', 'relative'); 
+            jQuery('body').css('padding-top', '0');
+        }
+    });
+    $('body').on('DOMNodeRemoved', 'div', function () { // Fire when a div is removed from DOM
+        if ($(this).hasClass('js_smartbanner')) {
+            jQuery('.global-header').css('position', 'fixed'); 
+            jQuery('body').css('padding-top', '100px');
+        }
+    });
+    /** End WR-1063 **/
 });
 
 //WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
