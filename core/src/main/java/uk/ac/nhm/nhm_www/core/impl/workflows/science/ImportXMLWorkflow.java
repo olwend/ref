@@ -1971,7 +1971,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		}
 		
 		String departmentName = department.getProperty(ScientistProfileHelper.NAME_ATTRIBUTE).getString();
-		if(department.equals("Life Sciences") || department.equals("Earth Sciences")) {
+		if(departmentName.equals("Life Sciences") || departmentName.equals("Earth Sciences")) {
 			departmentName = departmentName + " Department";
 		}
 		
