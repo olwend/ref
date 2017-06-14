@@ -281,6 +281,13 @@
                 sling:resourceType="foundation/components/parsys"
                 components="[group:NHM - Stacked,group:nhmwww]" />
         </nhmpagenotitlebar>
+        <immersivepage jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]">
+            </par>
+        </immersivepage>
     </jcr:content>
     <favicon.ico/>
     <js/>
