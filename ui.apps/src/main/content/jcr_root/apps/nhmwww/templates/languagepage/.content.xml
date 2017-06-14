@@ -3,6 +3,7 @@
     jcr:primaryType="cq:Template"
     jcr:title="Language Page Template"
     allowedParents="[]"
+    allowedChildren="[/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar,/apps/nhmwww/templates/immersivepage]"
     allowedPaths="[/content/nhmwww*]"
     ranking="{Long}100">
     <jcr:content
