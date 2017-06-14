@@ -275,6 +275,12 @@
                 sling:resourceType="foundation/components/parsys"
                 components="[group:NHM - Stacked,group:nhmwww]" />
         </nhmpage>
+        <nhmpagenotitlebar jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]" />
+        </nhmpagenotitlebar>
     </jcr:content>
     <favicon.ico/>
     <js/>
