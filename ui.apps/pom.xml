@@ -58,8 +58,10 @@
 					<exclude>**/.DS_Store</exclude>
 					<exclude>**/target/**</exclude>
 					<exclude>**/pom.xml</exclude>
-					<exclude>**/etc/clientlibs/**/*.css</exclude>
-					<exclude>**/etc/clientlibs/**/*.js</exclude>
+					<exclude>**/jcr_root/etc/clientlibs/**/*.css</exclude>
+					<exclude>**/jcr_root/etc/clientlibs/**/*.js</exclude>
+					<exclude>**/jcr_root/etc/designs/**/*.css</exclude>
+					<exclude>**/jcr_root/etc/designs/**/*.js</exclude>
 				</excludes>
 			</resource>
 		</resources>
@@ -133,19 +135,21 @@
 							</closureWarningLevels>
 							
 							<webappSourceDir>${basedir}/</webappSourceDir>
-							<webappTargetDir>${project.build.directory}/classes/etc</webappTargetDir>
+							<webappTargetDir>${project.build.directory}/classes</webappTargetDir>
 							
-							<cssSourceDir>src/main/content/jcr_root/etc/clientlibs/</cssSourceDir>
+							<cssSourceDir>src/main/content/jcr_root/etc/</cssSourceDir>
 							<cssSourceIncludes>
-								<cssSourceInclude>**/*.css</cssSourceInclude>
+								<cssSourceInclude>clientlibs/**/*.css</cssSourceInclude>
+								<cssSourceInclude>designs/**/*.css</cssSourceInclude>
 							</cssSourceIncludes>
-							<cssTargetDir>clientlibs</cssTargetDir>
+							<cssTargetDir>etc</cssTargetDir>
 							
-							<jsSourceDir>src/main/content/jcr_root/etc/clientlibs/</jsSourceDir>
+							<jsSourceDir>src/main/content/jcr_root/etc/</jsSourceDir>
 							<jsSourceIncludes>
-								<jsSourceInclude>**/*.js</jsSourceInclude>
+								<jsSourceInclude>clientlibs/**/*.js</jsSourceInclude>
+								<jsSourceInclude>designs/**/*.js</jsSourceInclude>
 							</jsSourceIncludes>
-							<jsTargetDir>clientlibs</jsTargetDir>
+							<jsTargetDir>etc</jsTargetDir>
 						</configuration>
 						<goals>
 							<goal>minify</goal>
