@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog"
+    height="{Long}400"
+    width="{Long}600">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <videoPanel
+                jcr:primaryType="cq:Panel"
+                title="Basic">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <video
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="ID for a YouTube video"
+                        fieldLabel="Video"
+                        name="./youtube"
+                        xtype="youtubevideofield"/>
+                    <image
+                    	jcr:primaryType="cq:Widget"
+                    	fieldDescription="An alternative image for smaller screens"
+                    	fieldLabel="Image"
+                    	name="./alternativeimage"
+                    	xtype="pathfield" />
+                    <title
+                    	jcr:primaryType="cq:Widget"
+                    	fieldLabel="Title"
+                    	name="./title"
+                    	xtype="textfield" 
+                    	allowBlank="{Boolean}false" />
+                   	<subtitle
+                    	jcr:primaryType="cq:Widget"
+                    	fieldLabel="Sub-title"
+                    	name="./subtitle"
+                    	xtype="textfield" />
+                   	<caption
+                    	jcr:primaryType="cq:Widget"
+                    	fieldLabel="Caption"
+                    	name="./caption"
+                    	xtype="textfield" />
+                </items>
+            </videoPanel>
+            <cta
+                jcr:primaryType="cq:Panel"
+                title="CTA">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <ctatext
+                    	jcr:primaryType="cq:Widget"
+                    	fieldLabel="CTA text"
+                    	name="./ctatext"
+                    	xtype="textfield"  />
+                   	<ctaurl
+                    	jcr:primaryType="cq:Widget"
+                    	fieldLabel="CTA URL"
+                    	name="./ctaurl"
+                    	xtype="pathfield"  />
+                </items>
+            </cta>
+        </items>
+    </items>
+</jcr:root>
