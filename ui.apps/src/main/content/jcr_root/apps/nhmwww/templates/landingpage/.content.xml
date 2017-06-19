@@ -2,9 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Template"
     jcr:title="Natural History Museum Landing Page"
-    allowedParents="[/apps/nhmwww/templates/homepage,/apps/nhmwww/templates/discoversectionpage]"
+    allowedParents=""
     allowedPaths="[/content/nhmwww/(.*)?]"
-    ranking="{Long}100">
+    ranking="{Long}999">
     <jcr:content
         jcr:primaryType="cq:PageContent"
         sling:resourceType="nhmwww/components/page/landingpage">

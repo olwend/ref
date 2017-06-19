@@ -3,8 +3,9 @@
     jcr:description="Generic template for nhm-www Site Pages"
     jcr:primaryType="cq:Template"
     jcr:title="nhm-www Site Page"
+    allowedParents=""
     allowedPaths="[/content/nhmwww(/.*)?]"
-    ranking="{Long}90">
+    ranking="{Long}999">
     <jcr:content
         cq:allowedTemplates="[/apps/nhmwww/templates/page]"
         cq:designPath="/etc/designs/nhmwww"
