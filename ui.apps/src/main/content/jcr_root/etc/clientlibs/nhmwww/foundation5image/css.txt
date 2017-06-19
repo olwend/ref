@@ -1,2 +1,0 @@
-#base=css
-foundation5image.css

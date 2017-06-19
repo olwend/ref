@@ -139,9 +139,15 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		}*/
 
         this.xmlPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM\\";
+        this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
+        
+        //Local testing - alisp2
+//        this.xmlPath = "C:\\science-profiles\\NHM\\";
+//        this.imagesPath = "C:\\science-profiles\\NHM-images\\";
+        
         this.contentPath = "/content/nhmwww/en/home/our-science/departments-and-staff/staff-directory";
         this.damPath = "/content/dam/nhmwww/our-science/dpts-facilities-staff/staff-directory/";
-        this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
+        
 		
 		final Path path = Paths.get(this.xmlPath);
 
@@ -1853,6 +1859,11 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		} else {
 			firstNameOutput = profile.getObject().getFirstName();
 		}
+		
+		String titleOutput = "";
+		if(profile.getObject().getTitle().equals("Prof") || profile.getObject().getTitle().equals("Dr")) {
+			titleOutput = profile.getObject().getTitle() + " ";
+		}
 
 		// Node Name
 		final String uniqueName = firstNameOutput.toLowerCase() + "-" + profile.getObject().getLastName().toLowerCase(); 
@@ -1891,8 +1902,9 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		// Node : jcr:content
 		final Node jcrContentNode = profileNode.addNode(JcrConstants.JCR_CONTENT, "cq:PageContent");
 		jcrContentNode.setProperty("sling:resourceType", SCIENCE_PROFILE_PAGE_RESOURCE_TYPE);
-		jcrContentNode.setProperty(JcrConstants.JCR_TITLE, firstNameOutput + " " + profile.getObject().getLastName());
-
+		jcrContentNode.setProperty(JcrConstants.JCR_TITLE, titleOutput + firstNameOutput + " " + profile.getObject().getLastName());
+		jcrContentNode.setProperty("pageTitle", titleOutput + firstNameOutput + " " + profile.getObject().getLastName());
+		
 		// Node : personalInformation
 		final Node personalInfo = jcrContentNode.addNode(ScientistProfileHelper.PERSONAL_INFORMATION_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		setNodeProfile (personalInfo, profile);
@@ -1909,7 +1921,7 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 		// Node : department
 		final Node department = jcrContentNode.addNode(ScientistProfileHelper.DEPARTAMENT_INFORMATION_NODE_NAME, JcrConstants.NT_UNSTRUCTURED);
 		setDepartment (department, profile);  
-
+		
 		// Node : professional
 		processRecords (jcrContentNode, profile.getObject().getRecords().getRecord());
 
@@ -1946,6 +1958,40 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 			imageNode.setProperty("fileReference", imagePath);
 			imageNode.setProperty("sling:resourceType", "foundation/components/image");
 		}
+		
+		jcrContentNode.setProperty(JcrConstants.JCR_DESCRIPTION, addDescription(personalInfo, department));
+	}
+
+	private String addDescription(Node personalInfo, Node department) throws ValueFormatException, PathNotFoundException, RepositoryException {
+		String position = department.getProperty(ScientistProfileHelper.POSITION_ATTRIBUTE).getString();
+		
+		String division = department.getProperty(ScientistProfileHelper.DIVISION_ATTRIBUTE).getString();
+		if(division.startsWith("LS") || division.startsWith("ES")) {
+			division = division.substring(3, division.length());
+		}
+		
+		String departmentName = department.getProperty(ScientistProfileHelper.NAME_ATTRIBUTE).getString();
+		if(departmentName.equals("Life Sciences") || departmentName.equals("Earth Sciences")) {
+			departmentName = departmentName + " Department";
+		}
+		
+		String specialismsString = "";
+		if(personalInfo.hasProperty(ScientistProfileHelper.SPECIALISMS_ATTRIBUTE)) {
+			Value[] specialisms = personalInfo.getProperty(ScientistProfileHelper.SPECIALISMS_ATTRIBUTE).getValues();
+			specialismsString += "Specialises in ";
+			for(int i=0; i<specialisms.length; i++) {
+				specialismsString += specialisms[i];
+				if(i == specialisms.length - 1) {
+					specialismsString += ".";
+				} else {
+					specialismsString += ", ";
+				}
+			}
+		}
+		
+		String description = position + ", " + division + ", " + departmentName + ". " + specialismsString;
+		
+		return description.trim();
 	}
 
 	/**
