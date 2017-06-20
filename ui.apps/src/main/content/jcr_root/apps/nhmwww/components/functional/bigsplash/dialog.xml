@@ -17,13 +17,13 @@
                         fieldDescription="ID for a YouTube video"
                         fieldLabel="Video"
                         name="./youtube"
-                        xtype="youtubevideofield"/>
+                        xtype="youtubevideofield" allowBlank="{Boolean}false"/>
                     <image
                     	jcr:primaryType="cq:Widget"
                     	fieldDescription="An alternative image for smaller screens"
                     	fieldLabel="Image"
                     	name="./alternativeimage"
-                    	xtype="pathfield" />
+                    	xtype="pathfield" allowBlank="{Boolean}false"/>
                     <title
                     	jcr:primaryType="cq:Widget"
                     	fieldLabel="Title"

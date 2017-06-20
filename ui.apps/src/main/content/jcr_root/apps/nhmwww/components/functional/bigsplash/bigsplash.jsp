@@ -6,17 +6,40 @@
 	BigSplashHelper helper = new BigSplashHelper(slingRequest, currentPage, properties);
 %>
 
-<!-- Basic tab -->
-<%= helper.getVideoId() %>
+	<!-- Basic tab -->
 
-<%= helper.getImagePath() %>
+<div class="hero-video-wrapper" data-nhm-videoid="<%= helper.getVideoId() %>">
+	<div id="<%= helper.getVideoId() %>" class="youtubeplayer"></div> 
+</div>
 
-<h1><%= helper.getTitle() %></h1>
+<div class="hero-video-image">
+	<img src="<%= helper.getImagePath() %>" alt="">
+</div>
 
-<%= helper.getSubtitle() %>
 
-<%= helper.getCaption() %>
+<div class="hero-video-text">
+	<div class="row cf">
+		<div class="hero-video-text-title">
+			<h1><%= helper.getTitle() %></h1>
+		</div>
 
-<!-- CTA tab -->
+		<% if(helper.getSubtitle()!=null) {%>
+			<!-- <div class="hero-video-text-subtitle">
+				<span><%= helper.getSubtitle() %></span>
+			</div> -->
+		<%} %>
 
-<a href="<%= helper.getCtaUrl() %>"><%= helper.getCtaText() %></a>
+		<% if(helper.getCaption()!=null) {%>
+			<div class="hero-video-text-caption">
+				<span><%= helper.getCaption() %></span>
+			</div>
+		<%} %>
+
+		<% if(helper.getCtaUrl()!=null && helper.getCtaText()!=null) {%>
+			<!-- CTA tab -->
+			<div class="hero-video-text-cta">
+				<a href="<%= helper.getCtaUrl() %>"><%= helper.getCtaText() %></a>
+			</div>
+		<%} %>
+	</div>
+</div>

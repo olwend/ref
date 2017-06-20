@@ -142,6 +142,35 @@ function onYouTubeIframeAPIReady() {
             });
             $this.data('player', player);
 	});
+
+    $('.hero-video-wrapper').each(function (){
+        if (window.screen.width>=768) { // Prevent loading video in background on devices which don't show it
+
+            var $this = $(this),
+            nhmvideoId = $this.data('nhm-videoid'),
+            player = new YT.Player(nhmvideoId, {
+                height: '100%',
+                // width: '100%',
+                videoId: nhmvideoId,
+                playerVars: { 'modestbranding': 1, 'autoplay': 1, 'rel': 0, 'controls': 0, 'showinfo': 0, 'disablekb': 1 },
+                events: { 
+                    onReady: function(e){
+                        var player = e.target;
+                        player.playVideo();
+                    },
+                    onStateChange: 
+                        function(e){
+                            if (e.data === YT.PlayerState.ENDED) {
+                                player.playVideo(); 
+                            }
+                        }
+                }
+            });
+
+            $this.data('player', player);
+        }
+    });     
+
 	resizeYoutubeFrames();
 }
 
