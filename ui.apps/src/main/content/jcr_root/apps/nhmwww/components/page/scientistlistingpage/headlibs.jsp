@@ -30,23 +30,16 @@
 	
 	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/normalize.css"%>" />
-        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/nhm-foundation.css"%>" />
-		<link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles-desktop.css"%>" />
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
         <cq:includeClientLib css="nhmwww.main.normalize" />
         <cq:includeClientLib css="nhmwww.main.foundation" />
         <cq:includeClientLib css="nhmwww.main" />       
-        <!--<![endif]-->
+
         <cq:includeClientLib js="cq.jquery" />
         <cq:includeClientLib js="nhmwww.main" />
         
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
         <%}%>
-        <script>dataLayer = [];</script>
         
 		<script>dataLayer = [];</script>
 		<!-- Google Tag Manager -->
@@ -58,7 +51,6 @@
 		<!-- End Google Tag Manager -->
         
         <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-        <cq:includeClientLib css="nhm-www.profilelisting" />
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
         
          <cq:includeClientLib categories="nhm-www.sciencelist" />

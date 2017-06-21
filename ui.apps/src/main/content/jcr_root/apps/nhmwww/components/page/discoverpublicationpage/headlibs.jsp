@@ -5,16 +5,9 @@
         
 	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
 
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/normalize.css"%>" />
-        <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/nhm-foundation.css"%>" />
-		<link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles-desktop.css"%>" />
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/normalize.css"%>" />
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/nhm-foundation.css"%>" />
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles.css"%>" />
-        <!--<![endif]-->
         
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/twitter.css"%>" />
         
@@ -30,7 +23,6 @@
         Design Mode is <% if (isOnDesignMode) {%>on<%} else {%>off<%}%>
         Preview Mode is <% if (isOnPreviewMode) {%>on<%} else {%>off<%}%>
          -->
-        <script>dataLayer = [];</script>
         
 		<script>dataLayer = [];</script>
 		<!-- Google Tag Manager -->
