@@ -48,4 +48,3 @@
 		})(window,document,'script','dataLayer','GTM-5TDGNT');</script>
 		<!-- End Google Tag Manager -->
          
-        <cq:includeClientLib categories="nhm-www.scienceprofiles" />
