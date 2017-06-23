@@ -117,7 +117,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		case "december": monthInt = 12; break;
 		}
 
-		if(monthInt > -1) monthInt = Integer.parseInt(month);
+		if(monthInt == -1) monthInt = Integer.parseInt(month);
 
 		DateTime dt = new DateTime(year, monthInt, 1, 0, 0);
 		jsonArray = getJSON(cache, "month", dt);
