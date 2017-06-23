@@ -62,7 +62,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	private static final String LOCATION_NAME = "Natural History Museum";
 	private static final String LOCATION_URL = "http://www.nhm.ac.uk/whats-on.html";
 	private static final String BASE_URL = "http://www.nhm.ac.uk";
-	
+
 	@Reference
 	private SlingRepository repository;
 
@@ -87,7 +87,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
-	
+
 	@GET
 	@Path("/month/{year}/{month}")
 	@Produces("application/json")
@@ -96,47 +96,36 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			@PathParam("year") int year,
 			@PathParam("month") String month) throws RepositoryException, JSONException {
 		LOG.info("- month - year=" + year + ", month=" + month);
-		
+
 		int monthInt = -1;
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray;
-		
-		try {
-			monthInt = Integer.parseInt(month);
+
+		month = month.toLowerCase();
+		switch(month) {
+		case "january": monthInt = 1; break;
+		case "february": monthInt = 2; break;
+		case "march": monthInt = 3; break;
+		case "april": monthInt = 4; break;
+		case "may": monthInt = 5; break;
+		case "june": monthInt = 6; break;
+		case "july": monthInt = 7; break;
+		case "august": monthInt = 8; break;
+		case "september": monthInt = 9; break;
+		case "october": monthInt = 10; break;
+		case "november": monthInt = 11; break;
+		case "december": monthInt = 12; break;
 		}
-		catch (Exception e) {
-			LOG.error("Exception", e);
-		}
-		
-		if(monthInt > -1) {
-			DateTime dt = new DateTime(year, monthInt, 1, 0, 0);
-			jsonArray = getJSON(cache, "month", dt);
-		} else {
-			month = month.toLowerCase();
-			switch(month) {
-				case "january": monthInt = 1; break;
-				case "february": monthInt = 2; break;
-				case "march": monthInt = 3; break;
-				case "april": monthInt = 4; break;
-				case "may": monthInt = 5; break;
-				case "june": monthInt = 6; break;
-				case "july": monthInt = 7; break;
-				case "august": monthInt = 8; break;
-				case "september": monthInt = 9; break;
-				case "october": monthInt = 10; break;
-				case "november": monthInt = 11; break;
-				case "december": monthInt = 12; break;
-			}
-			
-			DateTime dt = new DateTime(year, monthInt, 1, 0, 0);
-			jsonArray = getJSON(cache, "month", dt);
-		}
-		
+
+		if(monthInt > -1) monthInt = Integer.parseInt(month);
+
+		DateTime dt = new DateTime(year, monthInt, 1, 0, 0);
+		jsonArray = getJSON(cache, "month", dt);
 		String s = jsonArray.toString();
 
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
-	
+
 	@GET
 	@Path("/week")
 	@Produces("application/json")
@@ -150,7 +139,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
-	
+
 	@GET
 	@Path("/week/{year}/{month}/{day}")
 	@Produces("application/json")
@@ -159,11 +148,11 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			@PathParam("year") int year,
 			@PathParam("month") int month,
 			@PathParam("day") int day) throws RepositoryException, JSONException  {
-		
+
 		DateTime dt = new DateTime(year, month, day, 0, 0);
-		
+
 		LOG.info("- week by date - year=" + year + ", month=" + month + ", day=" + day);
-		
+
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "weekByDate", dt);
 
@@ -185,7 +174,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		return Response.ok(s, MediaType.APPLICATION_JSON).build();
 	}
-	
+
 	@GET
 	@Path("/day/{year}/{month}/{day}")
 	@Produces("application/json")
@@ -194,11 +183,11 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 			@PathParam("year") int year,
 			@PathParam("month") int month,
 			@PathParam("day") int day) throws RepositoryException, JSONException  {
-		
+
 		DateTime dt = new DateTime(year, month, day, 0, 0);
-		
+
 		LOG.info("- day by date - year=" + year + ", month=" + month + ", day=" + day);
-		
+
 		ArrayList<Page> cache = getCache();
 		JSONArray jsonArray = getJSON(cache, "dayByDate", dt);
 
@@ -224,7 +213,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 				final Map<String, Object> param = new HashMap<String, Object>();
 				param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
 				final ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(param);
-				
+
 				/* Get page manager object using page manager Factory */
 				final PageManager pmanager = pageManagerFactory.getPageManager(resolver);
 
@@ -268,12 +257,10 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	}
 
 	private JSONArray getJsonObject(Page event, String filter, DateTime dt) throws LoginException, JSONException, ParseException {
-		
-
 		final Map<String, Object> param = new HashMap<String, Object>();
 		param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
 		final ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(param);
-		
+
 		final Resource resource = resolver.getResource(event.getPath() + "/jcr:content");
 		final ValueMap properties = resource.adaptTo(ValueMap.class);
 
@@ -285,129 +272,119 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		JSONArray dateArray = new JSONArray();
 
 		for(int i=0; i<dates.length; i++) {
-			//JSONObject object = new JSONObject();
-			
-
 			Pattern pattern = Pattern.compile("^[A-Za-z0-9 :]+00");
 			Matcher matcher = pattern.matcher(dates[i]);
 
 			//Get today's date as object for comparing with later...
 			LocalDate currentDate = new LocalDate();
-//
-//			//Get date for one week away
-//			LocalDate oneWeekDate = currentDate.plusDays(7);
-//
+
+			//Get date for one week away
+			LocalDate oneWeekDate = currentDate.plusDays(7);
+
 			if(matcher.find()) {
 				//Get date object for event
 				DateTimeFormatter formatter = DateTimeFormat.forPattern("E MMM d yyyy HH:mm:ss");
 				LocalDate eventDate = formatter.parseLocalDate((matcher.group(0)));				
 
 				switch(filter) {
-//				case "all": 
-//					//All future events
-//					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay())
-//							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))) {
-//						object = processDates(matcher, i, dates, times, durations);
-//						dateArray.put(object);
-//					}
-//					break;
-//					
-//				case "month":
-//					//All events for a specified month
-//					DateTime dtOneMonthDate = dt.plusMonths(1);
-//					
-//					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
-//							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
-//							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneMonthDate.withTimeAtStartOfDay())) {
-//						object = processDates(matcher, i, dates, times, durations);
-//						dateArray.put(object);
-//					}
-//					break;
-//					
-//				case "week":
-//					//All events for the coming week including the current day
-//					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
-//							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
-//							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
-//						object = processDates(matcher, i, dates, times, durations);
-//						dateArray.put(object);
-//					}
-//					break;
-//					
-//				case "weekByDate":
-//					//All events for a week-long period with a specified start date
-//					DateTime dtOneWeekDate = dt.plusDays(7);
-//					
-//					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
-//							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
-//							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneWeekDate.withTimeAtStartOfDay())) {
-//						object = processDates(matcher, i, dates, times, durations);
-//						dateArray.put(object);
-//					}
-//					break;
-//
+				case "all": 
+					//All future events
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay())
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))) {
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+					}
+					break;
+
+				case "month":
+					//All events for a specified month
+					DateTime dtOneMonthDate = dt.plusMonths(1);
+
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
+							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneMonthDate.withTimeAtStartOfDay())) {
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+					}
+					break;
+
+				case "week":
+					//All events for the coming week including the current day
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
+							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+					}
+					break;
+
+				case "weekByDate":
+					//All events for a week-long period with a specified start date
+					DateTime dtOneWeekDate = dt.plusDays(7);
+
+					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
+							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
+							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneWeekDate.withTimeAtStartOfDay())) {
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+					}
+					break;
+
 				case "day":
 					//All events for the current day
 					if(eventDate.toDateTimeAtStartOfDay().equals(currentDate.toDateTimeAtStartOfDay())) {
-						int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
-						String[] time = times[x].split(",");
-						
-						for(int j=0; j<time.length; j++) {
-							JSONObject jsonObject = new JSONObject();
-							DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("E MMM d yyyy HH:mm:ss");
-							
-							jsonObject.put("@context", "http://schema.org");
-							jsonObject.put("@type", "Event");
-							jsonObject.put("location", getLocationJsonObject());
-							jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
-							jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
-							jsonObject.put("image", BASE_URL + imageUrl);
-							
-							DateTime dt1 = dateFormatter.parseDateTime(matcher.group(0));
-							
-							String t = time[j].replaceAll("\\[|\"|\\]|\\\\", "");
-							
-							if(t.equals("")) {
-								jsonObject.put("startDate", dt1.toString());
-								jsonObject.put("endDate", dt1.toString());
-							} else {
-								jsonObject.put("startDate", dt1.toString() + "T" + t);						
-								int z = Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")).intValue();
-								MutableDateTime mdt1 = dt1.toMutableDateTime();
-								MutableDateTime mdt2 = dt1.toMutableDateTime();
-								
-								mdt1.setHourOfDay(Integer.valueOf(t.split(":")[0]));
-								mdt1.setMinuteOfHour(Integer.valueOf(t.split(":")[1]));
-								mdt1.addMinutes(z);
-								
-								if(mdt1.getDayOfYear() > mdt2.getDayOfYear()){
-									
-								} else {
-									jsonObject.put("endDate", dt1.toString() + "T" + t);
-								}								
-							}
-							
-							dateArray.put(jsonObject);
-						}
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
 					}
 					break;
-					
-//				case "dayByDate":
-//					//All events for a specified day				
-//					if(eventDate.toDateTimeAtStartOfDay().equals(dt.withTimeAtStartOfDay())) {
-//						object = processDates(matcher, i, dates, times, durations);
-//						dateArray.put(object);
-//					}
-//					break;
-//				}
-//			} else {
-//				object.put("date", dates[i]);
-//			}
-		}}}
 
-		
-
+				case "dayByDate":
+					//All events for a specified day				
+					if(eventDate.toDateTimeAtStartOfDay().equals(dt.withTimeAtStartOfDay())) {
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+					}
+					break;
+				}}}
 		return dateArray;
+	}
+
+	private JSONArray getEventsObject(final ValueMap properties, String[] dates, String[] times, String[] durations,
+			String imageUrl, int i, Matcher matcher) throws JSONException {
+		JSONArray jsonArray = new JSONArray();
+		int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
+		String[] time = times[x].split(",");
+
+		for(int j=0; j<time.length; j++) {
+			JSONObject jsonObject = new JSONObject();
+			DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("E MMM d yyyy HH:mm:ss");
+
+			jsonObject.put("@context", "http://schema.org");
+			jsonObject.put("@type", "Event");
+			jsonObject.put("location", getLocationJsonObject());
+			jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
+			jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
+			jsonObject.put("image", BASE_URL + imageUrl);
+
+			DateTime dt1 = dateFormatter.parseDateTime(matcher.group(0));
+			MutableDateTime mdt1 = dt1.toMutableDateTime();
+
+			String t = time[j].replaceAll("\\[|\"|\\]|\\\\", "");
+			if(!t.equals("")) {
+				int hour = Integer.valueOf(t.split(":")[0]).intValue();
+				int minute = Integer.valueOf(t.split(":")[1]).intValue();
+
+				mdt1.setHourOfDay(hour);
+				mdt1.setMinuteOfHour(minute);
+
+				jsonObject.put("startDate", mdt1.toString());
+
+				int duration = Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")).intValue();								
+				mdt1.addMinutes(duration);
+
+				jsonObject.put("endDate", mdt1.toString());
+			} else {
+				jsonObject.put("startDate", dt1.toString());
+				jsonObject.put("endDate", dt1.toString());
+			}
+			jsonArray.put(jsonObject);
+		}
+
+		return jsonArray;
 	}
 
 	private JSONObject processDates(Matcher matcher, int index, String[] dates, String[] times, String[] durations) throws JSONException {
@@ -432,10 +409,10 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		return object;
 	}
-	
+
 	private JSONObject getLocationJsonObject() throws JSONException {
 		JSONObject locationObject = new JSONObject();
-		
+
 		JSONObject addressObject = new JSONObject();
 		addressObject.put("@type", "PostalAddress");
 		addressObject.put("addressLocality", ADDRESS_LOCALITY);
@@ -447,7 +424,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		locationObject.put("name", LOCATION_NAME);
 		locationObject.put("url", LOCATION_URL);
 		locationObject.put("address", addressObject);
-		
+
 		return locationObject;
 	}
 }
