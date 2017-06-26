@@ -35,7 +35,6 @@ import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
-import org.joda.time.LocalTime;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -199,7 +198,6 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		ArrayList<Page> list = new ArrayList<Page>();
 
 		try {
-			//Bad code - do this correctly!
 			final Session session = repository.loginService("searchService", null);
 			try {
 				final QueryManager queryMgr = session.getWorkspace().getQueryManager();
@@ -386,29 +384,6 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		}
 
 		return jsonArray;
-	}
-
-	private JSONObject processDates(Matcher matcher, int index, String[] dates, String[] times, String[] durations) throws JSONException {
-		JSONObject object = new JSONObject();
-
-		//Get date
-		object.put("date", matcher.group(0));
-
-		//Get times from times[] given index
-		int x = Integer.parseInt(dates[index].substring(dates[index].length()-1, dates[index].length()));
-		String[] time = times[x].split(",");
-
-		JSONArray timesArray = new JSONArray();
-		for(int j=0; j<time.length; j++) {
-			timesArray.put(time[j].replaceAll("\\[|\"|\\]|\\\\", ""));
-		}
-
-		object.put("times", (Object)timesArray);
-
-		//Get duration from durations[] given index
-		object.put("duration", Integer.valueOf(durations[x].replaceAll("\\[|\\]",  "")));
-
-		return object;
 	}
 
 	private JSONObject getLocationJsonObject(String eventPath) throws JSONException {
