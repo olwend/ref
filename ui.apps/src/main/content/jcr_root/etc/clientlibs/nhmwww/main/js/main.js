@@ -259,6 +259,24 @@ jQuery(document).ready(function() {
     }
 	/** End WR-1040 **/
 
+    /** WR-1064 - Big Splash component **/
+    jQuery('.hero-video-wrapper-controls-pause').on('click', function(e){
+        e.preventDefault();
+        var player = jQuery('.hero-video-wrapper').data('player');
+        player.pauseVideo();
+        jQuery('.hero-video-wrapper-controls-pause').css('display', 'none');
+        jQuery('.hero-video-wrapper-controls-play').css('display', 'inline');
+    });
+
+    jQuery('.hero-video-wrapper-controls-play').on('click', function(e){
+        e.preventDefault();
+        var player = jQuery('.hero-video-wrapper').data('player');
+        player.playVideo();
+        jQuery('.hero-video-wrapper-controls-play').css('display', 'none');
+        jQuery('.hero-video-wrapper-controls-pause').css('display', 'inline');
+    });
+    /** End WR-1064 **/
+
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
