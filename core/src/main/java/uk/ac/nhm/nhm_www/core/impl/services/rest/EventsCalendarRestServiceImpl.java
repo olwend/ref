@@ -60,7 +60,6 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	private static final String POSTAL_CODE = "SW7 5BD";
 	private static final String STREET_ADDRESS = "Cromwell Road";
 	private static final String LOCATION_NAME = "Natural History Museum";
-	private static final String LOCATION_URL = "http://www.nhm.ac.uk/whats-on.html";
 	private static final String BASE_URL = "http://www.nhm.ac.uk";
 
 	@Reference
@@ -263,7 +262,9 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		final Resource resource = resolver.getResource(event.getPath() + "/jcr:content");
 		final ValueMap properties = resource.adaptTo(ValueMap.class);
-
+		
+		String eventPath = "http://www.nhm.ac.uk/events/" + event.getName() + ".html";
+		
 		String[] dates = properties.get("jcr:datesRecurrence", String.class).split(",");
 		String[] times = properties.get("jcr:timesRecurrence", String.class).split("\\],\\[");
 		String[] durations = properties.get("jcr:durationsRecurrence", String.class).split(",");
@@ -291,7 +292,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					//All future events
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay())
 							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))) {
-						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher, eventPath);
 					}
 					break;
 
@@ -302,7 +303,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
 							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
 							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneMonthDate.withTimeAtStartOfDay())) {
-						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher, eventPath);
 					}
 					break;
 
@@ -311,7 +312,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(currentDate.toDateTimeAtStartOfDay()) 
 							|| eventDate.toDateTimeAtStartOfDay().isEqual(currentDate.toDateTimeAtStartOfDay()))
 							&& eventDate.toDateTimeAtStartOfDay().isBefore(oneWeekDate.toDateTimeAtStartOfDay())) {
-						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher, eventPath);
 					}
 					break;
 
@@ -322,21 +323,21 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 					if((eventDate.toDateTimeAtStartOfDay().isAfter(dt.withTimeAtStartOfDay()) 
 							|| eventDate.toDateTimeAtStartOfDay().isEqual(dt.withTimeAtStartOfDay()))
 							&& eventDate.toDateTimeAtStartOfDay().isBefore(dtOneWeekDate.withTimeAtStartOfDay())) {
-						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher, eventPath);
 					}
 					break;
 
 				case "day":
 					//All events for the current day
 					if(eventDate.toDateTimeAtStartOfDay().equals(currentDate.toDateTimeAtStartOfDay())) {
-						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher, eventPath);
 					}
 					break;
 
 				case "dayByDate":
 					//All events for a specified day				
 					if(eventDate.toDateTimeAtStartOfDay().equals(dt.withTimeAtStartOfDay())) {
-						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher);
+						dateArray = getEventsObject(properties, dates, times, durations, imageUrl, i, matcher, eventPath);
 					}
 					break;
 				}}}
@@ -344,7 +345,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 	}
 
 	private JSONArray getEventsObject(final ValueMap properties, String[] dates, String[] times, String[] durations,
-			String imageUrl, int i, Matcher matcher) throws JSONException {
+			String imageUrl, int i, Matcher matcher, String eventPath) throws JSONException {
 		JSONArray jsonArray = new JSONArray();
 		int x = Integer.parseInt(dates[i].substring(dates[i].length()-1, dates[i].length()));
 		String[] time = times[x].split(",");
@@ -355,7 +356,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 			jsonObject.put("@context", "http://schema.org");
 			jsonObject.put("@type", "Event");
-			jsonObject.put("location", getLocationJsonObject());
+			jsonObject.put("location", getLocationJsonObject(eventPath));
 			jsonObject.put("name", properties.get("jcr:eventTitle", String.class));
 			jsonObject.put("description", properties.get("jcr:eventDescription", String.class));
 			jsonObject.put("image", BASE_URL + imageUrl);
@@ -410,7 +411,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 		return object;
 	}
 
-	private JSONObject getLocationJsonObject() throws JSONException {
+	private JSONObject getLocationJsonObject(String eventPath) throws JSONException {
 		JSONObject locationObject = new JSONObject();
 
 		JSONObject addressObject = new JSONObject();
@@ -422,7 +423,7 @@ public class EventsCalendarRestServiceImpl implements EventsCalendarRestService 
 
 		locationObject.put("@type", "Place");
 		locationObject.put("name", LOCATION_NAME);
-		locationObject.put("url", LOCATION_URL);
+		locationObject.put("url", eventPath);
 		locationObject.put("address", addressObject);
 
 		return locationObject;
