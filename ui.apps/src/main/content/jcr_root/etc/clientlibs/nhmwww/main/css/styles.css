@@ -5282,7 +5282,7 @@ html.js-noScroll {
     top: 360px;
     /* MAGIC NUMBER! */
     font-size: 1.1rem;
-    border-bottom: 1px dashed #FFFFFF;
+    border-bottom: 1px dotted #FFFFFF;
   }
   .bigsplash .hero-video-text-cta a:hover {
     text-decoration: none;
@@ -5310,6 +5310,30 @@ html.js-noScroll {
     left: 0;
     height: 100%;
   }
+}
+
+.bigsplash .hero-video-wrapper-controls {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash .hero-video-wrapper-controls {
+    display: block;
+    position: relative;
+    bottom: 40px;
+    /* MAGIC NUMBER! */
+    right: 90px;
+    /* MAGIC NUMBER! */
+    text-align: right;
+  }
+}
+
+.bigsplash .hero-video-wrapper-controls-pause, .bigsplash .hero-video-wrapper-controls-play {
+  cursor: pointer;
+}
+
+.bigsplash .hero-video-wrapper-controls-play {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
