@@ -3,6 +3,7 @@
     jcr:primaryType="cq:Template"
     jcr:title="Natural History Museum Landing Page"
     allowedParents=""
+    allowedChildren="[/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar,/apps/nhmwww/templates/immersivepage]"
     allowedPaths="[/content/nhmwww/(.*)?]"
     ranking="{Long}999">
     <jcr:content
