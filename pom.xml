@@ -120,6 +120,7 @@
 					<downloadSources>true</downloadSources>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 		<pluginManagement>
 			<plugins>
