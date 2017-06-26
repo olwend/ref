@@ -27,8 +27,10 @@
 	<properties>
 		<aem.host>${crx.host}</aem.host>
 		<aem.port>${crx.port}</aem.port>
-		<aem.publish.host>${publish.crx.host}</aem.publish.host>
-		<aem.publish.port>${publish.crx.port}</aem.publish.port>
+		<aem.publish1.host>${publish1.crx.host}</aem.publish1.host>
+		<aem.publish1.port>${publish1.crx.port}</aem.publish1.port>
+		<aem.publish2.host>${publish2.crx.host}</aem.publish2.host>
+		<aem.publish2.port>${publish2.crx.port}</aem.publish2.port>
 		<sling.user>${crx.username}</sling.user>
 		<sling.password>${crx.password}</sling.password>
 		<vault.user>${crx.username}</vault.user>

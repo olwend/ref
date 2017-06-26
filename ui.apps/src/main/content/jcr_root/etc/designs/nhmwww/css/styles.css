@@ -8172,7 +8172,7 @@ input.searchGo {
 
 @media screen and (min-width: 1024px) {
   .immersive-header {
-    height: 85px;
+    height: 80px;
   }
 }
 
@@ -8212,15 +8212,25 @@ input.searchGo {
   }
 }
 
+.immersive-body {
+  margin: 0;
+  padding: 0;
+}
+
+.immersive-iframe {
+  width: 100%;
+  height: 100vh;
+}
+
 /** IMMERSIVE FOOTER PARTIAL **/
 .immersive-footer {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   height: 200px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
   color: #FFFFFF;
   background-color: #000000;
+  margin-top: -7px;
+  /* MAGIC NUMBER (kills the whitespace above footer) */
 }
 
 @media screen and (min-width: 480px) {
@@ -8231,7 +8241,7 @@ input.searchGo {
 
 @media screen and (min-width: 1024px) {
   .immersive-footer {
-    height: 85px;
+    height: 80px;
   }
 }
 
@@ -8239,6 +8249,7 @@ input.searchGo {
   padding: 0 20px;
   width: 100%;
   max-width: 100%;
+  margin-bottom: 0;
 }
 
 .immersive-footer a {
