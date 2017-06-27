@@ -5352,11 +5352,6 @@ html.js-noScroll {
   }
 }
 
-.bigsplash .hero-video-image img {
-  margin-top: -90px;
-  /* MAGIC NUMBER! (covers title bar) */
-}
-
 @media screen and (min-width: 480px) {
   .bigsplash .hero-video-image img {
     max-height: 60vh;
