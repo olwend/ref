@@ -5131,6 +5131,222 @@ html.js-noScroll {
   padding: 1%;
 }
 
+/** IMMERSIVE HEADER PARTIAL **/
+.immersive-header {
+  height: 62px;
+  color: #FFFFFF;
+  background-color: #000000;
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-header {
+    height: 80px;
+  }
+}
+
+.immersive-header .row {
+  padding: 0 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.immersive-header-logo {
+  position: absolute;
+  float: left;
+  min-width: 250px;
+  height: 50px;
+  background: url("/etc/designs/nhmwww/img/nhm-logo-one-line-white.png") no-repeat left center;
+  background-size: 250px auto;
+  text-indent: -9999px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .immersive-header-logo {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-header-logo {
+    top: 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-header-logo {
+    width: 335px;
+    background-size: auto auto;
+  }
+}
+
+.immersive-body {
+  margin: 0;
+  padding: 0;
+}
+
+.immersive-iframe {
+  width: 100%;
+  height: 100vh;
+}
+
+/** IMMERSIVE FOOTER PARTIAL **/
+.immersive-footer {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 200px;
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #000000;
+  margin-top: -7px;
+  /* MAGIC NUMBER (kills the whitespace above footer) */
+}
+
+@media screen and (min-width: 480px) {
+  .immersive-footer {
+    height: 72px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-footer {
+    height: 80px;
+  }
+}
+
+.immersive-footer .row {
+  padding: 0 20px;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.immersive-footer a {
+  color: #FFFFFF;
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+.immersive-footer a:hover {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 480px) {
+  .immersive-footer-social {
+    float: left;
+  }
+}
+
+.immersive-footer-social ul {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-footer-social ul {
+    margin-top: 25px;
+  }
+}
+
+.immersive-footer-social ul li {
+  display: inline;
+}
+
+.immersive-footer-social ul li:last-child {
+  padding-left: 20px;
+}
+
+.immersive-footer-social-img {
+  height: 25px;
+}
+
+.immersive-footer-social a {
+  border-bottom: none;
+}
+
+@media screen and (min-width: 480px) {
+  .immersive-footer-links {
+    float: right;
+  }
+}
+
+.immersive-footer-links ul {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 480px) {
+  .immersive-footer-links ul {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .immersive-footer-links ul {
+    width: 500px;
+    margin-top: 20px;
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .immersive-footer-links ul {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-footer-links ul {
+    width: 800px;
+    margin-top: 25px;
+  }
+}
+
+.immersive-footer-links ul li:last-child {
+  padding-top: 20px;
+}
+
+@media screen and (min-width: 480px) {
+  .immersive-footer-links ul li {
+    font-size: 0.65rem;
+  }
+  .immersive-footer-links ul li:first-child {
+    padding-top: 20px;
+  }
+  .immersive-footer-links ul li:nth-child(2) {
+    float: left;
+  }
+  .immersive-footer-links ul li:last-child {
+    padding-top: 0;
+    float: right;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .immersive-footer-links ul li {
+    display: inline;
+    padding-left: 20px;
+  }
+  .immersive-footer-links ul li:first-child {
+    padding-top: 0;
+  }
+  .immersive-footer-links ul li:nth-child(2) {
+    float: none;
+  }
+  .immersive-footer-links ul li:last-child {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .immersive-footer-links ul li {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .immersive-footer-links ul li {
+    font-size: 1rem;
+  }
+}
+
 /** REFACTOR-ACCORDION PARTIAL **/
 .accordion .accordion-navigation,
 .accordion dd {
@@ -8163,222 +8379,6 @@ input.searchGo {
 }
 
 /** FOOTER PARTIAL - MERGED **/
-/** IMMERSIVE HEADER PARTIAL **/
-.immersive-header {
-  height: 62px;
-  color: #FFFFFF;
-  background-color: #000000;
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-header {
-    height: 80px;
-  }
-}
-
-.immersive-header .row {
-  padding: 0 20px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.immersive-header-logo {
-  position: absolute;
-  float: left;
-  min-width: 250px;
-  height: 50px;
-  background: url("/etc/designs/nhmwww/img/nhm-logo-one-line-white.png") no-repeat left center;
-  background-size: 250px auto;
-  text-indent: -9999px;
-  margin-top: 5px;
-}
-
-@media screen and (min-width: 768px) {
-  .immersive-header-logo {
-    margin-left: 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-header-logo {
-    top: 10px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-header-logo {
-    width: 335px;
-    background-size: auto auto;
-  }
-}
-
-.immersive-body {
-  margin: 0;
-  padding: 0;
-}
-
-.immersive-iframe {
-  width: 100%;
-  height: 100vh;
-}
-
-/** IMMERSIVE FOOTER PARTIAL **/
-.immersive-footer {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  height: 200px;
-  width: 100%;
-  color: #FFFFFF;
-  background-color: #000000;
-  margin-top: -7px;
-  /* MAGIC NUMBER (kills the whitespace above footer) */
-}
-
-@media screen and (min-width: 480px) {
-  .immersive-footer {
-    height: 72px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-footer {
-    height: 80px;
-  }
-}
-
-.immersive-footer .row {
-  padding: 0 20px;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 0;
-}
-
-.immersive-footer a {
-  color: #FFFFFF;
-  border-bottom: 1px dotted #FFFFFF;
-}
-
-.immersive-footer a:hover {
-  text-decoration: none;
-}
-
-@media screen and (min-width: 480px) {
-  .immersive-footer-social {
-    float: left;
-  }
-}
-
-.immersive-footer-social ul {
-  margin-top: 20px;
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-footer-social ul {
-    margin-top: 25px;
-  }
-}
-
-.immersive-footer-social ul li {
-  display: inline;
-}
-
-.immersive-footer-social ul li:last-child {
-  padding-left: 20px;
-}
-
-.immersive-footer-social-img {
-  height: 25px;
-}
-
-.immersive-footer-social a {
-  border-bottom: none;
-}
-
-@media screen and (min-width: 480px) {
-  .immersive-footer-links {
-    float: right;
-  }
-}
-
-.immersive-footer-links ul {
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-@media screen and (min-width: 480px) {
-  .immersive-footer-links ul {
-    width: 400px;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .immersive-footer-links ul {
-    width: 500px;
-    margin-top: 20px;
-    text-align: right;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .immersive-footer-links ul {
-    width: 600px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-footer-links ul {
-    width: 800px;
-    margin-top: 25px;
-  }
-}
-
-.immersive-footer-links ul li:last-child {
-  padding-top: 20px;
-}
-
-@media screen and (min-width: 480px) {
-  .immersive-footer-links ul li {
-    font-size: 0.65rem;
-  }
-  .immersive-footer-links ul li:first-child {
-    padding-top: 20px;
-  }
-  .immersive-footer-links ul li:nth-child(2) {
-    float: left;
-  }
-  .immersive-footer-links ul li:last-child {
-    padding-top: 0;
-    float: right;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .immersive-footer-links ul li {
-    display: inline;
-    padding-left: 20px;
-  }
-  .immersive-footer-links ul li:first-child {
-    padding-top: 0;
-  }
-  .immersive-footer-links ul li:nth-child(2) {
-    float: none;
-  }
-  .immersive-footer-links ul li:last-child {
-    float: none;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .immersive-footer-links ul li {
-    font-size: 0.8rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-footer-links ul li {
-    font-size: 1rem;
-  }
-}
-
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
