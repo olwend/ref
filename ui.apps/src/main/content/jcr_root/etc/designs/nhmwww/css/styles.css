@@ -5205,7 +5205,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1024px) {
   .bigsplash .hero-video-text {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 
@@ -5238,6 +5238,12 @@ html.js-noScroll {
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .bigsplash .hero-video-text-title h1 {
+    font-size: 4.4rem;
+  }
+}
+
 .bigsplash .hero-video-text-caption {
   display: none;
 }
@@ -5251,7 +5257,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .bigsplash .hero-video-text-caption span {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -5281,7 +5287,7 @@ html.js-noScroll {
   .bigsplash .hero-video-text-cta a {
     top: 360px;
     /* MAGIC NUMBER! */
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     border-bottom: 1px dotted #FFFFFF;
   }
   .bigsplash .hero-video-text-cta a:hover {
@@ -5319,12 +5325,16 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .bigsplash .hero-video-wrapper-controls {
     display: block;
-    position: relative;
-    bottom: 40px;
+    position: absolute;
+    bottom: 10px;
     /* MAGIC NUMBER! */
-    right: 90px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bigsplash .hero-video-wrapper-controls {
+    bottom: 70px;
     /* MAGIC NUMBER! */
-    text-align: right;
   }
 }
 

@@ -41,10 +41,11 @@
 				<a href="<%= helper.getCtaUrl() %>"><%= helper.getCtaText() %></a>
 			</div>
 		<%} %>
-		
-	</div>
-</div>
-<div class="hero-video-wrapper-controls">
+
+	<div class="hero-video-wrapper-controls">
 		<i class="ico svg-ico hero-video-wrapper-controls-pause" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_bigsplash_pause.svg" data-svg-title="icon__bigsplash-pause" data-alt="Pause" data-base-color="#FFFFFF" data-stroke-width="0" data-fallback=""></i>
 		<i class="ico svg-ico hero-video-wrapper-controls-play" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_bigsplash_play.svg" data-svg-title="icon__bigsplash-play" data-alt="Play" data-base-color="#FFFFFF" data-stroke-width="0" data-fallback=""></i>
 	</div>
+		
+	</div>
+</div>
