@@ -5203,7 +5203,7 @@ html.js-noScroll {
   height: 100%;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1160px) {
   .bigsplash .hero-video-text {
     margin-top: 30px;
   }
@@ -5240,7 +5240,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1024px) {
   .bigsplash .hero-video-text-title h1 {
-    font-size: 4.4rem;
+    font-size: 5.8rem;
   }
 }
 
@@ -5252,12 +5252,19 @@ html.js-noScroll {
   .bigsplash .hero-video-text-caption {
     display: block;
     width: 400px;
+    margin-top: -10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bigsplash .hero-video-text-caption {
+    margin-top: 0;
   }
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash .hero-video-text-caption span {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -5287,7 +5294,7 @@ html.js-noScroll {
   .bigsplash .hero-video-text-cta a {
     top: 360px;
     /* MAGIC NUMBER! */
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-bottom: 1px dotted #FFFFFF;
   }
   .bigsplash .hero-video-text-cta a:hover {
@@ -5326,14 +5333,21 @@ html.js-noScroll {
   .bigsplash .hero-video-wrapper-controls {
     display: block;
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     /* MAGIC NUMBER! */
   }
 }
 
 @media screen and (min-width: 1024px) {
   .bigsplash .hero-video-wrapper-controls {
-    bottom: 70px;
+    bottom: 30px;
+    /* MAGIC NUMBER! */
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .bigsplash .hero-video-wrapper-controls {
+    bottom: 60px;
     /* MAGIC NUMBER! */
   }
 }
