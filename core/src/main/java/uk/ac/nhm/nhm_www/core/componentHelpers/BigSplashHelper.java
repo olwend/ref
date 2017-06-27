@@ -1,20 +1,33 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.foundation.Image;
 
 public class BigSplashHelper {
 	
 	private String videoId;
 	private String imagePath;
+	private String imageAlt;
 	private String title;
 	private String subtitle;
 	private String caption;
 	
 	private String ctaText;
 	private String ctaUrl;
+	
+	private ResourceResolver resourceResolver;
+	private ImageResource image;
+	
+	protected static final Logger LOG = LoggerFactory.getLogger(Foundation5ImageHelper.class);
+	private static final String IMAGE_ALT_DEFAULT = "Default";
 	
 	public BigSplashHelper(SlingHttpServletRequest request, Page page, ValueMap properties) {
 		this.videoId = properties.get("youtube", String.class);
@@ -25,6 +38,19 @@ public class BigSplashHelper {
 		
 		this.ctaText = properties.get("ctatext", String.class);
 		this.ctaUrl = properties.get("ctaurl", String.class);
+		
+		resourceResolver = request.getResourceResolver();
+		Resource resource = resourceResolver.getResource(this.imagePath);
+		
+		this.imageAlt = IMAGE_ALT_DEFAULT;
+		
+		try {
+			image = new Image(resource);
+			this.imageAlt = image.getAlt();
+		} catch(NullPointerException e) {
+			LOG.error("Image not found in repository. Expected path=" + this.imagePath);
+		}
+
 	}
 
 	public String getVideoId() {
@@ -41,6 +67,14 @@ public class BigSplashHelper {
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public String getImageAlt() {
+		return imageAlt;
+	}
+
+	public void setImageAlt(String imageAlt) {
+		this.imageAlt = imageAlt;
 	}
 
 	public String getTitle() {
