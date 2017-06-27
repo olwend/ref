@@ -13,7 +13,7 @@
 </div>
 
 <div class="hero-video-image">
-	<img src="<%= helper.getImagePath() %>" alt="<%= helper.getImageAlt() %>">
+	<img src="<%= helper.getImagePath() %>" alt="">
 </div>
 
 
