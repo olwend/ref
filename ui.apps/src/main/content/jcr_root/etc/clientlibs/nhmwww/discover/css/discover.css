@@ -15,7 +15,7 @@
 /*alext2: removing as this is messing with the other body text.
 @media screen and (min-width: 1024px) {
 	p {
-		font-size: 1.0em;
+		font-size: 1em;
 	}
 }*/
 
@@ -64,7 +64,7 @@ p.discover-element-tag {
 
 @media screen and (min-width: 768px) {
 	p.discover-element-tag {
-		font-size: 1.0em;
+		font-size: 1em;
 	}
 }
 /* prep for adding an icon on the video features.

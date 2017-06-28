@@ -90,7 +90,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .visit .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -106,7 +106,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .visit .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -115,19 +115,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .visit .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .visit .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .visit .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -141,7 +141,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .visit .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -150,7 +150,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .visit .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -160,7 +160,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .visit .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -180,7 +180,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .visit .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .visit .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -288,18 +288,18 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .visit .GreyBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .visit .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
 .visit .audience {
-  padding: 1.0em 0;
+  padding: 1em 0;
 }
 
 .visit .info-tout__action.visit-exhibitions {
@@ -320,7 +320,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .take-part .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -336,7 +336,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .take-part .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -345,19 +345,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .take-part .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .take-part .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .take-part .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -371,7 +371,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .take-part .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -380,7 +380,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .take-part .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -390,7 +390,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .take-part .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -410,7 +410,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .take-part .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .take-part .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -518,7 +518,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .about-us .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -534,7 +534,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .about-us .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -543,19 +543,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .about-us .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .about-us .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .about-us .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -569,7 +569,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .about-us .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -578,7 +578,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .about-us .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -588,7 +588,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .about-us .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -608,7 +608,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .about-us .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .about-us .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -702,7 +702,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .schools .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -718,7 +718,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .schools .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -727,19 +727,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .schools .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .schools .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .schools .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -753,7 +753,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .schools .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -762,7 +762,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .schools .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -772,7 +772,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .schools .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -792,7 +792,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .schools .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .schools .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -886,7 +886,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -902,7 +902,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .our-science .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -911,19 +911,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .our-science .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .our-science .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -937,7 +937,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .our-science .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -946,7 +946,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -956,7 +956,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .our-science .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -976,7 +976,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .our-science .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .our-science .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -1105,7 +1105,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science .aside-box {
-  padding: 1.0em 1.5em;
+  padding: 1em 1.5em;
 }
 
 .our-science .aside-box h2 {
@@ -1114,18 +1114,18 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .our-science .aside-box {
-    padding: 1.2em 2.0em;
+    padding: 1.2em 2em;
   }
 }
 
 @media screen and (min-width: 768px) {
   .our-science .bottom-banner {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
 .support-us .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1141,7 +1141,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .support-us .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1150,19 +1150,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .support-us .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .support-us .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .support-us .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1176,7 +1176,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .support-us .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1185,7 +1185,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .support-us .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1195,7 +1195,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .support-us .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1215,7 +1215,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .support-us .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .support-us .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -1309,7 +1309,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .discover .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1325,7 +1325,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .discover .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1334,19 +1334,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .discover .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .discover .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .discover .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1360,7 +1360,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .discover .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1369,7 +1369,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .discover .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1379,7 +1379,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .discover .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1399,7 +1399,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .discover .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .discover .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -1493,7 +1493,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .press-office .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1509,7 +1509,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .press-office .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1518,19 +1518,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .press-office .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .press-office .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .press-office .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1544,7 +1544,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .press-office .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1553,7 +1553,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .press-office .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1563,7 +1563,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .press-office .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1583,7 +1583,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .press-office .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .press-office .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -1677,7 +1677,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .working .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1693,7 +1693,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .working .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1702,19 +1702,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .working .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .working .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .working .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1728,7 +1728,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .working .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1737,7 +1737,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .working .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1747,7 +1747,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .working .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1767,7 +1767,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .working .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .working .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -1861,7 +1861,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .business-services .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1877,7 +1877,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .business-services .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1886,19 +1886,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .business-services .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .business-services .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .business-services .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1912,7 +1912,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .business-services .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1921,7 +1921,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .business-services .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -1931,7 +1931,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .business-services .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -1951,7 +1951,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .business-services .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .business-services .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -2045,7 +2045,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .contact-us .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -2061,7 +2061,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .contact-us .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2070,19 +2070,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .contact-us .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .contact-us .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .contact-us .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2096,7 +2096,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .contact-us .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2105,7 +2105,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .contact-us .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -2115,7 +2115,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .contact-us .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2135,7 +2135,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .contact-us .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .contact-us .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -2229,7 +2229,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .shop .GreyBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -2245,7 +2245,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1160px) {
   .shop .GreyBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2254,19 +2254,19 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .shop .BlackBox {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #000;
 }
 
 @media screen and (min-width: 768px) {
   .shop .BlackBox {
-    padding: 1.0em;
+    padding: 1em;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .shop .BlackBox {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2280,7 +2280,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .shop .feature-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2289,7 +2289,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .shop .aside-box {
-  padding: 1.0em;
+  padding: 1em;
   background-color: #eeeeee;
 }
 
@@ -2299,7 +2299,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 1024px) {
   .shop .aside-box {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -2319,7 +2319,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 @media screen and (min-width: 768px) {
   .shop .bottom-banner {
-    padding: 1.0em 1.5em;
+    padding: 1em 1.5em;
   }
   .shop .bottom-banner > div.large-4 {
     left: 1.5em;
@@ -2811,12 +2811,12 @@ input.question {
 
 /** LEGACY BOTTOM-BANNER PARTIAL **/
 .bottom-banner {
-  padding: 1.0em;
+  padding: 1em;
 }
 
 @media screen and (min-width: 1024px) {
   .bottom-banner {
-    padding: 2.0em;
+    padding: 2em;
   }
 }
 
@@ -4786,7 +4786,7 @@ table.gssb_c {
 }
 
 .main-section.science-profile .profile-info {
-  padding: 2.0em;
+  padding: 2em;
 }
 
 /** FIXES PARTIAL (PHASED OUT) **/
@@ -4817,7 +4817,7 @@ a:hover {
 
 p {
   line-height: 1.5em;
-  margin-bottom: 1.0em;
+  margin-bottom: 1em;
   font-size: 1em;
 }
 
@@ -4980,7 +4980,7 @@ h6 {
 }
 
 .mt-16 {
-  margin-top: 1.0em;
+  margin-top: 1em;
 }
 
 .mt-20 {
@@ -5201,7 +5201,7 @@ html.js-noScroll {
 .caption {
   color: #565656;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.0em;
+  font-size: 1em;
   max-width: 100%;
   bottom: 0;
   width: 100%;
@@ -6144,7 +6144,7 @@ html.js-noScroll {
 }
 
 .event--information--wrapper .event--information--new-section {
-  margin-top: 1.0em;
+  margin-top: 1em;
 }
 
 /** NHMEC-52: EVENT SCHEDULE PARTIAL **/
