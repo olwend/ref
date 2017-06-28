@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.53 - Magnificent Merlin - 22-Jun-2017
+- WR-1055 - Remove 'Basic' tab from event config (to prevent conflicting description fields / duplicate meta descriptions)
+- WR-1068 - Add metadata fields to science profiles import
+
 ## 1.1.52 - Laughing Limpkin - 8-Jun-2017
 - WR-1063 - Smart banner for app download: fix display issues on tablet
 - WR-1065 - Google Analytics: remove duplicate datalayer script tags

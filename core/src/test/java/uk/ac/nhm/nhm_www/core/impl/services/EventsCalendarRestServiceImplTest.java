@@ -1,6 +1,7 @@
 package uk.ac.nhm.nhm_www.core.impl.services;
 
 import io.wcm.testing.mock.aem.junit.AemContext;
+import uk.ac.nhm.nhm_www.core.impl.services.rest.EventsCalendarRestServiceImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
