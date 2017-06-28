@@ -61,3 +61,9 @@
 		 url('2CFBF8_3_0.woff') format('woff');
  }
  
+ /** WR-1064 - Oceans Big Splash page **/
+ @font-face {
+	font-family: 'Chivo';
+	src: url('chivo-v8-latin-regular.woff2') format('woff2'),
+		 url('chivo-v8-latin-regular.woff') format('woff');
+ }

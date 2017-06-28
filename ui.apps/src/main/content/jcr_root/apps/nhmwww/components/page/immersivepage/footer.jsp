@@ -9,8 +9,8 @@
 
 	<div class="immersive-footer-links">
 		<ul>
-			<li><a href="">Privacy notice</a></li>
-			<li><a href="">Terms and conditions</a></li>
+			<li><a href="http://www.nhm.ac.uk/about-us/privacy-policy.html">Privacy notice</a></li>
+			<li><a href="http://www.nhm.ac.uk/about-us/website-terms-conditions.html">Terms and conditions</a></li>
 			<li>&copy; The Trustees of the Natural History Museum, London</li>
 		</ul>
 	</div>
