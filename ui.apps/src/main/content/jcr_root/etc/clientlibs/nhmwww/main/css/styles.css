@@ -5226,6 +5226,7 @@ html.js-noScroll {
 .bigsplash .hero-video-text-title h1 {
   color: #FFFFFF;
   font-family: "Chivo", Helvetica, Arial, sans-serif;
+  letter-spacing: -1px;
   padding: 0;
   margin: 0;
   font-weight: bold;
