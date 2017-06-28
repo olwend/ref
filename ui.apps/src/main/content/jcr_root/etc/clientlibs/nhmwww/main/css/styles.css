@@ -5251,13 +5251,14 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .bigsplash .hero-video-text-caption {
     display: block;
-    width: 400px;
+    width: 50%;
     margin-top: -10px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .bigsplash .hero-video-text-caption {
+    width: 400px;
     margin-top: 0;
   }
 }
@@ -5282,7 +5283,13 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .bigsplash .hero-video-text-cta {
     display: block;
-    padding-top: 10px;
+    padding-top: 5px;
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .bigsplash .hero-video-text-cta {
+    padding-top: 20px;
   }
 }
 
