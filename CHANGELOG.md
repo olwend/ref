@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 - Notorious Nuthatch - 29-Jun-2017
+- WR-1070 - Enable minification of JS and CSS files
+- WR-1064 - Create 'big splash' functionality for Oceans landing page
+- WR-1058 - Create new template for immersive / embeddable content with "slim header and footer"
+- WR-1069 - Create new flexible templates for landing pages
+- WR-1024 - Investigate creating a REST API for the events calendar
+
 ## 1.1.53 - Magnificent Merlin - 22-Jun-2017
 - WR-1055 - Remove 'Basic' tab from event config (to prevent conflicting description fields / duplicate meta descriptions)
 - WR-1068 - Add metadata fields to science profiles import
