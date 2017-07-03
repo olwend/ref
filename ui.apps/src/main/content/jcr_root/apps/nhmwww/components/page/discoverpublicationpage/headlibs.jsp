@@ -10,11 +10,17 @@
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/styles.css"%>" />
         
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/twitter.css"%>" />
-        
-        <cq:includeClientLib js="cq.jquery" />
+
         <script src="<%= currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/plugins.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/main.js"%>"></script>
+        
+        <!-- START CQ.JQUERY FOR AUTHOR ONLY -->
+        <% if (isOnEditMode || isOnDesignMode) {%>
+        	<cq:includeClientLib js="cq.jquery" />
+        <%}%>
+        <!-- END CQ.JQUERY FOR AUTHOR ONLY -->
+
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
         <%}%>

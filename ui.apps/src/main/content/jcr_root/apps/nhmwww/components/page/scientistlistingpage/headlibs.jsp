@@ -28,14 +28,17 @@
 	
 	<% } %>
 	
-	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />
-
+	<link rel="stylesheet" href="<%= currentDesign.getPath() + "/webfont/stylesheet.css"%>" />        
         <cq:includeClientLib css="nhmwww.main.normalize" />
         <cq:includeClientLib css="nhmwww.main.foundation" />
-        <cq:includeClientLib css="nhmwww.main" />       
-
-        <cq:includeClientLib js="cq.jquery" />
+        <cq:includeClientLib css="nhmwww.main" />
+        
         <cq:includeClientLib js="nhmwww.main" />
+       	<!-- START CQ.JQUERY FOR AUTHOR ONLY -->
+        <% if (isOnEditMode || isOnDesignMode) {%>
+        	<cq:includeClientLib js="cq.jquery" />
+        <%}%>
+        <!-- END CQ.JQUERY FOR AUTHOR ONLY -->
         
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
