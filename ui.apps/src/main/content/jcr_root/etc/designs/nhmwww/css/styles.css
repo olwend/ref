@@ -5150,7 +5150,7 @@ html.js-noScroll {
   max-width: 100%;
 }
 
-.immersive-header-logo {
+.immersive-header--logo {
   position: absolute;
   float: left;
   min-width: 250px;
@@ -5162,13 +5162,13 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 768px) {
-  .immersive-header-logo {
+  .immersive-header--logo {
     margin-left: 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .immersive-header-logo {
+  .immersive-header--logo {
     width: 335px;
     background-size: auto auto;
     margin-top: 15px;
@@ -5224,56 +5224,56 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 480px) {
-  .immersive-footer-social {
+  .immersive-footer--social {
     float: left;
   }
 }
 
-.immersive-footer-social ul {
+.immersive-footer--social ul {
   margin-top: 20px;
 }
 
 @media screen and (min-width: 1024px) {
-  .immersive-footer-social ul {
+  .immersive-footer--social ul {
     margin-top: 25px;
   }
 }
 
-.immersive-footer-social ul li {
+.immersive-footer--social ul li {
   display: inline;
 }
 
-.immersive-footer-social ul li:last-child {
+.immersive-footer--social ul li:last-child {
   padding-left: 20px;
 }
 
-.immersive-footer-social-img {
+.immersive-footer--social-img {
   height: 25px;
 }
 
-.immersive-footer-social a {
+.immersive-footer--social a {
   border-bottom: none;
 }
 
 @media screen and (min-width: 480px) {
-  .immersive-footer-links {
+  .immersive-footer--links {
     float: right;
   }
 }
 
-.immersive-footer-links ul {
+.immersive-footer--links ul {
   font-size: 0.9rem;
   margin: 0;
 }
 
 @media screen and (min-width: 480px) {
-  .immersive-footer-links ul {
+  .immersive-footer--links ul {
     width: 400px;
   }
 }
 
 @media screen and (min-width: 640px) {
-  .immersive-footer-links ul {
+  .immersive-footer--links ul {
     width: 500px;
     margin-top: 20px;
     text-align: right;
@@ -5281,62 +5281,62 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 768px) {
-  .immersive-footer-links ul {
+  .immersive-footer--links ul {
     width: 600px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .immersive-footer-links ul {
+  .immersive-footer--links ul {
     width: 800px;
     margin-top: 25px;
   }
 }
 
-.immersive-footer-links ul li:last-child {
+.immersive-footer--links ul li:last-child {
   padding-top: 20px;
 }
 
 @media screen and (min-width: 480px) {
-  .immersive-footer-links ul li {
+  .immersive-footer--links ul li {
     font-size: 0.65rem;
   }
-  .immersive-footer-links ul li:first-child {
+  .immersive-footer--links ul li:first-child {
     padding-top: 20px;
   }
-  .immersive-footer-links ul li:nth-child(2) {
+  .immersive-footer--links ul li:nth-child(2) {
     float: left;
   }
-  .immersive-footer-links ul li:last-child {
+  .immersive-footer--links ul li:last-child {
     padding-top: 0;
     float: right;
   }
 }
 
 @media screen and (min-width: 640px) {
-  .immersive-footer-links ul li {
+  .immersive-footer--links ul li {
     display: inline;
     padding-left: 20px;
   }
-  .immersive-footer-links ul li:first-child {
+  .immersive-footer--links ul li:first-child {
     padding-top: 0;
   }
-  .immersive-footer-links ul li:nth-child(2) {
+  .immersive-footer--links ul li:nth-child(2) {
     float: none;
   }
-  .immersive-footer-links ul li:last-child {
+  .immersive-footer--links ul li:last-child {
     float: none;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .immersive-footer-links ul li {
+  .immersive-footer--links ul li {
     font-size: 0.8rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .immersive-footer-links ul li {
+  .immersive-footer--links ul li {
     font-size: 1rem;
   }
 }
