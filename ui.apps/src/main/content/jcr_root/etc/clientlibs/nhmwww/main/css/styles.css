@@ -5133,7 +5133,7 @@ html.js-noScroll {
 
 /** IMMERSIVE HEADER PARTIAL **/
 .immersive-header {
-  height: 62px;
+  height: 60px;
   color: #FFFFFF;
   background-color: #000000;
 }
@@ -5169,20 +5169,16 @@ html.js-noScroll {
 
 @media screen and (min-width: 1024px) {
   .immersive-header-logo {
-    top: 10px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .immersive-header-logo {
     width: 335px;
     background-size: auto auto;
+    margin-top: 15px;
   }
 }
 
 .immersive-body {
   margin: 0;
   padding: 0;
+  line-height: 0;
 }
 
 .immersive-iframe {
@@ -5197,8 +5193,6 @@ html.js-noScroll {
   width: 100%;
   color: #FFFFFF;
   background-color: #000000;
-  margin-top: -7px;
-  /* MAGIC NUMBER (kills the whitespace above footer) */
 }
 
 @media screen and (min-width: 480px) {
