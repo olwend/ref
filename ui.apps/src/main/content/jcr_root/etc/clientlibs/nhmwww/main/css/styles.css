@@ -5390,10 +5390,6 @@ html.js-noScroll {
 }
 
 /** BIG SPLASH PARTIAL **/
-.bigsplash .title {
-  display: none;
-}
-
 .bigsplash .row {
   height: 100%;
 }
@@ -5404,7 +5400,72 @@ html.js-noScroll {
   }
 }
 
-.bigsplash .hero-video-text {
+.bigsplash-video {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-video {
+    display: block;
+    position: relative;
+    pointer-events: none;
+    padding-bottom: 31.25%;
+    height: 0;
+    max-width: 100%;
+    background: #000;
+  }
+  .bigsplash-video .youtubeplayer {
+    position: absolute;
+    left: 0;
+    height: 100%;
+  }
+}
+
+.bigsplash-video--controls {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-video--controls {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bigsplash-video--controls {
+    bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .bigsplash-video--controls {
+    bottom: 60px;
+  }
+}
+
+.bigsplash-video--controls-pause, .bigsplash-video--controls-play {
+  cursor: pointer;
+}
+
+.bigsplash-video--controls-play.ico {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-image {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-image img {
+    max-height: 60vh;
+  }
+}
+
+.bigsplash-text {
   position: absolute;
   top: 0;
   color: #FFFFFF;
@@ -5414,26 +5475,12 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 1160px) {
-  .bigsplash .hero-video-text {
+  .bigsplash-text {
     margin-top: 30px;
   }
 }
 
-.bigsplash .hero-video-text-title {
-  position: relative;
-  top: 25%;
-  text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash .hero-video-text-title {
-    display: block;
-    top: 0;
-    text-align: left;
-  }
-}
-
-.bigsplash .hero-video-text-title h1 {
+.bigsplash-text--title {
   color: #FFFFFF !important;
   font-family: "Chivo", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
@@ -5444,23 +5491,49 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 768px) {
-  .bigsplash .hero-video-text-title h1 {
+  .bigsplash-text--title {
     margin: 0 -2px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .bigsplash .hero-video-text-title h1 {
+  .bigsplash-text--title {
     font-size: 5.8rem;
   }
 }
 
-.bigsplash .hero-video-text-caption {
+.bigsplash-text--title-container {
+  position: relative;
+  top: 25%;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-text--title-container {
+    display: block;
+    top: 0;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-text--caption {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bigsplash-text--caption {
+    max-width: 390px;
+  }
+}
+
+.bigsplash-text--caption-container {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .bigsplash .hero-video-text-caption {
+  .bigsplash-text--caption-container {
     display: block;
     width: 50%;
     margin-top: -10px;
@@ -5468,125 +5541,42 @@ html.js-noScroll {
 }
 
 @media screen and (min-width: 1024px) {
-  .bigsplash .hero-video-text-caption {
+  .bigsplash-text--caption-container {
     width: 400px;
     margin-top: 0;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .bigsplash .hero-video-text-caption span {
-    font-size: 1.1rem;
+  .bigsplash-text--cta {
+    top: 360px;
+    font-size: 1rem;
+    border-bottom: 1px dotted #FFFFFF;
+  }
+  .bigsplash-text--cta:hover {
+    text-decoration: none;
+    border-bottom-style: solid;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .bigsplash .hero-video-text-caption span {
-    max-width: 390px;
-    /* MAGIC NUMBER! */
-  }
-}
-
-.bigsplash .hero-video-text-cta {
+.bigsplash-text--cta-container {
   display: none;
 }
 
+.bigsplash-text--cta-container a, .bigsplash-text--cta-container a:hover {
+  color: #FFFFFF;
+}
+
 @media screen and (min-width: 768px) {
-  .bigsplash .hero-video-text-cta {
+  .bigsplash-text--cta-container {
     display: block;
     padding-top: 5px;
   }
 }
 
 @media screen and (min-width: 1160px) {
-  .bigsplash .hero-video-text-cta {
+  .bigsplash-text--cta-container {
     padding-top: 20px;
-  }
-}
-
-.bigsplash .hero-video-text-cta a {
-  color: #FFFFFF;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash .hero-video-text-cta a {
-    top: 360px;
-    /* MAGIC NUMBER! */
-    font-size: 1rem;
-    border-bottom: 1px dotted #FFFFFF;
-  }
-  .bigsplash .hero-video-text-cta a:hover {
-    text-decoration: none;
-    border-bottom-style: solid;
-  }
-}
-
-.bigsplash .hero-video-wrapper {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash .hero-video-wrapper {
-    display: block;
-    position: relative;
-    pointer-events: none;
-    padding-bottom: 31.25%;
-    /* MAGIC NUMBER! */
-    height: 0;
-    max-width: 100%;
-    background: #000;
-  }
-  .bigsplash .hero-video-wrapper .youtubeplayer {
-    position: absolute;
-    left: 0;
-    height: 100%;
-  }
-}
-
-.bigsplash .hero-video-wrapper-controls {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash .hero-video-wrapper-controls {
-    display: block;
-    position: absolute;
-    bottom: 5px;
-    /* MAGIC NUMBER! */
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .bigsplash .hero-video-wrapper-controls {
-    bottom: 30px;
-    /* MAGIC NUMBER! */
-  }
-}
-
-@media screen and (min-width: 1160px) {
-  .bigsplash .hero-video-wrapper-controls {
-    bottom: 60px;
-    /* MAGIC NUMBER! */
-  }
-}
-
-.bigsplash .hero-video-wrapper-controls-pause, .bigsplash .hero-video-wrapper-controls-play {
-  cursor: pointer;
-}
-
-.bigsplash .hero-video-wrapper-controls-play {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash .hero-video-image {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  .bigsplash .hero-video-image img {
-    max-height: 60vh;
   }
 }
 

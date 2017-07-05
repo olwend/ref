@@ -143,7 +143,7 @@ function onYouTubeIframeAPIReady() {
             $this.data('player', player);
 	});
 
-    $('.hero-video-wrapper').each(function (){
+    $('.js--bigsplash-video').each(function (){
         if (window.screen.width>=768) { // Prevent loading video in background on devices which don't show it
 
             var $this = $(this),
@@ -260,20 +260,20 @@ jQuery(document).ready(function() {
 	/** End WR-1040 **/
 
     /** WR-1064 - Big Splash component **/
-    jQuery('.hero-video-wrapper-controls-pause').on('click', function(e){
+    jQuery('.js--bigsplash-video--controls-pause').on('click', function(e){
         e.preventDefault();
-        var player = jQuery('.hero-video-wrapper').data('player');
+        var player = jQuery('.js--bigsplash-video').data('player');
         player.pauseVideo();
-        jQuery('.hero-video-wrapper-controls-pause').css('display', 'none');
-        jQuery('.hero-video-wrapper-controls-play').css('display', 'inline');
+        jQuery('.js--bigsplash-video--controls-pause').css('display', 'none');
+        jQuery('.js--bigsplash-video--controls-play').css('display', 'inline');
     });
 
-    jQuery('.hero-video-wrapper-controls-play').on('click', function(e){
+    jQuery('.js--bigsplash-video--controls-play').on('click', function(e){
         e.preventDefault();
-        var player = jQuery('.hero-video-wrapper').data('player');
+        var player = jQuery('.js--bigsplash-video').data('player');
         player.playVideo();
-        jQuery('.hero-video-wrapper-controls-play').css('display', 'none');
-        jQuery('.hero-video-wrapper-controls-pause').css('display', 'inline');
+        jQuery('.js--bigsplash-video--controls-play').css('display', 'none');
+        jQuery('.js--bigsplash-video--controls-pause').css('display', 'inline');
     });
     /** End WR-1064 **/
 
