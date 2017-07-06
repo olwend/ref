@@ -7,6 +7,25 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="NewArchetype Demo Site"
         sling:resourceType="wcm/core/components/designer">
+        <nhmpage jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]" />
+        </nhmpage>
+        <nhmpagenotitlebar jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]" />
+        </nhmpagenotitlebar>
+        <immersivepage jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]">
+            </par>
+        </immersivepage>
         <page-home jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
@@ -67,21 +86,6 @@
             </par>
         </contentpage>
         <dynamicapppage jcr:primaryType="nt:unstructured">
-            <!-- <par
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Stacked,group:nhmwww]">
-                <row2cells21
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
-                <row2cells21_0
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
-                <row3cells
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
-                <section jcr:primaryType="nt:unstructured"/>
-            </par>-->
             <content-panel
             	jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
@@ -268,35 +272,7 @@
                     </par2>
                 </row2cells21>
             </parentpar>
-        </eventdetailpage>
-        <smartbannerpage jcr:primaryType="nt:unstructured">
-            <par
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Stacked,group:nhmwww]">
-                <herosection
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nhmwww/components/functional/layout/herosection">
-                    <par2
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="foundation/components/parsys">
-                        <nhm_carousel
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="nhmwww/components/functional/nhm-carousel"
-                            autoscrollduration="4"
-                            carouselItems="[/content/dam/nhmwww/another-person.jpg\\-\\-,/content/dam/nhmwww/person.jpg\\-\\-,/content/dam/nhmwww/bear.jpg\\-\\-]"
-                            grouping="1"/>
-                    </par2>
-                </herosection>
-                <row3cells
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nhmwww/components/functional/layout/row3cells"/>
-                <row2cells21
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
-                <section jcr:primaryType="nt:unstructured"/>
-            </par>
-        </smartbannerpage>
+        </eventdetailpage>        
     </jcr:content>
     <favicon.ico/>
     <js/>

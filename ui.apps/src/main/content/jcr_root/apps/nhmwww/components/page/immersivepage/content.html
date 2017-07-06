@@ -1,0 +1,7 @@
+<meta data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}" />
+<sly data-sly-test="${properties.useiframe}"> 
+	<iframe src="${properties.iframesource}" frameborder="0" class="immersive-iframe"></iframe> 
+</sly>
+<sly data-sly-test="${!properties.useiframe}"> 
+	<div data-sly-resource="${'par' @ resourceType='wcm/foundation/components/parsys'}"></div>
+</sly>

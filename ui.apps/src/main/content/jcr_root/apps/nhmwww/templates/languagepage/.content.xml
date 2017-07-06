@@ -3,8 +3,9 @@
     jcr:primaryType="cq:Template"
     jcr:title="Language Page Template"
     allowedParents="[]"
+    allowedChildren="[/apps/nhmwww/templates/nhmpage]"
     allowedPaths="[/content/nhmwww*]"
-    ranking="{Long}100">
+    ranking="{Long}901">
     <jcr:content
         jcr:primaryType="cq:PageContent"
         sling:resourceType="foundation/components/redirect"/>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Template"
+    jcr:title="NHM Immersive Page"
+    jcr:description="Template with slim header and footer"
+    allowedParents="[/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar,/apps/nhmwww/templates/immersivepage,/apps/nhmwww/templates/eventspage,/apps/nhmwww/templates/eventcalendarpage,/apps/nhmwww/templates/discoversectionpage,/apps/nhmwww/templates/newscontentpage,/apps/nhmwww/templates/pressreleasepage,/apps/nhmwww/templates/taggedcontentpage,/apps/nhmwww/templates/contentpage,/apps/nhmwww/templates/landingpage,/apps/nhmwww/templates/homepage,/apps/nhmwww/templates/sublandingpage,/apps/nhmwww/templates/taggecontentpage,/apps/nhmwww/templates/page,/apps/nhmwww/templates/page-home]"
+    allowedChildren="[/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar,/apps/nhmwww/templates/immersivepage,/apps/nhmwww/templates/eventspage,/apps/nhmwww/templates/eventcalendarpage,/apps/nhmwww/templates/exhibitiondetailspage,/apps/nhmwww/templates/discoversectionpage,/apps/nhmwww/templates/newscontentpage,/apps/nhmwww/templates/pressreleasepage,/apps/nhmwww/templates/dynamicapppage,/apps/nhmwww/templates/wayfindingscreenpage,/apps/nhmwww/templates/searchpage,/apps/nhmwww/templates/taggedcontentpage,/apps/nhmwww/templates/scientistsdirectorypage]"
+    allowedPaths="[/content/nhmwww/(.*)?]"
+    ranking="{Long}3">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="nhmwww/components/page/immersivepage">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            
+            
+        </par>
+    </jcr:content>
+</jcr:root>
