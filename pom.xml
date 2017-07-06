@@ -298,7 +298,7 @@
 			<dependency>
 				<groupId>com.adobe.aem</groupId>
 				<artifactId>uber-jar</artifactId>
-				<version>6.2.0</version>
+				<version>6.3.0</version>
 				<!-- for AEM6.1 use this version     : <version>6.1.0</version> -->
 				<!-- for AEM6.1 SP1 use this version : <version>6.1.0-SP1-B0001</version> -->
 				<!-- for AEM6.1 SP2 use this version : <version>6.1.0-SP2</version> -->
