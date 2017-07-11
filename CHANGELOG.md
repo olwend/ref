@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 - Overweight Oystercatcher - 6-Jul-2017
+- WR-1074 - Add code for Google Optimise sitewide (pages that use global header)
+- WR-1075 - Search UI: Make a few swaps to "popular search terms" 
+- WR-1077 - Clean up "Big Splash" component Sass and markup
+- WR-1078 - Clean up "immersive template" Sass and markup
+
 ## 1.2.0 - Notorious Nuthatch - 29-Jun-2017
 - WR-1070 - Enable minification of JS and CSS files
 - WR-1064 - Create 'big splash' functionality for Oceans landing page
