@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- |  Copyright 2014 Adobe Systems Incorporated
- |
- |  Licensed under the Apache License, Version 2.0 (the "License");
- |  you may not use this file except in compliance with the License.
- |  You may obtain a copy of the License at
- |
- |      http://www.apache.org/licenses/LICENSE-2.0
- |
- |  Unless required by applicable law or agreed to in writing, software
- |  distributed under the License is distributed on an "AS IS" BASIS,
- |  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- |  See the License for the specific language governing permissions and
- |  limitations under the License.
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<!-- | Copyright 2014 Adobe Systems Incorporated | | Licensed under the Apache 
+	License, Version 2.0 (the "License"); | you may not use this file except 
+	in compliance with the License. | You may obtain a copy of the License at 
+	| | http://www.apache.org/licenses/LICENSE-2.0 | | Unless required by applicable 
+	law or agreed to in writing, software | distributed under the License is 
+	distributed on an "AS IS" BASIS, | WITHOUT WARRANTIES OR CONDITIONS OF ANY 
+	KIND, either express or implied. | See the License for the specific language 
+	governing permissions and | limitations under the License. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>uk.ac.nhm</groupId>
 	<artifactId>nhm-www</artifactId>
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>nhm-www</description>
-    
+
 	<modules>
 		<module>core</module>
 		<module>ui.apps</module>
@@ -33,14 +27,16 @@
 	<properties>
 		<aem.host>${crx.host}</aem.host>
 		<aem.port>${crx.port}</aem.port>
-		<aem.publish.host>${publish.crx.host}</aem.publish.host>
-		<aem.publish.port>${publish.crx.port}</aem.publish.port>
+		<aem.publish1.host>${publish1.crx.host}</aem.publish1.host>
+		<aem.publish1.port>${publish1.crx.port}</aem.publish1.port>
+		<aem.publish2.host>${publish2.crx.host}</aem.publish2.host>
+		<aem.publish2.port>${publish2.crx.port}</aem.publish2.port>
 		<sling.user>${crx.username}</sling.user>
 		<sling.password>${crx.password}</sling.password>
 		<vault.user>${crx.username}</vault.user>
 		<vault.password>${crx.password}</vault.password>
 	</properties>
-	
+
 	<build>
 		<plugins>
 			<!-- Maven Release Plugin -->
@@ -124,6 +120,7 @@
 					<downloadSources>true</downloadSources>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -159,15 +156,15 @@
 						</execution>
 					</executions>
 					<configuration>
-			                   <outputDirectory>${project.build.directory}/classes</outputDirectory>
-			        </configuration>
+						<outputDirectory>${project.build.directory}/classes</outputDirectory>
+					</configuration>
 					<dependencies>
 						<dependency>
 							<groupId>org.slf4j</groupId>
 							<artifactId>slf4j-simple</artifactId>
 							<version>1.5.11</version>
 						</dependency>
-						
+
 					</dependencies>
 				</plugin>
 				<!-- Maven Installer Plugin -->
@@ -240,58 +237,58 @@
 		</pluginManagement>
 	</build>
 
-    <profiles>
-        <!-- ====================================================== -->
-        <!-- A D O B E   P U B L I C   P R O F I L E                -->
-        <!-- ====================================================== -->
-        <profile>
-            <id>adobe-public</id>
+	<profiles>
+		<!-- ====================================================== -->
+		<!-- A D O B E P U B L I C P R O F I L E -->
+		<!-- ====================================================== -->
+		<profile>
+			<id>adobe-public</id>
 
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 
-            <properties>
-                <releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
-                <releaseRepository-Name>Adobe Public Releases</releaseRepository-Name>
-                <releaseRepository-URL>http://repo.adobe.com/nexus/content/groups/public</releaseRepository-URL>
-            </properties>
+			<properties>
+				<releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
+				<releaseRepository-Name>Adobe Public Releases</releaseRepository-Name>
+				<releaseRepository-URL>http://repo.adobe.com/nexus/content/groups/public</releaseRepository-URL>
+			</properties>
 
-            <repositories>
-                <repository>
-                    <id>adobe-public-releases</id>
-                    <name>Adobe Public Repository</name>
-                    <url>http://repo.adobe.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
+			<repositories>
+				<repository>
+					<id>adobe-public-releases</id>
+					<name>Adobe Public Repository</name>
+					<url>http://repo.adobe.com/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
 
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>adobe-public-releases</id>
-                    <name>Adobe Public Repository</name>
-                    <url>http://repo.adobe.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>adobe-public-releases</id>
+					<name>Adobe Public Repository</name>
+					<url>http://repo.adobe.com/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
 
 
 	<!-- ====================================================================== -->
-	<!-- D E P E N D E N C I E S                                                -->
+	<!-- D E P E N D E N C I E S -->
 	<!-- ====================================================================== -->
 	<dependencyManagement>
 		<dependencies>
@@ -327,10 +324,10 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-        <groupId>biz.aQute</groupId>
-        <artifactId>bndlib</artifactId>
-        <version>1.50.0</version>
-        <scope>provided</scope>
+				<groupId>biz.aQute</groupId>
+				<artifactId>bndlib</artifactId>
+				<version>1.50.0</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.osgi</groupId>
@@ -352,12 +349,12 @@
 				<scope>provided</scope>
 			</dependency>
 			<!-- Apache Sling Dependencies -->
-	        <dependency>
-	            <groupId>com.adobe.aem</groupId>
-	            <artifactId>aem-api</artifactId>
-	            <version>6.0.0.1</version>
-	            <scope>provided</scope>
-	        </dependency>
+			<dependency>
+				<groupId>com.adobe.aem</groupId>
+				<artifactId>aem-api</artifactId>
+				<version>6.0.0.1</version>
+				<scope>provided</scope>
+			</dependency>
 			<!-- Servlet API -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
@@ -404,22 +401,35 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-			    <groupId>org.apache.commons</groupId>
-			    <artifactId>commons-lang3</artifactId>
-			    <version>3.0</version>
-                <scope>provided</scope>
-			    <!-- org.apache.commons.lang3 -->
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.0</version>
+				<scope>provided</scope>
+				<!-- org.apache.commons.lang3 -->
 			</dependency>
 			<dependency>
-        		<groupId>org.seleniumhq.selenium</groupId>
-        		<artifactId>selenium-java</artifactId>
-        		<version>2.43.1</version>
-    		</dependency>
-    		<dependency>
-        		<groupId>org.slf4j</groupId>
-        		<artifactId>slf4j-log4j12</artifactId>
-        		<version>1.5.2</version>
-    		</dependency>		
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-java</artifactId>
+				<version>2.43.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.5.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>2.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-web-api</artifactId>
+				<version>6.0</version>
+				<scope>provided</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

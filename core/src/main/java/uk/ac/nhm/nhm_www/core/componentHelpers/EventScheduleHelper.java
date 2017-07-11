@@ -6,6 +6,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import uk.ac.nhm.nhm_www.core.impl.services.CreateXMLFeedServiceImpl;
 
 import com.day.cq.wcm.api.Page;
 
@@ -22,11 +27,18 @@ public class EventScheduleHelper {
 	private String eventAllDay;
 	private String eventTimes;
 	private String durations;
+	private String soldOut;
+	private Boolean oneColumn;
+	
+	private ValueMap properties;
 
 	private HashMap<String, String> datesMap;
+	private HashMap<String[], String[]> soldOutMap;
 	private ArrayList<String> sortedDates;
 
-	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
+	private static final Logger LOG = LoggerFactory.getLogger(EventScheduleHelper.class);
+	
+	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage, ValueMap properties) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
 		this.eventContentPath = currentPage.getPath() + "/jcr:content";
 
 		Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
@@ -36,10 +48,13 @@ public class EventScheduleHelper {
 		this.eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
 		this.eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
 		this.durations = contentNode.hasProperty("jcr:durationsRecurrence") ? contentNode.getProperty("jcr:durationsRecurrence").getString() : "";
+		this.soldOut = contentNode.hasProperty("jcr:soldOut") ? contentNode.getProperty("jcr:soldOut").getString() : "";
 
 		this.datesMap = new HashMap<String, String>();
 		this.sortedDates = new ArrayList<String>();
 
+		setProperties(properties);
+		
 		initialise();
 	}
 
@@ -60,15 +75,23 @@ public class EventScheduleHelper {
 			LinkedHashSet<String> dates = createDatesArray(eventDates);
 			String[] times = createTimesArray(eventTimes, durations);
 			String[] allDayArray = eventAllDay.replaceAll("[^\\w\\s\\,]", "").split(",");
+			String[] soldOutArray = soldOut.substring(1, soldOut.length()-1).split("\\], \\[");
+			
+			times = addSoldOutText(soldOutArray, times, allDayArray);
+			int index = 0;
 
 			//Populates the Map
 			for (String date : dates) {
-				int index = Integer.parseInt(parseDateString(date, "(\\d+)$"));
-				String datesMapValue = "All day";
-				if (!allDayArray[index].equals("true")) {
-					datesMapValue = times[index]; 
-				} 
+				//String datesMapValue = "All day";
+				//if (!allDayArray[index].equals("true")) {
+					String datesMapValue = times[index]; 
+				//}
+				//TODO - need sub arrays in soldOutArray
+				//else if(soldOutArray[index].equals("true")) {
+				//	datesMapValue += " (Sold out)";
+				//}
 				datesMap.put(parseDateString(date, "^([a-zA-Z0-9 ])+"), datesMapValue);
+				index++;
 			}
 
 			//Populates an array list with the dates
@@ -90,8 +113,14 @@ public class EventScheduleHelper {
 				}
 			});
 		}
+		
+		if(getProperties().get("oneColumn") != null) {
+			this.oneColumn = getProperties().get("oneColumn", false);
+		} else {
+			this.oneColumn = false;
+		}
 	}
-	
+
 	private String parseDateString(String date, String regex) {
         String pos = null;
 
@@ -140,12 +169,13 @@ public class EventScheduleHelper {
 
 			for (int i = 0; i < values.length; i++) {
 				String [] timeArray = values[i].replaceAll("[^\\w\\s\\,\\:]", "").split(",");
+				
 				stringArrayList.add(createTimeAndDuration(timeArray, intDurationArray[i]));
 			}
 
 			String[] stringArray = new String[stringArrayList.size()];
 			stringArray = stringArrayList.toArray(stringArray);
-
+			
 			return stringArray;
 		} else {
 			return new String[0];    
@@ -182,6 +212,7 @@ public class EventScheduleHelper {
 				String initialTime = times[i].replace(":",".");
 				String finalTime = calculateEndTime(times[i], duration).replace(":",".");  
 				timeAndDuration += initialTime.replace("00.00","midnight") + "-" + finalTime.replace("00.00","midnight");
+
 				if (i < times.length - 1) {
 					timeAndDuration += ", ";                       
 				}
@@ -204,4 +235,87 @@ public class EventScheduleHelper {
 			return "";                               
 		}
 	}
+	
+	private String[] addSoldOutText(String[] soldOutArray, String[] times, String[] allDays) {
+        
+		int cLength = 0;
+		for(int i=0; i<soldOutArray.length; i++) {
+        	if(soldOutArray[i].contains("],[")) {
+        		String[] temp = soldOutArray[i].split("\\],\\[");
+        		for(int j=0; j<temp.length; j++) {
+        			cLength++;
+        		}
+        	} else {
+        		cLength++;
+        	}
+        }
+		
+		String[] c = new String[cLength];
+        int index = 0;
+        
+        for(int i=0; i < soldOutArray.length; i++) {
+        	if(soldOutArray[i].contains("],[")) {
+        		String[] temp = soldOutArray[i].split("\\],\\[");
+        		for(int j=0; j<temp.length; j++) {
+        			temp[j] = temp[j].replaceAll("[\\[\\]]","");
+
+        			String[] a = temp[j].split(",");
+        			String[] b = times[i].replaceAll(" ", "").split(",");
+
+    	            for(int k=0; k < a.length; k++) {
+    	            	if(b[k].equals("-")) b[k] = "All Day";
+    	            	
+    	                if(a[k].equals("true")) {
+    	                    b[k] = b[k] + " (Sold out)";
+    	                }
+
+    	                if(c[index] == null) {
+		                    c[index] = b[k];
+		                } else {
+		                    c[index] = c[index] + ", " + b[k];
+		                }
+    	            }
+    	            index++;
+        		}
+        	} else {
+	        	soldOutArray[i] = soldOutArray[i].replaceAll("[\\[\\]]","");
+	            
+	            String[] a = soldOutArray[i].split(",");
+	            String[] b = times[i].replaceAll(" ", "").split(",");
+
+	            for(int j=0; j < a.length; j++) {
+	            	if(b[j].equals("-")) b[j] = "All Day";
+	            	
+	                if(a[j].equals("true")) {
+	                    b[j] = b[j] + " (Sold out)";
+	                }
+	                
+	                if(c[index] == null) {
+	                    c[index] = b[j];
+	                } else {
+	                    c[index] = c[index] + ", " + b[j];
+	                }
+	            }
+	            index++;
+	        }
+        }
+        return c;
+    }
+	
+	public ValueMap getProperties() {
+		return properties;
+	}
+
+	public void setProperties(ValueMap properties) {
+		this.properties = properties;
+	}
+
+	public Boolean getOneColumn() {
+		return oneColumn;
+	}
+
+	public void setOneColumn(Boolean oneColumn) {
+		this.oneColumn = oneColumn;
+	}
+
 }

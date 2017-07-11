@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Template"
-    jcr:title="Natural History Museum Exhibition Details Page"
-    allowedParents="[/apps/nhmwww/templates/homepage,/apps/nhmwww/templates/landingpage,/apps/nhmwww/templates/sublandingpage,/apps/nhmwww/templates/contentpage]"
+    jcr:title="NHM Exhibition Details Page"
+    allowedParents="[/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar,/apps/nhmwww/templates/immersivepage,/apps/nhmwww/templates/exhibitiondetailspage]"
+    allowedChildren="[/apps/nhmwww/templates/exhibitiondetailspage]"
     allowedPaths="[/content/nhmwww/(.*)?]"
-    ranking="{Long}100">
+    ranking="{Long}104">
     <jcr:content
         jcr:primaryType="cq:PageContent"
         sling:resourceType="nhmwww/components/page/exhibitiondetailspage">

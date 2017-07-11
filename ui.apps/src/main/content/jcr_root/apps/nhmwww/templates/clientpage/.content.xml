@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Template"
     jcr:title="Natural History Museum Root Page"
     allowedPaths="[/content*]"
-    ranking="{Long}100">
+    ranking="{Long}900">
     <jcr:content
         cq:designPath="/etc/designs/nhmwww"
         jcr:primaryType="cq:PageContent"

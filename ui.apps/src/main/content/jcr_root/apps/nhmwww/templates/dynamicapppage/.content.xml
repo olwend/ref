@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Template"
-    jcr:title="Natural History Museum Dynamic App Page"
-    allowedParents="[/apps/nhmwww/templates/homepage,/apps/nhmwww/templates/landingpage,/apps/nhmwww/templates/discoversectionpage,/apps/nhmwww/templates/sublandingpage,/apps/nhmwww/templates/contentpage]"
+    jcr:title="NHM Dynamic App Page"
+    allowedParents="[/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar,/apps/nhmwww/templates/immersivepage]"
+    allowedChildren=""
     allowedPaths="[/content/nhmwww/(.*)?]"
-    ranking="{Long}100">
+    ranking="{Long}400">
     <jcr:content
         jcr:primaryType="cq:PageContent"
         sling:resourceType="nhmwww/components/page/dynamicapppage">
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/parsys">
-            <!-- <row2cells21
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
-            <row2cells21_0
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
-            <row3cells
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nhmwww/components/functional/layout/row3cells"/> -->
         </par>
     </jcr:content>
 </jcr:root>

@@ -23,7 +23,6 @@
                   uk.ac.nhm.nhm_www.core.model.SVGImage"%><%
 %>
 <cq:defineObjects />
-<cq:includeClientLib categories="uk.ac.nhm.headertextimage"/>
 
 <% 	HeaderTextImageHelper helper = new HeaderTextImageHelper(properties, resource, request, xssAPI); %>
 <%	String svgIcon = ""; %>

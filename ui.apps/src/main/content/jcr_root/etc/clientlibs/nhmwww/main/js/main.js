@@ -135,13 +135,42 @@ function onYouTubeIframeAPIReady() {
 	            //height: '649',
 	            //width: '1440',
 	            videoId: nhmvideoId,
-	            playerVars: { 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
+	            playerVars: { 'loop': 1, 'playlist': nhmvideoId, 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
                 events: { 
                     onReady: onPlayerReady
 	            }
             });
             $this.data('player', player);
 	});
+
+    $('.js--bigsplash-video').each(function (){
+        if (window.screen.width>=768) { // Prevent loading video in background on devices which don't show it
+
+            var $this = $(this),
+            nhmvideoId = $this.data('nhm-videoid'),
+            player = new YT.Player(nhmvideoId, {
+                height: '100%',
+                // width: '100%',
+                videoId: nhmvideoId,
+                playerVars: { 'modestbranding': 1, 'autoplay': 1, 'rel': 0, 'controls': 0, 'showinfo': 0, 'disablekb': 1 },
+                events: { 
+                    onReady: function(e){
+                        var player = e.target;
+                        player.playVideo();
+                    },
+                    onStateChange: 
+                        function(e){
+                            if (e.data === YT.PlayerState.ENDED) {
+                                player.playVideo(); 
+                            }
+                        }
+                }
+            });
+
+            $this.data('player', player);
+        }
+    });     
+
 	resizeYoutubeFrames();
 }
 
@@ -170,12 +199,11 @@ function resizeYoutubeFrames() {
 
 		//var newWidth = $fluidEl.width(); //dhis - dont use 1st video-wrapper
 	
-		
 		// Resize all videos according to their own aspect ratio
 		$allVideos.each(function() {
+			
 			var $el = $(this);
 			var newWidth = $el.closest('.video-wrapper').width();  //dhis use items video-wrapper parent width instead
-			
 			
 			if(newWidth == $el.data('originalWidth')) {
 				$el
@@ -207,8 +235,48 @@ jQuery(document).ready(function() {
 
     jQuery(document).foundation();
 
+    /** WR-1040 - Nav bar redesign - add "Active Page" class **/
+    jQuery('.nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
+
     
-	
+    if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('discover')) { jQuery('.link-discover').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('schools')) { jQuery('.link-schools').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('our-science')) { jQuery('.link-our-science').addClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('search')) { jQuery('.link-search').addClass('menuSelected'); }
+    else {
+        var urlForMenu = window.location.href; // Get current URL
+        if (urlForMenu.indexOf('nhm.ac.uk/visit') !== -1) { jQuery('.link-visit').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/discover') !== -1) { jQuery('.link-discover').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/take-part') !== -1) { jQuery('.link-take-part').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/support-us') !== -1) { jQuery('.link-support-us').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/schools') !== -1) { jQuery('.link-schools').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/our-science') !== -1) { jQuery('.link-our-science').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/search') !== -1) { jQuery('.link-search').addClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/events') !== -1) { jQuery('.nav-list__link').removeClass('menuSelected'); }
+    }
+	/** End WR-1040 **/
+
+    /** WR-1064 - Big Splash component **/
+    jQuery('.js--bigsplash-video--controls-pause').on('click', function(e){
+        e.preventDefault();
+        var player = jQuery('.js--bigsplash-video').data('player');
+        player.pauseVideo();
+        jQuery('.js--bigsplash-video--controls-pause').css('display', 'none');
+        jQuery('.js--bigsplash-video--controls-play').css('display', 'inline');
+    });
+
+    jQuery('.js--bigsplash-video--controls-play').on('click', function(e){
+        e.preventDefault();
+        var player = jQuery('.js--bigsplash-video').data('player');
+        player.playVideo();
+        jQuery('.js--bigsplash-video--controls-play').css('display', 'none');
+        jQuery('.js--bigsplash-video--controls-pause').css('display', 'inline');
+    });
+    /** End WR-1064 **/
+
     //var thumbnails = $(this).data('nhm-thumbnails');
     $('.carousel').each(function (carousel){
         var $this = $(this),
@@ -294,6 +362,10 @@ jQuery(document).ready(function() {
             prev.fadeOut(100);
             next.fadeIn(100);
           }
+        },
+        
+        onBeforeStart: function() {
+            $('.js--carousel-image').css('display','block');
         }
       });
 
@@ -337,6 +409,10 @@ jQuery(document).ready(function() {
                 prev.fadeIn(100);
                 next.fadeIn(100); 
             }
+        },
+        
+        onBeforeStart: function() {
+            $('.js--carousel-image').css('display','block');
         }
     });
 
@@ -412,13 +488,6 @@ jQuery(document).ready(function() {
         if (jQuery(window).width() < 768) { jQuery('.hero .promo-link').fadeIn(); }
     });
 
-    // Still needed? Can't see any subnav-class elements in current HTML
-    // jQuery('.subnav').on('click', 'a', function(e){
-    //     e.preventDefault();
-    //     var adjust = jQuery('.global-header').height() + jQuery('.subnav').height();
-    //     jQuery('html, body').animate({ scrollTop: jQuery('a[name='+jQuery(this).attr('href').replace('#','')+']').offset().top - adjust }, 1000);
-    // });
-
     // Dynamic hover code to override CSS and provide a bit of delay before open/close
     jQuery('.level-1 > .nav-list__item.has-children').hoverIntent({ 
         over: function(){ jQuery(this).addClass('open'); }, 
@@ -454,49 +523,7 @@ jQuery(document).ready(function() {
           }
         }
       });
-
-      // if a link in the sub-nav is clicked...
-      jQuery('.level-2 > .nav-list__item.has-children').on('click', function(e){
-      // allow the link to work as normal
-      	return true;
-      // set variable for "this"
-        var $this = jQuery(this);
-
-        // if the main nav link already has a "selected" class, remove all the classes that make it "selected" and allow the link to work as normal
-        if($this.hasClass('selected')) {
-					return true;
-          jQuery('.global-menu-trigger').removeClass('return');
-          $this.removeClass('selected').siblings().removeClass('selected-siblings');
-        }
-      });
-    } else {
-	    // Megamenu touch handling for screens above 768px
-	    jQuery('.level-1 > .nav-list__item.has-children').on('touchstart', function(e){
-        if(jQuery(e.target).closest('li').hasClass('has-children')){
-          e.preventDefault(); // stop touch acting as a click on items with submenus
-          e.stopPropagation(); // stop a click event from also firing
-          var $this = jQuery(this);
-
-          if($this.hasClass('open')) {
-            $this.removeClass('open').removeClass('touch');
-          } else {
-            jQuery('.nav-list__item').removeClass('open');
-            $this.addClass('open').addClass('touch');
-          }
-
-          if(jQuery(window).width() < 768){
-            if($this.hasClass('selected')) {
-              jQuery('.global-menu-trigger').removeClass('return');
-              $this.removeClass('selected').siblings().removeClass('selected-siblings');
-            } else {
-              jQuery('.global-menu-trigger').addClass('return');
-              jQuery('.nav-list__item').removeClass('selected');
-              $this.addClass('selected').siblings().addClass('selected-siblings');
-            }
-          }
-        }
-	    });
-		}
+    }
 
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){
@@ -515,42 +542,36 @@ jQuery(document).ready(function() {
         }
     });
 
-    jQuery(document).scroll(function() {
-        if (jQuery(window).width() > 767) {
-            var position=jQuery(this).scrollTop(),
-                subNav = jQuery('.subnav'),
-                mainNav = jQuery('.global-header'),
-                globalHeaderBar = jQuery('.global-header-bar');
-                hero = jQuery('.hero'),
-                infoSection = jQuery('.row.info'),
-                heroPos = hero.position();
-
-            if(position > globalHeaderBar.height()) {
-                mainNav.addClass('sticky');
-            } else {
-                mainNav.removeClass('sticky');
-            }
-
-            if(!!heroPos && position >= heroPos.top + hero.height() - mainNav.height()){
-                subNav.addClass('fixed');
-                infoSection.addClass('fixed');
-
-                jQuery('.subnav-section').each(function(i){
-                    var fixedNav = mainNav.height() + subNav.height(),
-                        section = jQuery(this);
-                    if(section.position().top <= position + fixedNav){
-                        jQuery('.subnav__item').removeClass('active').eq(i).addClass('active');
-                    }
-                });
-            } else {
-                subNav.removeClass('fixed');
-                infoSection.removeClass('fixed');
-                subNav.find('.subnav__item').removeClass('active');
+    jQuery('#megamenu--search-bar__button').on('click', function(e){
+        e.preventDefault();
+        if(jQuery('.global-menu-trigger').hasClass('return')) {
+            jQuery('.nav-list__item').removeClass('selected selected-siblings');
+            jQuery('.global-menu-trigger').removeClass('return');
+        } else {
+            if(jQuery('.global-menu-trigger').hasClass('clicked')) {
+                jQuery('.global-nav-menu').slideUp('slow');
+                setTimeout(function() {
+                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                }, 600);
+                
             }
         }
+        jQuery('html').addClass('js-noScroll');
+        jQuery('.megamenu--search-bar').slideDown('slow');
+        jQuery('.megamenu--search-bar__overlay').slideDown('slow');
+        jQuery('.megamenu--search-bar__content').slideDown('slow');
     });
 
-    onYouTubeIframeAPIReady();
+    jQuery('#megamenu--search-bar__close').on('click', function(e){
+        e.preventDefault();
+        jQuery('.megamenu--search-bar').slideUp('slow');
+        jQuery('.megamenu--search-bar__overlay').slideUp('slow');
+        jQuery('.megamenu--search-bar__content').slideUp('slow');
+        setTimeout(function() {
+            jQuery('html').removeClass('js-noScroll');
+        }, 600);        
+    });
+
     // IE8 interchange image shim - SVG support began with IE9
     if(!Modernizr.svg){
         $('[data-interchange]').each(function(){
@@ -561,26 +582,41 @@ jQuery(document).ready(function() {
             }
         });
     }
+
+    /** WR-1063 - smart banner nav bar fix **/
+    $('body').on('DOMNodeInserted', 'div', function () { // Fire when a div is inserted into DOM
+        if ($(this).hasClass('js_smartbanner')) {
+            jQuery('.global-header').css('position', 'relative'); 
+            jQuery('body').css('padding-top', '0');
+        }
+    });
+    $('body').on('DOMNodeRemoved', 'div', function () { // Fire when a div is removed from DOM
+        if ($(this).hasClass('js_smartbanner')) {
+            jQuery('.global-header').css('position', 'fixed'); 
+            jQuery('body').css('padding-top', '100px');
+        }
+    });
+    /** End WR-1063 **/
 });
 
-// WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
+//WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
 
 //PARENT IFRAME NEEDS THIS SCRIPT
-// browser compatibility: get method for event 
+//browser compatibility: get method for event 
 //addEventListener(FF, Webkit, Opera, IE9+) and attachEvent(IE5-8)
 var myEventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 
-// create event listener
+//create event listener
 var myEventListener = window[myEventMethod];
 
-// browser compatibility: attach event uses onmessage
+//browser compatibility: attach event uses onmessage
 var myEventMessage = myEventMethod == "attachEvent" ? "onmessage" : "message";
 
-// register callback function on incoming message
+//register callback function on incoming message
 myEventListener(myEventMessage, function (e) {
-// we will get a string (better browser support) and validate
-// if it is an int - detect the height required by the iframe with class "js--tor-iframe", set the height of the iframe and add 350px
+//we will get a string (better browser support) and validate
+//if it is an int - detect the height required by the iframe with class "js--tor-iframe", set the height of the iframe and add 350px
 if (e.data === parseInt(e.data)) {
-        $('.js--tor-iframe').height(e.data + 350);
-    }                             
+      $('.js--tor-iframe').height(e.data + 350);
+  }                             
 }, false);
