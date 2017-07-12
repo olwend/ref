@@ -40,6 +40,11 @@
     									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
     									text="Disable equalizer"
     									value="{Boolean}true" />
+    								<equalizeType
+    									jcr:primaryType="nt:unstructured"
+    									name="./isEqualizedDisabled@TypeHint"
+    									sling:resourceType="granite/ui/components/foundation/form/hidden"
+    									value="Boolean" />
     							</items>
     						</column>
     					</items>
