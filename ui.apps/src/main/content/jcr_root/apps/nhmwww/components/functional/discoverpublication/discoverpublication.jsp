@@ -116,9 +116,9 @@
 					<script src="//connect.facebook.net/en_US/all.js"></script>
 	
 					<script type="text/javascript">
-	    				$CQ(document).ready(function(){
+	    				$(document).ready(function(){
 	        			FB.Event.subscribe('xfbml.render',function(){
-	            			$CQ('.FB_Loader').css('background','url()');
+	            			$('.FB_Loader').css('background','url()');
 	        			});
 	    			});
 					</script>
