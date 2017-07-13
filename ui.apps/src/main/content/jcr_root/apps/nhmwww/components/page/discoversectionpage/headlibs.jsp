@@ -73,15 +73,21 @@
 
         <link rel="stylesheet" href="<%= currentDesign.getPath() + "/css/twitter.css"%>" />
 
+        <!-- START CQ.JQUERY FOR AUTHOR ONLY -->
+        <% if (isOnEditMode || isOnDesignMode) {%>
+        	<cq:includeClientLib css="cq.jquery.ui" />
+        	<cq:includeClientLib js="cq.jquery" />
+         	<cq:includeClientLib js="cq.jquery.ui" />
+        <%}%>
+        <!-- END CQ.JQUERY FOR AUTHOR ONLY -->
+
+        <!-- START JQUERY 1.11.2 CDN -->
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
+        <!-- END JQUERY 1.11.2 CDN -->
         <script src="<%= currentDesign.getPath() + "/js/foundation.min.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/plugins.js"%>"></script>
         <script src="<%= currentDesign.getPath() + "/js/main.js"%>"></script>
-        
-        <!-- START CQ.JQUERY FOR AUTHOR ONLY -->
-        <% if (isOnEditMode || isOnDesignMode) {%>
-        	<cq:includeClientLib js="cq.jquery" />
-        <%}%>
-        <!-- END CQ.JQUERY FOR AUTHOR ONLY -->
+
         
         <% if (isOnEditMode || isOnDesignMode) {%>
         <script src="<%= currentDesign.getPath() + "/js/aem.js"%>"></script>
