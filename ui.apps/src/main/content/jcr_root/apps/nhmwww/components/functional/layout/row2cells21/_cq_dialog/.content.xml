@@ -49,36 +49,6 @@
     						</column>
     					</items>
     				</tab1>
-    				<tab2
-    					jcr:primaryType="nt:unstructured"
-    					jcr:title="Equalize 3Col"
-    					sling:resourceType="granite/ui/components/foundation/section">
-    					<layout
-    						jcr:primaryType="nt:unstructured"
-    						margin="{Boolean}false"
-    						sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
-    					<items jcr:primaryType="nt:unstructured">
-    						<column
-    							jcr:primaryType="nt:unstructured"
-    							sling:resourceType="granite/ui/components/foundation/container">
-    							<items jcr:primaryType="nt:unstructured">
-    								<equalize
-    									jcr:primaryType="nt:unstructured"
-    									fieldDescription="Equalize HTI in 3-column layout?"
-    									fieldLabel="Equalize HTI in 3-column layout?"
-    									name="./isEqualize3Col"
-    									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-    									text="Disable equalizer"
-    									value="{Boolean}true" />
-    								<equalizeType
-    									jcr:primaryType="nt:unstructured"
-    									name="./isEqualize3Col@TypeHint"
-    									sling:resourceType="granite/ui/components/foundation/form/hidden"
-    									value="Boolean" />
-    							</items>
-    						</column>
-    					</items>
-    				</tab2>
     			</items>
     		</tabs>
     	</items>
