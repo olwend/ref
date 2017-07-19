@@ -4,12 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.commons.json.JSONException;
+import org.apache.sling.models.annotations.Source;
 
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -17,12 +21,17 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 
+import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
+
 public class ArticleSearchHelper {
 
 	private String test;
 	private SearchResult result;
+	private List<String> list;
 	private String tagString;
 
+	ArticleSearchService service;
+	
 	public ArticleSearchHelper(ValueMap properties, Resource resource, HttpServletRequest request, ResourceResolver resourceResolver) {
 		QueryBuilder builder = resourceResolver.adaptTo(QueryBuilder.class);
 		Session session = resourceResolver.adaptTo(Session.class);
@@ -81,6 +90,14 @@ public class ArticleSearchHelper {
 
 	public void setResult(SearchResult result) {
 		this.result = result;
+	}
+
+	public List<String> getList() {
+		return list;
+	}
+
+	public void setList(List<String> list) {
+		this.list = list;
 	}
 	
 	
