@@ -32,6 +32,9 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
+						<Sling-Model-Packages>
+							uk.ac.nhm.nhm_www.core
+						</Sling-Model-Packages>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -147,16 +150,16 @@
 			<artifactId>javaee-web-api</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>joda-time</groupId>
-		    <artifactId>joda-time</artifactId>
-		    <version>2.7</version>
-		    <scope>provided</scope>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.7</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.skyscreamer</groupId>
-		    <artifactId>jsonassert</artifactId>
-		    <version>1.4.0</version>
-		    <scope>test</scope>
+			<groupId>org.skyscreamer</groupId>
+			<artifactId>jsonassert</artifactId>
+			<version>1.4.0</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
