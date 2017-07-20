@@ -22,6 +22,12 @@ import com.day.cq.search.result.SearchResult;
 
 import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
 
+/**
+ * @author alisp2
+ *
+ * Service that...
+ */
+
 @Component
 @Service
 public class ArticleSearchServiceImpl implements ArticleSearchService {
@@ -33,49 +39,57 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 	
 	@Reference
 	private QueryBuilder builder;
-	
-	@Override
-	public String getArticleString() {
-		LOG.error("returning lol");
-		return "lol";
-	}
 
 	@Override
-	public List<String> getPageTitles(String rootPath, String[] tags) {
+	public List<String> getPageTitles(String rootPath, String[] tags, String order) {
 		List<String> pageTitles = new ArrayList<String>();
-		
-		String tagsString = "";
-		
-		for(int i=0; i<tags.length; i++) {
-			tagsString += tags[i] + " ";
-		}
-		
-		tagsString.trim();
 		
 		try {
 			final Session session = repository.loginService("searchService", null);
 			
 			Map<String, String> map = new HashMap<String, String>();
 			
+			//Path
 			map.put("path", rootPath);
 		    map.put("type", "cq:Page");
-		    map.put("tagid", tagsString);
-		    LOG.error(tagsString);
-		    map.put("tagid.property", "jcr:content/cq:tags");
+		    
+		    //Tags
+		    if(tags.length > 0) {
+		    	for(int i=0; i<tags.length; i++) {
+		    		String tagid = i + "_tagid";
+		    		String tagidproperty = i + "_tagid.property";
+				    map.put(tagid, tags[i]);
+				    map.put(tagidproperty, "jcr:content/cq:tags");
+		    	}
+		    }
+		    
+		    //Order by
+		    if(!order.equals(null) && order != null) {
+		    	switch(order) {
+		    		case "datemodified" :
+		    			map.put("orderby", "@jcr:content/cq:lastModified");
+		    			map.put("orderby.sort", "desc");
+		    			break;
+		    		case "datecreated" :
+		    			map.put("orderby", "@jcr:content/jcr:created");
+		    			map.put("orderby.sort", "desc");
+		    			break;
+		    	}
+		    }
 		    
 		    Query query = builder.createQuery(PredicateGroup.create(map), session);
-		    
+
 		    query.setStart(0);
 		    query.setHitsPerPage(200);
 		    
 		    SearchResult result = query.getResult();
 		    
-		    LOG.error(result.getQueryStatement());
+		    LOG.info(result.getQueryStatement());
 		    for(Hit hits : result.getHits()) {
 		    	pageTitles.add(hits.getTitle());
 		    }
 		} catch (Exception e) {
-			// TODO: handle exception
+			LOG.error("Error with exception: ", e);
 		}
 				
 		return pageTitles;

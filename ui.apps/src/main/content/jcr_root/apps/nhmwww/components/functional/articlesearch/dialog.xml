@@ -16,12 +16,30 @@
                         fieldLabel="Path"
                         name="./rootpath"
                         width="155"
-                        xtype="pathfield"/>
+                        xtype="pathfield"
+                        rootPath="/content/nhmwww"/>
                     <tags
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Tags"
                         name="./cq:tags"
                         xtype="tags"/>
+                    <order
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Order By"
+                        name="./order"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <datecreated
+                                jcr:primaryType="nt:unstructured"
+                                text="Date created"
+                                value="datecreated"/>
+                            <datemodified
+                                jcr:primaryType="nt:unstructured"
+                                text="Date modified"
+                                value="datemodified"/>
+                        </options>
+                    </order>
                 </items>
             </articleSearch>
         </items>
