@@ -1,6 +1,7 @@
 package uk.ac.nhm.nhm_www.core.model.slingModels;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -30,13 +31,17 @@ public class ArticleSearch {
 	ArticleSearchService service;
 
 	private List<String> pageTitles = null;
+	private List<Map<String, String>> pageList = null;
 	
 	@PostConstruct
 	protected void init() {
 		String rootPath = properties.get("rootpath", String.class);
+		String tagsOperator = properties.get("tagsoperator", String.class);
 		String[] tags = properties.get("cq:tags", String[].class);
 		String order = properties.get("order", String.class);
-		this.setPageTitles(service.getPageTitles(rootPath, tags, order));
+		String limit = properties.get("limit", String.class);
+		//this.setPageTitles(service.getPageTitles(rootPath, tags, order, tagsOperator, limit));
+		this.setPageList(service.getPageTitles(rootPath, tags, order, tagsOperator, limit));
 	}
 
 	public List<String> getPageTitles() {
@@ -45,6 +50,14 @@ public class ArticleSearch {
 
 	public void setPageTitles(List<String> pageTitles) {
 		this.pageTitles = pageTitles;
+	}
+
+	public List<Map<String, String>> getPageList() {
+		return pageList;
+	}
+
+	public void setPageList(List<Map<String, String>> pageList) {
+		this.pageList = pageList;
 	}
 	
 }

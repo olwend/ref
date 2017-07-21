@@ -17,18 +17,39 @@
                         name="./rootpath"
                         width="155"
                         xtype="pathfield"
-                        rootPath="/content/nhmwww"/>
+                        rootPath="/content/nhmwww"
+                        allowBlank="false"/>
                     <tags
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Tags"
                         name="./cq:tags"
-                        xtype="tags"/>
+                        xtype="tags"
+                        defaultvalue=""/>
+                    <tagsoperator
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Tags logical operator"
+                        name="./tagsoperator"
+                        type="select"
+                        xtype="selection"
+                        defaultValue="or">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <datecreated
+                                jcr:primaryType="nt:unstructured"
+                                text="And"
+                                value="and"/>
+                            <datemodified
+                                jcr:primaryType="nt:unstructured"
+                                text="Or"
+                                value="or"/>
+                        </options>
+                    </tagsoperator>
                     <order
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Order By"
                         name="./order"
                         type="select"
-                        xtype="selection">
+                        xtype="selection"
+                        defaultValue="datecreated">
                         <options jcr:primaryType="cq:WidgetCollection">
                             <datecreated
                                 jcr:primaryType="nt:unstructured"
@@ -40,6 +61,12 @@
                                 value="datemodified"/>
                         </options>
                     </order>
+                    <limit
+                    	jcr:primaryType="cq:Widget"
+                        fieldLabel="Limit"
+                        fieldDescription="Default value is 10 if left blank"
+                        name="./limit"
+                        xtype="textfield" />
                 </items>
             </articleSearch>
         </items>

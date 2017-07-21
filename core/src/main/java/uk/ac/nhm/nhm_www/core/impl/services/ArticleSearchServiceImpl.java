@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.apache.felix.scr.annotations.Component;
@@ -41,25 +42,31 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 	private QueryBuilder builder;
 
 	@Override
-	public List<String> getPageTitles(String rootPath, String[] tags, String order) {
+	public List<Map<String, String>> getPageTitles(String rootPath, String[] tags, String order, String tagsOperator, String limit) {
+		
 		List<String> pageTitles = new ArrayList<String>();
+		List<Map<String, String>> nodeList = new ArrayList<Map<String, String>>();
 		
 		try {
 			final Session session = repository.loginService("searchService", null);
 			
-			Map<String, String> map = new HashMap<String, String>();
+			Map<String, String> queryMap = new HashMap<String, String>();
 			
 			//Path
-			map.put("path", rootPath);
-		    map.put("type", "cq:Page");
+			queryMap.put("path", rootPath);
+		    queryMap.put("type", "cq:Page");
 		    
 		    //Tags
-		    if(tags.length > 0) {
+		    if(tags != null) {
 		    	for(int i=0; i<tags.length; i++) {
-		    		String tagid = i + "_tagid";
-		    		String tagidproperty = i + "_tagid.property";
-				    map.put(tagid, tags[i]);
-				    map.put(tagidproperty, "jcr:content/cq:tags");
+		    		String tagid = "group." + i + "_tagid";
+		    		String tagidproperty = "group." + i + "_tagid.property";
+				    queryMap.put(tagid, tags[i]);
+				    queryMap.put(tagidproperty, "jcr:content/cq:tags");
+		    	}
+		    	if(!tagsOperator.equals(null) && tagsOperator != null) {
+			    	if(tagsOperator.equals("and")) queryMap.put("group.p.or", "false");
+			    	if(tagsOperator.equals("or")) queryMap.put("group.p.or", "true");
 		    	}
 		    }
 		    
@@ -67,31 +74,43 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 		    if(!order.equals(null) && order != null) {
 		    	switch(order) {
 		    		case "datemodified" :
-		    			map.put("orderby", "@jcr:content/cq:lastModified");
-		    			map.put("orderby.sort", "desc");
+		    			queryMap.put("orderby", "@jcr:content/cq:lastModified");
+		    			queryMap.put("orderby.sort", "desc");
 		    			break;
 		    		case "datecreated" :
-		    			map.put("orderby", "@jcr:content/jcr:created");
-		    			map.put("orderby.sort", "desc");
+		    			queryMap.put("orderby", "@jcr:content/jcr:created");
+		    			queryMap.put("orderby.sort", "desc");
 		    			break;
 		    	}
 		    }
 		    
-		    Query query = builder.createQuery(PredicateGroup.create(map), session);
+		    //Query
+		    Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
 
 		    query.setStart(0);
-		    query.setHitsPerPage(200);
+		    
+		    //Query - limit
+		    if(limit != null) {
+			    query.setHitsPerPage(Long.parseLong(limit));
+		    }
 		    
 		    SearchResult result = query.getResult();
 		    
 		    LOG.info(result.getQueryStatement());
+		    
 		    for(Hit hits : result.getHits()) {
+		    	Map<String, String> nodeMap = new HashMap<String, String>();
+		    	Node node = hits.getNode();
+		    	nodeMap.put("path", node.getPath());
+		    	nodeMap.put("title", node.getName());
+		    	nodeList.add(nodeMap);
 		    	pageTitles.add(hits.getTitle());
 		    }
+
 		} catch (Exception e) {
 			LOG.error("Error with exception: ", e);
 		}
 				
-		return pageTitles;
+		return nodeList;
 	}
 }

@@ -1,5 +1,13 @@
-<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
-    <ul data-sly-list="${articlesearch.pageTitles}">
-		<li>${item}</li>
-    </ul>
+<div data-sly-test="${!properties.rootpath}">
+	Please configure the component correctly. <br>Required values missing:
+	<ul>
+		<li>Path</li>
+	</ul>
+</div>
+<div data-sly-test="${properties.rootpath}">
+	<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
+		<ul data-sly-list.list="${articlesearch.pageList}">
+    		<li><a href="${list['path']}.html">${list['title']}</a></li>
+		</ul>
+	</div>
 </div>
