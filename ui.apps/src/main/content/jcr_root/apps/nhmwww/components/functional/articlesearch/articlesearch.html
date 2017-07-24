@@ -1,13 +1,21 @@
-<div data-sly-test="${!properties.rootpath}">
-	Please configure the component correctly. <br>Required values missing:
-	<ul>
-		<li>Path</li>
-	</ul>
-</div>
-<div data-sly-test="${properties.rootpath}">
-	<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
-		<ul data-sly-list.list="${articlesearch.pageList}">
-    		<li><a href="${list['path']}.html">${list['title']}</a> ${list['excerpt']}</li>
+<div class="row">
+
+
+	<div data-sly-test="${!properties.rootpath}">
+		Please configure the component correctly. <br>Required values missing:
+		<ul>
+			<li>Path</li>
 		</ul>
 	</div>
+	<div data-sly-test="${properties.rootpath}">
+		<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
+			<div data-sly-list.list="${articlesearch.pageList}">
+	    		<div class="large-3 medium-6 small-12 columns end">
+	            	<a href="${list['path']}.html">${list['title']}</a> ${list['excerpt']}
+	            </div>
+			</div>
+		</div>
+	</div>
+
+
 </div>
