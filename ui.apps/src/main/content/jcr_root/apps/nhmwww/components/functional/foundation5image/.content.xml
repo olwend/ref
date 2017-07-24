@@ -3,6 +3,6 @@
     jcr:description="This is how to add a single responsive image"
     jcr:primaryType="cq:Component"
     jcr:title="Image"
-    sling:resourceSuperType="foundation/components/adaptiveimage"
+    sling:resourceSuperType="foundation/components/parbase"
     allowedParents="[*/*parsys]"
     componentGroup="nhmwww"/>
