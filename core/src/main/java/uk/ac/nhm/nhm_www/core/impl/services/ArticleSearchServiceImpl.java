@@ -20,7 +20,6 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-
 import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
 
 /**
@@ -43,8 +42,7 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 
 	@Override
 	public List<Map<String, String>> getPageTitles(String rootPath, String[] tags, String order, String tagsOperator, String limit) {
-		
-		List<String> pageTitles = new ArrayList<String>();
+
 		List<Map<String, String>> nodeList = new ArrayList<Map<String, String>>();
 		
 		try {
@@ -101,10 +99,20 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 		    for(Hit hits : result.getHits()) {
 		    	Map<String, String> nodeMap = new HashMap<String, String>();
 		    	Node node = hits.getNode();
+		    	//Get properties for each article
 		    	nodeMap.put("path", node.getPath());
-		    	nodeMap.put("title", node.getName());
+		    	
+		    	if(node.hasProperty("jcr:content/jcr:description")) {
+		    		nodeMap.put("title", node.getProperty("jcr:content/jcr:title").getString());
+		    	} else {
+		    		nodeMap.put("title", node.getName());
+		    	}
+		    	
+		    	if(node.hasProperty("jcr:content/jcr:description")) {
+		    		nodeMap.put("excerpt", node.getProperty("jcr:content/jcr:description").getString());
+		    	}
+		    	
 		    	nodeList.add(nodeMap);
-		    	pageTitles.add(hits.getTitle());
 		    }
 
 		} catch (Exception e) {

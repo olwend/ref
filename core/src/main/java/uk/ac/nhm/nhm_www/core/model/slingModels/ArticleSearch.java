@@ -30,7 +30,6 @@ public class ArticleSearch {
 	@Source("osgi-services")
 	ArticleSearchService service;
 
-	private List<String> pageTitles = null;
 	private List<Map<String, String>> pageList = null;
 	
 	@PostConstruct
@@ -40,16 +39,7 @@ public class ArticleSearch {
 		String[] tags = properties.get("cq:tags", String[].class);
 		String order = properties.get("order", String.class);
 		String limit = properties.get("limit", String.class);
-		//this.setPageTitles(service.getPageTitles(rootPath, tags, order, tagsOperator, limit));
 		this.setPageList(service.getPageTitles(rootPath, tags, order, tagsOperator, limit));
-	}
-
-	public List<String> getPageTitles() {
-		return pageTitles;
-	}
-
-	public void setPageTitles(List<String> pageTitles) {
-		this.pageTitles = pageTitles;
 	}
 
 	public List<Map<String, String>> getPageList() {
@@ -59,5 +49,4 @@ public class ArticleSearch {
 	public void setPageList(List<Map<String, String>> pageList) {
 		this.pageList = pageList;
 	}
-	
 }

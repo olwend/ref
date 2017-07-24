@@ -7,7 +7,7 @@
 <div data-sly-test="${properties.rootpath}">
 	<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
 		<ul data-sly-list.list="${articlesearch.pageList}">
-    		<li><a href="${list['path']}.html">${list['title']}</a></li>
+    		<li><a href="${list['path']}.html">${list['title']}</a> ${list['excerpt']}</li>
 		</ul>
 	</div>
 </div>
