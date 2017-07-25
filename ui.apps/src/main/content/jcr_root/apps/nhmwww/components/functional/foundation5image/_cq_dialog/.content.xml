@@ -78,7 +78,6 @@
 				                        fieldLabel="Description"
 				                        name="./jcr:description"
 				                        sling:resourceType="granite/ui/components/foundation/form/textarea"/>
-				                    <caption />
 				                    <imagePath 
 				                    	jcr:primaryType="nt:unstructured"
     									fieldLabel="Image link"
