@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="News List Feed"
+    jcr:title="Press Release Tile Feed"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
     mode="edit">
@@ -50,40 +50,18 @@
     									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
     									text="Open in New Window"
     									value="{Boolean}true" />
-				                    <componentID
-				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Component ID"
-				                        fieldDescription="Use numbers, must not be used by other components on this page."
-				                        name="./componentID"
-				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
-				                    <numberOfItems
+				                    <numberOfItemsToDisplay
 				                        jcr:primaryType="nt:unstructured"
 				                        fieldLabel="Number of Items"
-				                        name="./noOfItems"
+				                        name="./numberToDisplay"
 				                        xtype="granite/ui/components/foundation/form/numberfield" />
-									<hideMonths
-				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Hide months heading"
-				                        name="./hideMonths"
-				                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-				                        text="Hide months heading"
-    									value="{Boolean}true" />
 				                    <rootPagePath
 				                        jcr:primaryType="nt:unstructured"
 				                        fieldLabel="Root page"
+				                        name="./rootPagePath"
 				                        fieldDescription="The page used to start the search retrieving news stories"
 				                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
-    									rootPath="/content/nhmwww"
-    									name="./rootPagePath" />
-			                        <tags
-				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Tags"
-				                        name="./cq:tags"
-				                        sling:resourceType="cq/gui/components/common/tagspicker"
-				                        allowBulkEdit="{Boolean}true"
-				                        cq-msm-lockable="cq:tags"
-				                        cq:showOnCreate="{Boolean}true"
-				                        renderReadOnly="{Boolean}true" />
+    									rootPath="/content/nhmwww" />
     							</items>
     						</column>
     					</items>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="News List Feed"
+    jcr:title="Tagged Elements List Feed"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
     mode="edit">
@@ -61,13 +61,6 @@
 				                        fieldLabel="Number of Items"
 				                        name="./noOfItems"
 				                        xtype="granite/ui/components/foundation/form/numberfield" />
-									<hideMonths
-				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Hide months heading"
-				                        name="./hideMonths"
-				                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-				                        text="Hide months heading"
-    									value="{Boolean}true" />
 				                    <rootPagePath
 				                        jcr:primaryType="nt:unstructured"
 				                        fieldLabel="Root page"
