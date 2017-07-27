@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="List Feed"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
+    mode="edit">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+    	<items jcr:primaryType="nt:unstructured">
+    		<tabs
+    			jcr:primaryType="nt:unstructured"
+    			rel="cq-siteadmin-admin-properties-tabs"
+    			sling:resourceType="granite/ui/components/foundation/container">
+    			<layout
+    				jcr:primaryType="nt:unstructured"
+    				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+    				type="nav" />
+    			<items jcr:primaryType="nt:unstructured">
+    				<basicTab
+    					jcr:primaryType="nt:unstructured"
+    					jcr:title="Basic"
+    					sling:resourceType="granite/ui/components/foundation/section">
+    					<layout
+    						jcr:primaryType="nt:unstructured"
+    						margin="{Boolean}false"
+    						sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+    					<items jcr:primaryType="nt:unstructured">
+    						<column
+    							jcr:primaryType="nt:unstructured"
+    							sling:resourceType="granite/ui/components/foundation/container">
+    							<items jcr:primaryType="nt:unstructured">
+    								<title
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Component title"
+				                        name="./title"
+				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+			                        <hyperlink
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Hyperlink"
+				                        itemId="hyperlink"
+				                        name="./hyperlink"
+				                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
+    									rootPath="/content/nhmwww" />
+			                        <newwindow
+    									jcr:primaryType="nt:unstructured"
+    									fieldLabel="Open in new window"
+    									name="./newwindow"
+    									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+    									text="Open in New Window"
+    									value="{Boolean}true" />
+				                    <numberOfItemsToDisplay
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Number of Items"
+				                        name="./numberToDisplay"
+				                        xtype="granite/ui/components/foundation/form/numberfield" />
+				                    <rootPagePath
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Root page"
+				                        name="./rootPagePath"
+				                        fieldDescription="The page used to start the search retrieving news stories"
+				                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
+    									rootPath="/content/nhmwww" />
+    							</items>
+    						</column>
+    					</items>
+    				</basicTab>
+    			</items>
+    		</tabs>
+    	</items>
+    </content>
+</jcr:root>
