@@ -47,27 +47,33 @@
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
 	
-	
+	<meta property="twitter:card" content="summary_large_image">
 	<%if(!helper.getOgTitle().equals("")) { %>
 		<meta property="og:title" content="<%=helper.getOgTitle() %>">
+		<meta property="twitter:title" content="<%=helper.getOgTitle() %>">
 	<% }
 	else { %>
 		<meta property="og:title" content="<%=helper.getPageTitle() %>">
+		<meta property="twitter:title" content="<%=helper.getPageTitle() %>">
 	<%} %>
 	
 	<%if(!helper.getOgDescription().equals("")) { %>
 		<meta property="og:description" content="<%=helper.getOgDescription() %>" >
+		<meta property="twitter:description" content="<%=helper.getOgDescription() %>" >
 	<% }
 	else { %>
 		<meta property="og:description" content="<%=helper.getPageDescription() %>">
+		<meta property="twitter:description" content="<%=helper.getPageDescription() %>">
 	<%} %>
 	
 	<%if(!helper.getOgImagePath().equals("")) { 
 		if(helper.getSelectTab().equals("radioImage")) {%>
 			<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
+			<meta property="twitter:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
 		<%}
 		else if(helper.getSelectTab().equals("radioVideo")) { %>
 			<meta property="og:image" content="http://img.youtube.com/vi/<%= helper.getOgImagePath()%>/maxresdefault.jpg"/>
+			<meta property="twitter:image" content="http://img.youtube.com/vi/<%= helper.getOgImagePath()%>/maxresdefault.jpg"/>
 		<%} 
 	}%>
 
