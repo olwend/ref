@@ -8359,6 +8359,19 @@ a.button-cta {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
 
+/** WR-1087 social share component **/
+.social-share-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.social-share-container .facebook img, .social-share-container .twitter img, .social-share-container .email img {
+  max-height: 40px;
+  padding: 0 2px 0 2px;
+}
+
 /** WR-1023 social signup component **/
 .social-signup .row {
   margin-left: 0;
