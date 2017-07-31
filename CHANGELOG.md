@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2 - Prickly Partridge - 27-Jul-2017
+- WR-1082 - Issues with H1 styles in "Big Splash" component when used in Discover
+- WR-1083 - Reinstate ability to create Tagged Content Page templates in AEM
+
 ## 1.2.1 - Overweight Oystercatcher - 6-Jul-2017
 - WR-1074 - Add code for Google Optimise sitewide (pages that use global header)
 - WR-1075 - Search UI: Make a few swaps to "popular search terms" 
