@@ -4,7 +4,7 @@ import com.adobe.cq.sightly.WCMUse;
 
 public class SocialShareHelper extends WCMUse {
 	
-	private String emailLink;
+	private String socialLink;
 	
 	@Override
 	public void activate() throws Exception {
@@ -15,11 +15,11 @@ public class SocialShareHelper extends WCMUse {
 			pagePath = pagePath.replaceAll("/content/nhmwww/en/home", "");
 		}
 		
-		this.emailLink = pagePath;
+		this.socialLink = pagePath;
 	}
 
-	public String getEmailLink() {
-		return emailLink;
+	public String getSocialLink() {
+		return socialLink;
 	}
 
 }
