@@ -1,5 +1,6 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
+import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -108,18 +109,16 @@ public class DiscoverPublicationHelper {
 		if(dateLastUpdated != null) {
 			DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
 			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = "Last updated " + mdt.getDayOfMonth() + " " + mdt.getMonthOfYear() + " " + mdt.getYear();
+			this.date = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
 		}
 		else if(datePublished != null) {
 			DateTime dt = dateFormatter.parseDateTime(datePublished);
 			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = "Published " + mdt.getDayOfMonth() + " " + mdt.getMonthOfYear() + " " + mdt.getYear();
+			this.date = "Published " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
 		}
 		else {
 			this.date = "Please set a published date in the dialog";
 		}
-		
-		
 	}
 	
 	/**
@@ -187,6 +186,10 @@ public class DiscoverPublicationHelper {
 			selectTab = getProperties().get("selectTab", String.class);
 		}
 		setSelectTab(selectTab);
+	}
+	
+	public String getMonth(int month) {
+	    return new DateFormatSymbols().getMonths()[month-1];
 	}
 	
 	public Resource getResource() {
