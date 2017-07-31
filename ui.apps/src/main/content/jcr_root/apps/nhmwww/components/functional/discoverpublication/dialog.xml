@@ -243,6 +243,22 @@
                         xtype="youtubevideofield"/>
                 </items>
             </video>
+            <metadata
+                jcr:primaryType="cq:Panel"
+                title="Metadata">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <datepublished
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Date published"
+                        name="./datepublished"
+                        xtype="datefield"/>
+                    <datelastupdated
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Date last updated"
+                        name="./datelastupdated"
+                        xtype="datefield"/>
+                </items>
+            </metadata>
         </items>
     </items>
 </jcr:root>

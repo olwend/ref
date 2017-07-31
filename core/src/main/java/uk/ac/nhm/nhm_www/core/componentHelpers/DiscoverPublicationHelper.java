@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
+import org.joda.time.DateTime;
+import org.joda.time.MutableDateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import uk.ac.nhm.nhm_www.core.model.FileReference;
 
@@ -36,6 +40,8 @@ public class DiscoverPublicationHelper {
 	public static final String HEAD_TYPE_ATTRIBUTE_NAME 	= "headType";
 	public static final String CREATION_DATE_ATTRIBUTE_NAME = "jcr:created";
 	public static final String IMAGE_ALT_ATTRIBUTE_NAME		= "image/alt";
+	public static final String DATE_PUBLISHED				= "datepublished";
+	public static final String DATE_LAST_UDPATED			= "datelastupdated";
 	
 	/*
 	 * SubResource Names.
@@ -67,6 +73,8 @@ public class DiscoverPublicationHelper {
 	private String pageDescription;
 	private String selectTab;
 	
+	private String date;
+	
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
@@ -84,14 +92,34 @@ public class DiscoverPublicationHelper {
 		
 		this.imageConfigured = fileReference.getHasImage();
 		
-		if (this.imageConfigured)
-		{
+		if (this.imageConfigured) {
 			this.imagePath = fileReference.getPath();
 			this.imageNodePath = fileReference.getNodePath();
 			this.imageExtension = fileReference.getExtension();
 			this.imageSuffix = fileReference.getExtension();
 			this.imageAlt = fileReference.getAlt();
 		}
+		
+		String datePublished = properties.get(DATE_PUBLISHED, String.class);
+		String dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
+		
+		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
+		
+		if(dateLastUpdated != null) {
+			DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
+			MutableDateTime mdt = dt.toMutableDateTime();
+			this.date = "Last updated " + mdt.getDayOfMonth() + " " + mdt.getMonthOfYear() + " " + mdt.getYear();
+		}
+		else if(datePublished != null) {
+			DateTime dt = dateFormatter.parseDateTime(datePublished);
+			MutableDateTime mdt = dt.toMutableDateTime();
+			this.date = "Published " + mdt.getDayOfMonth() + " " + mdt.getMonthOfYear() + " " + mdt.getYear();
+		}
+		else {
+			this.date = "Please set a published date in the dialog";
+		}
+		
+		
 	}
 	
 	/**
@@ -469,6 +497,14 @@ public class DiscoverPublicationHelper {
 
 	public void setSelectTab(String selectTab) {
 		this.selectTab = selectTab;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 }
