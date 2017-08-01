@@ -114,7 +114,7 @@ public class DiscoverPublicationHelper {
 		else if(datePublished != null) {
 			DateTime dt = dateFormatter.parseDateTime(datePublished);
 			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = "Published " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
 		}
 		else {
 			this.date = "Please set a published date in the dialog";
