@@ -6326,6 +6326,20 @@ html.js-noScroll {
   }
 }
 
+.discoverpublication .discover-publication-date {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  margin: -5px 0 10px 0;
+  padding: 0 1.1em;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .discoverpublication .discover-publication-date {
+    font-size: 1.2rem;
+    padding: 0 1.5rem;
+  }
+}
+
 /** EVENT CALENDAR COMPONENT PARTIAL NHMEC-5**/
 .event--calendar--wrapper {
   display: table;
@@ -10019,4 +10033,9 @@ input.searchGo {
 /** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
 .nav-list__item:hover.link-visit, .nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
+}
+
+/** BIG SPLASH HOTFIX **/
+.bigsplash-text--title-container h1.bigsplash-text--title {
+  color: #FFFFFF !important;
 }
