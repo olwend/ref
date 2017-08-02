@@ -107,11 +107,6 @@
 			<h1><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
 			<div class="introduction"><%= xssAPI.filterHTML(helper.getIntroduction()) %></div>
 			<cq:include path="par" resourceType="foundation/components/parsys"/>
-			<div class="discover-publication-footer">
-			<div class="flags small-12 medium-12 large-12 columns">
-				<div class="rest small-12 medium-9 large-9 columns"></div>
-			</div>
-		</div>
 		</div>
 		<div class="small-12 medium-4 large-4 columns">
 			<cq:include path="ctapar" resourceType="foundation/components/parsys" />
