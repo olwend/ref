@@ -75,6 +75,7 @@ public class DiscoverPublicationHelper {
 	private String selectTab;
 	
 	private String date;
+	private String analyticsDate;
 	
 	/**
 	 * Helper Class Constructor.
@@ -115,6 +116,12 @@ public class DiscoverPublicationHelper {
 			DateTime dt = dateFormatter.parseDateTime(datePublished);
 			MutableDateTime mdt = dt.toMutableDateTime();
 			this.date = "Published " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			
+			if(mdt.getMonthOfYear() < 10) {
+				this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+			} else {
+				this.analyticsDate = mdt.getYear() + "-" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+			}
 		}
 		else {
 			this.date = "Please set a published date in the dialog";
@@ -509,5 +516,9 @@ public class DiscoverPublicationHelper {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
+
+	public String getAnalyticsDate() {
+		return analyticsDate;
+	}
+
 }

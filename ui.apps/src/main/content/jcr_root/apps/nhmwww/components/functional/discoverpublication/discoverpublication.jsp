@@ -140,3 +140,7 @@
 			<cq:include path="relatedposts" resourceType="nhmwww/components/functional/discoverrelated"/>
 		</div>
 	</div>
+	
+<script>
+    dataLayer.push({'datePublished': '<%=helper.getAnalyticsDate()%>'});         
+</script>
