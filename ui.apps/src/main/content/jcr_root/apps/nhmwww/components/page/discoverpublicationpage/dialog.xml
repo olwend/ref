@@ -19,8 +19,7 @@
         			this.hideTabStripItem(i);
         		}
        		}
-       		this.doLayout();
-        }"
+       		this.doLayout(); }"
         xtype="tabpanel">
         
         <items jcr:primaryType="cq:WidgetCollection">
