@@ -115,8 +115,8 @@ public class DiscoverPublicationHelper {
 		else if(datePublished != null) {
 			DateTime dt = dateFormatter.parseDateTime(datePublished);
 			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = "Published " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-			
+			this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+
 			if(mdt.getMonthOfYear() < 10) {
 				this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
 			} else {

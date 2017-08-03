@@ -6330,6 +6330,7 @@ html.js-noScroll {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: -5px 0 10px 0;
   padding: 0 1.1em;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
