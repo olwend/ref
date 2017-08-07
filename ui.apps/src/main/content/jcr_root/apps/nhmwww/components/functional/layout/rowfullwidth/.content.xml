@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Row Full Width"
     allowedParents="[*/*parsys]"
-    componentGroup="NHM - Stacked"/>
+    componentGroup="NHM - Layout"/>

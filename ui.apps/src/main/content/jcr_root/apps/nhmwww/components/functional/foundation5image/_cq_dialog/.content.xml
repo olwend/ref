@@ -84,6 +84,7 @@
     									name="./image-path"
     									sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
     									rootPath="/content/nhmwww" />
+    								<!-- <caption TODO -->
 				                    <newwindow 
 				                    	jcr:primaryType="nt:unstructured"
     									fieldLabel="Open in New Window"

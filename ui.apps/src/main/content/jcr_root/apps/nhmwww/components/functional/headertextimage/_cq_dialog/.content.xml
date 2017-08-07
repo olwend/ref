@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Header Text Image"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+		<layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
+		<items jcr:primaryType="nt:unstructured">
+			<imagetab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Image"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<file
+		                       jcr:primaryType="nt:unstructured"
+		                       autoStart="{Boolean}false"
+		                       class="cq-droptarget"
+		                       fieldLabel="Image asset"
+		                       fieldNameParameter="./fileName"
+		                       fileReferenceParameter="./fileReference"
+		                       mimeTypes="[image]"
+		                       multiple="{Boolean}false"
+		                       name="./file"
+		                       sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+		                       title="Image"
+		                       uploadUrl="${suffix.path}"
+		                       useHTML5="{Boolean}true" />
+						</items>
+					</column>
+				</items>
+			</imagetab>
+			<advancedtab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Advanced"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<title
+								jcr:primaryType="nt:unstructured"
+								fieldLabel="Title"
+								name="./jcr:title"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+							<alt
+		                       jcr:primaryType="nt:unstructured"
+		                       fieldDescription="(leave empty to use the title defined above)"
+		                       fieldLabel="Alt Text"
+		                       name="./alt"
+		                       sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+							<addPadding
+		                   		jcr:primaryType="nt:unstructured"
+								fieldLabel="Add padding"
+								name="./addPadding"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Add padding"
+								value="{Boolean}true" />
+							<description
+		                       jcr:primaryType="nt:unstructured"
+		                       fieldLabel="Description"
+		                       name="./jcr:description"
+		                       sling:resourceType="granite/ui/components/foundation/form/textarea"/>
+							<imageSize
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Image Size"
+			                    defaultValue="4"
+			                    name="./imageSize"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+			                    <items jcr:primaryType="nt:unstructured">
+			                        <o1
+			                            jcr:primaryType="nt:unstructured"
+			                            text="One Column"
+                       					value="4"
+                       					selected="${Boolean}true"/>
+			                        <o2
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Two columns"
+                       					value="8"/>
+			                    </items>
+			                </imageSize>
+			                <imagePath 
+			                   	jcr:primaryType="nt:unstructured"
+								fieldLabel="Image link"
+								name="./image-path"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+							<newwindow 
+			                   	jcr:primaryType="nt:unstructured"
+								fieldLabel="Open in New Window"
+								name="./newwindow"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Open in New Window"
+								value="{Boolean}true" />
+							<imagePosition
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Image Position"
+			                    defaultValue="right"
+			                    name="./imagePosition"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+			                    <items jcr:primaryType="nt:unstructured">
+			                        <o1
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Right"
+                       					value="right"
+                       					selected="${Boolean}true"/>
+			                        <o2
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Left"
+                       					value="left"/>
+			                      	<o3
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Top"
+			                       		value="top"/>
+			                    </items>
+			                </imagePosition>
+						</items>
+					</column>
+				</items>
+			</advancedtab>
+			<texttab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Text"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<heading
+								jcr:primaryType="nt:unstructured"
+								fieldLabel="Heading"
+								name="./text-heading"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+							<linkURL 
+                				jcr:primaryType="nt:unstructured"
+								fieldLabel="Link to"
+								fieldDescription="Drop files or pages from the Content Finder"
+								name="./linkURL"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+							<newwindowheading
+                   				jcr:primaryType="nt:unstructured"
+								fieldLabel="Open in New Window"
+								name="./newwindowheading"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Open in New Window"
+								value="{Boolean}true" />
+							<!-- <addCallToAction TODO -->
+							<type
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Component Style"
+			                    name="./component-type"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+			                    <items jcr:primaryType="nt:unstructured">
+			                        <o1
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Standard (Grey)"
+			                       		value="light-grey"/>
+			                        <o2
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Dark Grey"
+			                       		value="dark-grey"/>
+			                      	<o3
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Feature Box"
+			                       		value="feature-box"/>
+			                    </items>
+			                </type>
+						</items>
+					</column>
+				</items>
+			</texttab>
+			<calltoactiontab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Call To Action"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<colourSectionOverride
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Section Theme"
+			                    name="./section-override"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+			                    <items jcr:primaryType="nt:unstructured">
+			                        <inherit
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Inherit from section"
+				                        value=""/>
+				                    <aboutUs
+				                        jcr:primaryType="nt:unstructured"
+				                        text="About us"
+				                        value="about-us"/>
+				                    <businessServices
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Business services"
+				                        value="business-services"/>
+				                    <contactUs
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Contact us"
+				                        value="contact-us"/>
+				                    <discover
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Discover"
+				                        value="discover"/>
+				                    <ourScience
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Our Science"
+				                        value="our-science"/>
+				                    <schools
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Schools"
+				                        value="schools"/>
+				                    <supportUs
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Support Us"
+				                        value="support-us"/>
+				                    <takePart
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Take part"
+				                        value="take-part"/>
+				                    <visit
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Visit"
+				                        value="visit"/>
+			                    </items>
+			                </colourSectionOverride>
+			                <callToActionTitle
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Title"
+								name="./cta-title"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+			                <callToActionLink
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Link to"
+								fieldDescription="Please enter the link of the call to action button"
+								name="./cta-path"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+			                <callToActionNewWindow
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Open in New Window"
+								name="./cta-newwindow"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Open in New Window"
+								value="{Boolean}true" />
+		                	<!-- <ctaicon TODO -->
+			            	<calltoactionType
+				            	jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Icon Style"
+			                    name="./calltoaction-type"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+		                    	<items jcr:primaryType="nt:unstructured">
+			                        <inherit
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Inherit from section"
+				                        value=""/>
+				                    <aboutUs
+				                        jcr:primaryType="nt:unstructured"
+				                        text="About us"
+				                        value="about-us"/>
+				                    <businessServices
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Business services"
+				                        value="business-services"/>
+				                    <contactUs
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Contact us"
+				                        value="contact-us"/>
+				                    <discover
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Discover"
+				                        value="discover"/>
+				                    <ourScience
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Our Science"
+				                        value="our-science"/>
+				                    <schools
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Schools"
+				                        value="schools"/>
+				                    <supportUs
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Support Us"
+				                        value="support-us"/>
+				                    <takePart
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Take part"
+				                        value="take-part"/>
+				                    <visit
+				                        jcr:primaryType="nt:unstructured"
+				                        text="Visit"
+				                        value="visit"/>
+		                    </items>
+						</items>
+					</column>
+				</items>
+			</calltoactiontab>
+		</items>
+    </content>
+</jcr:root>

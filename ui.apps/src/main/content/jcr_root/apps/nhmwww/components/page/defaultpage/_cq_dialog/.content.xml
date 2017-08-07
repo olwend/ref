@@ -8,11 +8,6 @@
     <content 
     	jcr:primaryType="nt:unstructured"
     	sling:resourceType="granite/ui/components/foundation/container">
-    	<items jcr:primaryType="nt:unstructured">
-    		<tabs
-    			jcr:primaryType="nt:unstructured"
-    			rel="cq-siteadmin-admin-properties-tabs"
-    			sling:resourceType="granite/ui/components/foundation/container">
     			<layout
     				jcr:primaryType="nt:unstructured"
     				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
@@ -81,7 +76,5 @@
     					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/livecopy"
 						sling:hideResource="{Boolean}true" />
     			</items>
-    		</tabs>
-    	</items>
     </content>
 </jcr:root>

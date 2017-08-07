@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Row 3 Cells"
     allowedParents="[*/*parsys]"
-    componentGroup="NHM - Stacked"/>
+    componentGroup="NHM - Layout"/>

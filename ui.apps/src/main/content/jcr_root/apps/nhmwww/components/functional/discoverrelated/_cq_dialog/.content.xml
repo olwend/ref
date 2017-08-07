@@ -8,11 +8,6 @@
     <content 
     	jcr:primaryType="nt:unstructured"
     	sling:resourceType="granite/ui/components/foundation/container">
-    	<items jcr:primaryType="nt:unstructured">
-    		<tabs
-    			jcr:primaryType="nt:unstructured"
-    			rel="cq-siteadmin-admin-properties-tabs"
-    			sling:resourceType="granite/ui/components/foundation/container">
     			<layout
     				jcr:primaryType="nt:unstructured"
     				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
@@ -51,7 +46,5 @@
     					</items>
     				</imagetab>
     			</items>
-    		</tabs>
-    	</items>
     </content>
 </jcr:root>
