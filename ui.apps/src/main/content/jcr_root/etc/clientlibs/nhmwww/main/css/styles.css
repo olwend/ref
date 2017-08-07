@@ -8366,11 +8366,12 @@ a.button-cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .social-share-container .facebook img, .social-share-container .twitter img, .social-share-container .email img {
   max-height: 40px;
+  max-width: 40px;
   padding: 0 2px 0 2px;
 }
 
