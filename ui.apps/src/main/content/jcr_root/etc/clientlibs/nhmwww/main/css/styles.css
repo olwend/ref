@@ -8363,6 +8363,7 @@ a.button-cta {
 .social-share-container {
   width: 100%;
   min-height: 100px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: start;
