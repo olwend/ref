@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.3 - Quixotic Quetzal - 3-Aug-2017
+- WR-1073 - Validation for image component
+- WR-1076 - Remove cq.jquery across site headlibs
+- WR-1089 - Add 'date published' and 'last updated' in Discover article byline
+
 ## 1.2.2 - Prickly Partridge - 27-Jul-2017
 - WR-1082 - Issues with H1 styles in "Big Splash" component when used in Discover
 - WR-1083 - Reinstate ability to create Tagged Content Page templates in AEM
