@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-          jcr:primaryType="cq:Dialog"
-          height="{Long}400"
-          title="News List Feed"
-          width="1000"
-          xtype="dialog">
-    <items
-        jcr:primaryType="cq:Widget"
-        xtype="tabpanel">
-        <items jcr:primaryType="cq:WidgetCollection">
-            <basic
-                jcr:primaryType="cq:Widget"
-                title="Basic"
-                xtype="panel">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <title
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Introduction"
-                        name="./title"
-                        width="155"
-                        xtype="textfield"/>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="E-news Sign up"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+   			<layout
+   				jcr:primaryType="nt:unstructured"
+   				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+   				type="nav" />
+	<items jcr:primaryType="nt:unstructured">
+			<basictab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Basic"
+				sling:resourceType="granite/ui/components/foundation/section">
+			<layout 
+				jcr:primaryType="nt:unstructured" 
+				margin="{Boolean}false"
+				sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+
+   					<items jcr:primaryType="nt:unstructured">
+   					   <column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+   					<title
+                    	jcr:primaryType="nt:unstructured"
+                    	fieldLabel="Introduction"
+                    	title="Introduction"
+                    	name="./title"
+                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" 
+                    	required="{Boolean}true" />
                     <description
-                        jcr:primaryType="cq:Widget"
+                        jcr:primaryType="nt:unstructured"
                         fieldLabel="Description"
                         name="./description"
-                        width="155"
-                        xtype="textfield"/>
+                        sling:resourceType="granite/ui/components/foundation/form/textfield"/>                  
                     <campaign
-                        jcr:primaryType="cq:Widget"
-                        defaultValue="eNewsletters"
+                        jcr:primaryType="nt:unstructured"
+                        value="eNewsletters"
                         fieldLabel="Marketing Campaign"
                         name="./campaign"
-                        width="155"
-                        type="select"
-                        xtype="selection">
-                        <options jcr:primaryType="cq:WidgetCollection">
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select">
+                        <items jcr:primaryType="nt:unstructured">
                             <one
                                 jcr:primaryType="nt:unstructured"
                                 text="eNewsletters"
@@ -78,16 +88,12 @@
                             <eleven
                                 jcr:primaryType="nt:unstructured"
                                 text="Teachers"
-                                value="Teachers"/>
+                                value="Teachers"/>        
                         </options>
-                    </campaign>
-                    <dataProtection
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Data Protection Statement"
-                        name="./dataProtection"
-                        xtype="richtext"/>                    
-                </items>
-            </basic>
-        </items>
-    </items>
+                    </items>
+               </column>
+           </items>
+        </basictab>
+   </items>
+</content>
 </jcr:root>
