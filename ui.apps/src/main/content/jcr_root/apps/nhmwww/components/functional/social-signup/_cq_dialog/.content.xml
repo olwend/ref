@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Social Signup"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+   			<layout
+   				jcr:primaryType="nt:unstructured"
+   				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+   				type="nav" />
+	<items jcr:primaryType="nt:unstructured">
+			<basictab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Basic"
+				sling:resourceType="granite/ui/components/foundation/section">
+			<layout 
+				jcr:primaryType="nt:unstructured" 
+				margin="{Boolean}false"
+				sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+
+   					<items jcr:primaryType="nt:unstructured">
+   					   <column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+   					<title
+                    	jcr:primaryType="nt:unstructured"
+                    	fieldLabel="Title"
+                    	title="Title"
+                    	name="./title"
+                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" 
+                    	required="{Boolean}true" />          
+                    <campaign
+                        jcr:primaryType="nt:unstructured"
+                        value="eNewsletters"
+                        fieldLabel="Marketing Campaign"
+                        name="./campaign"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select">
+                        <items jcr:primaryType="nt:unstructured">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="eNewsletters"
+                                value="eNewsletters"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="WiFi Signups"
+                                value="WiFi Signups"/>
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="App Signups"
+                                value="App Signups"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours Lates"
+                                value="After Hours Lates"/>
+                            <five
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours After-school club"
+                                value="After Hours After-school club"/>
+                            <six
+                                jcr:primaryType="nt:unstructured"
+                                text="Dino Snores for Kids"
+                                value="Dino Snores for Kids"/>
+                            <seven
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours Dino Snores for Grown-ups"
+                                value="After Hours Dino Snores for Grow"/>
+                            <eight
+                                jcr:primaryType="nt:unstructured"
+                                text="After Hours Crime Scene Live"
+                                value="After Hours Crime Scene Live"/>
+                            <nine
+                                jcr:primaryType="nt:unstructured"
+                                text="Tring"
+                                value="Tring"/>
+                            <ten
+                                jcr:primaryType="nt:unstructured"
+                                text="Ice Rink"
+                                value="Ice Rink"/>
+                            <eleven
+                                jcr:primaryType="nt:unstructured"
+                                text="Teachers"
+                                value="Teachers"/>        
+                        </options>
+                    </items>
+               </column>
+           </items>
+        </basictab>
+   </items>
+</content>
+</jcr:root>
