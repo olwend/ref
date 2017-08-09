@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Carousel"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+		<layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
+		<items jcr:primaryType="nt:unstructured">
+			<carousel
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Carousel Options"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<fieldConfig
+		                       jcr:primaryType="nt:unstructured"
+		                       fieldLabel="Component title"
+		                       name="./title"
+		                       sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+		                   	<hyperlinkcontainer
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container"
+								class="showhide-target"
+								id="hide-hyperlink-field">
+								<items jcr:primaryType="nt:unstructured">
+			                       	<hyperlink
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Hyperlink"
+										name="./hyperlink"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										rootPath="/content/nhmwww" />
+								</items>
+							</hyperlinkcontainer>
+							<grouping
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Grouping"
+			                    defaultValue="1"
+			                    name="./grouping"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+			                    <items jcr:primaryType="nt:unstructured">
+			                        <o1
+		                                jcr:primaryType="nt:unstructured"
+		                                text="1"
+		                                value="1"/>
+		                            <o2
+		                                jcr:primaryType="nt:unstructured"
+		                                text="2"
+		                                value="2"/>
+		                            <o3
+		                                jcr:primaryType="nt:unstructured"
+		                                text="3"
+		                                value="3"/>
+			                    </items>
+		                    </grouping>
+		                    <thumbnails
+								jcr:primaryType="nt:unstructured"
+	                            sling:resourceType="granite/ui/components/foundation/form/checkbox"
+	                            text="Thumbnails"
+	                            name="./thumbnails"
+	                            value="{Boolean}true"
+	                            class="cq-dialog-checkbox-showhide"
+	                            show-hide-target="hide-hyperlink-field"
+	                            should-show-when-checked="false"/>
+		                    <autoscroll		                    
+		                    	jcr:primaryType="nt:unstructured"
+								fieldLabel="Autoscroll"
+								name="./autoscroll"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Autoscroll"
+								value="{Boolean}true" />
+		                    <autoscrollduration
+								jcr:primaryType="nt:unstructured"
+								defaultValue="{Long}4"
+								fieldDescription="Time in seconds until the next slide is shown"
+								fieldLabel="Autoscroll Duration"
+								name="./autoscrollduration"
+								sling:resourceType="granite/ui/components/foundation/form/numberfield"/>
+						</items>
+					</column>
+				</items>
+			</carousel>
+			<carouselItems
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Items"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<carouselItems>
+							
+							</carouselItems>
+						</items>
+					</column>
+				</items>
+			</carouselItems>
+		</items>
+    </content>
+</jcr:root>

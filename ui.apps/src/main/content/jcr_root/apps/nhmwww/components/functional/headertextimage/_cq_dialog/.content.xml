@@ -288,54 +288,71 @@
 										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
 										text="Open in New Window"
 										value="{Boolean}true" />
-		<!-- 		                	<ctaicon TODO -->
-					            	<calltoactionType
-						            	jcr:primaryType="nt:unstructured"
-					                    fieldLabel="Icon Style"
-					                    name="./calltoaction-type"
-										sling:resourceType="granite/ui/components/coral/foundation/form/select">
-				                    	<items jcr:primaryType="nt:unstructured">
-					                        <inherit
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Inherit from section"
-						                        value=""/>
-						                    <aboutUs
-						                        jcr:primaryType="nt:unstructured"
-						                        text="About us"
-						                        value="about-us"/>
-						                    <businessServices
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Business services"
-						                        value="business-services"/>
-						                    <contactUs
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Contact us"
-						                        value="contact-us"/>
-						                    <discover
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Discover"
-						                        value="discover"/>
-						                    <ourScience
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Our Science"
-						                        value="our-science"/>
-						                    <schools
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Schools"
-						                        value="schools"/>
-						                    <supportUs
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Support Us"
-						                        value="support-us"/>
-						                    <takePart
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Take part"
-						                        value="take-part"/>
-						                    <visit
-						                        jcr:primaryType="nt:unstructured"
-						                        text="Visit"
-						                        value="visit"/>
-				                    </items>
+									<ctaicon
+		                            	jcr:primaryType="nt:unstructured"
+			                            sling:resourceType="granite/ui/components/foundation/form/checkbox"
+			                            text="CTA Icon"
+			                            name="./cta-icon"
+			                            value="{Boolean}true"
+			                            class="cq-dialog-checkbox-showhide"
+			                            show-hide-target="show-cta-type-select"
+			                            should-show-when-checked="true"/>
+			                        <calltoactiontypecontainer
+			                        	jcr:primaryType="nt:unstructured"
+			                        	sling:resourceType="granite/ui/components/foundation/container" 
+			                        	class="hidden showhide-target"
+										id="show-cta-type-select" >
+			                        	<items jcr:primaryType="nt:unstructured" >
+							            	<calltoactionType
+								            	jcr:primaryType="nt:unstructured"
+								            	sling:resourceType="granite/ui/components/coral/foundation/form/select"
+							                    fieldLabel="Icon Style"
+							                    name="./calltoaction-type" >
+						                    	<items jcr:primaryType="nt:unstructured">
+							                        <inherit
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Inherit from section"
+								                        value=""/>
+								                    <aboutUs
+								                        jcr:primaryType="nt:unstructured"
+								                        text="About us"
+								                        value="about-us"/>
+								                    <businessServices
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Business services"
+								                        value="business-services"/>
+								                    <contactUs
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Contact us"
+								                        value="contact-us"/>
+								                    <discover
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Discover"
+								                        value="discover"/>
+								                    <ourScience
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Our Science"
+								                        value="our-science"/>
+								                    <schools
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Schools"
+								                        value="schools"/>
+								                    <supportUs
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Support Us"
+								                        value="support-us"/>
+								                    <takePart
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Take part"
+								                        value="take-part"/>
+								                    <visit
+								                        jcr:primaryType="nt:unstructured"
+								                        text="Visit"
+								                        value="visit"/>
+						                    	</items>
+						                    </calltoactionType>
+						                </items>
+						            </calltoactiontypecontainer>
 								</items>
 							</column>
 						</items>
