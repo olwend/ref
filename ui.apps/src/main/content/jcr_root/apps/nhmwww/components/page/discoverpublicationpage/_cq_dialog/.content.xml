@@ -30,9 +30,9 @@
     					jcr:primaryType="nt:unstructured"
     					sling:resourceType="granite/ui/components/foundation/include"
     					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/thumbnail" />
-   					<smartappbanner
+    				<facebook
     					jcr:primaryType="nt:unstructured" 
-    					jcr:title="Smart App Banner"
+    					jcr:title="Facebook"
     					sling:resourceType="granite/ui/components/foundation/section"
     					cq:showOnCreate="{Boolean}true" >
     					<layout
@@ -44,17 +44,61 @@
     							jcr:primaryType="nt:unstructured"
     							sling:resourceType="granite/ui/components/foundation/container">
     							<items jcr:primaryType="nt:unstructured">
-    								<usebanner
-				                    	jcr:primaryType="nt:unstructured"
-    									fieldLabel="Use banner"
-    									name="./usebanner"
-    									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-    									text="Use banner"
-    									value="{Boolean}true" />
-    							</items>	
+    								<ogtitle
+				            			jcr:primaryType="nt:unstructured"
+				            			name="./ogtitle"
+				            			sling:resourceType="granite/ui/components/foundation/form/textfield"
+				            			fieldLabel="Title"/>
+				            		<ogdescription
+				            			jcr:primaryType="nt:unstructured"
+				            			name="./ogdescription"
+				            			sling:resourceType="granite/ui/components/foundation/form/textarea"
+				            			fieldLabel="Description"/>
+				            		<ogimage
+				            			jcr:primaryType="nt:unstructured"
+				            			name="./ogimagepath"
+				            			sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+				            			fieldLabel="Image Path"
+				            			rootPath="/content/dam/nhmwww"/>
+				            		<ogvideo
+				            			jcr:primaryType="nt:unstructured"
+				            			name="./ogvideopath"
+				            			sling:resourceType="granite/ui/components/foundation/form/textfield"
+				            			fieldLabel="YouTube ID"/>
+				            		<gridlayout
+									    jcr:primaryType="nt:unstructured"
+									    name="./selectTab"
+									  	sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+									    renderReadOnly="{Boolean}true">
+										<items jcr:primaryType="nt:unstructured" >
+									        <grid1
+									            jcr:primaryType="nt:unstructured"
+									            name="./selectTab"
+									            text="Image"
+									            value="radioImage"
+									            cq-msm-lockable="ogtype"
+									            sling:resourceType="granite/ui/components/foundation/form/radio"
+									            renderReadOnly="{Boolean}true"/>
+									        <grid2
+									            jcr:primaryType="nt:unstructured"
+									            name="./selectTab"
+									            text="Video"
+									            value="radioVideo"
+									            cq-msm-lockable="ogtype"
+									            sling:resourceType="granite/ui/components/foundation/form/radio"
+									            renderReadOnly="{Boolean}true"/>
+									    </items>
+									</gridlayout>
+    							</items>
     						</column>
-    					</items>
-    				</smartappbanner>
+ 						</items>
+    				</facebook>
+    				
+   					<smartappbanner
+    					jcr:primaryType="nt:unstructured" 
+    					jcr:title="Smart App Banner"
+    					sling:resourceType="granite/ui/components/foundation/section"
+    					sling:hideResource="{Boolean}true" />
    					<cloudservices
     					jcr:primaryType="nt:unstructured"
     					sling:resourceType="granite/ui/components/foundation/include"
