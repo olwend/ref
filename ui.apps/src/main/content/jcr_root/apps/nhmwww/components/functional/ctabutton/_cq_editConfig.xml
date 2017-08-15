@@ -17,10 +17,6 @@
         		jcr:primaryType="cq:ChildEditorConfig"
         		title="Text"
         		type="text" />
-        	<title
-        		jcr:primaryType="cq:ChildEditorConfig"
-        		title="Title"
-        		type="text" />
         </cq:childEditors>
         <config jcr:primaryType="nt:unstructured">
         	<text
@@ -80,63 +76,6 @@
 	       				features="*" />
 	        	</rtePlugins>
 	        </text>
-	        <title
-        		jcr:primaryType="nt:unstructured"
-        		editElementQuery="div.title"
-        		name="./title"
-        		propertyName="./title">
-	        	<rtePlugins jcr:primaryType="nt:unstructured">
-	        		<paraformat
-	        			jcr:primaryType="nt:unstructured"
-	        			features="*">
-	       				<formats jcr:primaryType="cq:WidgetCollection">
-	       					<nhm2
-	       						description="Heading 2"
-	       						jcr:primaryType="nt:unstructured"
-	       						tag="h2" />
-	      						<nhm3
-	       						description="Heading 3"
-	       						jcr:primaryType="nt:unstructured"
-	       						tag="h3" />
-	      						<nhm4
-	       						description="Heading 4"
-	       						jcr:primaryType="nt:unstructured"
-	       						tag="h4" />
-	      						<nhm5
-	       						description="Heading 5"
-	       						jcr:primaryType="nt:unstructured"
-	       						tag="h5" />
-	      						<p
-	       						description="Paragraph"
-	       						jcr:primaryType="nt:unstructured"
-	       						tag="p" />
-	       				</formats>
-	       			</paraformat>
-	       			<subsuperscript
-	       				jcr:primaryType="nt:unstructured"
-	       				features="*" />
-	 				<styles
-	 					jcr:primaryType="nt:unstructured"
-	 					features="*">
-	 					<styles jcr:primaryType="cq:WidgetCollection">
-	 						<headingBox
-	 							jcr:primaryType="nt:unstructured"
-	 							cssName="heading-box"
-	 							text="Heading box" />
-							<introText
-								jcr:primaryType="nt:unstructured"
-	 							cssName="intro-text"
-	 							text="Intro text" />
-	 					</styles>
-					</styles>
-					<misctools
-	       				jcr:primaryType="nt:unstructured"
-	       				features="*" />
-	      			<spellcheck
-	       				jcr:primaryType="nt:unstructured"
-	       				features="*" />
-	        	</rtePlugins>
-	        </title>
         </config>
 	</cq:inplaceEditing>
 </jcr:root>
