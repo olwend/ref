@@ -35,13 +35,13 @@
     </div>
   </div>
 
-  <div class="js-social-signup social-signup--container">
-      <div class="row">
-        <div class="small-12 social-signup--description">
-          <%=helper.getDataProtection()%>
-        </div>
-      </div>
-    <form
+	<div class="js-social-signup social-signup--container">
+		<div class="row">
+			<div class="small-12 social-signup--description">
+				<cq:text property="dataProtection" escapeXml="true" tagClass="dataProtection" />
+			</div>
+	      </div>
+		<form
       id="newsletter_signup"
       action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
       method="get">
