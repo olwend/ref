@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="E-news Sign up"
+    jcr:title="Grand Summary"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
     <content 
@@ -12,9 +12,9 @@
    				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
    				type="nav" />
 	<items jcr:primaryType="nt:unstructured">
-			<basictab
+			<imagetab
 				jcr:primaryType="nt:unstructured"
-				jcr:title="Basic"
+				jcr:title="Image"
 				sling:resourceType="granite/ui/components/foundation/section">
 			<layout 
 				jcr:primaryType="nt:unstructured" 
@@ -26,75 +26,70 @@
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
-   					<title
+       			                    <fileReference
+			                    	jcr:primaryType="nt:unstructured"
+			                    	fieldDescription="Image path"
+			                    	fieldLabel="Image path"
+			                    	name="./fileReference"
+			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
+			                    	required="{Boolean}true"/>                   
+       			                    <mobileFileReference
+			                    	jcr:primaryType="nt:unstructured"
+			                    	fieldDescription="Mobile image path"
+			                    	fieldLabel="Mobile image path"
+			                    	name="./mobileFileReference"
+			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
+			                    	required="{Boolean}true"/>   
+			                    	
+			                    	
+			                    	 </items>
+               </column>
+           </items>
+        </imagetab>
+        <normaltab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Normal"
+				sling:resourceType="granite/ui/components/foundation/section">
+			<layout 
+				jcr:primaryType="nt:unstructured" 
+				margin="{Boolean}false"
+				sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items  jcr:primaryType="nt:unstructured">
+						<column jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+						
+	   					<title
                     	jcr:primaryType="nt:unstructured"
-                    	fieldLabel="Introduction"
-                    	title="Introduction"
+                    	fieldLabel="Title"
+                    	title="Title"
                     	name="./title"
-                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
-                    <description
-                        jcr:primaryType="nt:unstructured"
-                        fieldLabel="Description"
-                        name="./description"
-                        sling:resourceType="granite/ui/components/foundation/form/textfield"/>                  
-                    <campaign
-                        jcr:primaryType="nt:unstructured"
-                        value="eNewsletters"
-                        fieldLabel="Marketing Campaign"
-                        name="./campaign"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/select">
-                        <items jcr:primaryType="nt:unstructured">
-                            <one
-                                jcr:primaryType="nt:unstructured"
-                                text="eNewsletters"
-                                value="eNewsletters"/>
-                            <two
-                                jcr:primaryType="nt:unstructured"
-                                text="WiFi Signups"
-                                value="WiFi Signups"/>
-                            <three
-                                jcr:primaryType="nt:unstructured"
-                                text="App Signups"
-                                value="App Signups"/>
-                            <four
-                                jcr:primaryType="nt:unstructured"
-                                text="After Hours Lates"
-                                value="After Hours Lates"/>
-                            <five
-                                jcr:primaryType="nt:unstructured"
-                                text="After Hours After-school club"
-                                value="After Hours After-school club"/>
-                            <six
-                                jcr:primaryType="nt:unstructured"
-                                text="Dino Snores for Kids"
-                                value="Dino Snores for Kids"/>
-                            <seven
-                                jcr:primaryType="nt:unstructured"
-                                text="After Hours Dino Snores for Grown-ups"
-                                value="After Hours Dino Snores for Grow"/>
-                            <eight
-                                jcr:primaryType="nt:unstructured"
-                                text="After Hours Crime Scene Live"
-                                value="After Hours Crime Scene Live"/>
-                            <nine
-                                jcr:primaryType="nt:unstructured"
-                                text="Tring"
-                                value="Tring"/>
-                            <ten
-                                jcr:primaryType="nt:unstructured"
-                                text="Ice Rink"
-                                value="Ice Rink"/>
-                            <eleven
-                                jcr:primaryType="nt:unstructured"
-                                text="Teachers"
-                                value="Teachers"/>        
-                        </items>
-                        </campaign>
-	                    	<dataprotection
+                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>   
+	                    <path
+                    	jcr:primaryType="nt:unstructured"
+                    	fieldDescription="Links to"
+                    	fieldLabel="Links to"
+                    	name="./path"
+                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"/>  
+					<newwindow
+						jcr:primaryType="nt:unstructured"
+						fieldLabel="Open in new window"
+						name="./newwindow"
+						sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+						text="Open in New Window"
+						value="{Boolean}true" />
+					<exhibitionMode
+						jcr:primaryType="nt:unstructured"
+						fieldLabel="Exhibition"
+						name="./isExhibition"
+						sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+						text="Exhibition"
+						value="{Boolean}true" />
+	                    	<description
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-	                            name="./dataProtection"
-	                            fieldLabel="Data Protection Statement"
+	                            name="./description"
+	                            hideLabel="{Boolean}true"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
 	                                <paraformat
@@ -190,10 +185,13 @@
 	                                    </inline>
 	                                </cui>
 	                            </uiSettings>
-	                        </description>   
-               </column>
-           </items>
-        </basictab>
+	                        </description>    									
+						
+				</items>
+				</column>
+			</items>
+        
+        </normaltab>
    </items>
 </content>
 </jcr:root>
