@@ -22,12 +22,17 @@
 		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 			<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 		<% } %>
+		
+		<% if(helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) != null) { %>
+
 		    <img alt='<%= helper.getAlt() %>' data-interchange="
 		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)], 
 		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (max-width: 768px))],
 		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 768px) and (orientation: landscape))],
 		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 768px))],
 		    [<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 1160px))]">
+		    
+		    <% } %>
 		<%-- Fallback content for non-JS browsers. --%>
 		<noscript>
 		    <img src='<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>

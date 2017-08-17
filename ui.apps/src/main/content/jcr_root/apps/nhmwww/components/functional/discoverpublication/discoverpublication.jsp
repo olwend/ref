@@ -105,6 +105,7 @@
 	<div class="row">
 		<div class="small-12 medium-8 large-8 columns">
 			<h1><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
+			<div class="discover-publication-date"><%=helper.getDate() %></div>
 			<div class="introduction"><%= xssAPI.filterHTML(helper.getIntroduction()) %></div>
 			<cq:include path="par" resourceType="foundation/components/parsys"/>
 			<div class="discover-publication-footer">
@@ -116,9 +117,9 @@
 					<script src="//connect.facebook.net/en_US/all.js"></script>
 	
 					<script type="text/javascript">
-	    				$CQ(document).ready(function(){
+	    				$(document).ready(function(){
 	        			FB.Event.subscribe('xfbml.render',function(){
-	            			$CQ('.FB_Loader').css('background','url()');
+	            			$('.FB_Loader').css('background','url()');
 	        			});
 	    			});
 					</script>
