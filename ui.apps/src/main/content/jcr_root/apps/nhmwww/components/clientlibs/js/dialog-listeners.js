@@ -17,13 +17,22 @@
 		var shouldShowWhenChecked = $el.data('should-show-when-checked');
         var isChecked = $el.is(":checked");
         var targetElementSelector = $el.data('show-hide-target');
-        var $targetElement = $('#' + targetElementSelector);
-
-        var $tabButton = $("[aria-controls='" + targetElementSelector + "']");
-
-        var isVisible = shouldShowWhenChecked ? isChecked : !isChecked;
-        $targetElement.toggleClass('hidden', !isVisible);
-        $tabButton.toggleClass('hidden', !isVisible);
+        
+        if(targetElementSelector.indexOf(" ") > -1) {
+        	var selectors = targetElementSelector.split(" ");
+        } else {
+        	var selectors = [targetElementSelector];
+        }
+        
+        for(var i=0; i<selectors.length; i++) {
+	        var $targetElement = $('#' + selectors[i]);
+	
+	        var $tabButton = $("[aria-controls='" + selectors[i] + "']");
+	
+	        var isVisible = shouldShowWhenChecked ? isChecked : !isChecked;
+	        $targetElement.toggleClass('hidden', !isVisible);
+	        $tabButton.toggleClass('hidden', !isVisible);
+        }
     }
 
 })($, $(document));

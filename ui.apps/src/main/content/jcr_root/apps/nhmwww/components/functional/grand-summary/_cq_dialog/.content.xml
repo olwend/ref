@@ -7,11 +7,11 @@
     <content 
     	jcr:primaryType="nt:unstructured"
     	sling:resourceType="granite/ui/components/foundation/container">
-   			<layout
-   				jcr:primaryType="nt:unstructured"
-   				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
-   				type="nav" />
-	<items jcr:primaryType="nt:unstructured">
+ 		<layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
+		<items jcr:primaryType="nt:unstructured">
 			<imagetab
 				jcr:primaryType="nt:unstructured"
 				jcr:title="Image"
@@ -20,76 +20,76 @@
 				jcr:primaryType="nt:unstructured" 
 				margin="{Boolean}false"
 				sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
-
-   					<items jcr:primaryType="nt:unstructured">
-   					   <column
+				<items jcr:primaryType="nt:unstructured">
+					<column
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
-       			                    <fileReference
-			                    	jcr:primaryType="nt:unstructured"
-			                    	fieldDescription="Image path"
-			                    	fieldLabel="Image path"
-			                    	name="./fileReference"
-			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
-			                    	required="{Boolean}true"/>                   
-       			                    <mobileFileReference
-			                    	jcr:primaryType="nt:unstructured"
-			                    	fieldDescription="Mobile image path"
-			                    	fieldLabel="Mobile image path"
-			                    	name="./mobileFileReference"
-			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
-			                    	required="{Boolean}true"/>   
-			                    	
-			                    	
-			                    	 </items>
-               </column>
-           </items>
-        </imagetab>
-        <normaltab
+     			        	<fileReference
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldDescription="Image path"
+		                    	fieldLabel="Image path"
+		                    	name="./fileReference"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
+		                    	required="{Boolean}true"/>                   
+     			        	<mobileFileReference
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldDescription="Mobile image path"
+		                    	fieldLabel="Mobile image path"
+		                    	name="./mobileFileReference"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
+		                    	required="{Boolean}true"/>   
+                    	</items>
+					</column>
+        		</items>
+     		</imagetab>
+     		<normaltab
 				jcr:primaryType="nt:unstructured"
 				jcr:title="Normal"
 				sling:resourceType="granite/ui/components/foundation/section">
-			<layout 
-				jcr:primaryType="nt:unstructured" 
-				margin="{Boolean}false"
-				sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
-				<items  jcr:primaryType="nt:unstructured">
-						<column jcr:primaryType="nt:unstructured"
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
-						
-	   					<title
-                    	jcr:primaryType="nt:unstructured"
-                    	fieldLabel="Title"
-                    	title="Title"
-                    	name="./title"
-                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>   
-	                    <path
-                    	jcr:primaryType="nt:unstructured"
-                    	fieldDescription="Links to"
-                    	fieldLabel="Links to"
-                    	name="./path"
-                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"/>  
-					<newwindow
-						jcr:primaryType="nt:unstructured"
-						fieldLabel="Open in new window"
-						name="./newwindow"
-						sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-						text="Open in New Window"
-						value="{Boolean}true" />
-					<exhibitionMode
-						jcr:primaryType="nt:unstructured"
-						fieldLabel="Exhibition"
-						name="./isExhibition"
-						sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-						text="Exhibition"
-						value="{Boolean}true" />
+		   					<title
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="Title"
+		                    	title="Title"
+		                    	name="./title"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>   
+		                    <path
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldDescription="Links to"
+		                    	fieldLabel="Links to"
+		                    	name="./path"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+		                    	rootPath="/content/nhmwww" />  
+							<newwindow
+								jcr:primaryType="nt:unstructured"
+								fieldLabel="Open in new window"
+								name="./newwindow"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Open in New Window"
+								value="{Boolean}true" />
+							<exhibitionMode
+								jcr:primaryType="nt:unstructured"
+								fieldLabel="Exhibition"
+								name="./isExhibition"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								text="Exhibition"
+								value="{Boolean}true"
+								class="cq-dialog-checkbox-showhide"
+	                            show-hide-target="show-exhibition-tab show-cta-tab"
+	                            should-show-when-checked="true" />
 	                    	<description
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
 	                            name="./description"
-	                            hideLabel="{Boolean}true"
+	                            fieldLabel="Text"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
 	                                <paraformat
@@ -186,12 +186,163 @@
 	                                </cui>
 	                            </uiSettings>
 	                        </description>    									
-						
+						</items>
+					</column>
 				</items>
-				</column>
-			</items>
-        
-        </normaltab>
-   </items>
-</content>
+			</normaltab>
+			<exhibition
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Exhibition"
+				sling:resourceType="granite/ui/components/foundation/section"
+				class="hidden showhide-target"
+				id="show-exhibition-tab" >
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<date
+								jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="Date"
+		                    	name="./date"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>   
+							<tickets
+								jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="Ticket price"
+		                    	name="./ticketPrice"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>   
+							<location
+								jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="Location"
+		                    	name="./location"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>   
+						</items>
+					</column>
+				</items>
+			</exhibition>
+			<calltoaction
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Call to action"
+				sling:resourceType="granite/ui/components/foundation/section" 
+				class="hidden showhide-target"
+				id="show-cta-tab">
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<ctaTitle
+								jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="CTA Title"
+		                    	fieldDescription="Text is MANDATORY in Exhibition Mode"
+		                    	name="./cta-title"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+		                    <ctaPath
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="CTA Path"
+		                    	name="./cta-path"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+		                    	rootPath="/content/nhmwww" /> 
+		                    <ctaNewwindow 
+			                   	jcr:primaryType="nt:unstructured"
+								fieldLabel="CTA Open in New Window"
+								name="./cta-newwindow"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="CTA Open in New Window"
+								value="{Boolean}true" />
+							<ctaIcon
+			                   	jcr:primaryType="nt:unstructured"
+								fieldLabel="CTA Icon"
+								name="./cta-icon"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								text="CTA Icon"
+								value="{Boolean}true" 
+								class="cq-dialog-checkbox-showhide"
+	                            show-hide-target="show-cta-type-select"
+	                            should-show-when-checked="true"/>
+                            <calltoactiontypecontainer
+	                        	jcr:primaryType="nt:unstructured"
+	                        	sling:resourceType="granite/ui/components/foundation/container" 
+	                        	class="hidden showhide-target"
+								id="show-cta-type-select" >
+	                        	<items jcr:primaryType="nt:unstructured" >
+									<calltoactionType
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Icon Style"
+					                    defaultValue="branding"
+					                    name="./calltoaction-type"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+					                    <items jcr:primaryType="nt:unstructured">
+					                        <alarmclock
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Alarm Clock"
+							                    value="timed-entry"/>
+							                <audioguide
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Audio Guide"
+							                    value="audio"/>
+							                <author
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Author"
+							                    value="author"/>
+							                <branding
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Branding"
+							                    value="branding"/>
+							                <calender
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Calendar"
+							                    value="dates"/>
+							                <clock
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Clock"
+							                    value="times"/>
+							                <gallery
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Gallery"
+							                    value="gallery"/>
+							                <location
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Location"
+							                    value="location"/>
+							                <membership
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Membership"
+							                    value="membership"/>
+							                <noflashphotography
+							                    jcr:primaryType="nt:unstructured"
+							                    text="No Flash Photography"
+							                    value="noflashphotography"/>
+							                <nophotography
+							                    jcr:primaryType="nt:unstructured"
+							                    text="No Photography"
+							                    value="nophotography"/>
+							                <subscription
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Subscription"
+							                    value="subscription"/>
+							                <sunset
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Sunset"
+							                    value="after-hours"/>
+							                <ticket
+							                    jcr:primaryType="nt:unstructured"
+							                    text="Ticket"
+							                    value="tickets"/>
+					                    </items>
+					                </calltoactionType>
+				                </items>
+				            </calltoactiontypecontainer>
+						</items>
+					</column>
+				</items>
+			</calltoaction>
+		</items>
+	</content>
 </jcr:root>
