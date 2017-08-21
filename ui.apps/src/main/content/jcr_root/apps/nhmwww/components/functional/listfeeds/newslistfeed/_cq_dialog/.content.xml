@@ -74,7 +74,7 @@
 			                        <tags
 				                        jcr:primaryType="nt:unstructured"
 				                        fieldLabel="Tags"
-				                        name="./cq:tags"
+				                        name="./cqTags"
 				                        sling:resourceType="cq/gui/components/common/tagspicker"
 				                        allowBulkEdit="{Boolean}true"
 				                        cq-msm-lockable="cq:tags"
