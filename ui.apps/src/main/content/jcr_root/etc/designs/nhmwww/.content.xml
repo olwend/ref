@@ -26,6 +26,12 @@
                 components="[group:NHM - Stacked,group:nhmwww]">
             </par>
         </immersivepage>
+        <articlepage jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:NHM - Stacked,group:nhmwww]" />
+        </articlepage>
         <page-home jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"

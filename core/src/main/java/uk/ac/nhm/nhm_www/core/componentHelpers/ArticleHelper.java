@@ -12,6 +12,8 @@ import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.model.FileReference;
 
@@ -23,7 +25,9 @@ import com.day.cq.wcm.foundation.Image;
 /**
  * Discover Publication Component Helper class.
  */
-public class DiscoverPublicationHelper {
+public class ArticleHelper {
+	private static final Logger LOG = LoggerFactory.getLogger(ArticleHelper.class);
+	
 	private static final String IMAGE_HEAD_TYPE = "image";
 	private static final String VIDEO_HEAD_TYPE = "video";
 	
@@ -70,10 +74,9 @@ public class DiscoverPublicationHelper {
 	private String ogTitle;
 	private String ogDescription;
 	private String ogImagePath;
-	private String pageTitle;
-	private String pageDescription;
 	private String selectTab;
 	
+	private String author;	
 	private String date;
 	private String analyticsDate;
 	
@@ -83,7 +86,7 @@ public class DiscoverPublicationHelper {
 	 * @param request 
 	 * @param xssAPI
 	 */
-	public DiscoverPublicationHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) {
+	public ArticleHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) {
 		this.resource   = resource;
 		this.properties = resource.adaptTo(ValueMap.class);
 		
@@ -106,6 +109,8 @@ public class DiscoverPublicationHelper {
 		String dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
 		
 		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
+		
+		this.author = getProperties().get("author", String.class);
 		
 		if(dateLastUpdated != null) {
 			DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
@@ -132,7 +137,7 @@ public class DiscoverPublicationHelper {
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
 	 */
-	public DiscoverPublicationHelper(Resource resource) {
+	public ArticleHelper(Resource resource) {
 		setResource(resource);
 		setProperties(resource.adaptTo(ValueMap.class));
 		
@@ -141,58 +146,42 @@ public class DiscoverPublicationHelper {
 	
 	private void init() {
 		//Initialise variables from Facebook tab
-		
-		//Set title		
-		String ogTitle = "";
-		if(getProperties().get("ogtitle") != null) {
-			ogTitle = getProperties().get("ogtitle", String.class);
-			
+		//Set title
+		if(properties.get("article/ogtitle") != null) {
+			setOgTitle(properties.get("article/ogtitle", String.class));
+		} else if(properties.get("jcr:title") != null) {
+			setOgTitle(properties.get("jcr:title", String.class));
 		}
-		setOgTitle(ogTitle);
 		
 		//Set description
-		String ogDescription = "";
-		if(getProperties().get("ogdescription") != null) {
-			ogDescription = getProperties().get("ogdescription", String.class);
+		if(properties.get("article/ogdescription") != null) {
+			setOgDescription(properties.get("article/ogdescription", String.class));
+		} else if(properties.get("jcr:description") != null) {
+			setOgDescription(properties.get("jcr:description", String.class));
 		}
-		setOgDescription(ogDescription);
 
 		//Set image path - value is dependent on which radio button is selected
-		String ogImagePath = "";
-		if(getProperties().get("selectTab") != null) {
-			if(getProperties().get("selectTab").equals("radioImage")) {
-				if(getProperties().get("ogimagepath") != null) {
-					ogImagePath = getProperties().get("ogimagepath", String.class);
+		if(properties.get("article/headType") != null) {
+			if(properties.get("article/headType").equals("image")) {
+				if(properties.get("article/ogimagepath") != null) {
+					setOgImagePath(properties.get("article/ogimagepath", String.class));
+				} else if(properties.get("article/image/fileReference") != null) {
+					setOgImagePath(properties.get("article/image/fileReference", String.class));
 				}
 			}
-			else if(getProperties().get("selectTab").equals("radioVideo")) {
-				if(getProperties().get("ogvideopath") != null) {
-					ogImagePath = getProperties().get("ogvideopath", String.class);
+			else if(properties.get("article/headType").equals("video")) {
+				if(properties.get("article/ogvideopath") != null) {
+					setOgImagePath(properties.get("article/ogvideopath", String.class));
+				} else if(properties.get("article/video/youtube") != null) {
+					setOgImagePath(properties.get("article/video/youtube", String.class));
 				}
 			}
 		}
-		setOgImagePath(ogImagePath);
-
-		//Set title - default from 'Basic' tab
-		String pageTitle = "";
-		if(getProperties().get("jcr:title") != null) {
-			pageTitle = getProperties().get("jcr:title", String.class);
-		}
-		setPageTitle(pageTitle);
 		
-		//Set description - default from 'Basic' tab
-		String pageDescription = "";
-		if(getProperties().get("jcr:description") != null) {
-			pageDescription = getProperties().get("jcr:description", String.class);
+		//Set type - image or video
+		if(getProperties().get("article/headType") != null) {
+			setSelectTab(selectTab = getProperties().get("article/headType", String.class));
 		}
-		setPageDescription(pageDescription);
-		
-		//Set value of radio buttons
-		String selectTab = "";
-		if(getProperties().get("selectTab") != null) {
-			selectTab = getProperties().get("selectTab", String.class);
-		}
-		setSelectTab(selectTab);
 	}
 	
 	public String getMonth(int month) {
@@ -485,22 +474,6 @@ public class DiscoverPublicationHelper {
 		this.ogImagePath = ogImagePath;
 	}
 
-	public String getPageTitle() {
-		return pageTitle;
-	}
-
-	public void setPageTitle(String pageTitle) {
-		this.pageTitle = pageTitle;
-	}
-
-	public String getPageDescription() {
-		return pageDescription;
-	}
-
-	public void setPageDescription(String pageDescription) {
-		this.pageDescription = pageDescription;
-	}
-
 	public String getSelectTab() {
 		return selectTab;
 	}
@@ -517,8 +490,12 @@ public class DiscoverPublicationHelper {
 		this.date = date;
 	}
 
-	public String getAnalyticsDate() {
-		return analyticsDate;
+	public String getAuthor() {
+		return author;
 	}
 
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
 }
