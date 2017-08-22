@@ -12,6 +12,8 @@ import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.nhm_www.core.model.FileReference;
 
@@ -24,6 +26,8 @@ import com.day.cq.wcm.foundation.Image;
  * Discover Publication Component Helper class.
  */
 public class ArticleHelper {
+	private static final Logger LOG = LoggerFactory.getLogger(ArticleHelper.class);
+	
 	private static final String IMAGE_HEAD_TYPE = "image";
 	private static final String VIDEO_HEAD_TYPE = "video";
 	
@@ -137,9 +141,10 @@ public class ArticleHelper {
 		
 		//Set title		
 		String ogTitle = "";
-		if(getProperties().get("ogtitle") != null) {
-			ogTitle = getProperties().get("ogtitle", String.class);
-			
+		if(getProperties().get("article/ogtitle") != null) {
+			ogTitle = getProperties().get("article/ogtitle", String.class);
+			LOG.error(getProperties().get("article/ogtitle", String.class));
+			LOG.error(ogTitle);
 		}
 		setOgTitle(ogTitle);
 		
