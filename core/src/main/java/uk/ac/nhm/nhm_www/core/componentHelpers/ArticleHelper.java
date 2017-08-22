@@ -74,11 +74,11 @@ public class ArticleHelper {
 	private String ogTitle;
 	private String ogDescription;
 	private String ogImagePath;
-	private String pageTitle;
-	private String pageDescription;
 	private String selectTab;
 	
+	private String author;	
 	private String date;
+	private String analyticsDate;
 	
 	/**
 	 * Helper Class Constructor.
@@ -110,6 +110,8 @@ public class ArticleHelper {
 		
 		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
 		
+		this.author = getProperties().get("author", String.class);
+		
 		if(dateLastUpdated != null) {
 			DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
 			MutableDateTime mdt = dt.toMutableDateTime();
@@ -119,6 +121,12 @@ public class ArticleHelper {
 			DateTime dt = dateFormatter.parseDateTime(datePublished);
 			MutableDateTime mdt = dt.toMutableDateTime();
 			this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+
+			if(mdt.getMonthOfYear() < 10) {
+				this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+			} else {
+				this.analyticsDate = mdt.getYear() + "-" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+			}
 		}
 		else {
 			this.date = "Please set a published date in the dialog";
@@ -138,59 +146,42 @@ public class ArticleHelper {
 	
 	private void init() {
 		//Initialise variables from Facebook tab
-		
-		//Set title		
-		String ogTitle = "";
-		if(getProperties().get("article/ogtitle") != null) {
-			ogTitle = getProperties().get("article/ogtitle", String.class);
-			LOG.error(getProperties().get("article/ogtitle", String.class));
-			LOG.error(ogTitle);
+		//Set title
+		if(properties.get("article/ogtitle") != null) {
+			setOgTitle(properties.get("article/ogtitle", String.class));
+		} else if(properties.get("jcr:title") != null) {
+			setOgTitle(properties.get("jcr:title", String.class));
 		}
-		setOgTitle(ogTitle);
 		
 		//Set description
-		String ogDescription = "";
-		if(getProperties().get("ogdescription") != null) {
-			ogDescription = getProperties().get("ogdescription", String.class);
+		if(properties.get("article/ogdescription") != null) {
+			setOgDescription(properties.get("article/ogdescription", String.class));
+		} else if(properties.get("jcr:description") != null) {
+			setOgDescription(properties.get("jcr:description", String.class));
 		}
-		setOgDescription(ogDescription);
 
 		//Set image path - value is dependent on which radio button is selected
-		String ogImagePath = "";
-		if(getProperties().get("selectTab") != null) {
-			if(getProperties().get("selectTab").equals("radioImage")) {
-				if(getProperties().get("ogimagepath") != null) {
-					ogImagePath = getProperties().get("ogimagepath", String.class);
+		if(properties.get("article/headType") != null) {
+			if(properties.get("article/headType").equals("image")) {
+				if(properties.get("article/ogimagepath") != null) {
+					setOgImagePath(properties.get("article/ogimagepath", String.class));
+				} else if(properties.get("article/image/fileReference") != null) {
+					setOgImagePath(properties.get("article/image/fileReference", String.class));
 				}
 			}
-			else if(getProperties().get("selectTab").equals("radioVideo")) {
-				if(getProperties().get("ogvideopath") != null) {
-					ogImagePath = getProperties().get("ogvideopath", String.class);
+			else if(properties.get("article/headType").equals("video")) {
+				if(properties.get("article/ogvideopath") != null) {
+					setOgImagePath(properties.get("article/ogvideopath", String.class));
+				} else if(properties.get("article/video/youtube") != null) {
+					setOgImagePath(properties.get("article/video/youtube", String.class));
 				}
 			}
 		}
-		setOgImagePath(ogImagePath);
-
-		//Set title - default from 'Basic' tab
-		String pageTitle = "";
-		if(getProperties().get("jcr:title") != null) {
-			pageTitle = getProperties().get("jcr:title", String.class);
-		}
-		setPageTitle(pageTitle);
 		
-		//Set description - default from 'Basic' tab
-		String pageDescription = "";
-		if(getProperties().get("jcr:description") != null) {
-			pageDescription = getProperties().get("jcr:description", String.class);
+		//Set type - image or video
+		if(getProperties().get("article/headType") != null) {
+			setSelectTab(selectTab = getProperties().get("article/headType", String.class));
 		}
-		setPageDescription(pageDescription);
-		
-		//Set value of radio buttons
-		String selectTab = "";
-		if(getProperties().get("selectTab") != null) {
-			selectTab = getProperties().get("selectTab", String.class);
-		}
-		setSelectTab(selectTab);
 	}
 	
 	public String getMonth(int month) {
@@ -483,22 +474,6 @@ public class ArticleHelper {
 		this.ogImagePath = ogImagePath;
 	}
 
-	public String getPageTitle() {
-		return pageTitle;
-	}
-
-	public void setPageTitle(String pageTitle) {
-		this.pageTitle = pageTitle;
-	}
-
-	public String getPageDescription() {
-		return pageDescription;
-	}
-
-	public void setPageDescription(String pageDescription) {
-		this.pageDescription = pageDescription;
-	}
-
 	public String getSelectTab() {
 		return selectTab;
 	}
@@ -513,6 +488,14 @@ public class ArticleHelper {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	
 }

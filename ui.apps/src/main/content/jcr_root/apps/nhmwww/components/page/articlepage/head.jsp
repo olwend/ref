@@ -1,5 +1,5 @@
 <%@page session="false"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper"%><%--
+<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%><%--
   Copyright 1997-2010 Day Management AG
   Barfuesserplatz 6, 4001 Basel, Switzerland
   All Rights Reserved.
@@ -28,7 +28,7 @@
 <%@ page import="uk.ac.nhm.nhm_www.core.utils.*" %>
 
 <%	
-		DiscoverPublicationHelper helper = new DiscoverPublicationHelper(resource);
+		ArticleHelper helper = new ArticleHelper(resource);
 
 %>
 
@@ -47,25 +47,14 @@
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
 	
-	<%if(!helper.getOgTitle().equals("")) { %>
-		<meta property="og:title" content="<%=helper.getOgTitle() %>">
-	<% }
-	else { %>
-		<meta property="og:title" content="<%=helper.getPageTitle() %>">
-	<%} %>
-	
-	<%if(!helper.getOgDescription().equals("")) { %>
-		<meta property="og:description" content="<%=helper.getOgDescription() %>" >
-	<% }
-	else { %>
-		<meta property="og:description" content="<%=helper.getPageDescription() %>">
-	<%} %>
+	<meta property="og:title" content="<%=helper.getOgTitle() %>">
+	<meta property="og:description" content="<%=helper.getOgDescription() %>" >
 	
 	<%if(!helper.getOgImagePath().equals("")) { 
-		if(helper.getSelectTab().equals("radioImage")) {%>
+		if(helper.getSelectTab().equals("image")) {%>
 			<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
 		<%}
-		else if(helper.getSelectTab().equals("radioVideo")) { %>
+		else if(helper.getSelectTab().equals("video")) { %>
 			<meta property="og:image" content="http://img.youtube.com/vi/<%= helper.getOgImagePath()%>/maxresdefault.jpg"/>
 		<%} 
 	}%>

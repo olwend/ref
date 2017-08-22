@@ -22,7 +22,6 @@
        		this.doLayout();
         }"
         xtype="tabpanel">
-        
         <items jcr:primaryType="cq:WidgetCollection">
             <Basic
                 jcr:primaryType="cq:Widget"
@@ -32,60 +31,6 @@
                 jcr:primaryType="cq:Widget"
                 path="/libs/foundation/components/page/tab_advanced.infinity.json"
                 xtype="cqinclude"/>
-            <Image
-                jcr:primaryType="cq:Widget"
-                path="/libs/foundation/components/page/tab_image.infinity.json"
-                xtype="cqinclude"/>
-            <Facebook
-            	jcr:primaryType="cq:Widget"
-                title="Facebook"
-                xtype="panel">
-            	<items jcr:primaryType="cq:WidgetCollection">
-            		<ogtitle
-            			jcr:primaryType="cq:Widget"
-            			name="./ogtitle"
-            			xtype="textfield"
-            			fieldLabel="Title"/>
-            		<ogdescription
-            			jcr:primaryType="cq:Widget"
-            			name="./ogdescription"
-            			xtype="textarea"
-            			fieldLabel="Description"/>
-            		<ogimage
-            			jcr:primaryType="cq:Widget"
-            			name="./ogimagepath"
-            			xtype="pathfield"
-            			fieldLabel="Image Path"
-            			rootPath="/content/dam/nhmwww"/>
-            		<ogvideo
-            			jcr:primaryType="cq:Widget"
-            			name="./ogvideopath"
-            			xtype="textfield"
-            			fieldLabel="YouTube ID"/>
-            		<gridlayout
-					    jcr:primaryType="cq:Widget"
-					    itemId="dispotions"
-					    name="./selectTab"
-					    type="radio"
-					    xtype="selection"
-					    layout="hbox"
-					    fieldLabel="Media Type">
-					    <options jcr:primaryType="cq:WidgetCollection">
-					        <grid1
-					            jcr:primaryType="nt:unstructured"
-					            text="Image"
-					            value="radioImage"/>
-					        <grid2
-					            jcr:primaryType="nt:unstructured"
-					            text="Video"
-					            value="radioVideo"/>
-					    </options>
-					    <optionsConfig 
-					        jcr:primaryType="nt:unstructured"
-					        width="60" />
-					</gridlayout>
-            	</items>
-           	</Facebook>
         </items>
     </items>
 </jcr:root>
