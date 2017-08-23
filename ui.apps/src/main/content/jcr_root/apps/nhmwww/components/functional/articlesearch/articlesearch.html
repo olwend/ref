@@ -1,21 +1,26 @@
+<div data-sly-test="${properties.title}">
+	<h2>${properties.title}</h2>
+</div>
+
 <div class="row">
-
-
-	<div data-sly-test="${!properties.rootpath}">
-		Please configure the component correctly. <br>Required values missing:
+	<div data-sly-test="${!properties.rootpath || !properties.rowsize}">
+		Please configure the component correctly. <br>Required values:
 		<ul>
 			<li>Path</li>
+			<li>Row size</li>
 		</ul>
 	</div>
-	<div data-sly-test="${properties.rootpath}">
+	<div data-sly-test="${properties.rootpath && properties.rowsize}">
 		<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
 			<div data-sly-list.list="${articlesearch.pageList}">
-	    		<div class="large-3 medium-6 small-12 columns end">
-	            	<a href="${list['path']}.html">${list['title']}</a> ${list['excerpt']}
+
+	    		<div style="padding-right:7px; padding-left:7px; height:350px;" class="large-${articlesearch.columns} medium-6 small-12 columns end">
+	    			<img src="${list['imagePath']}">
+	            	<a href="${list['path']}.html">${list['title']}</a>
+	            	<br><br>
+            		${list['excerpt']}
 	            </div>
 			</div>
 		</div>
 	</div>
-
-
 </div>

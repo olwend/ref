@@ -11,6 +11,11 @@
                 jcr:primaryType="cq:Panel"
                 title="Article Search">
                 <items jcr:primaryType="cq:WidgetCollection">
+                	<title
+                    	jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        name="./title"
+                        xtype="textfield" />
                     <rootPath
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Path"
@@ -67,6 +72,24 @@
                         fieldDescription="Default value is 10 if left blank"
                         name="./limit"
                         xtype="textfield" />
+                    <rowsize
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Row size"
+                        name="./rowsize"
+                        type="select"
+                        xtype="selection"
+                        allowBlank="false">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <datecreated
+                                jcr:primaryType="nt:unstructured"
+                                text="Full width"
+                                value="fullwidth"/>
+                            <datemodified
+                                jcr:primaryType="nt:unstructured"
+                                text="Two column"
+                                value="twocolumn"/>
+                        </options>
+                    </rowsize>
                 </items>
             </articleSearch>
         </items>

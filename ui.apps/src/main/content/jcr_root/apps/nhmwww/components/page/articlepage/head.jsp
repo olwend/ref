@@ -47,9 +47,12 @@
     <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	<meta name="twitter:widgets:csp" content="on">
 	
-	<meta property="og:title" content="<%=helper.getOgTitle() %>">
-	<meta property="og:description" content="<%=helper.getOgDescription() %>" >
-	
+	<%if(!helper.getOgTitle().equals("")) {%>
+		<meta property="og:title" content="<%=helper.getOgTitle() %>">
+	<%} %>
+	<%if(!helper.getOgDescription().equals("")) {%>
+		<meta property="og:description" content="<%=helper.getOgDescription() %>" >
+	<%} %>
 	<%if(!helper.getOgImagePath().equals("")) { 
 		if(helper.getSelectTab().equals("image")) {%>
 			<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">

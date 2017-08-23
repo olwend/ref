@@ -5,5 +5,5 @@ import java.util.Map;
 
 public interface ArticleSearchService {
 
-	public List<Map<String, String>> getPageTitles(String rootPath, String[] tags, String order, String tagsOperator, String limit);
+	public List<Map<String, String>> getPageData(String rootPath, String[] tags, String order, String tagsOperator, String limit);
 }

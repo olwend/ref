@@ -32,7 +32,7 @@ import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
 @Service
 public class ArticleSearchServiceImpl implements ArticleSearchService {
 
-	private final Logger LOG = LoggerFactory.getLogger(ArticleSearchServiceImpl.class);
+	private final static Logger LOG = LoggerFactory.getLogger(ArticleSearchServiceImpl.class);
 	
 	@Reference
 	private SlingRepository repository;
@@ -41,19 +41,19 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 	private QueryBuilder builder;
 
 	@Override
-	public List<Map<String, String>> getPageTitles(String rootPath, String[] tags, String order, String tagsOperator, String limit) {
+	public List<Map<String, String>> getPageData(String rootPath, String[] tags, String order, String tagsOperator, String limit) {
 
 		List<Map<String, String>> nodeList = new ArrayList<Map<String, String>>();
-		
+
 		try {
 			final Session session = repository.loginService("searchService", null);
-			
+
 			Map<String, String> queryMap = new HashMap<String, String>();
-			
+
 			//Path
 			queryMap.put("path", rootPath);
 		    queryMap.put("type", "cq:Page");
-		    
+
 		    //Tags
 		    if(tags != null) {
 		    	for(int i=0; i<tags.length; i++) {
@@ -67,7 +67,7 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 			    	if(tagsOperator.equals("or")) queryMap.put("group.p.or", "true");
 		    	}
 		    }
-		    
+
 		    //Order by
 		    if(!order.equals(null) && order != null) {
 		    	switch(order) {
@@ -81,21 +81,23 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 		    			break;
 		    	}
 		    }
-		    
+
 		    //Query
 		    Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
 
 		    query.setStart(0);
-		    
+
 		    //Query - limit
 		    if(limit != null) {
 			    query.setHitsPerPage(Long.parseLong(limit));
 		    }
-		    
+
 		    SearchResult result = query.getResult();
-		    
+
 		    LOG.info(result.getQueryStatement());
-		    
+
+		    //For each query hit, gather required fields and add them to a Map
+		    //Subsequently add map to @nodeList that is returned to the view
 		    for(Hit hits : result.getHits()) {
 		    	Map<String, String> nodeMap = new HashMap<String, String>();
 		    	Node node = hits.getNode();
@@ -112,13 +114,47 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 		    		nodeMap.put("excerpt", node.getProperty("jcr:content/jcr:description").getString());
 		    	}
 		    	
+		    	//Get image for Article template pages
+		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")) {
+		    		LOG.error("yes");
+			    	if(node.hasProperty("jcr:content/article/headType")) {
+			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
+			    			if(node.hasProperty("jcr:content/article/image/fileReference")) {
+								nodeMap.put("imagePath", node.getProperty("jcr:content/article/image/fileReference").getString());
+							}
+			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
+			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
+			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/maxresdefault.jpg";
+					    		nodeMap.put("imagePath", youtubeImagePath);
+					    	}
+			    		}
+			    	}
+		    	}
+		    	
+		    	//Get image for Discover template pages
+		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/discoverpublicationpage")) {
+		    		LOG.error("yes");
+			    	if(node.hasProperty("jcr:content/discoverpublication/headType")) {
+			    		if(node.getProperty("jcr:content/discoverpublication/headType").getString().equals("image")) {
+			    			if(node.hasProperty("jcr:content/discoverpublication/image/fileReference")) {
+								nodeMap.put("imagePath", node.getProperty("jcr:content/discoverpublication/image/fileReference").getString());
+							}
+			    		} else if(node.getProperty("jcr:content/discoverpublication/headType").getString().equals("video")) {
+			    			if(node.hasProperty("jcr:content/discoverpublication/video/youtube")) {
+			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/discoverpublication/video/youtube").getString() + "/maxresdefault.jpg";
+					    		nodeMap.put("imagePath", youtubeImagePath);
+					    	}
+			    		}
+			    	}
+		    	}
+
 		    	nodeList.add(nodeMap);
 		    }
 
 		} catch (Exception e) {
 			LOG.error("Error with exception: ", e);
 		}
-				
+
 		return nodeList;
 	}
 }
