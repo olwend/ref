@@ -90,6 +90,12 @@
                                 value="twocolumn"/>
                         </options>
                     </rowsize>
+                    <showReadMore
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Show 'Read more' link"
+	                    name="./showReadMore"
+	                    type="checkbox"
+	                    xtype="selection"/>
                 </items>
             </articleSearch>
         </items>
