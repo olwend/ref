@@ -50,22 +50,22 @@ public class FeedListHelperTest {
 	Resource mockResource;
 	Page mockPage;
 	HttpServletRequest mockRequest;
-	
-	
+
+
 	private ValueMap properties;
 	private PressReleaseFeedListHelper helper;
 	public Image image;
-	
 
-	 @Rule
-     public final AemContext aemContext = new AemContext();
 
-	
+	@Rule
+	public final AemContext aemContext = new AemContext();
+
+
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	
+
 	@Before
 	public void setUp() throws Exception {
 		properties = new ValueMapDecorator(new HashMap<String, Object>());
@@ -75,44 +75,44 @@ public class FeedListHelperTest {
 
 		this.mockResourceResolver = aemContext.resourceResolver();
 		this.mockRequest = aemContext.request();
-		
+
 		aemContext.create().page("/content/nhmwww/en/home/testpage", "test1");
 
-		
+
 		this.mockResource = aemContext.resourceResolver().getResource("/content/nhmwww/en/home/testpage");
 		this.mockPageManager = aemContext.pageManager();
-		
+
 		this.mockPage = this.mockResource.adaptTo(Page.class);
 		this.aemContext.load().json("/json-import/pr1.json", "/content/nhmwww/en/home/testpage/pr1");
 		this.aemContext.load().json("/json-import/pr2.json", "/content/nhmwww/en/home/testpage/pr2");
-		
-		
-		
+
+
+
 		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
-		
+
 		helper.setComponentTitle("alpha");
-		
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		Page pr1 = this.mockResourceResolver.getResource("/content/nhmwww/en/home/testpage/pr1").adaptTo(Page.class);
 		Page pr2 = this.mockResourceResolver.getResource("/content/nhmwww/en/home/testpage/pr2").adaptTo(Page.class);
-		
+
 		aemContext.pageManager().delete(this.mockPage, false);
 		aemContext.pageManager().delete(pr1, false);
 		aemContext.pageManager().delete(pr2, false);
 		helper = null;
 	}
-	
-	
+
+
 
 	@Test
 	public void ComponentTitleTest() {
 		assertEquals(String.class, helper.getComponentTitle().getClass());
 		assertEquals(helper.getComponentTitle(), "alpha");
 	}
-	
+
 	@Test
 	public void ComponentTitleHyperlinkTest() {
 		helper.setHyperLink("alpha");
@@ -122,7 +122,7 @@ public class FeedListHelperTest {
 		assertTrue(helper.validateHyperlink());
 		assertEquals(String.class, helper.getHyperLink().getClass());
 	}
-	
+
 	@Test
 	public void getChildrenElementsTest() {
 		List<Object> elements = this.helper.getChildrenElements(); 

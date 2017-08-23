@@ -15,9 +15,12 @@ import org.slf4j.LoggerFactory;
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.dam.api.Asset;
+import com.day.cq.wcm.foundation.Image;
 
+import uk.ac.nhm.nhm_www.core.model.AEMImage;
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
 import uk.ac.nhm.nhm_www.core.utils.NodeUtils;
+import uk.ac.nhm.nhm_www.core.utils.PageUtils;
 
 public class Foundation5ImageHelper {
 	private String path;
@@ -28,7 +31,7 @@ public class Foundation5ImageHelper {
 	private String caption;
 	private String imageLinkURL;
 	private String mobileImagePath;
-	private Boolean addMarginBottom; // WR-890
+	private Boolean addMarginBottom;
 	private boolean newwindow;
 	private Boolean activated;
 	private Resource rs;
@@ -40,26 +43,29 @@ public class Foundation5ImageHelper {
 	protected static final Logger logger = LoggerFactory.getLogger(Foundation5ImageHelper.class);
 
 	public Foundation5ImageHelper(ValueMap properties, Resource resource, ResourceResolver resourceResolver, HttpServletRequest request, XSSAPI xssAPI) {
-		
+
 		this.activated = false;
-		
-		this.addMarginBottom = false; // WR-890
-		//this.rs = resource;
+
+		this.addMarginBottom = false;
 		this.resourceResolver = resourceResolver;
-		// WR-890 - set the addMarginBottom Boolean
 		this.addMarginBottom = properties.get("addMarginBottom",false);
-		
+
 		String fileReference = properties.get("fileReference", "");
 		String mobileFileReference = properties.get("mobileFileReference", "");
 		
-		logger.error("mobile File Rdeference: " + mobileFileReference);
 		this.originalImagePath = fileReference;
 		this.mobileImagePath = mobileFileReference;
-		if (fileReference.length() != 0 || resource.getChild("file") != null) {
+		
+		Resource imageResource = resourceResolver.getResource(fileReference);
+		Image i = null;
+		
+		try {
+			i = new Image(imageResource);
 			ImageResource image = new ImageResource(resource);
+			
 			String tempPath = request.getContextPath() + resource.getPath();
 			String tempAlt = xssAPI.encodeForHTMLAttr(properties.get("alt", image.getTitle()));
-			
+
 			// Handle extensions on both fileReference and file type images
 			String tempExtension = "jpg";
 			String tempSuffix = "";
@@ -75,15 +81,11 @@ public class Foundation5ImageHelper {
 					tempExtension = mimeType.substring(mimeType.lastIndexOf("/") + 1);
 				}
 			}
-			
-			/*if (mobileFileReference.length() != 0) {
-				tempExtension = mobileFileReference.substring(fileReference.lastIndexOf(".") + 1);
-				tempSuffix = image.getSuffix();
-				tempSuffix = tempSuffix.substring(0, tempSuffix.indexOf('.') + 1) + tempExtension;
-			} */
+
 			tempExtension = xssAPI.encodeForHTMLAttr(tempExtension);
 			this.caption = properties.get("caption","");
 			this.imageLinkURL = properties.get("image-path","");
+
 			if(this.imageLinkURL != null && !this.imageLinkURL.equals("")){
 				this.imageLinkURL = LinkUtils.getFormattedLink(this.imageLinkURL);
 			}
@@ -95,27 +97,26 @@ public class Foundation5ImageHelper {
 			this.suffix = tempSuffix;
 			this.alt = tempAlt;
 			this.activated = true;
+			
+		} catch(NullPointerException e) {
+			logger.error("Image not found in repo. Expected path=" + fileReference);
 		}
 	}
-	
-	private int getImageHeight()
-	{
+
+	private int getImageHeight() {
 		return Integer.parseInt(this.getAsset().getMetadataValue("tiff:imageLength"));
 	}
-	
-	private int getImageWidth()
-	{
+
+	private int getImageWidth() {
 		String damAssetPath = this.getAsset().getPath();
 		Resource  imageMedataData = this.resourceResolver.getResource(damAssetPath+"/jcr:content/metadata");
 		ValueMap imageProperies = imageMedataData.getValueMap();
 		String imageWidth = imageProperies.get("tiff:ImageWidth", "0");
 		return Integer.parseInt(imageWidth);
 	}
-	
-	private Asset getAsset()
-	{
-		if (this.asset == null)
-		{
+
+	private Asset getAsset() {
+		if (this.asset == null) {
 			String path = this.getPath();
 			String extension = this.getExtension();
 			String suffix = this.getSuffix();
@@ -131,106 +132,62 @@ public class Foundation5ImageHelper {
 	public String getPath() {
 		return path;
 	}
-	
+
 	//If image is placed in a row that contains multiple cells then the maximum image width can be a maximum of approximately 768px in width
 	//If an image is in a row by itself then the image could be anything up to 1920 depending on screen resolution.
-	public boolean IsImageInCell() throws AccessDeniedException, ItemNotFoundException, RepositoryException
-	{
+	public boolean IsImageInCell() throws AccessDeniedException, ItemNotFoundException, RepositoryException {
 		this.parentNode = this.rs.getParent().adaptTo(Node.class); // 1 = parent node
-		
+
 		NodeUtils.RowType rowType = NodeUtils.getRowType(parentNode);
-		
-		if (rowType == NodeUtils.RowType.ROWFULLWIDTH || rowType == NodeUtils.RowType.HEROSECTION)
-		{
+
+		if (rowType == NodeUtils.RowType.ROWFULLWIDTH || rowType == NodeUtils.RowType.HEROSECTION) {
 			return false;
-		}
-		else
-		{
+		} else {
 			return true;
 		}
 	}
-	
-	public String getPath(ImageInterchangeSize imageSize) throws AccessDeniedException, ItemNotFoundException, RepositoryException {
-		
-/*		if (this.IsImageInCell())
-		{*/
-		switch (imageSize) {
-            case DEFAULT:
-            	if (this.getImageWidth() > 1920) {
-            		return this.getPath() + ".img.1920.high." + this.getExtension() + this.getSuffix();
-            	}
-            	else
-            	{
-            		//Maybe use the following instead?
-            		//return this.getPath() + ".img.full.high." + this.getExtension() + this.getSuffix();
-            		return this.getOriginalImagePath();
-            	}
-                    
-            case SMALL:
-            	if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
-        			return this.getMobileImagePath();
-            	}	
-            	if (this.getImageWidth() > 768) {
-            		return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
-            	}
-            	else
-            	{
-            		return this.getOriginalImagePath();
-            	}
 
-            case MEDIUM:
-            	if (this.getImageWidth() > 1024) {
-            		return this.getPath() + ".img.1024.high." + this.getExtension() + this.getSuffix();
-            	}
-            	else
-            	{
-            		return this.getOriginalImagePath();
-            	}
-            case SMALL_RETINA:
-            	return this.getOriginalImagePath();
-            case LARGE: case RETINA:
-            	return this.getOriginalImagePath();
-                
-            default:
-            	throw new UnsupportedOperationException("Image Interchange size not supported");}
-		/*}
-		else
-		{
-			switch (imageSize) {
-	            case DEFAULT: case MEDIUM:
-	            	if (this.getImageWidth() > 768) {
-	            		return this.getPath() + ".img.768.high." + this.getExtension() + this.getSuffix();
-	            	}
-	            	else
-	            	{
-	            		//Maybe use the following instead?
-	            		//return this.getPath() + ".img.full.high." + this.getExtension() + this.getSuffix();
-	            		return this.getOriginalImagePath();
-	            	}
-	                    
-	            case SMALL:
-	            	if (this.getImageWidth() > 768) {
-	            		return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
-	            	}
-	            	else
-	            	{
-	            		return this.getOriginalImagePath();
-	            	}
-	            	
-	            case LARGE: case RETINA:
-	                return this.getOriginalImagePath();
-	                
-	            default:
-	            	throw new UnsupportedOperationException("Image Interchange size not supported");}
-		}*/
+	public String getPath(ImageInterchangeSize imageSize) throws AccessDeniedException, ItemNotFoundException, RepositoryException {
+		switch (imageSize) {
+		case DEFAULT:
+			if (this.getImageWidth() > 1920) {
+				return this.getPath() + ".img.1920.high." + this.getExtension() + this.getSuffix();
+			} else {
+				//Maybe use the following instead?
+				//return this.getPath() + ".img.full.high." + this.getExtension() + this.getSuffix();
+				return this.getOriginalImagePath();
+			}
+
+		case SMALL:
+			if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
+				return this.getMobileImagePath();
+			}	
+			if (this.getImageWidth() > 768) {
+				return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
+			} else {
+				return this.getOriginalImagePath();
+			}
+
+		case MEDIUM:
+			if (this.getImageWidth() > 1024) {
+				return this.getPath() + ".img.1024.high." + this.getExtension() + this.getSuffix();
+			} else {
+				return this.getOriginalImagePath();
+			}
+		case SMALL_RETINA:
+			return this.getOriginalImagePath();
+		case LARGE: case RETINA:
+			return this.getOriginalImagePath();
+
+		default:
+			throw new UnsupportedOperationException("Image Interchange size not supported");}
 	}
 
 
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
-	
+
 	public String getOriginalImagePath() {
 		return originalImagePath;
 	}
@@ -248,86 +205,69 @@ public class Foundation5ImageHelper {
 		this.extension = extension;
 	}
 
-
 	public String getSuffix() {
 		return suffix;
 	}
-
 
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
 	}
 
-
 	public String getAlt() {
 		return alt;
 	}
-
 
 	public void setAlt(String alt) {
 		this.alt = alt;
 	}
 
-
 	public Boolean isActivated() {
 		return activated;
 	}
-
 
 	public void setActivated(Boolean activated) {
 		this.activated = activated;
 	}
 
-
 	public String getCaption() {
 		return caption;
 	}
-
 
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
 
-
 	public String getImageLinkURL() {
 		return imageLinkURL;
 	}
 
-
 	public void setImageLinkURL(String imageLinkURL) {
 		this.imageLinkURL = imageLinkURL;
 	}	
-	
+
 	public String getNewWindowHtml() {
-		if (this.newwindow)
-		{	
+		if (this.newwindow) {	
 			return " target=\"_blank\"";
-		}
-		else
-		{
+		} else {
 			return "";
 		}
 	}
-	
-	// WR-890
+
 	public Boolean getAddMarginBottom() {
 		return addMarginBottom;
 	}
-	
-	// WR-890
+
 	public void setAddMarginBottom(Boolean addMarginBottom) {
 		this.addMarginBottom = addMarginBottom;
 	}
-	
+
 	private boolean hasMobileImage(String path) {
-		
 		return false;
 	}
 
-
 	public String getMobileImagePath() {
 		/*String mobilePath = this.originalImagePath.substring(0, this.originalImagePath.lastIndexOf(".")) + "_mobile." + this.extension;
-		
+
 		return mobilePath;*/
 		return this.mobileImagePath;
 	}
@@ -335,9 +275,4 @@ public class Foundation5ImageHelper {
 	public void setMobileImagePath(String mobileImagePath) {
 		this.mobileImagePath = mobileImagePath;
 	}
-	
-	
-	
-	
-		
 }

@@ -22,6 +22,7 @@
 		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 			<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 		<% } %>
+		<% if(helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) != null) { %>
 		<!-- WR-1020: replace Interchange with Picture -->
 		<picture>
 			<source media="(max-width: 480px)" 
@@ -34,6 +35,7 @@
 					srcset="<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.LARGE) %>" />
 			<img class="js--carousel-image" src="<%= helper.getPath(Foundation5ImageHelper.ImageInterchangeSize.DEFAULT) %>" alt="<%= helper.getAlt() %>" />
 		</picture>
+		<%}%>
 		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 			</a>
 		<% } %>

@@ -69,19 +69,21 @@ public class CarouselElement {
 		
 	    
 		this.alt = "";
-		if(this.filename.endsWith(".jpg") || this.filename.endsWith(".png") || this.filename.endsWith(".gif")) {
-			Resource rs = resourceResolver.getResource(this.filename);
-			Asset asset = rs.adaptTo(Asset.class);
-			String assetTitle = asset.getMetadataValue("dc:title");
-			if(assetTitle != null && !assetTitle.equals("")) {
-				this.alt = assetTitle;
-			} else if(this.heading != null || !this.heading.equals("")){
-				this.alt = this.heading;
-			} else if(this.caption != null || !this.caption.equals("")){
-				this.alt = this.caption;
+		try {
+			if(this.filename.endsWith(".jpg") || this.filename.endsWith(".png") || this.filename.endsWith(".gif")) {
+				Resource rs = resourceResolver.getResource(this.filename);
+				Asset asset = rs.adaptTo(Asset.class);
+				String assetTitle = asset.getMetadataValue("dc:title");
+				if(assetTitle != null && !assetTitle.equals("")) {
+					this.alt = assetTitle;
+				} else if(this.heading != null || !this.heading.equals("")){
+					this.alt = this.heading;
+				} else if(this.caption != null || !this.caption.equals("")){
+					this.alt = this.caption;
+				}	
 			}
-			
-			
+		} catch(Exception e) {
+			logger.error("An exception was thrown", e);
 		}
 				
 	}
