@@ -1,14 +1,10 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
-import io.wcm.testing.mock.aem.junit.AemContext;
+import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
-import static org.junit.Assert.*;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -21,6 +17,8 @@ import org.junit.Test;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+
+import io.wcm.testing.mock.aem.junit.AemContext;
 
 public class LinkListHelperTest {
 

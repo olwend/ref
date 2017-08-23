@@ -108,26 +108,6 @@
 			<div class="discover-publication-date"><%=helper.getDate() %></div>
 			<div class="introduction"><%= xssAPI.filterHTML(helper.getIntroduction()) %></div>
 			<cq:include path="par" resourceType="foundation/components/parsys"/>
-			<div class="discover-publication-footer">
-			<div class="flags small-12 medium-12 large-12 columns">
-				<div class="facebook small-12 medium-3 large-3 columns">
-					<cq:includeClientLib categories="cq.social.plugins.facebook"/>
-	
-					<div id="fb-root"></div>
-					<script src="//connect.facebook.net/en_US/all.js"></script>
-	
-					<script type="text/javascript">
-	    				$CQ(document).ready(function(){
-	        			FB.Event.subscribe('xfbml.render',function(){
-	            			$CQ('.FB_Loader').css('background','url()');
-	        			});
-	    			});
-					</script>
-					<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-				</div>
-				<div class="rest small-12 medium-9 large-9 columns"></div>
-			</div>
-		</div>
 		</div>
 		<div class="small-12 medium-4 large-4 columns">
 			<cq:include path="ctapar" resourceType="foundation/components/parsys" />
