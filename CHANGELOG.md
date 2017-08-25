@@ -1,9 +1,13 @@
 # Changelog
 
+## 1.2.4 - Rambunctious Redshank - 24-Aug-2017
+- WR-1087 - Add social share component to Discover Articles
+U WR-1089 - Add 'date published' and 'last updated' in Discover article byline (revealed on page)
+
 ## 1.2.3 - Quixotic Quetzal - 3-Aug-2017
 - WR-1073 - Validation for image component
 - WR-1076 - Remove cq.jquery across site headlibs
-- WR-1089 - Add 'date published' and 'last updated' in Discover article byline
+- WR-1089 - Add 'date published' and 'last updated' in Discover article byline (hidden on page)
 
 ## 1.2.2 - Prickly Partridge - 27-Jul-2017
 - WR-1082 - Issues with H1 styles in "Big Splash" component when used in Discover
