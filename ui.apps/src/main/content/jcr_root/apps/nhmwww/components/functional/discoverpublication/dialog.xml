@@ -75,7 +75,7 @@
                         xtype="selection">
                         <listeners
                             jcr:primaryType="nt:unstructured"
-                            selectionchanged="function(value, isChecked){                              var dateWidget = this.nextSibling();                              if (this.getValue() == 'true') {                               dateWidget.setValue(new Date($.now()));                              } else {                               dateWidget.setValue('');                              }                             }"/>
+                            selectionchanged="function(value, isChecked){ var dateWidget = this.nextSibling();                              if (this.getValue() == 'true') {                               dateWidget.setValue(new Date($.now()));                              } else {                               dateWidget.setValue('');                              }                             }"/>
                     </pinned>
                     <pinneddate
                         jcr:primaryType="cq:Widget"

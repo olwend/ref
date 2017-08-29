@@ -5,18 +5,26 @@
 
     $(document).on("foundation-contentloaded", function(e) {
         $(".cq-dialog-checkbox-showhide").each( function() {
-            showHide($(this));
+        	checkboxShowHide($(this));
+        });
+        
+        $(".cq-dialog-radio-showhide").each( function() {
+        	radioShowHide($(this));
         });
     });
     
     $document.on("change", ".cq-dialog-checkbox-showhide", function(e) {
-        showHide($(this));
+        checkboxShowHide($(this));
+    });
+    
+    $document.on("change", ".cq-dialog-radio-showhide", function(e) {
+        radioShowHide($(this));
     });
 
-    function showHide($el) {
-		var shouldShowWhenChecked = $el.data('should-show-when-checked');
-        var isChecked = $el.is(":checked");
-        var targetElementSelector = $el.data('show-hide-target');
+    function checkboxShowHide($checkboxElement) {
+		var shouldShowWhenChecked = $checkboxElement.data('should-show-when-checked');
+        var isChecked = $checkboxElement.is(":checked");
+        var targetElementSelector = $checkboxElement.data('show-hide-target');
         
         if(targetElementSelector.indexOf(" ") > -1) {
         	var selectors = targetElementSelector.split(" ");
@@ -26,13 +34,30 @@
         
         for(var i=0; i<selectors.length; i++) {
 	        var $targetElement = $('#' + selectors[i]);
-	
-	        var $tabButton = $("[aria-controls='" + selectors[i] + "']");
-	
 	        var isVisible = shouldShowWhenChecked ? isChecked : !isChecked;
+
 	        $targetElement.toggleClass('hidden', !isVisible);
+            var $tabButton = $("[aria-controls='" + selectors[i] + "']");
 	        $tabButton.toggleClass('hidden', !isVisible);
         }
+    }
+    
+    function radioShowHide($radioElement){
+    	if($radioElement.is(':checked')){
+    		var targetElementSelector = $radioElement.data('show-hide-target');
+    		
+			$(".cq-dialog-container-showhide").each( function() {
+				$(this).toggleClass('hidden', true);
+				var $tabButton = $("[aria-controls='" + $(this).attr('id') + "']");
+				$tabButton.toggleClass('hidden', true);
+ 	        });  	
+			
+     		var $targetElement = $('#' + targetElementSelector);
+			
+			$targetElement.toggleClass('hidden', false);
+			var $tabButton = $("[aria-controls='" + $targetElement.attr('id') + "']");
+			$tabButton.toggleClass('hidden', false);
+    	}
     }
 
 })($, $(document));

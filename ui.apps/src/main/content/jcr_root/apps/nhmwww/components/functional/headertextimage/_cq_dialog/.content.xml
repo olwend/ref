@@ -62,11 +62,11 @@
 								name="./jcr:title"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
 							<alt
-		                       jcr:primaryType="nt:unstructured"
-		                       fieldDescription="(leave empty to use the title defined above)"
-		                       fieldLabel="Alt Text"
-		                       name="./alt"
-		                       sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+								jcr:primaryType="nt:unstructured"
+								fieldDescription="(leave empty to use the title defined above)"
+								fieldLabel="Alt Text"
+								name="./alt"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 							<addPadding
 		                   		jcr:primaryType="nt:unstructured"
 								fieldLabel="Add padding"
@@ -75,10 +75,10 @@
 								text="Add padding"
 								value="{Boolean}true" />
 							<description
-		                       jcr:primaryType="nt:unstructured"
-		                       fieldLabel="Description"
-		                       name="./jcr:description"
-		                       sling:resourceType="granite/ui/components/foundation/form/textarea"/>
+								jcr:primaryType="nt:unstructured"
+								fieldLabel="Description"
+								name="./jcr:description"
+								sling:resourceType="granite/ui/components/foundation/form/textarea"/>
 							<imageSize
 			                    jcr:primaryType="nt:unstructured"
 			                    fieldLabel="Image Size"
