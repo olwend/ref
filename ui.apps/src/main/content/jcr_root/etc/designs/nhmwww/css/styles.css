@@ -6330,7 +6330,6 @@ html.js-noScroll {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin: -5px 0 10px 0;
   padding: 0 1.1em;
-  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -8371,6 +8370,39 @@ a.button-cta {
   padding: 0.6em 2em;
   margin-bottom: 0;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+
+/** WR-1087 social share component **/
+.social-share--container {
+  width: 100%;
+  height: 80px;
+  min-height: 80px;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 0 0.75em;
+}
+
+@media screen and (min-width: 768px) {
+  .social-share--container {
+    height: 110px;
+    min-height: 110px;
+    padding: 0 1.5em;
+  }
+}
+
+.social-share--icons {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+}
+
+.social-share--icons .facebook img, .social-share--icons .twitter img, .social-share--icons .email img {
+  max-height: 30px;
+  max-width: 40px;
+  margin-right: 8px;
 }
 
 /** WR-1023 social signup component **/
