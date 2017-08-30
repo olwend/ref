@@ -10,7 +10,14 @@
 	if (!helper.isConfigured()) {
 %>
 	<div class="row">
-		<span class="noconfigured">Please configure the article page correctly.</span>
+		<span class="noconfigured">
+			Please configure the article page correctly. Required fields:
+			<ul>
+				<li>Article title</li>
+				<li>Introduction text</li>
+				<li>Lead image or video</li>
+			</ul>
+		</span>
 	</div>
 <%
 		return;
