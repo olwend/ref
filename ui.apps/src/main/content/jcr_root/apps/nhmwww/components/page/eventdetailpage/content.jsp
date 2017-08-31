@@ -5,8 +5,8 @@
     if (WCMMode.fromRequest(request) == WCMMode.EDIT) {
        %> <cq:includeClientLib categories="nhmwww.eventdetailpageconfig"/><%
     }
-    String title = (String) properties.get("jcr:eventTitle", "");
-    String eventSelectTypeClassName = (String) properties.get("eventSelect", "").toLowerCase();
+    String title = (String) properties.get("parentpar/eventdetail/jcr:eventTitle", "");
+    String eventSelectTypeClassName = (String) properties.get("parentpar/eventdetail/eventSelect", "").toLowerCase();
     //TO DO: Parse properly from the dialog properties
     if (eventSelectTypeClassName.equals("science")) {
           eventSelectTypeClassName = "our-science";                                                     

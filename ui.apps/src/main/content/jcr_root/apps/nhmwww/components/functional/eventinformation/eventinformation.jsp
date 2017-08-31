@@ -28,7 +28,7 @@
      }
 %>
 <%
-   String eventContentPath = currentPage.getPath() + "/jcr:content";
+   String eventContentPath = currentPage.getPath() + "/jcr:content/parentpar/eventdetail";
 
    Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 

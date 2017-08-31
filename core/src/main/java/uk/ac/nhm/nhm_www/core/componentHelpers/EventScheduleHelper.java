@@ -39,7 +39,7 @@ public class EventScheduleHelper {
 	private static final Logger LOG = LoggerFactory.getLogger(EventScheduleHelper.class);
 	
 	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage, ValueMap properties) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
-		this.eventContentPath = currentPage.getPath() + "/jcr:content";
+		this.eventContentPath = currentPage.getPath() + "/jcr:content/parentpar/eventdetail";
 
 		Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 

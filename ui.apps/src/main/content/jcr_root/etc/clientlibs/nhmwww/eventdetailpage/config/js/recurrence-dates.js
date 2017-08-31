@@ -119,9 +119,8 @@ function createDates(dlg) {
 
                 //Gets the times
                 if (multi[i].title === 'Add Times') {
-
-                    var time    = multi[i].findByType('timefield'),
-                        times   = [];
+                    var time = multi[i].findByType('timefield'),
+                        times = [];
 
                     for (var j = 0; j < time.length; j++) {
                         times.push(time[j].getValue());
