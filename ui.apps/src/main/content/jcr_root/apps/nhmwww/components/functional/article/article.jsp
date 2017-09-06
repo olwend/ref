@@ -76,32 +76,50 @@
 	<div class="section row2cells21">
 		<div class="row">
 			<div class="small-12 medium-8 large-8 columns">
+				<div>HUB TAG</div>
+				
 				<h1><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
-				<div class="discover-publication-date">By <%=helper.getAuthor()%> <%=helper.getDate()%></div>
+				
+				<%if(helper.getAuthor() != null) { %>
+					<div>By <%=helper.getAuthor()%></div>
+				<%} %> 
+				
+				<div class="discover-publication-date"><%=helper.getDate()%></div>
+				
 				<div class="introduction"><%= xssAPI.filterHTML(helper.getIntroduction()) %></div>
+				
 				<cq:include path="par" resourceType="foundation/components/parsys"/>
+				
+				
+				
 				<div class="discover-publication-footer">
 					<div class="flags small-12 medium-12 large-12 columns">
-						<div class="facebook small-12 medium-3 large-3 columns">
-							<cq:includeClientLib categories="cq.social.plugins.facebook"/>
-							<div id="fb-root"></div>
-							<script src="//connect.facebook.net/en_US/all.js"></script>
-		
-							<script type="text/javascript">
-			    				$(document).ready(function(){
-				        			FB.Event.subscribe('xfbml.render',function(){
-				            			$('.FB_Loader').css('background','url()');
-				        			});
-			    				});
-							</script>
-							<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+						<div>
+							<p>This is where the bottom stuff will go<p>
+							<ul>
+								<li>More share</li>
+								<li>Tags</li>
+							</ul>
 						</div>
-						<div class="rest small-12 medium-9 large-9 columns"></div>
 					</div>
 				</div>
 			</div>
+			
 			<div class="small-12 medium-4 large-4 columns">
 				<cq:include path="ctapar" resourceType="foundation/components/parsys" />
 			</div>
+			
+			<div class="row">
+				<div class="small-12 medium-12 large-12 columns">
+					<cq:include path="socialsignup" resourceType="nhmwww/components/functional/social-signup"/>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-12 medium-12 large-12 columns">
+					Include Article Search component
+				</div>
+			</div>
+			
 		</div>
 	</div>
