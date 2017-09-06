@@ -13,5 +13,13 @@
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/parsys" />
+            	<article
+            		jcr:primaryType="nt:unstructured"
+            		sling:resourceType="nhmwww/components/functional/article">
+            		
+            		<socialsignup
+            			jcr:primaryType="nt:unstructured"
+            			sling:resourceType="nhmwww/components/functional/social-signup" />	
+            	</article>
 	</jcr:content>
 </jcr:root>

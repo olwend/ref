@@ -1,0 +1,11 @@
+<div data-sly-use.helper="uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper">
+	<sly data-sly-test="${!helper.isConfigured}"> 
+		<div class="row">
+			<span class="noconfigured">Please configure the article page correctly</span>
+		</div>
+	</sly>
+	
+	<sly data-sly-test="${helper.isConfigured}"> 
+		Something else
+	</sly>
+</div>

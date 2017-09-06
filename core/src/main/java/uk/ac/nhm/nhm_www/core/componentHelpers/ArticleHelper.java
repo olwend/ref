@@ -4,6 +4,7 @@ import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.sling.api.resource.Resource;
@@ -15,22 +16,20 @@ import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.model.FileReference;
-
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.foundation.Image;
+
+import uk.ac.nhm.nhm_www.core.model.FileReference;
 
 /**
  * Discover Publication Component Helper class.
  */
 public class ArticleHelper {
 	private static final Logger LOG = LoggerFactory.getLogger(ArticleHelper.class);
-	
+
 	private static final String IMAGE_HEAD_TYPE = "image";
 	private static final String VIDEO_HEAD_TYPE = "video";
-	
+
 	/*
 	 * Repository Attribute names.
 	 */
@@ -47,92 +46,100 @@ public class ArticleHelper {
 	public static final String IMAGE_ALT_ATTRIBUTE_NAME		= "image/alt";
 	public static final String DATE_PUBLISHED				= "datepublished";
 	public static final String DATE_LAST_UDPATED			= "datelastupdated";
-	
+
 	/*
 	 * SubResource Names.
 	 */
 	private static final String IMAGE_RESOURCE_NAME = "image";
 	private static final String VIDEO_RESOURCE_NAME = "video";
-	
+
 	/*
 	 * Component Properties.
 	 */
 	private ValueMap properties;
-	
+
 	/*
 	 * Component Resource.
 	 */
 	private Resource resource;
-	
+
 	private String imagePath;
 	private String imageNodePath;
 	private String imageExtension;
 	private String imageSuffix;
 	private String imageAlt;
 	private boolean imageConfigured;
-	
+
 	private String ogTitle;
 	private String ogDescription;
 	private String ogImagePath;
 	private String selectTab;
-	
+
 	private String author;	
 	private String date;
 	private String analyticsDate;
-	
+
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
 	 * @param request 
 	 * @param xssAPI
+	 * @throws RepositoryException 
 	 */
-	public ArticleHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) {
-		this.resource   = resource;
+	public ArticleHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) throws RepositoryException {
+		this.resource = resource;
 		this.properties = resource.adaptTo(ValueMap.class);
 		
-		FileReference fileReference = new FileReference.FileReferenceBuilder(properties.get("image/fileReference", ""), properties, resource, request)
-		.image(new ImageResource(resource))
-		.xssApi(xssAPI)
-		.build();
-		
-		this.imageConfigured = fileReference.getHasImage();
-		
-		if (this.imageConfigured) {
-			this.imagePath = fileReference.getPath();
-			this.imageNodePath = fileReference.getNodePath();
-			this.imageExtension = fileReference.getExtension();
-			this.imageSuffix = fileReference.getExtension();
-			this.imageAlt = fileReference.getAlt();
-		}
-		
-		String datePublished = properties.get(DATE_PUBLISHED, String.class);
-		String dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
-		
-		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
-		
-		this.author = getProperties().get("author", String.class);
-		
-		if(dateLastUpdated != null) {
-			DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
-			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-		}
-		else if(datePublished != null) {
-			DateTime dt = dateFormatter.parseDateTime(datePublished);
-			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+		if(this.properties!=null){
+			if(this.properties.get("image/fileReference") != null) {
+				FileReference fileReference = new FileReference.FileReferenceBuilder(properties.get("image/fileReference", ""), properties, resource, request)
+					.image(new ImageResource(resource))
+					.xssApi(xssAPI)
+					.build();
 
-			if(mdt.getMonthOfYear() < 10) {
-				this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
-			} else {
-				this.analyticsDate = mdt.getYear() + "-" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+				this.imageConfigured = fileReference.getHasImage();
+
+				if (this.imageConfigured) {
+					this.imagePath = fileReference.getPath();
+					this.imageNodePath = fileReference.getNodePath();
+					this.imageExtension = fileReference.getExtension();
+					this.imageSuffix = fileReference.getExtension();
+					this.imageAlt = fileReference.getAlt();
+				}
+			}
+
+			//Get date property, return last updated if exists else published
+			String datePublished = null;
+			String dateLastUpdated = null;
+
+			if(this.properties.get(DATE_PUBLISHED) != null) datePublished = properties.get(DATE_PUBLISHED, String.class);
+			if(this.properties.get(DATE_LAST_UDPATED) != null) dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
+
+			DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
+
+			this.author = getProperties().get("author", String.class);
+
+			if(dateLastUpdated != null) {
+				DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
+				MutableDateTime mdt = dt.toMutableDateTime();
+				this.date = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			} else if(datePublished != null) {
+				DateTime dt = dateFormatter.parseDateTime(datePublished);
+				MutableDateTime mdt = dt.toMutableDateTime();
+				this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+
+				if(mdt.getMonthOfYear() < 10) {
+					this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+				} else {
+					this.analyticsDate = mdt.getYear() + "-" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+				}
+			}
+			else {
+				this.date = "Please set a published date in the dialog";
 			}
 		}
-		else {
-			this.date = "Please set a published date in the dialog";
-		}
 	}
-	
+
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
@@ -140,10 +147,10 @@ public class ArticleHelper {
 	public ArticleHelper(Resource resource) {
 		setResource(resource);
 		setProperties(resource.adaptTo(ValueMap.class));
-		
+
 		init();
 	}
-	
+
 	private void init() {
 		//Initialise variables from Facebook tab
 		//Set title
@@ -152,12 +159,14 @@ public class ArticleHelper {
 		} else if(properties.get("jcr:title") != null) {
 			setOgTitle(properties.get("jcr:title", String.class));
 		}
-		
+
 		//Set description
 		if(properties.get("article/ogdescription") != null) {
 			setOgDescription(properties.get("article/ogdescription", String.class));
 		} else if(properties.get("jcr:description") != null) {
 			setOgDescription(properties.get("jcr:description", String.class));
+		} else {
+			setOgDescription(properties.get("", String.class));
 		}
 
 		//Set image path - value is dependent on which radio button is selected
@@ -167,6 +176,8 @@ public class ArticleHelper {
 					setOgImagePath(properties.get("article/ogimagepath", String.class));
 				} else if(properties.get("article/image/fileReference") != null) {
 					setOgImagePath(properties.get("article/image/fileReference", String.class));
+				} else {
+					setOgImagePath(properties.get("", String.class));
 				}
 			}
 			else if(properties.get("article/headType").equals("video")) {
@@ -174,20 +185,22 @@ public class ArticleHelper {
 					setOgImagePath(properties.get("article/ogvideopath", String.class));
 				} else if(properties.get("article/video/youtube") != null) {
 					setOgImagePath(properties.get("article/video/youtube", String.class));
+				} else {
+					setOgImagePath(properties.get("", String.class));
 				}
 			}
 		}
-		
+
 		//Set type - image or video
 		if(getProperties().get("article/headType") != null) {
 			setSelectTab(selectTab = getProperties().get("article/headType", String.class));
 		}
 	}
-	
+
 	public String getMonth(int month) {
-	    return new DateFormatSymbols().getMonths()[month-1];
+		return new DateFormatSymbols().getMonths()[month-1];
 	}
-	
+
 	public Resource getResource() {
 		return resource;
 	}
@@ -195,7 +208,7 @@ public class ArticleHelper {
 	public void setResource(Resource resource) {
 		this.resource = resource;
 	}
-	
+
 	/**
 	 * Checks if the component has enough configuration to show its content.
 	 * @return <code>true</code> if the component has configured at least Title, Introduction and Image or Video. <code>false</code> in otherwise.
@@ -205,9 +218,9 @@ public class ArticleHelper {
 				&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 				&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
 				&& (this.isImageHeadType() && this.imageConfigured
-				    || this.isVideoHeadType() && this.getVideo() != null);
+						|| this.isVideoHeadType() && this.getVideo() != null);
 	}
-	
+
 	/**
 	 * Gets the Title component.
 	 * @return The title configured on the component or an empty string if is not configured.
@@ -218,7 +231,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(TITLE_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Gets the Introduction component.
 	 * @return The introduction configured on the component or an empty string if is not configured.
@@ -229,7 +242,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Checks if the component has the Snippet Text configured.
 	 * @return <code>true</code> if the component has configured Snippet Text Attribute. <code>false</code> in otherwise.
@@ -251,7 +264,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(SNIPPET_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Checks if the component has and Image Caption configured.
 	 * @return <code>true</code> if the component has configured the Image Caption Attribute. <code>false</code> in otherwise.
@@ -262,7 +275,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(IMAGE_CAPTION_ATTRIBUTE_NAME, String.class) != null;
 	}
-	
+
 	/**
 	 * Checks if the component has and Image Caption configured.
 	 * @return <code>true</code> if the component has configured the Image Caption Attribute. <code>false</code> in otherwise.
@@ -273,7 +286,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(IMAGE_ALT_ATTRIBUTE_NAME, String.class) != null;
 	}
-	
+
 	/**
 	 * Gets the Image Text Caption configured on the component.
 	 * @return The Snippet Text configured on the component or an empty string if is not configured.
@@ -284,7 +297,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(IMAGE_CAPTION_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Gets the Image Text Caption configured on the component.
 	 * @return The Snippet Text configured on the component or an empty string if is not configured.
@@ -295,7 +308,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(IMAGE_ALT_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Checks if the component has been Pinned.
 	 * @return <code>true</code> if the component has the attribute Pinned set true. <code>false</code> in otherwise.
@@ -306,7 +319,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(PINNED_ATTRIBUTE_NAME, false);
 	}
-	
+
 	/**
 	 * Gets the Pinned Date configured on the component.
 	 * @return The Pinned Date configured on the component or <code>null</code> if is not configured.
@@ -315,10 +328,10 @@ public class ArticleHelper {
 		if (!this.isPinned()) {
 			return null;
 		}
-		
+
 		return properties.get(PINNED_DATE_ATTRIBUTE_NAME, Calendar.class).getTime();
 	}
-	
+
 	/**
 	 * Gets the tags configured on the component.
 	 * @return The tags configured.
@@ -329,7 +342,7 @@ public class ArticleHelper {
 		}
 		return this.properties.get(TAGS_ATTRIBUTE_NAME, String[].class);
 	}
-	
+
 	/**
 	 * Gets the Head Type configured on the component. This can be image or video.
 	 * @return The Head Type (Image or Video) configured on the component or &quot;image%quot; if is not configured.
@@ -348,7 +361,7 @@ public class ArticleHelper {
 	public boolean isImageHeadType() {
 		return IMAGE_HEAD_TYPE.equals(this.getHeadType());
 	}
-	
+
 	/**
 	 * Checks if the component has configured the Head Type as Video.
 	 * @return <code>true</code> if the Head Type is &quot;video&quot;.
@@ -356,7 +369,7 @@ public class ArticleHelper {
 	public boolean isVideoHeadType() {
 		return VIDEO_HEAD_TYPE.equals(this.getHeadType());
 	}
-	
+
 	/**
 	 * Gets the Image configure as Head, if the Head Type is configured as Image if not will return <code>null</code>.
 	 * @return The {@link Image Image object} configured on the component if is configured the Head Type as Image or <code>null</code> otherwise. 
@@ -365,16 +378,16 @@ public class ArticleHelper {
 		if (!this.isImageHeadType()) {
 			return null;
 		}
-		
+
 		final Resource imageResource = this.resource.getChild(IMAGE_RESOURCE_NAME);
 		if (imageResource == null) {
 			return null;
 		}
-		
+
 		final DiscoverHeadImage image = new DiscoverHeadImage(imageResource);
 		return image.getImage();
 	}*/
-	
+
 	/**
 	 * Gets the YouTube Video Id configure as Head, if the Head Type is configured as Video if not will return <code>null</code>.
 	 * @return The Youtube Video Id configured on the component if is configured the Head Type as Video or <code>null</code> otherwise. 
@@ -383,16 +396,16 @@ public class ArticleHelper {
 		if (!this.isVideoHeadType()) {
 			return null;
 		}
-		
+
 		final Resource videoResource = this.resource.getChild(VIDEO_RESOURCE_NAME);
 		if (videoResource == null) {
 			return null;
 		}
-		
+
 		final DiscoverHeadVideo video = new DiscoverHeadVideo(videoResource);
 		return video.getYouTubeVideoId();
 	}
-	
+
 	/**
 	 * Gets the Publication Type configured on the component.
 	 * @return The Publication Type configured on the component.
@@ -403,21 +416,21 @@ public class ArticleHelper {
 		}
 		return this.properties.get(TYPE_ATTRIBUTE_NAME, String.class);
 	}
-	
+
 	/**
 	 * Gets the Creation Date configured on the component.
 	 * @return The Creation Date of the component.
 	 */
 	public Date getCreationDate() {
 		final Calendar calendar = this.properties.get(CREATION_DATE_ATTRIBUTE_NAME, Calendar.class);
-		
+
 		if (calendar == null) {
 			return null;
 		}
-		
+
 		return calendar.getTime();
 	}
-	
+
 	public String getImagePath() {
 		return this.imagePath;
 	}
@@ -425,7 +438,7 @@ public class ArticleHelper {
 	public String getImageNodePath() {
 		return this.imageNodePath;
 	}
-	
+
 	public String getImageExtension() {
 		return this.imageExtension;
 	}
@@ -437,11 +450,11 @@ public class ArticleHelper {
 	public String getImageAlt() {
 		return this.imageAlt;
 	}
-	
+
 	public boolean isImageConfigured() {
 		return this.imageConfigured;
 	}
-	
+
 	public ValueMap getProperties() {
 		return properties;
 	}
@@ -497,5 +510,5 @@ public class ArticleHelper {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
+
 }
