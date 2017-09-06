@@ -1,0 +1,11 @@
+.coral-Dialog-wrapper {
+	width:40%;
+}
+
+.cq-dialog-floating .cq-dialog-content {
+	width:100%;
+}
+
+.granite-pickerdialog coral-dialog-content {
+	width:60vw;
+}

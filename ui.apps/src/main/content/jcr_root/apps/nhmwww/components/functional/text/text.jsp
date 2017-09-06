@@ -4,18 +4,13 @@
 <cq:defineObjects/>
 <%
 	TextHelper helper = new TextHelper(resource);
+
+	if (helper.isComponentInitialised()) {
 %>
-<%
-if (helper.isComponentInitialised())
-{
+		<%=helper.getText()%>
+<%	} else {
 %>
-<%=helper.getText()%>
+		Text - Please configure this component
 <%
-}
-else
-{
-%>
-	<img class="cq-carousel-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif"/>
-<%
-}
+	}
 %>

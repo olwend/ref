@@ -316,8 +316,7 @@
 			                        sling:resourceType="cq/gui/components/common/tagspicker"
 			                        allowBulkEdit="{Boolean}true"
 			                        cq-msm-lockable="cq:tags"
-			                        cq:showOnCreate="{Boolean}true"
-			                        renderReadOnly="{Boolean}true" />
+			                        cq:showOnCreate="{Boolean}true" />
 			   					<imagealt
 			                    	jcr:primaryType="nt:unstructured"
 			                    	fieldLabel="Image Alt Text"

@@ -7,7 +7,6 @@
     <items
         jcr:primaryType="cq:Widget"
 		xtype="tabpanel">
-        
         <items jcr:primaryType="cq:WidgetCollection">
             <Basic
                 jcr:primaryType="cq:Widget"
@@ -21,23 +20,6 @@
                 jcr:primaryType="cq:Widget"
                 path="/libs/foundation/components/page/tab_image.infinity.json"
                 xtype="cqinclude"/>
-            <SmartAppBanner
-            	jcr:primaryType="cq:Widget"
-                title="Smart App Banner"
-                xtype="panel">
-            	<items jcr:primaryType="cq:WidgetCollection">
-            		<usebanner
-            			jcr:primaryType="cq:Widget"
-            			name="./usebanner"
-            			type="checkbox"
-            			xtype="selection"
-            			checked="false"
-	                    defaultValue="{Boolean}false"
-            			fieldLabel="Use banner"/>
-            	</items>
-           	</SmartAppBanner>
         </items>
-        
     </items>
-    
 </jcr:root>

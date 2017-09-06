@@ -36,28 +36,6 @@
    					</column>
        			</items>
         	</tab1>
-			<tab2
-				jcr:primaryType="nt:unstructured"
-				jcr:title="Sold out"
-				sling:resourceType="granite/ui/components/foundation/section">
-				<layout 
-					jcr:primaryType="nt:unstructured" 
-					margin="{Boolean}false"
-					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
-				<items jcr:primaryType="nt:unstructured">
-					<column
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="granite/ui/components/foundation/container">
-						<items jcr:primaryType="nt:unstructured">
-							<soldout
-								jcr:primaryType="nt:unstructured"
-								fieldLabel="Is this component in a one column?"
-								name="./jcr:soldOut"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
-						</items>
-   					</column>
-       			</items>
-        	</tab2>
 		</items>
 	</content>
 </jcr:root>
