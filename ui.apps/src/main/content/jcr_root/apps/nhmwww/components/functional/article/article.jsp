@@ -117,7 +117,7 @@
 			
 			<div class="row">
 				<div class="small-12 medium-12 large-12 columns">
-					Include Article Search component
+					<cq:include path="related" resourceType="nhmwww/components/functional/articlesearch"/>
 				</div>
 			</div>
 			
