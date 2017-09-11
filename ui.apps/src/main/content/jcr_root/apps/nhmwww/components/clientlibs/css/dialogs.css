@@ -9,3 +9,7 @@
 .granite-pickerdialog coral-dialog-content {
 	width:60vw;
 }
+
+.coral-FixedColumn-column {
+	width:85%;
+}

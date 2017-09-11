@@ -536,7 +536,6 @@
 								jcr:primaryType="nt:unstructured"
 								displayedFormat="MM-DD-YYYY"
 								sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-								type="date"
 								fieldLabel="Date published"
 								name="./datepublished"
 								type="date"/>
@@ -544,7 +543,6 @@
 								jcr:primaryType="nt:unstructured"
 								displayedFormat="MM-DD-YYYY"
 								sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-								type="date"
 								fieldLabel="Date last updated"
 								name="./datelastupdated"
 								type="date"/>

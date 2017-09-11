@@ -25,7 +25,7 @@
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
-								<eventsList
+							<eventsList
 								jcr:primaryType="nt:unstructured"
 								name="./eventSelect"
 								text="Event Type"
@@ -103,6 +103,223 @@
 		                        fieldLabel="Keywords"
 		                        name="./keywords"
 		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+		                    <fieldset
+		                        jcr:primaryType="nt:unstructured"
+		                        jcr:title="Dates"
+		                        sling:resourceType="granite/ui/components/foundation/form/fieldset">
+		                        <layout
+		                            jcr:primaryType="nt:unstructured"
+		                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+		                        <items jcr:primaryType="nt:unstructured">
+		                            <column
+		                                jcr:primaryType="nt:unstructured"
+		                                sling:resourceType="granite/ui/components/foundation/container">
+		                                <items jcr:primaryType="nt:unstructured">
+		                                    <dates
+		                                        jcr:primaryType="nt:unstructured"
+		                                        sling:resourceType="granite/ui/components/foundation/form/multifield"
+		                                        class="full-width"
+		                                        fieldLabel="Dates">
+		                                        <field
+		                                            jcr:primaryType="nt:unstructured"
+		                                            sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                            eaem-nested=""
+		                                            name="./dates">
+		                                            <layout
+		                                                jcr:primaryType="nt:unstructured"
+		                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+		                                                method="absolute"/>
+		                                            <items jcr:primaryType="nt:unstructured">
+		                                                <column
+		                                                    jcr:primaryType="nt:unstructured"
+		                                                    sling:resourceType="granite/ui/components/foundation/container">
+		                                                    <items jcr:primaryType="nt:unstructured">
+			                                                    <isRecurring
+											                   		jcr:primaryType="nt:unstructured"
+																	text="Recurring"
+																	name="./isRecurring"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+																	value="{Boolean}true" />
+		                                                        <dateTime
+																	jcr:primaryType="nt:unstructured"
+																	displayedFormat="MM-DD-YY"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+																	type="date"
+																	fieldLabel="Date"
+																	name="./dateTime" />
+																<allDay
+											                   		jcr:primaryType="nt:unstructured"
+																	text="All Day Event"
+																	name="./allDay"
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox"
+																	value="{Boolean}true"/>
+<!-- 																	class="cq-dialog-checkbox-showhide" -->
+<!-- 										                            show-hide-target="show-times-field" -->
+<!-- 										                            should-show-when-checked="false" /> -->
+																<times
+		                                                            jcr:primaryType="nt:unstructured"
+		                                                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+		                                                            fieldLabel="Times">
+<!-- 		                                                            class="full-width showhide-target" -->
+<!-- 		                                                            id="show-times-field" -->
+		                                                            
+		                                                            <field
+		                                                                jcr:primaryType="nt:unstructured"
+		                                                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                                                name="./times">
+		                                                                <layout
+		                                                                    jcr:primaryType="nt:unstructured"
+		                                                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+		                                                                    method="absolute"/>
+		                                                                <items jcr:primaryType="nt:unstructured">
+		                                                                    <column
+		                                                                        jcr:primaryType="nt:unstructured"
+		                                                                        sling:resourceType="granite/ui/components/foundation/container">
+		                                                                        <items jcr:primaryType="nt:unstructured">
+		                                                                            <time
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+		                                                                                fieldLabel="Time"
+		                                                                                name="./time"/>
+		                                                                        </items>
+		                                                                    </column>
+		                                                                </items>
+		                                                            </field>
+			                                                    </times>
+		                                                        <eventDuration
+									                            	jcr:primaryType="nt:unstructured"
+									                            	fieldLabel="Duration"
+									                            	fieldDescription="Please enter the duration in minutes."
+									                            	name="./eventDuration"
+									                            	sling:resourceType="granite/ui/components/foundation/form/textfield" />
+		                                                    </items>
+		                                                </column>
+		                                            </items>
+		                                        </field>
+		                                    </dates>
+		                                    <countries
+		                                        jcr:primaryType="nt:unstructured"
+		                                        sling:resourceType="granite/ui/components/foundation/form/multifield"
+		                                        class="full-width"
+		                                        fieldDescription="Click '+' to add a new page"
+		                                        fieldLabel="Countries">
+		                                        <field
+		                                            jcr:primaryType="nt:unstructured"
+		                                            sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                            eaem-nested="NODE_STORE"
+		                                            name="./countries">
+		                                            <layout
+		                                                jcr:primaryType="nt:unstructured"
+		                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+		                                                method="absolute"/>
+		                                            <items jcr:primaryType="nt:unstructured">
+		                                                <column
+		                                                    jcr:primaryType="nt:unstructured"
+		                                                    sling:resourceType="granite/ui/components/foundation/container">
+		                                                    <items jcr:primaryType="nt:unstructured">
+		                                                        <country
+		                                                            jcr:primaryType="nt:unstructured"
+		                                                            sling:resourceType="granite/ui/components/foundation/form/textfield"
+		                                                            fieldDescription="Name of Country"
+		                                                            fieldLabel="Country Name"
+		                                                            name="./country"/>
+		                                                        <states
+		                                                            jcr:primaryType="nt:unstructured"
+		                                                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+		                                                            class="full-width"
+		                                                            fieldDescription="Click '+' to add a new page"
+		                                                            fieldLabel="States">
+		                                                            <field
+		                                                                jcr:primaryType="nt:unstructured"
+		                                                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                                                name="./states">
+		                                                                <layout
+		                                                                    jcr:primaryType="nt:unstructured"
+		                                                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+		                                                                    method="absolute"/>
+		                                                                <items jcr:primaryType="nt:unstructured">
+		                                                                    <column
+		                                                                        jcr:primaryType="nt:unstructured"
+		                                                                        sling:resourceType="granite/ui/components/foundation/container">
+		                                                                        <items jcr:primaryType="nt:unstructured">
+		                                                                            <state
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+		                                                                                fieldDescription="Name of State"
+		                                                                                fieldLabel="State Name"
+		                                                                                name="./state"/>
+		                                                                            <path
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+		                                                                                fieldDescription="Select Path"
+		                                                                                fieldLabel="Path"
+		                                                                                name="./path"
+		                                                                                rootPath="/content"/>
+		                                                                            <startDate
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/datepicker"
+		                                                                                class="field"
+		                                                                                displayedFormat="YYYY-MM-DD HH:mm"
+		                                                                                fieldLabel="Start Date"
+		                                                                                name="./startDate"
+		                                                                                type="datetime"/>
+		                                                                            <show
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+		                                                                                name="./show"
+		                                                                                text="Show?"
+		                                                                                value="yes"/>
+		                                                                            <type
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/select"
+		                                                                                fieldDescription="Select Size"
+		                                                                                fieldLabel="Size"
+		                                                                                name="./size">
+		                                                                                <items jcr:primaryType="nt:unstructured">
+		                                                                                    <def
+		                                                                                        jcr:primaryType="nt:unstructured"
+		                                                                                        text="Select Size"
+		                                                                                        value=""/>
+		                                                                                    <small
+		                                                                                        jcr:primaryType="nt:unstructured"
+		                                                                                        text="Small"
+		                                                                                        value="small"/>
+		                                                                                    <medium
+		                                                                                        jcr:primaryType="nt:unstructured"
+		                                                                                        text="Medium"
+		                                                                                        value="medium"/>
+		                                                                                    <large
+		                                                                                        jcr:primaryType="nt:unstructured"
+		                                                                                        text="Large"
+		                                                                                        value="large"/>
+		                                                                                </items>
+		                                                                            </type>
+		                                                                            <tags
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="cq/gui/components/common/tagspicker"
+		                                                                                allowCreate="{Boolean}true"
+		                                                                                fieldLabel="Tags"
+		                                                                                name="./tags"/>
+		                                                                        </items>
+		                                                                    </column>
+		                                                                </items>
+		                                                            </field>
+		                                                        </states>
+																<country2
+																 jcr:primaryType="nt:unstructured"
+																 sling:resourceType="granite/ui/components/foundation/form/textfield"
+																 fieldDescription="Name of Country2"
+																 fieldLabel="Country Name2"
+																 name="./country2"/>
+		                                                    </items>
+		                                                </column>
+		                                            </items>
+		                                        </field>
+		                                    </countries>
+		                                </items>
+		                            </column>
+		                        </items>
+		                    </fieldset>
 						</items>
    					</column>
        			</items>

@@ -22,42 +22,42 @@
                         xtype="selection"/>
 				</items>
 			</tab1>
-			<tab2 jcr:primaryType="cq:Panel" 
-				title="Sold Out">
-				<items jcr:primaryType="cq:WidgetCollection">
-					<soldout jcr:primaryType="cq:Widget" 
-						name="../../../../jcr:soldOut"
-						xtype="textfield"
-						hidden="{Boolean}true"/>
-					<links jcr:primaryType="cq:Widget"
-						fieldLabel="Links"
-						hideLabel="true"
-						name="./links"
-						xtype="multifield"
-						orderable="{Boolean}false"
-						border="{Boolean}false" >
-						<fieldConfig jcr:primaryType="cq:Widget"
-							xtype="CustomMultiField"/>
-						<listeners jcr:primaryType="nt:unstructured"
-							loadcontent="
-								function(field, record) { 
-									if(record.get('paths') == undefined) { 
-										field.addItem(); field.doLayout(); 
-									}  
-								}"
-							beforeadd="
-								var removeButton = panel.items.items[1].items.items[0]; 
-								removeButton.hide();
+<!-- 			<tab2 jcr:primaryType="cq:Panel"  -->
+<!-- 				title="Sold Out"> -->
+<!-- 				<items jcr:primaryType="cq:WidgetCollection"> -->
+<!-- 					<soldout jcr:primaryType="cq:Widget"  -->
+<!-- 						name="../../../../jcr:soldOut" -->
+<!-- 						xtype="textfield" -->
+<!-- 						hidden="{Boolean}true"/> -->
+<!-- 					<links jcr:primaryType="cq:Widget" -->
+<!-- 						fieldLabel="Links" -->
+<!-- 						hideLabel="true" -->
+<!-- 						name="./links" -->
+<!-- 						xtype="multifield" -->
+<!-- 						orderable="{Boolean}false" -->
+<!-- 						border="{Boolean}false" > -->
+<!-- 						<fieldConfig jcr:primaryType="cq:Widget" -->
+<!-- 							xtype="CustomMultiField"/> -->
+<!-- 						<listeners jcr:primaryType="nt:unstructured" -->
+<!-- 							loadcontent=" -->
+<!-- 								function(field, record) {  -->
+<!-- 									if(record.get('paths') == undefined) {  -->
+<!-- 										field.addItem(); field.doLayout();  -->
+<!-- 									}   -->
+<!-- 								}" -->
+<!-- 							beforeadd=" -->
+<!-- 								var removeButton = panel.items.items[1].items.items[0];  -->
+<!-- 								removeButton.hide(); -->
 							
-								function(list) { 
-									for(var i=1; i<3; i++) {
-										var addButton = list.items.items[length - 1].items.items[0].items.items[i]; 
-										addButton.hide();
-									}
-								}"/>
-					</links>
-				</items>
-			</tab2>
+<!-- 								function(list) {  -->
+<!-- 									for(var i=1; i<3; i++) { -->
+<!-- 										var addButton = list.items.items[length - 1].items.items[0].items.items[i];  -->
+<!-- 										addButton.hide(); -->
+<!-- 									} -->
+<!-- 								}"/> -->
+<!-- 					</links> -->
+<!-- 				</items> -->
+<!-- 			</tab2> -->
 		</items>
 	</items>
 </jcr:root>

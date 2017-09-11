@@ -1,7 +1,8 @@
 <%@page session="false"
         import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager,
                 java.util.Map,
-                java.util.HashMap"%>
+                java.util.HashMap,
+                com.day.cq.wcm.api.WCMMode"%>
 <%@include file="/libs/foundation/global.jsp" %>
 
 <%!
@@ -106,7 +107,8 @@
 <c:choose>
     <c:when test="${not empty eventType}">
         <div class="${eventType} hti-wrapper event--information--wrapper">
-            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box" data-equalizer-watch>
+            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box" 
+            	<% if (WCMMode.fromRequest(request) != WCMMode.EDIT) { %>data-equalizer-watch<% } %>>
                 <div class="hti-box--text-wrapper">
                     <h3>Event information</h3>
                     <div class="small-12 large-12 columns">
