@@ -124,7 +124,7 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 							}
 			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
 			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
-			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/maxresdefault.jpg";
+			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/sddefault.jpg";
 					    		nodeMap.put("imagePath", youtubeImagePath);
 					    	}
 			    		}
@@ -141,7 +141,7 @@ public class ArticleSearchServiceImpl implements ArticleSearchService {
 							}
 			    		} else if(node.getProperty("jcr:content/discoverpublication/headType").getString().equals("video")) {
 			    			if(node.hasProperty("jcr:content/discoverpublication/video/youtube")) {
-			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/discoverpublication/video/youtube").getString() + "/maxresdefault.jpg";
+			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/discoverpublication/video/youtube").getString() + "/sddefault.jpg";
 					    		nodeMap.put("imagePath", youtubeImagePath);
 					    	}
 			    		}
