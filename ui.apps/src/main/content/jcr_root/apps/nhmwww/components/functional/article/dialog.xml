@@ -152,6 +152,23 @@
                         xtype="youtubevideofield"/>
                 </items>
             </video>
+            <tags
+            	jcr:primaryType="cq:Panel"
+            	title="Tags">
+            	<items jcr:primaryType="cq:WidgetCollection">
+            		<hubtag
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hub tag"
+                        fieldDescription="Select one primary subject tag"
+                        name="./hubTag"
+                        xtype="tags"/>
+            		<othertags
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Other tags"
+                        name="./otherTags"
+                        xtype="tags"/>
+            	</items>	
+            </tags>
             <social
             	jcr:primaryType="cq:Widget"
                 title="Social share"

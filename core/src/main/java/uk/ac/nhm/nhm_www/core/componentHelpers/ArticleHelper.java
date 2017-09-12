@@ -1,13 +1,20 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
@@ -18,6 +25,8 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 
 import uk.ac.nhm.nhm_www.core.model.FileReference;
 
@@ -46,6 +55,8 @@ public class ArticleHelper {
 	public static final String IMAGE_ALT_ATTRIBUTE_NAME		= "image/alt";
 	public static final String DATE_PUBLISHED				= "datepublished";
 	public static final String DATE_LAST_UDPATED			= "datelastupdated";
+	public static final String HUB_TAG						= "hubTag";
+	public static final String OTHER_TAGS					= "otherTags";
 
 	/*
 	 * SubResource Names.
@@ -78,6 +89,9 @@ public class ArticleHelper {
 	private String author;	
 	private String date;
 	private String analyticsDate;
+	
+	private String hubTagName;
+	List<String> tagList;
 
 	/**
 	 * Helper Class Constructor.
@@ -86,9 +100,12 @@ public class ArticleHelper {
 	 * @param xssAPI
 	 * @throws RepositoryException 
 	 */
-	public ArticleHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) throws RepositoryException {
+	public ArticleHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI, final SlingHttpServletRequest slingRequest) throws RepositoryException {
 		this.resource = resource;
 		this.properties = resource.adaptTo(ValueMap.class);
+		
+		ResourceResolver resourceResolver = slingRequest.getResourceResolver();
+		TagManager tagMgr = resourceResolver.adaptTo(TagManager.class);
 		
 		if(this.properties!=null){
 			if(this.properties.get("image/fileReference") != null) {
@@ -119,6 +136,32 @@ public class ArticleHelper {
 
 			this.author = getProperties().get("author", String.class);
 
+			//Set hub tag name
+			if(this.properties.get(HUB_TAG) != null) {
+				String[] hubTags = this.properties.get(HUB_TAG, String[].class);
+				if(hubTags.length > 0) {
+					Tag tag = tagMgr.resolve(hubTags[0]);
+					this.hubTagName = tag.getTitle().toUpperCase();
+				} else {
+					this.hubTagName = "Please set a hub tag in the dialog";
+				}
+			} else {
+				this.hubTagName = "Please set a hub tag in the dialog";
+			}
+			
+			//Get other tags
+			this.tagList = new ArrayList<String>();
+			
+			if(this.properties.get(OTHER_TAGS) != null) {
+				String[] otherTags = this.properties.get(OTHER_TAGS, String[].class);
+				if(otherTags.length > 0) {
+					for(int i=0; i<otherTags.length; i++) {
+						Tag tag = tagMgr.resolve(otherTags[i]);
+						this.tagList.add(tag.getTitle());
+					}
+				}
+			}
+			
 			if(dateLastUpdated != null) {
 				DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
 				MutableDateTime mdt = dt.toMutableDateTime();
@@ -195,6 +238,8 @@ public class ArticleHelper {
 		if(getProperties().get("article/headType") != null) {
 			setSelectTab(selectTab = getProperties().get("article/headType", String.class));
 		}
+		
+		
 	}
 
 	public String getMonth(int month) {
@@ -509,6 +554,22 @@ public class ArticleHelper {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getHubTagName() {
+		return hubTagName;
+	}
+
+	public void setHubTagName(String hubTagName) {
+		this.hubTagName = hubTagName;
+	}
+
+	public List<String> getTagList() {
+		return tagList;
+	}
+
+	public void setTagList(List<String> tagList) {
+		this.tagList = tagList;
 	}
 
 }
