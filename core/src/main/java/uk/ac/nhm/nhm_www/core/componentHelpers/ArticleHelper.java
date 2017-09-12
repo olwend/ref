@@ -1,8 +1,12 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -52,6 +56,7 @@ public class ArticleHelper {
 	public static final String DATE_PUBLISHED				= "datepublished";
 	public static final String DATE_LAST_UDPATED			= "datelastupdated";
 	public static final String HUB_TAG						= "hubTag";
+	public static final String OTHER_TAGS					= "otherTags";
 
 	/*
 	 * SubResource Names.
@@ -86,6 +91,7 @@ public class ArticleHelper {
 	private String analyticsDate;
 	
 	private String hubTagName;
+	List<String> tagList;
 
 	/**
 	 * Helper Class Constructor.
@@ -141,6 +147,19 @@ public class ArticleHelper {
 				}
 			} else {
 				this.hubTagName = "Please set a hub tag in the dialog";
+			}
+			
+			//Get other tags
+			this.tagList = new ArrayList<String>();
+			
+			if(this.properties.get(OTHER_TAGS) != null) {
+				String[] otherTags = this.properties.get(OTHER_TAGS, String[].class);
+				if(otherTags.length > 0) {
+					for(int i=0; i<otherTags.length; i++) {
+						Tag tag = tagMgr.resolve(otherTags[i]);
+						this.tagList.add(tag.getTitle());
+					}
+				}
 			}
 			
 			if(dateLastUpdated != null) {
@@ -543,6 +562,14 @@ public class ArticleHelper {
 
 	public void setHubTagName(String hubTagName) {
 		this.hubTagName = hubTagName;
+	}
+
+	public List<String> getTagList() {
+		return tagList;
+	}
+
+	public void setTagList(List<String> tagList) {
+		this.tagList = tagList;
 	}
 
 }

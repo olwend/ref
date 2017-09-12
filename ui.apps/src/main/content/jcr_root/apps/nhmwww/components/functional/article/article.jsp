@@ -2,6 +2,7 @@
 <%@page session="false" 
 		import="com.day.cq.wcm.api.WCMMode,
 				java.util.Calendar,
+				java.util.List,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
 
 <%
@@ -98,7 +99,12 @@
 							<p>This is where the bottom stuff will go<p>
 							<ul>
 								<li>More share</li>
-								<li>Tags</li>
+							</ul>
+							<ul>
+							<% List<String> tagList = helper.getTagList();
+							for(int i=0; i<tagList.size(); i++) {%>
+							<li><%=tagList.get(i) %></li>
+							<%} %>
 							</ul>
 						</div>
 					</div>
