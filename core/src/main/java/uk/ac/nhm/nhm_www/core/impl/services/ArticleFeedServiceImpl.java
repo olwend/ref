@@ -20,7 +20,7 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
+import uk.ac.nhm.nhm_www.core.services.ArticleFeedService;
 
 /**
  * @author alisp2
@@ -30,9 +30,9 @@ import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
 
 @Component
 @Service
-public class ArticleSearchServiceImpl implements ArticleSearchService {
+public class ArticleFeedServiceImpl implements ArticleFeedService {
 
-	private final static Logger LOG = LoggerFactory.getLogger(ArticleSearchServiceImpl.class);
+	private final static Logger LOG = LoggerFactory.getLogger(ArticleFeedServiceImpl.class);
 	
 	@Reference
 	private SlingRepository repository;

@@ -13,12 +13,12 @@ import org.apache.sling.models.annotations.Source;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.nhm_www.core.services.ArticleSearchService;
+import uk.ac.nhm.nhm_www.core.services.ArticleFeedService;
 
 @Model(adaptables = SlingHttpServletRequest.class)
-public class ArticleSearch {
+public class ArticleFeed {
 
-	private final static Logger LOG = LoggerFactory.getLogger(ArticleSearch.class);
+	private final static Logger LOG = LoggerFactory.getLogger(ArticleFeed.class);
 	
 	@Inject
 	SlingHttpServletRequest request;
@@ -28,7 +28,7 @@ public class ArticleSearch {
 	
 	@Inject
 	@Source("osgi-services")
-	ArticleSearchService service;
+	ArticleFeedService service;
 
 	private List<Map<String, String>> pageList = null;
 	private String columns = null;

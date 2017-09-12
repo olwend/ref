@@ -22,7 +22,7 @@
             			sling:resourceType="nhmwww/components/functional/social-signup" />	
            			<related
             			jcr:primaryType="nt:unstructured"
-            			sling:resourceType="nhmwww/components/functional/articlesearch" />	
+            			sling:resourceType="nhmwww/components/functional/articlefeed" />	
             	</article>
 	</jcr:content>
 </jcr:root>

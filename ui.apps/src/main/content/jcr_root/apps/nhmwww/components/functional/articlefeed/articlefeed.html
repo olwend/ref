@@ -11,10 +11,10 @@
 		</ul>
 	</div>
 	<div data-sly-test="${properties.rootpath && properties.rowsize}">
-		<div data-sly-use.articlesearch="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleSearch">
-			<div data-sly-list.list="${articlesearch.pageList}">
+		<div data-sly-use.articlefeed="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleFeed">
+			<div data-sly-list.list="${articlegeed.pageList}">
 
-	    		<div style="padding-right:7px; padding-left:7px; height:350px;" class="large-${articlesearch.columns} medium-6 small-12 columns end">
+	    		<div style="padding-right:7px; padding-left:7px; height:350px;" class="large-${articlefeed.columns} medium-6 small-12 columns end">
 	    			<img src="${list['imagePath']}">
 	            	<a href="${list['path']}.html">${list['title']}</a>
 	            	<br><br>
