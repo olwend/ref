@@ -5,7 +5,7 @@
 				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
 
 <%
-	final ArticleHelper helper = new ArticleHelper(resource, request, xssAPI);
+	final ArticleHelper helper = new ArticleHelper(resource, request, xssAPI, slingRequest);
 
 	if (!helper.isConfigured()) {
 %>
@@ -76,7 +76,7 @@
 	<div class="section row2cells21">
 		<div class="row">
 			<div class="small-12 medium-8 large-8 columns">
-				<div>HUB TAG</div>
+				<div><%= helper.getHubTagName()%></div>
 				
 				<h1><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
 				
