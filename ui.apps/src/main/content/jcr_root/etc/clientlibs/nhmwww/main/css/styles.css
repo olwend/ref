@@ -6757,13 +6757,13 @@ html.js-noScroll {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .info-sidebar li {
     padding-left: 18%;
   }
 }
 
-@media screen and (min-width: 1160px) {
+@media screen and (min-width: 1440px) {
   .info-sidebar li {
     padding-left: 16%;
   }
