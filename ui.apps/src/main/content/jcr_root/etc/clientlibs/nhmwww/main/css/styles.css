@@ -8149,7 +8149,7 @@ a.button-cta {
 .secondary-nav-wrapper .side-nav li {
   margin-bottom: 0.3em;
   border: none;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   font-size: 1em;
 }
 
@@ -8159,7 +8159,7 @@ a.button-cta {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .secondary-nav-wrapper .side-nav li {
     font-size: 1.4em;
   }
@@ -9425,7 +9425,7 @@ input.searchGo {
 }
 
 .press-office .secondary-nav-wrapper .side-nav li a:hover {
-  color: #107E5E;
+  color: rgba(16, 126, 94, 0.9);
   background-color: rgba(16, 126, 94, 0.25);
 }
 
