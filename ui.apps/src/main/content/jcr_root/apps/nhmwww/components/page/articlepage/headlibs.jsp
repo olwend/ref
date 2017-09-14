@@ -77,5 +77,5 @@
         // Moving the YouTube API function into the headlibs allows the API to load quicker and resolves the issues.
         	onYouTubeIframeAPIReady();
         </script>
-        <cq:includeClientLib css="nhm-www.discover" />
-		<cq:includeClientLib categories="nhm-www.discoverpublication" />
+        <!-- <cq:includeClientLib css="nhm-www.discover" /> -->
+		<!-- <cq:includeClientLib categories="nhm-www.discoverpublication" /> -->
