@@ -39,17 +39,7 @@
 			beforeMode.toRequest(slingRequest);
 			if (helper.hasImageCaption()) {
 %>
-			<div class="discover-image-caption-icon small-1 medium-1 large-1">
-				<a>
-					<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_info.svg" data-svg-title="icon__general_info" data-stroke-width="4" data-base-color="#FFFFFF"></i>
-				</a>
-			</div>
-			<div class="discover-image-caption" style="display: none;">
-				<div class="close-icon">
-					<a>
-						<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__general_close" data-stroke-width="4" data-base-color="#FFFFFF"></i>
-					</a>
-				</div>
+			<div class="articles--image-caption">
 				<%= xssAPI.filterHTML(helper.getImageCaption()) %>
 			</div>
 <%
@@ -77,29 +67,40 @@
 	<div class="section row2cells21">
 		<div class="row">
 			<div class="small-12 medium-8 large-8 columns">
-				<div><%= helper.getHubTagName()%></div>
+				<div class="articles--tags-header"><%= helper.getHubTagName()%></div>
 				
-				<h1><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
+				<h1 class="articles--title-header"><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
 				
-				<%if(helper.getAuthor() != null) { %>
-					<div>By <%=helper.getAuthor()%></div>
-				<%} %> 
+				<div class="articles--header-container">
+					<div class="articles--meta-container">
+						<%if(helper.getAuthor() != null) { %>
+							<div class="articles--meta-author">By <%=helper.getAuthor()%></div>
+						<%} %> 
+						
+						<div class="articles--meta-publication-date"><%=helper.getPublishedDate()%></div>
+						<%if(helper.getUpdatedDate() != null) { %>
+						<div class="articles--meta-updated-date"><%=helper.getUpdatedDate()%></div>
+						<%} %>
+					</div>
+
+					<div class="articles--social-share-header">
+						<cq:include path="socialshare-header" resourceType="nhmwww/components/functional/socialshare"/>
+					</div>
+				</div>
+
+				<div class="articles--introduction"><%= xssAPI.filterHTML(helper.getIntroduction()) %></div>
 				
-				<div class="discover-publication-date"><%=helper.getDate()%></div>
-				
-				<div class="introduction"><%= xssAPI.filterHTML(helper.getIntroduction()) %></div>
-				
-				<cq:include path="par" resourceType="foundation/components/parsys"/>
-				
-				
-				
+				<div class="articles--content">
+					<cq:include path="par" resourceType="foundation/components/parsys"/>
+				</div>
+
 				<div class="discover-publication-footer">
 					<div class="flags small-12 medium-12 large-12 columns">
-						<div>
-							<p>This is where the bottom stuff will go<p>
-							<ul>
-								<li>More share</li>
-							</ul>
+						<div class="articles--social-share-footer">
+							<cq:include path="socialshare-footer" resourceType="nhmwww/components/functional/socialshare"/>
+						</div>
+						<hr class="articles--hr-footer">
+						<div class="articles--tags-footer">
 							<ul>
 							<% List<String> tagList = helper.getTagList();
 							for(int i=0; i<tagList.size(); i++) {%>
