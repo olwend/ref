@@ -10,22 +10,30 @@
     <jcr:content
         jcr:primaryType="cq:PageContent"
         sling:resourceType="nhmwww/components/page/articlepage">
-        <par
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="foundation/components/parsys" />
-            	<article
-            		jcr:primaryType="nt:unstructured"
-            		sling:resourceType="nhmwww/components/functional/article">
-            		<ctapar
-            			jcr:primaryType="nt:unstructured"
-            			sling:resourceType="foundation/components/parsys" />
-            		<socialsignup
-            			jcr:primaryType="nt:unstructured"
-            			sling:resourceType="nhmwww/components/functional/social-signup" />
-            		<related
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="nhmwww/components/functional/articlesearch" />    
-            				
-            	</article>
+        
+           	<article
+           		jcr:primaryType="nt:unstructured"
+           		sling:resourceType="nhmwww/components/functional/article">
+           		<socialshareheader
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<par
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="foundation/components/parsys" />
+                <socialsharefooter
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<ctapar
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="foundation/components/parsys" />
+           		<socialsignup
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/social-signup" />
+           		<relatedpar
+	                jcr:primaryType="nt:unstructured"
+	                sling:resourceType="foundation/components/parsys" />    
+           				
+           	</article>
+    	
 	</jcr:content>
 </jcr:root>
