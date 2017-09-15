@@ -87,7 +87,8 @@ public class ArticleHelper {
 	private String selectTab;
 
 	private String author;	
-	private String date;
+	private String updatedDate;
+	private String publishedDate;
 	private String analyticsDate;
 	
 	private String hubTagName;
@@ -165,11 +166,13 @@ public class ArticleHelper {
 			if(dateLastUpdated != null) {
 				DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
 				MutableDateTime mdt = dt.toMutableDateTime();
-				this.date = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-			} else if(datePublished != null) {
+				this.updatedDate = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			} 
+
+			if(datePublished != null) {
 				DateTime dt = dateFormatter.parseDateTime(datePublished);
 				MutableDateTime mdt = dt.toMutableDateTime();
-				this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+				this.publishedDate = "First published " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
 
 				if(mdt.getMonthOfYear() < 10) {
 					this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
@@ -178,7 +181,7 @@ public class ArticleHelper {
 				}
 			}
 			else {
-				this.date = "Please set a published date in the dialog";
+				this.publishedDate = "Please set a published date in the dialog";
 			}
 		}
 	}
@@ -540,12 +543,20 @@ public class ArticleHelper {
 		this.selectTab = selectTab;
 	}
 
-	public String getDate() {
-		return date;
+	public void setPublishedDate(String date) {
+		this.publishedDate = date;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public String getPublishedDate() {
+		return publishedDate;
+	}
+
+	public void setUpdatedDate(String date) {
+		this.updatedDate = date;
+	}
+
+	public String getUpdatedDate() {
+		return updatedDate;
 	}
 
 	public String getAuthor() {
