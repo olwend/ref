@@ -9203,33 +9203,36 @@ input.searchGo {
 }
 
 /** OUR-SCIENCE THEME PARTIAL **/
+.our-science {
+  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+  /** enews signup form styles **/
+}
+
 .our-science .title-bar {
   background-color: #357900;
 }
 
 .our-science h1 {
   color: #357900;
-  /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
-  /** enews signup form styles **/
 }
 
-.our-science h1 .intro-text {
+.our-science .intro-text {
   color: #357900;
 }
 
-.our-science h1 .button__enews-signup {
+.our-science .button__enews-signup {
   background-color: #357900;
 }
 
-.our-science h1 .button__enews-signup:hover {
+.our-science .button__enews-signup:hover {
   background-color: rgba(53, 121, 0, 0.75);
 }
 
-.our-science h1 .button__enews-signup:focus {
+.our-science .button__enews-signup:focus {
   background-color: rgba(53, 121, 0, 0.75);
 }
 
-.our-science h1 .carousel .caption {
+.our-science .carousel .caption {
   background-color: rgba(53, 121, 0, 0.9);
 }
 
