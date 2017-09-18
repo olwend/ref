@@ -143,12 +143,8 @@ public class ArticleHelper {
 				if(hubTags.length > 0) {
 					Tag tag = tagMgr.resolve(hubTags[0]);
 					this.hubTagName = tag.getTitle().toUpperCase();
-				} else {
-					this.hubTagName = "Please set a hub tag in the dialog";
-				}
-			} else {
-				this.hubTagName = "Please set a hub tag in the dialog";
-			}
+				} 
+			} 
 			
 			//Get other tags
 			this.tagList = new ArrayList<String>();

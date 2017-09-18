@@ -66,9 +66,12 @@
 %> 
 	<div class="section row2cells21">
 		<div class="row">
-			<div class="small-12 medium-8 large-8 columns">
-				<div class="articles--tags-header"><%= helper.getHubTagName()%></div>
+			<div class="small-12 medium-8 large-8 columns articles--container">
 				
+				<%if(helper.getHubTagName() != null) { %>
+					<div class="articles--tags-header"><%= helper.getHubTagName()%></div>
+				<%} %>
+
 				<h1 class="articles--title-header"><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
 				
 				<div class="articles--header-container">
