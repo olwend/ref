@@ -5058,9 +5058,9 @@ html.js-noScroll {
 }
 
 /** ARTICLE TEMPLATE PARTIAL **/
-.articles--image-caption, .articles--tags-header, .articles--title-header, .articles--header-container, .articles--introduction, .articles--content, .articles--social-share-footer, .articles--hr-footer, .articles--tags-footer {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+.articles--image-caption, .articles--container {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .articles--image-caption {
@@ -5073,52 +5073,66 @@ html.js-noScroll {
 
 .articles--tags-header {
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-}
-
-@media screen and (min-width: 1024px) {
-  .articles--tags-header {
-    font-size: 1.5rem;
-  }
+  padding-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 .articles--tags-footer li {
   background-color: #EEEEEE;
   float: left;
-  margin: 5px 8px 5px 0;
-  padding: 2px 7px;
+  margin: 0 8px 10px 0;
+  padding: 3px 10px;
   border-radius: 10px;
   font-weight: bold;
 }
 
-.articles--title-header {
+.articles--tags-footer li:last-child {
   margin-bottom: 0;
-  padding-bottom: 0;
+}
+
+.articles--title-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 14px;
 }
 
 .articles--header-container {
   display: flex;
   flex-direction: column;
+  margin-bottom: 22px;
 }
 
 @media screen and (min-width: 480px) {
   .articles--header-container {
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 30px;
   }
 }
 
 .articles--meta-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  padding-bottom: 22px;
+}
+
+@media screen and (min-width: 480px) {
+  .articles--meta-container {
+    padding-bottom: 0;
+  }
 }
 
 .articles--meta-author {
-  padding-bottom: 10px;
+  padding-bottom: 9px;
 }
 
 .articles--social-share-header .social-share--container, .articles--social-share-footer .social-share--container {
   padding: unset;
   height: unset;
   min-height: unset;
+}
+
+.articles--social-share-header .social-share--container .social-share--title, .articles--social-share-footer .social-share--container .social-share--title {
+  padding-bottom: 15px;
 }
 
 .articles--social-share-header .social-share--container .social-share--icons div, .articles--social-share-footer .social-share--container .social-share--icons div {
@@ -5144,15 +5158,10 @@ html.js-noScroll {
   max-height: 100%;
 }
 
-.articles--social-share-header {
-  padding-top: 5px;
-}
-
 @media screen and (min-width: 480px) {
   .articles--social-share-header {
     align-self: flex-end;
     padding-top: 0;
-    margin-bottom: 5px;
   }
 }
 
@@ -5164,7 +5173,7 @@ html.js-noScroll {
 
 .articles--social-share-header .social-share--container .social-share--title p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  margin-bottom: 3px;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 1025px) {
@@ -5180,13 +5189,11 @@ html.js-noScroll {
 .articles--introduction {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.3rem;
-  margin-top: 1em;
+  margin-top: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .articles--introduction {
-    margin-top: 1.5em;
-  }
+.articles--introduction p {
+  margin-bottom: 30px;
 }
 
 .articles--content .parbase {
@@ -5200,11 +5207,14 @@ html.js-noScroll {
 
 .articles--hr-footer {
   border-color: #000000;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .articles .social-signup--title-header {
-  margin-top: 1rem;
-  margin-left: 1rem;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   padding: 0;
 }
 
