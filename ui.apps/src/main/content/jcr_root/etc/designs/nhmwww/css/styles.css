@@ -7494,7 +7494,7 @@ html.js-noScroll {
 
 .feed--item--content-wrapper {
   margin-bottom: 1.8em;
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 .feed--item--content {
@@ -7523,9 +7523,9 @@ html.js-noScroll {
 }
 
 .feed--item--caption {
-  background-color: #aaaaaa;
+  background-color: #AAAAAA;
   padding: 0.5em 1.25em;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 0.95em;
 }
 
