@@ -21,13 +21,14 @@
 			if (page == null) continue;
 		
 			Resource postResource = null;
-			
-			if(postPage.getTemplate().getPath().equals("/apps/nhmwww/templates/articlepage")) { 
-				postResource = postPage.getContentResource("article"); 
-			}
-			if(postPage.getTemplate().getPath().equals("/apps/nhmwww/templates/discoverpublicationpage")) { 
-				postResource = postPage.getContentResource("discoverpublication"); 
-			}
+			String template = postPage.getProperties().get("cq:template", String.class);
+
+        	if(template.equals("/apps/nhmwww/templates/articlepage")) { 
+            	postResource = postPage.getContentResource("article"); 
+        	}
+            if(template.equals("/apps/nhmwww/templates/discoverpublicationpage")) { 
+            		postResource = postPage.getContentResource("discoverpublication"); 
+        	}
 			if (postResource == null) continue;
 			
 			final DiscoverPublicationHelper helper = new DiscoverPublicationHelper(postResource, request, xssAPI);
