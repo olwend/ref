@@ -5,7 +5,7 @@
 				java.text.DateFormat,
 				java.util.Locale,
 				org.apache.sling.api.resource.Resource,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleRelatedHelper"%>
+				uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper"%>
 <cq:includeClientLib categories="nhm-www.discoverpublication" />				
 <%
 	final String[] posts = properties.get("posts", String[].class);
@@ -30,7 +30,7 @@
 			}
 			if (postResource == null) continue;
 			
-			final ArticleRelatedHelper helper = new ArticleRelatedHelper(postResource, request, xssAPI);
+			final DiscoverPublicationHelper helper = new DiscoverPublicationHelper(postResource, request, xssAPI);
 			if (!helper.isConfigured()) continue;
 	
 			if (helper.isImageHeadType() && !helper.isImageConfigured() ||
