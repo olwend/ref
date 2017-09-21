@@ -9868,6 +9868,14 @@ input.searchGo {
 }
 
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.take-part .ctabutton--inside-hti--cta-text {
+  color: #BF491F;
+}
+
+.take-part .hti-box__feature-box {
+  background-color: #BF491F;
+}
+
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
 .take-part .accordion .accordion-navigation > a,
 .take-part .accordion dd > a {
