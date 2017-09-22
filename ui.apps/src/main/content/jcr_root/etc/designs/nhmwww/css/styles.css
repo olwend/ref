@@ -8159,7 +8159,7 @@ a.button-cta {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .secondary-nav-wrapper .side-nav li {
     font-size: 1.4em;
   }
