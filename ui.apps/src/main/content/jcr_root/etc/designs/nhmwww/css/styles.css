@@ -6772,7 +6772,7 @@ html.js-noScroll {
 /** REFACTOR-HTI-FEATUREBOX PARTIAL **/
 /** this has likely been superseded by HTI-BOX__FEATURE-BOX **/
 .feature-box a:hover {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /** IMAGE AND CTA PARTIAL NHMEC-8 **/
@@ -7868,7 +7868,7 @@ a.button-cta {
   margin-top: 0.4em;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   color: #565656;
 }
 
@@ -7879,17 +7879,17 @@ a.button-cta {
 }
 
 .hti-box__light-grey {
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
   color: #565656;
 }
 
 .hti-box__dark-grey {
   background-color: #808080 !important;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__dark-grey h3 {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__dark-grey a {
@@ -7902,11 +7902,11 @@ a.button-cta {
 
 /** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
 .hti-box__feature-box {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__feature-box h3 {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__feature-box a {
@@ -7940,7 +7940,7 @@ a.button-cta {
 /** this replaces info-tout__action **/
 .ctabutton--inside-hti {
   padding: 1.125em 0 1.125em 1.125em;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border: none !important;
 }
 
@@ -8696,7 +8696,7 @@ input.searchGo {
 }
 
 .about-us a.promo-link {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
