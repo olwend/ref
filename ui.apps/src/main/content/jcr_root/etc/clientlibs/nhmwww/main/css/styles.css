@@ -8628,6 +8628,18 @@ input.searchGo {
   color: #0B5C7B;
 }
 
+.about-us .linklist--container--header a {
+  color: #0B5C7B;
+}
+
+.about-us .linklist--link-items li a:hover {
+  border-bottom-color: #0B5C7B;
+}
+
+.about-us .linklist--column--header a {
+  color: #0B5C7B;
+}
+
 .about-us .button__enews-signup {
   background-color: #0B5C7B;
 }
@@ -8671,18 +8683,6 @@ input.searchGo {
 }
 
 .about-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0B5C7B;
-}
-
-.about-us .linklist--container--header a {
-  color: #0B5C7B;
-}
-
-.about-us .linklist--link-items li a:hover {
-  border-bottom-color: #0B5C7B;
-}
-
-.about-us .linklist--column--header a {
   color: #0B5C7B;
 }
 
@@ -8857,6 +8857,18 @@ input.searchGo {
   color: #253480;
 }
 
+.business-services .linklist--container--header a {
+  color: #253480;
+}
+
+.business-services .linklist--link-items li a:hover {
+  border-bottom-color: #253480;
+}
+
+.business-services .linklist--column--header a {
+  color: #253480;
+}
+
 .business-services .button__enews-signup {
   background-color: #253480;
 }
@@ -8900,18 +8912,6 @@ input.searchGo {
 }
 
 .business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #253480;
-}
-
-.business-services .linklist--container--header a {
-  color: #253480;
-}
-
-.business-services .linklist--link-items li a:hover {
-  border-bottom-color: #253480;
-}
-
-.business-services .linklist--column--header a {
   color: #253480;
 }
 
@@ -8980,6 +8980,18 @@ input.searchGo {
   color: #808080;
 }
 
+.contact-us .linklist--container--header a {
+  color: #808080;
+}
+
+.contact-us .linklist--link-items li a:hover {
+  border-bottom-color: #808080;
+}
+
+.contact-us .linklist--column--header a {
+  color: #808080;
+}
+
 .contact-us .button__enews-signup {
   background-color: #808080;
 }
@@ -9023,18 +9035,6 @@ input.searchGo {
 }
 
 .contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #808080;
-}
-
-.contact-us .linklist--container--header a {
-  color: #808080;
-}
-
-.contact-us .linklist--link-items li a:hover {
-  border-bottom-color: #808080;
-}
-
-.contact-us .linklist--column--header a {
   color: #808080;
 }
 
@@ -9220,6 +9220,18 @@ input.searchGo {
   color: #357900;
 }
 
+.our-science .linklist--container--header a {
+  color: #357900;
+}
+
+.our-science .linklist--link-items li a:hover {
+  border-bottom-color: #357900;
+}
+
+.our-science .linklist--column--header a {
+  color: #357900;
+}
+
 .our-science .button__enews-signup {
   background-color: #357900;
 }
@@ -9263,18 +9275,6 @@ input.searchGo {
 }
 
 .our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #357900;
-}
-
-.our-science .linklist--container--header a {
-  color: #357900;
-}
-
-.our-science .linklist--link-items li a:hover {
-  border-bottom-color: #357900;
-}
-
-.our-science .linklist--column--header a {
   color: #357900;
 }
 
@@ -9364,6 +9364,18 @@ input.searchGo {
   color: #107E5E;
 }
 
+.press-office .linklist--container--header a {
+  color: #107E5E;
+}
+
+.press-office .linklist--link-items li a:hover {
+  border-bottom-color: #107E5E;
+}
+
+.press-office .linklist--column--header a {
+  color: #107E5E;
+}
+
 .press-office .button__enews-signup {
   background-color: #107E5E;
 }
@@ -9446,18 +9458,6 @@ input.searchGo {
   color: #107E5E;
 }
 
-.press-office .linklist--container--header a {
-  color: #107E5E;
-}
-
-.press-office .linklist--link-items li a:hover {
-  border-bottom-color: #107E5E;
-}
-
-.press-office .linklist--column--header a {
-  color: #107E5E;
-}
-
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 .press-office .ctabutton--inside-hti--cta-text {
   color: #107E5E;
@@ -9523,6 +9523,18 @@ input.searchGo {
   color: #0983BB;
 }
 
+.schools .linklist--container--header a {
+  color: #0983BB;
+}
+
+.schools .linklist--link-items li a:hover {
+  border-bottom-color: #0983BB;
+}
+
+.schools .linklist--column--header a {
+  color: #0983BB;
+}
+
 .schools .button__enews-signup {
   background-color: #0983BB;
 }
@@ -9566,18 +9578,6 @@ input.searchGo {
 }
 
 .schools .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0983BB;
-}
-
-.schools .linklist--container--header a {
-  color: #0983BB;
-}
-
-.schools .linklist--link-items li a:hover {
-  border-bottom-color: #0983BB;
-}
-
-.schools .linklist--column--header a {
   color: #0983BB;
 }
 
@@ -9809,6 +9809,18 @@ input.searchGo {
   color: #BF491F;
 }
 
+.take-part .linklist--container--header a {
+  color: #BF491F;
+}
+
+.take-part .linklist--link-items li a:hover {
+  border-bottom-color: #BF491F;
+}
+
+.take-part .linklist--column--header a {
+  color: #BF491F;
+}
+
 .take-part .button__enews-signup {
   background-color: #BF491F;
 }
@@ -9852,18 +9864,6 @@ input.searchGo {
 }
 
 .take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #BF491F;
-}
-
-.take-part .linklist--container--header a {
-  color: #BF491F;
-}
-
-.take-part .linklist--link-items li a:hover {
-  border-bottom-color: #BF491F;
-}
-
-.take-part .linklist--column--header a {
   color: #BF491F;
 }
 
@@ -9937,6 +9937,18 @@ input.searchGo {
   color: #A1164E;
 }
 
+.visit .linklist--container--header a {
+  color: #A1164E;
+}
+
+.visit .linklist--link-items li a:hover {
+  border-bottom-color: #A1164E;
+}
+
+.visit .linklist--column--header a {
+  color: #A1164E;
+}
+
 .visit .button__enews-signup {
   background-color: #A1164E;
 }
@@ -9980,18 +9992,6 @@ input.searchGo {
 }
 
 .visit .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #A1164E;
-}
-
-.visit .linklist--container--header a {
-  color: #A1164E;
-}
-
-.visit .linklist--link-items li a:hover {
-  border-bottom-color: #A1164E;
-}
-
-.visit .linklist--column--header a {
   color: #A1164E;
 }
 
