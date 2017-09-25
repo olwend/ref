@@ -74,6 +74,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="Teachers"
                                 value="Teachers"/>
+                            <twelve
+                                jcr:primaryType="nt:unstructured"
+                                text="Latest NHM stories"
+                                value="Latest NHM stories"/>
         
                         </options>
                     </campaign>
