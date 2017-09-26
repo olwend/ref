@@ -6867,8 +6867,6 @@ html.js-noScroll {
 /** REFACTOR-MEGAMENU PARTIAL **/
 /** Copied from Legacy **/
 .global-menu-trigger {
-  position: relative;
-  float: right;
   width: 50px;
   height: 50px;
 }
@@ -6876,9 +6874,6 @@ html.js-noScroll {
 .global-menu-trigger .ico {
   width: 23px;
   height: 23px;
-  position: absolute;
-  top: 16px;
-  right: 10px;
 }
 
 .global-menu-trigger .ico-menu-close, .global-menu-trigger .ico-menu-return {
@@ -6913,44 +6908,32 @@ html.js-noScroll {
 
 /** End legacy CSS **/
 /** WR-1040 new **/
-.global-nav-menu {
-  display: none;
-  height: 485px;
-  position: relative;
-}
-
-@media screen and (min-width: 768px) {
-  .global-nav-menu {
-    display: block !important;
-    height: 50px;
-  }
-  .global-nav-menu .row {
-    display: flex;
-    align-items: flex-end;
-  }
-}
-
-.global-nav-menu a:hover {
-  text-decoration: none;
-}
-
-.global-info-menu .row, .global-nav-menu .row {
+.global-header-bar.row {
   height: 50px;
   width: 100%;
   margin-bottom: 0;
   padding: 0;
 }
 
+.global-header--menu-nav {
+  display: none;
+  position: relative;
+}
+
+.global-header--menu-nav.row {
+  height: 485px;
+}
+
 @media screen and (min-width: 768px) {
-  .global-info-menu .row, .global-nav-menu .row {
-    width: 95%;
+  .global-header--menu-nav.row {
+    display: flex;
+    align-items: flex-end;
+    height: 50px;
   }
 }
 
-@media screen and (min-width: 1160px) {
-  .global-info-menu .row, .global-nav-menu .row {
-    padding: 0 20px;
-  }
+.global-header--menu-nav a:hover {
+  text-decoration: none;
 }
 
 .global-header {
@@ -6970,14 +6953,12 @@ html.js-noScroll {
 }
 
 .global-header-logo {
-  position: absolute;
-  float: left;
   min-width: 250px;
   height: 50px;
   background: url("/etc/designs/nhmwww/img/logo.png") no-repeat left center;
   background-size: 250px auto;
   text-indent: -9999px;
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -7007,6 +6988,7 @@ html.js-noScroll {
 }
 
 .global-header-info__container {
+  display: none;
   background-color: #EEEEEE;
   bottom: 0;
   margin: 15px 0 0 0;
@@ -7016,9 +6998,17 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .global-header-info__container {
+    display: flex;
+    align-items: flex-end;
     background: none;
     margin: 0 0 0 auto;
     padding: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .global-header-info__container {
+    margin-right: 20px;
   }
 }
 
@@ -7080,6 +7070,74 @@ html.js-noScroll {
     width: 22px;
     margin-right: 5px;
     margin-top: -5px;
+  }
+}
+
+.global-header--menu-logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.global-header--menu-subnav {
+  background-color: #D5D5D5;
+}
+
+.global-header--menu-subnav .row {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 1160px) {
+  .global-header--menu-subnav .row {
+    padding: 0 20px;
+  }
+}
+
+.global-header--menu-subnav ul {
+  display: none;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header--menu-subnav ul {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .global-header--menu-subnav ul {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .global-header--menu-subnav ul {
+    font-size: 1.2rem;
+  }
+}
+
+.global-header--menu-subnav ul li {
+  padding-right: 30px;
+}
+
+.js-nav-list__hide {
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .js-nav-list__body {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .js-nav-list__header {
+    height: 150px;
   }
 }
 
@@ -7149,6 +7207,10 @@ html.js-noScroll {
   }
 }
 
+.nav-list__item--discover-submenu {
+  display: none;
+}
+
 .nav-list__link {
   padding: 10px 0;
   line-height: 2rem;
@@ -7172,12 +7234,6 @@ html.js-noScroll {
 }
 
 /** WR-1038 - Prevent 1px bar appearing on Search button click**/
-@media screen and (min-width: 768px) {
-  .megamenu {
-    height: 50px;
-  }
-}
-
 /** WR-1035 - Create Search Bar **/
 .megamenu--search-bar,
 .megamenu--search-bar__overlay,
@@ -7353,7 +7409,7 @@ html.js-noScroll {
 }
 
 .megamenu--search-bar__link a {
-  color: black;
+  color: #000000;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   white-space: nowrap;
 }
@@ -7366,6 +7422,25 @@ html.js-noScroll {
   .megamenu--search-bar__link {
     line-height: 3rem;
   }
+}
+
+.global-header--container {
+  display: flex;
+  flex-direction: row;
+}
+
+.global-header--container.row {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 1160px) {
+  .global-header--container.row {
+    padding: 0 20px;
+  }
+}
+
+.row .row {
+  margin: 0 auto;
 }
 
 /** REFACTOR-FOOTER PARTIAL **/

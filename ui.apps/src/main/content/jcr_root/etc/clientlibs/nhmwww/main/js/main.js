@@ -259,6 +259,17 @@ jQuery(document).ready(function() {
     }
 	/** End WR-1040 **/
 
+    /** WR-1108 - Add Discover sub menu */
+    if (jQuery('.main-section').hasClass('discover')) { 
+        jQuery('.breadcrumb').addClass('js-nav-list__hide');
+        jQuery('body').addClass('js-nav-list__body');
+        jQuery('.global-header').addClass('js-nav-list__header');
+        jQuery('.global-header--menu-subnav').removeClass('js-nav-list__hide');
+        // jQuery('.nav-list__item--discover-submenu').removeClass('js-nav-list__hide');
+    }
+    /** End WR-1108 */
+
+
     /** WR-1064 - Big Splash component **/
     jQuery('.js--bigsplash-video--controls-pause').on('click', function(e){
         e.preventDefault();
@@ -528,18 +539,19 @@ jQuery(document).ready(function() {
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){
         e.preventDefault();
-        if(jQuery('.global-menu-trigger').hasClass('return')) {
-            jQuery('.nav-list__item').removeClass('selected selected-siblings');
-            jQuery('.global-menu-trigger').removeClass('return');
-        } else {
-            jQuery('.global-nav-menu').toggle(function() {
+        // if(jQuery('.global-menu-trigger').hasClass('return')) {
+            // jQuery('.nav-list__item').removeClass('selected selected-siblings');
+            // jQuery('.global-menu-trigger').removeClass('return');
+        // } else {
+            // jQuery('.global-nav-menu').toggle(function() {
+            jQuery('.global-header--menu-nav').toggle(function() {
                 if(jQuery('.global-menu-trigger').hasClass('clicked')) {
                     jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
                 } else {
                     jQuery('.global-menu-trigger, .global-nav-menu').addClass('clicked');
                 }
             });
-        }
+        // }
     });
 
     jQuery('#megamenu--search-bar__button').on('click', function(e){
