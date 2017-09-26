@@ -8294,6 +8294,10 @@ a.button-cta {
   width: 100%;
 }
 
+.title-bar--margin-bottom {
+  margin-bottom: 1.2em;
+}
+
 .template--content-page .title-bar {
   margin-bottom: 1.2em;
 }
