@@ -7353,7 +7353,7 @@ html.js-noScroll {
 }
 
 .megamenu--search-bar__link a {
-  color: black;
+  color: #000000;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   white-space: nowrap;
 }
