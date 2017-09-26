@@ -54,7 +54,8 @@
 				beforeMode.toRequest(slingRequest);
 			} else {
 %>
-					<img src="http://img.youtube.com/vi/<%= helper.getVideo() %>/0.jpg" alt="<%=helper.getTitle() %>">
+					<img src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video" class="discover-related--video-icon">
+					<img src="http://img.youtube.com/vi/<%= helper.getVideo() %>/mqdefault.jpg" alt="<%=helper.getTitle() %>">
 <%
 			}
 %>

@@ -6444,11 +6444,15 @@ html.js-noScroll {
 /** REFACTOR-DISCOVER-ELEMENT PARTIAL **/
 .discover-element .element-title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  color: #000000;
+  color: #565656;
 }
 
 .discover-element .element-title:hover {
   color: #000000;
+}
+
+.discover-element-wrapper {
+  background-color: #EEEEEE;
 }
 
 .discover-element .element-text {
@@ -6460,13 +6464,29 @@ html.js-noScroll {
 }
 
 /** REFACTOR-DISCOVER-RELATED PARTIAL **/
+.discoverrelated {
+  background-color: #FFFFFF;
+}
+
 .discoverrelated .discover h3 {
   padding-top: 0.5em !important;
   padding-left: 0.75em !important;
 }
 
+.discoverrelated .discover .discover-element-text {
+  padding-bottom: 0.9em;
+}
+
 .discoverrelated .discover .discover-element-text p {
   font-size: 1em;
+}
+
+.discover-related--video-icon {
+  position: absolute;
+  top: 118px;
+  left: 232px;
+  max-width: 50px;
+  max-height: 35px;
 }
 
 /** REFACTOR-DISCOVER-PUBLICATION PARTIAL **/
