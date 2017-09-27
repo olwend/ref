@@ -15,6 +15,10 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
+                    
+                    
+                    
+                    
                     <fieldset
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Sample Dashboard"
@@ -91,77 +95,32 @@
                                                                                 fieldLabel="Path"
                                                                                 name="./path"
                                                                                 rootPath="/content"/>
-                                                                            <startDate
+                                                                            <population
                                                                                 jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="granite/ui/components/foundation/form/datepicker"
-                                                                                class="field"
-                                                                                displayedFormat="YYYY-MM-DD HH:mm"
-                                                                                fieldLabel="Start Date"
-                                                                                name="./startDate"
-                                                                                type="datetime"/>
-                                                                            <show
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                                                                name="./show"
-                                                                                text="Show?"
-                                                                                value="yes"/>
-                                                                            <type
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="granite/ui/components/foundation/form/select"
-                                                                                fieldDescription="Select Size"
-                                                                                fieldLabel="Size"
-                                                                                name="./size">
-                                                                                <items jcr:primaryType="nt:unstructured">
-                                                                                    <def
-                                                                                        jcr:primaryType="nt:unstructured"
-                                                                                        text="Select Size"
-                                                                                        value=""/>
-                                                                                    <small
-                                                                                        jcr:primaryType="nt:unstructured"
-                                                                                        text="Small"
-                                                                                        value="small"/>
-                                                                                    <medium
-                                                                                        jcr:primaryType="nt:unstructured"
-                                                                                        text="Medium"
-                                                                                        value="medium"/>
-                                                                                    <large
-                                                                                        jcr:primaryType="nt:unstructured"
-                                                                                        text="Large"
-                                                                                        value="large"/>
-                                                                                </items>
-                                                                            </type>
-                                                                            <tags
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="cq/gui/components/common/tagspicker"
-                                                                                allowCreate="{Boolean}true"
-                                                                                fieldLabel="Tags"
-                                                                                name="./tags"/>
+                                                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                                fieldDescription="Population of State"
+                                                                                fieldLabel="State Population"
+                                                                                name="./population"/>
                                                                         </items>
                                                                     </column>
                                                                 </items>
                                                             </field>
                                                         </states>
-														<country2
-														 jcr:primaryType="nt:unstructured"
-														 sling:resourceType="granite/ui/components/foundation/form/textfield"
-														 fieldDescription="Name of Country2"
-														 fieldLabel="Country Name2"
-														 name="./country2"/>
                                                     </items>
                                                 </column>
                                             </items>
                                         </field>
                                     </countries>
-									<dashboard2
-									  jcr:primaryType="nt:unstructured"
-									  sling:resourceType="granite/ui/components/foundation/form/textfield"
-									  fieldDescription="Enter Dashboard name"
-									  fieldLabel="Dashboard name12"
-									  name="./dashboard2"/>
                                 </items>
                             </column>
                         </items>
                     </fieldset>
+                    
+                    
+                    
+                    
+                    
+                    
                 </items>
             </column>
         </items>

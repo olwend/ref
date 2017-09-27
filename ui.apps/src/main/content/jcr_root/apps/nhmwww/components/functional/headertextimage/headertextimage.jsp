@@ -1,35 +1,22 @@
-<%--
-  ADOBE CONFIDENTIAL
-  __________________
-
-   Copyright 2012 Adobe Systems Incorporated
-   All Rights Reserved.
-
-  NOTICE:  All information contained herein is, and remains
-  the property of Adobe Systems Incorporated and its suppliers,
-  if any.  The intellectual and technical concepts contained
-  herein are proprietary to Adobe Systems Incorporated and its
-  suppliers and are protected by trade secret or copyright law.
-  Dissemination of this information or reproduction of this material
-  is strictly forbidden unless prior written permission is obtained
-  from Adobe Systems Incorporated.
---%><%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper"%>
-<%
-%><%@include file="/apps/nhmwww/components/global.jsp"%><%
-%><%@page session="false"
-          import="com.day.cq.commons.ImageResource,
-                  com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
-                  uk.ac.nhm.nhm_www.core.componentHelpers.HeaderTextImageHelper, 
-                  uk.ac.nhm.nhm_www.core.model.SVGImage"%><%
-%>
+<%@ page import = "uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper" %>
+<%@ include file = "/apps/nhmwww/components/global.jsp" %>
+<%@ page session = "false"
+         import  = "com.day.cq.commons.ImageResource,
+                	com.day.cq.wcm.api.WCMMode, 
+                	com.day.cq.wcm.foundation.Placeholder, 
+                	javax.jcr.*,
+                	uk.ac.nhm.nhm_www.core.componentHelpers.HeaderTextImageHelper, 
+                	uk.ac.nhm.nhm_www.core.model.SVGImage" %>
+                	
 <cq:defineObjects />
 
-<% 	HeaderTextImageHelper helper = new HeaderTextImageHelper(properties, resource, request, xssAPI); %>
-<%	String svgIcon = ""; %>
-<%	String svgBaseColor = ""; %>
-<%	String svgStrokeWidth = "4";%>
+<% 	
+	HeaderTextImageHelper helper = new HeaderTextImageHelper(properties, resource, request, xssAPI);
+	String svgIcon = "";
+	String svgBaseColor = "";
+	String svgStrokeWidth = "4"; 
 
-<% if (helper.hasCTA()){
+	if (helper.hasCTA()){
 		if (helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
@@ -37,42 +24,47 @@
 			svgIcon = svg.toHtml(currentDesign.getPath() + "/");
 			svgBaseColor = svg.getBaseColour();
 		}
-} %>
+	} 
 
-<%	if(helper.isActivated()) {	%>
-<div class="hti-wrapper <%if(helper.getAddPadding()) { %> hti-padding <%}%>" <%if(!helper.getImagePosition().equals("top")) {%>	<%if(helper.getAddPadding()) { %> data-equalizer <%} else {%> data-equalizer-watch <%} %>
-<%}%>>
+	if(helper.isActivated()) {
+%>
+
+<div class="hti-wrapper 
+	<%if(helper.getAddPadding()) { %> hti-padding <%}%>"
+	<%if(!helper.getImagePosition().equals("top")) { if(helper.getAddPadding()) { %> data-equalizer <%} else {%> data-equalizer-watch <%} }%> >
 
 	<%-- Image --%>
 	<%	if(helper.hasImage()) {	%>
-			<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>
-						<% if (helper.hasImagePositionSwitched()) { %> medium-<%=helper.getImageColumnsSize() %> large-<%=helper.getImageColumnsSize() %> <% } %>" 
-							<%if(!helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
-				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
-					<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
-				<% } %>
-					<img alt='<%= helper.getAlt() %>' data-interchange="
-						[<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (default)], 
-						[<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>, (small)], 
-						[<%= helper.getPath() + ".img.620.high." + helper.getExtension() + helper.getSuffix() %>, (retina)],
-						[<%= helper.getPath() + ".img.480.medium." + helper.getExtension() + helper.getSuffix() %>, (medium)], 
-						[<%= helper.getPath() + ".img.full.high." + helper.getExtension() + helper.getSuffix() %>, (large)]">
-					<%-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --%>
-					<noscript>
-						<img src='<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>' alt='<%= helper.getAlt() %>'>
-					</noscript>
-				<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
-					</a>
-				<% } %>
-			</div>
-		<% } %>	
+		<div class="hti--image-wrapper columns small-12 medium-<%=helper.getImagePositionAndSize() %> large-<%=helper.getImagePositionAndSize() %>
+			<% if(helper.hasImagePositionSwitched()) { %> medium-<%=helper.getImageColumnsSize() %> large-<%=helper.getImageColumnsSize() %> <% } %>" 
+			<% if(!helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
+			
+			<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
+				<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml(helper.isImageLinkNewWindow()) %>>
+			<% } %>
+				<img alt='<%= helper.getAlt() %>' data-interchange="
+					[<%= helper.getPath() + ".img.320.medium." + helper.getExtension() + helper.getSuffix() %>, (default)], 
+					[<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>, (small)], 
+					[<%= helper.getPath() + ".img.620.high." + helper.getExtension() + helper.getSuffix() %>, (retina)],
+					[<%= helper.getPath() + ".img.480.medium." + helper.getExtension() + helper.getSuffix() %>, (medium)], 
+					[<%= helper.getPath() + ".img.full.high." + helper.getExtension() + helper.getSuffix() %>, (large)]">
+				<%-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --%>
+				<noscript>
+					<img src='<%= helper.getPath() + ".img.320.low." + helper.getExtension() + helper.getSuffix() %>' alt='<%= helper.getAlt() %>'>
+				</noscript>
+			<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
+				</a>
+			<% } %>
+		</div>
+	<% } %>	
 	<%-- Image --%>
 	
 	<%-- Text --%>
-		<div class="hti-box end columns <%= helper.getComponentType() %> small-12 <% if (!helper.hasImage()) { %> medium-12 large-12 <% } %>
-					<% if (helper.hasImage()) { %> medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %> 
-						<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %> 
-					<% } %>" <%if(!helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
+		<div class="hti-box end columns <%= helper.getComponentType() %> small-12 
+			<% if (!helper.hasImage()) { %> medium-12 large-12 <% } %>
+			<% if (helper.hasImage()) { %> medium-<%=helper.getTextPositionAndSize() %> large-<%=helper.getTextPositionAndSize() %> 
+			<% if (helper.hasTextPositionSwitched()) { %> medium-<%=helper.getTextColumnsSize() %> large-<%=helper.getTextColumnsSize() %> <% } %> 
+			<% } %>" <%if(!helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
 		
 			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" <%if(helper.getImagePosition().equals("top")) {%> data-equalizer-watch <%} %>>
 				<h3>
@@ -80,7 +72,7 @@
 						<a href="<%= xssAPI.getValidHref(helper.getLinkURL()) %>"<%=helper.getNewWindowHtml(helper.isLinkNewWindow()) %>>
 					<% } %>
 					
-						<%= helper.getHeading() %>
+					<%= helper.getHeading() %>
 					
 					<% if(helper.getLinkURL() != null && !helper.getLinkURL().equals("")) { %>
 						</a>
@@ -110,5 +102,6 @@
 	<%-- Text --%>
 </div>
 <% } else { %>
-	<img class="cq-title-placeholder cq-block-lg-placeholder" src="/etc/designs/default/0.gif" />
+	<p>Header, Text/Image component</p>
+	<p>Please configure this component in the dialog</p>
 <% } %>

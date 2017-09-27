@@ -116,8 +116,12 @@
  
             var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
             var $fieldSets = $("[" + DATA_EAEM_NESTED + "][class='coral-Form-fieldset']");
- 
-            var record, $fields, $field, name, $nestedMultiField;
+ console.log($fieldSets);
+            var record,
+            	$fields, 
+            	$field, 
+            	name, 
+            	$nestedMultiField;
  
             $fieldSets.each(function (i, fieldSet) {
                 $fields = $(fieldSet).children().children(CFFW);
@@ -152,7 +156,7 @@
  
                 //add the record JSON in a hidden field as string
                 $('<input />').attr('type', 'hidden')
-                    .attr('name', mName)
+                    .attr('name', "testbollocks")
                     .attr('value', JSON.stringify(record))
                     .appendTo($form);
             });

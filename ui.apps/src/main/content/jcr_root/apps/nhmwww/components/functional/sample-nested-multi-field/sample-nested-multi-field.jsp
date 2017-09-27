@@ -42,11 +42,11 @@
                                     <a href="<%= state.get("path") %>.html" target="_blank">
                                         <%= state.get("state") %> - <%= state.get("path") %>
                                     </a>
+                                    <%= state.get("population") %>
                                 </div>
 <%
                             }
                         }
- 
                     }
                 }
             } else {

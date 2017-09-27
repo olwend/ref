@@ -10,7 +10,7 @@
 		<%=helper.getText()%>
 <%	} else {
 %>
-		Text - Please configure this component
+		<p>Text</p>
 <%
 	}
 %>

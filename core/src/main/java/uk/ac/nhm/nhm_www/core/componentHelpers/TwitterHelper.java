@@ -147,26 +147,28 @@ public class TwitterHelper extends HelperBase {
 	private String widgetId;
 	
 
-	public TwitterHelper(SlingHttpServletRequest request)
-	{
+	public TwitterHelper(SlingHttpServletRequest request) {
 		this.helperFactory = new HelperFactory(request);
 		properties = helperFactory.getProperties();
 		init();
 	}
 	
-	private void init()
-	{
-		
-		if (this.properties.get("height", String.class) != null)
-		{
+	private void init() {
+		if (this.properties.get("height", String.class) != null) {
 			this.height = this.properties.get("height",String.class);
 		}
 		
-		if (this.properties.get("widgetid", String.class) != null)
-		{
+		if (this.properties.get("widgetid", String.class) != null) {
 			this.widgetId = this.properties.get("widgetid",String.class);
 		}
-
+	}
+	
+	public Boolean isConfigured() {
+		if(this.widgetId == null || this.height == null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
 	

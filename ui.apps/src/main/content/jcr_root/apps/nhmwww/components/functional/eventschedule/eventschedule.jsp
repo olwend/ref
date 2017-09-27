@@ -94,6 +94,7 @@
         </div>
     </c:when>
     <c:otherwise>
-        The page has not been set up yet.
+        <p>Event Schedule</p>
+        <p>Please add dates/times in the Event Detail dialog</p>
     </c:otherwise>
 </c:choose>

@@ -46,7 +46,6 @@
 			                    jcr:primaryType="nt:unstructured"
 			                    name="./jcr:eventPagePath"
 			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
-		                        
 							<eventsList
 								jcr:primaryType="nt:unstructured"
 								name="./eventSelect"
@@ -152,7 +151,7 @@
 		                                        <field
 		                                            jcr:primaryType="nt:unstructured"
 		                                            sling:resourceType="granite/ui/components/foundation/form/fieldset"
-		                                            eaem-nested=""
+		                                            eaem-nested="NODE_STORE"
 		                                            name="./dates">
 		                                            <layout
 		                                                jcr:primaryType="nt:unstructured"
@@ -197,6 +196,7 @@
 		                            </column>
 		                        </items>
 		                    </fieldset>
+
 						</items>
    					</column>
        			</items>
@@ -252,7 +252,7 @@
 			                <eventListing
 			                    jcr:primaryType="nt:unstructured"
 			                    required="{Boolean}true"
-			                    fieldLabel="Event Listing Price"
+			                    fieldLabel="Event Listing Price *"
 			                    name="./eventListingPrice"
 			                    sling:resourceType="granite/ui/components/foundation/form/textfield">
 			                </eventListing>
