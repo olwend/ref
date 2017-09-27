@@ -5,29 +5,36 @@
 	<div class="global-header--container row cf">
 		<div class="global-header--menu">
 			<div class="global-header-bar global-header--menu-logo row cf">
-				<!-- <div class="row cf"> -->
 					<a href="/" class="global-header-logo"><span class="ir">Natural History Museum</span></a>
 					<a href="#" id="mobile-navigation" class="mobile global-menu-trigger">
 						<i class="ico svg-ico ico-menu-open" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_menu.svg" data-svg-title="icon__menu" data-alt="Open Menu" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png"></i>
 						<i class="ico svg-ico ico-menu-close" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png"></i>
 						<span class="ir">Menu</span>
 					</a>
-				<!-- </div> -->
 			</div>
 			<nav class="global-header-bar global-header--menu-nav row cf">
-				<!-- <div class="row cf"> -->
-					<ul class="nav-list level-1 cf">
+					<ul class="nav-list cf">
 						<li class="nav-list__item link-visit">
 							<a class="nav-list__link" href="/content/nhmwww/en/home/visit.html">Visit</a>
 						</li>
 						<li class="nav-list__item link-discover">
 							<a class="nav-list__link" href="/content/nhmwww/en/home/discover.html">Discover</a>
-								<ul class="nav-list__item--discover-submenu js-nav-list__hide">
-									<li>Link</li>
-									<li>Link</li>
-									<li>Link</li>
-								</ul>
+							<div class="nav-list__item--subnav-link">
+								<i class="ico svg-ico ico-menu-open" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_menu.svg" data-svg-title="icon__menu" data-alt="Open Menu" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png"></i>
+							</div>
 						</li>
+								<li class="nav-list__subnav--discover">
+									<a href="" class="">Oceans</a>
+								</li>
+								<li class="nav-list__subnav--discover">
+									<a href="" class="">Dinosaurs</a>
+								</li>
+								<li class="nav-list__subnav--discover">
+									<a href="" class="">News</a>
+								</li>
+								<li class="nav-list__subnav--discover">
+									<a href="" class="">Blog</a>
+								</li>
 						<li class="nav-list__item link-take-part">
 							<a class="nav-list__link" href="/content/nhmwww/en/home/take-part.html">Take part</a>
 						</li>
@@ -47,7 +54,6 @@
 							<a class="nav-list__link" href="#" id="megamenu--search-bar__button" >Search</a>
 						</li>
 					</ul>
-				<!-- </div> -->
 			</nav>
 		</div>
 			<div class="global-header-info__container">
@@ -68,9 +74,10 @@
 	<div class="global-header--menu-subnav js-nav-list__hide">
 		<div class="row cf">
 			<ul class="">
-				<li>Link</li>
-				<li>Link</li>
-				<li>Link</li>
+				<li>Oceans</li>
+				<li>Dinosaurs</li>
+				<li>News</li>
+				<li>Blog</li>
 			</ul>
 		</div>
 	</div>

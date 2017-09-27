@@ -6909,19 +6909,30 @@ html.js-noScroll {
 /** End legacy CSS **/
 /** WR-1040 new **/
 .global-header-bar.row {
-  height: 50px;
   width: 100%;
   margin-bottom: 0;
   padding: 0;
 }
 
+@media screen and (min-width: 768px) {
+  .global-header-bar.row {
+    height: 50px;
+  }
+}
+
+.global-header--menu {
+  padding: 0 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header--menu {
+    padding: 0;
+  }
+}
+
 .global-header--menu-nav {
   display: none;
   position: relative;
-}
-
-.global-header--menu-nav.row {
-  height: 485px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6977,7 +6988,8 @@ html.js-noScroll {
 
 .global-header-info {
   display: inline-flex;
-  margin: 0 20px;
+  margin: 0;
+  padding-left: 1em;
 }
 
 @media screen and (min-width: 768px) {
@@ -6991,7 +7003,7 @@ html.js-noScroll {
   display: none;
   background-color: #EEEEEE;
   bottom: 0;
-  margin: 15px 0 0 0;
+  margin: 0;
   padding-top: 15px;
   text-align: left;
 }
@@ -7094,7 +7106,7 @@ html.js-noScroll {
 
 .global-header--menu-subnav ul {
   display: none;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
   margin-bottom: 0;
 }
@@ -7156,7 +7168,7 @@ html.js-noScroll {
 
 .nav-list__item {
   display: flex;
-  margin: 0 0 0 20px;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -7207,10 +7219,6 @@ html.js-noScroll {
   }
 }
 
-.nav-list__item--discover-submenu {
-  display: none;
-}
-
 .nav-list__link {
   padding: 10px 0;
   line-height: 2rem;
@@ -7223,9 +7231,43 @@ html.js-noScroll {
   }
 }
 
+.nav-list__subnav--discover {
+  display: none;
+  padding-left: 1em;
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.nav-list__subnav--discover a {
+  color: #000000;
+}
+
+.nav-list__item--subnav-link {
+  margin-right: 0;
+  margin-left: auto;
+  align-self: center;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-list__item--subnav-link {
+    display: none !important;
+  }
+}
+
 /** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
 .global-menu-trigger {
   z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .global-menu-trigger {
+    display: none;
+  }
 }
 
 /** WR-1035 Adjust z-index to display the carousel slide icons beneath the search menu element **/
@@ -7426,11 +7468,24 @@ html.js-noScroll {
 
 .global-header--container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header--container {
+    flex-direction: row;
+  }
 }
 
 .global-header--container.row {
   margin-bottom: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .global-header--container.row {
+    width: 95%;
+  }
 }
 
 @media screen and (min-width: 1160px) {
