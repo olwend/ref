@@ -236,7 +236,7 @@ jQuery(document).ready(function() {
     jQuery(document).foundation();
 
     /** WR-1040 - Nav bar redesign - add "Active Page" class **/
-    jQuery('.nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
+    jQuery('.global-header--nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
 
     
     if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
@@ -255,17 +255,16 @@ jQuery(document).ready(function() {
         if (urlForMenu.indexOf('nhm.ac.uk/schools') !== -1) { jQuery('.link-schools').addClass('menuSelected'); }
         if (urlForMenu.indexOf('nhm.ac.uk/our-science') !== -1) { jQuery('.link-our-science').addClass('menuSelected'); }
         if (urlForMenu.indexOf('nhm.ac.uk/search') !== -1) { jQuery('.link-search').addClass('menuSelected'); }
-        if (urlForMenu.indexOf('nhm.ac.uk/events') !== -1) { jQuery('.nav-list__link').removeClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/events') !== -1) { jQuery('.global-header--nav-list__link').removeClass('menuSelected'); }
     }
 	/** End WR-1040 **/
 
     /** WR-1108 - Add Discover sub menu */
     if (jQuery('.main-section').hasClass('discover')) { 
-        jQuery('.breadcrumb').addClass('js-nav-list__hide');
-        jQuery('body').addClass('js-nav-list__body');
-        jQuery('.global-header').addClass('js-nav-list__header');
-        jQuery('.global-header--menu-subnav').removeClass('js-nav-list__hide');
-        // jQuery('.nav-list__item--discover-submenu').removeClass('js-nav-list__hide');
+        jQuery('.breadcrumb').addClass('js-global-header--nav-list__hide');
+        jQuery('body').addClass('js-global-header--nav-list__body');
+        jQuery('.global-header').addClass('js-global-header--nav-list__header');
+        jQuery('.global-header--subnav').removeClass('js-global-header--nav-list__hide');
     }
     /** End WR-1108 */
 
@@ -500,7 +499,7 @@ jQuery(document).ready(function() {
     });
 
     // Dynamic hover code to override CSS and provide a bit of delay before open/close
-    jQuery('.level-1 > .nav-list__item.has-children').hoverIntent({ 
+    jQuery('.level-1 > .global-header--nav-list__item.has-children').hoverIntent({ 
         over: function(){ jQuery(this).addClass('open'); }, 
         out: function(){ jQuery(this).removeClass('open'); }, 
         timeout: 200
@@ -511,7 +510,7 @@ jQuery(document).ready(function() {
     // if the width of the window is less than 768px i.e. mobile screen size...
     if(jQuery(window).width() < 768){
     // if a main nav link is clicked...
-      jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){
+      jQuery('.level-1 > .global-header--nav-list__item.has-children').on('click', function(e){
         // set variable for "this"
         var $this = jQuery(this);
 
@@ -523,71 +522,71 @@ jQuery(document).ready(function() {
 					// if the main nav link already has a "selected" class, remove all the classes that make it "selected"
 					if($this.hasClass('selected')) {
 						$this.removeClass('touch');
-            jQuery('.global-menu-trigger').removeClass('return');
+            jQuery('.global-header--menu__trigger').removeClass('return');
             $this.removeClass('selected').siblings().removeClass('selected-siblings');
           } else {
           // else add all the classes that make it "selected"
 						$this.addClass('touch');
-            jQuery('.global-menu-trigger').addClass('return');
-            jQuery('.nav-list__item').removeClass('selected');
+            jQuery('.global-header--menu__trigger').addClass('return');
+            jQuery('.global-header--nav-list__item').removeClass('selected');
             $this.addClass('selected').siblings().addClass('selected-siblings');
           }
         }
       });
     }
 
-    jQuery('.nav-list__item--subnav-link').on('click', function(e) {
+    jQuery('.global-header--nav-list__item--subnav-link').on('click', function(e) {
         e.preventDefault();
-        jQuery('.nav-list__subnav--discover').toggle(function(){});
+        jQuery('.global-header--menu__subnav-discover').toggle(function(){});
     });
 
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){
         e.preventDefault();
-        // if(jQuery('.global-menu-trigger').hasClass('return')) {
-            // jQuery('.nav-list__item').removeClass('selected selected-siblings');
-            // jQuery('.global-menu-trigger').removeClass('return');
+        // if(jQuery('.global-header--menu__trigger').hasClass('return')) {
+            // jQuery('.global-header--nav-list__item').removeClass('selected selected-siblings');
+            // jQuery('.global-header--menu__trigger').removeClass('return');
         // } else {
             // jQuery('.global-nav-menu').toggle(function() {
-            jQuery('.global-header--menu-nav').toggle(function() {
-                if(jQuery('.global-menu-trigger').hasClass('clicked')) {
-                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
-                    jQuery('.nav-list__subnav--discover').slideUp(function(){});
+            jQuery('.global-header--menu__nav').toggle(function() {
+                if(jQuery('.global-header--menu__trigger').hasClass('clicked')) {
+                    jQuery('.global-header--menu__trigger, .global-nav-menu').removeClass('clicked');
+                    jQuery('.global-header--menu__subnav-discover').slideUp(function(){});
                 } else {
-                    jQuery('.global-menu-trigger, .global-nav-menu').addClass('clicked');
+                    jQuery('.global-header--menu__trigger, .global-nav-menu').addClass('clicked');
                 }
             });
-            jQuery('.global-header-info__container').toggle(function(){});
+            jQuery('.global-header--info__container').toggle(function(){});
         // }
     });
 
-    jQuery('#megamenu--search-bar__button').on('click', function(e){
+    jQuery('#global-header--search-bar__button').on('click', function(e){
         e.preventDefault();
-        if(jQuery('.global-menu-trigger').hasClass('return')) {
-            jQuery('.nav-list__item').removeClass('selected selected-siblings');
-            jQuery('.global-menu-trigger').removeClass('return');
+        if(jQuery('.global-header--menu__trigger').hasClass('return')) {
+            jQuery('.global-header--nav-list__item').removeClass('selected selected-siblings');
+            jQuery('.global-header--menu__trigger').removeClass('return');
         } else {
-            if(jQuery('.global-menu-trigger').hasClass('clicked')) {
-                jQuery('.global-header--menu-nav').slideUp('slow');
-                jQuery('.global-header-info__container').slideUp('slow');
-                jQuery('.nav-list__subnav--discover').slideUp('slow');
+            if(jQuery('.global-header--menu__trigger').hasClass('clicked')) {
+                jQuery('.global-header--menu__nav').slideUp('slow');
+                jQuery('.global-header--info__container').slideUp('slow');
+                jQuery('.global-header--menu__subnav-discover').slideUp('slow');
                 setTimeout(function() {
-                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                    jQuery('.global-header--menu__trigger, .global-nav-menu').removeClass('clicked');
                 }, 600);
                 
             }
         }
         jQuery('html').addClass('js-noScroll');
-        jQuery('.megamenu--search-bar').slideDown('slow');
-        jQuery('.megamenu--search-bar__overlay').slideDown('slow');
-        jQuery('.megamenu--search-bar__content').slideDown('slow');
+        jQuery('.global-header--search-bar').slideDown('slow');
+        jQuery('.global-header--search-bar__overlay').slideDown('slow');
+        jQuery('.global-header--search-bar__content').slideDown('slow');
     });
 
-    jQuery('#megamenu--search-bar__close').on('click', function(e){
+    jQuery('#global-header--search-bar__close').on('click', function(e){
         e.preventDefault();
-        jQuery('.megamenu--search-bar').slideUp('slow');
-        jQuery('.megamenu--search-bar__overlay').slideUp('slow');
-        jQuery('.megamenu--search-bar__content').slideUp('slow');
+        jQuery('.global-header--search-bar').slideUp('slow');
+        jQuery('.global-header--search-bar__overlay').slideUp('slow');
+        jQuery('.global-header--search-bar__content').slideUp('slow');
         setTimeout(function() {
             jQuery('html').removeClass('js-noScroll');
         }, 600);        
