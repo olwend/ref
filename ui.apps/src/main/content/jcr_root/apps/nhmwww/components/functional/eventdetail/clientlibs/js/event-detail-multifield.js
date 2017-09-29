@@ -116,12 +116,13 @@
  
             var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
             var $fieldSets = $("[" + DATA_EAEM_NESTED + "][class='coral-Form-fieldset']");
- console.log($fieldSets);
             var record,
             	$fields, 
             	$field, 
             	name, 
             	$nestedMultiField;
+            
+            var durationsRecurrence = "[";
  
             $fieldSets.each(function (i, fieldSet) {
                 $fields = $(fieldSet).children().children(CFFW);
@@ -134,12 +135,12 @@
                     //may be a nested multifield
                     $nestedMultiField = $field.find("[data-init='multifield']");
  
-                    if($nestedMultiField.length == 0){
+                    if($nestedMultiField.length == 0) {
                         fillValue($field.find("[name]"), record);
-                    }else{
+                    } else {
                         name = $nestedMultiField.find("[class='coral-Form-fieldset']").data("name");
  
-                        if(!name){
+                        if(!name) {
                             return;
                         }
  
@@ -156,7 +157,7 @@
  
                 //add the record JSON in a hidden field as string
                 $('<input />').attr('type', 'hidden')
-                    .attr('name', "testbollocks")
+                    .attr('name', mName)
                     .attr('value', JSON.stringify(record))
                     .appendTo($form);
             });
