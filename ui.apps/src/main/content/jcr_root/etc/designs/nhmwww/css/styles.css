@@ -6908,8 +6908,8 @@ html.js-noScroll {
 }
 
 .global-header--container.row {
-  margin-bottom: 0;
   width: 100%;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -6978,7 +6978,7 @@ html.js-noScroll {
     display: flex;
     align-items: flex-end;
     background: none;
-    margin: 0 0 0 auto;
+    margin-left: auto;
   }
 }
 
@@ -7073,13 +7073,13 @@ html.js-noScroll {
 }
 
 .global-header--menu__trigger {
-  width: 50px;
-  height: 50px;
-  z-index: 99;
   display: -webkit-flex;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  z-index: 99;
   margin-right: 0;
   margin-left: auto;
 }
@@ -7130,9 +7130,9 @@ html.js-noScroll {
 
 .global-header--menu__subnav-discover {
   display: none;
-  padding-left: 1em;
   font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
+  padding-left: 1em;
 }
 
 .global-header--subnav {
@@ -7158,12 +7158,12 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .global-header--subnav ul {
-    height: 50px;
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: 0.95rem;
+    height: 50px;
   }
 }
 
@@ -7248,12 +7248,12 @@ html.js-noScroll {
 }
 
 .global-header--search-bar__close-icon {
-  stroke-width: 10;
   position: absolute;
   top: 13px;
   right: 10px;
   height: 23px;
   width: 23px;
+  stroke-width: 10;
 }
 
 @media screen and (min-width: 1025px) {
@@ -7263,21 +7263,21 @@ html.js-noScroll {
 }
 
 .global-header--search-bar__form {
-  text-align: center;
   display: -webkit-flex;
   display: flex;
   justify-content: center;
+  text-align: center;
   margin-bottom: 50px;
 }
 
 .global-header--search-bar__input[type="text"] {
   display: inline;
-  width: 570px;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  font-size: 24px;
   height: 50px;
+  width: 570px;
   margin: 0;
   border: 2px solid #000000;
-  font-size: 24px;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
 }
 
 .global-header--search-bar__input[type="text"]:focus {
@@ -7317,9 +7317,9 @@ html.js-noScroll {
 }
 
 .global-header--search-bar__search-icon {
-  stroke-width: 2;
   height: 36px;
   width: 36px;
+  stroke-width: 2;
 }
 
 .global-header--search-bar__popular-search-terms {
@@ -7344,15 +7344,10 @@ html.js-noScroll {
 
 .global-header--search-bar__link {
   display: inline;
-  padding-top: 7px;
-  padding-bottom: 7px;
   background-color: #B5B5B5;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 0;
   font-size: 18px;
-  padding-left: 8px;
-  padding-right: 8px;
+  margin: 0 10px;
+  padding: 7px 8px;
 }
 
 .global-header--search-bar__link a {
@@ -7373,7 +7368,6 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .global-header--nav-list {
-    margin-bottom: 0;
     height: 100%;
     padding-top: 2px;
   }
@@ -7388,8 +7382,8 @@ html.js-noScroll {
 @media screen and (min-width: 768px) {
   .global-header--nav-list__item {
     display: inline-flex;
-    margin: 0 15px 0 0;
     height: 100%;
+    margin-right: 15px;
   }
   .global-header--nav-list__item:hover, .global-header--nav-list__item.menuSelected {
     border-bottom: none;
@@ -7405,7 +7399,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1160px) {
   .global-header--nav-list__item {
-    margin: 0 30px 0 0;
+    margin-right: 30px;
   }
 }
 
@@ -7433,14 +7427,14 @@ html.js-noScroll {
 }
 
 .global-header--nav-list__item--subnav-link {
+  align-self: center;
   margin-right: 0;
   margin-left: auto;
-  align-self: center;
 }
 
 @media screen and (min-width: 768px) {
   .global-header--nav-list__item--subnav-link {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -7457,7 +7451,7 @@ html.js-noScroll {
 }
 
 .js-global-header--nav-list__hide {
-  display: none !important;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
