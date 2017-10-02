@@ -11,6 +11,12 @@
             fieldLabel="Title"
             name="./jcr:title"
             xtype="textfield"/>
+        <addPadding
+                jcr:primaryType="cq:Widget"
+                fieldLabel="Add Padding"
+                name="./addPadding"
+                type="checkbox"
+                xtype="selection"/>
         <type
             jcr:primaryType="cq:Widget"
             fieldLabel="Type / Size"
