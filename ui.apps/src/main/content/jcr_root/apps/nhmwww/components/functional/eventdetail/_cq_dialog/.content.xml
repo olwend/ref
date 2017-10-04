@@ -152,7 +152,7 @@
 		                                            jcr:primaryType="nt:unstructured"
 		                                            sling:resourceType="granite/ui/components/foundation/form/fieldset"
 		                                            eaem-nested="NODE_STORE"
-		                                            name="./dates">
+		                                            name="./dateAndTime">
 		                                            <layout
 		                                                jcr:primaryType="nt:unstructured"
 		                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
@@ -166,8 +166,7 @@
 											                   		jcr:primaryType="nt:unstructured"
 																	text="Recurring"
 																	name="./isRecurring"
-																	sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-																	value="{Boolean}true" />
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox" />
 		                                                        <dateTime
 																	jcr:primaryType="nt:unstructured"
 																	displayedFormat="MM-DD-YY"
@@ -179,8 +178,7 @@
 											                   		jcr:primaryType="nt:unstructured"
 																	text="All Day Event"
 																	name="./allDay"
-																	sling:resourceType="granite/ui/components/foundation/form/checkbox"
-																	value="{Boolean}true"/>
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox" />
 																<eventDuration
 									                            	jcr:primaryType="nt:unstructured"
 									                            	fieldLabel="Duration"

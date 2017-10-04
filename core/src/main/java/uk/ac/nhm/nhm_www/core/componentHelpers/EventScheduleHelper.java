@@ -47,7 +47,7 @@ public class EventScheduleHelper {
 		this.eventDates = contentNode.hasProperty("jcr:datesRecurrence") ? contentNode.getProperty("jcr:datesRecurrence").getString() : "";
 		this.eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
 		this.eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
-		this.durations = contentNode.hasProperty("jcr:durationsRecurrence") ? contentNode.getProperty("jcr:durationsRecurrence").getString() : "";
+		this.durations = contentNode.hasProperty("durationsRecurrence") ? contentNode.getProperty("durationsRecurrence").getString() : "";
 		this.soldOut = contentNode.hasProperty("jcr:soldOut") ? contentNode.getProperty("jcr:soldOut").getString() : "";
 
 		this.datesMap = new HashMap<String, String>();

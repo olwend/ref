@@ -41,11 +41,17 @@
  
                     _.each(record, function(rValue, rKey){
                         $field = $($fieldSets[i]).find("[name='./" + rKey + "']");
+
+                        if(rValue == "false") { rValue = false; }
  
                         if(_.isArray(rValue) && !_.isEmpty(rValue)){
                             fillNestedFields( $($fieldSets[i]).find("[data-init='multifield']"), rValue);
                         }else{
-                            $field.val(rValue);
+                            if(rValue == "true") { 
+                                $field[0].checked = true;
+                            } else {
+                            	$field.val(rValue);
+                            }
                         }
                     });
                 });
@@ -122,7 +128,7 @@
             	name, 
             	$nestedMultiField;
             
-            var durationsRecurrence = "[";
+            var durationsRecurrence = [];
  
             $fieldSets.each(function (i, fieldSet) {
                 $fields = $(fieldSet).children().children(CFFW);
@@ -146,21 +152,31 @@
  
                         //strip ./
                         name = name.substring(2);
- 
+ console.log(name);
                         record[name] = getRecordFromMultiField($nestedMultiField);
+                        console.log(record[name]);
                     }
                 });
  
                 if ($.isEmptyObject(record)) {
                     return;
                 }
- 
+                
+                //Add to old fields
+                durationsRecurrence.push(parseInt(record.eventDuration));
+
                 //add the record JSON in a hidden field as string
                 $('<input />').attr('type', 'hidden')
                     .attr('name', mName)
                     .attr('value', JSON.stringify(record))
                     .appendTo($form);
+
             });
+            
+            $('<input />').attr('type', 'hidden')
+            .attr('name', "./durationsRecurrence")
+            .attr('value', JSON.stringify(durationsRecurrence))
+            .appendTo($form);
         });
     };
  
