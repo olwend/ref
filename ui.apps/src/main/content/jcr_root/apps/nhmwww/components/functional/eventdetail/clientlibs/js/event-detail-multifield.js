@@ -128,8 +128,33 @@
             	name, 
             	$nestedMultiField;
             
-            var durationsRecurrence = [];
+            var durationsRecurrence = [],
+            	datesRecurrence = "",
+            	dateCount = 0;
  
+            var weekday = new Array(7);
+            weekday[0] =  "Sun";
+            weekday[1] = "Mon";
+            weekday[2] = "Tue";
+            weekday[3] = "Wed";
+            weekday[4] = "Thu";
+            weekday[5] = "Fri";
+            weekday[6] = "Sat";
+            
+            var month = new Array();
+            month[0] = "Jan";
+            month[1] = "Feb";
+            month[2] = "Mar";
+            month[3] = "Apr";
+            month[4] = "May";
+            month[5] = "Jun";
+            month[6] = "Jul";
+            month[7] = "Aug";
+            month[8] = "Sep";
+            month[9] = "Oct";
+            month[10] = "Nov";
+            month[11] = "Dec";
+            
             $fieldSets.each(function (i, fieldSet) {
                 $fields = $(fieldSet).children().children(CFFW);
  
@@ -164,6 +189,18 @@
                 
                 //Add to old fields
                 durationsRecurrence.push(parseInt(record.eventDuration));
+                
+                var d = new Date(record.dateTime);
+
+                if(dateCount == 0) {
+                	var dateString = weekday[d.getDay()] + " " + month[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+                	datesRecurrence = datesRecurrence + dateString + dateCount;
+                } else {
+                	var dateString = weekday[d.getDay()] + " " + month[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+                	datesRecurrence = datesRecurrence + "," + dateString + dateCount;
+                }
+                console.log(datesRecurrence);
+                dateCount++;
 
                 //add the record JSON in a hidden field as string
                 $('<input />').attr('type', 'hidden')
@@ -176,6 +213,11 @@
             $('<input />').attr('type', 'hidden')
             .attr('name', "./durationsRecurrence")
             .attr('value', JSON.stringify(durationsRecurrence))
+            .appendTo($form);
+            console.log(JSON.stringify(datesRecurrence));
+            $('<input />').attr('type', 'hidden')
+            .attr('name', "./datesRecurrence")
+            .attr('value', datesRecurrence)
             .appendTo($form);
         });
     };

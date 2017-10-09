@@ -44,7 +44,7 @@ public class EventScheduleHelper {
 		Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 
 		this.eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
-		this.eventDates = contentNode.hasProperty("jcr:datesRecurrence") ? contentNode.getProperty("jcr:datesRecurrence").getString() : "";
+		this.eventDates = contentNode.hasProperty("datesRecurrence") ? contentNode.getProperty("datesRecurrence").getString() : "";
 		this.eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
 		this.eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
 		this.durations = contentNode.hasProperty("durationsRecurrence") ? contentNode.getProperty("durationsRecurrence").getString() : "";

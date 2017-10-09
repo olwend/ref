@@ -166,7 +166,8 @@
 											                   		jcr:primaryType="nt:unstructured"
 																	text="Recurring"
 																	name="./isRecurring"
-																	sling:resourceType="granite/ui/components/foundation/form/checkbox" />
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox" 
+																	value="{Boolean}true" />
 		                                                        <dateTime
 																	jcr:primaryType="nt:unstructured"
 																	displayedFormat="MM-DD-YY"
@@ -178,13 +179,44 @@
 											                   		jcr:primaryType="nt:unstructured"
 																	text="All Day Event"
 																	name="./allDay"
-																	sling:resourceType="granite/ui/components/foundation/form/checkbox" />
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox"
+																	value="{Boolean}true" />
 																<eventDuration
 									                            	jcr:primaryType="nt:unstructured"
 									                            	fieldLabel="Duration"
 									                            	fieldDescription="Please enter the duration in minutes."
 									                            	name="./eventDuration"
 									                            	sling:resourceType="granite/ui/components/foundation/form/textfield" />
+								                            	<times
+		                                                            jcr:primaryType="nt:unstructured"
+		                                                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+		                                                            class="full-width"
+		                                                            fieldDescription="Click '+' to add a new page"
+		                                                            fieldLabel="Times">
+		                                                            <field
+		                                                                jcr:primaryType="nt:unstructured"
+		                                                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                                                name="./times">
+		                                                                <layout
+		                                                                    jcr:primaryType="nt:unstructured"
+		                                                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+		                                                                    method="absolute"/>
+		                                                                <items jcr:primaryType="nt:unstructured">
+		                                                                    <column
+		                                                                        jcr:primaryType="nt:unstructured"
+		                                                                        sling:resourceType="granite/ui/components/foundation/container">
+		                                                                        <items jcr:primaryType="nt:unstructured">
+		                                                                            <time
+		                                                                                jcr:primaryType="nt:unstructured"
+		                                                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+		                                                                                fieldDescription="Time of event"
+		                                                                                fieldLabel="Time"
+		                                                                                name="./time"/>
+		                                                                        </items>
+		                                                                    </column>
+		                                                                </items>
+		                                                            </field>
+		                                                        </times>
 		                                                    </items>
 		                                                </column>
 		                                            </items>
