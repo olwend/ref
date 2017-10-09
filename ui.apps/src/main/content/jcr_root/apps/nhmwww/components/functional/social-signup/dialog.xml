@@ -78,6 +78,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="Latest NHM stories"
                                 value="Latest NHM stories"/>
+                             <thirteen
+                                jcr:primaryType="nt:unstructured"
+                                text="WPY"
+                                value="WPY"/>
         
                         </options>
                     </campaign>
