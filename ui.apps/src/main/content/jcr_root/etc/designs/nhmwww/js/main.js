@@ -583,6 +583,20 @@ jQuery(document).ready(function() {
         });
     }
 
+    /** WR-1079 - reimplement cookie notice **/
+    
+    	if (!$.cookie('cookie-bar')) { //Fire when no cookie feedback present
+    		$('#cookie-bar').show();
+    	} else {
+    		$('#cookie-bar').remove();
+    	}
+    	
+    	$('.cookie-close').click(function() {
+    		$.cookie('cookie-bar', 'Feedback', { expires: 365, path: '/'});
+    		$('#cookie-bar').remove();
+    	});
+    	
+    	
     /** WR-1063 - smart banner nav bar fix **/
     $('body').on('DOMNodeInserted', 'div', function () { // Fire when a div is inserted into DOM
         if ($(this).hasClass('js_smartbanner')) {
