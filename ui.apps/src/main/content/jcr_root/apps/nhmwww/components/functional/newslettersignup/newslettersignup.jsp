@@ -118,6 +118,25 @@
       <span class="copyright--span">&copy; The Trustees of The Natural History Museum, London</span>
     </div>
   </div>
+  
+  <div class="container">
+	<div id="cookie-bar" data-module="cookie-bar"> 
+		::before	
+		<div class="small-11 medium-11 large-11 columns span11">
+		  	<p> 
+		  	"By using our site you are consenting to cookies being used.&nbsp;&nbsp;You can view&nbsp;our "
+		   	<a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a>
+			"&nbsp;here"
+			</p>
+		</div>
+		<div class="small-1 medium-1 large-1 columns span1">
+		<a class="cookie-close" title="Close cookie bar"/a>
+				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_1_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#EEEEEE"></i>
+			</a>
+		</div>
+		::after
+	</div>
+</div>
 
 </footer>
 <!-- END OF FOOTER -->
