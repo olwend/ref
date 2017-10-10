@@ -136,7 +136,8 @@
             
             var durationsRecurrence = [],
             	datesRecurrence = "",
-            	timesRecurrence = "",
+            	timesRecurrence = "[",
+            	allDayRecurrence = [],
             	dateCount = 0;
  
             var weekday = new Array(7);
@@ -208,6 +209,30 @@
                 	datesRecurrence = datesRecurrence + "," + dateString + dateCount;
                 }
 
+                var times = record.times,
+                	subTimesString = "[";
+                
+                for(var i=0; i<times.length; i++) {
+                	if(i > 0) {
+                		subTimesString = subTimesString + ',"' + times[i].time + '"';
+                	} else {
+                		subTimesString = subTimesString + '"' + times[i].time + '"';
+                	}
+                }
+                
+                subTimesString = subTimesString + ']';
+                if(dateCount == 0) {
+                	timesRecurrence = timesRecurrence + subTimesString;
+                } else {
+                	timesRecurrence = timesRecurrence + "," + subTimesString;
+                }
+                
+                var allDay = record.allDay;
+                if(allDay === "true") { allDay = true };
+                if(allDay === "false") { allDay = false };
+                
+                allDayRecurrence.push(allDay);
+                
                 dateCount++;
 
                 //add the record JSON in a hidden field as string
@@ -226,6 +251,18 @@
             $('<input />').attr('type', 'hidden')
             .attr('name', "./datesRecurrence")
             .attr('value', datesRecurrence)
+            .appendTo($form);
+            
+            timesRecurrence = timesRecurrence + "]";
+            
+            $('<input />').attr('type', 'hidden')
+            .attr('name', "./timesRecurrence")
+            .attr('value', timesRecurrence)
+            .appendTo($form);
+            
+            $('<input />').attr('type', 'hidden')
+            .attr('name', "./allDayRecurrence")
+            .attr('value', JSON.stringify(allDayRecurrence))
             .appendTo($form);
         });
     };
