@@ -5946,6 +5946,33 @@ html.js-noScroll {
   }
 }
 
+/** WR-1079 REIMPLEMENT COOKIE-BAR **/
+div#cookie-bar {
+  background-color: #000000;
+  border: 5px #FFFFFF;
+  height: 50px;
+}
+
+div#cookie-bar p {
+  color: #FFFFFF;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  text-align: center;
+  text-decoration: none;
+}
+
+div#cookie-bar a:hover {
+  color: #D5D5D5;
+  text-decoration: underline;
+}
+
+div#cookie-bar .cookie-close {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;

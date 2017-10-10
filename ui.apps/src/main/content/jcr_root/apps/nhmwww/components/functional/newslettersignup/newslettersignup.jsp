@@ -119,24 +119,23 @@
     </div>
   </div>
   
-  <div class="container">
+ </footer>
+<!-- END OF FOOTER -->
+
+ <div class="container">
 	<div id="cookie-bar" data-module="cookie-bar"> 
-		::before	
-		<div class="small-11 medium-11 large-11 columns span11">
+		
+		<div class="small-11 medium-11 large-11 columns ">
 		  	<p> 
-		  	"By using our site you are consenting to cookies being used.&nbsp;&nbsp;You can view&nbsp;our "
+		  	We use cookies to give you the best possible experience when using this site.&nbsp;&nbsp;Find out more....&nbsp;view our 
 		   	<a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a>
-			"&nbsp;here"
+			&nbsp;here
 			</p>
 		</div>
-		<div class="small-1 medium-1 large-1 columns span1">
-		<a class="cookie-close" title="Close cookie bar"/a>
-				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_1_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#EEEEEE"></i>
+		<div class="small-1 medium-1 large-1 columns ">
+		<a class="cookie-close" title="Accept cookies"/a>
+				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#A1164E"></i>
 			</a>
 		</div>
-		::after
 	</div>
 </div>
-
-</footer>
-<!-- END OF FOOTER -->
