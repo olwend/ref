@@ -45,7 +45,9 @@
                         if(rValue == "false") { rValue = false; }
  
                         if(_.isArray(rValue) && !_.isEmpty(rValue)){
-                            fillNestedFields( $($fieldSets[i]).find("[data-init='multifield']"), rValue);
+                        	
+                            fillNestedFields( $($fieldSets[i]).find(".coral-Multifield"), rValue);
+                            //fillNestedFields( $($fieldSets[i]).find("[data-init='multifield']"), rValue);
                         }else{
                             if(rValue == "true") { 
                                 $field[0].checked = true;
@@ -60,7 +62,8 @@
             //creates & fills the nested multifield with data
             var fillNestedFields = function($multifield, valueArr){
                 _.each(valueArr, function(record, index){
-                    $multifield.find(".js-coral-Multifield-add").click();
+                    $multifield.find(".coral-Button").click();
+                    //$multifield.find(".js-coral-Multifield-add").click();
  
                     //a setTimeout may be needed
                     _.each(record, function(value, key){
@@ -107,6 +110,9 @@
                 fillValue($(field), record);
             });
  
+            //We don't need this property and I don't know where it comes from
+            delete record['time@Delete'];
+            
             if(!$.isEmptyObject(record)){
                 records.push(record)
             }
@@ -130,6 +136,7 @@
             
             var durationsRecurrence = [],
             	datesRecurrence = "",
+            	timesRecurrence = "",
             	dateCount = 0;
  
             var weekday = new Array(7);
@@ -162,9 +169,10 @@
  
                 $fields.each(function (j, field) {
                     $field = $(field);
- 
+ console.log($field);
                     //may be a nested multifield
-                    $nestedMultiField = $field.find("[data-init='multifield']");
+                    $nestedMultiField = $field.find(".coral-Multifield");
+                    //$nestedMultiField = $field.find("[data-init='multifield']");
  
                     if($nestedMultiField.length == 0) {
                         fillValue($field.find("[name]"), record);
@@ -193,13 +201,13 @@
                 var d = new Date(record.dateTime);
 
                 if(dateCount == 0) {
-                	var dateString = weekday[d.getDay()] + " " + month[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+                	var dateString = weekday[d.getDay()] + " " + month[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear() + " " + d.toTimeString();
                 	datesRecurrence = datesRecurrence + dateString + dateCount;
                 } else {
-                	var dateString = weekday[d.getDay()] + " " + month[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+                	var dateString = weekday[d.getDay()] + " " + month[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear() + " " + d.toTimeString();
                 	datesRecurrence = datesRecurrence + "," + dateString + dateCount;
                 }
-                console.log(datesRecurrence);
+
                 dateCount++;
 
                 //add the record JSON in a hidden field as string
@@ -214,7 +222,7 @@
             .attr('name', "./durationsRecurrence")
             .attr('value', JSON.stringify(durationsRecurrence))
             .appendTo($form);
-            console.log(JSON.stringify(datesRecurrence));
+
             $('<input />').attr('type', 'hidden')
             .attr('name', "./datesRecurrence")
             .attr('value', datesRecurrence)

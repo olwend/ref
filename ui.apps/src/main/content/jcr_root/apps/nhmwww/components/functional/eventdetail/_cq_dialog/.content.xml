@@ -25,27 +25,6 @@
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
-							<!-- Hidden fields -->
-							<datesRecurrence
-			                    jcr:primaryType="nt:unstructured"
-			                    name="./jcr:datesRecurrence"
-			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
-			                <allDayRecurrence
-			                    jcr:primaryType="nt:unstructured"
-			                    name="./jcr:allDayRecurrence"
-			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
-			                <timesRecurrence
-			                    jcr:primaryType="nt:unstructured"
-			                    name="./jcr:timesRecurrence"
-			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
-			                <durationsRecurrence
-			                    jcr:primaryType="nt:unstructured"
-			                    name="./jcr:durationsRecurrence"
-			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
-			                <eventPagePath
-			                    jcr:primaryType="nt:unstructured"
-			                    name="./jcr:eventPagePath"
-			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 							<eventsList
 								jcr:primaryType="nt:unstructured"
 								name="./eventSelect"
@@ -80,12 +59,6 @@
 			                            class="cq-dialog-radio-showhide" />
 								</items>
 							</eventsList>
-							
-							<soldOut
-			                    jcr:primaryType="nt:unstructured"
-			                    name="./jcr:soldOut"
-			                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
-							
 							<eventTitle
 		                        jcr:primaryType="nt:unstructured"
 		                        fieldLabel="Event Title"
@@ -142,7 +115,6 @@
 		                                jcr:primaryType="nt:unstructured"
 		                                sling:resourceType="granite/ui/components/foundation/container">
 		                                <items jcr:primaryType="nt:unstructured">
-		                                
 		                                    <dates
 		                                        jcr:primaryType="nt:unstructured"
 		                                        sling:resourceType="granite/ui/components/foundation/form/multifield"
@@ -188,33 +160,131 @@
 									                            	name="./eventDuration"
 									                            	sling:resourceType="granite/ui/components/foundation/form/textfield" />
 								                            	<times
-		                                                            jcr:primaryType="nt:unstructured"
-		                                                            sling:resourceType="granite/ui/components/foundation/form/multifield"
-		                                                            class="full-width"
-		                                                            fieldDescription="Click '+' to add a new page"
-		                                                            fieldLabel="Times">
+																	jcr:primaryType="nt:unstructured"
+							                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+							                                        class="full-width"
+							                                        fieldLabel="Times">
 		                                                            <field
 		                                                                jcr:primaryType="nt:unstructured"
 		                                                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
 		                                                                name="./times">
 		                                                                <layout
-		                                                                    jcr:primaryType="nt:unstructured"
-		                                                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
-		                                                                    method="absolute"/>
-		                                                                <items jcr:primaryType="nt:unstructured">
-		                                                                    <column
-		                                                                        jcr:primaryType="nt:unstructured"
-		                                                                        sling:resourceType="granite/ui/components/foundation/container">
-		                                                                        <items jcr:primaryType="nt:unstructured">
-		                                                                            <time
-		                                                                                jcr:primaryType="nt:unstructured"
-		                                                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
-		                                                                                fieldDescription="Time of event"
-		                                                                                fieldLabel="Time"
-		                                                                                name="./time"/>
-		                                                                        </items>
-		                                                                    </column>
-		                                                                </items>
+							                                                jcr:primaryType="nt:unstructured"
+							                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+							                                                method="absolute"/>
+							                                            <items jcr:primaryType="nt:unstructured">
+							                                                <column
+							                                                    jcr:primaryType="nt:unstructured"
+							                                                    sling:resourceType="granite/ui/components/foundation/container">
+							                                                    <items jcr:primaryType="nt:unstructured">
+								                                                    <time
+																	                    jcr:primaryType="nt:unstructured"
+																	                    fieldLabel="Time"
+																	                    defaultValue="00:00"
+																	                    name="./time"
+																						sling:resourceType="granite/ui/components/coral/foundation/form/select">
+									                                                    <items jcr:primaryType="nt:unstructured">
+									                                                    	<time1 jcr:primaryType="nt:unstructured" text="00:00" value="00:00"/>
+																							<time2 jcr:primaryType="nt:unstructured" text="00:15" value="00:15"/>
+																							<time3 jcr:primaryType="nt:unstructured" text="00:30" value="00:30"/>
+																							<time4 jcr:primaryType="nt:unstructured" text="00:45" value="00:45"/>
+																							<time5 jcr:primaryType="nt:unstructured" text="01:00" value="01:00"/>
+																							<time6 jcr:primaryType="nt:unstructured" text="01:15" value="01:15"/>
+																							<time7 jcr:primaryType="nt:unstructured" text="01:30" value="01:30"/>
+																							<time8 jcr:primaryType="nt:unstructured" text="01:45" value="01:45"/>
+																							<time9 jcr:primaryType="nt:unstructured" text="02:00" value="02:00"/>
+																							<time10 jcr:primaryType="nt:unstructured" text="02:15" value="02:15"/>
+																							<time11 jcr:primaryType="nt:unstructured" text="02:30" value="02:30"/>
+																							<time12 jcr:primaryType="nt:unstructured" text="02:45" value="02:45"/>
+																							<time13 jcr:primaryType="nt:unstructured" text="03:00" value="03:00"/>
+																							<time14 jcr:primaryType="nt:unstructured" text="03:15" value="03:15"/>
+																							<time15 jcr:primaryType="nt:unstructured" text="03:30" value="03:30"/>
+																							<time16 jcr:primaryType="nt:unstructured" text="03:45" value="03:45"/>
+																							<time17 jcr:primaryType="nt:unstructured" text="04:00" value="04:00"/>
+																							<time18 jcr:primaryType="nt:unstructured" text="04:15" value="04:15"/>
+																							<time19 jcr:primaryType="nt:unstructured" text="04:30" value="04:30"/>
+																							<time20 jcr:primaryType="nt:unstructured" text="04:45" value="04:45"/>
+																							<time21 jcr:primaryType="nt:unstructured" text="05:00" value="05:00"/>
+																							<time22 jcr:primaryType="nt:unstructured" text="05:15" value="05:15"/>
+																							<time23 jcr:primaryType="nt:unstructured" text="05:30" value="05:30"/>
+																							<time24 jcr:primaryType="nt:unstructured" text="05:45" value="05:45"/>
+																							<time25 jcr:primaryType="nt:unstructured" text="06:00" value="06:00"/>
+																							<time26 jcr:primaryType="nt:unstructured" text="06:15" value="06:15"/>
+																							<time27 jcr:primaryType="nt:unstructured" text="06:30" value="06:30"/>
+																							<time28 jcr:primaryType="nt:unstructured" text="06:45" value="06:45"/>
+																							<time29 jcr:primaryType="nt:unstructured" text="07:00" value="07:00"/>
+																							<time30 jcr:primaryType="nt:unstructured" text="07:15" value="07:15"/>
+																							<time31 jcr:primaryType="nt:unstructured" text="07:30" value="07:30"/>
+																							<time32 jcr:primaryType="nt:unstructured" text="07:45" value="07:45"/>
+																							<time33 jcr:primaryType="nt:unstructured" text="08:00" value="08:00"/>
+																							<time34 jcr:primaryType="nt:unstructured" text="08:15" value="08:15"/>
+																							<time35 jcr:primaryType="nt:unstructured" text="08:30" value="08:30"/>
+																							<time36 jcr:primaryType="nt:unstructured" text="08:45" value="08:45"/>
+																							<time37 jcr:primaryType="nt:unstructured" text="09:00" value="09:00"/>
+																							<time38 jcr:primaryType="nt:unstructured" text="09:15" value="09:15"/>
+																							<time39 jcr:primaryType="nt:unstructured" text="09:30" value="09:30"/>
+																							<time40 jcr:primaryType="nt:unstructured" text="09:45" value="09:45"/>
+																							<time41 jcr:primaryType="nt:unstructured" text="10:00" value="10:00"/>
+																							<time42 jcr:primaryType="nt:unstructured" text="10:15" value="10:15"/>
+																							<time43 jcr:primaryType="nt:unstructured" text="10:30" value="10:30"/>
+																							<time44 jcr:primaryType="nt:unstructured" text="10:45" value="10:45"/>
+																							<time45 jcr:primaryType="nt:unstructured" text="11:00" value="11:00"/>
+																							<time46 jcr:primaryType="nt:unstructured" text="11:15" value="11:15"/>
+																							<time47 jcr:primaryType="nt:unstructured" text="11:30" value="11:30"/>
+																							<time48 jcr:primaryType="nt:unstructured" text="11:45" value="11:45"/>
+																							<time49 jcr:primaryType="nt:unstructured" text="12:00" value="12:00"/>
+																							<time50 jcr:primaryType="nt:unstructured" text="12:15" value="12:15"/>
+																							<time51 jcr:primaryType="nt:unstructured" text="12:30" value="12:30"/>
+																							<time52 jcr:primaryType="nt:unstructured" text="12:45" value="12:45"/>
+																							<time53 jcr:primaryType="nt:unstructured" text="13:00" value="13:00"/>
+																							<time54 jcr:primaryType="nt:unstructured" text="13:15" value="13:15"/>
+																							<time55 jcr:primaryType="nt:unstructured" text="13:30" value="13:30"/>
+																							<time56 jcr:primaryType="nt:unstructured" text="13:45" value="13:45"/>
+																							<time57 jcr:primaryType="nt:unstructured" text="14:00" value="14:00"/>
+																							<time58 jcr:primaryType="nt:unstructured" text="14:15" value="14:15"/>
+																							<time59 jcr:primaryType="nt:unstructured" text="14:30" value="14:30"/>
+																							<time60 jcr:primaryType="nt:unstructured" text="14:45" value="14:45"/>
+																							<time61 jcr:primaryType="nt:unstructured" text="15:00" value="15:00"/>
+																							<time62 jcr:primaryType="nt:unstructured" text="15:15" value="15:15"/>
+																							<time63 jcr:primaryType="nt:unstructured" text="15:30" value="15:30"/>
+																							<time64 jcr:primaryType="nt:unstructured" text="15:45" value="15:45"/>
+																							<time65 jcr:primaryType="nt:unstructured" text="16:00" value="16:00"/>
+																							<time66 jcr:primaryType="nt:unstructured" text="16:15" value="16:15"/>
+																							<time67 jcr:primaryType="nt:unstructured" text="16:30" value="16:30"/>
+																							<time68 jcr:primaryType="nt:unstructured" text="16:45" value="16:45"/>
+																							<time69 jcr:primaryType="nt:unstructured" text="17:00" value="17:00"/>
+																							<time70 jcr:primaryType="nt:unstructured" text="17:15" value="17:15"/>
+																							<time71 jcr:primaryType="nt:unstructured" text="17:30" value="17:30"/>
+																							<time72 jcr:primaryType="nt:unstructured" text="17:45" value="17:45"/>
+																							<time73 jcr:primaryType="nt:unstructured" text="18:00" value="18:00"/>
+																							<time74 jcr:primaryType="nt:unstructured" text="18:15" value="18:15"/>
+																							<time75 jcr:primaryType="nt:unstructured" text="18:30" value="18:30"/>
+																							<time76 jcr:primaryType="nt:unstructured" text="18:45" value="18:45"/>
+																							<time77 jcr:primaryType="nt:unstructured" text="19:00" value="19:00"/>
+																							<time78 jcr:primaryType="nt:unstructured" text="19:15" value="19:15"/>
+																							<time79 jcr:primaryType="nt:unstructured" text="19:30" value="19:30"/>
+																							<time80 jcr:primaryType="nt:unstructured" text="19:45" value="19:45"/>
+																							<time81 jcr:primaryType="nt:unstructured" text="20:00" value="20:00"/>
+																							<time82 jcr:primaryType="nt:unstructured" text="20:15" value="20:15"/>
+																							<time83 jcr:primaryType="nt:unstructured" text="20:30" value="20:30"/>
+																							<time84 jcr:primaryType="nt:unstructured" text="20:45" value="20:45"/>
+																							<time85 jcr:primaryType="nt:unstructured" text="21:00" value="21:00"/>
+																							<time86 jcr:primaryType="nt:unstructured" text="21:15" value="21:15"/>
+																							<time87 jcr:primaryType="nt:unstructured" text="21:30" value="21:30"/>
+																							<time88 jcr:primaryType="nt:unstructured" text="21:45" value="21:45"/>
+																							<time89 jcr:primaryType="nt:unstructured" text="22:00" value="22:00"/>
+																							<time90 jcr:primaryType="nt:unstructured" text="22:15" value="22:15"/>
+																							<time91 jcr:primaryType="nt:unstructured" text="22:30" value="22:30"/>
+																							<time92 jcr:primaryType="nt:unstructured" text="22:45" value="22:45"/>
+																							<time93 jcr:primaryType="nt:unstructured" text="23:00" value="23:00"/>
+																							<time94 jcr:primaryType="nt:unstructured" text="23:15" value="23:15"/>
+																							<time95 jcr:primaryType="nt:unstructured" text="23:30" value="23:30"/>
+																							<time96 jcr:primaryType="nt:unstructured" text="23:45" value="23:45"/>
+									                                                    </items>
+									                                                </time>
+									                                            </items>
+							                                                </column>
+							                                            </items>
 		                                                            </field>
 		                                                        </times>
 		                                                    </items>
@@ -226,7 +296,6 @@
 		                            </column>
 		                        </items>
 		                    </fieldset>
-
 						</items>
    					</column>
        			</items>
