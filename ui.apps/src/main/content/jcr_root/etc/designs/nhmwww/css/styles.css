@@ -6455,12 +6455,29 @@ html.js-noScroll {
   background-color: #EEEEEE;
 }
 
+.discover-element .element-tag {
+  padding-bottom: 0.5em;
+}
+
 .discover-element .element-text {
   margin-top: 0.6em;
 }
 
 .discover-element .element-text p {
   font-size: 1em;
+}
+
+.discover-element {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.discover-element:first-child {
+  margin-left: 0;
+}
+
+.discover-element:last-child {
+  margin-right: 0;
 }
 
 /** REFACTOR-DISCOVER-RELATED PARTIAL **/
@@ -6473,8 +6490,17 @@ html.js-noScroll {
   padding-left: 0.75em !important;
 }
 
+.discoverrelated .discover .related-posts--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.discoverrelated .discover .discover-element-wrapper {
+  position: relative;
+}
+
 .discoverrelated .discover .discover-element-text {
-  padding-bottom: 0.9em;
+  padding: 1em;
 }
 
 .discoverrelated .discover .discover-element-text p {
@@ -6485,8 +6511,7 @@ html.js-noScroll {
   position: absolute;
   top: 118px;
   left: 232px;
-  max-width: 50px;
-  max-height: 35px;
+  max-width: 40px;
 }
 
 /** REFACTOR-DISCOVER-PUBLICATION PARTIAL **/
