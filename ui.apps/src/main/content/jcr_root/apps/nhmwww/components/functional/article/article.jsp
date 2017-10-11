@@ -80,9 +80,9 @@
 							<div class="articles--meta-author">By <%=helper.getAuthor()%></div>
 						<%} %> 
 						
-						<div class="articles--meta-publication-date"><%=helper.getPublishedDate()%></div>
+						<div class="articles--meta-publication-date">First published <%=helper.getPublishedDate()%></div>
 						<%if(helper.getUpdatedDate() != null) { %>
-						<div class="articles--meta-updated-date"><%=helper.getUpdatedDate()%></div>
+						<div class="articles--meta-updated-date">Last updated <%=helper.getUpdatedDate()%></div>
 						<%} %>
 					</div>
 

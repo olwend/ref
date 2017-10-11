@@ -162,13 +162,13 @@ public class ArticleHelper {
 			if(dateLastUpdated != null) {
 				DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
 				MutableDateTime mdt = dt.toMutableDateTime();
-				this.updatedDate = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+				this.updatedDate = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
 			} 
 
 			if(datePublished != null) {
 				DateTime dt = dateFormatter.parseDateTime(datePublished);
 				MutableDateTime mdt = dt.toMutableDateTime();
-				this.publishedDate = "First published " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+				this.publishedDate = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
 
 				if(mdt.getMonthOfYear() < 10) {
 					this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();

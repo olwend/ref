@@ -5,7 +5,7 @@
 				java.text.DateFormat,
 				java.util.Locale,
 				org.apache.sling.api.resource.Resource,
-				uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper"%>
+				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
 <cq:includeClientLib categories="nhm-www.discoverpublication" />				
 <%
 	final String[] posts = properties.get("posts", String[].class);
@@ -27,11 +27,11 @@
             	postResource = postPage.getContentResource("article"); 
         	}
             if(template.equals("/apps/nhmwww/templates/discoverpublicationpage")) { 
-            		postResource = postPage.getContentResource("discoverpublication"); 
+           		postResource = postPage.getContentResource("discoverpublication"); 
         	}
 			if (postResource == null) continue;
 			
-			final DiscoverPublicationHelper helper = new DiscoverPublicationHelper(postResource, request, xssAPI);
+			final ArticleHelper helper = new ArticleHelper(postResource, request, xssAPI, slingRequest);
 			if (!helper.isConfigured()) continue;
 	
 			if (helper.isImageHeadType() && !helper.isImageConfigured() ||
@@ -66,9 +66,15 @@
 					</div>
 				</div>
 				<div class="discover-element-text">
+				
+					<%= helper.getHubTagName() %>
+				
 					<a class="element-title" href="<%= postPage.getPath() %>.html">
 						<%= xssAPI.filterHTML(helper.getTitle()) %>
 					</a>
+					
+					<%= helper.getPublishedDate() %>
+					
 					<p class="element-text">
 						<%= xssAPI.filterHTML(helper.getSnippet()) %>
 					</p>
