@@ -12,14 +12,22 @@
 	</div>
 	<div data-sly-test="${properties.rootpath && properties.rowsize}">
 		<div data-sly-use.articlefeed="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleFeed">
-			<div data-sly-list.list="${articlegeed.pageList}">
-
-	    		<div style="padding-right:7px; padding-left:7px; height:350px;" class="large-${articlefeed.columns} medium-6 small-12 columns end">
-	    			<img src="${list['imagePath']}">
-	            	<a href="${list['path']}.html">${list['title']}</a>
-	            	<br><br>
-            		${list['excerpt']}
-	            </div>
+			<div data-sly-test="${!articlefeed.pageList}">
+				This query returns no results
+	        </div>
+	        <div data-sly-test="${articlefeed.pageList}">
+				<div data-sly-list.list="${articlefeed.pageList}">
+					<div data-sly-test="${list.size > 0}">
+			    		<div style="padding-right:7px; padding-left:7px; height:350px;" class="large-${articlefeed.columns} medium-6 small-12 columns end">
+			    			<img src="${list['imagePath']}">
+			    			${list['hubtag']}
+			            	<a href="${list['path']}.html">${list['title']}</a>
+			            	${list['datepublished']}
+			            	<br><br>
+		            		${list['excerpt']}
+			            </div>
+			        </div>
+				</div>
 			</div>
 		</div>
 	</div>

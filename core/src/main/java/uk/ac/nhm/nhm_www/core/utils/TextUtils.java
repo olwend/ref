@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
+import org.jsoup.Jsoup;
 
 public class TextUtils {
 
@@ -54,5 +55,9 @@ public class TextUtils {
 		String newHost = aemName + "-disp" + aemNum + "-" + aemEnv;
 		
 		return newHost;
+	}
+	
+	public String stripHtmlTags(String htmlText) {
+		return Jsoup.parse(htmlText).text();
 	}
 }
