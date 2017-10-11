@@ -495,7 +495,11 @@
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
-						
+							<soldOut
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Sold Out"
+			                    name="./soldOut"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
 						</items>
 					</column>
 				</items>

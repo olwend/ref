@@ -135,9 +135,10 @@
             	$nestedMultiField;
             
             var durationsRecurrence = [],
+            	allDayRecurrence = [],
             	datesRecurrence = "",
             	timesRecurrence = "[",
-            	allDayRecurrence = [],
+            	soldOutRecurrence = "[",
             	dateCount = 0;
  
             var weekday = new Array(7);
@@ -196,9 +197,18 @@
                     return;
                 }
                 
-                //Add to old fields
+                //Add old fields (blame Ensemble)
+                //Durations
                 durationsRecurrence.push(parseInt(record.eventDuration));
                 
+                //All day
+                var allDay = record.allDay;
+                if(allDay === "true") { allDay = true };
+                if(allDay === "false") { allDay = false };
+                
+                allDayRecurrence.push(allDay);
+                
+                //Dates
                 var d = new Date(record.dateTime);
 
                 if(dateCount == 0) {
@@ -209,15 +219,18 @@
                 	datesRecurrence = datesRecurrence + "," + dateString + dateCount;
                 }
 
+                //Times
                 var times = record.times,
                 	subTimesString = "[";
                 
-                for(var i=0; i<times.length; i++) {
-                	if(i > 0) {
-                		subTimesString = subTimesString + ',"' + times[i].time + '"';
-                	} else {
-                		subTimesString = subTimesString + '"' + times[i].time + '"';
-                	}
+                if(allDay === false) {
+	                for(var i=0; i<times.length; i++) {
+	                	if(i > 0) {
+	                		subTimesString = subTimesString + ',"' + times[i].time + '"';
+	                	} else {
+	                		subTimesString = subTimesString + '"' + times[i].time + '"';
+	                	}
+	                }
                 }
                 
                 subTimesString = subTimesString + ']';
@@ -226,12 +239,8 @@
                 } else {
                 	timesRecurrence = timesRecurrence + "," + subTimesString;
                 }
-                
-                var allDay = record.allDay;
-                if(allDay === "true") { allDay = true };
-                if(allDay === "false") { allDay = false };
-                
-                allDayRecurrence.push(allDay);
+
+                //Sold out
                 
                 dateCount++;
 
