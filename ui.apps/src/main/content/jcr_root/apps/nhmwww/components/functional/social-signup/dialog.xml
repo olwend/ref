@@ -81,7 +81,7 @@
                              <thirteen
                                 jcr:primaryType="nt:unstructured"
                                 text="WPY"
-                                value="WPY"/>
+                                value="remote WPY-website newsletter-si"/>
         
                         </options>
                     </campaign>
