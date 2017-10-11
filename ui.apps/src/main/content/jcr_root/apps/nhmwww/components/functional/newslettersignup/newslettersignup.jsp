@@ -133,9 +133,9 @@
 			</p>
 		</div>
 		<div class="small-2 medium-2 large-2 columns ">
-		<a class="cookie-close" title="Accept cookies">
+		<a class="js--cookie-close" title="Accept cookies">
 				Click to accept cookies
-				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#000"></i>
+				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#FFFFFF"></i>
 		</a>
 		</div>
 	</div>

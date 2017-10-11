@@ -585,13 +585,13 @@ jQuery(document).ready(function() {
 
  /** WR-1079 - reimplement cookie notice **/
 
-    if (!$.cookie('cookie-bar')) { //Fire when no cookie feedback present
+    if (!$.cookie('cookieBar-cookie')) { //Fire when no cookie feedback present
         $('#cookie-bar').show();
     } else {
         $('#cookie-bar').remove();
     }
-        $('.cookie-close').click(function() {
-            $.cookie('cookie-bar', 'Feedback', { expires: 365, path: '/'});
+        $('.js--cookie-close').click(function() {
+            $.cookie('cookieBar-cookie', 'nhm-cookies', { expires: 365, path: '/'});
             $('#cookie-bar').remove();
         });
 
