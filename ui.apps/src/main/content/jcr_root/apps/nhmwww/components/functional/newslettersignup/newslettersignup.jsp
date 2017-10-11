@@ -125,17 +125,18 @@
  <div class="container">
 	<div id="cookie-bar" data-module="cookie-bar"> 
 		
-		<div class="small-11 medium-11 large-11 columns ">
+		<div class="small-10 medium-10 large-10 columns ">
 		  	<p> 
 		  	We use cookies to give you the best possible experience when using this site.&nbsp;&nbsp;Find out more....&nbsp;view our 
 		   	<a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a>
 			&nbsp;here
 			</p>
 		</div>
-		<div class="small-1 medium-1 large-1 columns ">
-		<a class="cookie-close" title="Accept cookies"/a>
-				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#A1164E"></i>
-			</a>
+		<div class="small-2 medium-2 large-2 columns ">
+		<a class="cookie-close" title="Accept cookies">
+				Click to accept cookies
+				<i class="ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#000"></i>
+		</a>
 		</div>
 	</div>
 </div>

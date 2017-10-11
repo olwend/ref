@@ -5966,9 +5966,9 @@ div#cookie-bar a:hover {
   text-decoration: underline;
 }
 
-div#cookie-bar .cookie-close {
-  height: 50px;
-  width: 100%;
+div#cookie-bar .cookie-close .i.ico.svg-ico {
+  height: 20px;
+  width: 20px;
   position: relative;
   top: 0;
 }
