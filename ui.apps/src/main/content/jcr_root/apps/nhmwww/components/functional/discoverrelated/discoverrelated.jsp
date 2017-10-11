@@ -67,7 +67,9 @@
 				</div>
 				<div class="discover-element-text">
 				
-					<%= helper.getHubTagName() %>
+					<%if(helper.getHubTagName() != null) { %>
+						<%= helper.getHubTagName() %>
+					<%} %>
 				
 					<a class="element-title" href="<%= postPage.getPath() %>.html">
 						<%= xssAPI.filterHTML(helper.getTitle()) %>
