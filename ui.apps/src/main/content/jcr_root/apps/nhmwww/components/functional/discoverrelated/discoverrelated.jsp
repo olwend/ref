@@ -41,7 +41,8 @@
 
 			final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.ENGLISH);
 %>
-		<div class="discover-element large-3 medium-6 small-12">
+		<!-- <div class="discover-element large-3 medium-6 small-12"> -->
+		<div class="discover-element">
 			<div class="discover-element-wrapper">
 				<a href="<%= postPage.getPath() %>.html">
 <%
@@ -54,8 +55,10 @@
 				beforeMode.toRequest(slingRequest);
 			} else {
 %>
-					<img src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video" class="discover-related--video-icon">
-					<img src="http://img.youtube.com/vi/<%= helper.getVideo() %>/mqdefault.jpg" alt="<%=helper.getTitle() %>">
+					<div class="discover-element--video-container">
+						<img class="discover-element--video-icon" src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video">
+						<img class="discover-element--video-thumbnail" src="http://img.youtube.com/vi/<%= helper.getVideo() %>/mqdefault.jpg" alt="<%=helper.getTitle() %>">
+					</div>
 <%
 			}
 %>

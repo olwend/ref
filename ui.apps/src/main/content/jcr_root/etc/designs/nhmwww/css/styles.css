@@ -6468,16 +6468,34 @@ html.js-noScroll {
 }
 
 .discover-element {
-  margin-left: 10px;
-  margin-right: 10px;
+  flex-basis: 100%;
 }
 
-.discover-element:first-child {
-  margin-left: 0;
+@media screen and (min-width: 480px) {
+  .discover-element {
+    flex-basis: 50%;
+  }
 }
 
-.discover-element:last-child {
-  margin-right: 0;
+@media screen and (min-width: 1025px) {
+  .discover-element {
+    flex-basis: 25%;
+  }
+}
+
+.discover-element--video-container {
+  position: relative;
+}
+
+.discover-element--video-container .discover-element--video-icon {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  max-width: 40px;
+}
+
+.discover-element--video-container .discover-element--video-thumbnail {
+  width: 100%;
 }
 
 /** REFACTOR-DISCOVER-RELATED PARTIAL **/
@@ -6492,7 +6510,7 @@ html.js-noScroll {
 
 .discoverrelated .discover .related-posts--container {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
 }
 
 .discoverrelated .discover .discover-element-wrapper {
@@ -6505,13 +6523,6 @@ html.js-noScroll {
 
 .discoverrelated .discover .discover-element-text p {
   font-size: 1em;
-}
-
-.discover-related--video-icon {
-  position: absolute;
-  top: 118px;
-  left: 232px;
-  max-width: 40px;
 }
 
 /** REFACTOR-DISCOVER-PUBLICATION PARTIAL **/
