@@ -4,12 +4,13 @@
 				java.util.Calendar,
 				java.util.List,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
-
+<cq:includeClientLib categories="nhmwww.article"/>
 <%
 	final ArticleHelper helper = new ArticleHelper(resource, request, xssAPI, slingRequest);
 
 	if (!helper.isConfigured()) {
 %>
+	
 	<div class="row">
 		<span class="noconfigured">
 			Please configure the article page correctly. Required fields:

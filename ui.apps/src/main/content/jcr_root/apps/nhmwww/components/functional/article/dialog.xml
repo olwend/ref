@@ -12,6 +12,11 @@
                 jcr:primaryType="cq:Panel"
                 title="Configuration">
                 <items jcr:primaryType="cq:WidgetCollection">
+                    <alltags
+	                    jcr:primaryType="cq:Widget"
+	                    hidden="true"
+	                    name="./cq:tags"
+	                    xtype="multifield"/>
                     <title
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Title"
@@ -167,6 +172,7 @@
                         fieldLabel="Other tags"
                         name="./otherTags"
                         xtype="tags"/>
+                    
             	</items>	
             </tags>
             <social
@@ -221,4 +227,7 @@
             </metadata>
         </items>
     </items>
+    <listeners
+		jcr:primaryType="nt:unstructured"
+		beforesubmit="function(dialog){concatenate_tags(dialog);}"/>
 </jcr:root>

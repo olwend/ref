@@ -14,8 +14,6 @@ import javax.jcr.Value;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
@@ -76,11 +74,12 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 
 		    //Tags
 		    if(tags != null) {
+		    	
 		    	for(int i=0; i<tags.length; i++) {
 		    		String tagid = "group." + i + "_tagid";
 		    		String tagidproperty = "group." + i + "_tagid.property";
 				    queryMap.put(tagid, tags[i]);
-				    queryMap.put(tagidproperty, "jcr:content/cq:tags");
+				    queryMap.put(tagidproperty, "jcr:content/article/cq:tags");
 		    	}
 		    	if(!tagsOperator.equals(null) && tagsOperator != null) {
 			    	if(tagsOperator.equals("and")) queryMap.put("group.p.or", "false");
@@ -102,6 +101,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		    	}
 		    }
 
+		    LOG.error(queryMap.toString());
 		    //Query
 		    Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
 
@@ -114,7 +114,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 
 		    SearchResult result = query.getResult();
 
-		    LOG.info(result.getQueryStatement());
+		    //LOG.info(result.getQueryStatement());
 
 		    //For each query hit, gather required fields and add them to a Map
 		    //Subsequently add map to @nodeList that is returned to the view
@@ -185,7 +185,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 					if(hubTags.length > 0) {
 						Tag tag = tagManager.resolve(hubTags[0].getString());
 						nodeMap.put("hubtag", tag.getTitle().toUpperCase());
-					} 
+					}
 		    	}
 		    	
 		    	nodeList.add(nodeMap);
