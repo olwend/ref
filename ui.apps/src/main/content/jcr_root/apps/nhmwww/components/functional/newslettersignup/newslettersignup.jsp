@@ -122,16 +122,16 @@
  </footer>
 <!-- END OF FOOTER -->
 
- <div class="container">
+<div class="container">
 	<div id="cookie-bar" data-module="cookie-bar"> 
 		
-		<div class="small-9 medium-9 large-9 columns ">
+		<div class="small-11 medium-11 large-11 columns ">
 		  	<p> 
 		  		We use cookies to give you the best possible experience when using this site.&nbsp; View our&nbsp;
 		  	   	<a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a> &nbsp; to find out more....&nbsp;
 			</p>
 		</div>
-		<div class="small-3 medium-3 large-3 columns ">
+		<div class="small-1 medium-1 large-1 columns ">
 		<a class="js--cookie-close" title="Accept cookies">
 				Click to accept&nbsp;
 		</a>

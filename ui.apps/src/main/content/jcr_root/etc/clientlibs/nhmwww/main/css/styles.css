@@ -5951,13 +5951,17 @@ div#cookie-bar {
   background-color: #000000;
   border: 5px #FFFFFF;
   height: 70px;
+  position: fixed;
+  top: 100px;
+  left: 150px;
 }
 
 div#cookie-bar i.svg-ico {
   height: 20px;
   width: 20px;
   position: relative;
-  border: none;
+  text-align: center;
+  cursor: pointer;
 }
 
 div#cookie-bar a {
@@ -5973,7 +5977,6 @@ div#cookie-bar p {
   color: #FFFFFF;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.1em;
-  text-align: center;
   text-decoration: none;
 }
 
