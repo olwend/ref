@@ -3,6 +3,7 @@
 		import="com.day.cq.wcm.api.WCMMode,
 				java.util.Calendar,
 				java.util.List,
+				java.util.Map,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
 
 <%
@@ -105,9 +106,13 @@
 						<hr class="articles--hr-footer">
 						<div class="articles--tags-footer">
 							<ul>
-							<% List<String> tagList = helper.getTagList();
+							<% List<Map<String, String>> tagList = helper.getTagList();
 							for(int i=0; i<tagList.size(); i++) {%>
-							<li><%=tagList.get(i) %></li>
+                                <%if(!tagList.get(i).get("path").equals("")) {%>
+                                	<li><a href="<%=tagList.get(i).get("path") %>"><%=tagList.get(i).get("title") %></a></li>
+                                <%} else {%>
+									<li><%=tagList.get(i).get("title") %></li>
+                                <%}%>
 							<%} %>
 							</ul>
 						</div>
