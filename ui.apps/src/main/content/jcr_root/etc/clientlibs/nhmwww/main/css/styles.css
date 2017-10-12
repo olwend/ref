@@ -5950,14 +5950,23 @@ html.js-noScroll {
 div#cookie-bar {
   background-color: #000000;
   border: 5px #FFFFFF;
-  height: 50px;
+  height: 70px;
 }
 
 div#cookie-bar i.svg-ico {
   height: 20px;
   width: 20px;
   position: relative;
-  top: 0;
+  border: none;
+}
+
+div#cookie-bar a {
+  color: #FFFFFF;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #FFFFFF;
 }
 
 div#cookie-bar p {
@@ -5966,11 +5975,6 @@ div#cookie-bar p {
   font-size: 1.1em;
   text-align: center;
   text-decoration: none;
-}
-
-div#cookie-bar a:hover {
-  color: #D5D5D5;
-  text-decoration: underline;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
