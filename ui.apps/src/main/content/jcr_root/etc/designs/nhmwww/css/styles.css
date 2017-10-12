@@ -6992,7 +6992,7 @@ html.js-noScroll {
 /** REFACTOR-HTI-FEATUREBOX PARTIAL **/
 /** this has likely been superseded by HTI-BOX__FEATURE-BOX **/
 .feature-box a:hover {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /** IMAGE AND CTA PARTIAL NHMEC-8 **/
@@ -7573,7 +7573,7 @@ html.js-noScroll {
 }
 
 .megamenu--search-bar__link a {
-  color: black;
+  color: #000000;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   white-space: nowrap;
 }
@@ -7714,7 +7714,7 @@ html.js-noScroll {
 
 .feed--item--content-wrapper {
   margin-bottom: 1.8em;
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 .feed--item--content {
@@ -7743,9 +7743,9 @@ html.js-noScroll {
 }
 
 .feed--item--caption {
-  background-color: #aaaaaa;
+  background-color: #AAAAAA;
   padding: 0.5em 1.25em;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 0.95em;
 }
 
@@ -8088,7 +8088,7 @@ a.button-cta {
   margin-top: 0.4em;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   color: #565656;
 }
 
@@ -8099,17 +8099,17 @@ a.button-cta {
 }
 
 .hti-box__light-grey {
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
   color: #565656;
 }
 
 .hti-box__dark-grey {
   background-color: #808080 !important;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__dark-grey h3 {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__dark-grey a {
@@ -8122,11 +8122,11 @@ a.button-cta {
 
 /** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
 .hti-box__feature-box {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__feature-box h3 {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hti-box__feature-box a {
@@ -8160,7 +8160,7 @@ a.button-cta {
 /** this replaces info-tout__action **/
 .ctabutton--inside-hti {
   padding: 1.125em 0 1.125em 1.125em;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border: none !important;
 }
 
@@ -8222,11 +8222,11 @@ a.button-cta {
 }
 
 .linklist--container__white {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 
 .linklist--container__grey {
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 .linklist--column--no-header {
@@ -8848,6 +8848,18 @@ input.searchGo {
   color: #0B5C7B;
 }
 
+.about-us .linklist--container--header a {
+  color: #0B5C7B;
+}
+
+.about-us .linklist--link-items li a:hover {
+  border-bottom-color: #0B5C7B;
+}
+
+.about-us .linklist--column--header a {
+  color: #0B5C7B;
+}
+
 .about-us .button__enews-signup {
   background-color: #0B5C7B;
 }
@@ -8894,18 +8906,6 @@ input.searchGo {
   color: #0B5C7B;
 }
 
-.about-us .linklist--container--header a {
-  color: #0B5C7B;
-}
-
-.about-us .linklist--link-items li a:hover {
-  border-bottom-color: #0B5C7B;
-}
-
-.about-us .linklist--column--header a {
-  color: #0B5C7B;
-}
-
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 .about-us .ctabutton--inside-hti--cta-text {
   color: #0B5C7B;
@@ -8916,7 +8916,7 @@ input.searchGo {
 }
 
 .about-us a.promo-link {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
@@ -9077,6 +9077,18 @@ input.searchGo {
   color: #253480;
 }
 
+.business-services .linklist--container--header a {
+  color: #253480;
+}
+
+.business-services .linklist--link-items li a:hover {
+  border-bottom-color: #253480;
+}
+
+.business-services .linklist--column--header a {
+  color: #253480;
+}
+
 .business-services .button__enews-signup {
   background-color: #253480;
 }
@@ -9120,18 +9132,6 @@ input.searchGo {
 }
 
 .business-services .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #253480;
-}
-
-.business-services .linklist--container--header a {
-  color: #253480;
-}
-
-.business-services .linklist--link-items li a:hover {
-  border-bottom-color: #253480;
-}
-
-.business-services .linklist--column--header a {
   color: #253480;
 }
 
@@ -9200,6 +9200,18 @@ input.searchGo {
   color: #808080;
 }
 
+.contact-us .linklist--container--header a {
+  color: #808080;
+}
+
+.contact-us .linklist--link-items li a:hover {
+  border-bottom-color: #808080;
+}
+
+.contact-us .linklist--column--header a {
+  color: #808080;
+}
+
 .contact-us .button__enews-signup {
   background-color: #808080;
 }
@@ -9243,18 +9255,6 @@ input.searchGo {
 }
 
 .contact-us .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #808080;
-}
-
-.contact-us .linklist--container--header a {
-  color: #808080;
-}
-
-.contact-us .linklist--link-items li a:hover {
-  border-bottom-color: #808080;
-}
-
-.contact-us .linklist--column--header a {
   color: #808080;
 }
 
@@ -9318,7 +9318,7 @@ input.searchGo {
 }
 
 .discover h1 {
-  color: #107B5E;
+  color: #565656;
 }
 
 .discover .discoverpublication h1 {
@@ -9440,6 +9440,18 @@ input.searchGo {
   color: #357900;
 }
 
+.our-science .linklist--container--header a {
+  color: #357900;
+}
+
+.our-science .linklist--link-items li a:hover {
+  border-bottom-color: #357900;
+}
+
+.our-science .linklist--column--header a {
+  color: #357900;
+}
+
 .our-science .button__enews-signup {
   background-color: #357900;
 }
@@ -9483,18 +9495,6 @@ input.searchGo {
 }
 
 .our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #357900;
-}
-
-.our-science .linklist--container--header a {
-  color: #357900;
-}
-
-.our-science .linklist--link-items li a:hover {
-  border-bottom-color: #357900;
-}
-
-.our-science .linklist--column--header a {
   color: #357900;
 }
 
@@ -9584,6 +9584,18 @@ input.searchGo {
   color: #107E5E;
 }
 
+.press-office .linklist--container--header a {
+  color: #107E5E;
+}
+
+.press-office .linklist--link-items li a:hover {
+  border-bottom-color: #107E5E;
+}
+
+.press-office .linklist--column--header a {
+  color: #107E5E;
+}
+
 .press-office .button__enews-signup {
   background-color: #107E5E;
 }
@@ -9666,18 +9678,6 @@ input.searchGo {
   color: #107E5E;
 }
 
-.press-office .linklist--container--header a {
-  color: #107E5E;
-}
-
-.press-office .linklist--link-items li a:hover {
-  border-bottom-color: #107E5E;
-}
-
-.press-office .linklist--column--header a {
-  color: #107E5E;
-}
-
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 .press-office .ctabutton--inside-hti--cta-text {
   color: #107E5E;
@@ -9743,6 +9743,18 @@ input.searchGo {
   color: #0983BB;
 }
 
+.schools .linklist--container--header a {
+  color: #0983BB;
+}
+
+.schools .linklist--link-items li a:hover {
+  border-bottom-color: #0983BB;
+}
+
+.schools .linklist--column--header a {
+  color: #0983BB;
+}
+
 .schools .button__enews-signup {
   background-color: #0983BB;
 }
@@ -9786,18 +9798,6 @@ input.searchGo {
 }
 
 .schools .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #0983BB;
-}
-
-.schools .linklist--container--header a {
-  color: #0983BB;
-}
-
-.schools .linklist--link-items li a:hover {
-  border-bottom-color: #0983BB;
-}
-
-.schools .linklist--column--header a {
   color: #0983BB;
 }
 
@@ -10029,6 +10029,18 @@ input.searchGo {
   color: #BF491F;
 }
 
+.take-part .linklist--container--header a {
+  color: #BF491F;
+}
+
+.take-part .linklist--link-items li a:hover {
+  border-bottom-color: #BF491F;
+}
+
+.take-part .linklist--column--header a {
+  color: #BF491F;
+}
+
 .take-part .button__enews-signup {
   background-color: #BF491F;
 }
@@ -10072,18 +10084,6 @@ input.searchGo {
 }
 
 .take-part .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #BF491F;
-}
-
-.take-part .linklist--container--header a {
-  color: #BF491F;
-}
-
-.take-part .linklist--link-items li a:hover {
-  border-bottom-color: #BF491F;
-}
-
-.take-part .linklist--column--header a {
   color: #BF491F;
 }
 
@@ -10157,6 +10157,18 @@ input.searchGo {
   color: #A1164E;
 }
 
+.visit .linklist--container--header a {
+  color: #A1164E;
+}
+
+.visit .linklist--link-items li a:hover {
+  border-bottom-color: #A1164E;
+}
+
+.visit .linklist--column--header a {
+  color: #A1164E;
+}
+
 .visit .button__enews-signup {
   background-color: #A1164E;
 }
@@ -10200,18 +10212,6 @@ input.searchGo {
 }
 
 .visit .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #A1164E;
-}
-
-.visit .linklist--container--header a {
-  color: #A1164E;
-}
-
-.visit .linklist--link-items li a:hover {
-  border-bottom-color: #A1164E;
-}
-
-.visit .linklist--column--header a {
   color: #A1164E;
 }
 

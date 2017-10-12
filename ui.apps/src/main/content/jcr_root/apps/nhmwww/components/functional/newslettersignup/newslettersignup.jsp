@@ -108,7 +108,7 @@
       </div>
       <div class="main-footer--section">
         <h4>&nbsp;</h4>
-        <p><a href="http://www.nhm.ac.uk/about-us/privacy-policy.html">Privacy notice</a></p>
+        <p><a href="http://www.nhm.ac.uk/about-us/privacy-notice.html">Privacy notice</a></p>
         <p><a href="http://www.nhm.ac.uk/about-us/website-terms-conditions.html">Terms and conditions</a></p>
       </div>
     </div>
@@ -120,4 +120,5 @@
   </div>
 
 </footer>
+
 <!-- END OF FOOTER -->

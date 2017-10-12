@@ -1,9 +1,31 @@
 # Changelog
 
+## 1.2.7 - Turncoat Turkey - 28-Sep-2017
+- WR-838 - Refactor: Tagged Element List Feed component - apply new format of Sass variables in Sass partial
+- WR-840 - Refactor: Text component - apply new format of Sass variables in Sass partial
+- WR-786 - Refactor: HTI component - apply new format of Sass variables in Sass partial
+- WR-846 - Refactor: HTI component - clean up duplicate HTI styles in refactored Theme partials
+- WR-776 - Refactor: Event & Exhibition Summary component - apply new format of Sass variables in Sass partial
+- WR-829 - Refactor: Secondary Nav component
+- WR-800 - Refactor: Link List component
+- WR-824 - Refactor: Press Release List Feed component - apply new format of Sass variables in Sass partial
+- WR-828 - Refactor: Press Release Tile Feed component - apply new format of Sass variables in Sass partial
+- WR-1121 - Correct the colour variable for global-header in megamenu partial
+
+## 1.2.6 - Radiant Razorbill - 21-Sep-2017
+- WR-1110 - Change search form action to https
+
+## 1.2.5 - Swashbuckling Swift - 14-Sep-2017
+- WR-1090 - Add new 'campaign' option to email sign-up and social sign-up components
+
+## 1.2.4 - Rambunctious Redshank - 24-Aug-2017
+- WR-1087 - Add social share component to Discover Articles
+U WR-1089 - Add 'date published' and 'last updated' in Discover article byline (revealed on page)
+
 ## 1.2.3 - Quixotic Quetzal - 3-Aug-2017
 - WR-1073 - Validation for image component
 - WR-1076 - Remove cq.jquery across site headlibs
-- WR-1089 - Add 'date published' and 'last updated' in Discover article byline
+- WR-1089 - Add 'date published' and 'last updated' in Discover article byline (hidden on page)
 
 ## 1.2.2 - Prickly Partridge - 27-Jul-2017
 - WR-1082 - Issues with H1 styles in "Big Splash" component when used in Discover
