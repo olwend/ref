@@ -92,7 +92,7 @@ public class ArticleHelper {
 	private String analyticsDate;
 	
 	private String hubTagName;
-	List<String> tagList;
+	List<Map<String, String>> tagList;
 
 	/**
 	 * Helper Class Constructor.
@@ -147,14 +147,17 @@ public class ArticleHelper {
 			} 
 			
 			//Get other tags
-			this.tagList = new ArrayList<String>();
+			this.tagList = new ArrayList<Map<String, String>>();
 			
 			if(this.properties.get(OTHER_TAGS) != null) {
 				String[] otherTags = this.properties.get(OTHER_TAGS, String[].class);
 				if(otherTags.length > 0) {
 					for(int i=0; i<otherTags.length; i++) {
 						Tag tag = tagMgr.resolve(otherTags[i]);
-						this.tagList.add(tag.getTitle());
+						Map<String, String> tagMap = new HashMap<String, String>();
+						tagMap.put("title", tag.getTitle());
+						tagMap.put("path", tag.getDescription());
+						this.tagList.add(tagMap);
 					}
 				}
 			}
@@ -571,11 +574,11 @@ public class ArticleHelper {
 		this.hubTagName = hubTagName;
 	}
 
-	public List<String> getTagList() {
+	public List<Map<String, String>> getTagList() {
 		return tagList;
 	}
 
-	public void setTagList(List<String> tagList) {
+	public void setTagList(List<Map<String, String>> tagList) {
 		this.tagList = tagList;
 	}
 
