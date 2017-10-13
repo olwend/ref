@@ -69,9 +69,14 @@
 		<div class="row">
 			<div class="small-12 medium-8 large-8 columns article--container">
 
-				<%if(helper.getHubTagName() != null) { %>
-					<div class="article--tags-header"><%= helper.getHubTagName()%></div>
-				<%} %>
+				<%if(helper.getHubTag() != null) { 
+					Map<String, String> hubTag = helper.getHubTag();
+					if(hubTag.containsKey("path") && hubTag.get("path") != null && !hubTag.get("path").equals("")) {%>
+						<div class="article--tags-header"><a href="<%=hubTag.get("path")%>.html"><%= hubTag.get("title")%></a></div>
+					<% } else { %>
+						<div class="article--tags-header"><%= hubTag.get("title")%></div>
+				<%	} 
+				} %>
 
 				<h1 class="article--title-header"><%= xssAPI.filterHTML(helper.getTitle()) %></h1>
 
