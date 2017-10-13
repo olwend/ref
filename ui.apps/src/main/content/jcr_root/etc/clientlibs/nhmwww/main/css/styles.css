@@ -5949,11 +5949,12 @@ html.js-noScroll {
 /** WR-1079 REIMPLEMENT COOKIE-BAR **/
 div#cookie-bar {
   background-color: #000000;
-  border: 5px #FFFFFF;
-  height: 70px;
+  min-height: 80px;
   position: fixed;
-  top: 100px;
-  left: 150px;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999999;
+  padding: 10px;
 }
 
 div#cookie-bar i.svg-ico {
@@ -5962,15 +5963,19 @@ div#cookie-bar i.svg-ico {
   position: relative;
   text-align: center;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 div#cookie-bar a {
   color: #FFFFFF;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.1em;
-  border-bottom-width: 1px;
-  border-bottom-style: dotted;
-  border-bottom-color: #FFFFFF;
+  text-decoration: none;
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+div#cookie-bar a:hover {
+  border-bottom-style: solid;
 }
 
 div#cookie-bar p {
