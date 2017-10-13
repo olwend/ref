@@ -13,7 +13,7 @@
 	if(posts != null) {
 %>
 <div class="discover">
-	<h3><%= title %></h3>
+	<h3 class="discover-related--title"><%= title %></h3>
 	<div class="related-posts--container">
 <%
 		for (final String post : posts) {
@@ -41,7 +41,6 @@
 
 			final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.ENGLISH);
 %>
-		<!-- <div class="discover-element large-3 medium-6 small-12"> -->
 		<div class="discover-element">
 			<div class="discover-element-wrapper">
 				<a href="<%= postPage.getPath() %>.html">

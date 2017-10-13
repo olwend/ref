@@ -91,7 +91,7 @@ public class ArticleHelper {
 	private String publishedDate;
 	private String analyticsDate;
 	
-	private String hubTagName;
+	private Map<String, String> hubTag;
 	List<Map<String, String>> tagList;
 
 	/**
@@ -142,7 +142,10 @@ public class ArticleHelper {
 				String[] hubTags = this.properties.get(HUB_TAG, String[].class);
 				if(hubTags.length > 0) {
 					Tag tag = tagMgr.resolve(hubTags[0]);
-					this.hubTagName = tag.getTitle().toUpperCase();
+					Map<String, String> tagMap = new HashMap<String, String>();
+					tagMap.put("title", tag.getTitle().toUpperCase());
+					tagMap.put("path", tag.getDescription());
+					this.hubTag = tagMap;
 				} 
 			} 
 			
@@ -566,12 +569,12 @@ public class ArticleHelper {
 		this.author = author;
 	}
 
-	public String getHubTagName() {
-		return hubTagName;
+	public Map<String, String> getHubTag() {
+		return hubTag;
 	}
 
-	public void setHubTagName(String hubTagName) {
-		this.hubTagName = hubTagName;
+	public void setHubTag(Map<String, String> hubTag) {
+		this.hubTag = hubTag;
 	}
 
 	public List<Map<String, String>> getTagList() {
