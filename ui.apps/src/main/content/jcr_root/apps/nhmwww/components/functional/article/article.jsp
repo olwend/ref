@@ -108,7 +108,7 @@
 							<ul>
 							<% List<Map<String, String>> tagList = helper.getTagList();
 							for(int i=0; i<tagList.size(); i++) {%>
-                                <%if(!tagList.get(i).get("path").equals("")) {%>
+                                <%if(tagList.get(i).containsKey("path") && tagList.get(i).get("path") != null && !tagList.get(i).get("path").equals("")) {%>
                                 	<li><a href="<%=tagList.get(i).get("path") %>"><%=tagList.get(i).get("title") %></a></li>
                                 <%} else {%>
 									<li><%=tagList.get(i).get("title") %></li>
