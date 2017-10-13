@@ -72,7 +72,7 @@
 				<%if(helper.getHubTag() != null) { 
 					Map<String, String> hubTag = helper.getHubTag();
 					if(hubTag.containsKey("path") && hubTag.get("path") != null && !hubTag.get("path").equals("")) {%>
-						<div class="article--tags-header"><a href="<%=hubTag.get("path")%>.html"><%= hubTag.get("title")%></a></div>
+						<div class="article--tags-header"><a href="<%=hubTag.get("path")%>"><%= hubTag.get("title")%></a></div>
 					<% } else { %>
 						<div class="article--tags-header"><%= hubTag.get("title")%></div>
 				<%	} 
