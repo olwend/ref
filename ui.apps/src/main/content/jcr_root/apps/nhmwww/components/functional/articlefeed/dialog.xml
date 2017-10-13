@@ -7,16 +7,53 @@
         jcr:primaryType="cq:Widget"
         xtype="tabpanel">
         <items jcr:primaryType="cq:WidgetCollection">
-            <articleFeed
+            <config
                 jcr:primaryType="cq:Panel"
-                title="Article Feed">
+                title="Config">
                 <items jcr:primaryType="cq:WidgetCollection">
                 	<title
                     	jcr:primaryType="cq:Widget"
                         fieldLabel="Title"
                         name="./title"
                         xtype="textfield" />
-                    <rootPath
+                    <rowsize
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Row size"
+                        name="./rowsize"
+                        type="select"
+                        xtype="selection"
+                        allowBlank="false">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <datecreated
+                                jcr:primaryType="nt:unstructured"
+                                text="Full width"
+                                value="fullwidth"/>
+                            <datemodified
+                                jcr:primaryType="nt:unstructured"
+                                text="Two column"
+                                value="twocolumn"/>
+                        </options>
+                    </rowsize>
+                    <showreadmore
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Show 'Read more' link"
+	                    name="./showreadmore"
+	                    type="checkbox"
+	                    xtype="selection"/>
+                    <readmorelink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Read more link"
+                        name="./readmorelink"
+                        width="155"
+                        xtype="pathfield"
+                        rootPath="/content/nhmwww" />
+                </items>
+            </config>
+            <query
+                jcr:primaryType="cq:Panel"
+                title="Query">
+                <items jcr:primaryType="cq:WidgetCollection">
+                	<rootPath
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Path"
                         name="./rootpath"
@@ -72,32 +109,8 @@
                         fieldDescription="Default value is 10 if left blank"
                         name="./limit"
                         xtype="textfield" />
-                    <rowsize
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Row size"
-                        name="./rowsize"
-                        type="select"
-                        xtype="selection"
-                        allowBlank="false">
-                        <options jcr:primaryType="cq:WidgetCollection">
-                            <datecreated
-                                jcr:primaryType="nt:unstructured"
-                                text="Full width"
-                                value="fullwidth"/>
-                            <datemodified
-                                jcr:primaryType="nt:unstructured"
-                                text="Two column"
-                                value="twocolumn"/>
-                        </options>
-                    </rowsize>
-                    <showReadMore
-	                    jcr:primaryType="cq:Widget"
-	                    fieldLabel="Show 'Read more' link"
-	                    name="./showReadMore"
-	                    type="checkbox"
-	                    xtype="selection"/>
                 </items>
-            </articleFeed>
+            </query>
         </items>
     </items>
 </jcr:root>
