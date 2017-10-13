@@ -4,6 +4,7 @@
 				com.day.cq.wcm.api.WCMMode,
 				java.text.DateFormat,
 				java.util.Locale,
+				java.util.Map,
 				org.apache.sling.api.resource.Resource,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
 <cq:includeClientLib categories="nhm-www.discoverpublication" />
@@ -65,11 +66,10 @@
 
 				<div class="discover-element-text">
 
-					<%if(helper.getHubTagName() != null) { %>
-						<div class="element-tag">
-							<%= helper.getHubTagName() %>
-						</div>
-					<%} %>
+					<%if(helper.getHubTag() != null) { 
+						Map<String, String> hubTag = helper.getHubTag();%>
+							<div class="element-tag"><%= hubTag.get("title")%></div>
+					<%	} %>
 
 					<div>
 						<a class="element-title" href="<%= postPage.getPath() %>.html">
