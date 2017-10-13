@@ -5058,167 +5058,168 @@ html.js-noScroll {
 }
 
 /** ARTICLE TEMPLATE PARTIAL **/
-.articles--image-caption, .articles--container {
+.article .row {
+  width: 100%;
+}
+
+.article--image-caption, .article--container {
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.articles--image-caption {
+.article--image-caption {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
 
-.articles--image-caption p {
+.article--image-caption p {
   margin: 0;
 }
 
-.articles--tags-header {
+.article--tags-header {
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   padding-bottom: 15px;
   font-size: 1.5rem;
 }
 
-.articles--tags-footer li {
+.article--tags-footer li {
   background-color: #EEEEEE;
   float: left;
-  margin: 0 8px 10px 0;
+  margin: 0 8px 20px 0;
   padding: 3px 10px;
   border-radius: 10px;
   font-weight: bold;
 }
 
-.articles--tags-footer li:last-child {
+.article--tags-footer li:last-child {
   margin-bottom: 0;
 }
 
-.articles--title-header {
+.article--title-header {
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 14px;
 }
 
-.articles--header-container {
+.article--header-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 22px;
 }
 
 @media screen and (min-width: 480px) {
-  .articles--header-container {
+  .article--header-container {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 30px;
   }
 }
 
-.articles--meta-container {
+.article--meta-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   padding-bottom: 22px;
 }
 
 @media screen and (min-width: 480px) {
-  .articles--meta-container {
+  .article--meta-container {
     padding-bottom: 0;
   }
 }
 
-.articles--meta-author {
+.article--meta-author {
   padding-bottom: 9px;
 }
 
-.articles--social-share-header .social-share--container, .articles--social-share-footer .social-share--container {
+.article--social-share-header .social-share--container, .article--social-share-footer .social-share--container {
   padding: unset;
   height: unset;
   min-height: unset;
 }
 
-.articles--social-share-header .social-share--container .social-share--title, .articles--social-share-footer .social-share--container .social-share--title {
+.article--social-share-header .social-share--container .social-share--title, .article--social-share-footer .social-share--container .social-share--title {
   padding-bottom: 15px;
 }
 
-.articles--social-share-header .social-share--container .social-share--icons div, .articles--social-share-footer .social-share--container .social-share--icons div {
+.article--social-share-header .social-share--container .social-share--icons div, .article--social-share-footer .social-share--container .social-share--icons div {
   margin-right: 8px;
   max-width: 30px;
   max-height: 30px;
 }
 
-.articles--social-share-header .social-share--container .social-share--icons div:last-child, .articles--social-share-footer .social-share--container .social-share--icons div:last-child {
+.article--social-share-header .social-share--container .social-share--icons div:last-child, .article--social-share-footer .social-share--container .social-share--icons div:last-child {
   margin-right: 0;
 }
 
 @media screen and (min-width: 1024px) {
-  .articles--social-share-header .social-share--container .social-share--icons div, .articles--social-share-footer .social-share--container .social-share--icons div {
+  .article--social-share-header .social-share--container .social-share--icons div, .article--social-share-footer .social-share--container .social-share--icons div {
     max-width: 35px;
     max-height: 35px;
   }
 }
 
-.articles--social-share-header .social-share--container .social-share--icons div img, .articles--social-share-footer .social-share--container .social-share--icons div img {
+.article--social-share-header .social-share--container .social-share--icons div img, .article--social-share-footer .social-share--container .social-share--icons div img {
   margin: unset;
   max-width: 100%;
   max-height: 100%;
 }
 
 @media screen and (min-width: 480px) {
-  .articles--social-share-header {
+  .article--social-share-header {
     align-self: flex-end;
     padding-top: 0;
   }
 }
 
 @media screen and (min-width: 1025px) {
-  .articles--social-share-header .social-share--container {
+  .article--social-share-header .social-share--container {
     align-items: flex-end;
   }
 }
 
-.articles--social-share-header .social-share--container .social-share--title p {
+.article--social-share-header .social-share--container .social-share--title p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   margin-bottom: 0;
 }
 
 @media screen and (min-width: 1025px) {
-  .articles--social-share-header .social-share--container .social-share--title p {
+  .article--social-share-header .social-share--container .social-share--title p {
     font-size: 1.5rem;
   }
 }
 
-.articles--social-share-footer .social-share--container {
+.article--social-share-footer .social-share--container {
   align-items: flex-end;
 }
 
-.articles--introduction {
+.article--introduction {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.3rem;
   margin-top: 0;
 }
 
-.articles--introduction p {
+.article--introduction p {
   margin-bottom: 30px;
 }
 
-.articles--content .parbase {
+.article--content .parbase {
   padding: 0;
 }
 
-.articles--content .image {
+.article--content .image {
   margin-bottom: 1em;
 }
 
-.articles--hr-footer {
+.article--hr-footer {
   border-color: #000000;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.articles .social-signup--title-header {
-  margin-top: 30px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  padding: 0;
+.article .socialsignup {
+  margin: 0 20px;
 }
 
-.articles .row .row {
-  margin: unset;
+.article .socialsignup .social-signup--title-header {
+  padding: 0 20px;
 }
 
 /** REFACTOR-HERO PARTIAL **/
@@ -6469,17 +6470,18 @@ html.js-noScroll {
 
 .discover-element {
   flex-basis: 100%;
+  margin-bottom: 1.5em;
 }
 
 @media screen and (min-width: 480px) {
   .discover-element {
-    flex-basis: 50%;
+    flex-basis: 48%;
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 768px) {
   .discover-element {
-    flex-basis: 25%;
+    flex-basis: 23.5%;
   }
 }
 
@@ -6501,16 +6503,24 @@ html.js-noScroll {
 /** REFACTOR-DISCOVER-RELATED PARTIAL **/
 .discoverrelated {
   background-color: #FFFFFF;
+  margin: 0 20px;
 }
 
-.discoverrelated .discover h3 {
-  padding-top: 0.5em !important;
-  padding-left: 0.75em !important;
+.discoverrelated .discover .discover-related--title {
+  padding: 0 20px;
+  margin-top: 1em;
 }
 
 .discoverrelated .discover .related-posts--container {
+  display: -webkit-flex;
   display: flex;
   flex-flow: row wrap;
+}
+
+@media screen and (min-width: 480px) {
+  .discoverrelated .discover .related-posts--container {
+    justify-content: space-between;
+  }
 }
 
 .discoverrelated .discover .discover-element-wrapper {
@@ -6518,7 +6528,7 @@ html.js-noScroll {
 }
 
 .discoverrelated .discover .discover-element-text {
-  padding: 1em;
+  padding: 1em 20px;
 }
 
 .discoverrelated .discover .discover-element-text p {
