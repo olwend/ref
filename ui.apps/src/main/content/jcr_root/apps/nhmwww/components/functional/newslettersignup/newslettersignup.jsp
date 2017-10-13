@@ -122,20 +122,16 @@
  </footer>
 <!-- END OF FOOTER -->
 
-<div class="container">
-	<div id="cookie-bar" data-module="cookie-bar"> 
-		
-		<div class="small-11 medium-11 large-11 columns ">
-		  	<p> 
-		  		We use cookies to give you the best possible experience when using this site.&nbsp; View our&nbsp;
-		  	   	<a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a> &nbsp; to find out more....&nbsp;
-			</p>
-		</div>
-		<div class="small-1 medium-1 large-1 columns ">
-		<a class="js--cookie-close" title="Accept cookies">
-				Click to accept&nbsp;
-		</a>
-		<i class="js--cookie-close ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#FFFFFF"></i>
-		</div>
+<div id="cookie-bar" data-module="cookie-bar">
+	<div class="small-12 medium-9 large-10 columns text-center">
+		<p>
+			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a> to find out more.
+		</p>
+	</div>
+	<div class="small-12 medium-3 large-2 columns text-right">
+	<a class="js--cookie-close" title="Accept cookies">
+			Click to accept
+	</a>
+	<i class="js--cookie-close ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#FFFFFF"></i>
 	</div>
 </div>
