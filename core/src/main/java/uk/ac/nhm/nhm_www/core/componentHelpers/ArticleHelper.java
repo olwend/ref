@@ -1,32 +1,44 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-
-import uk.ac.nhm.nhm_www.core.model.FileReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.granite.xss.XSSAPI;
 import com.day.cq.commons.ImageResource;
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.foundation.Image;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
+
+import uk.ac.nhm.nhm_www.core.model.FileReference;
 
 /**
  * Discover Publication Component Helper class.
  */
-public class DiscoverPublicationHelper {
+public class ArticleHelper {
+	private static final Logger LOG = LoggerFactory.getLogger(ArticleHelper.class);
+
 	private static final String IMAGE_HEAD_TYPE = "image";
 	private static final String VIDEO_HEAD_TYPE = "video";
-	
+
 	/*
 	 * Repository Attribute names.
 	 */
@@ -44,162 +56,201 @@ public class DiscoverPublicationHelper {
 	public static final String DATE_PUBLISHED				= "datepublished";
 	public static final String DATE_LAST_UDPATED			= "datelastupdated";
 	public static final String HUB_TAG						= "hubTag";
-	
+	public static final String OTHER_TAGS					= "otherTags";
+
 	/*
 	 * SubResource Names.
 	 */
 	private static final String IMAGE_RESOURCE_NAME = "image";
 	private static final String VIDEO_RESOURCE_NAME = "video";
-	
+
 	/*
 	 * Component Properties.
 	 */
 	private ValueMap properties;
-	
+
 	/*
 	 * Component Resource.
 	 */
 	private Resource resource;
-	
+
 	private String imagePath;
 	private String imageNodePath;
 	private String imageExtension;
 	private String imageSuffix;
 	private String imageAlt;
 	private boolean imageConfigured;
-	
+
 	private String ogTitle;
 	private String ogDescription;
 	private String ogImagePath;
-	private String pageTitle;
-	private String pageDescription;
 	private String selectTab;
-	
-	private String date;
+
+	private String author;	
+	private String updatedDate;
+	private String publishedDate;
 	private String analyticsDate;
 	
+	private Map<String, String> hubTag;
+	List<Map<String, String>> tagList;
+
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
 	 * @param request 
 	 * @param xssAPI
+	 * @throws RepositoryException 
 	 */
-	public DiscoverPublicationHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI) {
-		this.resource   = resource;
+	public ArticleHelper(final Resource resource, final HttpServletRequest request, final XSSAPI xssAPI, final SlingHttpServletRequest slingRequest) throws RepositoryException {
+		this.resource = resource;
 		this.properties = resource.adaptTo(ValueMap.class);
 		
-		FileReference fileReference = new FileReference.FileReferenceBuilder(properties.get("image/fileReference", ""), properties, resource, request)
-		.image(new ImageResource(resource))
-		.xssApi(xssAPI)
-		.build();
+		ResourceResolver resourceResolver = slingRequest.getResourceResolver();
+		TagManager tagMgr = resourceResolver.adaptTo(TagManager.class);
 		
-		this.imageConfigured = fileReference.getHasImage();
-		
-		if (this.imageConfigured) {
-			this.imagePath = fileReference.getPath();
-			this.imageNodePath = fileReference.getNodePath();
-			this.imageExtension = fileReference.getExtension();
-			this.imageSuffix = fileReference.getExtension();
-			this.imageAlt = fileReference.getAlt();
-		}
-		
-		String datePublished = properties.get(DATE_PUBLISHED, String.class);
-		String dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
-		
-		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
-		
-		if(dateLastUpdated != null) {
-			DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
-			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = "Last updated " + mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-		}
-		else if(datePublished != null) {
-			DateTime dt = dateFormatter.parseDateTime(datePublished);
-			MutableDateTime mdt = dt.toMutableDateTime();
-			this.date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+		if(this.properties!=null){
+			if(this.properties.get("image/fileReference") != null) {
+				FileReference fileReference = new FileReference.FileReferenceBuilder(properties.get("image/fileReference", ""), properties, resource, request)
+					.image(new ImageResource(resource))
+					.xssApi(xssAPI)
+					.build();
 
-			if(mdt.getMonthOfYear() < 10) {
-				this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
-			} else {
-				this.analyticsDate = mdt.getYear() + "-" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+				this.imageConfigured = fileReference.getHasImage();
+
+				if (this.imageConfigured) {
+					this.imagePath = fileReference.getPath();
+					this.imageNodePath = fileReference.getNodePath();
+					this.imageExtension = fileReference.getExtension();
+					this.imageSuffix = fileReference.getExtension();
+					this.imageAlt = fileReference.getAlt();
+				}
+			}
+
+			//Get date property, return last updated if exists else published
+			String datePublished = null;
+			String dateLastUpdated = null;
+
+			if(this.properties.get(DATE_PUBLISHED) != null) datePublished = properties.get(DATE_PUBLISHED, String.class);
+			if(this.properties.get(DATE_LAST_UDPATED) != null) dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
+
+			DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
+
+			this.author = getProperties().get("author", String.class);
+
+			//Set hub tag name
+			if(this.properties.get(HUB_TAG) != null) {
+				String[] hubTags = this.properties.get(HUB_TAG, String[].class);
+				if(hubTags.length > 0) {
+					Tag tag = tagMgr.resolve(hubTags[0]);
+					Map<String, String> tagMap = new HashMap<String, String>();
+					tagMap.put("title", tag.getTitle().toUpperCase());
+					tagMap.put("path", tag.getDescription());
+					this.hubTag = tagMap;
+				} 
+			} 
+			
+			//Get other tags
+			this.tagList = new ArrayList<Map<String, String>>();
+			
+			if(this.properties.get(OTHER_TAGS) != null) {
+				String[] otherTags = this.properties.get(OTHER_TAGS, String[].class);
+				if(otherTags.length > 0) {
+					for(int i=0; i<otherTags.length; i++) {
+						Tag tag = tagMgr.resolve(otherTags[i]);
+						Map<String, String> tagMap = new HashMap<String, String>();
+						tagMap.put("title", tag.getTitle());
+						tagMap.put("path", tag.getDescription());
+						this.tagList.add(tagMap);
+					}
+				}
+			}
+			
+			if(dateLastUpdated != null) {
+				DateTime dt = dateFormatter.parseDateTime(dateLastUpdated);
+				MutableDateTime mdt = dt.toMutableDateTime();
+				this.updatedDate = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			} 
+
+			if(datePublished != null) {
+				DateTime dt = dateFormatter.parseDateTime(datePublished);
+				MutableDateTime mdt = dt.toMutableDateTime();
+				this.publishedDate = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+
+				if(mdt.getMonthOfYear() < 10) {
+					this.analyticsDate = mdt.getYear() + "-0" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+				} else {
+					this.analyticsDate = mdt.getYear() + "-" + mdt.getMonthOfYear() + "-" + mdt.getDayOfMonth();
+				}
+			}
+			else {
+				this.publishedDate = "Please set a published date in the dialog";
 			}
 		}
-		else {
-			this.date = "Please set a published date in the dialog";
-		}
 	}
-	
+
 	/**
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
 	 */
-	public DiscoverPublicationHelper(Resource resource) {
+	public ArticleHelper(Resource resource) {
 		setResource(resource);
 		setProperties(resource.adaptTo(ValueMap.class));
-		
+
 		init();
 	}
-	
+
 	private void init() {
 		//Initialise variables from Facebook tab
-		
-		//Set title		
-		String ogTitle = "";
-		if(getProperties().get("ogtitle") != null) {
-			ogTitle = getProperties().get("ogtitle", String.class);
-			
+		//Set title
+		if(properties.get("article/ogtitle") != null) {
+			setOgTitle(properties.get("article/ogtitle", String.class));
+		} else if(properties.get("jcr:title") != null) {
+			setOgTitle(properties.get("jcr:title", String.class));
 		}
-		setOgTitle(ogTitle);
-		
+
 		//Set description
-		String ogDescription = "";
-		if(getProperties().get("ogdescription") != null) {
-			ogDescription = getProperties().get("ogdescription", String.class);
+		if(properties.get("article/ogdescription") != null) {
+			setOgDescription(properties.get("article/ogdescription", String.class));
+		} else if(properties.get("jcr:description") != null) {
+			setOgDescription(properties.get("jcr:description", String.class));
+		} else {
+			setOgDescription(properties.get("", String.class));
 		}
-		setOgDescription(ogDescription);
 
 		//Set image path - value is dependent on which radio button is selected
-		String ogImagePath = "";
-		if(getProperties().get("selectTab") != null) {
-			if(getProperties().get("selectTab").equals("radioImage")) {
-				if(getProperties().get("ogimagepath") != null) {
-					ogImagePath = getProperties().get("ogimagepath", String.class);
+		if(properties.get("article/headType") != null) {
+			if(properties.get("article/headType").equals("image")) {
+				if(properties.get("article/ogimagepath") != null) {
+					setOgImagePath(properties.get("article/ogimagepath", String.class));
+				} else if(properties.get("article/image/fileReference") != null) {
+					setOgImagePath(properties.get("article/image/fileReference", String.class));
+				} else {
+					setOgImagePath(properties.get("", String.class));
 				}
 			}
-			else if(getProperties().get("selectTab").equals("radioVideo")) {
-				if(getProperties().get("ogvideopath") != null) {
-					ogImagePath = getProperties().get("ogvideopath", String.class);
+			else if(properties.get("article/headType").equals("video")) {
+				if(properties.get("article/ogvideopath") != null) {
+					setOgImagePath(properties.get("article/ogvideopath", String.class));
+				} else if(properties.get("article/video/youtube") != null) {
+					setOgImagePath(properties.get("article/video/youtube", String.class));
+				} else {
+					setOgImagePath(properties.get("", String.class));
 				}
 			}
 		}
-		setOgImagePath(ogImagePath);
 
-		//Set title - default from 'Basic' tab
-		String pageTitle = "";
-		if(getProperties().get("jcr:title") != null) {
-			pageTitle = getProperties().get("jcr:title", String.class);
+		//Set type - image or video
+		if(getProperties().get("article/headType") != null) {
+			setSelectTab(selectTab = getProperties().get("article/headType", String.class));
 		}
-		setPageTitle(pageTitle);
 		
-		//Set description - default from 'Basic' tab
-		String pageDescription = "";
-		if(getProperties().get("jcr:description") != null) {
-			pageDescription = getProperties().get("jcr:description", String.class);
-		}
-		setPageDescription(pageDescription);
 		
-		//Set value of radio buttons
-		String selectTab = "";
-		if(getProperties().get("selectTab") != null) {
-			selectTab = getProperties().get("selectTab", String.class);
-		}
-		setSelectTab(selectTab);
 	}
-	
+
 	public String getMonth(int month) {
-	    return new DateFormatSymbols().getMonths()[month-1];
+		return new DateFormatSymbols().getMonths()[month-1];
 	}
-	
+
 	public Resource getResource() {
 		return resource;
 	}
@@ -207,7 +258,7 @@ public class DiscoverPublicationHelper {
 	public void setResource(Resource resource) {
 		this.resource = resource;
 	}
-	
+
 	/**
 	 * Checks if the component has enough configuration to show its content.
 	 * @return <code>true</code> if the component has configured at least Title, Introduction and Image or Video. <code>false</code> in otherwise.
@@ -217,9 +268,9 @@ public class DiscoverPublicationHelper {
 				&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 				&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
 				&& (this.isImageHeadType() && this.imageConfigured
-				    || this.isVideoHeadType() && this.getVideo() != null);
+						|| this.isVideoHeadType() && this.getVideo() != null);
 	}
-	
+
 	/**
 	 * Gets the Title component.
 	 * @return The title configured on the component or an empty string if is not configured.
@@ -230,7 +281,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(TITLE_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Gets the Introduction component.
 	 * @return The introduction configured on the component or an empty string if is not configured.
@@ -241,7 +292,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Checks if the component has the Snippet Text configured.
 	 * @return <code>true</code> if the component has configured Snippet Text Attribute. <code>false</code> in otherwise.
@@ -263,7 +314,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(SNIPPET_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Checks if the component has and Image Caption configured.
 	 * @return <code>true</code> if the component has configured the Image Caption Attribute. <code>false</code> in otherwise.
@@ -274,7 +325,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(IMAGE_CAPTION_ATTRIBUTE_NAME, String.class) != null;
 	}
-	
+
 	/**
 	 * Checks if the component has and Image Caption configured.
 	 * @return <code>true</code> if the component has configured the Image Caption Attribute. <code>false</code> in otherwise.
@@ -285,7 +336,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(IMAGE_ALT_ATTRIBUTE_NAME, String.class) != null;
 	}
-	
+
 	/**
 	 * Gets the Image Text Caption configured on the component.
 	 * @return The Snippet Text configured on the component or an empty string if is not configured.
@@ -296,7 +347,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(IMAGE_CAPTION_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Gets the Image Text Caption configured on the component.
 	 * @return The Snippet Text configured on the component or an empty string if is not configured.
@@ -307,7 +358,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(IMAGE_ALT_ATTRIBUTE_NAME, "");
 	}
-	
+
 	/**
 	 * Checks if the component has been Pinned.
 	 * @return <code>true</code> if the component has the attribute Pinned set true. <code>false</code> in otherwise.
@@ -318,7 +369,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(PINNED_ATTRIBUTE_NAME, false);
 	}
-	
+
 	/**
 	 * Gets the Pinned Date configured on the component.
 	 * @return The Pinned Date configured on the component or <code>null</code> if is not configured.
@@ -327,10 +378,10 @@ public class DiscoverPublicationHelper {
 		if (!this.isPinned()) {
 			return null;
 		}
-		
+
 		return properties.get(PINNED_DATE_ATTRIBUTE_NAME, Calendar.class).getTime();
 	}
-	
+
 	/**
 	 * Gets the tags configured on the component.
 	 * @return The tags configured.
@@ -341,7 +392,7 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(TAGS_ATTRIBUTE_NAME, String[].class);
 	}
-	
+
 	/**
 	 * Gets the Head Type configured on the component. This can be image or video.
 	 * @return The Head Type (Image or Video) configured on the component or &quot;image%quot; if is not configured.
@@ -360,7 +411,7 @@ public class DiscoverPublicationHelper {
 	public boolean isImageHeadType() {
 		return IMAGE_HEAD_TYPE.equals(this.getHeadType());
 	}
-	
+
 	/**
 	 * Checks if the component has configured the Head Type as Video.
 	 * @return <code>true</code> if the Head Type is &quot;video&quot;.
@@ -368,7 +419,7 @@ public class DiscoverPublicationHelper {
 	public boolean isVideoHeadType() {
 		return VIDEO_HEAD_TYPE.equals(this.getHeadType());
 	}
-	
+
 	/**
 	 * Gets the Image configure as Head, if the Head Type is configured as Image if not will return <code>null</code>.
 	 * @return The {@link Image Image object} configured on the component if is configured the Head Type as Image or <code>null</code> otherwise. 
@@ -377,16 +428,16 @@ public class DiscoverPublicationHelper {
 		if (!this.isImageHeadType()) {
 			return null;
 		}
-		
+
 		final Resource imageResource = this.resource.getChild(IMAGE_RESOURCE_NAME);
 		if (imageResource == null) {
 			return null;
 		}
-		
+
 		final DiscoverHeadImage image = new DiscoverHeadImage(imageResource);
 		return image.getImage();
 	}*/
-	
+
 	/**
 	 * Gets the YouTube Video Id configure as Head, if the Head Type is configured as Video if not will return <code>null</code>.
 	 * @return The Youtube Video Id configured on the component if is configured the Head Type as Video or <code>null</code> otherwise. 
@@ -395,16 +446,16 @@ public class DiscoverPublicationHelper {
 		if (!this.isVideoHeadType()) {
 			return null;
 		}
-		
+
 		final Resource videoResource = this.resource.getChild(VIDEO_RESOURCE_NAME);
 		if (videoResource == null) {
 			return null;
 		}
-		
+
 		final DiscoverHeadVideo video = new DiscoverHeadVideo(videoResource);
 		return video.getYouTubeVideoId();
 	}
-	
+
 	/**
 	 * Gets the Publication Type configured on the component.
 	 * @return The Publication Type configured on the component.
@@ -415,21 +466,21 @@ public class DiscoverPublicationHelper {
 		}
 		return this.properties.get(TYPE_ATTRIBUTE_NAME, String.class);
 	}
-	
+
 	/**
 	 * Gets the Creation Date configured on the component.
 	 * @return The Creation Date of the component.
 	 */
 	public Date getCreationDate() {
 		final Calendar calendar = this.properties.get(CREATION_DATE_ATTRIBUTE_NAME, Calendar.class);
-		
+
 		if (calendar == null) {
 			return null;
 		}
-		
+
 		return calendar.getTime();
 	}
-	
+
 	public String getImagePath() {
 		return this.imagePath;
 	}
@@ -437,7 +488,7 @@ public class DiscoverPublicationHelper {
 	public String getImageNodePath() {
 		return this.imageNodePath;
 	}
-	
+
 	public String getImageExtension() {
 		return this.imageExtension;
 	}
@@ -449,11 +500,11 @@ public class DiscoverPublicationHelper {
 	public String getImageAlt() {
 		return this.imageAlt;
 	}
-	
+
 	public boolean isImageConfigured() {
 		return this.imageConfigured;
 	}
-	
+
 	public ValueMap getProperties() {
 		return properties;
 	}
@@ -486,22 +537,6 @@ public class DiscoverPublicationHelper {
 		this.ogImagePath = ogImagePath;
 	}
 
-	public String getPageTitle() {
-		return pageTitle;
-	}
-
-	public void setPageTitle(String pageTitle) {
-		this.pageTitle = pageTitle;
-	}
-
-	public String getPageDescription() {
-		return pageDescription;
-	}
-
-	public void setPageDescription(String pageDescription) {
-		this.pageDescription = pageDescription;
-	}
-
 	public String getSelectTab() {
 		return selectTab;
 	}
@@ -510,16 +545,44 @@ public class DiscoverPublicationHelper {
 		this.selectTab = selectTab;
 	}
 
-	public String getDate() {
-		return date;
+	public void setPublishedDate(String date) {
+		this.publishedDate = date;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public String getPublishedDate() {
+		return publishedDate;
 	}
 
-	public String getAnalyticsDate() {
-		return analyticsDate;
+	public void setUpdatedDate(String date) {
+		this.updatedDate = date;
+	}
+
+	public String getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Map<String, String> getHubTag() {
+		return hubTag;
+	}
+
+	public void setHubTag(Map<String, String> hubTag) {
+		this.hubTag = hubTag;
+	}
+
+	public List<Map<String, String>> getTagList() {
+		return tagList;
+	}
+
+	public void setTagList(List<Map<String, String>> tagList) {
+		this.tagList = tagList;
 	}
 
 }

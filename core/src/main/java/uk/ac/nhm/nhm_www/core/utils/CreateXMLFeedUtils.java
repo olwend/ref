@@ -93,6 +93,7 @@ public class CreateXMLFeedUtils {
 	public ArrayList<EventPageDetail> getTodayEvents(JSONArray events, TagManager tagMgr) throws JSONException, ParseException {
 		
 		tagManager = tagMgr;
+
 		final SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd yyyy");
 		ArrayList<EventPageDetail> eventsArray = new ArrayList<EventPageDetail>();
 		//Clears the dateIndex array
