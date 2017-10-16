@@ -19,60 +19,60 @@
   the following page context attributes are initialized via the <cq:defineObjects/>
   tag:
 
-    @param slingRequest SlingHttpServletRequest
-    @param slingResponse SlingHttpServletResponse
-    @param resource the current resource
-    @param currentNode the current node
-    @param log default logger
-    @param sling sling script helper
+	@param slingRequest SlingHttpServletRequest
+	@param slingResponse SlingHttpServletResponse
+	@param resource the current resource
+	@param currentNode the current node
+	@param log default logger
+	@param sling sling script helper
 
-    @param componentContext component context of this request
-    @param editContext edit context of this request
-    @param properties properties of the addressed resource (aka "localstruct")
-    @param pageManager page manager
-    @param currentPage containing page addressed by the request (aka "actpage")
-    @param resourcePage containing page of the addressed resource (aka "myPage")
-    @param pageProperties properties of the containing page
-    @param component current CQ5 component
-    @param designer designer
-    @param currentDesign design of the addressed resource  (aka "actdesign")
-    @param resourceDesign design of the addressed resource (aka "myDesign")
-    @param currentStyle style of the addressed resource (aka "actstyle")
+	@param componentContext component context of this request
+	@param editContext edit context of this request
+	@param properties properties of the addressed resource (aka "localstruct")
+	@param pageManager page manager
+	@param currentPage containing page addressed by the request (aka "actpage")
+	@param resourcePage containing page of the addressed resource (aka "myPage")
+	@param pageProperties properties of the containing page
+	@param component current CQ5 component
+	@param designer designer
+	@param currentDesign design of the addressed resource  (aka "actdesign")
+	@param resourceDesign design of the addressed resource (aka "myDesign")
+	@param currentStyle style of the addressed resource (aka "actstyle")
 
   ==============================================================================
 
 --%><%@page session="false" import="javax.jcr.*,
-        org.apache.sling.api.resource.Resource,
-        org.apache.sling.api.resource.ValueMap,
-        com.day.cq.commons.inherit.InheritanceValueMap,
-        com.day.cq.commons.Externalizer,
-        com.day.cq.wcm.commons.WCMUtils,
-        com.day.cq.wcm.api.Page,
-        com.day.cq.wcm.api.NameConstants,
-        com.day.cq.wcm.api.PageManager,
-        com.day.cq.wcm.api.WCMMode,
-        com.day.cq.wcm.api.designer.Designer,
-        com.day.cq.wcm.api.designer.Design,
-        com.day.cq.wcm.api.designer.Style,
-        com.day.cq.wcm.api.components.ComponentContext,
-        com.day.cq.wcm.api.components.EditContext,
-        java.util.Calendar,
-        java.util.GregorianCalendar,
-        java.text.SimpleDateFormat"
+		org.apache.sling.api.resource.Resource,
+		org.apache.sling.api.resource.ValueMap,
+		com.day.cq.commons.inherit.InheritanceValueMap,
+		com.day.cq.commons.Externalizer,
+		com.day.cq.wcm.commons.WCMUtils,
+		com.day.cq.wcm.api.Page,
+		com.day.cq.wcm.api.NameConstants,
+		com.day.cq.wcm.api.PageManager,
+		com.day.cq.wcm.api.WCMMode,
+		com.day.cq.wcm.api.designer.Designer,
+		com.day.cq.wcm.api.designer.Design,
+		com.day.cq.wcm.api.designer.Style,
+		com.day.cq.wcm.api.components.ComponentContext,
+		com.day.cq.wcm.api.components.EditContext,
+		java.util.Calendar,
+		java.util.GregorianCalendar,
+		java.text.SimpleDateFormat"
 %><%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %><%
 %><%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %><%
 %><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%
 %><%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><%
 %><%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %><%
 %><cq:defineObjects /><%
-    // add more initialization code here
-    final boolean WCMIsOnEditMode = (WCMMode.fromRequest(slingRequest) == WCMMode.EDIT);
-    boolean isOnEditMode = (WCMMode.fromRequest(slingRequest) == WCMMode.EDIT);
+	// add more initialization code here
+	final boolean WCMIsOnEditMode = (WCMMode.fromRequest(slingRequest) == WCMMode.EDIT);
+	boolean isOnEditMode = (WCMMode.fromRequest(slingRequest) == WCMMode.EDIT);
 	boolean isOnPreviewMode = (WCMMode.fromRequest(slingRequest) == WCMMode.PREVIEW);
 	boolean isOnDesignMode = (WCMMode.fromRequest(slingRequest) == WCMMode.DESIGN);
 	if (isOnPreviewMode) {isOnEditMode = false;}
 	String cssClassSection = "";
-	
+
 	if(currentPage != null && currentPage.getDepth() > 5) {
 		Page landingPage = currentPage.getAbsoluteParent(4);
 		cssClassSection = landingPage.getName();
@@ -114,9 +114,15 @@
 		templateType = "template--sub-landing-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/taggedcontentpage") ){
 		templateType = "template--tagged-content-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/nhmpage") ){
+		templateType = "template--nhm-page";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/nhmpagenotitlebar") ){
+		templateType = "template--nhm-page-no-titlebar";
+	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/immersivepage") ){
+		templateType = "template--immersive-page";
 	}
 
-	Calendar calendar = Calendar.getInstance(); 
+	Calendar calendar = Calendar.getInstance();
 	SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
 	String dateNow = formatter.format(calendar.getTime());
 	Calendar christmasEve = new GregorianCalendar();
@@ -128,21 +134,21 @@
 	Calendar boxingDay = new GregorianCalendar();
 	boxingDay.set(calendar.get(Calendar.YEAR), 12, 26);
 	String boxingDayDate = formatter.format(boxingDay.getTime());
-	
+
 	String openText = "";
 	if(dateNow.equals(christmasEveDate) || dateNow.equals(christmasDayDate) || dateNow.equals(boxingDayDate) ) {
 		openText = "Closed";
 	} else {
 		openText = "<span class=\"desktop\">Open </span>10.00-17.50";
 	}
-	
+
 %>
 
 <%
 	Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
 	String myExternalizedUrl = "";
 	if(isOnEditMode || isOnPreviewMode || isOnDesignMode) {
-		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.AUTHOR, "/content/hnmwww/en/home") + ".html";	
+		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.AUTHOR, "/content/hnmwww/en/home") + ".html";
 	} else {
 		myExternalizedUrl = externalizer.externalLink(resourceResolver, Externalizer.PUBLISH, "/content/hnmwww/en/home") + ".html";
 	}
@@ -150,15 +156,15 @@
 	if(currentPage != null) {
 		pathForSignup = currentPage.getPath();
 	} else {
-        pathForSignup = pageManager.getPage("/content/nhmwww/en/home/visit").getPath();
+		pathForSignup = pageManager.getPage("/content/nhmwww/en/home/visit").getPath();
 	}
 	int startIndex = 0;
 	if(myExternalizedUrl.startsWith("https")) {
 		startIndex = 8;
 	} else if(myExternalizedUrl.startsWith("http")){
 		startIndex = 7;
-	} 
-		
+	}
+
 	String hostPort = myExternalizedUrl.substring(startIndex, myExternalizedUrl.indexOf("/", startIndex));
 	pathForSignup = pathForSignup.substring(pathForSignup.indexOf("/home") +5 , pathForSignup.length());
 %>
