@@ -130,7 +130,7 @@
 	</div>
 	<div class="small-12 medium-3 large-2 columns text-right">
 	<a class="js--cookie-close" title="Accept cookies">
-			Click to accept
+			I accept
 	</a>
 	<i class="js--cookie-close ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#FFFFFF"></i>
 	</div>
