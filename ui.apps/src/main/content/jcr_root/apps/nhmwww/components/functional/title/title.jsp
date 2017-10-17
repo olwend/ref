@@ -24,6 +24,7 @@
 
     // first calculate the correct title - look for our sources if not set in paragraph
     String title = properties.get(NameConstants.PN_TITLE, String.class);
+    boolean addPadding = properties.get("addPadding", false);
     String tagLine = properties.get("text", "");
     if (title == null || title.equals("")) {
         title = resourcePage.getPageTitle();
@@ -58,7 +59,7 @@
     }
     String defType = currentStyle.get("defaultType", "large");
 	%>
-    <div class="row title-bar">
+    <div class="row title-bar <%if (addPadding) { %>title-bar__margin-bottom<%} %>">
 	    <div class="small-12 columns">
 	    <%
 	    // use image title if type is "small" but not if diff should be displayed

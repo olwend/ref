@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Template"
     jcr:title="NHM Event Details Page"
     allowedParents="[/apps/nhmwww/templates/eventspage,/apps/nhmwww/templates/eventdetailpage]"
-    allowedChildren="[/apps/nhmwww/templates/eventdetailpage]"
+    allowedChildren="[/apps/nhmwww/templates/eventdetailpage,/apps/nhmwww/templates/nhmpage,/apps/nhmwww/templates/nhmpagenotitlebar]"
     allowedPaths="[/content/nhmwww/(.*)?]"
     ranking="{Long}102">
     <jcr:content
