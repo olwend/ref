@@ -125,7 +125,7 @@
 <div id="cookie-bar" data-module="cookie-bar">
 	<div class="small-12 medium-9 large-10 columns text-center">
 		<p>
-			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookie-policy.html">Cookie Policy</a> to find out more.
+			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookies.html">Cookie Policy</a> to find out more.
 		</p>
 	</div>
 	<div class="small-12 medium-3 large-2 columns text-right">
