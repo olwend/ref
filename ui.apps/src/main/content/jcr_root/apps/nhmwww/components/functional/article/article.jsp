@@ -88,7 +88,7 @@
 						<%} %>
 
 						<div class="article--meta-publication-date">First published <%=helper.getPublishedDate()%></div>
-						<%if(helper.getUpdatedDate() != null) { %>
+						<%if(helper.getUpdatedDate() != null && !helper.getUpdatedDate().equals(helper.getPublishedDate())) { %>
 						<div class="article--meta-updated-date">Last updated <%=helper.getUpdatedDate()%></div>
 						<%} %>
 					</div>

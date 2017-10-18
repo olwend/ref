@@ -91,11 +91,11 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		    if(!order.equals(null) && order != null) {
 		    	switch(order) {
 		    		case "datemodified" :
-		    			queryMap.put("orderby", "@jcr:content/cq:lastModified");
+		    			queryMap.put("orderby", "@jcr:content/article/datelastupdated");
 		    			queryMap.put("orderby.sort", "desc");
 		    			break;
 		    		case "datecreated" :
-		    			queryMap.put("orderby", "@jcr:content/jcr:created");
+		    			queryMap.put("orderby", "@jcr:content/article/datepublished");
 		    			queryMap.put("orderby.sort", "desc");
 		    			break;
 		    	}

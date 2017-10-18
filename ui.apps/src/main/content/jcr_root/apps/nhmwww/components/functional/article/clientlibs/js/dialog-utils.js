@@ -4,9 +4,13 @@ function concatenate_tags(dialog) {
 	var allTags   = dialog.findByType('multifield')[0],
         hubTag    = dialog.getField('./hubTag'),
         otherTags = dialog.getField('./otherTags'),
+        datePublished = dialog.getField('./datepublished'),
+        dateLastUpdated = dialog.getField('./datelastupdated'),
+        
         allTagsArray = [],
         hubTagArray = hubTag.value,
-        otherTagsArray = otherTags.value;
+        otherTagsArray = otherTags.value
+        dateLastUpdatedValue = dateLastUpdated.value;
 
     allTags.show();
 
@@ -19,4 +23,10 @@ function concatenate_tags(dialog) {
     }
     
     allTags.setValue(allTagsArray);
+    
+    if(dateLastUpdatedValue === undefined) {
+        console.log("test");
+    	dateLastUpdated.setValue(datePublished.value);
+    }
 }
+
