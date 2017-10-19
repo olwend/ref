@@ -133,7 +133,7 @@ public class ArticleHelper {
 			if(this.properties.get(DATE_PUBLISHED) != null) datePublished = properties.get(DATE_PUBLISHED, String.class);
 			if(this.properties.get(DATE_LAST_UDPATED) != null) dateLastUpdated = properties.get(DATE_LAST_UDPATED, String.class);
 
-			DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
+			DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
 
 			this.author = getProperties().get("author", String.class);
 

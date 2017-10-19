@@ -217,12 +217,14 @@
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Date published"
                         name="./datepublished"
-                        xtype="datefield"/>
+                        xtype="datefield"
+                        format="Y/m/d"/>
                     <datelastupdated
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Date last updated"
                         name="./datelastupdated"
-                        xtype="datefield"/>
+                        xtype="datefield"
+                        format="Y/m/d"/>
                 </items>
             </metadata>
         </items>

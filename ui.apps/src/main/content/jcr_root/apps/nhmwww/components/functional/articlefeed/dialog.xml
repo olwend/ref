@@ -24,11 +24,11 @@
                         xtype="selection"
                         allowBlank="false">
                         <options jcr:primaryType="cq:WidgetCollection">
-                            <datecreated
+                            <fullwidth
                                 jcr:primaryType="nt:unstructured"
                                 text="Full width"
                                 value="fullwidth"/>
-                            <datemodified
+                            <twocolumn
                                 jcr:primaryType="nt:unstructured"
                                 text="Two column"
                                 value="twocolumn"/>
@@ -95,11 +95,11 @@
                         <options jcr:primaryType="cq:WidgetCollection">
                             <datecreated
                                 jcr:primaryType="nt:unstructured"
-                                text="Date created"
+                                text="Date published"
                                 value="datecreated"/>
                             <datemodified
                                 jcr:primaryType="nt:unstructured"
-                                text="Date modified"
+                                text="Date last updated"
                                 value="datemodified"/>
                         </options>
                     </order>
