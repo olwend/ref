@@ -4202,7 +4202,7 @@ iframe.youtubeplayer {
 /** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) - MERGED WITH REFACTORED EVENT-SLIDER PARTIAL (WR-752) **/
 /** JQUERY DATEPICKER (VENDOR) PARTIAL NHMEC-5**/
 /*
- * EVENT CALENDAR COMPONENT DATEPICKER STYLING
+ * EVENT CALENDAR COMPONENT DATEPICKER STYLING 
  */
 .ui-datepicker {
   height: auto;
@@ -5552,6 +5552,38 @@ html.js-noScroll {
 .science-profiles-detail-page .accordion-navigation a {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.125em;
+}
+
+.articlefeed {
+  margin: 0 3%;
+}
+
+.articlefeed a {
+  color: #565656;
+}
+
+.articlefeed a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
+.articlefeed--item {
+  background-color: #EEEEEE;
+  margin-bottom: 1.5em;
+}
+
+.articlefeed--item__text {
+  padding: 1em;
+}
+
+.articlefeed--item__hubtag {
+  margin-bottom: 1em;
+}
+
+.articlefeed--item__title {
+  font-weight: bold;
+  font-size: 21px;
+  margin-bottom: 0;
 }
 
 /** BIG SPLASH PARTIAL **/
