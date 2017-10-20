@@ -1,4 +1,4 @@
-<div data-sly-test="${properties.title}">
+<div class="articlefeed--title" data-sly-test="${properties.title}">
 	<h2>${properties.title}</h2>
 </div>
 
@@ -16,9 +16,9 @@
 				This query returns no results
 			</div>
 			<div data-sly-test="${articlefeed.pageList}">
-				<div data-sly-list.list="${articlefeed.pageList}">
-					<div data-sly-test="${list.size > 0}">
-						<div class="articlefeed--item large-${articlefeed.columns} medium-6 small-12 columns end">
+				<ul data-sly-list.list="${articlefeed.pageList}" class="small-block-grid-1 medium-block-grid-2 large-block-grid-${articlefeed.columns}">
+					<li data-sly-test="${list.size > 0}">
+						<div class="articlefeed--item">
 							<div class="articlefeed--item__image">
 								<img src="${list['imagePath']}">
 							</div>
@@ -29,8 +29,8 @@
 								<p class="articlefeed--item__excerpt">${list['excerpt']}</p>
 							</div>
 						</div>
-					</div>
-				</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

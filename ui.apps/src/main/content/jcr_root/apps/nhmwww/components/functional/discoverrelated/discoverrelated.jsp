@@ -7,7 +7,7 @@
 				java.util.Map,
 				org.apache.sling.api.resource.Resource,
 				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
-<cq:includeClientLib categories="nhm-www.discoverpublication" />
+<!-- <cq:includeClientLib categories="nhm-www.discoverpublication" /> -->
 <%
 	final String[] posts = properties.get("posts", String[].class);
 	final String title = properties.get("title", "Related posts");
@@ -15,7 +15,7 @@
 %>
 <div class="discover">
 	<h3 class="discover-related--title"><%= title %></h3>
-	<div class="related-posts--container">
+	<ul class="related-posts--container small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 <%
 		for (final String post : posts) {
 			final Page postPage = pageManager.getPage(post);
@@ -42,7 +42,7 @@
 
 			final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.ENGLISH);
 %>
-		<div class="discover-element">
+		<li class="discover-element">
 			<div class="discover-element-wrapper">
 				<a href="<%= postPage.getPath() %>.html">
 <%
@@ -66,7 +66,7 @@
 
 				<div class="discover-element-text">
 
-					<%if(helper.getHubTag() != null) { 
+					<%if(helper.getHubTag() != null) {
 						Map<String, String> hubTag = helper.getHubTag();%>
 							<div class="element-tag"><%= hubTag.get("title")%></div>
 					<%	} %>
@@ -86,15 +86,15 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</li>
 <%
 
 		}
 %>
-	</div>
+	</ul>
 	</div>
 <%
 	}
 %>
-<cq:includeClientLib css="nhm-www.discover" />
-<cq:includeClientLib categories="nhm-www.discover.related"/>
+<!-- <cq:includeClientLib css="nhm-www.discover" /> -->
+<!-- <cq:includeClientLib categories="nhm-www.discover.related"/> -->

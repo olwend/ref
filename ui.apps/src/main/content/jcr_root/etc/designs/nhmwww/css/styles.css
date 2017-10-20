@@ -5554,8 +5554,16 @@ html.js-noScroll {
   font-size: 1.125em;
 }
 
+.discover .row {
+  width: 100%;
+}
+
+.discover .row .row {
+  margin: 0;
+}
+
 .articlefeed {
-  margin: 0 3%;
+  margin: 0 20px;
 }
 
 .articlefeed a {
@@ -5567,9 +5575,20 @@ html.js-noScroll {
   text-decoration: none;
 }
 
+.articlefeed--title {
+  padding-left: 20px;
+}
+
 .articlefeed--item {
   background-color: #EEEEEE;
-  margin-bottom: 1.5em;
+}
+
+.articlefeed--item__image {
+  text-align: center;
+}
+
+.articlefeed--item__image img {
+  width: 100%;
 }
 
 .articlefeed--item__text {
@@ -5583,6 +5602,10 @@ html.js-noScroll {
 .articlefeed--item__title {
   font-weight: bold;
   font-size: 21px;
+  margin-bottom: 0;
+}
+
+.articlefeed--item__excerpt {
   margin-bottom: 0;
 }
 
@@ -6541,18 +6564,6 @@ html.js-noScroll {
 .discoverrelated .discover .discover-related--title {
   padding: 0 20px;
   margin-top: 1em;
-}
-
-.discoverrelated .discover .related-posts--container {
-  display: -webkit-flex;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-@media screen and (min-width: 480px) {
-  .discoverrelated .discover .related-posts--container {
-    justify-content: space-between;
-  }
 }
 
 .discoverrelated .discover .discover-element-wrapper {
