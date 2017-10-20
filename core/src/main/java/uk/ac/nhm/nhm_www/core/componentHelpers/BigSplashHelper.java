@@ -39,7 +39,6 @@ public class BigSplashHelper {
 		
 		this.ctaText = properties.get("ctatext", String.class);
 		this.ctaUrl = properties.get("ctaurl", String.class);
-		this.applyLinkToTitle = false;
 		this.applyLinkToTitle = properties.get("applyLinkToTitle",false);
 		
 		resourceResolver = request.getResourceResolver();
