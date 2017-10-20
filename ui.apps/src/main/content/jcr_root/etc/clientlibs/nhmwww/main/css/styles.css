@@ -5609,6 +5609,10 @@ html.js-noScroll {
   margin-bottom: 0;
 }
 
+.articlefeed--read-more-link {
+  text-align: center;
+}
+
 /** BIG SPLASH PARTIAL **/
 .bigsplash .row {
   height: 100%;
