@@ -6574,6 +6574,10 @@ html.js-noScroll {
   padding: 1em 20px;
 }
 
+.discoverrelated .discover .discover-element-text .element-title {
+  font-weight: bold;
+}
+
 .discoverrelated .discover .discover-element-text p {
   font-size: 1em;
 }
