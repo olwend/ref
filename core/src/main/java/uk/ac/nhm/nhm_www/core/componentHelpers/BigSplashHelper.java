@@ -22,6 +22,7 @@ public class BigSplashHelper {
 	
 	private String ctaText;
 	private String ctaUrl;
+	private Boolean applyLinkToTitle;
 	
 	private ResourceResolver resourceResolver;
 	private ImageResource image;
@@ -38,6 +39,8 @@ public class BigSplashHelper {
 		
 		this.ctaText = properties.get("ctatext", String.class);
 		this.ctaUrl = properties.get("ctaurl", String.class);
+		this.applyLinkToTitle = false;
+		this.applyLinkToTitle = properties.get("applyLinkToTitle",false);
 		
 		resourceResolver = request.getResourceResolver();
 		Resource resource = resourceResolver.getResource(this.imagePath);
@@ -116,5 +119,12 @@ public class BigSplashHelper {
 	public void setCtaUrl(String ctaUrl) {
 		this.ctaUrl = ctaUrl;
 	}
+	
+	public Boolean getapplyLinkToTitle() {
+		return applyLinkToTitle;
+	}
 
+	public void setapplyLinkToTitle(Boolean applyLinkToTitle) {
+		this.applyLinkToTitle = applyLinkToTitle;
+	}
 }
