@@ -82,6 +82,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="WPY"
                                 value="remote WPY-website newsletter-si"/>
+                            <fourteen
+                                jcr:primaryType="nt:unstructured"
+                                text="School newsletter"
+                                value="remote website school-newsletter "/>
         
                         </options>
                     </campaign>
