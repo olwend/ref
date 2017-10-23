@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.9 - Varied Verdin - 19-Oct-2017
+- WR-1079 - Add cookie notice back to site
+- WR-1109 - Option to add bottom margin to title bar of NHM Page template
+- WR-1128 - Update CSS hooks for page templates
+- WR-1136 - Update template permissions
+
+## 1.2.8 - Uppity Upupa - 12-Oct-2017
+- WR-1122 - Add WPY marketing campaign/source code to Social Signup component AND generic email sign up component
+- WR-1131 - Update "popular search terms" on site
+- WR-1131 - Clean up a few redirects + urls for pivacy-notice
+
 ## 1.2.7 - Turncoat Turkey - 28-Sep-2017
 - WR-838 - Refactor: Tagged Element List Feed component - apply new format of Sass variables in Sass partial
 - WR-840 - Refactor: Text component - apply new format of Sass variables in Sass partial
