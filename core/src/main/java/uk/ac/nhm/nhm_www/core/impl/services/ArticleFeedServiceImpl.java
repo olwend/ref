@@ -170,7 +170,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 			    	}
 		    	}
 
-		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("MM/dd/yy");
+		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
 		    	
 		    	if(node.hasProperty("jcr:content/article/datepublished")) {
 		    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
