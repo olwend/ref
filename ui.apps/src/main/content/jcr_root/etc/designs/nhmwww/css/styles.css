@@ -5595,13 +5595,16 @@ html.js-noScroll {
   padding: 1em;
 }
 
+.articlefeed--item__text p {
+  font-size: 1rem;
+}
+
 .articlefeed--item__hubtag {
   margin-bottom: 1em;
 }
 
 .articlefeed--item__title {
   font-weight: bold;
-  font-size: 21px;
   margin-bottom: 0;
 }
 
