@@ -90,7 +90,7 @@
                             <fourteen
                                 jcr:primaryType="nt:unstructured"
                                 text="School newsletter"
-                                value="remote website school-newsletter "/>
+                                value="remote website school-newsletter"/>
                         </options>
                     </campaign>
                     <dataProtection
