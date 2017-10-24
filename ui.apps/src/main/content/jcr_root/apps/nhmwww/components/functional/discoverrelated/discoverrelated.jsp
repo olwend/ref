@@ -18,6 +18,7 @@
 	<ul class="related-posts--container small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 <%
 		for (final String post : posts) {
+			try {
 			final Page postPage = pageManager.getPage(post);
 			if (page == null) continue;
 
@@ -89,7 +90,12 @@
 		</li>
 <%
 
-		}
+			} catch (Exception e) {
+				//Do something
+			}
+			
+			}
+			}
 %>
 	</ul>
 	</div>
