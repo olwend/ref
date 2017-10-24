@@ -14,6 +14,8 @@ import javax.jcr.Value;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
@@ -67,7 +69,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 			tagManager = jcrTagManagerFactory.getTagManager(session);
 			
 			Map<String, String> queryMap = new HashMap<String, String>();
-
+LOG.error(session.getUserID());
 			//Path
 			queryMap.put("path", rootPath);
 		    queryMap.put("type", "cq:Page");
@@ -101,7 +103,6 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		    	}
 		    }
 
-		    LOG.error(queryMap.toString());
 		    //Query
 		    Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
 
@@ -114,8 +115,8 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 
 		    SearchResult result = query.getResult();
 
-		    //LOG.info(result.getQueryStatement());
-
+		    LOG.info(result.getQueryStatement());
+		    LOG.error(String.valueOf(result.getHits().size()));
 		    //For each query hit, gather required fields and add them to a Map
 		    //Subsequently add map to @nodeList that is returned to the view
 		    for(Hit hits : result.getHits()) {
@@ -137,18 +138,25 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		    	} else if(node.hasProperty("jcr:content/jcr:description")) {
 		    		nodeMap.put("excerpt", node.getProperty("jcr:content/jcr:description").getString());
 		    	}
-		    	
+		    	LOG.error("test");
 		    	//Get image for Article template pages
 		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")) {
 			    	if(node.hasProperty("jcr:content/article/headType")) {
 			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
 			    			if(node.hasProperty("jcr:content/article/image/fileReference")) {
-								nodeMap.put("imagePath", node.getProperty("jcr:content/article/image/fileReference").getString());
+			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
+			    				String context = node.getPath() + "/jcr:content/article/image";
+			    				String extension = "." + fileReference.substring(fileReference.lastIndexOf(".") + 1);
+			    				
+								nodeMap.put("context", context);
+								nodeMap.put("extension", extension);
+								nodeMap.put("imageType", "image");
 							}
 			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
 			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
 			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/mqdefault.jpg";
 					    		nodeMap.put("imagePath", youtubeImagePath);
+					    		nodeMap.put("imageType", "video");
 					    	}
 			    		}
 			    	}

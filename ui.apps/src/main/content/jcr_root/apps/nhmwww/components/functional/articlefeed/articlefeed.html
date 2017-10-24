@@ -20,7 +20,16 @@
 					<li data-sly-test="${list.size > 0}">
 						<div class="articlefeed--item">
 							<div class="articlefeed--item__image">
-								<img src="${list['imagePath']}">
+								<div data-sly-test="${list['imageType'] == 'image'}">
+									<img data-interchange="
+								    	[${list['context']}.img.320.medium${list['extension']}, (default)],
+									    [${list['context']}.img.480.medium${list['extension']}, (only screen and (max-width: 480px))],
+									    [${list['context']}.img.620.high${list['extension']}, (only screen and (min-width: 481px))],
+									    [${list['context']}.img.320.medium${list['extension']}, (only screen and (min-width: 1025px))],">
+								</div>
+								<div data-sly-test="${list['imageType'] == 'video'}">
+									<img src="${list['imagePath']}">
+								</div>
 							</div>
 							<div class="articlefeed--item__text">
 								<p class="articlefeed--item__hubtag" data-sly-test="${list['hubtag']}">${list['hubtag']}</p>
