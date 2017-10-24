@@ -94,7 +94,7 @@
 				//Do something
 			}
 			
-			}
+			
 			}
 %>
 	</ul>
