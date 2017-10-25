@@ -12,6 +12,7 @@ function concatenate_tags(dialog) {
         otherTagsArray = otherTags.value
         dateLastUpdatedValue = dateLastUpdated.value;
 
+	//Concatenate all tags into one property to make querying easier 
     allTags.show();
 
     for(var i=0; i<hubTagArray.length; i++) {
@@ -24,6 +25,8 @@ function concatenate_tags(dialog) {
     
     allTags.setValue(allTagsArray);
     
+    //If no value given for date last updated, copy publish date into
+    //this property. This is for querying against in article feed.
     if(dateLastUpdatedValue === undefined) {
         console.log("test");
     	dateLastUpdated.setValue(datePublished.value);

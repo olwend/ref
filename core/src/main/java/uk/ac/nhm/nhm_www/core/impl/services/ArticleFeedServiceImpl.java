@@ -14,8 +14,6 @@ import javax.jcr.Value;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
@@ -39,7 +37,10 @@ import uk.ac.nhm.nhm_www.core.utils.TextUtils;
 /**
  * @author alisp2
  *
- * Service that...
+ * Service that builds and runs a query based on user-selected parameters
+ * in an Article Feed component dialog. Returns a List object containing 
+ * Map objects representing properties from one or more article pages.
+ * 
  */
 
 @Component
@@ -69,7 +70,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 			tagManager = jcrTagManagerFactory.getTagManager(session);
 			
 			Map<String, String> queryMap = new HashMap<String, String>();
-LOG.error(session.getUserID());
+
 			//Path
 			queryMap.put("path", rootPath);
 		    queryMap.put("type", "cq:Page");
@@ -105,10 +106,9 @@ LOG.error(session.getUserID());
 
 		    //Query
 		    Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
-
+		    
 		    query.setStart(0);
 
-		    //Query - limit
 		    if(limit != null) {
 			    query.setHitsPerPage(Long.parseLong(limit));
 		    }
@@ -116,12 +116,13 @@ LOG.error(session.getUserID());
 		    SearchResult result = query.getResult();
 
 		    LOG.info(result.getQueryStatement());
-		    LOG.error(String.valueOf(result.getHits().size()));
+		    
 		    //For each query hit, gather required fields and add them to a Map
-		    //Subsequently add map to @nodeList that is returned to the view
+		    //Subsequently add Map to @nodeList that is returned to the view
 		    for(Hit hits : result.getHits()) {
 		    	Map<String, String> nodeMap = new HashMap<String, String>();
 		    	Node node = hits.getNode();
+		    	
 		    	//Get properties for each article
 		    	nodeMap.put("path", node.getPath());
 		    	
@@ -138,7 +139,7 @@ LOG.error(session.getUserID());
 		    	} else if(node.hasProperty("jcr:content/jcr:description")) {
 		    		nodeMap.put("excerpt", node.getProperty("jcr:content/jcr:description").getString());
 		    	}
-		    	LOG.error("test");
+
 		    	//Get image for Article template pages
 		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")) {
 			    	if(node.hasProperty("jcr:content/article/headType")) {
@@ -178,6 +179,7 @@ LOG.error(session.getUserID());
 			    	}
 		    	}
 
+		    	//Get publish date
 		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
 		    	
 		    	if(node.hasProperty("jcr:content/article/datepublished")) {
@@ -187,6 +189,7 @@ LOG.error(session.getUserID());
 		    		nodeMap.put("datepublished", datePublished);
 		    	}
 
+		    	//Get hub tag
 		    	if(node.hasProperty("jcr:content/article/hubTag")) {
 		    		Property hubTagsProperty = node.getProperty("jcr:content/article/hubTag");
 		    		Value[] hubTags = hubTagsProperty.getValues();
