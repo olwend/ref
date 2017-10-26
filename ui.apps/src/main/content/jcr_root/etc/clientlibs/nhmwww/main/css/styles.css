@@ -5571,8 +5571,8 @@ html.js-noScroll {
 }
 
 .articlefeed a:hover {
-  color: #565656;
-  text-decoration: none;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .articlefeed--title {
