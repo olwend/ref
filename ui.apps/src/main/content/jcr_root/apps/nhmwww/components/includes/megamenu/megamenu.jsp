@@ -74,7 +74,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="global-header--subnav js-global-header--nav-list__hide">
+	<div class="global-header--subnav subnav__discover js-global-header--nav-list__hide">
 		<div class="row cf">
 			<ul>
 				<li><a href="/content/nhmwww/en/home/discover/oceans.html" data-gtm="subnav-link">Oceans</a></li>
