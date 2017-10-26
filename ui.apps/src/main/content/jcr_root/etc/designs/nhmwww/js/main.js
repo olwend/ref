@@ -268,6 +268,15 @@ jQuery(document).ready(function() {
     }
     /** End WR-1108 */
 
+    /** WR-1134 - Add deworm sub menu */
+    if (urlForMenu.indexOf('nhm.ac.uk/our-science/our-work/sustainability/deworm3') !== -1) {
+        jQuery('.breadcrumb').addClass('js-global-header--nav-list__hide');
+        jQuery('body').addClass('js-global-header--nav-list__body');
+        jQuery('.global-header').addClass('js-global-header--nav-list__header');
+        jQuery('.subnav__deworm').removeClass('js-global-header--nav-list__hide');
+    }
+    /** End WR-1134 */
+
 
     /** WR-1064 - Big Splash component **/
     jQuery('.js--bigsplash-video--controls-pause').on('click', function(e){
