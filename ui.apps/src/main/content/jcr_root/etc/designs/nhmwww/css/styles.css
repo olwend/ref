@@ -8740,6 +8740,23 @@ a.button-cta {
   margin-bottom: 1.2em;
 }
 
+@media screen and (min-width: 640px) {
+  .title .social-share--container {
+    align-items: flex-end;
+  }
+}
+
+.title .social-share--container .social-share--title {
+  display: none;
+}
+
+@media screen and (min-width: 640px) {
+  .title .social-share--container .social-share--title {
+    display: block;
+    margin-top: 8px;
+  }
+}
+
 /** REFACTOR-TEXT-COMPONENT PARTIAL **/
 .text {
   padding: 0 0.75em;
