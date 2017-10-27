@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 - Xenodochial Xenops - 26-Oct-2017
+- WR-1086 - Create Article Feed component for new Discover redesign
+- WR-1119 - Redesign of the Discover Related component
+- WR-1108 - Create sub nav for Discover
+- WR-1092 - Create article template
+- WR-1118 - Discover article migration - move tagged, templated articles from staging to live
+
+## 1.2.10 - Wizardly Wigeon - 25-Oct-2017
+- WR-1135 - Create email campaign for schools in social signup and email signup components
+- WR-1139 - Allow option to apply CTA link on Big Splash component to Title text
+
 ## 1.2.9 - Varied Verdin - 19-Oct-2017
 - WR-1079 - Add cookie notice back to site
 - WR-1109 - Option to add bottom margin to title bar of NHM Page template
