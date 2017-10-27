@@ -88,12 +88,12 @@
 	<div class="global-header--subnav subnav__deworm js-global-header--nav-list__hide">
 		<div class="row cf">
 			<ul>
-				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm/about.html" data-gtm="subnav-link-deworm">About</a></li>
-				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
-				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
-				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm/research-tool-kit.html" data-gtm="subnav-link-deworm">Research tool kit</a></li>
-				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm/publications.html" data-gtm="subnav-link-deworm">Publications</a></li>
-				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm/news.html" data-gtm="subnav-link-deworm">News</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/about.html" data-gtm="subnav-link-deworm">About</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/research-tool-kit.html" data-gtm="subnav-link-deworm">Research tool kit</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/publications.html" data-gtm="subnav-link-deworm">Publications</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/news.html" data-gtm="subnav-link-deworm">News</a></li>
 			</ul>
 		</div>
 	</div>
