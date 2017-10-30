@@ -1,7 +1,7 @@
 function svgInliner() {
 
     if(Modernizr.svg === true){// && jQuery('.html').hasClass('ie9')) {
-        
+
         var changeColor = function(svg, color) {
             var elms = svg.selectAll('path');
 
@@ -11,9 +11,9 @@ function svgInliner() {
             });
         },
         count = 0;
-        
+
         jQuery('.svg-ico').each(function(i){
-        	
+
             count++;
             var $this = jQuery(this),
                 svgPath = $this.data('svg-src'),
@@ -29,7 +29,7 @@ function svgInliner() {
 
             Snap.load(svgPath, function(svg) {
                 var baseColor;
-                
+
                 curSvg.append(svg);
 
                 if ($this.data('base-color') !== undefined && $this.data('base-color') !== '') {
@@ -52,7 +52,7 @@ function svgInliner() {
 
                 if (!!$this.data('hover-color')) {
                     var hoverColor = $this.data('hover-color');
-                    $this.closest('a').hover(function(e) {                        
+                    $this.closest('a').hover(function(e) {
                         if(e.type === 'mouseenter') {
                             changeColor(curSvg, hoverColor);
                         }
@@ -64,7 +64,7 @@ function svgInliner() {
 
                 if ($this.data('mobile-base') !== undefined) {
                     var mobileBase = $this.data('mobile-base');
-                    
+
                     if (jQuery(window).width() < 768) {
                         console.log('running and val is: ' + mobileBase);
                         changeColor(curSvg, mobileBase);
@@ -119,15 +119,15 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubeIframeAPIReady() {
-	
+
    /* player = new YT.Player('player', {
         height: '649',
         width: '1440',
         videoId: 'irSDq4WMVmE',
         playerVars: { 'autoplay': 1, 'controls': 1, 'showinfo': 0, 'color': 'white' },
-        events: { 
+        events: {
         }});*/
-	
+
 	$('.video-wrapper').each(function (){
         var $this = $(this),
             nhmvideoId = $this.data('nhm-videoid'),
@@ -136,7 +136,7 @@ function onYouTubeIframeAPIReady() {
 	            //width: '1440',
 	            videoId: nhmvideoId,
 	            playerVars: { 'loop': 1, 'playlist': nhmvideoId, 'autoplay': 0, 'controls': 1, 'showinfo': 0, 'color': 'white' },
-                events: { 
+                events: {
                     onReady: onPlayerReady
 	            }
             });
@@ -153,15 +153,15 @@ function onYouTubeIframeAPIReady() {
                 // width: '100%',
                 videoId: nhmvideoId,
                 playerVars: { 'modestbranding': 1, 'autoplay': 1, 'rel': 0, 'controls': 0, 'showinfo': 0, 'disablekb': 1 },
-                events: { 
+                events: {
                     onReady: function(e){
                         var player = e.target;
                         player.playVideo();
                     },
-                    onStateChange: 
+                    onStateChange:
                         function(e){
                             if (e.data === YT.PlayerState.ENDED) {
-                                player.playVideo(); 
+                                player.playVideo();
                             }
                         }
                 }
@@ -169,7 +169,7 @@ function onYouTubeIframeAPIReady() {
 
             $this.data('player', player);
         }
-    });     
+    });
 
 	resizeYoutubeFrames();
 }
@@ -198,19 +198,19 @@ function resizeYoutubeFrames() {
 	$(window).resize(function() {
 
 		//var newWidth = $fluidEl.width(); //dhis - dont use 1st video-wrapper
-	
+
 		// Resize all videos according to their own aspect ratio
 		$allVideos.each(function() {
-			
+
 			var $el = $(this);
 			var newWidth = $el.closest('.video-wrapper').width();  //dhis use items video-wrapper parent width instead
-			
+
 			if(newWidth == $el.data('originalWidth')) {
 				$el
 				.width(newWidth)
 				.height($el.data('originalHeight'));
 			} else {
-			
+
 				$el
 				.width(newWidth)
 				.height(newWidth * $el.data('aspectRatio'));
@@ -230,16 +230,16 @@ function onPlayerReady(event) {
 }
 
 jQuery(document).ready(function() {
-    
+
     svgInliner();
 
     jQuery(document).foundation();
 
     /** WR-1040 - Nav bar redesign - add "Active Page" class **/
-    jQuery('.nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
+    jQuery('.global-header--nav-list__link').removeClass('menuSelected'); // Reset class on all menu items (shouldn't technically do anything as classes are all added dynamically below)
 
-    
-    if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
+    if (jQuery('.main-section').hasClass('home')) { jQuery('.global-header--nav-list__link').removeClass('menuSelected'); }
+    else if (jQuery('.main-section').hasClass('visit')) { jQuery('.link-visit').addClass('menuSelected'); }
     else if (jQuery('.main-section').hasClass('discover')) { jQuery('.link-discover').addClass('menuSelected'); }
     else if (jQuery('.main-section').hasClass('take-part')) { jQuery('.link-take-part').addClass('menuSelected'); }
     else if (jQuery('.main-section').hasClass('support-us')) { jQuery('.link-support-us').addClass('menuSelected'); }
@@ -255,9 +255,19 @@ jQuery(document).ready(function() {
         if (urlForMenu.indexOf('nhm.ac.uk/schools') !== -1) { jQuery('.link-schools').addClass('menuSelected'); }
         if (urlForMenu.indexOf('nhm.ac.uk/our-science') !== -1) { jQuery('.link-our-science').addClass('menuSelected'); }
         if (urlForMenu.indexOf('nhm.ac.uk/search') !== -1) { jQuery('.link-search').addClass('menuSelected'); }
-        if (urlForMenu.indexOf('nhm.ac.uk/events') !== -1) { jQuery('.nav-list__link').removeClass('menuSelected'); }
+        if (urlForMenu.indexOf('nhm.ac.uk/events') !== -1) { jQuery('.global-header--nav-list__link').removeClass('menuSelected'); }
     }
 	/** End WR-1040 **/
+
+    /** WR-1108 - Add Discover sub menu */
+    if (jQuery('.main-section').hasClass('discover')) {
+        jQuery('.breadcrumb').addClass('js-global-header--nav-list__hide');
+        jQuery('body').addClass('js-global-header--nav-list__body');
+        jQuery('.global-header').addClass('js-global-header--nav-list__header');
+        jQuery('.global-header--subnav').removeClass('js-global-header--nav-list__hide');
+    }
+    /** End WR-1108 */
+
 
     /** WR-1064 - Big Splash component **/
     jQuery('.js--bigsplash-video--controls-pause').on('click', function(e){
@@ -285,7 +295,7 @@ jQuery(document).ready(function() {
             autoscroll = $this.data('nhm-autoscroll'),
             autoscrollDuration = $this.data('nhm-autoscroll-duration'),
             grouping = $this.data('nhm-grouping') || 1;
-	    
+
 	    carousel = $this.lightSlider({
 	    	gallery: thumbnails,
 	        item: grouping,
@@ -306,9 +316,9 @@ jQuery(document).ready(function() {
 	                prev = carousel.closest('.lSSlideOuter').find('.lSPrev'),
 	                next = carousel.closest('.lSSlideOuter').find('.lSNext');
 
-	            // if the current slide is the first slide    
+	            // if the current slide is the first slide
 	            if (currentSlide===1){
-	            	// and if the window width is less than 1025px       			
+	            	// and if the window width is less than 1025px
 	            	if (jQuery(window).width() < 1025) {
 	              		//hide the previous/next arrows
 	              		prev.css("display", "none");
@@ -363,17 +373,17 @@ jQuery(document).ready(function() {
             next.fadeIn(100);
           }
         },
-        
+
         onBeforeStart: function() {
             $('.js--carousel-image').css('display','block');
         }
       });
 
       var sliderOuter = carousel.closest('.lSSlideOuter');
-      sliderOuter.find('.lSAction').addClass('desktop'); 
+      sliderOuter.find('.lSAction').addClass('desktop');
 
-    });    
-    
+    });
+
     jQuery('.quote-slider').lightSlider({
         item:1,
         controls:false,
@@ -407,10 +417,10 @@ jQuery(document).ready(function() {
                 next.fadeOut(100);
             } else {
                 prev.fadeIn(100);
-                next.fadeIn(100); 
+                next.fadeIn(100);
             }
         },
-        
+
         onBeforeStart: function() {
             $('.js--carousel-image').css('display','block');
         }
@@ -436,12 +446,12 @@ jQuery(document).ready(function() {
                 next.fadeOut(100);
             } else {
                 prev.fadeIn(100);
-                next.fadeIn(100); 
+                next.fadeIn(100);
             }
         }
 
     });
-    
+
     jQuery('.feature--sections').on('click', 'a', function(e){
         e.preventDefault();
         var item = jQuery(this),
@@ -477,7 +487,7 @@ jQuery(document).ready(function() {
         }
         if (jQuery(window).width() < 768) { jQuery(this).closest('.promo-link').hide(); }
     });
-    
+
     jQuery('.close-video').on('click', function(e){
         e.preventDefault();
         var $this = jQuery(this),
@@ -489,9 +499,9 @@ jQuery(document).ready(function() {
     });
 
     // Dynamic hover code to override CSS and provide a bit of delay before open/close
-    jQuery('.level-1 > .nav-list__item.has-children').hoverIntent({ 
-        over: function(){ jQuery(this).addClass('open'); }, 
-        out: function(){ jQuery(this).removeClass('open'); }, 
+    jQuery('.level-1 > .global-header--nav-list__item.has-children').hoverIntent({
+        over: function(){ jQuery(this).addClass('open'); },
+        out: function(){ jQuery(this).removeClass('open'); },
         timeout: 200
     });
 
@@ -500,7 +510,7 @@ jQuery(document).ready(function() {
     // if the width of the window is less than 768px i.e. mobile screen size...
     if(jQuery(window).width() < 768){
     // if a main nav link is clicked...
-      jQuery('.level-1 > .nav-list__item.has-children').on('click', function(e){
+      jQuery('.level-1 > .global-header--nav-list__item.has-children').on('click', function(e){
         // set variable for "this"
         var $this = jQuery(this);
 
@@ -512,64 +522,74 @@ jQuery(document).ready(function() {
 					// if the main nav link already has a "selected" class, remove all the classes that make it "selected"
 					if($this.hasClass('selected')) {
 						$this.removeClass('touch');
-            jQuery('.global-menu-trigger').removeClass('return');
+            jQuery('.global-header--menu__trigger').removeClass('return');
             $this.removeClass('selected').siblings().removeClass('selected-siblings');
           } else {
           // else add all the classes that make it "selected"
 						$this.addClass('touch');
-            jQuery('.global-menu-trigger').addClass('return');
-            jQuery('.nav-list__item').removeClass('selected');
+            jQuery('.global-header--menu__trigger').addClass('return');
+            jQuery('.global-header--nav-list__item').removeClass('selected');
             $this.addClass('selected').siblings().addClass('selected-siblings');
           }
         }
       });
     }
 
+    jQuery('.global-header--nav-list__item--subnav-link').on('click', function(e) {
+        e.preventDefault();
+        jQuery('.global-header--menu__subnav-discover').toggle(function(){});
+    });
+
     // Mobile nav
     jQuery('#mobile-navigation').on('click', function(e){
         e.preventDefault();
-        if(jQuery('.global-menu-trigger').hasClass('return')) {
-            jQuery('.nav-list__item').removeClass('selected selected-siblings');
-            jQuery('.global-menu-trigger').removeClass('return');
-        } else {
-            jQuery('.global-nav-menu').toggle(function() {
-                if(jQuery('.global-menu-trigger').hasClass('clicked')) {
-                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+        // if(jQuery('.global-header--menu__trigger').hasClass('return')) {
+            // jQuery('.global-header--nav-list__item').removeClass('selected selected-siblings');
+            // jQuery('.global-header--menu__trigger').removeClass('return');
+        // } else {
+            // jQuery('.global-nav-menu').toggle(function() {
+            jQuery('.global-header--menu__nav').toggle(function() {
+                if(jQuery('.global-header--menu__trigger').hasClass('clicked')) {
+                    jQuery('.global-header--menu__trigger, .global-nav-menu').removeClass('clicked');
+                    jQuery('.global-header--menu__subnav-discover').slideUp(function(){});
                 } else {
-                    jQuery('.global-menu-trigger, .global-nav-menu').addClass('clicked');
+                    jQuery('.global-header--menu__trigger, .global-nav-menu').addClass('clicked');
                 }
             });
-        }
+            jQuery('.global-header--info__container').toggle(function(){});
+        // }
     });
 
-    jQuery('#megamenu--search-bar__button').on('click', function(e){
+    jQuery('#global-header--search-bar__button').on('click', function(e){
         e.preventDefault();
-        if(jQuery('.global-menu-trigger').hasClass('return')) {
-            jQuery('.nav-list__item').removeClass('selected selected-siblings');
-            jQuery('.global-menu-trigger').removeClass('return');
+        if(jQuery('.global-header--menu__trigger').hasClass('return')) {
+            jQuery('.global-header--nav-list__item').removeClass('selected selected-siblings');
+            jQuery('.global-header--menu__trigger').removeClass('return');
         } else {
-            if(jQuery('.global-menu-trigger').hasClass('clicked')) {
-                jQuery('.global-nav-menu').slideUp('slow');
+            if(jQuery('.global-header--menu__trigger').hasClass('clicked')) {
+                jQuery('.global-header--menu__nav').slideUp('slow');
+                jQuery('.global-header--info__container').slideUp('slow');
+                jQuery('.global-header--menu__subnav-discover').slideUp('slow');
                 setTimeout(function() {
-                    jQuery('.global-menu-trigger, .global-nav-menu').removeClass('clicked');
+                    jQuery('.global-header--menu__trigger, .global-nav-menu').removeClass('clicked');
                 }, 600);
-                
+
             }
         }
         jQuery('html').addClass('js-noScroll');
-        jQuery('.megamenu--search-bar').slideDown('slow');
-        jQuery('.megamenu--search-bar__overlay').slideDown('slow');
-        jQuery('.megamenu--search-bar__content').slideDown('slow');
+        jQuery('.global-header--search-bar').slideDown('slow');
+        jQuery('.global-header--search-bar__overlay').slideDown('slow');
+        jQuery('.global-header--search-bar__content').slideDown('slow');
     });
 
-    jQuery('#megamenu--search-bar__close').on('click', function(e){
+    jQuery('#global-header--search-bar__close').on('click', function(e){
         e.preventDefault();
-        jQuery('.megamenu--search-bar').slideUp('slow');
-        jQuery('.megamenu--search-bar__overlay').slideUp('slow');
-        jQuery('.megamenu--search-bar__content').slideUp('slow');
+        jQuery('.global-header--search-bar').slideUp('slow');
+        jQuery('.global-header--search-bar__overlay').slideUp('slow');
+        jQuery('.global-header--search-bar__content').slideUp('slow');
         setTimeout(function() {
             jQuery('html').removeClass('js-noScroll');
-        }, 600);        
+        }, 600);
     });
 
     // IE8 interchange image shim - SVG support began with IE9
@@ -583,16 +603,28 @@ jQuery(document).ready(function() {
         });
     }
 
+ /** WR-1079 - reimplement cookie notice **/
+
+    if (!$.cookie('cookieBar-cookie')) { //Fire when no cookie feedback present
+        $('#cookie-bar').show();
+    } else {
+        $('#cookie-bar').remove();
+    }
+        $('.js--cookie-close').click(function() {
+            $.cookie('cookieBar-cookie', 'nhm-cookies', { expires: 365, path: '/'});
+            $('#cookie-bar').remove();
+        });
+
     /** WR-1063 - smart banner nav bar fix **/
     $('body').on('DOMNodeInserted', 'div', function () { // Fire when a div is inserted into DOM
         if ($(this).hasClass('js_smartbanner')) {
-            jQuery('.global-header').css('position', 'relative'); 
+            jQuery('.global-header').css('position', 'relative');
             jQuery('body').css('padding-top', '0');
         }
     });
     $('body').on('DOMNodeRemoved', 'div', function () { // Fire when a div is removed from DOM
         if ($(this).hasClass('js_smartbanner')) {
-            jQuery('.global-header').css('position', 'fixed'); 
+            jQuery('.global-header').css('position', 'fixed');
             jQuery('body').css('padding-top', '100px');
         }
     });
@@ -602,7 +634,7 @@ jQuery(document).ready(function() {
 //WR-953 - TOR iFrame scrollbar fix supplied by TOR (Nov 2016)
 
 //PARENT IFRAME NEEDS THIS SCRIPT
-//browser compatibility: get method for event 
+//browser compatibility: get method for event
 //addEventListener(FF, Webkit, Opera, IE9+) and attachEvent(IE5-8)
 var myEventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 
@@ -618,5 +650,5 @@ myEventListener(myEventMessage, function (e) {
 //if it is an int - detect the height required by the iframe with class "js--tor-iframe", set the height of the iframe and add 350px
 if (e.data === parseInt(e.data)) {
       $('.js--tor-iframe').height(e.data + 350);
-  }                             
+  }
 }, false);

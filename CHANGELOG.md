@@ -1,5 +1,45 @@
 # Changelog
 
+## 1.3.0 - Xenodochial Xenops - 26-Oct-2017
+- WR-1086 - Create Article Feed component for new Discover redesign
+- WR-1119 - Redesign of the Discover Related component
+- WR-1108 - Create sub nav for Discover
+- WR-1092 - Create article template
+- WR-1118 - Discover article migration - move tagged, templated articles from staging to live
+
+## 1.2.10 - Wizardly Wigeon - 25-Oct-2017
+- WR-1135 - Create email campaign for schools in social signup and email signup components
+- WR-1139 - Allow option to apply CTA link on Big Splash component to Title text
+
+## 1.2.9 - Varied Verdin - 19-Oct-2017
+- WR-1079 - Add cookie notice back to site
+- WR-1109 - Option to add bottom margin to title bar of NHM Page template
+- WR-1128 - Update CSS hooks for page templates
+- WR-1136 - Update template permissions
+
+## 1.2.8 - Uppity Upupa - 12-Oct-2017
+- WR-1122 - Add WPY marketing campaign/source code to Social Signup component AND generic email sign up component
+- WR-1131 - Update "popular search terms" on site
+- WR-1132 - Clean up a few redirects + urls for pivacy-notice
+
+## 1.2.7 - Turncoat Turkey - 28-Sep-2017
+- WR-838 - Refactor: Tagged Element List Feed component - apply new format of Sass variables in Sass partial
+- WR-840 - Refactor: Text component - apply new format of Sass variables in Sass partial
+- WR-786 - Refactor: HTI component - apply new format of Sass variables in Sass partial
+- WR-846 - Refactor: HTI component - clean up duplicate HTI styles in refactored Theme partials
+- WR-776 - Refactor: Event & Exhibition Summary component - apply new format of Sass variables in Sass partial
+- WR-829 - Refactor: Secondary Nav component
+- WR-800 - Refactor: Link List component
+- WR-824 - Refactor: Press Release List Feed component - apply new format of Sass variables in Sass partial
+- WR-828 - Refactor: Press Release Tile Feed component - apply new format of Sass variables in Sass partial
+- WR-1121 - Correct the colour variable for global-header in megamenu partial
+
+## 1.2.6 - Radiant Razorbill - 21-Sep-2017
+- WR-1110 - Change search form action to https
+
+## 1.2.5 - Swashbuckling Swift - 14-Sep-2017
+- WR-1090 - Add new 'campaign' option to email sign-up and social sign-up components
+
 ## 1.2.4 - Rambunctious Redshank - 24-Aug-2017
 - WR-1087 - Add social share component to Discover Articles
 U WR-1089 - Add 'date published' and 'last updated' in Discover article byline (revealed on page)

@@ -56,6 +56,13 @@
                     	fieldLabel="CTA URL"
                     	name="./ctaurl"
                     	xtype="pathfield"  />
+                   	<applyLinkToTitle
+                   		jcr:primaryType="cq:Widget"
+                   		fieldLabel="Apply to title?"
+                   		fieldDescription="Applies CTA URL to Title across all screen sizes"
+                   		name="./applyLinkToTitle"
+                   		type="checkbox"
+                   		xtype="selection"/>
                 </items>
             </cta>
         </items>
