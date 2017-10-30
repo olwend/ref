@@ -5094,6 +5094,12 @@ html.js-noScroll {
   margin-bottom: 0;
 }
 
+@media screen and (min-width: 768px) {
+  .article--tags-footer li:last-child {
+    margin-bottom: 20px;
+  }
+}
+
 .article--title-header {
   margin-top: 0;
   margin-bottom: 0;
@@ -5577,6 +5583,16 @@ html.js-noScroll {
 
 .articlefeed--title {
   padding-left: 20px;
+}
+
+.articlefeed--title h2 {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .articlefeed--title h2 {
+    font-size: 1.8em;
+  }
 }
 
 .articlefeed--item {
