@@ -61,7 +61,7 @@
     String defType = currentStyle.get("defaultType", "large");
 	%>
     <div class="row title-bar <%if (addPadding) { %>title-bar__margin-bottom<%} %>">
-	    <div class="small-12 <% if (addSocial) { %>medium-9<% } else { %>medium-12<% } %> columns">
+	    <div class="small-12 <% if (addSocial) { %>medium-9 large-9<% } else { %>medium-12 large-12<% } %> columns">
 	    <%
 	    // use image title if type is "small" but not if diff should be displayed
 	    if (properties.get("type", defType).equals("small") && diffOutput == null) {
@@ -87,7 +87,7 @@
 	    <% } %>
 	    </div>
 			<% if (addSocial) { %>
-			<div class="small-12 medium-3 columns">
+			<div class="small-12 medium-3 large-3 columns">
 				<div class="article--social-share-header">
 					<cq:include path="socialshare-header" resourceType="nhmwww/components/functional/socialshare"/>
 				</div>
