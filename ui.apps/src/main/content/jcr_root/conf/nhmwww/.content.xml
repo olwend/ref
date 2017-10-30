@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="sling:Folder"
+    jcr:title="nhmwww">
+	<settings jcr:primaryType="sling:Folder">
+		<dam jcr:primaryType="cq:Page">
+			<cfm jcr:primaryType="cq:Page">
+				<models jcr:primaryType="cq:Page">
+				
+				</models>
+			</cfm>
+		</dam>
+	</settings>
+</jcr:root>
