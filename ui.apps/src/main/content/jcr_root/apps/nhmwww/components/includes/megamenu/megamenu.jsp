@@ -74,7 +74,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="global-header--subnav js-global-header--nav-list__hide">
+	<div class="global-header--subnav subnav__discover js-global-header--nav-list__hide">
 		<div class="row cf">
 			<ul>
 				<li><a href="/content/nhmwww/en/home/discover/oceans.html" data-gtm="subnav-link">Oceans</a></li>
@@ -82,6 +82,18 @@
 				<li><a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a></li>
 				<li><a href="/content/nhmwww/en/home/about-us/news.html" data-gtm="subnav-link">News</a></li>
 				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="global-header--subnav subnav__deworm js-global-header--nav-list__hide">
+		<div class="row cf">
+			<ul>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/about.html" data-gtm="subnav-link-deworm">About</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/research-tool-kit.html" data-gtm="subnav-link-deworm">Research tool kit</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/publications.html" data-gtm="subnav-link-deworm">Publications</a></li>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/news.html" data-gtm="subnav-link-deworm">News</a></li>
 			</ul>
 		</div>
 	</div>

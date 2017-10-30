@@ -7,7 +7,7 @@
         jcr:primaryType="cq:Widget"
         xtype="tabpanel">
         <items jcr:primaryType="cq:WidgetCollection">
-            <config
+            <main
                 jcr:primaryType="cq:Panel"
                 title="Config">
                 <items jcr:primaryType="cq:WidgetCollection">
@@ -49,7 +49,7 @@
                         xtype="pathfield"
                         rootPath="/content/nhmwww" />
                 </items>
-            </config>
+            </main>
             <query
                 jcr:primaryType="cq:Panel"
                 title="Query">
