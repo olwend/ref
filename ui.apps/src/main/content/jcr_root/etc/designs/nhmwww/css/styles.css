@@ -2,7 +2,6 @@
 STYLESHEET COMPILED USING SASS
 CSS files should not be edited directly, as those edits will be overridden next time SASS is compiled.
 */
-/** LEGACY SECTIONS PARTIAL (PHASED OUT) **/
 .home {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
   /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
@@ -2520,9 +2519,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #eeeeee;
 }
 
-/** REFACTOR FOUNDATION **/
-/** LEGACY BASE PARTIAL (MERGED WITH REFACTORED BASE PARTIAL - WR-720) **/
-/** LEGACY TYPOGRAPHY PARTIAL (MERGED WITH REFACTORED TYPOGRAPHY PARTIAL - WR-721) **/
 /** LEGACY LAYOUT PARTIAL **/
 /** Grid **/
 .row,
@@ -2637,7 +2633,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-/** LEGACY FOOTER COMPONENT PARTIAL **/
 /** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
 .cf:before,
@@ -2778,9 +2773,6 @@ input.question {
   }
 }
 
-/** LEGACY NAVIGATION PARTIAL (RENAMED FROM _NAVIGATION.SCSS) **/
-/** WR-1040 - MEGAMENU UPDATE - LEGACY PARTIAL REMOVED AS PART OF CLEAN START **/
-/** LEGACY COMPONENTS PARTIAL (PHASED OUT) **/
 /** LEGACY ARROW PARTIAL **/
 .arrow {
   position: relative;
@@ -4163,7 +4155,6 @@ iframe.youtubeplayer {
   padding-bottom: 0em;
 }
 
-/** LEGACY ACCORDION PARTIAL - MERGED WITH REFACTORED ACCORDION PARTIAL (WR-737) **/
 /** LEGACY BREADCRUMB PARTIAL **/
 .breadcrumb {
   background-color: #000000;
@@ -4198,8 +4189,6 @@ iframe.youtubeplayer {
   width: 30px;
 }
 
-/** LEGACY FEEDBACK-BAR - REMOVED (WR-929) **/
-/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) - MERGED WITH REFACTORED EVENT-SLIDER PARTIAL (WR-752) **/
 /** JQUERY DATEPICKER (VENDOR) PARTIAL NHMEC-5**/
 /*
  * EVENT CALENDAR COMPONENT DATEPICKER STYLING 
@@ -4587,7 +4576,6 @@ iframe.youtubeplayer {
   float: right !important;
 }
 
-/** LEGACY HELPERS PARTIAL - MERGED WITH LEGACY UTILITIES PARTIAL **/
 /** LEGACY SEARCH RESULTS PARTIAL (RENAMED FROM _SEARCH-RESULTS.SCSS) **/
 /*** _GOOGLE-SEARCH-RESULTS.SCSS, FORMERLY _SEARCH-RESULTS.SCSS ***/
 .gcsc-branding-text,
@@ -4789,7 +4777,6 @@ table.gssb_c {
   padding: 2em;
 }
 
-/** FIXES PARTIAL (PHASED OUT) **/
 /** REFACTOR-BASE PARTIAL **/
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -7927,7 +7914,6 @@ div#cookie-bar p {
   }
 }
 
-/** REFACTOR-FEEDBACK-BAR PARTIAL - REMOVED (WR-929) **/
 .pressreleaselistfeed h3 {
   padding-bottom: 10px;
   padding-left: 0.5em;
@@ -8574,7 +8560,6 @@ a.button-cta {
   display: none;
 }
 
-/** PRESS OFFICE PARTIAL (PHASED OUT) **/
 /** SECONDARY NAV PARTIAL **/
 /**** SECONDARY NAV ****/
 .secondary-nav-wrapper {
@@ -9076,7 +9061,6 @@ input.searchGo {
   top: auto !important;
 }
 
-/** FOOTER PARTIAL - MERGED **/
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
