@@ -30,7 +30,7 @@
 									<a href="/content/nhmwww/en/home/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
-									<a href="/content/nhmwww/en/home/discover/dinodirectory/index.html" data-gtm="subnav-link">Dinosaurs</a>
+									<a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
 									<a href="/content/nhmwww/en/home/about-us/news.html" data-gtm="subnav-link">News</a>
