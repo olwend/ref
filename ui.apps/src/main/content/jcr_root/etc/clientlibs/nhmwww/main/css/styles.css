@@ -4,10 +4,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 */
 .home {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .home a, .home a:hover {
@@ -188,11 +184,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .visit {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
-  /** commented out for WR-751 (refactor of carousel component) **/
 }
 
 .visit a, .visit a:hover {
@@ -418,10 +409,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .take-part {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .take-part a, .take-part a:hover {
@@ -616,10 +603,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .about-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .about-us a, .about-us a:hover {
@@ -800,10 +783,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .schools {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .schools a, .schools a:hover {
@@ -984,11 +963,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .our-science {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
-  /** commented out for WR-752 (refactor of carousel component) **/
 }
 
 .our-science a, .our-science a:hover {
@@ -1223,10 +1197,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .support-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .support-us a, .support-us a:hover {
@@ -1407,10 +1377,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .discover {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .discover a, .discover a:hover {
@@ -1591,10 +1557,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .press-office {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .press-office a, .press-office a:hover {
@@ -1775,10 +1737,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .working {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .working a, .working a:hover {
@@ -1959,10 +1917,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .business-services {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .business-services a, .business-services a:hover {
@@ -2143,10 +2097,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .contact-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .contact-us a, .contact-us a:hover {
@@ -2327,10 +2277,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .shop {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .shop a, .shop a:hover {
@@ -2435,10 +2381,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .account {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .account a, .account a:hover {
@@ -4126,12 +4068,7 @@ figure {
 /*alext2: removing as this is causing issues witht the RTE in AEM*/
 /* making this youtube specific ************************/
 iframe.youtubeplayer {
-  /*height:400px;*/
-  /*left: 0;*/
-  /*position: relative;*/
-  /*top: 0;*/
   width: 100%;
-  /*height: 100%;*/
 }
 
 /** LEGACY IMAGE COMPONENT PARTIAL (WR-792) **/
@@ -8376,7 +8313,6 @@ a.button-cta {
   border: none !important;
 }
 
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 /**overrides headertextimage.scss **/
 .headertextimage .hti-padding {
   margin-bottom: 1.2em;
@@ -8400,14 +8336,7 @@ a.button-cta {
 .hti-box .ctabutton--inside-hti .svg-ico {
   height: 40px;
   top: 30%;
-  /*width: 60%;*/
   width: 100%;
-  /*
-	@media screen and (min-width: $tablet) {
-		height: 36%;
-		top: 34%;
-		right: 0;
-	}*/
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
