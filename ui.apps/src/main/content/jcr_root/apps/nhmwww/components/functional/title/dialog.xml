@@ -13,8 +13,14 @@
             xtype="textfield"/>
         <addPadding
                 jcr:primaryType="cq:Widget"
-                fieldLabel="Add Padding"
+                fieldLabel="Add padding"
                 name="./addPadding"
+                type="checkbox"
+                xtype="selection"/>
+        <addSocial
+                jcr:primaryType="cq:Widget"
+                fieldLabel="Add social share"
+                name="./addSocial"
                 type="checkbox"
                 xtype="selection"/>
         <type

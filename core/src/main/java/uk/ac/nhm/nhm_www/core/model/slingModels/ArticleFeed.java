@@ -32,6 +32,8 @@ public class ArticleFeed {
 
 	private List<Map<String, String>> pageList = null;
 	private String columns = null;
+	private String readmorelink = null;
+	
 
 	@PostConstruct
 	protected void init() {
@@ -59,6 +61,18 @@ public class ArticleFeed {
 		if(rowSize.equals("twocolumn")) {
 			this.setColumns("2");
 		}
+		
+		
+		//this.showreadmore = properties.get("showreadmore",boolean.class);
+		this.readmorelink = properties.get("readmorelink",String.class);
+		if(this.readmorelink != null) {
+			if(!this.readmorelink.isEmpty()) {
+				if(!this.readmorelink.contains(".html")) {
+					this.readmorelink = this.readmorelink + ".html";
+				}
+			}
+
+		}
 	}
 
 	public List<Map<String, String>> getPageList() {
@@ -76,4 +90,11 @@ public class ArticleFeed {
 	public void setColumns(String columns) {
 		this.columns = columns;
 	}
+	
+	public String getReadmorelink() {
+		return readmorelink;
+	}
+
+	
+	
 }
