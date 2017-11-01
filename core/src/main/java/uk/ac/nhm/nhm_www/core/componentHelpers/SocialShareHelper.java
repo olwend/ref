@@ -1,12 +1,12 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
-import com.adobe.cq.sightly.WCMUse;
+import com.adobe.cq.sightly.WCMUsePojo;
 
-public class SocialShareHelper extends WCMUse {
+public class SocialShareHelper extends WCMUsePojo {
 	
 	private String socialLink;
 	
-	@Override
+	//@Override
 	public void activate() throws Exception {
 		
 		//Strip '/content/nhmwww/en/home' from page path

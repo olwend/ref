@@ -1,15 +1,13 @@
 package uk.ac.nhm.nhm_www.core.componentHelpers;
 
 import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.adobe.cq.sightly.WCMUse;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.designer.Style;
+
 import uk.ac.nhm.nhm_www.core.utils.LinkUtils;
-import uk.ac.nhm.nhm_www.core.InformationalPageHeadService;
 
 
 public class InformationalPageHeadHelper {
