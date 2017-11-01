@@ -1,5 +1,5 @@
 <%@page
-	import="uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper"%>
+	import="uk.ac.nhm.core.componentHelpers.ScientistProfileHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <% 
     final ScientistProfileHelper helper = new ScientistProfileHelper(resource);

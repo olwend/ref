@@ -6,7 +6,7 @@
 				java.util.Locale,
 				java.util.Map,
 				org.apache.sling.api.resource.Resource,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
+				uk.ac.nhm.core.componentHelpers.ArticleHelper"%>
 <!-- <cq:includeClientLib categories="nhm-www.discoverpublication" /> -->
 <%
 	final String[] posts = properties.get("posts", String[].class);

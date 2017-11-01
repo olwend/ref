@@ -16,9 +16,9 @@
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.SocialSignupHelper"%>
+  import="uk.ac.nhm.core.componentHelpers.SocialSignupHelper"%>
 <%@page
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+  import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
   
 	<%
 		SocialSignupHelper helper = new SocialSignupHelper(properties, resource);

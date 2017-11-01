@@ -16,9 +16,9 @@
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-	import="uk.ac.nhm.nhm_www.core.componentHelpers.ENewsSignupHelper"%>
+	import="uk.ac.nhm.core.componentHelpers.ENewsSignupHelper"%>
 <%@page
-	import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+	import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.enews-signup" />
 

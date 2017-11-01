@@ -1,8 +1,8 @@
 <%@ page session="false"
 	import="java.util.List,
-			uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverListHelper,
-			uk.ac.nhm.nhm_www.core.model.discover.*,
-			uk.ac.nhm.nhm_www.core.services.DiscoverPublicationsSearchService"%>
+			uk.ac.nhm.core.componentHelpers.DiscoverListHelper,
+			uk.ac.nhm.core.model.discover.*,
+			uk.ac.nhm.core.services.DiscoverPublicationsSearchService"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%
 	final DiscoverListHelper helper = new DiscoverListHelper(resource);

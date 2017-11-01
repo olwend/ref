@@ -1,8 +1,8 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-          import="uk.ac.nhm.nhm_www.core.componentHelpers.HelperBase, com.day.cq.commons.ImageResource,
+          import="uk.ac.nhm.core.componentHelpers.HelperBase, com.day.cq.commons.ImageResource,
                   com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
-                  uk.ac.nhm.nhm_www.core.componentHelpers.TwentyTwentyImageHelper"%><%
+                  uk.ac.nhm.core.componentHelpers.TwentyTwentyImageHelper"%><%
 %>
 <cq:defineObjects />
 

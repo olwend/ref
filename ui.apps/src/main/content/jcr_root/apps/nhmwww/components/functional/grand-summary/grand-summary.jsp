@@ -1,8 +1,8 @@
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.SVGImage" %>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.GrandSummaryHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper"%>
+<%@page import="uk.ac.nhm.core.model.SVGImage" %>
+<%@page import="uk.ac.nhm.core.componentHelpers.GrandSummaryHelper"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.CTAButtonHelper"%>
 <cq:defineObjects />
 <cq:includeClientLib />
 <%	GrandSummaryHelper helper = new GrandSummaryHelper(slingRequest, currentPage, properties); %>

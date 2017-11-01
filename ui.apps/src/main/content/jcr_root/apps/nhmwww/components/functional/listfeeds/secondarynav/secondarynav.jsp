@@ -4,10 +4,10 @@
 
   This will create a section specific secondary Nav
 
---%><%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.SecondaryNavHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.ListElementImpl"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.ListHelper,
-				uk.ac.nhm.nhm_www.core.utils.*"%>
+--%><%@page import="uk.ac.nhm.core.componentHelpers.SecondaryNavHelper"%>
+<%@page import="uk.ac.nhm.core.model.ListElementImpl"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.ListHelper,
+				uk.ac.nhm.core.utils.*"%>
 <%
 %>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 

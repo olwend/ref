@@ -9,7 +9,7 @@
 %><%@page session="false"
           import="com.day.cq.commons.ImageResource,
                   com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
-                  uk.ac.nhm.nhm_www.core.componentHelpers.Foundation5ImageHelper"%><%
+                  uk.ac.nhm.core.componentHelpers.Foundation5ImageHelper"%><%
 %>
 <cq:defineObjects />
 

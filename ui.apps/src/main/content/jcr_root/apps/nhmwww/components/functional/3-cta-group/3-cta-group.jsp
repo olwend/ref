@@ -6,8 +6,8 @@
 
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper" %>
-<%@page import="uk.ac.nhm.nhm_www.core.model.SVGImage" %>
+<%@page import="uk.ac.nhm.core.componentHelpers.CTAButtonHelper" %>
+<%@page import="uk.ac.nhm.core.model.SVGImage" %>
 <cq:defineObjects />
 <%
 	CTAButtonHelper helper = new CTAButtonHelper(cssClassSection.toLowerCase());

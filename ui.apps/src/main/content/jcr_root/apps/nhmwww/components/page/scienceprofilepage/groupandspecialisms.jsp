@@ -1,8 +1,8 @@
 <%@page import="java.util.Arrays,
 				java.util.Set,
-				uk.ac.nhm.nhm_www.core.services.ScientistsGroupsService,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
-				uk.ac.nhm.nhm_www.core.model.science.Scientist,
+				uk.ac.nhm.core.services.ScientistsGroupsService,
+				uk.ac.nhm.core.componentHelpers.ScientistProfileHelper,
+				uk.ac.nhm.core.model.science.Scientist,
 				org.apache.commons.lang3.StringUtils"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%

@@ -2,7 +2,7 @@
 <%@page session="false"
         import="com.day.cq.commons.ImageResource,
                 com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
-                uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverRelatedImageHelper"%>
+                uk.ac.nhm.core.componentHelpers.DiscoverRelatedImageHelper"%>
 <cq:defineObjects />
 <%
 	DiscoverRelatedImageHelper helper = new DiscoverRelatedImageHelper(properties, resource, resourceResolver, request, xssAPI);

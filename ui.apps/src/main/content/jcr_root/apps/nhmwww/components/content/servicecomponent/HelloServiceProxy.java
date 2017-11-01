@@ -18,7 +18,7 @@ package apps.nhmwww.components.content.servicecomponent;
 import javax.script.Bindings;
 
 import org.apache.sling.api.scripting.SlingScriptHelper;
-import uk.ac.nhm.nhm_www.core.HelloService;
+import uk.ac.nhm.core.HelloService;
 
 import com.adobe.cq.sightly.WCMUsePojo;
 

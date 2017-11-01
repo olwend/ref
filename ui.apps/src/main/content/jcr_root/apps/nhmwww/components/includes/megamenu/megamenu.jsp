@@ -1,4 +1,4 @@
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <% DynamicPageHelper helper = new DynamicPageHelper(resource, properties, request); %>
 

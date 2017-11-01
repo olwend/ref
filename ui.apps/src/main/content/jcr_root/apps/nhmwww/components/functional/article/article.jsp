@@ -4,7 +4,7 @@
 				java.util.Calendar,
 				java.util.List,
 				java.util.Map,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
+				uk.ac.nhm.core.componentHelpers.ArticleHelper"%>
 <cq:includeClientLib categories="nhmwww.article"/>
 <%
 	final ArticleHelper helper = new ArticleHelper(resource, request, xssAPI, slingRequest);
