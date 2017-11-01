@@ -10541,8 +10541,3 @@ input.searchGo {
 .global-header--nav-list__item:hover.link-visit, .global-header--nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
 }
-
-/** BIG SPLASH HOTFIX **/
-.bigsplash-text--title-container h1.bigsplash-text--title {
-  color: #FFFFFF !important;
-}
