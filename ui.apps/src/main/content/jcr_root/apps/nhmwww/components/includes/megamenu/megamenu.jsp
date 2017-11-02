@@ -88,6 +88,7 @@
 	<div class="global-header--subnav subnav__deworm js-global-header--nav-list__hide">
 		<div class="row cf">
 			<ul>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3.html" data-gtm="subnav-link-deworm">DeWorm3</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/about.html" data-gtm="subnav-link-deworm">About</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
