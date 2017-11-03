@@ -26,6 +26,11 @@
 		return;
 	}
 
+	if (WCMMode.fromRequest(request) == WCMMode.EDIT) { %>
+	<p>Article</p>
+	<p>Edit the article dialog here</p> 
+<% }
+	
 	if (helper.isImageHeadType()) {
 		if (helper.isImageConfigured()) {
 %>

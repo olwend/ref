@@ -21,6 +21,20 @@
                         fieldDescription="Leave empty to use the page title."
                         fieldLabel="Title"
                         name="./jcr:title"/>
+                    <addPadding
+	                   	jcr:primaryType="nt:unstructured"
+						fieldLabel="Add padding"
+						name="./addPadding"
+						sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+						text="Add padding"
+						value="{Boolean}true" />
+					<addSocial
+	                   	jcr:primaryType="nt:unstructured"
+						fieldLabel="Add social share"
+						name="./addSocial"
+						sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+						text="Add social share"
+						value="{Boolean}true" />
                     <type
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/foundation/form/select"

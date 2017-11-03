@@ -5,12 +5,12 @@
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
-        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
         <items jcr:primaryType="nt:unstructured">
-            <column
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/foundation/container">
-                <items jcr:primaryType="nt:unstructured">
                     <main
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
@@ -58,9 +58,74 @@
 				                </items>
 				            </column>
                         </items>
-                    </video>
-                </items>
-            </column>
+                    </main>
+                    <query
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        jcr:title="Query">
+                        <items jcr:primaryType="nt:unstructured">
+	                        <column
+				                jcr:primaryType="nt:unstructured"
+				                sling:resourceType="granite/ui/components/foundation/container">
+				                <items jcr:primaryType="nt:unstructured">
+				                    <rootPath 
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Path"
+										name="./rootpath"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										rootPath="/content/nhmwww" />
+									<tags
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Tags"
+				                        name="./cq:tags"
+				                        sling:resourceType="cq/gui/components/common/tagspicker"
+				                        allowBulkEdit="{Boolean}true"
+				                        cq-msm-lockable="cq:tags"
+				                        cq:showOnCreate="{Boolean}true" />
+									<tagsoperator
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Tags logical operator"
+					                    defaultValue="or"
+					                    name="./tagsoperator"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+					                    <items jcr:primaryType="nt:unstructured">
+					                        <and
+				                                jcr:primaryType="nt:unstructured"
+				                                text="And"
+				                                value="and"/>
+				                            <or
+				                                jcr:primaryType="nt:unstructured"
+				                                text="Or"
+				                                value="or"/>
+					                    </items>
+					                </tagsoperator>
+					                <order
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Order by"
+					                    defaultValue="datecreated"
+					                    name="./order"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+					                    <items jcr:primaryType="nt:unstructured">
+					                        <datecreated
+				                                jcr:primaryType="nt:unstructured"
+				                                text="Date published"
+				                                value="datecreated"/>
+				                            <datemodified
+				                                jcr:primaryType="nt:unstructured"
+				                                text="Date last updated"
+				                                value="datemodified"/>
+					                    </items>
+					                </order>
+					                <title
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Limit"
+				                        name="./limit"
+				                        fieldDescription="Default value is 10 if left blank"
+				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+				                </items>
+				            </column>
+                        </items>
+                    </query>
         </items>
     </content>
 </jcr:root>
