@@ -99,7 +99,7 @@
 					</div>
 
 					<div class="article--social-share-header">
-						<cq:include path="socialshare-header" resourceType="nhmwww/components/functional/socialshare"/>
+						<cq:include path="socialshareheader" resourceType="nhmwww/components/functional/socialshare"/>
 					</div>
 				</div>
 

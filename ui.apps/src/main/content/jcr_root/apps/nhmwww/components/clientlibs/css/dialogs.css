@@ -29,4 +29,10 @@
 	.coral-ButtonGroup.rte-toolbar {
 		visibility: visible !important;
 	}
+	
+	.coral-ButtonGroup-item.coral-Button {
+		padding-left: 0rem;
+		padding-right: 0rem;
+		min-width: 2.8rem;
+	}
 }

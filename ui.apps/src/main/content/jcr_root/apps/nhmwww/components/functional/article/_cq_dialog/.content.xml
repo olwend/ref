@@ -527,18 +527,16 @@
 							<datepublished
 								jcr:primaryType="nt:unstructured"
 								displayedFormat="YYYY/MM/DD"
-								valueFormat="YYYY/MM/DD"
 								sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
 								fieldLabel="Date published"
-								name="./datepublished"
+								name="./datepublisheddate"
 								type="date"/>
 							<datelastupdated
 								jcr:primaryType="nt:unstructured"
 								displayedFormat="YYYY/MM/DD"
-								valueFormat="YYYY/MM/DD"
 								sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
 								fieldLabel="Date last updated"
-								name="./datelastupdated"
+								name="./datelastupdateddate"
 								type="date"/>
 						</items>
        				</column>
