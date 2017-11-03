@@ -13,3 +13,20 @@
 .coral-FixedColumn-column {
 	width:85%;
 }
+
+@media screen and (min-width: 1280px) {
+	.coral-TabPanel-navigation {
+		position: absolute !important;
+		width: 95%;
+		background-color: white;
+		border-bottom: 1px solid rgb(208, 208, 208);
+	}
+
+	.coral-TabPanel-content {
+		margin-top: 50px !important;
+	}
+
+	.coral-ButtonGroup.rte-toolbar {
+		visibility: visible !important;
+	}
+}
