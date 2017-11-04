@@ -1,3 +1,12 @@
+/**
+ * 
+ * Dialog utils contains functions to concatenate tag and date fields in
+ * article dialog.
+ * 
+ * Has classic and touch implementations.
+ */
+
+//Classic
 function concatenate_tags(dialog) {
 
 	var allTags   = dialog.findByType('multifield')[0],
@@ -32,14 +41,44 @@ function concatenate_tags(dialog) {
 	}
 }
 
-
+//Touch UI
 $(document).on("click", ".cq-dialog-submit", function () {
     var dialogTitle = $('.cq-dialog-header').text();
     if(dialogTitle.includes("Article Configuration")) {
     	var $form = $(this).closest("form.foundation-form");
 
-		var datePublished = getDate($("input[name='./datepublisheddate']").val());
-		var dateLastUpdated = getDate($("input[name='./datelastupdateddate']").val());
+    	//Tags
+    	var hubTagArray = [],
+            otherTagsArray = [],
+        	allTagsArray = [];
+
+        //Only take the first tag in this field
+		hubTagArray.push($("input[name='./hubTag']").val());
+
+        //Get values for each other tag
+        $("input[name='./otherTags']").each(function() {
+            otherTagsArray.push(this.value);
+        });
+
+    	for(var i=0; i<hubTagArray.length; i++) {
+    		allTagsArray.push(hubTagArray[i]);
+    	}
+
+    	for(var i=0; i<otherTagsArray.length; i++) {
+    		allTagsArray.push(otherTagsArray[i]);
+    	}
+
+        for(var i=0; i<allTagsArray.length; i++) {
+            $('<input />').attr('type', 'hidden')
+            .attr('name', "./cq:tags")
+            .attr('value', allTagsArray[i])
+            .attr('class', 'cq-TagList-tag--existing')
+            .appendTo($form);
+        }
+    	
+    	//Dates
+		var datePublished = getDate($("input[name='./datepublisheddate']").val()),
+			dateLastUpdated = getDate($("input[name='./datelastupdateddate']").val());
 
         if(dateLastUpdated == null) dateLastUpdated = datePublished;
 

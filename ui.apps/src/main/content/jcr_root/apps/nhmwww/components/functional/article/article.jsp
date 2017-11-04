@@ -112,7 +112,7 @@
 				<div class="discover-publication-footer">
 					<div class="flags small-12 medium-12 large-12 columns">
 						<div class="article--social-share-footer">
-							<cq:include path="socialshare-footer" resourceType="nhmwww/components/functional/socialshare"/>
+							<cq:include path="socialsharefooter" resourceType="nhmwww/components/functional/socialshare"/>
 						</div>
 						<hr class="article--hr-footer">
 						<div class="article--tags-footer">
