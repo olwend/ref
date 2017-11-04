@@ -67,7 +67,7 @@
 		                        required="{Boolean}true"/>
 	                        <eventDescription
 		                        jcr:primaryType="nt:unstructured"
-		                        fieldLabel="Event Description"
+		                        fieldLabel="Event Description *"
 		                        name="./jcr:description"
 		                        sling:resourceType="granite/ui/components/foundation/form/textarea"
 		                        required="{Boolean}true"
