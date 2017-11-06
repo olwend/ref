@@ -148,7 +148,7 @@
 	            	allDayRecurrence = [],
 	            	datesRecurrence = "",
 	            	timesRecurrence = "[",
-	            	soldOutRecurrence = [],
+	            	soldOutRecurrence = "[",
 	            	dateCount = 0;
 	 
 	            var weekday = new Array(7);
@@ -232,31 +232,31 @@
 	                //Times
 	                var times = record.times,
 	                	subTimesString = "[",
-                        subSoldOutString = [];
+                        subSoldOutRecurrence = "[";
 
 	                //if(allDay == false) {
 		                for(var i=0; i<times.length; i++) {
 		                	if(i > 0) {
 		                		subTimesString = subTimesString + ',"' + times[i].time + '"';
-                                subSoldOutString.push(false);
+                                subSoldOutRecurrence = subSoldOutRecurrence + ',false';
 		                	} else {
 		                		subTimesString = subTimesString + '"' + times[i].time + '"';
-                                subSoldOutString.push(false);
+		                		subSoldOutRecurrence = subSoldOutRecurrence + 'false';
 		                	}
 		                }
 	                //}
 	                
 	                subTimesString = subTimesString + ']';
+	                subSoldOutRecurrence = subSoldOutRecurrence + ']'; 
 
 	                if(dateCount == 0) {
 	                	timesRecurrence = timesRecurrence + subTimesString;
-
+	                	soldOutRecurrence = soldOutRecurrence + subSoldOutRecurrence;
 	                } else {
 	                	timesRecurrence = timesRecurrence + "," + subTimesString;
+	                	soldOutRecurrence = soldOutRecurrence + ', ' + subSoldOutRecurrence;
 	                }
 	
-	                //Sold out
-	                console.log(soldOutRecurrence);
 	                dateCount++;
 	
 	                //add the record JSON in a hidden field as string
@@ -268,31 +268,31 @@
 	            });
 	            
 	            $('<input />').attr('type', 'hidden')
-	            .attr('name', "./durationsRecurrence")
+	            .attr('name', "./jcr:durationsRecurrence")
 	            .attr('value', JSON.stringify(durationsRecurrence))
 	            .appendTo($form);
 	
 	            $('<input />').attr('type', 'hidden')
-	            .attr('name', "./datesRecurrence")
+	            .attr('name', "./jcr:datesRecurrence")
 	            .attr('value', datesRecurrence)
 	            .appendTo($form);
 	            
 	            timesRecurrence = timesRecurrence + "]";
-	            
+
 	            $('<input />').attr('type', 'hidden')
-	            .attr('name', "./timesRecurrence")
+	            .attr('name', "./jcr:timesRecurrence")
 	            .attr('value', timesRecurrence)
 	            .appendTo($form);
 
 	            $('<input />').attr('type', 'hidden')
-	            .attr('name', "./allDayRecurrence")
+	            .attr('name', "./jcr:allDayRecurrence")
 	            .attr('value', JSON.stringify(allDayRecurrence))
 	            .appendTo($form);
 
-                soldOutRecurrence = soldOutRecurrence + "]";
+				soldOutRecurrence = soldOutRecurrence + ']';
 
-                $('<input />').attr('type', 'hidden')
-	            .attr('name', "./soldOut")
+                $('<input />').attr('type', 'text')
+                .attr('name', "./jcr:soldOut")
 	            .attr('value', soldOutRecurrence)
 	            .appendTo($form);
         	}

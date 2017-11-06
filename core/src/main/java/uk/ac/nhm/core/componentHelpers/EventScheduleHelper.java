@@ -21,7 +21,6 @@ import javax.jcr.ValueFormatException;
 
 public class EventScheduleHelper {
 
-	private String eventContentPath;
 	private String eventType;
 	private String eventDates;
 	private String eventAllDay;
@@ -39,16 +38,26 @@ public class EventScheduleHelper {
 	private static final Logger LOG = LoggerFactory.getLogger(EventScheduleHelper.class);
 	
 	public EventScheduleHelper(ResourceResolver resourceResolver, Page currentPage, ValueMap properties) throws ValueFormatException, PathNotFoundException, RepositoryException, ParseException {
-		this.eventContentPath = currentPage.getPath() + "/jcr:content/parentpar/eventdetail";
+		
+		//For the 6.3 upgrade, event pages were redesigned to include a containing component rather than 
+		//storing event data in the root node of the page. Until existing event content is migrated to fit
+		//the new redesign, we need to inspect for an old or new content page.
+		String eventContentPath = currentPage.getPath() + "/jcr:content/parentpar/eventdetail";
+		String oldEventContentPath = currentPage.getPath() + "/jcr:content";
+		Node contentNode = null;
 
-		Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
+		if(resourceResolver.getResource(eventContentPath) != null) {
+			contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
+		} else {
+			contentNode = resourceResolver.getResource(oldEventContentPath).adaptTo(Node.class);
+		}
 
 		this.eventType = contentNode.hasProperty("eventSelect") ? contentNode.getProperty("eventSelect").getString() : "";
-		this.eventDates = contentNode.hasProperty("datesRecurrence") ? contentNode.getProperty("datesRecurrence").getString() : "";
-		this.eventAllDay = contentNode.hasProperty("allDayRecurrence") ? contentNode.getProperty("allDayRecurrence").getString() : "";
-		this.eventTimes = contentNode.hasProperty("timesRecurrence") ? contentNode.getProperty("timesRecurrence").getString() : "";
-		this.durations = contentNode.hasProperty("durationsRecurrence") ? contentNode.getProperty("durationsRecurrence").getString() : "";
-		this.soldOut = contentNode.hasProperty("soldOut") ? contentNode.getProperty("soldOut").getString() : "";
+		this.eventDates = contentNode.hasProperty("jcr:datesRecurrence") ? contentNode.getProperty("jcr:datesRecurrence").getString() : "";
+		this.eventAllDay = contentNode.hasProperty("jcr:allDayRecurrence") ? contentNode.getProperty("jcr:allDayRecurrence").getString() : "";
+		this.eventTimes = contentNode.hasProperty("jcr:timesRecurrence") ? contentNode.getProperty("jcr:timesRecurrence").getString() : "";
+		this.durations = contentNode.hasProperty("jcr:durationsRecurrence") ? contentNode.getProperty("jcr:durationsRecurrence").getString() : "";
+		this.soldOut = contentNode.hasProperty("jcr:soldOut") ? contentNode.getProperty("jcr:soldOut").getString() : "";
 
 		this.datesMap = new HashMap<String, String>();
 		this.sortedDates = new ArrayList<String>();
