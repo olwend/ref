@@ -15,14 +15,17 @@
 <div class="bigsplash-image">
 	<img src="<%= helper.getImagePath() %>" alt="">
 </div>
-
-
 <div class="bigsplash-text">
 	<div class="row cf">
 		<div class="bigsplash-text--title-container">
-			<h1 class="bigsplash-text--title"><%= helper.getTitle() %></h1>
+			<% if(helper.getapplyLinkToTitle()) {%>
+				<a href="<%= helper.getCtaUrl() %>">
+			<%} %>
+				<h1 class="bigsplash-text--title"><%= helper.getTitle() %></h1>
+			<% if(helper.getapplyLinkToTitle()) {%>
+				</a>
+			<%} %>
 		</div>
-
 		<% if(helper.getSubtitle()!=null) {%>
 			<!-- <div class="bigsplash-text--subtitle-container">
 				<span class="bigsplash-text--subtitle"><%= helper.getSubtitle() %></span>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Article feed"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <main
+                jcr:primaryType="cq:Panel"
+                title="Config">
+                <items jcr:primaryType="cq:WidgetCollection">
+                	<title
+                    	jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        name="./title"
+                        xtype="textfield" />
+                    <rowsize
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Row size"
+                        name="./rowsize"
+                        type="select"
+                        xtype="selection"
+                        defaultValue="fullwidth"
+                        allowBlank="false">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <fullwidth
+                                jcr:primaryType="nt:unstructured"
+                                text="Full width"
+                                value="fullwidth"/>
+                            <twocolumn
+                                jcr:primaryType="nt:unstructured"
+                                text="Two column"
+                                value="twocolumn"/>
+                        </options>
+                    </rowsize>
+                    <showreadmore
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Show 'Read more' link"
+	                    name="./showreadmore"
+	                    type="checkbox"
+	                    xtype="selection"/>
+                    <readmorelink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Read more link"
+                        name="./readmorelink"
+                        width="155"
+                        xtype="pathfield"
+                        rootPath="/content/nhmwww" />
+                </items>
+            </main>
+            <query
+                jcr:primaryType="cq:Panel"
+                title="Query">
+                <items jcr:primaryType="cq:WidgetCollection">
+                	<rootPath
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Path"
+                        name="./rootpath"
+                        width="155"
+                        xtype="pathfield"
+                        rootPath="/content/nhmwww"
+                        allowBlank="false"/>
+                    <tags
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Tags"
+                        name="./cq:tags"
+                        xtype="tags"
+                        defaultvalue=""/>
+                    <tagsoperator
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Tags logical operator"
+                        name="./tagsoperator"
+                        type="select"
+                        xtype="selection"
+                        defaultValue="or">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <datecreated
+                                jcr:primaryType="nt:unstructured"
+                                text="And"
+                                value="and"/>
+                            <datemodified
+                                jcr:primaryType="nt:unstructured"
+                                text="Or"
+                                value="or"/>
+                        </options>
+                    </tagsoperator>
+                    <order
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Order By"
+                        name="./order"
+                        type="select"
+                        xtype="selection"
+                        defaultValue="datecreated">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <datecreated
+                                jcr:primaryType="nt:unstructured"
+                                text="Date published"
+                                value="datecreated"/>
+                            <datemodified
+                                jcr:primaryType="nt:unstructured"
+                                text="Date last updated"
+                                value="datemodified"/>
+                        </options>
+                    </order>
+                    <limit
+                    	jcr:primaryType="cq:Widget"
+                        fieldLabel="Limit"
+                        fieldDescription="Default value is 10 if left blank"
+                        name="./limit"
+                        xtype="textfield" />
+                </items>
+            </query>
+        </items>
+    </items>
+</jcr:root>

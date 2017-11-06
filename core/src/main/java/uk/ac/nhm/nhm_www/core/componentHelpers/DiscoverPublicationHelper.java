@@ -43,6 +43,7 @@ public class DiscoverPublicationHelper {
 	public static final String IMAGE_ALT_ATTRIBUTE_NAME		= "image/alt";
 	public static final String DATE_PUBLISHED				= "datepublished";
 	public static final String DATE_LAST_UDPATED			= "datelastupdated";
+	public static final String HUB_TAG						= "hubTag";
 	
 	/*
 	 * SubResource Names.

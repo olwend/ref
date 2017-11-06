@@ -417,11 +417,11 @@ public class DiscoverPublicationsSearchServiceImpl implements DiscoverPublicatio
 	}
 
 	/*
-	 * Right Now we are using just one query.
+	 * Right now we are using just one query.
 	 */
 	private String getKeyQuery() {
 		return "SELECT * FROM [nt:unstructured] as c WHERE  ([jcr:path] like '" + jcrPath+ "') AND "
-				+ "(c.[sling:resourceType]='nhmwww/components/functional/discoverpublication') AND "
+				+ "(c.[sling:resourceType]='nhmwww/components/functional/d;iscoverpublication') AND "
 				+ "(c.[cq:tags]='"+ cqTags + "') order by [pinnedDate] DESC,[jcr:created]  DESC ";
 	}
 	
