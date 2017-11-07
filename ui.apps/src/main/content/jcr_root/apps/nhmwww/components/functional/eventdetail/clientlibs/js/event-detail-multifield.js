@@ -2,6 +2,10 @@
     var DATA_EAEM_NESTED = "data-eaem-nested";
     var CFFW = ".coral-Form-fieldwrapper";
  
+    function setCheckBox($field, value){
+        $field.attr("checked", value);
+    }
+    
     //reads multifield data from server, creates the nested composite multifields and fills them
     var addDataInFields = function () {
         $(document).on("dialog-ready", function() {
@@ -47,10 +51,9 @@
                         if(_.isArray(rValue) && !_.isEmpty(rValue)){
                         	
                             fillNestedFields( $($fieldSets[i]).find(".coral-Multifield"), rValue);
-                            //fillNestedFields( $($fieldSets[i]).find("[data-init='multifield']"), rValue);
                         }else{
-                            if(rValue == "true") { 
-                                $field[0].checked = true;
+                            if($field.is(':checkbox')) { 
+                            	setCheckBox($field, rValue)
                             } else {
                             	$field.val(rValue);
                             }
@@ -62,14 +65,18 @@
             //creates & fills the nested multifield with data
             var fillNestedFields = function($multifield, valueArr){
                 _.each(valueArr, function(record, index){
-                    $multifield.find(".coral-Button").click();
-                    //$multifield.find(".js-coral-Multifield-add").click();
- 
-                    //a setTimeout may be needed
-                    _.each(record, function(value, key){
-                        var $field = $($multifield.find("[name='./" + key + "']")[index]);
-                        $field.val(value);
-                    })
+                    $multifield.find(".coral-Button.coral-Button--secondary").click();
+                })
+
+                var key = Object.keys(valueArr[0])[0];
+                var $field = $($multifield.find("[name='./" + key + "']"));
+
+                var count = 0;
+                $field.each( function() {
+					var index = Math.trunc(count / 2);
+                    var value = valueArr[index][key];
+					$(this).val(value);
+                    count++;
                 })
             };
  
@@ -131,7 +138,7 @@
  
     //collect data from widgets in multifield and POST them to CRX as JSON
     var collectDataFromFields = function(){
-        $(document).on("click", ".cq-dialog-submit", function () {
+        $(document).on("click", ".cq-dialog-submit", function ($multifield) {
         	var dialogTitle = $('.cq-dialog-header').text();
         	if(dialogTitle.includes("Event Detail")) {
 	            var $form = $(this).closest("form.foundation-form");
@@ -234,7 +241,7 @@
 	                	subTimesString = "[",
                         subSoldOutRecurrence = "[";
 
-	                //if(allDay == false) {
+	                if(allDay == false) {
 		                for(var i=0; i<times.length; i++) {
 		                	if(i > 0) {
 		                		subTimesString = subTimesString + ',"' + times[i].time + '"';
@@ -244,7 +251,9 @@
 		                		subSoldOutRecurrence = subSoldOutRecurrence + 'false';
 		                	}
 		                }
-	                //}
+	                } else {
+	                	subSoldOutRecurrence = subSoldOutRecurrence + 'false';
+	                }
 	                
 	                subTimesString = subTimesString + ']';
 	                subSoldOutRecurrence = subSoldOutRecurrence + ']'; 
@@ -291,10 +300,12 @@
 
 				soldOutRecurrence = soldOutRecurrence + ']';
 
-                $('<input />').attr('type', 'text')
-                .attr('name', "./jcr:soldOut")
-	            .attr('value', soldOutRecurrence)
-	            .appendTo($form);
+                var $field = $form.find("[name='./jcr:soldOut']");
+                //If there's already something in this field (i.e. the page has already been
+                //initialised - don't add the array full of 'falses'
+                if($field.val() == undefined || $field.val() == "") {
+                	$field.val(soldOutRecurrence);
+                }
         	}
         });
     };
@@ -321,7 +332,7 @@
             //any nested multifield add click events are propagated to the parent multifield
             //to prevent adding a new composite field in both nested multifield and parent multifield
             //when user clicks on add of nested multifield, stop the event propagation to parent multifield
-            this.$element.on("click", ".js-coral-Multifield-add", function (e) {
+            this.$element.on("click", ".coral-Button.coral-Button--secondary", function (e) {
                 e.stopPropagation();
             });
  

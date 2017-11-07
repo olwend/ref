@@ -498,7 +498,7 @@
 							<soldOut
 			                    jcr:primaryType="nt:unstructured"
 			                    fieldLabel="Sold Out"
-			                    name="./soldOut"
+			                    name="./jcr:soldOut"
 			                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
 						</items>
 					</column>
