@@ -5238,6 +5238,10 @@ html.js-noScroll {
   max-width: 1160px;
 }
 
+.herosection .caption {
+  padding-left: 20px;
+}
+
 .herosection .carousel-wrapper .caption {
   font-size: 1.1em;
   position: relative;
@@ -5562,10 +5566,19 @@ html.js-noScroll {
 
 .discover .row {
   width: 100%;
+  margin-bottom: 0;
 }
 
 .discover .row .row {
   margin: 0;
+}
+
+.discover .main-section {
+  margin-bottom: 1em;
+}
+
+.discover .discover-image {
+  margin-bottom: 1em;
 }
 
 .articlefeed {
@@ -6668,7 +6681,6 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--title {
   padding: 0 20px;
-  margin-top: 1em;
 }
 
 .discoverrelated .discover .discover-element-wrapper {
@@ -7563,6 +7575,7 @@ div#cookie-bar p {
 
 .global-header--subnav ul li {
   padding-right: 30px;
+  padding-top: 1px;
 }
 
 .global-header--search-bar, .global-header--search-bar__overlay, .global-header--search-bar__content {
