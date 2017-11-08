@@ -5799,6 +5799,7 @@ html.js-noScroll {
 }
 
 .bigsplash-text--subtitle {
+  color: #FFFFFF !important;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.3rem;
   margin: 0;
@@ -5826,6 +5827,10 @@ html.js-noScroll {
   .bigsplash-text--subtitle {
     font-size: 1.6rem;
   }
+}
+
+.bigsplash-text--subtitle-container a:hover {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
