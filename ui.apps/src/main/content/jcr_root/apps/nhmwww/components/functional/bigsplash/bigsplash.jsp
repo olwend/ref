@@ -26,7 +26,13 @@
 		</div>
 		<% if(helper.getSubtitle()!=null) {%>
 			<div class="bigsplash-text--subtitle-container">
+			<% if(helper.getapplyLinkToTitle()) {%>
+				<a href="<%= helper.getCtaUrl() %>">
+			<%} %>
 				<p class="bigsplash-text--subtitle"><%= helper.getSubtitle() %></p>
+			<% if(helper.getapplyLinkToTitle()) {%>
+				</a>
+			<%} %>
 			</div>
 		<%} %>
 
