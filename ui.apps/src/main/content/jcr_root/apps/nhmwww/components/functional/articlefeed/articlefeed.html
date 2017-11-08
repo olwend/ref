@@ -1,20 +1,18 @@
+<div
+	data-sly-use.articlefeed="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleFeed">
+	<div class="articlefeed--title" data-sly-test="${properties.title}">
+		<h2>${properties.title}</h2>
+	</div>
 
-<div data-sly-test="${properties.rootpath && properties.rowsize}">
-	<div
-		data-sly-use.articlefeed="uk.ac.nhm.nhm_www.core.model.slingModels.ArticleFeed">
-		<div class="articlefeed--title" data-sly-test="${properties.title}">
-			<h2>${properties.title}</h2>
+	<div class="row">
+		<div data-sly-test="${!properties.rootpath || !properties.rowsize}">
+			Please configure the component correctly. <br>Required values:
+			<ul>
+				<li>Path</li>
+				<li>Row size</li>
+			</ul>
 		</div>
-
-		<div class="row">
-			<div data-sly-test="${!properties.rootpath || !properties.rowsize}">
-				Please configure the component correctly. <br>Required values:
-				<ul>
-					<li>Path</li>
-					<li>Row size</li>
-				</ul>
-			</div>
-
+		<div data-sly-test="${properties.rootpath && properties.rowsize}">
 			<div data-sly-test="${!articlefeed.pageList}">This query
 				returns no results</div>
 			<div data-sly-test="${articlefeed.pageList}">
@@ -52,9 +50,9 @@
 				</ul>
 			</div>
 		</div>
-		<div class="articlefeed--read-more-link"
-			data-sly-test="${properties.showreadmore && articlefeed.readmorelink}">
-			<a href="${articlefeed.readmorelink}">Read more</a>
-		</div>
+	</div>
+	<div class="articlefeed--read-more-link"
+		data-sly-test="${properties.showreadmore && articlefeed.readmorelink}">
+		<a href="${articlefeed.readmorelink}">Read more</a>
 	</div>
 </div>
