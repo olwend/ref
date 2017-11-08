@@ -117,7 +117,7 @@
 			<div class="global-header--search-bar__popular-search-terms">
 				<h2 class="global-header--search-bar__heading">Popular search terms:</h2>
 				<ul>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/venom-killer-and-cure.html">Venom</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html"> Wildlife Photographer of the Year</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/bluewhale">Hope the blue whale</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/oceans.html">Oceans</a></li>
