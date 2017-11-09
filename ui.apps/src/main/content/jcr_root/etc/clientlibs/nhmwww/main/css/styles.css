@@ -5162,6 +5162,10 @@ html.js-noScroll {
   max-width: 1160px;
 }
 
+.herosection .caption {
+  padding-left: 20px;
+}
+
 .herosection .carousel-wrapper .caption {
   font-size: 1.1em;
   position: relative;
@@ -5486,10 +5490,19 @@ html.js-noScroll {
 
 .discover .row {
   width: 100%;
+  margin-bottom: 0;
 }
 
 .discover .row .row {
   margin: 0;
+}
+
+.discover .main-section {
+  margin-bottom: 1em;
+}
+
+.discover .discover-image {
+  margin-bottom: 1em;
 }
 
 .articlefeed {
@@ -5559,11 +5572,15 @@ html.js-noScroll {
 /** BIG SPLASH PARTIAL **/
 .bigsplash .row {
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 @media screen and (min-width: 1160px) {
   .bigsplash .row {
     padding: 0 20px;
+    margin: 0 auto;
+    max-width: 72.5rem;
   }
 }
 
@@ -5577,7 +5594,6 @@ html.js-noScroll {
     position: relative;
     pointer-events: none;
     padding-bottom: 31.25%;
-    height: 0;
     max-width: 100%;
     background: #000000;
   }
@@ -5596,19 +5612,14 @@ html.js-noScroll {
   .bigsplash-video--controls {
     display: block;
     position: absolute;
-    bottom: 5px;
+    max-width: 30px;
+    bottom: 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .bigsplash-video--controls {
-    bottom: 30px;
-  }
-}
-
-@media screen and (min-width: 1160px) {
-  .bigsplash-video--controls {
-    bottom: 60px;
+    bottom: 15px;
   }
 }
 
@@ -5620,59 +5631,96 @@ html.js-noScroll {
   display: none;
 }
 
+.bigsplash-image {
+  background-size: cover;
+  background-position: center center;
+  height: 45vh;
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-image {
+    height: 70vh;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .bigsplash-image {
     display: none;
   }
 }
 
-@media screen and (min-width: 480px) {
-  .bigsplash-image img {
-    max-height: 60vh;
+.bigsplash-text {
+  position: absolute;
+  bottom: 0;
+  color: #FFFFFF;
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  width: 100%;
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-text {
+    padding-bottom: 3.5rem;
+    margin-bottom: 10px;
   }
 }
 
-.bigsplash-text {
-  position: absolute;
-  top: 0;
-  color: #FFFFFF;
-  font-family: "Chivo", Helvetica, Arial, sans-serif;
-  width: 100%;
-  height: 100%;
+@media screen and (min-width: 1024px) {
+  .bigsplash-text {
+    padding-bottom: 4.3rem;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1160px) {
   .bigsplash-text {
-    margin-top: 30px;
+    padding-bottom: 4.6rem;
+    margin-bottom: 22px;
   }
 }
 
 .bigsplash-text--title {
   color: #FFFFFF !important;
-  font-family: "Chivo", Helvetica, Arial, sans-serif;
-  letter-spacing: -1px;
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
   padding: 0;
   margin: 0;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 360px) {
+  .bigsplash-text--title {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-text--title {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--title {
-    margin: 0 -2px;
+    font-size: 3.3rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .bigsplash-text--title {
-    font-size: 5.8rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .bigsplash-text--title {
+    font-size: 3.7rem;
   }
 }
 
 .bigsplash-text--title-container {
-  position: relative;
-  top: 25%;
-  text-align: center;
+  margin-bottom: -10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -5687,40 +5735,43 @@ html.js-noScroll {
   text-decoration: none;
 }
 
+.bigsplash-text--subtitle {
+  color: #FFFFFF !important;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 360px) {
+  .bigsplash-text--subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-text--subtitle {
+    font-size: 1.3rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
-  .bigsplash-text--caption {
-    font-size: 1.1rem;
+  .bigsplash-text--subtitle {
+    font-size: 1.4rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .bigsplash-text--caption {
-    max-width: 390px;
+@media screen and (min-width: 1160px) {
+  .bigsplash-text--subtitle {
+    font-size: 1.6rem;
   }
 }
 
-.bigsplash-text--caption-container {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash-text--caption-container {
-    display: block;
-    width: 50%;
-    margin-top: -10px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .bigsplash-text--caption-container {
-    width: 400px;
-    margin-top: 0;
-  }
+.bigsplash-text--subtitle-container a:hover {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--cta {
-    top: 360px;
     font-size: 1rem;
     border-bottom: 1px dotted #FFFFFF;
   }
@@ -5734,14 +5785,15 @@ html.js-noScroll {
   display: none;
 }
 
-.bigsplash-text--cta-container a, .bigsplash-text--cta-container a:hover {
-  color: #FFFFFF;
+.bigsplash-text--cta-container a,
+.bigsplash-text--cta-container a:hover {
+  color: #FFFFFF !important;
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--cta-container {
     display: block;
-    padding-top: 5px;
+    padding-top: 12px;
   }
 }
 
@@ -6553,7 +6605,6 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--title {
   padding: 0 20px;
-  margin-top: 1em;
 }
 
 .discoverrelated .discover .discover-element-wrapper {
@@ -7448,6 +7499,7 @@ div#cookie-bar p {
 
 .global-header--subnav ul li {
   padding-right: 30px;
+  padding-top: 1px;
 }
 
 .global-header--search-bar, .global-header--search-bar__overlay, .global-header--search-bar__content {
