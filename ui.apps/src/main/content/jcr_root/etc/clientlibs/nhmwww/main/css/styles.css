@@ -2,13 +2,8 @@
 STYLESHEET COMPILED USING SASS
 CSS files should not be edited directly, as those edits will be overridden next time SASS is compiled.
 */
-/** LEGACY SECTIONS PARTIAL (PHASED OUT) **/
 .home {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .home a, .home a:hover {
@@ -189,11 +184,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .visit {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
-  /** commented out for WR-751 (refactor of carousel component) **/
 }
 
 .visit a, .visit a:hover {
@@ -419,10 +409,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .take-part {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .take-part a, .take-part a:hover {
@@ -617,10 +603,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .about-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .about-us a, .about-us a:hover {
@@ -801,10 +783,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .schools {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .schools a, .schools a:hover {
@@ -985,11 +963,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .our-science {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
-  /** commented out for WR-752 (refactor of carousel component) **/
 }
 
 .our-science a, .our-science a:hover {
@@ -1224,10 +1197,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .support-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .support-us a, .support-us a:hover {
@@ -1408,10 +1377,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .discover {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .discover a, .discover a:hover {
@@ -1592,10 +1557,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .press-office {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .press-office a, .press-office a:hover {
@@ -1776,10 +1737,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .working {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .working a, .working a:hover {
@@ -1960,10 +1917,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .business-services {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .business-services a, .business-services a:hover {
@@ -2144,10 +2097,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .contact-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .contact-us a, .contact-us a:hover {
@@ -2328,10 +2277,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .shop {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .shop a, .shop a:hover {
@@ -2436,10 +2381,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .account {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .account a, .account a:hover {
@@ -2520,9 +2461,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #eeeeee;
 }
 
-/** REFACTOR FOUNDATION **/
-/** LEGACY BASE PARTIAL (MERGED WITH REFACTORED BASE PARTIAL - WR-720) **/
-/** LEGACY TYPOGRAPHY PARTIAL (MERGED WITH REFACTORED TYPOGRAPHY PARTIAL - WR-721) **/
 /** LEGACY LAYOUT PARTIAL **/
 /** Grid **/
 .row,
@@ -2637,7 +2575,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-/** LEGACY FOOTER COMPONENT PARTIAL **/
 /** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
 .cf:before,
@@ -2778,9 +2715,6 @@ input.question {
   }
 }
 
-/** LEGACY NAVIGATION PARTIAL (RENAMED FROM _NAVIGATION.SCSS) **/
-/** WR-1040 - MEGAMENU UPDATE - LEGACY PARTIAL REMOVED AS PART OF CLEAN START **/
-/** LEGACY COMPONENTS PARTIAL (PHASED OUT) **/
 /** LEGACY ARROW PARTIAL **/
 .arrow {
   position: relative;
@@ -4134,12 +4068,7 @@ figure {
 /*alext2: removing as this is causing issues witht the RTE in AEM*/
 /* making this youtube specific ************************/
 iframe.youtubeplayer {
-  /*height:400px;*/
-  /*left: 0;*/
-  /*position: relative;*/
-  /*top: 0;*/
   width: 100%;
-  /*height: 100%;*/
 }
 
 /** LEGACY IMAGE COMPONENT PARTIAL (WR-792) **/
@@ -4163,7 +4092,6 @@ iframe.youtubeplayer {
   padding-bottom: 0em;
 }
 
-/** LEGACY ACCORDION PARTIAL - MERGED WITH REFACTORED ACCORDION PARTIAL (WR-737) **/
 /** LEGACY BREADCRUMB PARTIAL **/
 .breadcrumb {
   background-color: #000000;
@@ -4198,11 +4126,9 @@ iframe.youtubeplayer {
   width: 30px;
 }
 
-/** LEGACY FEEDBACK-BAR - REMOVED (WR-929) **/
-/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) - MERGED WITH REFACTORED EVENT-SLIDER PARTIAL (WR-752) **/
 /** JQUERY DATEPICKER (VENDOR) PARTIAL NHMEC-5**/
 /*
- * EVENT CALENDAR COMPONENT DATEPICKER STYLING 
+ * EVENT CALENDAR COMPONENT DATEPICKER STYLING
  */
 .ui-datepicker {
   height: auto;
@@ -4587,7 +4513,6 @@ iframe.youtubeplayer {
   float: right !important;
 }
 
-/** LEGACY HELPERS PARTIAL - MERGED WITH LEGACY UTILITIES PARTIAL **/
 /** LEGACY SEARCH RESULTS PARTIAL (RENAMED FROM _SEARCH-RESULTS.SCSS) **/
 /*** _GOOGLE-SEARCH-RESULTS.SCSS, FORMERLY _SEARCH-RESULTS.SCSS ***/
 .gcsc-branding-text,
@@ -4789,7 +4714,6 @@ table.gssb_c {
   padding: 2em;
 }
 
-/** FIXES PARTIAL (PHASED OUT) **/
 /** REFACTOR-BASE PARTIAL **/
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -5527,7 +5451,7 @@ html.js-noScroll {
 .accordion dd > a {
   background-repeat: no-repeat;
   background-position: 97% center;
-  background-color: #EEE;
+  background-color: #EEEEEE;
   padding: 1em 0.75em;
 }
 
@@ -5549,7 +5473,7 @@ html.js-noScroll {
 .accordion dd.active > a {
   background-repeat: no-repeat;
   background-position: 97% center;
-  background-color: #EEE;
+  background-color: #EEEEEE;
 }
 
 .accordion .accordion-navigation.active > a:hover,
@@ -5671,7 +5595,7 @@ html.js-noScroll {
     pointer-events: none;
     padding-bottom: 31.25%;
     max-width: 100%;
-    background: #000;
+    background: #000000;
   }
   .bigsplash-video .youtubeplayer {
     position: absolute;
@@ -6208,7 +6132,7 @@ html.js-noScroll {
 }
 
 .info-tout__action {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   padding: 0.5em 0.75em;
 }
 
@@ -6229,7 +6153,7 @@ html.js-noScroll {
 }
 
 .info-tout__action:hover {
-  background-color: #ffffff !important;
+  background-color: #FFFFFF !important;
 }
 
 .info-tout__action.tickets .ico.arrowl, .info-tout__action.membership .ico.arrowl {
@@ -6304,12 +6228,12 @@ div#cookie-bar p {
 }
 
 .directory-search select {
-  background-image: url(/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
+  background-image: url("/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png");
   padding-left: 1em;
 }
 
 .directory-search--label {
-  color: #ffffff;
+  color: #FFFFFF;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   margin-bottom: 0.2em;
@@ -6345,7 +6269,7 @@ div#cookie-bar p {
 
 .directory-search-button--container {
   position: relative;
-  border: 4px solid #ffffff;
+  border: 4px solid #FFFFFF;
   padding: 1.5em 1em;
   margin-top: 1em;
   margin-bottom: 1.2em;
@@ -6440,7 +6364,7 @@ div#cookie-bar p {
   border: none;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
-  color: #ffffff;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -6531,8 +6455,8 @@ div#cookie-bar p {
 
 .directory-search-results--row {
   padding: 1em 1.5em 1em 1em;
-  background-color: #eeeeee;
-  border-bottom: 1px solid #ffffff;
+  background-color: #EEEEEE;
+  border-bottom: 1px solid #FFFFFF;
   font-size: 1em;
 }
 
@@ -6812,12 +6736,12 @@ div#cookie-bar p {
 }
 
 .event--calendar--wrapper .calendar--select select {
-  background-image: url(../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
+  background-image: url("../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png");
   padding: 0.35rem 0.5rem 0.2rem;
 }
 
 .event--calendar--wrapper .reset--filter {
-  font-family: Arial;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
   text-decoration: underline;
   margin-bottom: 0.6em;
@@ -7215,7 +7139,7 @@ div#cookie-bar p {
   font-size: 1.55em;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   color: #565656;
 }
 
@@ -7979,7 +7903,6 @@ div#cookie-bar p {
   }
 }
 
-/** REFACTOR-FEEDBACK-BAR PARTIAL - REMOVED (WR-929) **/
 .pressreleaselistfeed h3 {
   padding-bottom: 10px;
   padding-left: 0.5em;
@@ -8442,7 +8365,6 @@ a.button-cta {
   border: none !important;
 }
 
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 /**overrides headertextimage.scss **/
 .headertextimage .hti-padding {
   margin-bottom: 1.2em;
@@ -8466,14 +8388,7 @@ a.button-cta {
 .hti-box .ctabutton--inside-hti .svg-ico {
   height: 40px;
   top: 30%;
-  /*width: 60%;*/
   width: 100%;
-  /*
-	@media screen and (min-width: $tablet) {
-		height: 36%;
-		top: 34%;
-		right: 0;
-	}*/
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
@@ -8626,7 +8541,6 @@ a.button-cta {
   display: none;
 }
 
-/** PRESS OFFICE PARTIAL (PHASED OUT) **/
 /** SECONDARY NAV PARTIAL **/
 /**** SECONDARY NAV ****/
 .secondary-nav-wrapper {
@@ -8739,28 +8653,28 @@ a.button-cta {
 }
 
 .science-profiles-detail-page--tabs-container .tab-title {
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid #FFFFFF;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title a {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   background-color: #808080;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title a:hover {
-  background-color: #aaaaaa;
+  background-color: #AAAAAA;
   text-decoration: none;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title.active a {
   color: #357900;
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title.active a:hover {
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 @media screen and (min-width: 768px) {
@@ -9128,7 +9042,6 @@ input.searchGo {
   top: auto !important;
 }
 
-/** FOOTER PARTIAL - MERGED **/
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -9940,7 +9853,7 @@ input.searchGo {
 }
 
 .press-office .feature-box a {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .press-office .feature-box h3 {
