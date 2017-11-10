@@ -547,7 +547,9 @@ jQuery(document).ready(function() {
 
     jQuery('.global-header--nav-list__item--subnav-link').on('click', function(e) {
         e.preventDefault();
-        jQuery('.global-header--menu__subnav-discover').toggle(function(){});
+        jQuery('.global-header--menu__subnav-discover').slideToggle(function(){});
+        jQuery('#subnav__discover--open').toggle();
+        jQuery('#subnav__discover--close').toggle();
     });
 
     // Mobile nav

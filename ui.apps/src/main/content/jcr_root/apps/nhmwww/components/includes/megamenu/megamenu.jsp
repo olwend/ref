@@ -20,7 +20,8 @@
 						<li class="global-header--nav-list__item link-discover">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/discover.html">Discover</a>
 							<div class="global-header--nav-list__item--subnav-link">
-								<i class="ico svg-ico ico-menu-open" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_menu.svg" data-svg-title="icon__menu" data-alt="Open Menu" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png"></i>
+								<img id="subnav__discover--open" src="/etc/designs/nhmwww/img/png-icons/icon_l_chevron_down.png" alt="Open Disover secondary menu">
+								<img id="subnav__discover--close" src="/etc/designs/nhmwww/img/png-icons/icon_l_chevron_up.png" alt="Close Disover secondary menu" style="display: none;">
 							</div>
 						</li>
 								<li class="global-header--menu__subnav-discover">
