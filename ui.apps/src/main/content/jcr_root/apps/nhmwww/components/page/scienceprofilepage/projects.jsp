@@ -1,8 +1,8 @@
-<%@page import="uk.ac.nhm.nhm_www.core.model.science.grants.Grant,
-				uk.ac.nhm.nhm_www.core.model.science.projects.ProjectTemplate,
-				uk.ac.nhm.nhm_www.core.model.science.proactivities.ProfessionalActivity,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
-				uk.ac.nhm.nhm_www.core.model.science.Publication,
+<%@page import="uk.ac.nhm.core.model.science.grants.Grant,
+				uk.ac.nhm.core.model.science.projects.ProjectTemplate,
+				uk.ac.nhm.core.model.science.proactivities.ProfessionalActivity,
+				uk.ac.nhm.core.componentHelpers.ScientistProfileHelper,
+				uk.ac.nhm.core.model.science.Publication,
 				java.util.Set,
 				java.util.Map,
 				org.apache.commons.lang3.StringUtils"%>

@@ -4,7 +4,7 @@
         com.day.cq.commons.DiffInfo,
         com.day.cq.commons.DiffService,
         org.apache.sling.api.resource.ResourceUtil,
-        uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseHelper" %>
+        uk.ac.nhm.core.componentHelpers.PressReleaseHelper" %>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <div class="main-section"> 
 <%

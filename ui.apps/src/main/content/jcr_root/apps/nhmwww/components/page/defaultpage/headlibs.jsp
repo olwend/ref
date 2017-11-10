@@ -1,6 +1,6 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@ page session="false" %>
-<%@ page import="uk.ac.nhm.nhm_www.core.componentHelpers.DefaultPageHelper" %>
+<%@ page import="uk.ac.nhm.core.componentHelpers.DefaultPageHelper" %>
     <meta charset="utf-8" />
     
     <!-- WR-1074 - add Google Optimise for A/B testing -->

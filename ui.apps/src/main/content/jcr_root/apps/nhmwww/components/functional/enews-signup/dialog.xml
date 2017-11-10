@@ -79,6 +79,18 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="Teachers"
                                 value="Teachers"/>
+                            <twelve
+                                jcr:primaryType="nt:unstructured"
+                                text="Latest NHM stories"
+                                value="Latest NHM stories"/>
+                            <thirteen
+                                jcr:primaryType="nt:unstructured"
+                                text="WPY"
+                                value="remote WPY-website newsletter-si"/>
+                            <fourteen
+                                jcr:primaryType="nt:unstructured"
+                                text="School newsletter"
+                                value="remote website school-newsletter"/>
                         </options>
                     </campaign>
                     <dataProtection

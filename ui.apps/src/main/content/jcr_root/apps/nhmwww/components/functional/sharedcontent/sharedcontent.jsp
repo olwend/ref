@@ -1,4 +1,4 @@
-<%@page import="uk.ac.nhm.nhm_www.core.services.SharedComponentsService"%>
+<%@page import="uk.ac.nhm.core.services.SharedComponentsService"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
 		import="com.day.cq.wcm.api.WCMMode"%>

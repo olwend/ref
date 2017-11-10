@@ -24,6 +24,8 @@
 
     // first calculate the correct title - look for our sources if not set in paragraph
     String title = properties.get(NameConstants.PN_TITLE, String.class);
+    boolean addPadding = properties.get("addPadding", false);
+    boolean addSocial = properties.get("addSocial", false);
     String tagLine = properties.get("text", "");
     if (title == null || title.equals("")) {
         title = resourcePage.getPageTitle();
@@ -37,7 +39,7 @@
 
     // escape title
     title = xssAPI.filterHTML(title);
-    
+
     // check if we need to compute a diff
     String diffOutput = null;
     DiffInfo diffInfo = resource.adaptTo(DiffInfo.class);
@@ -58,8 +60,8 @@
     }
     String defType = currentStyle.get("defaultType", "large");
 	%>
-    <div class="row title-bar">
-	    <div class="small-12 columns">
+    <div class="row title-bar <%if (addPadding) { %>title-bar__margin-bottom<%} %>">
+	    <div class="small-12 <% if (addSocial) { %>medium-9 large-9<% } else { %>medium-12 large-12<% } %> columns">
 	    <%
 	    // use image title if type is "small" but not if diff should be displayed
 	    if (properties.get("type", defType).equals("small") && diffOutput == null) {
@@ -69,19 +71,26 @@
 	        suffix += "/" + tstamp + ".png";
 	        String xs = Doctype.isXHTML(request) ? "/" : "";
 	        %><img src="<%= xssAPI.getValidHref(resource.getPath()+".title.png"+suffix) %>" alt="<%= xssAPI.encodeForHTMLAttr(title) %>"<%=xs%>><%
-	
+
 	    // large title
 	    } else if (diffOutput == null) {
 	        %><h1><%= title %></h1><%
-	
+
 	    // we need to display the diff output
 	    } else {
 	        // don't escape diff output
 	        %><h1><%= diffOutput %></h1><%
-	
+
 	    } %>
 	    <% if(tagLine != null && !tagLine.equals("")) { %>
-	    	<p><%= tagLine %></p>
+	    	<%= tagLine %>
 	    <% } %>
 	    </div>
+			<% if (addSocial) { %>
+			<div class="small-12 medium-3 large-3 columns">
+				<div class="article--social-share-header">
+					<cq:include path="socialshare-header" resourceType="nhmwww/components/functional/socialshare"/>
+				</div>
+			</div>
+			<% } %>
     </div>

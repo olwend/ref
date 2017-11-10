@@ -16,24 +16,27 @@
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.SocialSignupHelper"%>
+  import="uk.ac.nhm.core.componentHelpers.SocialSignupHelper"%>
 <%@page
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+  import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
+  
+	<%
+		SocialSignupHelper helper = new SocialSignupHelper(properties, resource);
+		DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
+	%>
+  
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.social-signup" />
 
 <div class="social-signup">
-  <div class="text parbase section social-signup--title-wrapper">
-    <%
-      SocialSignupHelper helper = new SocialSignupHelper(properties, resource);
-      DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
-    %>
-    <div class="row social-signup--title-row">
-      <div class="small-12 columns">
-        <h3 class="social-signup--title-header"><%=helper.getTitle()%></h3>
-      </div>
-    </div>
-  </div>
+
+	<div class="text parbase section social-signup--title-wrapper">
+		<div class="row social-signup--title-row">
+		    <div class="small-12 columns">
+		    	<h3 class="social-signup--title-header"><%=helper.getTitle()%></h3>
+		    </div>
+		</div>
+	</div>
 
 	<div class="js-social-signup social-signup--container">
 		<div class="row">

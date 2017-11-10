@@ -7,7 +7,7 @@
 --%><%
 %><%@include file="/libs/foundation/global.jsp"%><%
 %><%@page session="false" 
-			import="uk.ac.nhm.nhm_www.core.componentHelpers.RowHelper"
+			import="uk.ac.nhm.core.componentHelpers.RowHelper"
     		import="com.day.cq.wcm.api.WCMMode"%>
 <cq:defineObjects />
 <%

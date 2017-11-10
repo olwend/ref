@@ -7,7 +7,7 @@
 --%><%
 %><%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.*"%>
 <%
 %><%
 	// TODO add you code here

@@ -1,4 +1,4 @@
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.LinkListHelper"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.LinkListHelper"%>
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <cq:defineObjects />

@@ -1,9 +1,9 @@
 
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.CarouselElement"%>
-<%@page import="uk.ac.nhm.nhm_www.core.services.CarouselBuilderService"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.*"%>
+<%@page import="uk.ac.nhm.core.model.CarouselElement"%>
+<%@page import="uk.ac.nhm.core.services.CarouselBuilderService"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Collections"%>
 <cq:defineObjects/>

@@ -1,7 +1,7 @@
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.SVGImage" %>
+<%@page import="uk.ac.nhm.core.componentHelpers.*"%>
+<%@page import="uk.ac.nhm.core.model.SVGImage" %>
 <!-- START OF EVENT & INFO SUMMARY -->
 <cq:defineObjects/>
 <cq:includeClientLib />

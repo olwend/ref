@@ -1,12 +1,12 @@
-<%@ page import = "uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper" %>
+<%@ page import = "uk.ac.nhm.core.componentHelpers.CTAButtonHelper" %>
 <%@ include file = "/apps/nhmwww/components/global.jsp" %>
 <%@ page session = "false"
          import  = "com.day.cq.commons.ImageResource,
                 	com.day.cq.wcm.api.WCMMode, 
                 	com.day.cq.wcm.foundation.Placeholder, 
                 	javax.jcr.*,
-                	uk.ac.nhm.nhm_www.core.componentHelpers.HeaderTextImageHelper, 
-                	uk.ac.nhm.nhm_www.core.model.SVGImage" %>
+                	uk.ac.nhm.core.componentHelpers.HeaderTextImageHelper, 
+                	uk.ac.nhm.core.model.SVGImage" %>
                 	
 <cq:defineObjects />
 

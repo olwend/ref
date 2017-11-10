@@ -26,6 +26,33 @@
                 components="[group:NHM - Layout,group:nhmwww]">
             </par>
         </immersivepage>
+        <articlepage jcr:primaryType="nt:unstructured">
+           	<article
+           		jcr:primaryType="nt:unstructured"
+           		sling:resourceType="nhmwww/components/functional/article"> 
+           		<socialshareheader
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<par
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="foundation/components/parsys" 
+           			components="[group:NHM - Stacked,group:nhmwww]"/>
+                <socialsharefooter
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<ctapar
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="foundation/components/parsys"
+           			components="[group:NHM - Stacked,group:nhmwww]" />
+           		<socialsignup
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/social-signup" />
+           		<relatedpar
+	                jcr:primaryType="nt:unstructured"
+	                sling:resourceType="foundation/components/parsys"
+	                components="[group:NHM - Stacked,group:nhmwww]" />  
+           	</article>
+        </articlepage>
         <page-home jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"

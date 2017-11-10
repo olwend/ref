@@ -108,7 +108,7 @@
       </div>
       <div class="main-footer--section">
         <h4>&nbsp;</h4>
-        <p><a href="http://www.nhm.ac.uk/about-us/privacy-policy.html">Privacy notice</a></p>
+        <p><a href="http://www.nhm.ac.uk/about-us/privacy-notice.html">Privacy notice</a></p>
         <p><a href="http://www.nhm.ac.uk/about-us/website-terms-conditions.html">Terms and conditions</a></p>
       </div>
     </div>
@@ -118,6 +118,20 @@
       <span class="copyright--span">&copy; The Trustees of The Natural History Museum, London</span>
     </div>
   </div>
-
-</footer>
+  
+ </footer>
 <!-- END OF FOOTER -->
+
+<div id="cookie-bar" data-module="cookie-bar">
+	<div class="small-12 medium-9 large-10 columns text-center">
+		<p>
+			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookies.html">Cookie Policy</a> to find out more.
+		</p>
+	</div>
+	<div class="small-12 medium-3 large-2 columns text-right">
+	<a class="js--cookie-close" title="Accept cookies">
+			I accept
+	</a>
+	<i class="js--cookie-close ico svg-ico" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#FFFFFF"></i>
+	</div>
+</div>

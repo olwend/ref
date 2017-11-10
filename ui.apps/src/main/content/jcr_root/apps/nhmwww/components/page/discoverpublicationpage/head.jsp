@@ -1,5 +1,5 @@
 <%@page session="false"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper"%><%--
+<%@page import="uk.ac.nhm.core.componentHelpers.DiscoverPublicationHelper"%><%--
   Copyright 1997-2010 Day Management AG
   Barfuesserplatz 6, 4001 Basel, Switzerland
   All Rights Reserved.
@@ -25,7 +25,7 @@
 
 --%><%@include file="/libs/foundation/global.jsp" %><%
 %><%@ page import="com.day.cq.commons.Doctype" %>
-<%@ page import="uk.ac.nhm.nhm_www.core.utils.*" %>
+<%@ page import="uk.ac.nhm.core.utils.*" %>
 
 <%	
 		DiscoverPublicationHelper helper = new DiscoverPublicationHelper(resource);

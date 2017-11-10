@@ -45,11 +45,6 @@
 	margin-bottom: 1em;
 }
 
-.discover-element .discover-element-wrapper {
-	background-color: #fff;
-	border-bottom: 1px solid #D5D5D5;
-}
-
 p.discover-element-tag {
 	font-size: 1rem;
 	margin-bottom: 0;
@@ -74,7 +69,6 @@ p.discover-element-tag {
 }*/
 
 .image-footer {
-	border-bottom: 1px solid #888888;
 	padding:0.2em 0;
 }
 

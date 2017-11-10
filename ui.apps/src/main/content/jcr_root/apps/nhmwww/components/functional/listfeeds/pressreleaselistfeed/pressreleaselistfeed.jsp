@@ -5,9 +5,9 @@
   Will list the items under a specified root
 
 --%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseFeedListHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.PressReleaseFeedListElement"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.PressReleaseFeedListHelper"%>
+<%@page import="uk.ac.nhm.core.model.PressReleaseFeedListElement"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.FeedListHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%@page session="false" %>
 <cq:defineObjects />

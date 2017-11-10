@@ -2,9 +2,9 @@
 <%@page session="false" 
 		import="com.day.cq.wcm.api.WCMMode,
 				java.util.Calendar,
-				uk.ac.nhm.nhm_www.core.componentHelpers.DiscoverPublicationHelper,
-				uk.ac.nhm.nhm_www.core.services.DiscoverPublicationService,
-				uk.ac.nhm.nhm_www.core.services.DiscoverPublicationsSearchService"%>
+				uk.ac.nhm.core.componentHelpers.DiscoverPublicationHelper,
+				uk.ac.nhm.core.services.DiscoverPublicationService,
+				uk.ac.nhm.core.services.DiscoverPublicationsSearchService"%>
 
 <%
 	final DiscoverPublicationService componentService = sling.getService(DiscoverPublicationService.class);

@@ -11,6 +11,18 @@
             fieldLabel="Title"
             name="./jcr:title"
             xtype="textfield"/>
+        <addPadding
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Add padding"
+            name="./addPadding"
+            type="checkbox"
+            xtype="selection"/>
+        <addSocial
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Add social share"
+            name="./addSocial"
+            type="checkbox"
+            xtype="selection"/>
         <type
             jcr:primaryType="cq:Widget"
             fieldLabel="Type / Size"

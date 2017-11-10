@@ -8,7 +8,7 @@
 <%
 %><%@include file="/libs/foundation/global.jsp"%>
 <%@page session="false"
-          import="uk.ac.nhm.nhm_www.core.componentHelpers.AccordeonHelper"%>
+          import="uk.ac.nhm.core.componentHelpers.AccordeonHelper"%>
 <cq:defineObjects />
 <%
 	AccordeonHelper helper = new AccordeonHelper(properties);
