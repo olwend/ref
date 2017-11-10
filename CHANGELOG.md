@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.2 - Zealous Zebra - 09-Nov-2017
+- WR-1156: Decommission old Discover components and templates
+- WR-1157: Update popular search terms with Venom
+- WR-1160: Add Home to Deworm3 navigation
+- WR-1164: Alignment changes post Discover launch
+- WR-1165: Big Splash redesign (first stage)
+- WR-1170: Article feed component hotfix
+- WR-1171: Exhibition pages not saving date and time data correctly
+
 ## 1.3.1 - Yawning Yellowhammer - 01-Nov-2017
 - WR-1123 - Create header for Discover homepage with social share component
 - WR-1134 - Deworm 3 sub nav
