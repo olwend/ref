@@ -32,7 +32,10 @@
 								</div>
 								<div data-sly-test="${list['imageType'] == 'video'}">
 									<a href="${list['path']}.html">
-										<img src="${list['imagePath']}">
+										<div class="articlefeed--video-container">
+											<img class="articlefeed--video-icon" src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video">
+											<img class="articlefeed--video-image" src="${list['imagePath']}">
+										</div>
 									</a>
 								</div>
 							</div>

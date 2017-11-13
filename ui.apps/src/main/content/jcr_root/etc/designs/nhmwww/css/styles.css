@@ -5565,6 +5565,17 @@ html.js-noScroll {
   margin-bottom: 0;
 }
 
+.articlefeed--video-container {
+  position: relative;
+}
+
+.articlefeed--video-icon {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  max-width: 40px;
+}
+
 .articlefeed--read-more-link {
   text-align: center;
 }
