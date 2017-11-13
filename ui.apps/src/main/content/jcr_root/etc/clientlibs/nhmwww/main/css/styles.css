@@ -3515,140 +3515,6 @@ input.question {
   width: 100%;
 }
 
-/** LEGACY EVENTS SUMMARY PARTIAL **/
-.info-sidebar {
-  padding: 25px 0px 0px 2em;
-}
-
-.info-sidebar p {
-  margin-bottom: 0px;
-  line-height: 1.5;
-}
-
-.info-sidebar li {
-  position: relative;
-  min-height: 40px;
-  margin-top: 5%;
-  padding: 0.625em 0.625em 0 20%;
-}
-
-.info-sidebar li:first-child {
-  margin-top: 0;
-}
-
-.info-sidebar li .ico {
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 41px;
-  height: 40px;
-  content: "";
-}
-
-.info-sidebar li.tickets .ico {
-  width: 44px;
-  height: 50px;
-}
-
-@media screen and (min-width: 768px) {
-  .info-sidebar {
-    padding-top: 0;
-  }
-  .info-sidebar li {
-    padding-left: 19%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .info-sidebar li {
-    padding-left: 16%;
-  }
-}
-
-.aside-box .info-sidebar-icon-list li {
-  overflow: auto;
-  margin-bottom: 1em;
-}
-
-.aside-box .info-sidebar-icon-list a {
-  font-size: 1em;
-}
-
-.aside-box .info-sidebar-icon-list.about-us p {
-  color: #BF491F;
-  margin-bottom: 0;
-  padding-left: 2em;
-}
-
-.aside-box .info-sidebar-icon-list a {
-  color: #BF491F;
-}
-
-.aside-box .info-sidebar-icon-list .ico {
-  position: absolute;
-  height: 1.5em;
-  margin-right: 0.5em;
-  width: 1.5em;
-}
-
-.info-summary {
-  margin: 0px auto;
-  background: #f4f4f4;
-}
-
-.info-summary .info-summary__content {
-  padding: 0 1.25em 0.5em;
-}
-
-@media screen and (min-width: 1024px) {
-  .info-summary .info-summary__content {
-    display: block !important;
-  }
-}
-
-.info-summary__sponsors {
-  border-top: 1px solid #ccc;
-  margin: 0 auto;
-  padding: 10px 0 0;
-}
-
-.info-summary__sponsors div {
-  height: 90px;
-}
-
-.info-summary__sponsors img {
-  display: block;
-  margin: 0.75em 0 0;
-  max-width: 70%;
-}
-
-.info-summary__sponsors p {
-  font-size: 13px;
-}
-
-ul.info-sidebar-box-visit {
-  padding-left: 10%;
-}
-
-ul.info-sidebar-box-visit li {
-  position: relative;
-  padding: 0;
-}
-
-ul.info-sidebar-box-visit li .ico {
-  display: inline-block;
-  float: left;
-  zoom: 1;
-  width: 45px;
-  height: 50px;
-  content: "";
-  padding-right: 5px;
-}
-
 /** LEGACY QUOTE SLIDER PARTIAL **/
 .quote-slider-bar {
   display: none;
@@ -7069,8 +6935,47 @@ div#cookie-bar p {
 }
 
 /** REFACTOR-EVENTS-SUMMARY **/
+.info-sidebar {
+  padding: 25px 0px 0px 2em;
+}
+
+.info-sidebar p {
+  margin-bottom: 0px;
+  line-height: 1.5;
+}
+
+.info-sidebar li {
+  position: relative;
+  min-height: 40px;
+  margin-top: 5%;
+  padding: 0.625em 0.625em 0 20%;
+}
+
+.info-sidebar li:first-child {
+  margin-top: 0;
+}
+
+.info-sidebar li .ico {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 41px;
+  height: 40px;
+  content: "";
+}
+
+.info-sidebar li.tickets .ico {
+  width: 44px;
+  height: 50px;
+}
+
 @media screen and (min-width: 768px) {
   .info-sidebar li {
+    padding-top: 0;
     padding-left: 24%;
   }
 }
