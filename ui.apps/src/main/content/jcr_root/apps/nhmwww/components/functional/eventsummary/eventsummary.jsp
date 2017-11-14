@@ -9,7 +9,7 @@
 EventSummaryHelper helper = new EventSummaryHelper(properties, cssClassSection.toLowerCase());
 SVGImage svg = helper.getSVGImage();
 %>
-	<ul class="info-sidebar">
+	<ul class="event-summary">
     	<li class="<%= helper.getIconClass()%>">
 				<%=svg.toHtml(currentDesign.getPath() + "/") %>
         	<p><%=helper.getText() %></p>
