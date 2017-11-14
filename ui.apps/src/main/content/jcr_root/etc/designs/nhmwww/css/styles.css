@@ -6939,6 +6939,12 @@ div#cookie-bar p {
   padding: 25px 0px 0px 2em;
 }
 
+@media screen and (min-width: 768px) {
+  .info-sidebar {
+    padding-top: 0;
+  }
+}
+
 .info-sidebar p {
   margin-bottom: 0px;
   line-height: 1.5;
@@ -6975,7 +6981,6 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .info-sidebar li {
-    padding-top: 0;
     padding-left: 24%;
   }
 }
