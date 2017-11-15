@@ -143,9 +143,11 @@ public class ArticleHelper {
 				if(hubTags.length > 0) {
 					Tag tag = tagMgr.resolve(hubTags[0]);
 					Map<String, String> tagMap = new HashMap<String, String>();
-					tagMap.put("title", tag.getTitle().toUpperCase());
-					tagMap.put("path", tag.getDescription());
-					this.hubTag = tagMap;
+					if(tag!=null) {
+						tagMap.put("title", tag.getTitle().toUpperCase());
+						tagMap.put("path", tag.getDescription());
+						this.hubTag = tagMap;	
+					}
 				} 
 			} 
 			
@@ -158,9 +160,12 @@ public class ArticleHelper {
 					for(int i=0; i<otherTags.length; i++) {
 						Tag tag = tagMgr.resolve(otherTags[i]);
 						Map<String, String> tagMap = new HashMap<String, String>();
-						tagMap.put("title", tag.getTitle());
-						tagMap.put("path", tag.getDescription());
-						this.tagList.add(tagMap);
+						if(tag!=null) {
+							tagMap.put("title", tag.getTitle());
+							tagMap.put("path", tag.getDescription());
+							this.tagList.add(tagMap);	
+						}
+
 					}
 				}
 			}
@@ -264,12 +269,14 @@ public class ArticleHelper {
 	 * @return <code>true</code> if the component has configured at least Title, Introduction and Image or Video. <code>false</code> in otherwise.
 	 */
 	public boolean isConfigured() {
-		return this.properties !=null 
+		/*return true;*/
+		return this.properties !=null
 				&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 				&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
-				&& (this.isImageHeadType() && this.imageConfigured
+				&& (this.isImageHeadType() && this.imageConfigured 
 						|| this.isVideoHeadType() && this.getVideo() != null);
 	}
+
 
 	/**
 	 * Gets the Title component.
