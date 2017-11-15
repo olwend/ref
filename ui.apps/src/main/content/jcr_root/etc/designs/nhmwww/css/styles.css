@@ -4920,33 +4920,6 @@ h6 {
 }
 
 /** REFACTOR-PLACEHOLDERS PARTIAL **/
-.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
-  padding: 0.5em 0.75em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .search .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
-  padding: 0;
-  color: #ffffff !important;
-}
-
-.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
-  color: #ffffff;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
-    padding: 1em 1.5em;
-  }
-  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
-    font-size: 1.25em;
-  }
-}
-
 .about-us .GreyBox, .account .GreyBox, .business-services .GreyBox, .contact-us .GreyBox, .discover .GreyBox, .our-science .GreyBox, .press-office .GreyBox, .schools .GreyBox, .support-us .GreyBox, .take-part .GreyBox, .visit .GreyBox {
   padding: 0.5em 0.75em;
 }
@@ -5563,6 +5536,17 @@ html.js-noScroll {
 
 .articlefeed--item__excerpt {
   margin-bottom: 0;
+}
+
+.articlefeed--video-container {
+  position: relative;
+}
+
+.articlefeed--video-icon {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  max-width: 40px;
 }
 
 .articlefeed--read-more-link {
@@ -8736,6 +8720,33 @@ a.button-cta {
   .title .social-share--container .social-share--title {
     display: block;
     margin-top: 8px;
+  }
+}
+
+.title-bar {
+  padding: 0.5em 0.75em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.title-bar h1 {
+  padding: 0;
+  color: #FFFFFF !important;
+}
+
+.title-bar p {
+  color: #FFFFFF;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .title-bar {
+    padding: 1em 1.5em;
+  }
+  .title-bar p {
+    font-size: 1.25em;
   }
 }
 
