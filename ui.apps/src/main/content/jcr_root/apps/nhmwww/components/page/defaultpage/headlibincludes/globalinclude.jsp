@@ -10,15 +10,14 @@
 <cq:includeClientLib css="nhmwww.webfont" />
 <cq:includeClientLib css="nhmwww.main.normalize" />
 <cq:includeClientLib css="nhmwww.main.foundation" />
-<cq:includeClientLib css="nhmwww.main" />
 
-<% if (isOnEditMode || isOnDesignMode) {%>
-<!-- START CQ.JQUERY FOR AUTHOR ONLY -->
-	<cq:includeClientLib css="cq.jquery.ui" />
-	<cq:includeClientLib js="cq.jquery" />
-	<cq:includeClientLib js="cq.jquery.ui" />
-<!-- END CQ.JQUERY FOR AUTHOR ONLY -->
+<% if (isOnEditMode || isOnDesignMode || isOnEventCalendarPage) {%>
+<!-- START CQ.JQUERY FOR AUTHOR AND EVENTS PAGES ONLY -->
+	<%@ include file="/apps/nhmwww/components/page/defaultpage/headlibincludes/cqjquery.jsp" %>
+<!-- END CQ.JQUERY FOR AUTHOR AND EVENTS PAGES ONLY -->
 <%}%>
+
+<cq:includeClientLib css="nhmwww.main" />
 
 <!-- START JQUERY 1.11.2 CDN -->
 <script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
@@ -31,6 +30,6 @@
 Edit Mode is <% if (isOnEditMode) {%>on<%} else {%>off<%}%>
 Design Mode is <% if (isOnDesignMode) {%>on<%} else {%>off<%}%>
 Preview Mode is <% if (isOnPreviewMode) {%>on<%} else {%>off<%}%>
- -->
+-->
 	<script src="<%= currentDesign.getPath() + "/js/aem.js" %>"></script>
 <%}%>
