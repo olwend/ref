@@ -4704,6 +4704,26 @@ h6 {
   font-weight: bold;
 }
 
+/** REFACTOR BREADCRUMB PARTIAL **/
+.breadcrumb {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 0.875em;
+  padding: 0.5em;
+}
+
+.breadcrumb a {
+  color: #D5D5D5;
+}
+
+.breadcrumb a:hover {
+  color: #D5D5D5;
+}
+
+.breadcrumb .row {
+  margin-bottom: 0;
+}
+
 /** REFACTOR-TYPOGRAPHY PARTIAL **/
 .intro-text {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
