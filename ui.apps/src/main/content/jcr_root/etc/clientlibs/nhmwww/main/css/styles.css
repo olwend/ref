@@ -2,13 +2,8 @@
 STYLESHEET COMPILED USING SASS
 CSS files should not be edited directly, as those edits will be overridden next time SASS is compiled.
 */
-/** LEGACY SECTIONS PARTIAL (PHASED OUT) **/
 .home {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .home a, .home a:hover {
@@ -189,11 +184,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .visit {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
-  /** commented out for WR-751 (refactor of carousel component) **/
 }
 
 .visit a, .visit a:hover {
@@ -419,10 +409,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .take-part {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .take-part a, .take-part a:hover {
@@ -617,10 +603,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .about-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .about-us a, .about-us a:hover {
@@ -801,10 +783,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .schools {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .schools a, .schools a:hover {
@@ -985,11 +963,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .our-science {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
-  /** commented out for WR-752 (refactor of carousel component) **/
 }
 
 .our-science a, .our-science a:hover {
@@ -1224,10 +1197,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .support-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .support-us a, .support-us a:hover {
@@ -1408,10 +1377,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .discover {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .discover a, .discover a:hover {
@@ -1592,10 +1557,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .press-office {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .press-office a, .press-office a:hover {
@@ -1776,10 +1737,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .working {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .working a, .working a:hover {
@@ -1960,10 +1917,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .business-services {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .business-services a, .business-services a:hover {
@@ -2144,10 +2097,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .contact-us {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .contact-us a, .contact-us a:hover {
@@ -2328,10 +2277,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .shop {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .shop a, .shop a:hover {
@@ -2436,10 +2381,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
 
 .account {
   /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
-  /** intro-text commented out for WR-721 (merge legacy and refactored typography partials) **/
-  /** commented out for WR-787 (hero component refactor) **/
-  /** commented out for WR-752 (carousel component refactor) **/
-  /** Accordion commented out for WR-737 (Accordion component refactor) **/
 }
 
 .account a, .account a:hover {
@@ -2520,9 +2461,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #eeeeee;
 }
 
-/** REFACTOR FOUNDATION **/
-/** LEGACY BASE PARTIAL (MERGED WITH REFACTORED BASE PARTIAL - WR-720) **/
-/** LEGACY TYPOGRAPHY PARTIAL (MERGED WITH REFACTORED TYPOGRAPHY PARTIAL - WR-721) **/
 /** LEGACY LAYOUT PARTIAL **/
 /** Grid **/
 .row,
@@ -2637,7 +2575,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   }
 }
 
-/** LEGACY FOOTER COMPONENT PARTIAL **/
 /** LEGACY UTILITIES PARTIAL **/
 /** Utility **/
 .cf:before,
@@ -2778,9 +2715,6 @@ input.question {
   }
 }
 
-/** LEGACY NAVIGATION PARTIAL (RENAMED FROM _NAVIGATION.SCSS) **/
-/** WR-1040 - MEGAMENU UPDATE - LEGACY PARTIAL REMOVED AS PART OF CLEAN START **/
-/** LEGACY COMPONENTS PARTIAL (PHASED OUT) **/
 /** LEGACY ARROW PARTIAL **/
 .arrow {
   position: relative;
@@ -3581,140 +3515,6 @@ input.question {
   width: 100%;
 }
 
-/** LEGACY EVENTS SUMMARY PARTIAL **/
-.info-sidebar {
-  padding: 25px 0px 0px 2em;
-}
-
-.info-sidebar p {
-  margin-bottom: 0px;
-  line-height: 1.5;
-}
-
-.info-sidebar li {
-  position: relative;
-  min-height: 40px;
-  margin-top: 5%;
-  padding: 0.625em 0.625em 0 20%;
-}
-
-.info-sidebar li:first-child {
-  margin-top: 0;
-}
-
-.info-sidebar li .ico {
-  display: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 41px;
-  height: 40px;
-  content: "";
-}
-
-.info-sidebar li.tickets .ico {
-  width: 44px;
-  height: 50px;
-}
-
-@media screen and (min-width: 768px) {
-  .info-sidebar {
-    padding-top: 0;
-  }
-  .info-sidebar li {
-    padding-left: 19%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .info-sidebar li {
-    padding-left: 16%;
-  }
-}
-
-.aside-box .info-sidebar-icon-list li {
-  overflow: auto;
-  margin-bottom: 1em;
-}
-
-.aside-box .info-sidebar-icon-list a {
-  font-size: 1em;
-}
-
-.aside-box .info-sidebar-icon-list.about-us p {
-  color: #BF491F;
-  margin-bottom: 0;
-  padding-left: 2em;
-}
-
-.aside-box .info-sidebar-icon-list a {
-  color: #BF491F;
-}
-
-.aside-box .info-sidebar-icon-list .ico {
-  position: absolute;
-  height: 1.5em;
-  margin-right: 0.5em;
-  width: 1.5em;
-}
-
-.info-summary {
-  margin: 0px auto;
-  background: #f4f4f4;
-}
-
-.info-summary .info-summary__content {
-  padding: 0 1.25em 0.5em;
-}
-
-@media screen and (min-width: 1024px) {
-  .info-summary .info-summary__content {
-    display: block !important;
-  }
-}
-
-.info-summary__sponsors {
-  border-top: 1px solid #ccc;
-  margin: 0 auto;
-  padding: 10px 0 0;
-}
-
-.info-summary__sponsors div {
-  height: 90px;
-}
-
-.info-summary__sponsors img {
-  display: block;
-  margin: 0.75em 0 0;
-  max-width: 70%;
-}
-
-.info-summary__sponsors p {
-  font-size: 13px;
-}
-
-ul.info-sidebar-box-visit {
-  padding-left: 10%;
-}
-
-ul.info-sidebar-box-visit li {
-  position: relative;
-  padding: 0;
-}
-
-ul.info-sidebar-box-visit li .ico {
-  display: inline-block;
-  float: left;
-  zoom: 1;
-  width: 45px;
-  height: 50px;
-  content: "";
-  padding-right: 5px;
-}
-
 /** LEGACY QUOTE SLIDER PARTIAL **/
 .quote-slider-bar {
   display: none;
@@ -4134,12 +3934,7 @@ figure {
 /*alext2: removing as this is causing issues witht the RTE in AEM*/
 /* making this youtube specific ************************/
 iframe.youtubeplayer {
-  /*height:400px;*/
-  /*left: 0;*/
-  /*position: relative;*/
-  /*top: 0;*/
   width: 100%;
-  /*height: 100%;*/
 }
 
 /** LEGACY IMAGE COMPONENT PARTIAL (WR-792) **/
@@ -4163,7 +3958,6 @@ iframe.youtubeplayer {
   padding-bottom: 0em;
 }
 
-/** LEGACY ACCORDION PARTIAL - MERGED WITH REFACTORED ACCORDION PARTIAL (WR-737) **/
 /** LEGACY BREADCRUMB PARTIAL **/
 .breadcrumb {
   background-color: #000000;
@@ -4198,11 +3992,9 @@ iframe.youtubeplayer {
   width: 30px;
 }
 
-/** LEGACY FEEDBACK-BAR - REMOVED (WR-929) **/
-/** LEGACY EVENT SLIDER PARTIAL (RENAMED FROM _EVENTS.SCSS) - MERGED WITH REFACTORED EVENT-SLIDER PARTIAL (WR-752) **/
 /** JQUERY DATEPICKER (VENDOR) PARTIAL NHMEC-5**/
 /*
- * EVENT CALENDAR COMPONENT DATEPICKER STYLING 
+ * EVENT CALENDAR COMPONENT DATEPICKER STYLING
  */
 .ui-datepicker {
   height: auto;
@@ -4587,7 +4379,6 @@ iframe.youtubeplayer {
   float: right !important;
 }
 
-/** LEGACY HELPERS PARTIAL - MERGED WITH LEGACY UTILITIES PARTIAL **/
 /** LEGACY SEARCH RESULTS PARTIAL (RENAMED FROM _SEARCH-RESULTS.SCSS) **/
 /*** _GOOGLE-SEARCH-RESULTS.SCSS, FORMERLY _SEARCH-RESULTS.SCSS ***/
 .gcsc-branding-text,
@@ -4789,7 +4580,6 @@ table.gssb_c {
   padding: 2em;
 }
 
-/** FIXES PARTIAL (PHASED OUT) **/
 /** REFACTOR-BASE PARTIAL **/
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -4996,33 +4786,6 @@ h6 {
 }
 
 /** REFACTOR-PLACEHOLDERS PARTIAL **/
-.about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
-  padding: 0.5em 0.75em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.about-us .title-bar h1, .account .title-bar h1, .business-services .title-bar h1, .contact-us .title-bar h1, .our-science .title-bar h1, .press-office .title-bar h1, .schools .title-bar h1, .search .title-bar h1, .support-us .title-bar h1, .take-part .title-bar h1, .visit .title-bar h1 {
-  padding: 0;
-  color: #ffffff !important;
-}
-
-.about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
-  color: #ffffff;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .about-us .title-bar, .account .title-bar, .business-services .title-bar, .contact-us .title-bar, .our-science .title-bar, .press-office .title-bar, .schools .title-bar, .search .title-bar, .support-us .title-bar, .take-part .title-bar, .visit .title-bar {
-    padding: 1em 1.5em;
-  }
-  .about-us .title-bar p, .account .title-bar p, .business-services .title-bar p, .contact-us .title-bar p, .our-science .title-bar p, .press-office .title-bar p, .schools .title-bar p, .search .title-bar p, .support-us .title-bar p, .take-part .title-bar p, .visit .title-bar p {
-    font-size: 1.25em;
-  }
-}
-
 .about-us .GreyBox, .account .GreyBox, .business-services .GreyBox, .contact-us .GreyBox, .discover .GreyBox, .our-science .GreyBox, .press-office .GreyBox, .schools .GreyBox, .support-us .GreyBox, .take-part .GreyBox, .visit .GreyBox {
   padding: 0.5em 0.75em;
 }
@@ -5236,6 +4999,10 @@ html.js-noScroll {
   margin-right: auto;
   width: 100%;
   max-width: 1160px;
+}
+
+.herosection .caption {
+  padding-left: 20px;
 }
 
 .herosection .carousel-wrapper .caption {
@@ -5523,7 +5290,7 @@ html.js-noScroll {
 .accordion dd > a {
   background-repeat: no-repeat;
   background-position: 97% center;
-  background-color: #EEE;
+  background-color: #EEEEEE;
   padding: 1em 0.75em;
 }
 
@@ -5545,7 +5312,7 @@ html.js-noScroll {
 .accordion dd.active > a {
   background-repeat: no-repeat;
   background-position: 97% center;
-  background-color: #EEE;
+  background-color: #EEEEEE;
 }
 
 .accordion .accordion-navigation.active > a:hover,
@@ -5562,10 +5329,19 @@ html.js-noScroll {
 
 .discover .row {
   width: 100%;
+  margin-bottom: 0;
 }
 
 .discover .row .row {
   margin: 0;
+}
+
+.discover .main-section {
+  margin-bottom: 1em;
+}
+
+.discover .discover-image {
+  margin-bottom: 1em;
 }
 
 .articlefeed {
@@ -5628,6 +5404,17 @@ html.js-noScroll {
   margin-bottom: 0;
 }
 
+.articlefeed--video-container {
+  position: relative;
+}
+
+.articlefeed--video-icon {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  max-width: 40px;
+}
+
 .articlefeed--read-more-link {
   text-align: center;
 }
@@ -5635,11 +5422,15 @@ html.js-noScroll {
 /** BIG SPLASH PARTIAL **/
 .bigsplash .row {
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 @media screen and (min-width: 1160px) {
   .bigsplash .row {
     padding: 0 20px;
+    margin: 0 auto;
+    max-width: 72.5rem;
   }
 }
 
@@ -5653,9 +5444,8 @@ html.js-noScroll {
     position: relative;
     pointer-events: none;
     padding-bottom: 31.25%;
-    height: 0;
     max-width: 100%;
-    background: #000;
+    background: #000000;
   }
   .bigsplash-video .youtubeplayer {
     position: absolute;
@@ -5672,19 +5462,14 @@ html.js-noScroll {
   .bigsplash-video--controls {
     display: block;
     position: absolute;
-    bottom: 5px;
+    max-width: 30px;
+    bottom: 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .bigsplash-video--controls {
-    bottom: 30px;
-  }
-}
-
-@media screen and (min-width: 1160px) {
-  .bigsplash-video--controls {
-    bottom: 60px;
+    bottom: 15px;
   }
 }
 
@@ -5696,59 +5481,96 @@ html.js-noScroll {
   display: none;
 }
 
+.bigsplash-image {
+  background-size: cover;
+  background-position: center center;
+  height: 45vh;
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-image {
+    height: 70vh;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .bigsplash-image {
     display: none;
   }
 }
 
-@media screen and (min-width: 480px) {
-  .bigsplash-image img {
-    max-height: 60vh;
+.bigsplash-text {
+  position: absolute;
+  bottom: 0;
+  color: #FFFFFF;
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  width: 100%;
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .bigsplash-text {
+    padding-bottom: 3.5rem;
+    margin-bottom: 10px;
   }
 }
 
-.bigsplash-text {
-  position: absolute;
-  top: 0;
-  color: #FFFFFF;
-  font-family: "Chivo", Helvetica, Arial, sans-serif;
-  width: 100%;
-  height: 100%;
+@media screen and (min-width: 1024px) {
+  .bigsplash-text {
+    padding-bottom: 4.3rem;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1160px) {
   .bigsplash-text {
-    margin-top: 30px;
+    padding-bottom: 4.6rem;
+    margin-bottom: 22px;
   }
 }
 
 .bigsplash-text--title {
   color: #FFFFFF !important;
-  font-family: "Chivo", Helvetica, Arial, sans-serif;
-  letter-spacing: -1px;
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
   padding: 0;
   margin: 0;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 360px) {
+  .bigsplash-text--title {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-text--title {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--title {
-    margin: 0 -2px;
+    font-size: 3.3rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .bigsplash-text--title {
-    font-size: 5.8rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .bigsplash-text--title {
+    font-size: 3.7rem;
   }
 }
 
 .bigsplash-text--title-container {
-  position: relative;
-  top: 25%;
-  text-align: center;
+  margin-bottom: -10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -5763,40 +5585,43 @@ html.js-noScroll {
   text-decoration: none;
 }
 
+.bigsplash-text--subtitle {
+  color: #FFFFFF !important;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 360px) {
+  .bigsplash-text--subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .bigsplash-text--subtitle {
+    font-size: 1.3rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
-  .bigsplash-text--caption {
-    font-size: 1.1rem;
+  .bigsplash-text--subtitle {
+    font-size: 1.4rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .bigsplash-text--caption {
-    max-width: 390px;
+@media screen and (min-width: 1160px) {
+  .bigsplash-text--subtitle {
+    font-size: 1.6rem;
   }
 }
 
-.bigsplash-text--caption-container {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .bigsplash-text--caption-container {
-    display: block;
-    width: 50%;
-    margin-top: -10px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .bigsplash-text--caption-container {
-    width: 400px;
-    margin-top: 0;
-  }
+.bigsplash-text--subtitle-container a:hover {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--cta {
-    top: 360px;
     font-size: 1rem;
     border-bottom: 1px dotted #FFFFFF;
   }
@@ -5810,14 +5635,15 @@ html.js-noScroll {
   display: none;
 }
 
-.bigsplash-text--cta-container a, .bigsplash-text--cta-container a:hover {
-  color: #FFFFFF;
+.bigsplash-text--cta-container a,
+.bigsplash-text--cta-container a:hover {
+  color: #FFFFFF !important;
 }
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--cta-container {
     display: block;
-    padding-top: 5px;
+    padding-top: 12px;
   }
 }
 
@@ -6156,7 +5982,7 @@ html.js-noScroll {
 }
 
 .info-tout__action {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   padding: 0.5em 0.75em;
 }
 
@@ -6177,7 +6003,7 @@ html.js-noScroll {
 }
 
 .info-tout__action:hover {
-  background-color: #ffffff !important;
+  background-color: #FFFFFF !important;
 }
 
 .info-tout__action.tickets .ico.arrowl, .info-tout__action.membership .ico.arrowl {
@@ -6252,12 +6078,12 @@ div#cookie-bar p {
 }
 
 .directory-search select {
-  background-image: url(/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
+  background-image: url("/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png");
   padding-left: 1em;
 }
 
 .directory-search--label {
-  color: #ffffff;
+  color: #FFFFFF;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   margin-bottom: 0.2em;
@@ -6293,7 +6119,7 @@ div#cookie-bar p {
 
 .directory-search-button--container {
   position: relative;
-  border: 4px solid #ffffff;
+  border: 4px solid #FFFFFF;
   padding: 1.5em 1em;
   margin-top: 1em;
   margin-bottom: 1.2em;
@@ -6388,7 +6214,7 @@ div#cookie-bar p {
   border: none;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
-  color: #ffffff;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -6479,8 +6305,8 @@ div#cookie-bar p {
 
 .directory-search-results--row {
   padding: 1em 1.5em 1em 1em;
-  background-color: #eeeeee;
-  border-bottom: 1px solid #ffffff;
+  background-color: #EEEEEE;
+  border-bottom: 1px solid #FFFFFF;
   font-size: 1em;
 }
 
@@ -6629,7 +6455,6 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--title {
   padding: 0 20px;
-  margin-top: 1em;
 }
 
 .discoverrelated .discover .discover-element-wrapper {
@@ -6761,12 +6586,12 @@ div#cookie-bar p {
 }
 
 .event--calendar--wrapper .calendar--select select {
-  background-image: url(../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png);
+  background-image: url("../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png");
   padding: 0.35rem 0.5rem 0.2rem;
 }
 
 .event--calendar--wrapper .reset--filter {
-  font-family: Arial;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
   text-decoration: underline;
   margin-bottom: 0.6em;
@@ -7094,20 +6919,64 @@ div#cookie-bar p {
 }
 
 /** REFACTOR-EVENTS-SUMMARY **/
+.event-summary {
+  padding: 25px 0px 0px 2em;
+}
+
 @media screen and (min-width: 768px) {
-  .info-sidebar li {
+  .event-summary {
+    padding-top: 0;
+  }
+}
+
+.event-summary p {
+  margin-bottom: 0px;
+  line-height: 1.5;
+}
+
+.event-summary li {
+  position: relative;
+  min-height: 40px;
+  margin-top: 5%;
+  padding: 0.625em 0.625em 0 20%;
+}
+
+.event-summary li:first-child {
+  margin-top: 0;
+}
+
+.event-summary li .ico {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 41px;
+  height: 40px;
+  content: "";
+}
+
+.event-summary li.tickets .ico {
+  width: 44px;
+  height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .event-summary li {
     padding-left: 24%;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .info-sidebar li {
+  .event-summary li {
     padding-left: 18%;
   }
 }
 
 @media screen and (min-width: 1160px) {
-  .info-sidebar li {
+  .event-summary li {
     padding-left: 16%;
   }
 }
@@ -7164,7 +7033,7 @@ div#cookie-bar p {
   font-size: 1.55em;
   margin-bottom: 0;
   margin-left: 0.3em;
-  font-family: "Elysio-Regular";
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   color: #565656;
 }
 
@@ -7524,6 +7393,7 @@ div#cookie-bar p {
 
 .global-header--subnav ul li {
   padding-right: 30px;
+  padding-top: 1px;
 }
 
 .global-header--search-bar, .global-header--search-bar__overlay, .global-header--search-bar__content {
@@ -7927,7 +7797,6 @@ div#cookie-bar p {
   }
 }
 
-/** REFACTOR-FEEDBACK-BAR PARTIAL - REMOVED (WR-929) **/
 .pressreleaselistfeed h3 {
   padding-bottom: 10px;
   padding-left: 0.5em;
@@ -8390,7 +8259,6 @@ a.button-cta {
   border: none !important;
 }
 
-/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 /**overrides headertextimage.scss **/
 .headertextimage .hti-padding {
   margin-bottom: 1.2em;
@@ -8414,14 +8282,7 @@ a.button-cta {
 .hti-box .ctabutton--inside-hti .svg-ico {
   height: 40px;
   top: 30%;
-  /*width: 60%;*/
   width: 100%;
-  /*
-	@media screen and (min-width: $tablet) {
-		height: 36%;
-		top: 34%;
-		right: 0;
-	}*/
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
@@ -8574,7 +8435,6 @@ a.button-cta {
   display: none;
 }
 
-/** PRESS OFFICE PARTIAL (PHASED OUT) **/
 /** SECONDARY NAV PARTIAL **/
 /**** SECONDARY NAV ****/
 .secondary-nav-wrapper {
@@ -8687,28 +8547,28 @@ a.button-cta {
 }
 
 .science-profiles-detail-page--tabs-container .tab-title {
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid #FFFFFF;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title a {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   background-color: #808080;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title a:hover {
-  background-color: #aaaaaa;
+  background-color: #AAAAAA;
   text-decoration: none;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title.active a {
   color: #357900;
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 .science-profiles-detail-page--tabs-container .tab-title.active a:hover {
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
 }
 
 @media screen and (min-width: 768px) {
@@ -8770,6 +8630,33 @@ a.button-cta {
   .title .social-share--container .social-share--title {
     display: block;
     margin-top: 8px;
+  }
+}
+
+.title-bar {
+  padding: 0.5em 0.75em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.title-bar h1 {
+  padding: 0;
+  color: #FFFFFF !important;
+}
+
+.title-bar p {
+  color: #FFFFFF;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .title-bar {
+    padding: 1em 1.5em;
+  }
+  .title-bar p {
+    font-size: 1.25em;
   }
 }
 
@@ -9076,7 +8963,6 @@ input.searchGo {
   top: auto !important;
 }
 
-/** FOOTER PARTIAL - MERGED **/
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -9888,7 +9774,7 @@ input.searchGo {
 }
 
 .press-office .feature-box a {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .press-office .feature-box h3 {

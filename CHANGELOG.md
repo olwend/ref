@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.3.2 - Zealous Zebra - 09-Nov-2017
+- WR-1156: Decommission old Discover components and templates
+- WR-1157: Update popular search terms with Venom
+- WR-1160: Add Home to Deworm3 navigation
+- WR-1164: Alignment changes post Discover launch
+- WR-1165: Big Splash redesign (first stage)
+- WR-1170: Article feed component hotfix
+- WR-1171: Exhibition pages not saving date and time data correctly
+
+## 1.3.1 - Yawning Yellowhammer - 01-Nov-2017
+- WR-1123 - Create header for Discover homepage with social share component
+- WR-1134 - Deworm 3 sub nav
+- WR-1143 - Add bottom margin to single article tag
+- WR-1144 - Article feed component title style update
+- WR-1145 - Apply link to images in article feed component
+- WR-1146 - Article feed link hover behaviour update
+- WR-1149 - Article feed dialog fix
+- WR-1150 - Article feed component read more link fix
+- WR-1155 - Remove big splash discover hotfix
+- WR-1158 - Mobile discover subnav link fix
+
 ## 1.3.0 - Xenodochial Xenops - 26-Oct-2017
 - WR-1086 - Create Article Feed component for new Discover redesign
 - WR-1119 - Redesign of the Discover Related component

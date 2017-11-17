@@ -2,8 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template"
     jcr:title="NHM Discover Publication Page"
-    allowedParents="[/apps/nhmwww/templates/discoversectionpage,/apps/nhmwww/templates/discoverpublicationpage]"
-    allowedChildren="[/apps/nhmwww/templates/discoverpublicationpage]"
+    allowedParents="[]"
+    allowedChildren="[]"
     allowedPaths="[/content/nhmwww/(.*)?]"
     ranking="{Long}201">
     <jcr:content

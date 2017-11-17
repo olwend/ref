@@ -20,7 +20,8 @@
 						<li class="global-header--nav-list__item link-discover">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/discover.html">Discover</a>
 							<div class="global-header--nav-list__item--subnav-link">
-								<i class="ico svg-ico ico-menu-open" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_menu.svg" data-svg-title="icon__menu" data-alt="Open Menu" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png"></i>
+								<img id="subnav__discover--open" src="/etc/designs/nhmwww/img/png-icons/icon_l_chevron_down.png" alt="Open Disover secondary menu">
+								<img id="subnav__discover--close" src="/etc/designs/nhmwww/img/png-icons/icon_l_chevron_up.png" alt="Close Disover secondary menu" style="display: none;">
 							</div>
 						</li>
 								<li class="global-header--menu__subnav-discover">
@@ -88,6 +89,7 @@
 	<div class="global-header--subnav subnav__deworm js-global-header--nav-list__hide">
 		<div class="row cf">
 			<ul>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3.html" data-gtm="subnav-link-deworm">DeWorm3</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/about.html" data-gtm="subnav-link-deworm">About</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
@@ -116,7 +118,7 @@
 			<div class="global-header--search-bar__popular-search-terms">
 				<h2 class="global-header--search-bar__heading">Popular search terms:</h2>
 				<ul>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/venom-killer-and-cure.html">Venom</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html"> Wildlife Photographer of the Year</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/bluewhale">Hope the blue whale</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/oceans.html">Oceans</a></li>
