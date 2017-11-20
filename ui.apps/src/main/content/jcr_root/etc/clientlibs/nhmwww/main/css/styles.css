@@ -3958,26 +3958,6 @@ iframe.youtubeplayer {
   padding-bottom: 0em;
 }
 
-/** LEGACY BREADCRUMB PARTIAL **/
-.breadcrumb {
-  background-color: #000000;
-  color: #fff;
-  font-size: 0.875em;
-  padding: 0.5em;
-}
-
-.breadcrumb a {
-  color: #D5D5D5;
-}
-
-.breadcrumb a:hover {
-  color: #D5D5D5;
-}
-
-.breadcrumb .row {
-  margin-bottom: 0;
-}
-
 /** LEGACY DISCOVER-PUBLICATION **/
 .discover-image-caption-icon i.svg-ico {
   height: 40px;
