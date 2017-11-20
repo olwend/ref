@@ -11,7 +11,16 @@
 <%
 	final String[] posts = properties.get("posts", String[].class);
 	final String title = properties.get("title", "Related posts");
-	if(posts != null) {
+	
+if(posts == null) { %>
+	<div class="row">
+		<h4>Discover related</h4>
+		Required fields:
+		<ul>
+			<li>Related posts</li>
+		</ul>
+	</div>
+<% } else {	
 %>
 <div class="discover">
 	<h3 class="discover-related--title"><%= title %></h3>

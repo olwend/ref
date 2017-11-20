@@ -13,22 +13,23 @@
 %>
 	
 	<div class="row">
-		<span class="noconfigured">
-			Please configure the article page correctly. Required fields:
-			<ul>
-				<li>Article title</li>
-				<li>Introduction text</li>
-				<li>Lead image or video</li>
-			</ul>
-		</span>
+		<h4>Article</h4>
+		Required fields:
+		<ul>
+			<li>Article title</li>
+			<li>Introduction text</li>
+			<li>Lead image or video</li>
+		</ul>
 	</div>
 <%
 		return;
 	}
 
 	if (WCMMode.fromRequest(request) == WCMMode.EDIT) { %>
-	<p>Article</p>
-	<p>Edit the article dialog here</p> 
+	<div class="row">
+		<h4>Article</h4>
+		Edit the article dialog here
+	</div>
 <% }
 	
 	if (helper.isImageHeadType()) {

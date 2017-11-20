@@ -30,7 +30,8 @@
 					                    fieldLabel="Row size"
 					                    defaultValue="fullwidth"
 					                    name="./rowsize"
-										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										required="true" >
 					                    <items jcr:primaryType="nt:unstructured">
 					                        <fullwidth
 				                                jcr:primaryType="nt:unstructured"
@@ -73,7 +74,8 @@
 										fieldLabel="Path"
 										name="./rootpath"
 										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-										rootPath="/content/nhmwww" />
+										rootPath="/content/nhmwww" 
+										required="true" />
 									<tags
 				                        jcr:primaryType="nt:unstructured"
 				                        fieldLabel="Tags"
