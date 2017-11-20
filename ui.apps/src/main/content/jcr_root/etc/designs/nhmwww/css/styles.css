@@ -4493,22 +4493,6 @@ table.gssb_c {
   z-index: 99999 !important;
 }
 
-/** LEGACY SEARCH RESULTS PARTIAL (RENAMED FROM _SEARCH-RESULTS.SCSS) **/
-.google-maps {
-  position: relative;
-  padding-bottom: 75%;
-  height: 0;
-  overflow: hidden;
-}
-
-.google-maps iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-}
-
 /** LEGACY PROFILES PARTIAL **/
 .main-section.science-profile {
   /*Form*/
@@ -7090,6 +7074,22 @@ div#cookie-bar p {
 
 .image--and--cta--wrapper .image--not--matching--ratio {
   width: 100%;
+}
+
+/** REFACTOR MAP **/
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
+
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /** REFACTOR-MEGAMENU PARTIAL **/
