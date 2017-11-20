@@ -26,8 +26,17 @@
 		}
 	} 
 
-	if(helper.isActivated()) {
-%>
+	if(!helper.isActivated()) { %>
+	<div class="row">
+		<h4>Header, Text/Image</h4>
+		Required fields:
+		<ul>
+			<li>Heading</li>
+			<li>Text</li>
+		</ul>
+	</div>
+		
+<% } else { %>
 
 <div class="hti-wrapper 
 	<%if(helper.getAddPadding()) { %> hti-padding <%}%>"
@@ -101,7 +110,4 @@
 		</div>	
 	<%-- Text --%>
 </div>
-<% } else { %>
-	<p>Header, Text/Image component</p>
-	<p>Please configure this component in the dialog</p>
 <% } %>

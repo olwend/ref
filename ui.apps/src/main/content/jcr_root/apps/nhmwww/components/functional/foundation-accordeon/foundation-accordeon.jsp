@@ -1,19 +1,19 @@
-<%--
-
-  Accordeon component.
-
-  This adds an accordeon to a page
-
---%>
-<%
-%><%@include file="/libs/foundation/global.jsp"%>
+<%@include file="/libs/foundation/global.jsp"%>
 <%@page session="false"
-          import="uk.ac.nhm.core.componentHelpers.AccordeonHelper"%>
+          import="uk.ac.nhm.core.componentHelpers.AccordionHelper"%>
 <cq:defineObjects />
 <%
-	AccordeonHelper helper = new AccordeonHelper(properties);
+	AccordionHelper helper = new AccordionHelper(properties);
 %>
-<% if(helper.isInitialised()) { %>
+<% if(!helper.isInitialised()) { %>
+<div class="row">
+		<h4>Accordion</h4>
+		Required fields:
+		<ul>
+			<li>Panel title</li>
+		</ul>
+	</div>
+	<%} else { %>
 <%  String headingStyleOpen = "";
 	String headingStyleClose = "";
 	if(helper.getHeadingStyle() != null && !helper.getHeadingStyle().equals("")) {  
@@ -29,9 +29,6 @@
 		</div>
 	</dd>
 </dl>
-<% } else {	%>
-	<div>
-		<p>This component is not configured properly.</p>
-	</div>
+
 <% } %>
 

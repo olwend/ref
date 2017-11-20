@@ -18,7 +18,7 @@
                     <defaultOpen
                         jcr:primaryType="cq:Widget"
                         defaultValue="{Boolean}false"
-                        fieldDescription="Is the accordeon open by default"
+                        fieldDescription="Is the accordion open by default"
                         fieldLabel="Open"
                         name="./isOpen"
                         type="checkbox"

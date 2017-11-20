@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Header Text Image"
+    jcr:title="Header text image"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content 
     	jcr:primaryType="nt:unstructured"
@@ -63,12 +63,11 @@
 							<alt
 								jcr:primaryType="nt:unstructured"
 								fieldDescription="(leave empty to use the title defined above)"
-								fieldLabel="Alt Text"
+								fieldLabel="Alt text"
 								name="./alt"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 							<addPadding
 		                   		jcr:primaryType="nt:unstructured"
-								fieldLabel="Add padding"
 								name="./addPadding"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
 								text="Add padding"
@@ -80,7 +79,7 @@
 								sling:resourceType="granite/ui/components/foundation/form/textarea"/>
 							<imageSize
 			                    jcr:primaryType="nt:unstructured"
-			                    fieldLabel="Image Size"
+			                    fieldLabel="Image size"
 			                    defaultValue="4"
 			                    name="./imageSize"
 								sling:resourceType="granite/ui/components/coral/foundation/form/select">
@@ -104,14 +103,13 @@
 								rootPath="/content/nhmwww" />
 							<newwindow 
 			                   	jcr:primaryType="nt:unstructured"
-								fieldLabel="Open in New Window"
 								name="./newwindow"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-								text="Open in New Window"
+								text="Open in new window"
 								value="{Boolean}true" />
 							<imagePosition
 			                    jcr:primaryType="nt:unstructured"
-			                    fieldLabel="Image Position"
+			                    fieldLabel="Image position"
 			                    defaultValue="right"
 			                    name="./imagePosition"
 								sling:resourceType="granite/ui/components/coral/foundation/form/select">
@@ -152,7 +150,8 @@
 								jcr:primaryType="nt:unstructured"
 								fieldLabel="Heading"
 								name="./text-heading"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" 
+								required="true" />
 							<linkURL 
                 				jcr:primaryType="nt:unstructured"
 								fieldLabel="Link to"
@@ -162,16 +161,15 @@
 								rootPath="/content/nhmwww" />
 							<newwindowheading
                    				jcr:primaryType="nt:unstructured"
-								fieldLabel="Open in New Window"
 								name="./newwindowheading"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-								text="Open in New Window"
+								text="Open in new window"
 								value="{Boolean}true" />
                             <addCallToAction
                             	jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="granite/ui/components/foundation/form/checkbox"
-	                            text="Call to action Button"
-	                            fieldDescription="Display a Call to action Button"
+	                            text="Call to action button"
+	                            fieldDescription="Display a call to action button"
 	                            name="./addCallToAction"
 	                            value="{Boolean}true"
 	                            class="cq-dialog-checkbox-showhide"
@@ -179,7 +177,7 @@
 	                            should-show-when-checked="true"/>
 							<type
 			                    jcr:primaryType="nt:unstructured"
-			                    fieldLabel="Component Style"
+			                    fieldLabel="Component style"
 			                    name="./component-type"
 								sling:resourceType="granite/ui/components/coral/foundation/form/select">
 			                    <items jcr:primaryType="nt:unstructured">
@@ -201,8 +199,9 @@
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
 	                            name="./text"
-	                            fieldLabel="Text"
-	                            useFixedInlineToolbar="{Boolean}true" >
+	                            fieldLabel="Text *"
+	                            useFixedInlineToolbar="{Boolean}true"
+	                            required="true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
 	                                <paraformat
 					        			jcr:primaryType="nt:unstructured"
@@ -323,7 +322,7 @@
 								<items jcr:primaryType="nt:unstructured">
 									<colourSectionOverride
 					                    jcr:primaryType="nt:unstructured"
-					                    fieldLabel="Section Theme"
+					                    fieldLabel="Section theme"
 					                    name="./section-override"
 										sling:resourceType="granite/ui/components/coral/foundation/form/select">
 					                    <items jcr:primaryType="nt:unstructured">
@@ -349,7 +348,7 @@
 						                        value="discover"/>
 						                    <ourScience
 						                        jcr:primaryType="nt:unstructured"
-						                        text="Our Science"
+						                        text="Our science"
 						                        value="our-science"/>
 						                    <schools
 						                        jcr:primaryType="nt:unstructured"
@@ -357,7 +356,7 @@
 						                        value="schools"/>
 						                    <supportUs
 						                        jcr:primaryType="nt:unstructured"
-						                        text="Support Us"
+						                        text="Support us"
 						                        value="support-us"/>
 						                    <takePart
 						                        jcr:primaryType="nt:unstructured"
@@ -383,15 +382,14 @@
 										rootPath="/content/nhmwww" />
 					                <callToActionNewWindow
 					                	jcr:primaryType="nt:unstructured"
-										fieldLabel="Open in New Window"
 										name="./cta-newwindow"
 										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-										text="Open in New Window"
+										text="Open in new window"
 										value="{Boolean}true" />
 									<ctaicon
 		                            	jcr:primaryType="nt:unstructured"
 			                            sling:resourceType="granite/ui/components/foundation/form/checkbox"
-			                            text="CTA Icon"
+			                            text="CTA icon"
 			                            name="./cta-icon"
 			                            value="{Boolean}true"
 			                            class="cq-dialog-checkbox-showhide"
@@ -406,7 +404,7 @@
 							            	<calltoactionType
 								            	jcr:primaryType="nt:unstructured"
 								            	sling:resourceType="granite/ui/components/coral/foundation/form/select"
-							                    fieldLabel="Icon Style"
+							                    fieldLabel="Icon style"
 							                    name="./calltoaction-type" >
 						                    	<items jcr:primaryType="nt:unstructured">
 							                        <inherit
@@ -431,7 +429,7 @@
 								                        value="discover"/>
 								                    <ourScience
 								                        jcr:primaryType="nt:unstructured"
-								                        text="Our Science"
+								                        text="Our science"
 								                        value="our-science"/>
 								                    <schools
 								                        jcr:primaryType="nt:unstructured"
@@ -439,7 +437,7 @@
 								                        value="schools"/>
 								                    <supportUs
 								                        jcr:primaryType="nt:unstructured"
-								                        text="Support Us"
+								                        text="Support us"
 								                        value="support-us"/>
 								                    <takePart
 								                        jcr:primaryType="nt:unstructured"

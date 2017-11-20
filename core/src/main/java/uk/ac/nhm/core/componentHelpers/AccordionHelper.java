@@ -2,7 +2,7 @@ package uk.ac.nhm.core.componentHelpers;
 
 import org.apache.sling.api.resource.ValueMap;
 
-public class AccordeonHelper {
+public class AccordionHelper {
 	
 	private Boolean isOpen;
 	private Boolean isInitialised;
@@ -10,16 +10,15 @@ public class AccordeonHelper {
 	private String panelId;
 	private String headingStyle;
 
-	public AccordeonHelper(ValueMap properties) {
+	public AccordionHelper(ValueMap properties) {
 		this.isOpen = properties.get("isOpen", false);
 		
-		if(properties.get("panelTitle", String.class) == null) {
-			this.panelTitle = "This component is not configured correctly";
-			this.panelId = "InvalidComponent";
-		}
-		else {
+		if(properties.get("panelTitle", String.class) != null) {
 			this.panelTitle = properties.get("panelTitle", String.class);
 			this.panelId = properties.get("panelTitle", String.class).replaceAll(" ", "-");
+		} else {
+			this.panelTitle = null;
+			this.panelId = "InvalidComponent";
 		}
 		
 		this.panelId = this.panelId.replaceAll("\\(", "");

@@ -10427,3 +10427,8 @@ input.searchGo {
 .global-header--nav-list__item:hover.link-visit, .global-header--nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
 }
+
+.headertextimage {
+    display: table;
+    width: 100%;
+}
