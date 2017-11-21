@@ -6,7 +6,7 @@
 	AccordionHelper helper = new AccordionHelper(properties);
 %>
 <% if(!helper.isInitialised()) { %>
-<div class="row">
+	<div class="row">
 		<h4>Accordion</h4>
 		Required fields:
 		<ul>

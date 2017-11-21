@@ -70,7 +70,7 @@
   									<alt
 				                        jcr:primaryType="nt:unstructured"
 				                        fieldDescription="(leave empty to use the title defined above)"
-				                        fieldLabel="Alt Text"
+				                        fieldLabel="Alt text"
 				                        name="./alt"
 				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 				                    <description
@@ -187,14 +187,12 @@
 			                        </caption>
 				                    <newwindow 
 				                    	jcr:primaryType="nt:unstructured"
-    									fieldLabel="Open in New Window"
     									name="./newwindow"
     									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-    									text="Open in New Window"
+    									text="Open in new window"
     									value="{Boolean}true" />
 				                    <addImageBottom 
 				                    	jcr:primaryType="nt:unstructured"
-    									fieldLabel="Add bottom margin"
     									name="./addMarginBottom"
     									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
     									text="Add bottom margin"

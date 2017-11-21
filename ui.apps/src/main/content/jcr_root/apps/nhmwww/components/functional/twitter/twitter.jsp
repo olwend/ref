@@ -7,8 +7,9 @@
 TwitterHelper helper = new TwitterHelper(slingRequest);
 %>
 <% if(!helper.isConfigured()) { %>
-	<p>Twitter Timeline component</p>
-	<p>Please configure component in the dialog</p>
+	<div class="row">
+		<h4>Twitter timeline</h4>
+	</div>
 <% } else { %>
 	<a class="twitter-timeline" data-dnt="true" height="<%=helper.getHeight() %>" data-widget-id="<%=helper.getWidgetId() %>"></a>
 	<script>
