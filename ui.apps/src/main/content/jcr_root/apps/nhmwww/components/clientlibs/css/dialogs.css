@@ -40,3 +40,11 @@
 		min-width: 2.8rem;
 	}
 }
+
+.coral-Form-field.coral-Multifield {
+	background: #FFFFFF;
+}
+
+.coral-Form-field .coral-Multifield-list li {
+	background: #F0F0F0;
+}
