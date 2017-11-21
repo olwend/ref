@@ -9,7 +9,7 @@
 <cq:defineObjects/>
 <sling:defineObjects/>
 <cq:includeClientLib categories="wwwnhm.carousel"/>
-Carousel
+
 <%
 	CarouselHelper helper = new CarouselHelper(resource, pageManager, resourceResolver);
 	if (isOnEditMode) {
@@ -21,12 +21,17 @@ Carousel
 ArrayList<CarouselElement> elements = helper.getElements();  
 
 if(elements.size() == 0) { %>
-	<p>Carousel component</p>
-	<p>Please configure the component correctly. Required fields:</p>
+	<div class="row">
+		<h4>Carousel</h4>
+		Required fields:
 		<ul>
 			<li>At least one carousel item</li>
 		</ul>
+	</div>
 <% return; } %>
+<% if (isOnEditMode) { %>
+	<h4>Carousel</h4>
+<% } %>
 <!--  START OF CAROUSEL -->
 <div class="<%= helper.getCarouselType() %>-wrapper">
 

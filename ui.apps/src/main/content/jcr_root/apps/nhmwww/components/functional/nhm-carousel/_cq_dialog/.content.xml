@@ -46,7 +46,6 @@
 							</hyperlinkcontainer>
 							<newwindow 
 			                   	jcr:primaryType="nt:unstructured"
-								fieldLabel="Open in New Window"
 								name="./newwindow"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
 								text="Open in new window"
@@ -83,7 +82,6 @@
 	                            should-show-when-checked="false"/>
 		                    <autoscroll		                    
 		                    	jcr:primaryType="nt:unstructured"
-								fieldLabel="Autoscroll"
 								name="./autoscroll"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
 								text="Autoscroll"
