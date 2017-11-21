@@ -15,6 +15,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+	.cq-dialog-content-page .coral-TabPanel-navigation {
+		position: fixed !important;
+	}
+
 	.coral-TabPanel-navigation {
 		position: absolute !important;
 		width: 95%;
@@ -22,14 +26,14 @@
 		border-bottom: 1px solid rgb(208, 208, 208);
 	}
 
-	.coral-TabPanel-content {
+	.coral-TabPanel-pane {
 		margin-top: 50px !important;
 	}
 
 	.coral-ButtonGroup.rte-toolbar {
 		visibility: visible !important;
 	}
-	
+
 	.coral-ButtonGroup-item.coral-Button {
 		padding-left: 0rem;
 		padding-right: 0rem;
