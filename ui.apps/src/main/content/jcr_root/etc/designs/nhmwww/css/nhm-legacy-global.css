@@ -73,12 +73,8 @@ body {
 }
 
 #page-body {
-  padding-left: 14px;
-  padding-top: 0;
-}
-
-#page-body {
   padding: 0;
+  text-align: left;
 }
 
 #page-container {
