@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="ENews Signup Form"
     jcr:primaryType="cq:Component"
-    jcr:title="ENews Signup Form"
+    jcr:title="E-news signup form"
     sling:resourceSuperType="foundation/components/parbase"
     allowedParents="[*/*parsys]"
     componentGroup="nhmwww"/>

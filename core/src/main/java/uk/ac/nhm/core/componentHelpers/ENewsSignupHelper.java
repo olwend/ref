@@ -28,13 +28,18 @@ public class ENewsSignupHelper extends HelperBase {
 
 		if (properties.get("title") != null) {
 			this.title = properties.get("title", String.class);
+		} else {
+			this.title = "Please add a title";
 		}
+		
 		if (properties.get("description") != null) {
 			this.description = properties.get("description", String.class);
 		}
+		
 		if (properties.get("campaign") != null) {
 			this.campaign = properties.get("campaign", String.class);
 		}
+		
 		if (properties.get("dataProtection") != null) {
 			this.dataProtection = properties.get("dataProtection", String.class);
 		} else {
