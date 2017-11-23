@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="NHM Calendar Component"
     allowedParents="[*/parsys]"
-    componentGroup="nhmwww"/>
+    componentGroup="NHM - components"/>

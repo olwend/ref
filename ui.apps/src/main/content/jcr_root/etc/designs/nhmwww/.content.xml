@@ -11,19 +11,19 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]" />
+                components="[group:NHM - layout,group:NHM - components]" />
         </nhmpage>
         <nhmpagenotitlebar jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]" />
+                components="[group:NHM - layout,group:NHM - components]" />
         </nhmpagenotitlebar>
         <immersivepage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
             </par>
         </immersivepage>
         <articlepage jcr:primaryType="nt:unstructured">
@@ -36,21 +36,21 @@
            		<par
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="foundation/components/parsys" 
-           			components="[group:NHM - Stacked,group:nhmwww]"/>
+           			components="[group:NHM - Stacked,group:NHM - components]"/>
                 <socialsharefooter
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/socialshare" />
            		<ctapar
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="foundation/components/parsys"
-           			components="[group:NHM - Stacked,group:nhmwww]" />
+           			components="[group:NHM - Stacked,group:NHM - components]" />
            		<socialsignup
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/social-signup" />
            		<relatedpar
 	                jcr:primaryType="nt:unstructured"
 	                sling:resourceType="foundation/components/parsys"
-	                components="[group:NHM - Stacked,group:nhmwww]" />  
+	                components="[group:NHM - Stacked,group:NHM - components]" />  
            	</article>
         </articlepage>
         <page-home jcr:primaryType="nt:unstructured">
@@ -99,7 +99,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
                 <row2cells21
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
@@ -116,14 +116,14 @@
             <content-panel
             	jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
             </content-panel>
         </dynamicapppage>
         <landingpage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
                 <herosection
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/herosection">
@@ -151,7 +151,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
                 <rowfullwidth
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/rowfullwidth">
@@ -178,7 +178,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
                 <herosection
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/herosection">
@@ -213,7 +213,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
                 <hero
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/hero"/>
@@ -223,7 +223,7 @@
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[group:NHM - Layout,group:nhmwww]">
+                        components="[group:NHM - layout,group:NHM - components]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par>
                 </row2cells12>
@@ -241,13 +241,13 @@
                 <par
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/parsys"
-                    components="[group:NHM - Layout,group:nhmwww]">
+                    components="[group:NHM - layout,group:NHM - components]">
                     <section jcr:primaryType="nt:unstructured"/>
                 </par>
                 <ctapar
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/parsys"
-                    components="group:nhmwww">
+                    components="group:NHM - components">
                     <section jcr:primaryType="nt:unstructured"/>
                 </ctapar>
             </discoverpublication>
@@ -256,7 +256,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[/apps/nhmwww/components/functional/eventcalendar,group:NHM - Layout,group:nhmwww]">
+                components="[/apps/nhmwww/components/functional/eventcalendar,group:NHM - layout,group:NHM - components]">
                 <eventcalendar jcr:primaryType="nt:unstructured"
                            sling:resourceType="nhmwww/components/functional/eventcalendar"/>
                 <rowfullwidth
@@ -265,7 +265,7 @@
                     <par2
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[/apps/nhmwww/components/functional/nhm-carousel,group:NHM - Layout,group:nhmwww]">
+                        components="[/apps/nhmwww/components/functional/nhm-carousel,group:NHM - layout,group:NHM - components]">
                         <nhm_carousel
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="nhmwww/components/functional/nhm-carousel"/>
@@ -275,26 +275,26 @@
             <par-below 
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - Layout,group:nhmwww]">
+                components="[group:NHM - layout,group:NHM - components]">
             </par-below>
         </eventcalendarpage>
         <eventdetailpage jcr:primaryType="nt:unstructured">
             <parentpar
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:General,group:Columns,group:NHM - Layout,group:nhmwww]">
+                components="[group:General,group:Columns,group:NHM - layout,group:NHM - components]">
                  <section jcr:primaryType="nt:unstructured"/>
                  <row2cells21 jcr:primaryType="nt:unstructured">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[group:General,group:Columns,group:NHM - Layout,group:nhmwww]">
+                        components="[group:General,group:Columns,group:NHM - layout,group:NHM - components]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par>
                     <par2
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[group:General,group:Columns,group:NHM - Layout,group:nhmwww]">
+                        components="[group:General,group:Columns,group:NHM - layout,group:NHM - components]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par2>
                 </row2cells21>

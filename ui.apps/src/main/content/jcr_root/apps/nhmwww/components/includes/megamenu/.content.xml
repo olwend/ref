@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Mega Menu"
     allowedParents="[]"
-    componentGroup="nhmwww"/>
+    componentGroup="NHM - components"/>

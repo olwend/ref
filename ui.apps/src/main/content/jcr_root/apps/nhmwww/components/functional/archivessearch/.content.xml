@@ -5,4 +5,4 @@
     jcr:title="Archives and Library Search"
     sling:resourceSuperType="foundation/components/parbase"
     allowedParents="[*/*parsys]"
-    componentGroup="nhmwww"/>
+    componentGroup="NHM - components"/>

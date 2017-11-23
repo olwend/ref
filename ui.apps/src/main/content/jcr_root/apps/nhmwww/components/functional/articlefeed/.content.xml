@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Article feed"
     allowedParents="[*/parsys]"
-    componentGroup="nhmwww"/>
+    componentGroup="NHM - components"/>

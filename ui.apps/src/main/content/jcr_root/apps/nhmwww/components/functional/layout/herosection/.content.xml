@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Hero section"
     allowedParents="[*/*parsys]"
-    componentGroup="NHM - Layout"/>
+    componentGroup="NHM - layout"/>

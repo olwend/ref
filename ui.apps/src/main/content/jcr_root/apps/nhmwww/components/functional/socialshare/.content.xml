@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Social Share"
     sling:resourceSuperType="foundation/components/parbase"
-    componentGroup="nhmwww"/>
+    componentGroup="NHM - components"/>
