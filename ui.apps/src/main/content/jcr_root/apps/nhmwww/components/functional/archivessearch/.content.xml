@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="Archive and Library Search"
     jcr:primaryType="cq:Component"
-    jcr:title="Archives and Library Search"
+    jcr:title="Archives and library search"
     sling:resourceSuperType="foundation/components/parbase"
     allowedParents="[*/*parsys]"
     componentGroup="NHM - components"/>

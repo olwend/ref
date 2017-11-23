@@ -11,7 +11,6 @@
 
 	if (!helper.isConfigured()) {
 %>
-	
 	<div class="row">
 		<h4>Article</h4>
 		Required fields:
