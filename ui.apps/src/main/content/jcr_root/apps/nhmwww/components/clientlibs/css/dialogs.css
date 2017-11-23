@@ -17,6 +17,7 @@
 @media screen and (min-width: 1280px) {
 	.cq-dialog-content-page .coral-TabPanel-navigation {
 		position: fixed !important;
+		width: 44%;
 	}
 
 	.coral-TabPanel-navigation {

@@ -36,12 +36,6 @@ public class EventsCalendarRestServiceImplTest {
 		events = createCache();
 	}
 	
-	@Test
-	public void testProcessDates() {
-		
-		
-	}
-	
 	private ArrayList<Page> createCache() {
 		ArrayList<Page> events = new ArrayList<Page>();
 		
