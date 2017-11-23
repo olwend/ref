@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Carousel Image"
+    jcr:title="Carousel image"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content 
     	jcr:primaryType="nt:unstructured"
@@ -63,7 +63,7 @@
 							<alt
 								jcr:primaryType="nt:unstructured"
 								fieldDescription="(leave empty to use the title defined above)"
-								fieldLabel="Alt Text"
+								fieldLabel="Alt text"
 								name="./alt"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 							<description
@@ -171,7 +171,7 @@
 	                                    </inline>
 	                                </cui>
 	                            </uiSettings>
-	                        </text>
+	                        </caption>
 	                        <imagePath
 			                	jcr:primaryType="nt:unstructured"
 								fieldLabel="Image link"
@@ -180,14 +180,12 @@
 								rootPath="/content/dam/nhmwww" />
 							<newwindow 
 			                   	jcr:primaryType="nt:unstructured"
-								fieldLabel="Open in New Window"
 								name="./newwindow"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-								text="Open in New Window"
+								text="Open in new window"
 								value="{Boolean}true" />
 							<addMarginBottom 
 			                   	jcr:primaryType="nt:unstructured"
-								fieldLabel="Add bottom margin"
 								name="./addMarginBottom"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
 								text="Add bottom margin"

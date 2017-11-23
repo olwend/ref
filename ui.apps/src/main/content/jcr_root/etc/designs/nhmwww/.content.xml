@@ -236,22 +236,6 @@
                 <section jcr:primaryType="nt:unstructured"/>
             </par>
         </exhibitiondetailspage>
-        <discoverpublicationpage jcr:primaryType="nt:unstructured">
-            <discoverpublication jcr:primaryType="nt:unstructured">
-                <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/parsys"
-                    components="[group:NHM - layout,group:NHM - components]">
-                    <section jcr:primaryType="nt:unstructured"/>
-                </par>
-                <ctapar
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/parsys"
-                    components="group:NHM - components">
-                    <section jcr:primaryType="nt:unstructured"/>
-                </ctapar>
-            </discoverpublication>
-        </discoverpublicationpage>
         <eventcalendarpage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"

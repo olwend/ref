@@ -69,6 +69,11 @@ public class GrandSummaryHelper {
 			this.newWindow = properties.get("newwindow",false);
 		}
 
+		if(properties.get("fileReference") == null || properties.get("mobileFileReference") == null) {
+			this.componentInitialised = false;
+			return;
+		}
+		
 		if(properties.get("fileReference")!=null) this.fileReference = properties.get("fileReference", String.class);
 		if(properties.get("mobileFileReference")!=null) this.mobileFileReference = properties.get("mobileFileReference", String.class);
 		
@@ -156,6 +161,8 @@ public class GrandSummaryHelper {
 				this.ctaIconClass = properties.get("calltoaction-type", String.class);
 			}
 		}
+		
+		this.componentInitialised = true;
 	}
 
 	public GrandSummaryHelper(SlingHttpServletRequest request, Page page, ValueMap properties) throws LoginException {
@@ -353,6 +360,10 @@ public class GrandSummaryHelper {
 
 	public void setFileImage(Asset fileImage) {
 		this.fileImage = fileImage;
+	}
+	
+	public Boolean isInitialised() {
+		return componentInitialised;
 	}
 
 }

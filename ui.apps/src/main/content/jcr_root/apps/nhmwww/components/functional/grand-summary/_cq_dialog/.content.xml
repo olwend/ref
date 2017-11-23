@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Grand Summary"
+    jcr:title="Le grand summary"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
     <content 
@@ -27,16 +27,16 @@
 						<items jcr:primaryType="nt:unstructured">
      			        	<fileReference
 		                    	jcr:primaryType="nt:unstructured"
-		                    	fieldDescription="Image path"
 		                    	fieldLabel="Image path"
 		                    	name="./fileReference"
+		                    	rootPath="/content/dam/nhmwww"
 		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
 		                    	required="{Boolean}true"/>                   
      			        	<mobileFileReference
 		                    	jcr:primaryType="nt:unstructured"
-		                    	fieldDescription="Mobile image path"
 		                    	fieldLabel="Mobile image path"
 		                    	name="./mobileFileReference"
+		                    	rootPath="/content/dam/nhmwww"
 		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
 		                    	required="{Boolean}true"/>   
                     	</items>
@@ -45,7 +45,7 @@
      		</imagetab>
      		<normaltab
 				jcr:primaryType="nt:unstructured"
-				jcr:title="Normal"
+				jcr:title="Other"
 				sling:resourceType="granite/ui/components/foundation/section">
 				<layout 
 					jcr:primaryType="nt:unstructured" 
@@ -70,14 +70,12 @@
 		                    	rootPath="/content/nhmwww" />  
 							<newwindow
 								jcr:primaryType="nt:unstructured"
-								fieldLabel="Open in new window"
 								name="./newwindow"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-								text="Open in New Window"
+								text="Open in new window"
 								value="{Boolean}true" />
 							<exhibitionMode
 								jcr:primaryType="nt:unstructured"
-								fieldLabel="Exhibition"
 								name="./isExhibition"
 								sling:resourceType="granite/ui/components/foundation/form/checkbox"
 								text="Exhibition"
@@ -239,29 +237,27 @@
 						<items jcr:primaryType="nt:unstructured">
 							<ctaTitle
 								jcr:primaryType="nt:unstructured"
-		                    	fieldLabel="CTA Title"
+		                    	fieldLabel="CTA title"
 		                    	fieldDescription="Text is MANDATORY in Exhibition Mode"
 		                    	name="./cta-title"
 		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 		                    <ctaPath
 		                    	jcr:primaryType="nt:unstructured"
-		                    	fieldLabel="CTA Path"
+		                    	fieldLabel="CTA path"
 		                    	name="./cta-path"
 		                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
 		                    	rootPath="/content/nhmwww" /> 
 		                    <ctaNewwindow 
 			                   	jcr:primaryType="nt:unstructured"
-								fieldLabel="CTA Open in New Window"
 								name="./cta-newwindow"
 								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-								text="CTA Open in New Window"
+								text="CTA open in new window"
 								value="{Boolean}true" />
 							<ctaIcon
 			                   	jcr:primaryType="nt:unstructured"
-								fieldLabel="CTA Icon"
 								name="./cta-icon"
 								sling:resourceType="granite/ui/components/foundation/form/checkbox"
-								text="CTA Icon"
+								text="CTA icon"
 								value="{Boolean}true" 
 								class="cq-dialog-checkbox-showhide"
 	                            show-hide-target="show-cta-type-select"
@@ -274,18 +270,18 @@
 	                        	<items jcr:primaryType="nt:unstructured" >
 									<calltoactionType
 					                    jcr:primaryType="nt:unstructured"
-					                    fieldLabel="Icon Style"
+					                    fieldLabel="Icon style"
 					                    defaultValue="branding"
 					                    name="./calltoaction-type"
 										sling:resourceType="granite/ui/components/coral/foundation/form/select">
 					                    <items jcr:primaryType="nt:unstructured">
 					                        <alarmclock
 							                    jcr:primaryType="nt:unstructured"
-							                    text="Alarm Clock"
+							                    text="Alarm clock"
 							                    value="timed-entry"/>
 							                <audioguide
 							                    jcr:primaryType="nt:unstructured"
-							                    text="Audio Guide"
+							                    text="Audio guide"
 							                    value="audio"/>
 							                <author
 							                    jcr:primaryType="nt:unstructured"
@@ -317,11 +313,11 @@
 							                    value="membership"/>
 							                <noflashphotography
 							                    jcr:primaryType="nt:unstructured"
-							                    text="No Flash Photography"
+							                    text="No flash photography"
 							                    value="noflashphotography"/>
 							                <nophotography
 							                    jcr:primaryType="nt:unstructured"
-							                    text="No Photography"
+							                    text="No photography"
 							                    value="nophotography"/>
 							                <subscription
 							                    jcr:primaryType="nt:unstructured"

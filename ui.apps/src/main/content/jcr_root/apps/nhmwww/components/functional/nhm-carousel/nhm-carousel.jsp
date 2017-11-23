@@ -31,6 +31,7 @@ if(elements.size() == 0) { %>
 <% return; } %>
 <% if (isOnEditMode) { %>
 	<h4>Carousel</h4>
+	Edit the carousel component here
 <% } %>
 <!--  START OF CAROUSEL -->
 <div class="<%= helper.getCarouselType() %>-wrapper">
