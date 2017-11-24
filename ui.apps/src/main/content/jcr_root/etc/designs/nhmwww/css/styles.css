@@ -4665,7 +4665,7 @@ ul.primo-search-options li.selected a {
   color: #000;
 }
 
-.primo-search input[type=button], input[type=button]:hover {
+.primo-search input[type=button] {
   position: relative;
   left: 0px;
   padding: 5px;
