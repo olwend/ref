@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Image &amp; CTA"
     allowedParents="[*/parsys]"
-    componentGroup="NHM - components"/>
+    componentGroup=".hidden"/>
