@@ -63,3 +63,8 @@
 	height: 8rem;
 	width: 99%;
 }
+
+.cq-Overlay--component-name {
+	top: 0;
+	bottom: unset;
+}
