@@ -1,8 +1,7 @@
 <%@page session="false"
         import="com.day.cq.tagging.Tag,com.day.cq.tagging.TagManager,
                 java.util.Map,
-                java.util.HashMap,
-                com.day.cq.wcm.api.WCMMode"%>
+                java.util.HashMap"%>
 <%@include file="/libs/foundation/global.jsp" %>
 
 <%!
@@ -29,7 +28,7 @@
      }
 %>
 <%
-   String eventContentPath = currentPage.getPath() + "/jcr:content/parentpar/eventdetail";
+   String eventContentPath = currentPage.getPath() + "/jcr:content";
 
    Node contentNode = resourceResolver.getResource(eventContentPath).adaptTo(Node.class);
 
@@ -107,8 +106,7 @@
 <c:choose>
     <c:when test="${not empty eventType}">
         <div class="${eventType} hti-wrapper event--information--wrapper">
-            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box" 
-            	<% if (WCMMode.fromRequest(request) != WCMMode.EDIT) { %>data-equalizer-watch<% } %>>
+            <div class="small-12 medium-12 large-12 columns hti-box hti-box__feature-box" data-equalizer-watch>
                 <div class="hti-box--text-wrapper">
                     <h3>Event information</h3>
                     <div class="small-12 large-12 columns">
@@ -196,6 +194,6 @@
         </c:if>
     </c:when>
     <c:otherwise>
-        <p>Event Information</p>
+        The page has not been set up yet.
     </c:otherwise>
 </c:choose>

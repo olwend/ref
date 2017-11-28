@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Panel"
+    itemId="imageLinkTab"
+    title="Image Link Config">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <basic
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <ctaLink
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    fieldLabel="CTA Link"
+                    name="./ctaLink"
+                    regex="/^(http:\\/\\/www.|https:\\/\\/www.|http:\\/\\/|https:\\/\\/)[a-z0-9]+([-.]{1}[a-z0-9]+)*.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/"
+                    regexText="Invalid URL format"
+                    xtype="textfield"/>
+                <ctaText
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    fieldLabel="CTA Text"
+                    name="./ctaText"
+                    xtype="textfield"/>
+                <image
+                    jcr:primaryType="cq:Widget"
+                    cropParameter="./imageCrop"
+                    ddGroups="media"
+                    fileNameParameter="./fileName"
+                    fileReferenceParameter="./fileReference"
+                    mapParameter="./imageMap"
+                    height="300"
+                    name="./file"
+                    title="Image"
+                    xtype="html5smartimage"/>
+            </items>
+        </basic>
+    </items>
+</jcr:root>

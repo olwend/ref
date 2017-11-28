@@ -152,10 +152,13 @@ var NHMSearchQuery = new function () {
         }
     };
     
-    var renderLayout = function (results, div, isFromSearch) {
+    var renderLayout = function(results, div, isFromSearch) {
         for (var i = 0; i < results.length; i++) {
             eventsCounter++;
-            createSearchResult(results[i], div, i, isFromSearch);
+            createSearchResult(results[i], div, i, isFromSearch)
+        }
+        if (eventsCounter >= CONST.SHOW_MORE) {
+          inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
         }
     };
 
