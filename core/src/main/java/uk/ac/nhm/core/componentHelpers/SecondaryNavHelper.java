@@ -18,7 +18,7 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 
-public class SecondaryNavHelper extends ListHelper{
+public class SecondaryNavHelper extends ListHelper {
 	Page navRootPage = null;
 	
 	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListHelper.class);
@@ -31,6 +31,8 @@ public class SecondaryNavHelper extends ListHelper{
 	}
 	
 	protected void init() {
+		this.initialised = false;
+		
 		if (this.properties.get("rootPagePath", String.class) != null) {
 		    this.navRootPage = pageManager.getPage(this.properties.get("rootPagePath", String.class));
 		} 
@@ -51,6 +53,8 @@ public class SecondaryNavHelper extends ListHelper{
 			Iterator<Page> children = navRootPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
+		
+		this.initialised = true;
 	}
 	
 	protected void processChildren(Iterator<Page> children) {
