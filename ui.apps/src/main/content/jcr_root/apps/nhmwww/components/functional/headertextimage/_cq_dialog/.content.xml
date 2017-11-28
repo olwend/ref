@@ -329,7 +329,7 @@
 					                        <inherit
 						                        jcr:primaryType="nt:unstructured"
 						                        text="Inherit from section"
-						                        value=""/>
+						                        value="_"/>
 						                    <aboutUs
 						                        jcr:primaryType="nt:unstructured"
 						                        text="About us"
@@ -410,7 +410,7 @@
 							                        <inherit
 								                        jcr:primaryType="nt:unstructured"
 								                        text="Inherit from section"
-								                        value=""/>
+								                        value="_"/>
 								                    <aboutUs
 								                        jcr:primaryType="nt:unstructured"
 								                        text="About us"

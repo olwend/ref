@@ -25,8 +25,7 @@
     				<advanced
     					jcr:primaryType="nt:unstructured"
     					sling:resourceType="granite/ui/components/foundation/include"
-    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/advanced" 
-    					sling:hideResource="{Boolean}true" />
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/advanced" />
    					<thumbnail
     					jcr:primaryType="nt:unstructured"
     					sling:resourceType="granite/ui/components/foundation/include"
