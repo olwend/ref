@@ -4665,7 +4665,7 @@ ul.primo-search-options li.selected a {
   color: #000;
 }
 
-.primo-search input[type=button], .primo-search input[type=button]:hover {
+.primo-search input[type=button], input[type=button]:hover {
   position: relative;
   left: 0px;
   padding: 5px;
@@ -5240,6 +5240,10 @@ html.js-noScroll {
 
 .article .socialsignup .social-signup--title-header {
   padding: 0 20px;
+}
+
+.article .discover-video {
+  margin-bottom: 15px;
 }
 
 /** REFACTOR-HERO PARTIAL **/
@@ -8561,6 +8565,10 @@ a.button-cta {
   .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
     width: 65.7%;
   }
+}
+
+.article .headertextimage {
+  margin-top: 12px !important;
 }
 
 /** LINK LIST PARTIAL **/
