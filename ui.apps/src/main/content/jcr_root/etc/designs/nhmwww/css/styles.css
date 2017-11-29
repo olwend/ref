@@ -4790,12 +4790,12 @@ ul.primo-search-options li.selected a {
   width: 100%;
   padding: 0 5%;
   height: 52px;
-  background: #000 url("/etc/designs/nhmwww/img/x-large.png") no-repeat 95% 100%;
+  background: #000000 url("/etc/designs/nhmwww/img/x-large.png") no-repeat 95% 100%;
   background-size: 30px auto;
   text-indent: -9999px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (768px) {
   .close-video.open {
     position: absolute;
     top: 20px;
