@@ -5256,6 +5256,10 @@ html.js-noScroll {
   padding-left: 20px;
 }
 
+.herosection .caption p {
+  font-size: 1em;
+}
+
 .herosection .carousel-wrapper .caption {
   font-size: 1.1em;
   position: relative;
