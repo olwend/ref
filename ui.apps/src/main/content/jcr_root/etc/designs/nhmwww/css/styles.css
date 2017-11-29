@@ -5824,7 +5824,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1160px) {
   .bigsplash-text--title {
-    font-size: 3.7rem;
+    font-size: 3.8rem;
   }
 }
 
@@ -5847,7 +5847,7 @@ html.js-noScroll {
 .bigsplash-text--subtitle {
   color: #FFFFFF !important;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 
@@ -5881,7 +5881,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--cta {
-    font-size: 1rem;
+    font-size: 1.1rem;
     border-bottom: 1px dotted #FFFFFF;
   }
   .bigsplash-text--cta:hover {
@@ -5908,7 +5908,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1160px) {
   .bigsplash-text--cta-container {
-    padding-top: 20px;
+    padding-top: 10px;
   }
 }
 
