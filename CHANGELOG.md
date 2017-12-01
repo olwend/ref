@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.5 - Capricious Caudipteryx - 30-Nov-2017
+- WR-1174 - Reduce image caption font size from 18px to 16px
+- WR-1175 - Add margin between HTI and embedded video on Discover Article pages
+- WR-1176 - Add margin between social signup and Discover Related components on Discover Article pages
+- WR-1177 - Adjust font size and spacing on Big Splash
+- WR-1179 - Implement Twitter Summary Cards
+- WR-1185 - Dynamic Apps text alignment issue
+- WR-1187 - CSS display issue on Staff Directory page
+- WR-1188 - Event calendar jquery bug
+
 ## 1.3.4 - Bearded Baryonyx - 23-Nov-2017
 - WR-1129 - Clean up and standardise headlibs.jsp files 
 - WR-741 - Refactor Library and Archives Search component 
