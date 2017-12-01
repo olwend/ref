@@ -21,6 +21,7 @@
 ## 1.3.3 - Aggressive Albertosaurus - 16-Nov-2017
 - WR-774 - Refactor Event & Exhibition Summary component - merge legacy and refactored Sass partials for Event & Exhibition Summary component
 - WR-775 - Refactor Event & Exhibition Summary component - investigate restructure of Event & Exhibition Summary component (CSS class renaming)
+- WR-841 - Refactor Title Bar component
 - WR-1137 - Big refactor of variables in SASS files
 - WR-1147 - If an article page has a tag that isn't available on the publisher, there's no exception handling to deal with it
 - WR-1159 - Replicate "video icon" behaviour from Discover related in Article feed
