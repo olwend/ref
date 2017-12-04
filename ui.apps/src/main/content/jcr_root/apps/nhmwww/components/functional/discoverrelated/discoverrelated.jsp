@@ -15,7 +15,7 @@
 %>
 <div class="discover">
 	<h3 class="discover-related--title"><%= title %></h3>
-	<ul class="related-posts--container small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+	<ul class="related-posts--container small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 <%
 		for (final String post : posts) {
 			try {
