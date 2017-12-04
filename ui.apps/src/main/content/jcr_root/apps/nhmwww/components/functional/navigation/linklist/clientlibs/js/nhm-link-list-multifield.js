@@ -16,11 +16,23 @@
         	if(dialogTitle.includes("Link list")) {
         		
 	            var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
-	 
-	            if(!mName){
+
+                if(!mName) {
 	                return;
 	            }
-	 
+
+				var $fieldSets = $("[" + DATA_EAEM_NESTED + "][class='coral-Form-fieldset']"),
+                    names = [];
+
+				//Get unique multifield names
+                $fieldSets.each(function (i, fieldSet) {
+	                var dname = $(fieldSet).data("name");
+
+                    if($.inArray(dname, names) < 0) {
+						names.push(dname);
+                    }
+	            });
+
 	            //strip ./
 	            mName = mName.substring(2);
 	 
@@ -137,32 +149,55 @@
         	var dialogTitle = $('.cq-dialog-header').text();
         	if(dialogTitle.includes("Link list")) {
 	            var $form = $(this).closest("form.foundation-form");
-	 
-	            var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
+
 	            var $fieldSets = $("[" + DATA_EAEM_NESTED + "][class='coral-Form-fieldset']");
-	            var record,
-	            	$fields, 
-	            	$field;
 	            
-	            $fieldSets.each(function (i, fieldSet) {
-	                $fields = $(fieldSet).children().children(CFFW, ".coral-Form-field.coral-Checkbox");
-	 
-	                record = {};
-	 
-	                $fields.each(function (j, field) {
-	                    $field = $(field);
-                        fillValue($field.find("[name]"), record);
-	                });
-	 
-	                if ($.isEmptyObject(record)) {
-	                    return;
-	                }
-	
-	                $('<input />').attr('type', 'hidden')
-	                    .attr('name', mName)
-	                    .attr('value', JSON.stringify(record))
-	                    .appendTo($form);
+	            var record,
+	            	$fields,
+	            	$fields2, 
+	            	$field,
+                    names = [];
+
+                //Get unique multifield names
+                $fieldSets.each(function (i, fieldSet) {
+	                var dname = $(fieldSet).data("name");
+
+                    if($.inArray(dname, names) < 0) {
+						names.push(dname);
+                    }
 	            });
+
+                for(var a=0; a<names.length; a++) {
+                    $fieldSets.each(function (i, fieldSet) {
+
+                        if($(fieldSet).data("name") == names[a]) {
+                            console.log(names[i] + ", " + $(fieldSet).data("name"));
+                            $fields = $(fieldSet).children().children(CFFW);
+                            $fields2 = $(fieldSet).children().children(".coral-Form-field.coral-Checkbox");
+                            
+                            record = {};
+             
+                            $fields.each(function (j, field) {
+                                $field = $(field);
+                                fillValue($field.find("[name]"), record);
+                            });
+                            
+                            $fields2.each(function (j, field) {
+                                $field = $(field);
+                                fillValue($field.find("[name]"), record);
+                            });
+             
+                            if ($.isEmptyObject(record)) {
+                                return;
+                            }
+            
+                            $('<input />').attr('type', 'hidden')
+                                .attr('name', names[a])
+                                .attr('value', JSON.stringify(record))
+                                .appendTo($form);
+                        }
+                    });
+                }
         	}
         });
     };

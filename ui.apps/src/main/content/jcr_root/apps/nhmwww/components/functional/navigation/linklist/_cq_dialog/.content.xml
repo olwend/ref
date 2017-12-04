@@ -192,7 +192,7 @@
 					margin="{Boolean}false"
 					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
 				<items jcr:primaryType="nt:unstructured">
-					<columntitle
+					<column
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
@@ -216,12 +216,13 @@
 							<firstlistitems
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="granite/ui/components/foundation/form/multifield"
-	                            class="full-width">
+	                            class="full-width"
+	                            fieldLabel="First column items" >
 	                            <field
 	                                jcr:primaryType="nt:unstructured"
 	                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
 	                                eaem-nested="NODE_STORE"
-	                                name="./firstLinkListItems">
+	                                name="./firstLinkListItems" >
 	                                <layout
 	                                    jcr:primaryType="nt:unstructured"
 	                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
@@ -257,6 +258,156 @@
 					</column>
 				</items>
 			</firstcolumn>
+			<secondcolumn
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Second column"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<callToActionTitle
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Second column header"
+								name="./secondheader"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+							<hyperlink
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Hyperlink"
+								name="./secondHeaderLink"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+							<newwindow
+			                	jcr:primaryType="nt:unstructured"
+								name="./secondHeaderNewwindow"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Open in new window"
+								value="{Boolean}true" />
+							<secondlistitems
+	                            jcr:primaryType="nt:unstructured"
+	                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+	                            class="full-width"
+	                            fieldLabel="Second column items" >
+	                            <field
+	                                jcr:primaryType="nt:unstructured"
+	                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
+	                                eaem-nested="NODE_STORE"
+	                                name="./secondLinkListItems" >
+	                                <layout
+	                                    jcr:primaryType="nt:unstructured"
+	                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+	                                    method="absolute"/>
+	                                <items jcr:primaryType="nt:unstructured">
+	                                    <column
+	                                        jcr:primaryType="nt:unstructured"
+	                                        sling:resourceType="granite/ui/components/foundation/container">
+	                                        <items jcr:primaryType="nt:unstructured">
+	                                     		<linkTitle
+								                	jcr:primaryType="nt:unstructured"
+													fieldLabel="Link title"
+													name="./text"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+												<url
+								                	jcr:primaryType="nt:unstructured"
+													fieldLabel="URL"
+													name="./url"
+													sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+													rootPath="/content/nhmwww" />
+												<newwindow
+								                	jcr:primaryType="nt:unstructured"
+													name="./openInNewWindow"
+													sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+													text="New window"
+													value="{Boolean}true" />
+	                                        </items>
+	                                    </column>
+	                                </items>
+	                            </field>
+	                        </secondlistitems>
+						</items>
+					</column>
+				</items>
+			</secondcolumn>
+			<thirdcolumn
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Third column"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<callToActionTitle
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Third column header"
+								name="./thirdheader"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+							<hyperlink
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Hyperlink"
+								name="./thirdHeaderLink"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+							<newwindow
+			                	jcr:primaryType="nt:unstructured"
+								name="./thirdHeaderNewwindow"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								text="Open in new window"
+								value="{Boolean}true" />
+							<thirdlistitems
+	                            jcr:primaryType="nt:unstructured"
+	                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+	                            class="full-width"
+	                            fieldLabel="Third column items" >
+	                            <field
+	                                jcr:primaryType="nt:unstructured"
+	                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
+	                                eaem-nested="NODE_STORE"
+	                                name="./thirdLinkListItems" >
+	                                <layout
+	                                    jcr:primaryType="nt:unstructured"
+	                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+	                                    method="absolute"/>
+	                                <items jcr:primaryType="nt:unstructured">
+	                                    <column
+	                                        jcr:primaryType="nt:unstructured"
+	                                        sling:resourceType="granite/ui/components/foundation/container">
+	                                        <items jcr:primaryType="nt:unstructured">
+	                                     		<linkTitle
+								                	jcr:primaryType="nt:unstructured"
+													fieldLabel="Link title"
+													name="./text"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+												<url
+								                	jcr:primaryType="nt:unstructured"
+													fieldLabel="URL"
+													name="./url"
+													sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+													rootPath="/content/nhmwww" />
+												<newwindow
+								                	jcr:primaryType="nt:unstructured"
+													name="./openInNewWindow"
+													sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+													text="New window"
+													value="{Boolean}true" />
+	                                        </items>
+	                                    </column>
+	                                </items>
+	                            </field>
+	                        </thirdlistitems>
+						</items>
+					</column>
+				</items>
+			</thirdcolumn>
 		</items>
     </content>
 </jcr:root>
