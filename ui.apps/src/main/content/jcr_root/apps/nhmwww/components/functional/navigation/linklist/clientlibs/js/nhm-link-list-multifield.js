@@ -42,46 +42,58 @@
 	            var actionUrl = $form.attr("action") + ".json";
 	 
 	            var postProcess = function(data){
-	                if(!data || !data[mName]){
-	                    return;
-	                }
-	 
-	                var mValues = data[mName], $field, name;
-	 
-	                if(_.isString(mValues)){
-	                    mValues = [ JSON.parse(mValues) ];
-	                }
-	 
-	                _.each(mValues, function (record, i) {
-	                    if (!record) {
-	                        return;
-	                    }
-	 
-	                    if(_.isString(record)){
-	                        record = JSON.parse(record);
-	                    }
-	 
-	                    _.each(record, function(rValue, rKey){
-	                        $field = $($fieldSets[i]).find("[name='./" + rKey + "']");
-	
-	                        if(rValue == "false") { rValue = false; }
-	 
-	                        if(_.isArray(rValue) && !_.isEmpty(rValue)){
-	                        	
-	                            fillNestedFields( $($fieldSets[i]).find(".coral-Multifield"), rValue);
-	                        }else{
-	                            if($field.is(':checkbox')) { 
-	                            	setCheckBox($field, rValue)
-	                            } else if($field.prop("type") == "hidden") {
-	                                setHiddenOrRichText($field, rValue);
-	                            } else {
-	                            	$field.val(rValue);
-	                            }
-	                        }
-	                    });
-	                });
+
+                    var count = 0;
+                    for(var a=0; a<names.length; a++) {
+
+                        console.log(count);
+						var dName = names[a].substring(2);
+
+                        if(!data || !data[dName]){
+                            return;
+                        }
+         
+                        var mValues = data[dName], $field, name;
+         
+                        if(_.isString(mValues)){
+                            mValues = [ JSON.parse(mValues) ];
+                        }
+         
+                        _.each(mValues, function (record) {
+                            if (!record) {
+                                return;
+                            }
+         
+                            if(_.isString(record)){
+                                record = JSON.parse(record);
+                            }
+         
+                            _.each(record, function(rValue, rKey, i){
+                                console.log(i);
+								$field = $($fieldSets[count]).find("[name='./" + rKey + "']");
+        
+                                if(rValue == "false") { rValue = false; }
+         
+                                if(_.isArray(rValue) && !_.isEmpty(rValue)){
+
+                                    fillNestedFields( $($fieldSets[i]).find(".coral-Multifield"), rValue);
+                                }else{
+                                    if($field.is(':checkbox')) { 
+                                        setCheckBox($field, rValue)
+                                    } else if($field.prop("type") == "hidden") {
+                                        setHiddenOrRichText($field, rValue);
+                                    } else {
+                                        $field.val(rValue);
+                                    }
+                                }
+                            });
+
+                            count++;
+                        });
+
+                    }
 	            };
-	 
+
 	            //creates & fills the nested multifield with data
 	            var fillNestedFields = function($multifield, valueArr){
 	                _.each(valueArr, function(record, index){
@@ -206,8 +218,6 @@
         addDataInFields();
         collectDataFromFields();
     });
- 
-    
- 
+
     CUI.Widget.registry.register("multifield", CUI.Multifield);
 })();

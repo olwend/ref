@@ -41,7 +41,7 @@
 	<div class="js-social-signup social-signup--container">
 		<div class="row">
 			<div class="small-12 social-signup--description">
-				<cq:text property="dataProtection" escapeXml="true" tagClass="dataProtection" />
+				<%=helper.getDataProtection()%>
 			</div>
 	      </div>
 		<form
