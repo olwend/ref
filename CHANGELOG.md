@@ -1,21 +1,40 @@
 # Changelog
 
+## 1.3.5 - Capricious Caudipteryx - 30-Nov-2017
+- WR-1174 - Reduce image caption font size from 18px to 16px
+- WR-1175 - Add margin between HTI and embedded video on Discover Article pages
+- WR-1176 - Add margin between social signup and Discover Related components on Discover Article pages
+- WR-1177 - Adjust font size and spacing on Big Splash
+- WR-1179 - Implement Twitter Summary Cards
+- WR-1185 - Dynamic Apps text alignment issue
+- WR-1187 - CSS display issue on Staff Directory page
+- WR-1188 - Event calendar jquery bug
+
+## 1.3.4 - Bearded Baryonyx - 23-Nov-2017
+- WR-1129 - Clean up and standardise headlibs.jsp files 
+- WR-741 - Refactor Library and Archives Search component 
+- WR-746 - Refactor Breadcrumb
+- WR-803 - Refactor Map component
+- WR-833 - Refactor Sponsor Block component
+- WR-1148 - Article page in AEM Author does not refresh when Article Feed component dialog is submitted
+
 ## 1.3.3 - Aggressive Albertosaurus - 16-Nov-2017
-- WR-774: Refactor Event & Exhibition Summary component - merge legacy and refactored Sass partials for Event & Exhibition Summary component
-- WR-775: Refactor Event & Exhibition Summary component - investigate restructure of Event & Exhibition Summary component (CSS class renaming)
-- WR-1137: Big refactor of variables in SASS files
-- WR-1147: If an article page has a tag that isn't available on the publisher, there's no exception handling to deal with it
-- WR-1159: Replicate "video icon" behaviour from Discover related in Article feed
-- WR-1163: Replace sub-nav hamburger with chevron
+- WR-774 - Refactor Event & Exhibition Summary component - merge legacy and refactored Sass partials for Event & Exhibition Summary component
+- WR-775 - Refactor Event & Exhibition Summary component - investigate restructure of Event & Exhibition Summary component (CSS class renaming)
+- WR-841 - Refactor Title Bar component
+- WR-1137 - Big refactor of variables in SASS files
+- WR-1147 - If an article page has a tag that isn't available on the publisher, there's no exception handling to deal with it
+- WR-1159 - Replicate "video icon" behaviour from Discover related in Article feed
+- WR-1163 - Replace sub-nav hamburger with chevron
 
 ## 1.3.2 - Zealous Zebra - 09-Nov-2017
-- WR-1156: Decommission old Discover components and templates
-- WR-1157: Update popular search terms with Venom
-- WR-1160: Add Home to Deworm3 navigation
-- WR-1164: Alignment changes post Discover launch
-- WR-1165: Big Splash redesign (first stage)
-- WR-1170: Article feed component hotfix
-- WR-1171: Exhibition pages not saving date and time data correctly
+- WR-1156 - Decommission old Discover components and templates
+- WR-1157 - Update popular search terms with Venom
+- WR-1160 - Add Home to Deworm3 navigation
+- WR-1164 - Alignment changes post Discover launch
+- WR-1165 - Big Splash redesign (first stage)
+- WR-1170 - Article feed component hotfix
+- WR-1171 - Exhibition pages not saving date and time data correctly
 
 ## 1.3.1 - Yawning Yellowhammer - 01-Nov-2017
 - WR-1123 - Create header for Discover homepage with social share component

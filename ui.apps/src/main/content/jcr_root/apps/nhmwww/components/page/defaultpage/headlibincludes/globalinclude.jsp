@@ -15,13 +15,14 @@
 <!-- START CQ.JQUERY FOR AUTHOR AND EVENTS PAGES ONLY -->
 	<%@ include file="/apps/nhmwww/components/page/defaultpage/headlibincludes/cqjquery.jsp" %>
 <!-- END CQ.JQUERY FOR AUTHOR AND EVENTS PAGES ONLY -->
+<%} else {%>
+<!-- START JQUERY 1.11.2 CDN -->
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
+<!-- END JQUERY 1.11.2 CDN -->
 <%}%>
 
 <cq:includeClientLib css="nhmwww.main" />
 
-<!-- START JQUERY 1.11.2 CDN -->
-<script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
-<!-- END JQUERY 1.11.2 CDN -->
 
 <cq:includeClientLib js="nhmwww.main" />
 
