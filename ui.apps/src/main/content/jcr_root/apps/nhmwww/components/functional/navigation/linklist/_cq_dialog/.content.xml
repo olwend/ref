@@ -199,7 +199,7 @@
 							<callToActionTitle
 			                	jcr:primaryType="nt:unstructured"
 								fieldLabel="First column header"
-								name="./firstheader"
+								name="./firstHeader"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
 							<hyperlink
 			                	jcr:primaryType="nt:unstructured"
@@ -274,7 +274,7 @@
 							<callToActionTitle
 			                	jcr:primaryType="nt:unstructured"
 								fieldLabel="Second column header"
-								name="./secondheader"
+								name="./secondHeader"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
 							<hyperlink
 			                	jcr:primaryType="nt:unstructured"
@@ -349,7 +349,7 @@
 							<callToActionTitle
 			                	jcr:primaryType="nt:unstructured"
 								fieldLabel="Third column header"
-								name="./thirdheader"
+								name="./thirdHeader"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
 							<hyperlink
 			                	jcr:primaryType="nt:unstructured"
