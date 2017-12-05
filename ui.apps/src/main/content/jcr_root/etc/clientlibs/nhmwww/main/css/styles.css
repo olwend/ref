@@ -5242,6 +5242,10 @@ html.js-noScroll {
   padding: 0 20px;
 }
 
+.article .discover-video {
+  margin-bottom: 15px;
+}
+
 /** REFACTOR-HERO PARTIAL **/
 /** These styles apply when a component is placed in a Herosection row system **/
 .herosection .caption-inner-wrapper {
@@ -5254,6 +5258,10 @@ html.js-noScroll {
 
 .herosection .caption {
   padding-left: 20px;
+}
+
+.herosection .caption p {
+  font-size: 1em;
 }
 
 .herosection .carousel-wrapper .caption {
@@ -5816,7 +5824,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1160px) {
   .bigsplash-text--title {
-    font-size: 3.7rem;
+    font-size: 3.8rem;
   }
 }
 
@@ -5839,7 +5847,7 @@ html.js-noScroll {
 .bigsplash-text--subtitle {
   color: #FFFFFF !important;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 
@@ -5873,7 +5881,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 768px) {
   .bigsplash-text--cta {
-    font-size: 1rem;
+    font-size: 1.1rem;
     border-bottom: 1px dotted #FFFFFF;
   }
   .bigsplash-text--cta:hover {
@@ -5900,7 +5908,7 @@ html.js-noScroll {
 
 @media screen and (min-width: 1160px) {
   .bigsplash-text--cta-container {
-    padding-top: 20px;
+    padding-top: 10px;
   }
 }
 
@@ -8563,6 +8571,10 @@ a.button-cta {
   }
 }
 
+.article .headertextimage {
+  margin-top: 12px !important;
+}
+
 /** LINK LIST PARTIAL **/
 .linklist--container {
   padding: 0.5em 0.75em;
@@ -9052,6 +9064,7 @@ a.button-cta {
   padding: 20px;
   background-color: #808080;
   color: #FFFFFF;
+  margin-bottom: 15px;
 }
 
 .social-signup--description p {
