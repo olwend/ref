@@ -43,12 +43,16 @@ public class LinkListHelper extends ListHelper {
 	
 	TextUtils textUtils = new TextUtils();
 	
+	private Boolean isInitialised;
+	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 	}
 	
 	@Override
 	protected void init() {
+		this.isInitialised = false;
+		
 		isFullWidth = false;
 		
 		numColumns = "";
@@ -84,7 +88,7 @@ public class LinkListHelper extends ListHelper {
 		// Links for the Three Columns
 		if(this.properties.get("firstLinkListItems", String.class) != null){
 			this.columnItemsList.set(0, this.properties.get("firstLinkListItems", String[].class));
-			
+			this.isInitialised = true;
 			if(this.properties.get("secondLinkListItems", String.class) != null){
 				this.columnItemsList.set(1, this.properties.get("secondLinkListItems", String[].class));
 				
@@ -309,5 +313,9 @@ public class LinkListHelper extends ListHelper {
 			if (url != null && !url.equals("")){ listItem.append("</a>"); }
 		listItem.append("</li>");
 		return listItem;
+	}
+	
+	public Boolean isInitialised() {
+		return this.isInitialised;
 	}
 }
