@@ -5,6 +5,16 @@
 
 <% LinkListHelper helper = new LinkListHelper(properties, pageManager, currentPage, request, resourceResolver); %>
 
+<% if (helper.getComponentTitle() == null) { %>
+	<div class="row">
+		<h4>Link list</h4>
+		Required fields:
+		<ul>
+			<li>Title</li>
+		</ul>
+	</div>
+<% } %>
+
 <%-- [Mandatory] Background Color --%>
 <div class="linklist--container linklist--container__<%=helper.getBackgroundColor() %> ">
 	<% helper.setIsFullWidth(resource); %>

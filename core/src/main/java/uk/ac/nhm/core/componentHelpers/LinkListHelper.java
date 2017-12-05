@@ -35,7 +35,6 @@ public class LinkListHelper extends ListHelper {
 	private String backgroundColor;
 	private boolean isFullWidth;
 
-
 	List<String> headersList;
 	List<String> headersLinksList;	
 	List<Boolean> headersLinksNewWindowsList;
@@ -255,13 +254,13 @@ public class LinkListHelper extends ListHelper {
 						ret.append(createListItem(linkTitle, linkURL, windowTarget));
 			    	}
 			    	else {
-			    		ret.append("<p>This component is not configured correctly</p>");
+			    		ret.append("<p>Please add at least one item to the first column</p>");
 			    		ret.append("</ul>");
 			    		return ret;
 			    	}
 		    	}
 		    	else {
-		    		ret.append("<p>This component is not configured correctly</p>");
+		    		ret.append("<p>Please add at least one item to the first column</p>");
 		    		ret.append("</ul>");
 		    		return ret;
 		    	}
