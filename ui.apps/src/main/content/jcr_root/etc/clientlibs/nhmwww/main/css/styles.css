@@ -3101,42 +3101,6 @@ input.question {
   }
 }
 
-.video-wrapper {
-  position: relative;
-  height: 100%;
-}
-
-.close-video {
-  display: none;
-}
-
-.close-video.open {
-  display: block;
-  width: 100%;
-  padding: 0 5%;
-  height: 52px;
-  background: #000 url("/etc/designs/nhmwww/img/x-large.png") no-repeat 95% 100%;
-  background-size: 30px auto;
-  text-indent: -9999px;
-}
-
-@media screen and (min-width: 768px) {
-  .close-video.open {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
-    background-color: transparent;
-    z-index: 100;
-  }
-  .close-video.open .ico {
-    display: block;
-    width: 52px;
-    height: 52px;
-  }
-}
-
 /** LEGACY 3-CTA-GROUP PARTIAL **/
 .info-actions {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
@@ -4809,6 +4773,43 @@ ul.primo-search-options li.selected a {
 
 .main-section.science-profile .profile-info {
   padding: 2em;
+}
+
+/** LEGACY VIDEO PARTIAL **/
+.video-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.close-video {
+  display: none;
+}
+
+.close-video.open {
+  display: block;
+  width: 100%;
+  padding: 0 5%;
+  height: 52px;
+  background: #000000 url("/etc/designs/nhmwww/img/x-large.png") no-repeat 95% 100%;
+  background-size: 30px auto;
+  text-indent: -9999px;
+}
+
+@media screen and (768px) {
+  .close-video.open {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    z-index: 100;
+  }
+  .close-video.open .ico {
+    display: block;
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /** REFACTOR-BASE PARTIAL **/
