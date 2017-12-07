@@ -5,7 +5,6 @@ import java.text.ParseException;
 import javax.jcr.LoginException;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.SimpleCredentials;
 import javax.jcr.Session;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -20,13 +19,11 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.day.cq.tagging.JcrTagManagerFactory;
+import com.day.cq.tagging.TagManager;
+
 import uk.ac.nhm.nhm_www.core.services.CreateXMLFeedService;
 import uk.ac.nhm.nhm_www.core.utils.CreateXMLFeedUtils;
-import uk.ac.nhm.nhm_www.core.utils.EventCalendarLoginUtils;
-
-import com.day.cq.tagging.Tag;
-import com.day.cq.tagging.TagManager;
-import com.day.cq.tagging.JcrTagManagerFactory;
 
 
 @Component(immediate = true, metatype = false)
@@ -37,7 +34,6 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 	private static final Logger LOG = LoggerFactory.getLogger(CreateXMLFeedServiceImpl.class);
 	
 	private CreateXMLFeedUtils createXMLFeedUtils;
-	private EventCalendarLoginUtils eventCalendarLoginUtils;
 	
 	private Session session;
 	private Node root;
@@ -54,8 +50,7 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 
 	public void createXML() throws LoginException, RepositoryException, JSONException, ParseException, ParserConfigurationException, TransformerException{		
 		
-		eventCalendarLoginUtils = new EventCalendarLoginUtils();
-        session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+        session = repository.loginService("searchService", null);
 		tagManager = jcrTagManagerFactory.getTagManager(session);
 	
 		LOG.info("Attempting refresh of XML feed for Events Calendar");

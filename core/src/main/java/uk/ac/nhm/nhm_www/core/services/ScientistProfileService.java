@@ -2,7 +2,6 @@ package uk.ac.nhm.nhm_www.core.services;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import javax.jcr.SimpleCredentials;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
@@ -41,12 +40,11 @@ public class ScientistProfileService implements Runnable {
 	@Override
 	public void run() {
 
-		SimpleCredentials credential = new SimpleCredentials("workflow-user", "crxde1".toCharArray());
 		Session session = null;
 		String model = "/etc/workflow/models/import-scientists/jcr:content/model";
 
 		try {
-			session = repository.login(credential);
+			session = repository.loginService("searchService", null);
 			
 			WorkflowSession wfSession = workflowService.getWorkflowSession(session);
 			WorkflowModel wfModel = wfSession.getModel(model);
