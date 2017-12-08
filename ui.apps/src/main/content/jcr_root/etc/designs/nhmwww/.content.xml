@@ -36,21 +36,21 @@
            		<par
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="foundation/components/parsys" 
-           			components="[group:NHM - Stacked,group:NHM - components]"/>
+           			components="[group:NHM - layout,group:NHM - components]"/>
                 <socialsharefooter
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/socialshare" />
            		<ctapar
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="foundation/components/parsys"
-           			components="[group:NHM - Stacked,group:NHM - components]" />
+           			components="[group:NHM - layout,group:NHM - components]" />
            		<socialsignup
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/social-signup" />
            		<relatedpar
 	                jcr:primaryType="nt:unstructured"
 	                sling:resourceType="foundation/components/parsys"
-	                components="[group:NHM - Stacked,group:NHM - components]" />  
+	                components="[group:NHM - layout,group:NHM - components]" />  
            	</article>
         </articlepage>
         <page-home jcr:primaryType="nt:unstructured">

@@ -11,7 +11,7 @@
 	ENewsSignupHelper helper = new ENewsSignupHelper(properties, resource);
 	DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
 %>
-<p><%=helper.getTitle()%></p>
+<h2><%=helper.getTitle()%></h2>
 <%
 	if (helper.getDescription() != null) {
 %>
