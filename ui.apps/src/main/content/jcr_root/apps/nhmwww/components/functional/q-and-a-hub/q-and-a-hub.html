@@ -1,0 +1,25 @@
+<div data-sly-test="${!properties.rootpath}">
+	<div class="row">
+		<h4>Q & A hub</h4>
+		Required fields:
+		<ul>
+			<li>..any required fields</li>
+		</ul>
+	</div>
+</div>
+
+${properties.rootpath}
+
+<div data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub">
+	<div data-sly-test="${!qahub.questionList}">
+		This query returns no results
+	</div>
+	<div data-sly-test="${qahub.questionList}">
+		<ul data-sly-list.list="${qahub.questionList}">
+			<li data-sly-test="${list.size > 0}">
+				${list['question']}
+				${list['answer']}
+			</li>
+		</ul>
+	</div>
+</div>

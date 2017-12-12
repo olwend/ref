@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Q &amp; A hub"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
+        <items jcr:primaryType="nt:unstructured">
+	        <query
+	            jcr:primaryType="nt:unstructured"
+	            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+	            jcr:title="Query">
+                <items jcr:primaryType="nt:unstructured">
+	            	<column
+		                jcr:primaryType="nt:unstructured"
+		                sling:resourceType="granite/ui/components/foundation/container">
+		                <items jcr:primaryType="nt:unstructured">
+		                    <rootPath 
+			                   	jcr:primaryType="nt:unstructured"
+								fieldLabel="Path"
+								name="./rootpath"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" 
+								required="true" />
+							<tag
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Tag"
+		                        name="./cq:tags"
+		                        sling:resourceType="cq/gui/components/common/tagspicker"
+		                        allowBulkEdit="{Boolean}true"
+		                        cq-msm-lockable="cq:tags"
+		                        cq:showOnCreate="{Boolean}true" />
+		                </items>
+					</column>
+            	</items>
+			</query>
+        </items>
+    </content>
+</jcr:root>
