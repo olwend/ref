@@ -1,14 +1,15 @@
 
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.CarouselElement"%>
-<%@page import="uk.ac.nhm.nhm_www.core.services.CarouselBuilderService"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.*"%>
+<%@page import="uk.ac.nhm.core.model.CarouselElement"%>
+<%@page import="uk.ac.nhm.core.services.CarouselBuilderService"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Collections"%>
 <cq:defineObjects/>
 <sling:defineObjects/>
 <cq:includeClientLib categories="wwwnhm.carousel"/>
+
 <%
 	CarouselHelper helper = new CarouselHelper(resource, pageManager, resourceResolver);
 	if (isOnEditMode) {
@@ -17,7 +18,21 @@
 	}
 	CTAButtonHelper ctaHelper = new CTAButtonHelper(cssClassSection.toLowerCase());
 
-%>
+ArrayList<CarouselElement> elements = helper.getElements();  
+
+if(elements.size() == 0) { %>
+	<div class="row">
+		<h4>Carousel</h4>
+		Required fields:
+		<ul>
+			<li>At least one carousel item</li>
+		</ul>
+	</div>
+<% return; } %>
+<% if (isOnEditMode) { %>
+	<h4>Carousel</h4>
+	Edit the carousel component here
+<% } %>
 <!--  START OF CAROUSEL -->
 <div class="<%= helper.getCarouselType() %>-wrapper">
 
@@ -28,7 +43,6 @@
     	data-nhm-autoscroll-duration="<%=(helper.getAutoScrollDuration() * 1000) %>" 
     	data-nhm-grouping="<%=helper.getGrouping()%>"> 
     <%
-		ArrayList<CarouselElement> elements = helper.getElements(); 
 		//for( int i = 0; i < helper.getElements().size(); i++)
 		int imageIndex = 0;
 		for(CarouselElement element: elements)

@@ -1,14 +1,25 @@
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.SVGImage" %>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.GrandSummaryHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper"%>
+<%@page import="uk.ac.nhm.core.model.SVGImage" %>
+<%@page import="uk.ac.nhm.core.componentHelpers.GrandSummaryHelper"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.CTAButtonHelper"%>
 <cq:defineObjects />
 <cq:includeClientLib />
 <%	GrandSummaryHelper helper = new GrandSummaryHelper(slingRequest, currentPage, properties); %>
 <%	String svgIcon = ""; %>
 <%	String svgColor = "#565656"; %>
 <%	String svgStrokeWidth = "4"; %>
+
+<% if(!helper.isInitialised()) { %>
+	<div class="row">
+		<h4>Le grand summary</h4>
+		Required fields:
+		<ul>
+			<li>Image path</li>
+			<li>Mobile image path</li>
+		</ul>
+	</div>
+<% } else { %>
 
 <% 	if(helper.isExhibition()){
 		if(helper.hasCTAIcon()){
@@ -137,3 +148,5 @@
 		<%-- Exhibition --%>
 	</div>
 <%-- Grand Summary --%>
+
+<% } %>

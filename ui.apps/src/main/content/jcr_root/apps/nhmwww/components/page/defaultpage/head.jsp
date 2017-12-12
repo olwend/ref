@@ -24,7 +24,7 @@
 
 --%><%@include file="/libs/foundation/global.jsp" %><%
 %><%@ page import="com.day.cq.commons.Doctype" %>
-<%@ page import="uk.ac.nhm.nhm_www.core.utils.*" %>
+<%@ page import="uk.ac.nhm.core.utils.*" %>
 <%
     String xs = Doctype.isXHTML(request) ? "/" : "";
     String favIcon = currentDesign.getPath() + "/favicon.ico";

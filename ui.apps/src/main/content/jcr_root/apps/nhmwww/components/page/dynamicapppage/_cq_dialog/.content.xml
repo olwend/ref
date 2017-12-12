@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Default Page"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
+    mode="edit">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+    	<items jcr:primaryType="nt:unstructured">
+    		<tabs
+    			jcr:primaryType="nt:unstructured"
+    			rel="cq-siteadmin-admin-properties-tabs"
+    			sling:resourceType="granite/ui/components/foundation/container">
+    			<layout
+    				jcr:primaryType="nt:unstructured"
+    				sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+    				type="nav" />
+    			<items jcr:primaryType="nt:unstructured">
+    				<basic
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/basic" />
+    				<advanced
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/advanced" 
+    					sling:hideResource="{Boolean}true" />
+    				<dynamicappadvanced
+    					jcr:primaryType="nt:unstructured" 
+    					jcr:title="Advanced"
+    					sling:resourceType="granite/ui/components/foundation/section"
+    					cq:showOnCreate="{Boolean}true" >
+    					<layout
+    						jcr:primaryType="nt:unstructured"
+    						margin="{Boolean}false"
+    						sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+    					<items jcr:primaryType="nt:unstructured">
+    						<column
+    							jcr:primaryType="nt:unstructured"
+    							sling:resourceType="granite/ui/components/foundation/container">
+    							<items jcr:primaryType="nt:unstructured">
+    								<defaultLegacyCSS
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Include the general legacy CSS file"
+										name="./defaultLegacyCSS"
+										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+										text="Include the general legacy CSS file"
+										value="{Boolean}true" />
+									<legacyApp
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Choose a legacy app"
+					                    defaultValue=""
+					                    name="./legacy-app"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+					                    <items jcr:primaryType="nt:unstructured">
+					                        <o1
+					                            jcr:primaryType="nt:unstructured"
+					                            text="None"
+					                            value=""/>
+					                        <o2
+					                            jcr:primaryType="nt:unstructured"
+					                            text="Contact Us form"
+					                            value="contact-us-form"/>
+					                        <o3
+					                        	jcr:primaryType="nt:unstructured"
+					                            text="Dino directory"
+					                            value="dino-directory"/>
+				                            <o4
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="DSML Apps"
+					                            value="dsml"/>
+				                            <o5
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Nature Groups Near You"
+					                            value="ngny"/>
+				                            <o6
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Profile manager"
+					                            value="profile-manager"/>
+				                            <o7
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Patronmail"
+					                            value="patronmail"/>
+					                        <o8
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Picture library"
+					                            value="piclib"/>    
+				                            <o9
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Lepidopteran Hostplants"
+					                            value="lep-hosts"/> 
+					                        <o10
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Universal Chalcidoidea Database"
+					                            value="chalcidoidea"/>
+					                        <o11
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="ButMoth"
+					                            value="butmoth"/>
+					                        <o12
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Bumblebees of the World"
+					                            value="bombus"/>
+					                        <o13
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Cockayne Collection"
+					                            value="cockayne"/>
+					                        <o14
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Lepidoptera Names Index"
+					                            value="lepindex"/>
+					                        <o15
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="UK Species"
+					                            value="species-dictionary"/>
+					                        <o16
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Echinoid Directory"
+					                            value="echinoids"/>
+					                        <o17
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Lichen ID Guide"
+					                            value="lichenid"/>
+					                        <o18
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="The Catalogue of Meteorites"
+					                            value="metcat"/>
+					                        <o19
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Microbiology Video collection"
+					                            value="protistvideo"/>
+					                        <o20
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Richard Spruce collection"
+					                            value="spruce"/>
+					                        <o21
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="The MacGillivray Art Collection"
+					                            value="macgillivray"/>
+					                        <o22
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="The Linnaean Plant Name Typification Project"
+					                            value="linnaeantypification"/>
+					                        <o23
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Sloane Herbarium"
+					                            value="sloaneherbarium"/>  
+					                        <o24
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Clifford Herbarium"
+					                            value="cliffordherbarium"/>
+					                        <o25
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Plant Diversity in Paraguay"
+					                            value="paraguay"/>
+					                        <o26
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Hermann Herbarium"
+					                            value="hermannherbarium"/>  
+					                        <o27
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Clayton Herbarium"
+					                            value="claytonherbarium"/>
+					                        <o28
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Former British Petroleum Microfossil Database"
+					                            value="bpmicrofossil"/>
+					                        <o29
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Tropical Land Snail Diversity"
+					                            value="tropical-snails"/>  
+					                        <o30
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Duxbury Database"
+					                            value="duxbury"/>
+					                        <o31
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Coffee and Biodiversity Conservation in El Salvador"
+					                            value="elsalvadorcoffee"/>
+					                        <o32
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Former Aberystwyth Microfossil Collection"
+					                            value="aberystwythmicrofossil"/>  
+					                        <o33
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Bird Types"
+					                            value="birdtypespecimens"/>
+					                        <o34
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Moss Type Specimens"
+					                            value="mosstypes"/>
+					                        <o35
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="The Endeavour Botanical Illustrations"
+					                            value="endeavour"/>
+					                        <o36
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Linnaeus's Butterfly Type Specimens"
+					                            value="linntypes"/>
+				                            <o37
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="The First Fleet Artwork Collection"
+					                            value="firstfleet"/>
+					                        <o38
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Host-parasite Database"
+					                            value="hostparasite"/>
+				                            <o39
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Wallace Letters Online"
+					                            value="wallaceletters"/>
+				                            <o40
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="AlgaeVision"
+					                            value="algaevision"/>
+				                            <o41
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Cestode Life Cycle Database"
+					                            value="cestode"/>
+				                            <o42
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Electronic Inventory of European Bird Collections"
+					                            value="ebeac"/>
+				                            <o43
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Atlantic Ostracods"
+					                            value="ostracods"/>
+				                            <o44
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Distribution of British Fleas Database"
+					                            value="britishfleas"/>
+				                            <o45
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Dipterocarps"
+					                            value="dipterocarps"/>
+				                            <o46
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Fossil and Recent Ostracod Database"
+					                            value="recentostracods"/>
+				                            <o47
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Conodont Collections"
+					                            value="conodonts"/>
+				                            <o48
+				                            	jcr:primaryType="nt:unstructured"
+					                            text="Enquiry Form"
+					                            value="venuehire"/>		       
+					                    </items>
+					                </legacyApp>
+    							</items>
+    						</column>
+ 						</items>
+    				</dynamicappadvanced>
+   					<thumbnail
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/thumbnail" />
+    				<smartappbanner
+    					jcr:primaryType="nt:unstructured" 
+    					jcr:title="Smart App Banner"
+    					sling:resourceType="granite/ui/components/foundation/section"
+    					sling:hideResource="{Boolean}true" />
+   					<cloudservices
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/cloudservices"
+						sling:hideResource="{Boolean}true" />
+   					<personalization
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/personalization"
+						sling:hideResource="{Boolean}true" />
+   					<permissions
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/permissions"
+						sling:hideResource="{Boolean}true" />
+   					<blueprint
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/blueprint"
+						sling:hideResource="{Boolean}true" />
+   					<livecopy
+    					jcr:primaryType="nt:unstructured"
+    					sling:resourceType="granite/ui/components/foundation/include"
+    					path="/libs/wcm/foundation/components/page/cq:dialog/content/items/tabs/items/livecopy"
+						sling:hideResource="{Boolean}true" />
+    			</items>
+    		</tabs>
+    	</items>
+    </content>
+</jcr:root>

@@ -1,6 +1,6 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
-				uk.ac.nhm.nhm_www.core.model.science.Publication,
+<%@page import="uk.ac.nhm.core.componentHelpers.ScientistProfileHelper,
+				uk.ac.nhm.core.model.science.Publication,
 				java.util.Set,
 				java.util.SortedSet,
 				java.util.TreeSet,

@@ -3,7 +3,7 @@
 				  java.text.*,
 				  java.util.Date,
 				  java.util.Calendar,
-				  uk.ac.nhm.nhm_www.core.componentHelpers.EventScheduleHelper" %>
+				  uk.ac.nhm.core.componentHelpers.EventScheduleHelper" %>
 <%@include file="/libs/foundation/global.jsp" %>
 
 <%

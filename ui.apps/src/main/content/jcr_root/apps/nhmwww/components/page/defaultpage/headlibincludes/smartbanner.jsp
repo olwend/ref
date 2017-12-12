@@ -1,3 +1,5 @@
+<%@ page import="uk.ac.nhm.core.componentHelpers.DefaultPageHelper" %>
+
 <% DefaultPageHelper helper = new DefaultPageHelper(resource, properties, request); %>
 <%if(helper.getUseBanner()) { %>
 	<!-- WR-1031: smartbanner configuration -->

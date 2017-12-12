@@ -392,7 +392,6 @@ function createDates(dlg) {
             }
 
             if(allDays[i] == true) {
-            	var subArray = [];
                 if(currentTimesArray[i] != "") {
     				if(Array.isArray(newTimesArray[i][0])) {
                         for(var j=0; j<newTimesArray[i].length; j++) {

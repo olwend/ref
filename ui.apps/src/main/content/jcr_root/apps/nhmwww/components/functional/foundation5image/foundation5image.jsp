@@ -1,22 +1,24 @@
-<%--
+<%@include file="/libs/foundation/global.jsp"%>
+<%@page session="false"
+	import="com.day.cq.commons.ImageResource,
+		com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
+		uk.ac.nhm.core.componentHelpers.Foundation5ImageHelper"%>
 
-  Image component.
-
-  This is how to add a single responsive image
-
---%><%
-%><%@include file="/libs/foundation/global.jsp"%><%
-%><%@page session="false"
-          import="com.day.cq.commons.ImageResource,
-                  com.day.cq.wcm.api.WCMMode, com.day.cq.wcm.foundation.Placeholder, javax.jcr.*,
-                  uk.ac.nhm.nhm_www.core.componentHelpers.Foundation5ImageHelper"%><%
-%>
 <cq:defineObjects />
 
 <%
 	Foundation5ImageHelper helper = new Foundation5ImageHelper(properties, resource, resourceResolver, request, xssAPI);
 %>
-<% if(helper.isActivated())  { %>
+<% if(!helper.isActivated())  { %>
+	<div class="row">
+		<h4>Image</h4>
+		Required fields:
+		<ul>
+			<li>Image</li>
+		</ul>
+	</div>
+<%} else { %>
+
 <!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
 	<%if(helper.getAddMarginBottom()) { %><div class="mb-20"> <% } %>
 		<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
@@ -48,7 +50,4 @@
 			</div>
 		<% } %>
 	<%if(helper.getAddMarginBottom()) { %></div> <% } %>
-<% } else {  %>
-	<img class="cq-title-placeholder cq-block-lg-placeholder"
-	src="/etc/designs/default/0.gif" />
 <% } %>

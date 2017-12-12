@@ -1,3 +1,0 @@
-#base=css
-discoverpublication.css
-youtube.css

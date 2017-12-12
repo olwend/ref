@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ns1="http://www.symplectic.co.uk/publications/api">
+  <xs:import namespace="http://www.symplectic.co.uk/publications/api" schemaLocation="nhm-profile.xsd"/>
+  <xs:element name="web-profile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="profile" type="ns1:ns1.object"/>
+        <xs:element name="publications">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="authored">
+                <xs:complexType>
+                  <xs:group maxOccurs="unbounded" ref="ns1:publication"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="edited">
+                <xs:complexType>
+                  <xs:group ref="ns1:publication"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="translated">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="contributed">
+                <xs:complexType>
+                  <xs:group ref="ns1:publication"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="grants">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary-investigator">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="secondary-investigator">
+                <xs:complexType/>
+              </xs:element>
+              <xs:group ref="ns1:funded-by"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="professional-activities">
+      	  <xs:complexType>
+      	    <xs:sequence>
+      	      <xs:element name="associated">
+      	      	<xs:complexType>
+      	      		<xs:group maxOccurs="unbounded" ref="ns1:activity"/>
+      	      	</xs:complexType>
+      	      </xs:element>
+      	    </xs:sequence>
+      	  </xs:complexType>
+        </xs:element>
+        <xs:element name="projects">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="champion-of">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="researcher-on">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="administrator-of">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="manager-of">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="member-of">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="leader-of">
+                <xs:complexType/>
+              </xs:element>
+              <xs:group ref="ns1:funded-by"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="teaching-activities">
+          <xs:complexType>
+      	    <xs:sequence>
+      	      <xs:element name="associated">
+      	      	<xs:complexType>
+      	      		<xs:group maxOccurs="unbounded" ref="ns1:activity"/>
+      	      	</xs:complexType>
+      	      </xs:element>
+      	    </xs:sequence>
+      	  </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,5 +1,5 @@
 <%@page session="false"
-        import="uk.ac.nhm.nhm_www.core.componentHelpers.SponsorBlockHelper" %>
+        import="uk.ac.nhm.core.componentHelpers.SponsorBlockHelper" %>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%SponsorBlockHelper helper = new SponsorBlockHelper(resource,properties); %>
 			<!-- START SPONSORS BLOCK GRID -->

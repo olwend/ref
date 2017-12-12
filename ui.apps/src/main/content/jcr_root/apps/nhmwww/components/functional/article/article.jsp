@@ -4,28 +4,33 @@
 				java.util.Calendar,
 				java.util.List,
 				java.util.Map,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
+				uk.ac.nhm.core.componentHelpers.ArticleHelper"%>
 <cq:includeClientLib categories="nhmwww.article"/>
 <%
 	final ArticleHelper helper = new ArticleHelper(resource, request, xssAPI, slingRequest);
 
 	if (!helper.isConfigured()) {
 %>
-	
 	<div class="row">
-		<span class="noconfigured">
-			Please configure the article page correctly. Required fields:
-			<ul>
-				<li>Article title</li>
-				<li>Introduction text</li>
-				<li>Lead image or video</li>
-			</ul>
-		</span>
+		<h4>Article</h4>
+		Required fields:
+		<ul>
+			<li>Article title</li>
+			<li>Introduction text</li>
+			<li>Lead image or video</li>
+		</ul>
 	</div>
 <%
 		return;
 	}
 
+	if (WCMMode.fromRequest(request) == WCMMode.EDIT) { %>
+	<div class="row">
+		<h4>Article</h4>
+		Edit the article dialog here
+	</div>
+<% }
+	
 	if (helper.isImageHeadType()) {
 		if (helper.isImageConfigured()) {
 %>
@@ -94,7 +99,7 @@
 					</div>
 
 					<div class="article--social-share-header">
-						<cq:include path="socialshare-header" resourceType="nhmwww/components/functional/socialshare"/>
+						<cq:include path="socialshareheader" resourceType="nhmwww/components/functional/socialshare"/>
 					</div>
 				</div>
 
@@ -107,7 +112,7 @@
 				<div class="discover-publication-footer">
 					<div class="flags small-12 medium-12 large-12 columns">
 						<div class="article--social-share-footer">
-							<cq:include path="socialshare-footer" resourceType="nhmwww/components/functional/socialshare"/>
+							<cq:include path="socialsharefooter" resourceType="nhmwww/components/functional/socialshare"/>
 						</div>
 						<hr class="article--hr-footer">
 						<div class="article--tags-footer">

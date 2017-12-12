@@ -16,9 +16,9 @@
 --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.SocialSignupHelper"%>
+  import="uk.ac.nhm.core.componentHelpers.SocialSignupHelper"%>
 <%@page
-  import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+  import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
   
 	<%
 		SocialSignupHelper helper = new SocialSignupHelper(properties, resource);
@@ -38,13 +38,13 @@
 		</div>
 	</div>
 
-  <div class="js-social-signup social-signup--container">
-      <div class="row">
-        <div class="small-12 social-signup--description">
-          <%=helper.getDataProtection()%>
-        </div>
-      </div>
-    <form
+	<div class="js-social-signup social-signup--container">
+		<div class="row">
+			<div class="small-12 social-signup--description">
+				<%=helper.getDataProtection()%>
+			</div>
+	      </div>
+		<form
       id="newsletter_signup"
       action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
       method="get">
