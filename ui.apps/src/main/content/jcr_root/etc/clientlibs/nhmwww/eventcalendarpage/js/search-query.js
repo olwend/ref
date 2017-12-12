@@ -160,6 +160,9 @@ var NHMSearchQuery = new function () {
         if (eventsCounter >= CONST.SHOW_MORE) {
           inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
         }
+        if (eventsCounter > CONST.SHOW_MORE) {
+        	inputs.showMore.className = CONST.DISPLAY_SHOW_MORE;
+        }
     };
 
     //Helper function to get a formatted date from the datepicker inputs

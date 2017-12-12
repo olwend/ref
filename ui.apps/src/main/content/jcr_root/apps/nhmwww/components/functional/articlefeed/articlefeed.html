@@ -46,7 +46,7 @@
 							<div class="articlefeed--item__text">
 								<p class="articlefeed--item__hubtag" data-sly-test="${list['hubtag']}">${list['hubtag']}</p>
 								<p class="articlefeed--item__title">
-									<a href="${list['path']}.html">${list['title']}</a>
+									<a href="${list['path']}.html">${list['title'] @ context='html'}</a>
 								</p>
 								<p class="articlefeed--item__date">${list['datepublished']}</p>
 								<p class="articlefeed--item__excerpt">${list['excerpt']}</p>
