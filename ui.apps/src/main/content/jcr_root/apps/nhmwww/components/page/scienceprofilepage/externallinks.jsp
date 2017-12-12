@@ -1,5 +1,5 @@
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
-				uk.ac.nhm.nhm_www.core.model.science.WebSite,
+<%@page import="uk.ac.nhm.core.componentHelpers.ScientistProfileHelper,
+				uk.ac.nhm.core.model.science.WebSite,
 				java.util.Set"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%

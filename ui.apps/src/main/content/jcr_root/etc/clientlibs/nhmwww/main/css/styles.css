@@ -3101,42 +3101,6 @@ input.question {
   }
 }
 
-.video-wrapper {
-  position: relative;
-  height: 100%;
-}
-
-.close-video {
-  display: none;
-}
-
-.close-video.open {
-  display: block;
-  width: 100%;
-  padding: 0 5%;
-  height: 52px;
-  background: #000 url("/etc/designs/nhmwww/img/x-large.png") no-repeat 95% 100%;
-  background-size: 30px auto;
-  text-indent: -9999px;
-}
-
-@media screen and (min-width: 768px) {
-  .close-video.open {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
-    background-color: transparent;
-    z-index: 100;
-  }
-  .close-video.open .ico {
-    display: block;
-    width: 52px;
-    height: 52px;
-  }
-}
-
 /** LEGACY 3-CTA-GROUP PARTIAL **/
 .info-actions {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
@@ -4684,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -4809,6 +4773,43 @@ ul.primo-search-options li.selected a {
 
 .main-section.science-profile .profile-info {
   padding: 2em;
+}
+
+/** LEGACY VIDEO PARTIAL **/
+.video-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.close-video {
+  display: none;
+}
+
+.close-video.open {
+  display: block;
+  width: 100%;
+  padding: 0 5%;
+  height: 52px;
+  background: #000000 url("/etc/designs/nhmwww/img/x-large.png") no-repeat 95% 100%;
+  background-size: 30px auto;
+  text-indent: -9999px;
+}
+
+@media screen and (768px) {
+  .close-video.open {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    z-index: 100;
+  }
+  .close-video.open .ico {
+    display: block;
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /** REFACTOR-BASE PARTIAL **/
@@ -10706,4 +10707,13 @@ input.searchGo {
 /** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
 .global-header--nav-list__item:hover.link-visit, .global-header--nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
+}
+
+.headertextimage {
+    display: table;
+    width: 100%;
+}
+
+.discover .title-bar h1 {
+  color: #565656 !important;
 }

@@ -6,12 +6,21 @@
 				java.util.Locale,
 				java.util.Map,
 				org.apache.sling.api.resource.Resource,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ArticleHelper"%>
+				uk.ac.nhm.core.componentHelpers.ArticleHelper"%>
 <!-- <cq:includeClientLib categories="nhm-www.discoverpublication" /> -->
 <%
 	final String[] posts = properties.get("posts", String[].class);
 	final String title = properties.get("title", "Related posts");
-	if(posts != null) {
+	
+if(posts == null) { %>
+	<div class="row">
+		<h4>Discover related</h4>
+		Required fields:
+		<ul>
+			<li>Related posts</li>
+		</ul>
+	</div>
+<% } else {	
 %>
 <div class="discover">
 	<h3 class="discover-related--title"><%= title %></h3>
@@ -102,5 +111,6 @@
 <%
 	}
 %>
+
 <!-- <cq:includeClientLib css="nhm-www.discover" /> -->
 <!-- <cq:includeClientLib categories="nhm-www.discover.related"/> -->

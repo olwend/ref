@@ -93,7 +93,13 @@
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Data Protection Statement"
                         name="./dataProtection"
-                        xtype="richtext"/><description jcr:primaryType="cq:Widget" fieldLabel="Description" name="./description" width="155" xtype="textfield" />                    
+                        xtype="richtext"/>
+                    <description 
+                    	jcr:primaryType="cq:Widget" 
+                    	fieldLabel="Description" 
+                    	name="./description" 
+                    	width="155" 
+                    	xtype="textfield" />                    
                 </items>
             </basic>
         </items>

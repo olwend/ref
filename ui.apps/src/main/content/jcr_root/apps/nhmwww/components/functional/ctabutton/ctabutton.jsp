@@ -1,18 +1,20 @@
-<%--
-
-  Call to action button component.
-
-  This is a call to action button that has an icon, some text and an arrow.
-
---%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.CTAButtonHelper" %>
-<%@page import="uk.ac.nhm.nhm_www.core.model.SVGImage" %>
+<%@page import="uk.ac.nhm.core.componentHelpers.CTAButtonHelper" %>
+<%@page import="uk.ac.nhm.core.model.SVGImage" %>
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.ctabutton"/>
 
 <% CTAButtonHelper helper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase()); %>
-<% if(helper.isInitialised())  {%>
+<% if(!helper.isInitialised())  {%>
+	<div class="row">
+		<h4>CTA button</h4>
+		Required fields:
+		<ul>
+			<li>CTA label or</li>
+			<li>Text</li>
+		</ul>
+	</div>
+<% } else { %>
 	<% if(helper.getSectionOverride() != null && !helper.getSectionOverride().equals("")) { %>
 		<div class="<%= helper.getSectionOverride() %>">
 	<% } %>
@@ -79,8 +81,5 @@
 	<% if(helper.getSectionOverride() != null && !helper.getSectionOverride().equals("")) { %>
 		</div>
 	<% } %>
-		
-<%} else {%>
- 	Component is not initialised!
 <%} %>
 

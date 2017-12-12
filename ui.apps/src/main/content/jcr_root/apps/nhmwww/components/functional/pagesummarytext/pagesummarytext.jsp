@@ -1,5 +1,5 @@
 <%@page session="false"
-        import="uk.ac.nhm.nhm_www.core.componentHelpers.PressReleaseHelper" %>
+        import="uk.ac.nhm.core.componentHelpers.PressReleaseHelper" %>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <cq:defineObjects />
 <%

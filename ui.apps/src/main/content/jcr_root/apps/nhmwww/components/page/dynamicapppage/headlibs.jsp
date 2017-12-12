@@ -1,6 +1,7 @@
 <%@ include file="/apps/nhmwww/components/global.jsp"%>
+
 <%@ page session="false" %>
-<%@ page import="uk.ac.nhm.nhm_www.core.componentHelpers.DynamicPageHelper"%>
+<%@ page import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
 	<meta charset="utf-8" />
 
 	<%@ include file="/apps/nhmwww/components/page/defaultpage/headlibincludes/tagmanager.jsp" %>

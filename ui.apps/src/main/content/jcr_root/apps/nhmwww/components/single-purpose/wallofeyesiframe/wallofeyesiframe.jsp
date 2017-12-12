@@ -1,7 +1,7 @@
 
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%@page session="false"
-          import="uk.ac.nhm.nhm_www.core.componentHelpers.HelperBase"%><%
+          import="uk.ac.nhm.core.componentHelpers.HelperBase"%><%
 %>
 <cq:defineObjects />
 
