@@ -1,3 +1,7 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.qahub'}" data-sly-unwrap></meta>
+</sly>
+
 <div data-sly-test="${!properties.rootpath}">
 	<div class="row">
 		<h4>Q & A hub</h4>
@@ -8,18 +12,25 @@
 	</div>
 </div>
 
-${properties.rootpath}
-
 <div data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub">
 	<div data-sly-test="${!qahub.questionList}">
 		This query returns no results
 	</div>
 	<div data-sly-test="${qahub.questionList}">
 		<ul data-sly-list.list="${qahub.questionList}">
-			<li data-sly-test="${list.size > 0}">
-				${list['question']}
-				${list['answer']}
-			</li>
+			<ol data-sly-test="${list.size > 0}">
+				<a href="#" id="question" data-rel="qa${listList.index}">${list['question']}</a> ${listList.index}
+			</ol>
 		</ul>
+
+        <div id="answers">
+            <ul data-sly-list.list="${qahub.questionList}">
+                <li data-sly-test="${list.size > 0}">
+                    <div id="qa${listList.index}">
+                        ${list['answer']}
+                    </div>
+                </li>
+            </ul>
+        </div>
 	</div>
 </div>

@@ -1,7 +1,5 @@
 package uk.ac.nhm.core.model.slingModels;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,15 +36,7 @@ public class QAHub {
 	protected void init() {
 		String rootPath = properties.get("rootpath", String.class);
 		String[] tags = properties.get("cq:tags", String[].class);
-		
-		Map<String, String> testMap = new HashMap<String, String>();
-		testMap.put("question", "this is a question");
-		testMap.put("answer", "this is an answer");
-		
-		List<Map<String, String>> newList = new ArrayList<Map<String, String>>();
-		newList.add(testMap);
-		questionList = service.getQuestionData(rootPath, tags);
-		
+
 		this.setQuestionList(service.getQuestionData(rootPath, tags));
 	}
 
@@ -57,5 +47,4 @@ public class QAHub {
 	public void setQuestionList(List<Map<String, String>> questionList) {
 		this.questionList = questionList;
 	}
-
 }
