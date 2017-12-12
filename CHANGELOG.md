@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.6 - Debonair Dryptosaurus - 07-Dec-2017
+- WR-812 - Refactor NHM Video component
+- WR-1173 - Investigate why Discover landing page performance has deteriorated
+- WR-1186 - Article feed title display error
+- WR-1189 - Show more bar not appearing on events calendar search results page when using "group="
+- WR-1200 - Fix Title bar on NHM Page Template in Discover
+- WR-1204 - Update link to privacy notice on signup forms
+
 ## 1.3.5 - Capricious Caudipteryx - 30-Nov-2017
 - WR-1174 - Reduce image caption font size from 18px to 16px
 - WR-1175 - Add margin between HTI and embedded video on Discover Article pages

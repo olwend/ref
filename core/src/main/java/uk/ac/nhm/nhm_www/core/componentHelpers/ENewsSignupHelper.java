@@ -14,7 +14,7 @@ public class ENewsSignupHelper extends HelperBase {
 			+ "<h4>Data protection</h4>"
 			+ "<p>The Natural History Museum will use your personal information in accordance with the Data Protection Act 1998. We will use it to provide the service(s) requested, improve our understanding of"
 			+ " our target audiences and supporters, and, if you agree, to send you news and information as set out above. For more information,"
-			+ " please see our <a href=\"http://www.nhm.ac.uk/my-nhm/privacy-statement/index.html\">privacy notice</a>.</p>";
+			+ " please see our <a href=\"http://www.nhm.ac.uk/about-us/privacy-notice.html\">privacy notice</a>.</p>";
 
 	private String title;
 	private String description;
