@@ -1,23 +1,19 @@
 package uk.ac.nhm.core.impl.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.jcr.Node;
-import javax.jcr.Property;
 import javax.jcr.Session;
-import javax.jcr.Value;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.jcr.api.SlingRepository;
-import org.joda.time.DateTime;
-import org.joda.time.MutableDateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +23,9 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 import com.day.cq.tagging.JcrTagManagerFactory;
-import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
 
 import uk.ac.nhm.core.services.QAHubService;
-import uk.ac.nhm.core.utils.TextUtils;
 
 @Component
 @Service
@@ -48,6 +42,13 @@ public class QAHubServiceImpl implements QAHubService {
 	
 	@Reference
 	private QueryBuilder builder;
+	
+	//List<Map<String, String>> sorter
+	private Comparator<Map<String, String>> mapComparator = new Comparator<Map<String, String>>() {
+	    public int compare(Map<String, String> m1, Map<String, String> m2) {
+	        return m1.get("position").compareTo(m2.get("position"));
+	    }
+	};
 	
 	@Override
 	public List<Map<String, String>> getQuestionData(String rootPath, String[] tags) {
@@ -91,6 +92,15 @@ public class QAHubServiceImpl implements QAHubService {
 		    	//Get properties for each article
 		    	questionMap.put("path", node.getPath());
 		    	
+		    	if(node.hasProperty("position")) {
+		    		//Arrayify the position value
+		    		String position = node.getProperty("position").getString();
+		    		int pos = Integer.valueOf(position) - 1;
+		    		position = String.valueOf(pos);
+		    				
+		    		questionMap.put("position", position);
+		    	}
+		    	
 		    	if(node.hasProperty("question")) {
 		    		questionMap.put("question", node.getProperty("question").getString());
 		    	}
@@ -99,13 +109,22 @@ public class QAHubServiceImpl implements QAHubService {
 		    		questionMap.put("answer", node.getProperty("answer").getString());
 		    	}
 		    	
+		    	LOG.error(questionMap.get("position"));
+		    	
 		    	questionList.add(questionMap);
 		    }
 
 		} catch (Exception e) {
 			LOG.error("Error with exception: ", e);
 		}
+		
+		//Sort list of maps by position variable
+		Collections.sort(questionList, mapComparator);
+
+		for(int i=0; i<questionList.size(); i++) {
+			LOG.error(questionList.get(i).get("position"));
+		}
+		
 		return questionList;
 	}
-
 }

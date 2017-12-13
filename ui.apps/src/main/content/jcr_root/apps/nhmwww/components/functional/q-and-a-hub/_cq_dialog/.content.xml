@@ -34,7 +34,8 @@
 		                        sling:resourceType="cq/gui/components/common/tagspicker"
 		                        allowBulkEdit="{Boolean}true"
 		                        cq-msm-lockable="cq:tags"
-		                        cq:showOnCreate="{Boolean}true" />
+		                        cq:showOnCreate="{Boolean}true"
+		                        required="true" />
 		                </items>
 					</column>
             	</items>
