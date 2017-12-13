@@ -17,20 +17,38 @@
 		This query returns no results
 	</div>
 	<div data-sly-test="${qahub.questionList}">
-		<ul data-sly-list.list="${qahub.questionList}">
-			<ol data-sly-test="${list.size > 0}">
-				<a href="#" id="question" data-rel="qa${listList.index}">${list['question']}</a> ${listList.index}
-			</ol>
-		</ul>
 
-        <div id="answers">
+		<div id="questions">
+            Quick questions
+    
             <ul data-sly-list.list="${qahub.questionList}">
                 <li data-sly-test="${list.size > 0}">
-                    <div id="qa${listList.index}">
-                        ${list['answer']}
-                    </div>
+                    <a href="#" id="question" rel="qa${listList.index}">${list['question']}</a>
                 </li>
             </ul>
+        </div>
+
+
+        <div id="answers">
+        	<sly data-sly-list.list="${qahub.questionList}" >
+                <sly data-sly-test="${list.size > 0}">
+                    <sly data-sly-test="${listList.index == 0}">
+                        <div id="qa${listList.index}">
+                            ${list['question']}
+                            ${list['answer']}
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${listList.index > 0}">
+                        <div style="display: none" id="qa${listList.index}">
+                            ${list['question']}
+                            ${list['answer']}
+                        </div>
+                    </sly>
+                </sly>
+            </sly>
+
+            <a href="#">Prev question</a>
+            <a href="#">Next question</a>
         </div>
 	</div>
 </div>

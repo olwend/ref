@@ -1,9 +1,11 @@
 $(document).ready(function() {
 
-    $("#question").click(function() {
+    //$("#question").click(function() {
+    $('a').click(function() {
+        var targetElement = $("#"+$(this).attr('rel'));
+        targetElement.show();
 
-
-        console.log($(this).data('rel'));
+        targetElement.siblings("div").hide();
     });
 
 });
