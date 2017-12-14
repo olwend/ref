@@ -37,10 +37,8 @@ public class HeroHelperTest {
 	Resource mockResource;
 	@Mock
 	Image mockImage;
-	
-	
+
 	public Image image;
-	
 	
 	@Before
 	public void setUp() throws Exception {
