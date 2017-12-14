@@ -87,10 +87,6 @@
 		templateType = "template--content-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/defaultpage") ){
 		templateType = "template--default-page";
-	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoverpublicationpage") ){
-		templateType = "template--discover-publication-page";
-	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoversectionpage") ){
-		templateType = "template--discover-section-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/dynamicapppage") ){
 		templateType = "template--dynamicapp-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/eventcalendarpage") ){
