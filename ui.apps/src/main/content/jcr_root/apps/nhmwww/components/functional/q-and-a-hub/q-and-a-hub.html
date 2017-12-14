@@ -1,3 +1,8 @@
+<style>
+	.selected {
+		background-color: gray;
+	}
+</style>
 <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
 	<meta data-sly-call="${clientLib.all @ categories='nhmwww.qahub'}" data-sly-unwrap></meta>
 </sly>
@@ -8,48 +13,56 @@
 		Required fields:
 		<ul>
 			<li>Root path</li>
-            <li>Tag</li>
+				<li>Tag</li>
 		</ul>
 	</div>
 </div>
 
 <div data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub">
+
 	<div data-sly-test="${!qahub.questionList}">
 		This query returns no results
 	</div>
-	<div data-sly-test="${qahub.questionList}">
 
-		<div id="questions">
-            Quick questions
-    
-            <ul data-sly-list.list="${qahub.questionList}">
-                <li data-sly-test="${list.size > 0}">
-                    <a href="#" id="question" rel="qa${listList.index}">${list['question']}</a>
-                </li>
-            </ul>
-        </div>
+	<div data-sly-test="${qahub.questionList}" class="q-a-container row">
 
+		<div id="questions" class="question-container columns small-12 medium-4 large-3" >
+			<h3>Quick questions</h3>
+			<ul data-sly-list.list="${qahub.questionList}">
+				<li data-sly-test="${list.size > 0}">
+					<a href="#" id="qa-question-${listList.index}" class="qa-question qa-nav" data-question="${listList.index}">${list['question']}</a>
+				</li>
+			</ul>
+		</div>
 
-        <div id="answers">
-        	<sly data-sly-list.list="${qahub.questionList}" >
-                <sly data-sly-test="${list.size > 0}">
-                    <sly data-sly-test="${listList.index == 0}">
-                        <div id="qa${listList.index}">
-                            ${list['question']}
-                            ${list['answer']}
-                        </div>
-                    </sly>
-                    <sly data-sly-test="${listList.index > 0}">
-                        <div style="display: none" id="qa${listList.index}">
-                            ${list['question']}
-                            ${list['answer']}
-                        </div>
-                    </sly>
-                </sly>
-            </sly>
+		<div class="answer-container columns small-12 medium-8 large-9" >
 
-            <a href="#" id="prev-question">Prev question</a>
-            <a href="#" id="next-question" rel="qa1">Next question</a>
-        </div>
+			<div id="answers" >
+				<sly data-sly-list.list="${qahub.questionList}" >
+					<sly data-sly-test="${list.size > 0}">
+						<sly data-sly-test="${listList.index == 0}">
+							<div class="answer" id="qa${listList.index}">
+								<p>${list['question']}</p>
+								<p>${list['answer']}</p>
+							</div>
+						</sly>
+						<sly data-sly-test="${listList.index > 0}">
+							<div class="answer" style="display: none;" id="qa${listList.index}">
+								<p>${list['question']}</p>
+								<p>${list['answer']}</p>
+							</div>
+						</sly>
+					</sly>
+				</sly>
+			</div>
+
+			<div id="answerControls" >
+				<a href="#" id="prev-question" class="qa-nav" data-question="">Prev question</a>
+				<a href="#" id="next-question" class="qa-nav" data-question="1">Next question</a>
+			</div>
+
+		</div>
+
 	</div>
+
 </div>

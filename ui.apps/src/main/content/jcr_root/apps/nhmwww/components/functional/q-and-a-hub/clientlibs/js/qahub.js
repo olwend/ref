@@ -1,101 +1,46 @@
 $(document).ready(function() {
 
-	var questionCount = $("a[id='question']").length - 1;
+	var questionCount = $(".qa-question").length - 1;
+	$('#prev-question').data('question', questionCount);
+	$("#qa-question-0").addClass("selected");
 
-    $("a#question").click(function() {
-        var targetElement = $("#"+$(this).attr('rel'));
-        targetElement.show();
-        targetElement.siblings("div").hide();
+	$(".qa-nav").click(function() {
+		var position = parseInt( $(this).data('question') );
+		var targetElement = $("#qa"+position);
+		targetElement.stop().slideDown();
+		targetElement.siblings(".answer").stop().slideUp();
 
-		var curRel = $(this).attr('rel');
+		previousQ = findPrevious(position);
+		nextQ = findNext(position);
 
-        //Work out and set new rel
-        var num = parseInt(curRel.match(/\d+$/));
-        var pos = curRel.indexOf(num);
-        var str = curRel.slice(0,pos);
-        
-        var prevNum = num - 1;
-        var nextNum = num + 1;
+		var prevElement = $('#prev-question');
+		prevElement.data('question', previousQ);
 
-        if(prevNum == -1) {
-        	var prevRel = "";
-        } else {
-        	var prevRel = str + (prevNum);
-        }
+		var nextElement = $('#next-question');
+		nextElement.data('question', nextQ);
 
-        var prevElement = $('#prev-question');
-		prevElement.attr('rel', prevRel);
+		$(".qa-question").removeClass("selected");
+		$("#qa-question-"+position).addClass("selected");
+	});
 
-        if(nextNum > questionCount) {
-            var nextRel = ""
-        } else {
-			var nextRel = str + (nextNum);
-        }
+	function findPrevious(position) {
+		previousQ = parseInt( position - 1 );
 
-        var nextElement = $('#next-question');
-        nextElement.attr('rel', nextRel);
-    });
+		if(previousQ < 0) {
+			var previousQ = questionCount;
+		}
 
-    $('#next-question').click(function() {
-        var targetElement = $("#"+$(this).attr('rel'));
-		var curRel = $(this).attr('rel');
+		return previousQ;
+	}
 
-        if(curRel != "") {
-            targetElement.show();
-            targetElement.siblings("div").hide();
+	function findNext(position) {
+		nextQ = parseInt( position + 1 );
 
-            //Work out and set new rel
-            var num = parseInt(curRel.match(/\d+$/));
-            var pos = curRel.indexOf(num);
-            var str = curRel.slice(0,pos);
-    
-            var prevNum = num - 1;
-            var nextNum = num + 1;
-    
-            var prevRel = str + (prevNum);
+		if(nextQ > questionCount) {
+				var nextQ = 0;
+		}
 
-        	if(nextNum > questionCount) {
-                var nextRel = "";
-            } else {
-            	var nextRel = str + (nextNum);
-            }
-    
-            $(this).attr('rel', nextRel);
-    
-            var prevElement = $('#prev-question');
-            prevElement.attr('rel', prevRel);
-        }
-
-    });
-
-    $('#prev-question').click(function() {
-        var targetElement = $("#"+$(this).attr('rel'));
-		var curRel = $(this).attr('rel');
-
-        if(curRel != "") {
-            targetElement.show();
-            targetElement.siblings("div").hide();
-
-            //Work out and set new rel
-            var num = parseInt(curRel.match(/\d+$/));
-            var pos = curRel.indexOf(num);
-            var str = curRel.slice(0,pos);
-    
-            var prevNum = num - 1;
-            var nextNum = num + 1;
-    
-            if(prevNum == -1) {
-                var prevRel = "";
-            } else {
-                var prevRel = str + (prevNum);
-            }
-            var nextRel = str + (nextNum);
-    
-            $(this).attr('rel', prevRel);
-    
-            var nextElement = $('#next-question');
-            nextElement.attr('rel', nextRel);
-        }
-    });
+		return nextQ;
+	}
 
 });
