@@ -9244,6 +9244,80 @@ input.searchGo {
   top: auto !important;
 }
 
+.qahub--question-title {
+  margin: 0 0 2px 0;
+  padding: 0.5em 20px;
+  background-color: #0983BB;
+  color: #FFFFFF;
+}
+
+.qahub--question-up, .qahub--question-down {
+  text-align: center;
+  padding: 5px 0;
+  background-color: #EEEEEE;
+}
+
+.qahub--question-up img, .qahub--question-down img {
+  max-height: 10px;
+}
+
+.qahub--question-list {
+  margin: 2px 0;
+  padding: 20px;
+  background-color: #EEEEEE;
+}
+
+.qahub--question-list li {
+  margin-left: 20px;
+  list-style: decimal;
+}
+
+.qahub--question-up {
+  transform: rotate(0.5turn);
+}
+
+.qahub--question-container a {
+  color: #565656;
+}
+
+.qahub--question-container a:hover {
+  text-decoration: none;
+  color: #0983BB;
+}
+
+.qahub--question-container a.selected {
+  color: #0983BB;
+}
+
+.qahub--answer-container {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.qahub--answer-list {
+  padding: 20px;
+  background-color: #EEEEEE;
+}
+
+.qahub--controls-container {
+  height: 75px;
+  margin-top: 2px;
+  padding: 20px;
+  background-color: #EEEEEE;
+  text-align: right;
+}
+
+.qahub--controls-container a:hover {
+  text-decoration: none;
+}
+
+.qahub--previous-question img {
+  transform: rotate(0.5turn);
+  padding: 0 20px;
+}
+
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -10710,8 +10784,8 @@ input.searchGo {
 }
 
 .headertextimage {
-    display: table;
-    width: 100%;
+  display: table;
+  width: 100%;
 }
 
 .discover .title-bar h1 {

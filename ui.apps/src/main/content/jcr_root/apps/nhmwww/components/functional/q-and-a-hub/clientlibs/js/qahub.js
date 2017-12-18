@@ -4,11 +4,21 @@ $(document).ready(function() {
 	$('#prev-question').data('question', questionCount);
 	$("#qa-question-0").addClass("selected");
 
-	$(".qa-nav").click(function() {
+	$(".qa-nav").click(function(event) {
+		// Prevent window jump due to unfulfilled link
+		event.preventDefault();
+
+		// Check if answer window is off the screen - if so, scroll to top of answer window
+		// '150' refers to pixel count, to offset the fixed menu
+		// '180' refers to pixel count, to provide 30px margin on top of the answer window
+		if ( $('#answers').offset().top < ($(window).scrollTop() + 150) ) {
+			$(window).scrollTop( $('#answers').offset().top - 180 );
+		}
+
 		var position = parseInt( $(this).data('question') );
 		var targetElement = $("#qa"+position);
-		targetElement.stop().slideDown();
-		targetElement.siblings(".answer").stop().slideUp();
+		targetElement.show();
+		targetElement.siblings(".answer").hide();
 
 		previousQ = findPrevious(position);
 		nextQ = findNext(position);

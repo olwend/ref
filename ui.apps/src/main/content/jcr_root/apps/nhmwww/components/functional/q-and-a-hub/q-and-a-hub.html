@@ -1,8 +1,3 @@
-<style>
-	.selected {
-		background-color: gray;
-	}
-</style>
 <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
 	<meta data-sly-call="${clientLib.all @ categories='nhmwww.qahub'}" data-sly-unwrap></meta>
 </sly>
@@ -24,25 +19,31 @@
 		This query returns no results
 	</div>
 
-	<div data-sly-test="${qahub.questionList}" class="q-a-container row">
+	<div data-sly-test="${qahub.questionList}" class="qahub--container row">
 
-		<div id="questions" class="question-container columns small-12 medium-4 large-3" >
-			<h3>Quick questions</h3>
-			<ul data-sly-list.list="${qahub.questionList}">
+		<div id="questions" class="qahub--question-container columns small-12 medium-4 large-3" >
+			<h3 class="qahub--question-title">Quick questions</h3>
+			<div class="qahub--question-up">
+				<img src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Scroll the list of questions up">
+			</div>
+			<ol class="qahub--question-list" data-sly-list.list="${qahub.questionList}">
 				<li data-sly-test="${list.size > 0}">
 					<a href="#" id="qa-question-${listList.index}" class="qa-question qa-nav" data-question="${listList.index}">${list['question']}</a>
 				</li>
-			</ul>
+			</ol>
+			<div class="qahub--question-down">
+				<img src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Scroll the list of questions down">
+			</div>
 		</div>
 
-		<div class="answer-container columns small-12 medium-8 large-9" >
+		<div class="qahub--answer-container columns small-12 medium-8 large-9" >
 
-			<div id="answers" >
+			<div id="answers" class="qahub--answer-list">
 				<sly data-sly-list.list="${qahub.questionList}" >
 					<sly data-sly-test="${list.size > 0}">
 						<sly data-sly-test="${listList.index == 0}">
 							<div class="answer" id="qa${listList.index}">
-								<p>${list['question']}</p>
+								<h3 class="qa-hub--answer-title">${list['question']}</h3>
 								<p>${list['answer']}</p>
 							</div>
 						</sly>
@@ -56,9 +57,13 @@
 				</sly>
 			</div>
 
-			<div id="answerControls" >
-				<a href="#" id="prev-question" class="qa-nav" data-question="">Prev question</a>
-				<a href="#" id="next-question" class="qa-nav" data-question="1">Next question</a>
+			<div id="answerControls" class="qahub--controls-container">
+				<a href="#" id="prev-question" class="qa-nav qahub--previous-question" data-question="">
+					<img src="/etc/designs/nhmwww/img/arrows/mobile-menu-arrow.png" alt="Go to previous question">
+				</a>
+				<a href="#" id="next-question" class="qa-nav qahub--next-question" data-question="1">
+					<img src="/etc/designs/nhmwww/img/arrows/mobile-menu-arrow.png" alt="Go to next question">
+				</a>
 			</div>
 
 		</div>
