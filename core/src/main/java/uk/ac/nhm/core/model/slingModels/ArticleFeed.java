@@ -34,7 +34,6 @@ public class ArticleFeed {
 	private String columns = null;
 	private String readmorelink = null;
 	
-
 	@PostConstruct
 	protected void init() {
 		String categoryParameter = request.getParameter("category");
