@@ -9360,6 +9360,37 @@ input.searchGo {
   padding: 0 20px;
 }
 
+.qasingle--question-title-container {
+  margin: 0 0 2px 0;
+  padding: 0.5em 20px;
+  background-color: #0983BB;
+}
+
+.qasingle--question-title {
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+.qasingle--question-content {
+  background-color: #EEEEEE;
+  padding: 20px;
+  margin-bottom: 2px;
+}
+
+.qasingle--next-question-container {
+  background-color: #EEEEEE;
+  padding: 20px;
+}
+
+.qasingle--next-question {
+  margin: 0;
+}
+
+.qasingle--next-question-arrow {
+  max-width: 30px;
+}
+
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/

@@ -8,9 +8,20 @@
 	</div>
 </div>
 
-<div class="q-and-a--question" data-sly-test="${properties.question}">
-${properties.question}
-</div>
-<div class="q-and-a--answer" data-sly-test="${properties.answer}">
-${properties.answer}
+<div class="qasingle--container row">
+	<div class="qasingle--question-title-container">
+		<h3 class="qasingle--question-title">Quick question</h3>
+	</div>
+	<div class="qasingle--question-content">
+		<div class="qasingle--question-container" data-sly-test="${properties.question}">
+			<h4 class="qasingle--question">${properties.question}</h4>
+		</div>
+		<div class="qasingle--answer-container" data-sly-test="${properties.answer}">
+			<p class="qasingle--answer">${properties.answer}</p>
+		</div>
+	</div>
+	<div class="qasingle--next-question-container clearfix">
+		<p class="qasingle--next-question left">Next question: Question text here?</p>
+		<img class="qasingle--next-question-arrow right" src="/etc/designs/nhmwww/img/arrows/mobile-return-arrow.png" alt="">
+	</div>
 </div>
