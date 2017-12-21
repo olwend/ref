@@ -12,10 +12,13 @@
 <sly data-sly-test="${properties.articlepath && properties.imagepath}">
 	<sly data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
 		${properties.imagepath}
+		<p>${properties.imagecaption @ context='html'}</p>
 	
 		<p data-sly-test="${articlefeed.tagName}">${articlefeed.tagName}</p>
-		${articlefeed.title}
-		${articlefeed.date}
-		${articlefeed.description}
+		<p>${articlefeed.title}</p>
+		<p>${articlefeed.date}</p>
+		<p>${articlefeed.description}</p>
+		
+		${properties.articlepath}
 	</sly>
 </sly>
