@@ -1,0 +1,21 @@
+<sly data-sly-test="${!properties.articlepath || !properties.imagepath}">
+	<div class="row">
+	<h4>Featured article</h4>
+	Required fields:
+	<ul>
+		<li>Article path</li>
+		<li>Image path</li>
+	</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.articlepath && properties.imagepath}">
+	<sly data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
+		${properties.imagepath}
+	
+		<p data-sly-test="${articlefeed.tagName}">${articlefeed.tagName}</p>
+		${articlefeed.title}
+		${articlefeed.date}
+		${articlefeed.description}
+	</sly>
+</sly>
