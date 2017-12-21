@@ -2,18 +2,18 @@ $(document).ready(function() {
 
 	var questionCount = $('.qa-question').length - 1;
 	$('#prev-question').data('question', questionCount);
-	$('#qa-question-0').addClass('selected');
+	$('#qa-question-0').addClass('js-qahub--question-selected');
 
 	// Function to capture any click of questions in the main list, or the navigation buttons
-	$('.qa-nav').click(function(event) {
+	$('.js-qa-nav').click(function(event) {
 		// Prevent window jump due to unfulfilled link
 		event.preventDefault();
 
 		// Check if answer window is off the screen - if so, scroll to top of answer window
 		// '150' refers to pixel count, to offset the fixed menu
 		// '180' refers to pixel count, to provide 30px margin on top of the answer window
-		if ( $('#answers').offset().top < ($(window).scrollTop() + 150) ) {
-			$(window).scrollTop( $('#answers').offset().top - 180 );
+		if ( $('.qahub--answer-list').offset().top < ($(window).scrollTop() + 150) ) {
+			$(window).scrollTop( $('.qahub--answer-list').offset().top - 180 );
 		}
 
 		// var position = parseInt( $(this).data('question') );
@@ -34,8 +34,8 @@ $(document).ready(function() {
 		var nextElement = $('#next-question');
 		nextElement.data('question', nextQ);
 
-		$('.qa-question').removeClass('selected');
-		$('#qa-question-'+position).addClass('selected');
+		$('.qa-question').removeClass('js-qahub--question-selected');
+		$('#qa-question-'+position).addClass('js-qahub--question-selected');
 
 		// Check if question in list is hidden at the bottom, and scroll to it if necessary
 		if ( $('#qa-question-'+position).offset().top >
