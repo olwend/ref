@@ -232,7 +232,21 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         }
         stream.writeStartElement(NS, "url");
 
-        String loc = externalizer.externalLink(resolver, externalizerDomain, String.format("%s.html", page.getPath()));
+        //Remove jcr path from page path
+        String pagePath = page.getPath();
+        if(pagePath.contains("/content/nhmwww/en/home")) {
+        	pagePath = pagePath.replaceAll("/content/nhmwww/en/home", "");
+        }
+        
+        String loc = null;
+        
+        //Append .html for non-home page pages
+        if(pagePath.length() == 0) {
+        	loc = "http://www.nhm.ac.uk";
+        } else {
+        	loc = "http://www.nhm.ac.uk" + pagePath + ".html";
+        }
+        
         writeElement(stream, "loc", loc);
 
         if (includeLastModified) {
