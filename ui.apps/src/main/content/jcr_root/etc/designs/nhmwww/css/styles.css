@@ -10709,6 +10709,7 @@ input.searchGo {
   border-bottom-color: #A1164E;
 }
 
-.discover .title-bar h1 {
+.discover .title-bar h1,
+.discover .title-bar p {
   color: #565656 !important;
 }
