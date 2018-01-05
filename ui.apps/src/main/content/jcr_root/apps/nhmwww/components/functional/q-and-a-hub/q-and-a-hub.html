@@ -29,13 +29,21 @@
 				</div>
 			</a>
 			<ol class="qahub--question-list" data-sly-list.list="${qahub.questionList}">
-				<li data-sly-test="${list.size > 0}">
-					<a href="#" id="qa-question-${listList.index}" class="qa-question js-qa-nav" data-question="${listList.index}">${list['question']}</a>
-				</li>
+				<a href="#" class="js-qa-nav" data-question="${listList.index}">
+					<li data-sly-test="${list.size > 0}" id="qa-question-${listList.index}" class="qa-question">
+						<span>${list['question']}</span>
+					</li>
+				</a>
 			</ol>
 			<a href="#" class="qahub--question-list-nav" data-direction="down">
 				<div class="qahub--question-down">
 					<img src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Scroll the list of questions down">
+				</div>
+			</a>
+			<a href="#" class="qahub--question-list-nav" data-direction="expand">
+				<div class="qahub--question-expand">
+					<img id="expand-up" src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Contract the list of questions" style="display: none">
+					<img id="expand-down" src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Expand the list of questions">
 				</div>
 			</a>
 		</div>

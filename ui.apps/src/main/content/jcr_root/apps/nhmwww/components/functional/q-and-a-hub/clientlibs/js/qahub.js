@@ -1,6 +1,13 @@
 $(document).ready(function() {
 
-	var questionCount = $('.qa-question').length - 1;
+	var questionCount = $('.qa-question').length - 1,
+		questionListTotalHeight = 0;
+
+	// Calculate total height of question list for mobile pulldown
+	$('.qa-question').each(function() {
+	  questionListTotalHeight += $(this).outerHeight();
+	});
+
 	$('#prev-question').data('question', questionCount);
 	$('#qa-question-0').addClass('js-qahub--question-selected');
 
@@ -9,16 +16,39 @@ $(document).ready(function() {
 		// Prevent window jump due to unfulfilled link
 		event.preventDefault();
 
+		var position = $(this).data('question'),
+			targetElement = $('#qa'+position),
+			answerListOffset = $('.qahub--answer-list').offset(),
+			answerListScrollLimit = null,
+			answerListScrollOffsetLimit = null,
+			questionListOffset = $('.qahub--question-list').offset(),
+			questionListHeight = $('.qahub--question-list').height(),
+			questionListScrollTop = $('.qahub--question-list').scrollTop(),
+			questionOffset = $('#qa-question-'+position).offset(),
+			questionHeight = $('#qa-question-'+position).height(),
+			questionPosition = $('#qa-question-'+position).position(),
+			previousQ = null,
+			nextQ = null,
+			prevElement = null,
+			nextElement = null;
+
+
 		// Check if answer window is off the screen - if so, scroll to top of answer window
-		// '150' refers to pixel count, to offset the fixed menu
-		// '180' refers to pixel count, to provide 30px margin on top of the answer window
-		if ( $('.qahub--answer-list').offset().top < ($(window).scrollTop() + 150) ) {
-			$(window).scrollTop( $('.qahub--answer-list').offset().top - 180 );
+		if ( $('.global-header--menu__nav').is(":visible") ) {
+			// '150' refers to pixel count, to offset the fixed menu
+			answerListScrollLimit = $(window).scrollTop() + 150;
+			// '160' refers to pixel count, to provide 10px margin on top of the answer window
+			answerListScrollOffsetLimit = answerListOffset.top - 160;
+		} else {
+			// Does not alter mobile values as the menu is not fixed
+			answerListScrollLimit = $(window).scrollTop();
+			answerListScrollOffsetLimit = answerListOffset.top;
+		}
+		if ( answerListOffset.top < answerListScrollLimit ) {
+			$(window).scrollTop( answerListScrollOffsetLimit );
 		}
 
-		// var position = parseInt( $(this).data('question') );
-		var position = $(this).data('question');
-		var targetElement = $('#qa'+position);
+		// Control answer visibility
 		targetElement.show();
 		targetElement.siblings('.answer').hide();
 
@@ -27,29 +57,29 @@ $(document).ready(function() {
 		nextQ = findNext(position);
 
 		// Set value of Previous Question arrow
-		var prevElement = $('#prev-question');
+		prevElement = $('#prev-question');
 		prevElement.data('question', previousQ);
 
 		// Set value of Next Question arrow
-		var nextElement = $('#next-question');
+		nextElement = $('#next-question');
 		nextElement.data('question', nextQ);
 
+		// Control question selected class
 		$('.qa-question').removeClass('js-qahub--question-selected');
 		$('#qa-question-'+position).addClass('js-qahub--question-selected');
 
 		// Check if question in list is hidden at the bottom, and scroll to it if necessary
-		if ( $('#qa-question-'+position).offset().top >
-			( $('.qahub--question-list').offset().top + $('.qahub--question-list').height() ) ) {
-			// "-200" used to prevent extreme acceleration in getting to the bottom of a short list
+		if ( ( questionOffset.top + questionHeight + 10 ) > ( questionListOffset.top + questionListHeight ) ) {
+			// "-150" used to prevent extreme acceleration in getting to the bottom of a short list
 			$('.qahub--question-list').stop().animate({
-				scrollTop: $('.qahub--question-list').scrollTop() + ( $('#qa-question-'+position).position().top - 200)
+				scrollTop: questionListScrollTop + ( questionPosition.top - 150 )
 				}, 250, 'swing' );
 		}
 		// Check if question in list is hidden at the top, and scroll to it if necessary
-		if ( $('#qa-question-'+position).offset().top < $('.qahub--question-list').offset().top) {
-			// "+20" used to ensure the window is scrolled completely to the top, including padding
+		if ( questionOffset.top < questionListOffset.top ) {
+			// "- 50" used to ensure the window is scrolled completely to the top, including padding
 			$('.qahub--question-list').stop().animate({
-				scrollTop: $('#qa-question-'+position).position().top - ( $('#qa-question-'+position).height() + 20)
+				scrollTop: (questionOffset.top - questionListOffset.top) + ( questionListScrollTop - 50 )
 				}, 250, 'swing' );
 		}
 	});
@@ -61,10 +91,27 @@ $(document).ready(function() {
 		event.preventDefault();
 
 		var direction = $(this).data('direction');
-		if (direction == 'up') {var scrollAmount = $('.qahub--question-list').scrollTop() - 50; }
-		if (direction == 'down') {var scrollAmount = $('.qahub--question-list').scrollTop() + 50; }
-
-		$('.qahub--question-list').stop().animate( {scrollTop: scrollAmount }, 250, 'swing' );
+		if (direction == 'expand') {
+			if ( $('.qahub--question-expand').hasClass('open') ) {
+				$('.qahub--question-list').animate({height: '0'}, 350, 'swing', function() {
+					$('.qahub--question-list').css('overflow-y', 'scroll');
+					$('.qahub--question-expand').removeClass('open');
+					$('#expand-down').show();
+					$('#expand-up').hide();
+				});
+			} else {
+				$('.qahub--question-list').animate({height: questionListTotalHeight}, 350, 'swing', function() {
+					$('.qahub--question-list').css('overflow-y', 'hidden');
+					$('.qahub--question-expand').addClass('open');
+					$('#expand-down').hide();
+					$('#expand-up').show();
+				});
+			}
+		} else {
+			if (direction == 'up') {var scrollAmount = $('.qahub--question-list').scrollTop() - 50; }
+			if (direction == 'down') {var scrollAmount = $('.qahub--question-list').scrollTop() + 50; }
+			$('.qahub--question-list').stop().animate( {scrollTop: scrollAmount }, 250, 'swing' );
+		}
 	});
 
 
