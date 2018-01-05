@@ -11,8 +11,9 @@
 <sly data-sly-test="${properties.name}">
 	<div data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
+		<h2>${dinosaur.genus}</h2>
+
     	<img src="${dinosaur.imageUrl}">
-		<p>Name: ${dinosaur.genus}</p>
 		<p>Diet: ${dinosaur.diet}</p>
 	
 	</div>

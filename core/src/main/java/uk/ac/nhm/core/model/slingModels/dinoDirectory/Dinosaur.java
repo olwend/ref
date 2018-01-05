@@ -33,16 +33,15 @@ public class Dinosaur {
 		HttpClient httpClient = new HttpClient();
 		GetMethod getMethod = new GetMethod(requestUrl);
 		
-		LOG.error(requestUrl);
+		LOG.info(requestUrl);
 		
 		try {
 			httpClient.executeMethod(getMethod);
 			JSONObject dinosaur = new JSONObject(getMethod.getResponseBodyAsString());
-			JSONArray dinosaurMediaArray = dinosaur.getJSONArray("mediaCollection");
-			JSONObject dinosaurMedia = dinosaurMediaArray.getJSONObject(0);
+			JSONObject dinosaurMedia = dinosaur.getJSONArray("mediaCollection").getJSONObject(0);
 			
 			this.setGenus(dinosaur.getString("genus"));
-			this.setDiet(dinosaur.getString("diet"));
+			this.setDiet(dinosaur.getString("dietTypeName"));
 			
 			this.setImageUrl("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory"
 					+ dinosaurMedia.getString("mediaTypePath")
