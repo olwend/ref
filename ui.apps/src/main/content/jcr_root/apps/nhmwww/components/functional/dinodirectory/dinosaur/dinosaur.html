@@ -1,0 +1,19 @@
+<sly data-sly-test="${!properties.name}">
+	<div class="row">
+		<h4>Dinosaur</h4>
+		Required fields:
+		<ul>
+			<li>Dinosaur name</li>
+		</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.name}">
+	<div data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
+
+    	<img src="${dinosaur.imageUrl}">
+		<p>Name: ${dinosaur.genus}</p>
+		<p>Diet: ${dinosaur.diet}</p>
+	
+	</div>
+</sly>
