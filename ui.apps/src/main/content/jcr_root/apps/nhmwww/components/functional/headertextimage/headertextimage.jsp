@@ -26,7 +26,7 @@
 		}
 	} 
 
-	if(!helper.isActivated() && (isOnEditMode || isOnDesignMode)) { %>
+	if(!helper.isActivated()) { %>
 	<div class="row">
 		<h4>Header, Text/Image</h4>
 		Required fields:
