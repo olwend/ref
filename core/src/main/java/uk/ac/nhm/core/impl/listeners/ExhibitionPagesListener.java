@@ -56,7 +56,7 @@ public class ExhibitionPagesListener implements EventListener {
 	protected void activate(ComponentContext ctx) {
 		try {
 			eventCalendarLoginUtils = new EventCalendarLoginUtils();
-			session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
+			session = repository.loginService("searchService", null);
 			exhibitionsObservationManager = session.getWorkspace().getObservationManager();
 			exhibitionsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EXHIBITIONS_PATH, true, null, null, false);
 		} catch (Exception e) {
