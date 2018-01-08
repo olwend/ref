@@ -74,7 +74,7 @@ public class CreateXMLFeedServiceImpl implements CreateXMLFeedService {
 
 		//eventCalendarLoginUtils = new EventCalendarLoginUtils();
         //session = repository.login(new SimpleCredentials(eventCalendarLoginUtils.getUserID(), eventCalendarLoginUtils.getUserPassword().toCharArray()));
-
+		session = repository.loginService("searchService", null);
 		LOG.info("Admin session created with user " + session.getUserID());
 
 		root = session.getRootNode();
