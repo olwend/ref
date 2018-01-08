@@ -26,7 +26,6 @@ import org.apache.felix.scr.annotations.Reference;
 import com.day.cq.tagging.JcrTagManagerFactory;
 
 import uk.ac.nhm.core.impl.services.CreateXMLFeedServiceImpl;
-import uk.ac.nhm.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.core.utils.EventPagesUtils;
 
 /**
@@ -43,7 +42,6 @@ public class EventPagesListener implements EventListener {
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions";
 	
 	private EventPagesUtils eventPagesUtils;
-	private EventCalendarLoginUtils eventCalendarLoginUtils;
 	
 	private Session session;
 	private ObservationManager eventsObservationManager;
@@ -61,7 +59,6 @@ public class EventPagesListener implements EventListener {
 	 */
 	protected void activate(ComponentContext ctx) {
 		try {
-			eventCalendarLoginUtils = new EventCalendarLoginUtils();
 			session = repository.loginService("searchService", null);
 			eventsObservationManager = session.getWorkspace().getObservationManager();
 			eventsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EVENTS_PATH, true, null, null, false);

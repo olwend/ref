@@ -22,7 +22,6 @@ import org.osgi.service.component.ComponentContext;
 
 import com.day.cq.tagging.JcrTagManagerFactory;
 
-import uk.ac.nhm.core.utils.EventCalendarLoginUtils;
 import uk.ac.nhm.core.utils.EventPagesUtils;
 
 /**
@@ -37,7 +36,6 @@ public class ExhibitionPagesListener implements EventListener {
 	private static final String EXHIBITIONS_PATH = "content/nhmwww/en/home/visit/exhibitions";
 	
 	private EventPagesUtils eventPagesUtils;
-	private EventCalendarLoginUtils eventCalendarLoginUtils;
 	
 	private Session session;
 	private ObservationManager exhibitionsObservationManager;
@@ -55,7 +53,6 @@ public class ExhibitionPagesListener implements EventListener {
 	 */
 	protected void activate(ComponentContext ctx) {
 		try {
-			eventCalendarLoginUtils = new EventCalendarLoginUtils();
 			session = repository.loginService("searchService", null);
 			exhibitionsObservationManager = session.getWorkspace().getObservationManager();
 			exhibitionsObservationManager.addEventListener(this, Event.NODE_ADDED | Event.NODE_REMOVED | Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED | Event.PROPERTY_REMOVED, "/"+ EXHIBITIONS_PATH, true, null, null, false);
