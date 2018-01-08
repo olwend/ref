@@ -28,28 +28,27 @@
 		<p>Search our collections</p>
 	</div>
 	<div class="primo-search">
-		<ul class="primo-search-options">
-			<li class="selected" id="tab1"><a href="javascript:void(0);" onclick="javascript:setSearchOptions(1);">Everything</a></li>
-			<li id="tab2"><a href="javascript:void(0);" onclick="javascript:setSearchOptions(2);">Print</a></li>
-			<li id="tab3"><a href="javascript:void(0);" onclick="javascript:setSearchOptions(3);">Online</a></li>
-		</ul>
 		<div id="primo-search-bar">
-			<form id="PrimoSearchForm" name="PrimoSearchForm" method="post"
-				action="//primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search">
-				<input name="vl(freeText0)" class="primo-search-style"
-					id="primo-searchq" accesskey="s" placeholder="Enter search terms..."
-					size="60" type="text"> <input name="mode" value="Basic"
-					type="hidden"> <input name="tab" value="default_tab"
-					type="hidden"> <input name="vid" value="44NHM_V1"
-					type="hidden"> <input value="Search" name="searchopt"
-					id="searchopt" type="button"
-					onclick="javascript:document.getElementById('PrimoSearchForm').submit();">
+			<form id="PrimoSearchForm" name="PrimoSearchForm" method="get" target="_self" action="http://primo-44nhm.hosted.exlibrisgroup.com/primo-explore/search" enctype="application/x-www-form-urlencoded; charset=utf-8" onsubmit="searchPrimo()">
+				<!-- Customizable Parameters -->
+				<input type="hidden" name="institution" value="44NHM_V1" >
+				<input type="hidden" name="vid" value="44NHM_V1">
+				<input type="hidden" name="tab" value="default_tab">
+				<input type="hidden" name="search_scope" value="default_scope">
+				<input type="hidden" name="mode" value="Basic">
+				<!-- Fixed parameters -->
+				<input type="hidden" name="displayMode" value="full">
+				<input type="hidden" name="bulkSize" value="<RECORDS PER PAGE, e.g. 10>">
+				<input type="hidden" name="highlight" value="true">
+				<input type="hidden" name="dum" value="true">
+				<input type="hidden" name="query" id="primoQuery">
+				<input type="hidden" name="displayField" value="all">
+				<!-- Enable this if "Expand My Results" is enabled by default in Views Wizard -->
+				<input type="hidden" name="pcAvailabiltyMode" value="true">
+				<input type="text" id="primoQueryTemp" class="primo-search-style" value="" placeholder="Search all collections">
+				<!-- Search Button -->
+				<input id="go" title="Search" onclick="searchPrimo()" type="button" value="Search" alt="Search">
 			</form>
-			<div class="advanced">
-				<a href="//primo-44nhm.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&ct=AdvancedSearch&fn=search&vid=44NHM_V1">
-					Advanced search
-				</a>
-			</div>
 		</div>
 	</div>
 </div>
