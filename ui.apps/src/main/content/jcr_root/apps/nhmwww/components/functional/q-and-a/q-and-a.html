@@ -3,7 +3,8 @@
 		<h4>Q & A</h4>
 		Required fields:
 		<ul>
-			<li>..any required fields</li>
+			<li>Question</li>
+			<li>Answer</li>
 		</ul>
 	</div>
 </div>
@@ -20,8 +21,14 @@
 			<p class="qasingle--answer">${properties.answer}</p>
 		</div>
 	</div>
-	<div class="qasingle--next-question-container clearfix">
-		<p class="qasingle--next-question left">Next question: Question text here?</p>
+
+	<div class="qasingle--next-question-container clearfix" data-sly-use.qa="uk.ac.nhm.core.model.slingModels.QA" data-sly-test="${qa.nextQuestion}">
+		<p class="qasingle--next-question left">
+		${qa.nextQuestion['question']}<br />
+				${qa.nextQuestion['link']}<br />
+		${qa.previousQuestion['question']}<br />
+		${qa.previousQuestion['link']}</p>
 		<img class="qasingle--next-question-arrow right" src="/etc/designs/nhmwww/img/arrows/mobile-return-arrow.png" alt="">
 	</div>
+	
 </div>

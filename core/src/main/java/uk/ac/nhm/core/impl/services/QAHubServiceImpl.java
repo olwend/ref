@@ -46,13 +46,16 @@ public class QAHubServiceImpl implements QAHubService {
 	//List<Map<String, String>> sorter
 	private Comparator<Map<String, String>> mapComparator = new Comparator<Map<String, String>>() {
 	    public int compare(Map<String, String> m1, Map<String, String> m2) {
-	        return m1.get("position").compareTo(m2.get("position"));
+	    	Integer position1 = Integer.parseInt(m1.get("position"));
+	    	Integer position2 = Integer.parseInt(m2.get("position"));
+	        return position1.compareTo(position2);
 	    }
 	};
 	
 	@Override
 	public List<Map<String, String>> getQuestionData(String rootPath, String[] tags) {
 		List<Map<String, String>> questionList = new ArrayList<Map<String, String>>();
+		LOG.error("QAHubService: getQuestionData");
 		
 		try {
 			final Session session = repository.loginService("searchService", null);
@@ -72,7 +75,7 @@ public class QAHubServiceImpl implements QAHubService {
 		    		String tagid = "group." + i + "_tagid";
 		    		String tagidproperty = "group." + i + "_tagid.property";
 				    queryMap.put(tagid, tags[i]);
-				    queryMap.put(tagidproperty, "otherTags");
+				    queryMap.put(tagidproperty, "cq:tags");
 		    	}
 		    }
 		    
@@ -90,15 +93,21 @@ public class QAHubServiceImpl implements QAHubService {
 		    	Node node = hits.getNode();
 		    	
 		    	//Get properties for each article
-		    	questionMap.put("path", node.getPath());
+		    	String path = node.getPath();
+		    	questionMap.put("path", path);
+		    	String link = path.replace("/content/nhmwww/en/home","").replace("/jcr:content/par/q_and_a","") +".html";
+		    	questionMap.put("link", link);
 		    	
-		    	if(node.hasProperty("position")) {
+		    	/*if(node.hasProperty("position")) {
 		    		//Arrayify the position value
 		    		String position = node.getProperty("position").getString();
 		    		int pos = Integer.valueOf(position) - 1;
 		    		position = String.valueOf(pos);
 		    				
 		    		questionMap.put("position", position);
+		    	}*/
+		    	if(node.hasProperty("position")) {
+		    		questionMap.put("position", node.getProperty("position").getString());
 		    	}
 		    	
 		    	if(node.hasProperty("question")) {

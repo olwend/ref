@@ -1,55 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
-    height="{Long}400"
-    title="Text"
-    width="{Long}600"
+    title="Q &amp; A.."
     xtype="dialog">
-    <items
-        jcr:primaryType="cq:Widget"
-        xtype="tabpanel">
-        <items jcr:primaryType="cq:WidgetCollection">
-            <tab1
-                jcr:primaryType="cq:Widget"
-                anchor="100%"
-                title="Text"
-                xtype="panel">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <question
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Question"
-                        name="./question"
-                        xtype="textfield"/>
-                    <answer
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Answer"
-                        name="./answer"
-                        xtype="textfield"/>
-                     <position
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Position"
-                        name="./position"
-                        xtype="textfield"/>
-                </items>
-            </tab1>
-            <tags
-            	jcr:primaryType="cq:Panel"
-            	title="Tags">
-            	<items jcr:primaryType="cq:WidgetCollection">
-            		<hubtag
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Hub tag"
-                        fieldDescription="Select one primary subject tag"
-                        name="./hubTag"
-                        xtype="tags"/>
-            		<othertags
-                        jcr:primaryType="cq:Widget"
-                        fieldLabel="Other tags"
-                        name="./otherTags"
-                        xtype="tags"/>
-                    
-            	</items>	
-            </tags>
-        </items>
-    </items>
+   
 </jcr:root>
