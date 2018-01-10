@@ -1,15 +1,15 @@
-<div data-sly-test="${!properties.question}">
-	<div class="row">
-		<h4>Q & A</h4>
-		Required fields:
-		<ul>
-			<li>Question</li>
-			<li>Answer</li>
-		</ul>
-	</div>
+<div class="row" data-sly-test="${!properties.question}">
+	<h4>Q & A</h4>
+	Required fields:
+	<ul>
+		<li>Question</li>
+		<li>Answer</li>
+		<li>Position of question</li>
+		<li>Tag</li>
+	</ul>
 </div>
 
-<div class="qasingle--container row">
+<div class="qasingle--container row" data-sly-test="${properties.question}">
 	<div class="qasingle--question-title-container">
 		<h3 class="qasingle--question-title">Quick question</h3>
 	</div>
@@ -28,5 +28,4 @@
 			<img class="qasingle--next-question-arrow right" src="/etc/designs/nhmwww/img/arrows/mobile-return-arrow.png" alt="Next question">
 		</a>
 	</div>
-
 </div>

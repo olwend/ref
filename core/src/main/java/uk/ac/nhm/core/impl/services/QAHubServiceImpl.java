@@ -22,8 +22,6 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-import com.day.cq.tagging.JcrTagManagerFactory;
-import com.day.cq.tagging.TagManager;
 
 import uk.ac.nhm.core.services.QAHubService;
 
@@ -35,10 +33,6 @@ public class QAHubServiceImpl implements QAHubService {
 
 	@Reference
 	private SlingRepository repository;
-
-	@Reference
-	private JcrTagManagerFactory jcrTagManagerFactory;
-	private TagManager tagManager;
 
 	@Reference
 	private QueryBuilder builder;
@@ -59,7 +53,6 @@ public class QAHubServiceImpl implements QAHubService {
 
 		try {
 			final Session session = repository.loginService("searchService", null);
-			tagManager = jcrTagManagerFactory.getTagManager(session);
 
 			Map<String, String> queryMap = new HashMap<String, String>();
 

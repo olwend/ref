@@ -24,28 +24,25 @@
 			                   	jcr:primaryType="nt:unstructured"
 								fieldLabel="Question"
 								name="./question"
-	                    		sling:resourceType="granite/ui/components/coral/foundation/form/textfield" 
-								rootPath="/content/nhmwww" 
+	                    		sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
 								required="true" />
 		                    <answer 
 			                   	jcr:primaryType="nt:unstructured"
 								fieldLabel="Answer"
 								name="./answer"
-	                    		sling:resourceType="granite/ui/components/coral/foundation/form/textfield" 
-								rootPath="/content/nhmwww" 
+	                    		sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
 								required="true" />
 		                    <position 
 			                   	jcr:primaryType="nt:unstructured"
 								fieldLabel="Position"
 								name="./position"
-	                    		sling:resourceType="granite/ui/components/coral/foundation/form/numberfield" 
-								rootPath="/content/nhmwww" 
+	                    		sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
 								required="true"
 								min="1"
 								defaultValue="1" />
 							<tag
 		                        jcr:primaryType="nt:unstructured"
-		                        fieldLabel="Tag"
+		                        fieldLabel="Tag *"
 		                        name="./cq:tags"
 		                        sling:resourceType="cq/gui/components/common/tagspicker"
 		                        allowBulkEdit="{Boolean}true"

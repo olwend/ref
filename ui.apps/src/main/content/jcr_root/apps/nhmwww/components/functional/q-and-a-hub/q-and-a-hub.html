@@ -2,24 +2,22 @@
 	<meta data-sly-call="${clientLib.all @ categories='nhmwww.qahub'}" data-sly-unwrap></meta>
 </sly>
 
-<div data-sly-test="${!properties.rootpath}">
-	<div class="row">
-		<h4>Q & A hub</h4>
-		Required fields:
-		<ul>
-			<li>Root path</li>
-				<li>Tag</li>
-		</ul>
-	</div>
+<div class="row" data-sly-test="${!properties.rootpath}">
+	<h4>Q & A hub</h4>
+	Required fields:
+	<ul>
+		<li>Root path</li>
+		<li>Tag</li>
+	</ul>
 </div>
 
-<div data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub">
+<sly data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub" data-sly-test="${properties.rootpath}">
 
-	<div data-sly-test="${!qahub.questionList}">
+	<sly data-sly-test="${!qahub.questionList}">
 		This query returns no results
-	</div>
+	</sly>
 
-	<div data-sly-test="${qahub.questionList}" class="qahub--container row">
+	<sly data-sly-test="${qahub.questionList}" class="qahub--container row">
 
 		<div class="qahub--question-container columns small-12 medium-4 large-4" >
 			<h3 class="qahub--question-title">Quick questions</h3>
@@ -80,6 +78,6 @@
 
 		</div>
 
-	</div>
+	</sly>
 
-</div>
+</sly>

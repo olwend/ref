@@ -45,7 +45,6 @@ public class QA {
 		Integer position = Integer.parseInt(properties.get("position",String.class));
 		
 		this.setQuestionList(hubService.getQuestionData(rootPath, tags));
-		//this.setQuestionList(service.getQuestionData(rootPath, tags));
 		this.setNextQuestion(service.getNextQuestion(position,questionList));
 		this.setPrevioustQuestion(service.getPreviousQuestion(position,questionList));
 	}
@@ -61,17 +60,16 @@ public class QA {
 	public Map<String, String> getNextQuestion(){
 		return nextQuestion;
 	}
+	
 	public void setNextQuestion(Map<String, String> nextQuestion) {
 		this.nextQuestion = nextQuestion;
 	}
+	
 	public Map<String, String> getPreviousQuestion(){
 		return previousQuestion;
 	}
+	
 	public void setPrevioustQuestion(Map<String, String> previousQuestion) {
 		this.previousQuestion = previousQuestion;
 	}	
-	
-	
-	
-
 }
