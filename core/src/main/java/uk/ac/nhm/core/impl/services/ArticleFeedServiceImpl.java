@@ -162,22 +162,6 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 			    		}
 			    	}
 		    	}
-		    	
-		    	//Get image for Discover template pages
-		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/discoverpublicationpage")) {
-			    	if(node.hasProperty("jcr:content/discoverpublication/headType")) {
-			    		if(node.getProperty("jcr:content/discoverpublication/headType").getString().equals("image")) {
-			    			if(node.hasProperty("jcr:content/discoverpublication/image/fileReference")) {
-								nodeMap.put("imagePath", node.getProperty("jcr:content/discoverpublication/image/fileReference").getString());
-							}
-			    		} else if(node.getProperty("jcr:content/discoverpublication/headType").getString().equals("video")) {
-			    			if(node.hasProperty("jcr:content/discoverpublication/video/youtube")) {
-			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/discoverpublication/video/youtube").getString() + "/mqdefault.jpg";
-					    		nodeMap.put("imagePath", youtubeImagePath);
-					    	}
-			    		}
-			    	}
-		    	}
 
 		    	//Get publish date
 		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");

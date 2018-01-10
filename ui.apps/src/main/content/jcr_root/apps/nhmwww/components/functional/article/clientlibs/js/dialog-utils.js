@@ -44,7 +44,7 @@ function concatenate_tags(dialog) {
 //Touch UI
 $(document).on("click", ".cq-dialog-submit", function () {
     var dialogTitle = $('.cq-dialog-header').text();
-    if(dialogTitle.includes("Article Configuration")) {
+    if(dialogTitle.includes("Article")) {
     	var $form = $(this).closest("form.foundation-form");
 
     	//Tags

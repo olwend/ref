@@ -10900,10 +10900,11 @@ input.searchGo {
 }
 
 .headertextimage {
-  display: table;
-  width: 100%;
+    display: table;
+    width: 100%;
 }
 
-.discover .title-bar h1 {
+.discover .title-bar h1,
+.discover .title-bar p {
   color: #565656 !important;
 }

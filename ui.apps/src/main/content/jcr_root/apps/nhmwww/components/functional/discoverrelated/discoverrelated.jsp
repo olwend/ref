@@ -35,10 +35,7 @@ if(posts == null) { %>
 			String template = postPage.getProperties().get("cq:template", String.class);
 
 					if(template.equals("/apps/nhmwww/templates/articlepage")) {
-							postResource = postPage.getContentResource("article");
-					}
-						if(template.equals("/apps/nhmwww/templates/discoverpublicationpage")) {
-							postResource = postPage.getContentResource("discoverpublication");
+						postResource = postPage.getContentResource("article");
 					}
 			if (postResource == null) continue;
 

@@ -70,17 +70,12 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
-        <dependency>
-            <groupId>uk.ac.nhm</groupId>
-            <artifactId>nhm-test.core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>uk.ac.nhm</groupId> -->
+<!--             <artifactId>nhm-www.core</artifactId> -->
+<!--             <version>0.0.1-SNAPSHOT</version> -->
+<!--         </dependency> -->
 
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
-            <classifier>apis</classifier>
-        </dependency>
 
         <dependency>
             <groupId>javax.jcr</groupId>

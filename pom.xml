@@ -403,15 +403,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.5.11</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- Apache Sling Dependencies -->
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>uber-jar</artifactId>
-                <version>6.2.0</version>
-                <classifier>apis</classifier>
+                <version>1.6.6</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -435,6 +427,11 @@
                 <version>2.1</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+			    <groupId>javax.inject</groupId>
+			    <artifactId>javax.inject</artifactId>
+			    <version>1</version>
+			</dependency>
             <!-- JCR -->
             <dependency>
                 <groupId>javax.jcr</groupId>
@@ -449,31 +446,7 @@
                 <version>5.7.4</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Testing -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-simple</artifactId>
-                <version>1.5.11</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>2.7.22</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>junit-addons</groupId>
-                <artifactId>junit-addons</artifactId>
-                <version>1.4</version>
-                <scope>test</scope>
-            </dependency>
+            
             <dependency>
                <groupId>com.adobe.aem</groupId>
                <artifactId>uber-jar</artifactId>
@@ -547,6 +520,57 @@
 			    <groupId>commons-httpclient</groupId>
 			    <artifactId>commons-httpclient</artifactId>
 			    <version>3.1</version>
+			</dependency>
+			
+			
+			<!-- Testing -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>1.7.6</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>1.10.19</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit-addons</groupId>
+                <artifactId>junit-addons</artifactId>
+                <version>1.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-imaging</artifactId>
+			    <version>1.0-R1534292</version>
+			    <scope>test</scope>
+			</dependency>
+			<dependency>
+			    <groupId>org.powermock</groupId>
+			    <artifactId>powermock-api-mockito</artifactId>
+			    <version>1.6.4</version>
+			    <scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.wcm</groupId>
+				<artifactId>io.wcm.testing.aem-mock</artifactId>
+				<version>2.2.6</version>
+				<scope>test</scope>
+				<exclusions>
+			        <exclusion>
+			            <groupId>org.apache.commons</groupId>
+			            <artifactId>commons-imaging</artifactId>
+			        </exclusion>
+			    </exclusions>
 			</dependency>
         </dependencies>
     </dependencyManagement>
