@@ -18,9 +18,9 @@ $(document).ready(function() {
 
 		var position = $(this).data('question'),
 			targetElement = $('#qa'+position),
-			answerListOffset = $('.qahub--answer-list').offset(),
-			answerListScrollLimit = null,
-			answerListScrollOffsetLimit = null,
+			questionListContainerOffset = $('.qahub--question-container').offset(),
+			questionListContainerScrollLimit = null,
+			questionListContainerScrollOffsetLimit = null,
 			questionListOffset = $('.qahub--question-list').offset(),
 			questionListHeight = $('.qahub--question-list').height(),
 			questionListScrollTop = $('.qahub--question-list').scrollTop(),
@@ -34,23 +34,30 @@ $(document).ready(function() {
 
 
 		// Check if answer window is off the screen - if so, scroll to top of answer window
-		if ( $('.global-header--menu__nav').is(":visible") ) {
+		if ( $('.js-qahub-control').is(":visible") ) {
 			// '150' refers to pixel count, to offset the fixed menu
-			answerListScrollLimit = $(window).scrollTop() + 150;
+			questionListContainerScrollLimit = $(window).scrollTop() + 150;
 			// '160' refers to pixel count, to provide 10px margin on top of the answer window
-			answerListScrollOffsetLimit = answerListOffset.top - 160;
+			questionListContainerScrollOffsetLimit = questionListContainerOffset.top - 160;
 		} else {
 			// Does not alter mobile values as the menu is not fixed
-			answerListScrollLimit = $(window).scrollTop();
-			answerListScrollOffsetLimit = answerListOffset.top;
+			questionListContainerScrollLimit = $(window).scrollTop();
+			questionListContainerScrollOffsetLimit = questionListContainerOffset.top;
+			// Call the exand function to hide the question list
+			expand('up');
 		}
-		if ( answerListOffset.top < answerListScrollLimit ) {
-			$(window).scrollTop( answerListScrollOffsetLimit );
+		if ( questionListContainerOffset.top < questionListContainerScrollLimit ) {
+			$('html,body').animate({
+				scrollTop: questionListContainerScrollOffsetLimit
+				}, 250, 'swing' );
 		}
 
 		// Control answer visibility
-		targetElement.show();
-		targetElement.siblings('.answer').hide();
+		// Use :visible selector to prevent fadeIn callback from firing immediately
+		// Use stop() to prevent fast concurrent clicks from queueing animations
+		targetElement.siblings('.answer:visible').stop().fadeOut('fast', function() {
+			targetElement.fadeIn('slow');
+		});
 
 		// Find values of previous and next questions, based on current question position
 		previousQ = findPrevious(position);
@@ -93,19 +100,9 @@ $(document).ready(function() {
 		var direction = $(this).data('direction');
 		if (direction == 'expand') {
 			if ( $('.qahub--question-expand').hasClass('open') ) {
-				$('.qahub--question-list').animate({height: '0'}, 350, 'swing', function() {
-					$('.qahub--question-list').css('overflow-y', 'scroll');
-					$('.qahub--question-expand').removeClass('open');
-					$('#expand-down').show();
-					$('#expand-up').hide();
-				});
+				expand('up');
 			} else {
-				$('.qahub--question-list').animate({height: questionListTotalHeight}, 350, 'swing', function() {
-					$('.qahub--question-list').css('overflow-y', 'hidden');
-					$('.qahub--question-expand').addClass('open');
-					$('#expand-down').hide();
-					$('#expand-up').show();
-				});
+				expand('down');
 			}
 		} else {
 			if (direction == 'up') {var scrollAmount = $('.qahub--question-list').scrollTop() - 50; }
@@ -114,6 +111,23 @@ $(document).ready(function() {
 		}
 	});
 
+	function expand(direction) {
+		if ("up" == direction) {
+			$('.qahub--question-list').animate({height: '0'}, 350, 'swing', function() {
+				$('.qahub--question-list').css('overflow-y', 'scroll');
+				$('.qahub--question-expand').removeClass('open');
+				$('#expand-down').show();
+				$('#expand-up').hide();
+			});
+		} else if ("down" == direction) {
+			$('.qahub--question-list').animate({height: questionListTotalHeight}, 350, 'swing', function() {
+				$('.qahub--question-list').css('overflow-y', 'hidden');
+				$('.qahub--question-expand').addClass('open');
+				$('#expand-down').hide();
+				$('#expand-up').show();
+			});
+		}
+	}
 
 	function findPrevious(position) {
 		previousQ = parseInt( position - 1 );

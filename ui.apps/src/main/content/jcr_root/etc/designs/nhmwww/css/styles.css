@@ -9296,7 +9296,7 @@ input.searchGo {
 }
 
 .qahub--question-list {
-  height: 185px;
+  height: 100px;
   margin: 2px 0;
   padding: 0;
   background-color: #FFFFFF;
@@ -9307,6 +9307,7 @@ input.searchGo {
 
 @media screen and (min-width: 1024px) {
   .qahub--question-list {
+    height: 185px;
     font-size: 1.3rem;
   }
 }
@@ -9354,6 +9355,7 @@ input.searchGo {
 }
 
 .qahub--answer-list {
+  height: 400px;
   padding: 20px;
   background-color: #EEEEEE;
 }
@@ -9397,6 +9399,26 @@ input.searchGo {
   background-color: #EEEEEE;
   padding: 20px;
   margin-bottom: 2px;
+}
+
+.qasingle--previous-question-container a,
+.qasingle--previous-question-container a:hover, .qasingle--next-question-container a,
+.qasingle--next-question-container a:hover {
+  color: #565656;
+}
+
+.qasingle--previous-question-container {
+  background-color: #EEEEEE;
+  padding: 20px;
+}
+
+.qasingle--previous-question {
+  margin: 0;
+}
+
+.qasingle--previous-question-arrow {
+  max-width: 30px;
+  transform: rotate(0.5turn);
 }
 
 .qasingle--next-question-container {

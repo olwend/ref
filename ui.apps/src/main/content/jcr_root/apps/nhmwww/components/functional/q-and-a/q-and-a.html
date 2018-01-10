@@ -23,12 +23,10 @@
 	</div>
 
 	<div class="qasingle--next-question-container clearfix" data-sly-use.qa="uk.ac.nhm.core.model.slingModels.QA" data-sly-test="${qa.nextQuestion}">
-		<p class="qasingle--next-question left">
-		${qa.nextQuestion['question']}<br />
-				${qa.nextQuestion['link']}<br />
-		${qa.previousQuestion['question']}<br />
-		${qa.previousQuestion['link']}</p>
-		<img class="qasingle--next-question-arrow right" src="/etc/designs/nhmwww/img/arrows/mobile-return-arrow.png" alt="">
+		<a href="${qa.nextQuestion['link']}">
+			<p class="qasingle--next-question left">Next question: ${qa.nextQuestion['question']}</p>
+			<img class="qasingle--next-question-arrow right" src="/etc/designs/nhmwww/img/arrows/mobile-return-arrow.png" alt="Next question">
+		</a>
 	</div>
-	
+
 </div>
