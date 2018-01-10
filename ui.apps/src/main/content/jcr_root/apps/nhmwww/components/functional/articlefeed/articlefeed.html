@@ -16,8 +16,7 @@
 			<div data-sly-test="${!articlefeed.pageList}">This query
 				returns no results</div>
 			<div data-sly-test="${articlefeed.pageList}">
-				<ul data-sly-list.list="${articlefeed.pageList}"
-					class="small-block-grid-1 medium-block-grid-2 large-block-grid-${articlefeed.columns}">
+				<ul data-sly-list.list="${articlefeed.pageList}" class="small-block-grid-1 medium-block-grid-${articlefeed.mediumColumn} large-block-grid-${articlefeed.largeColumn}">
 					<li data-sly-test="${list.size > 0}">
 						<div class="articlefeed--item">
 							<div class="articlefeed--item__image">
