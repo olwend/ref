@@ -1,6 +1,25 @@
-Dino search
+Country
+<select class="filterDinosaurs" data-tableId="tableDinosaurs">
+  <option value="All">All</option>
+  <option value="England">England</option>
+  <option value="Scotland">Scotland</option>
+</select>
 
-<div data-sly-use.dinosaursearch="dinosaursearch.js">
-    <h1>${dinosaursearch.title}</h1>
-    <p>${dinosaursearch.description}</p>
-</div>
+<table id="tableDinosaurs">
+  <tr id="one" class="dinosaur" data-country="England" data-size="big">
+    <td>Dinosaur1 - England</td>
+  </tr>
+  <tr id="two"  class="dinosaur" data-country="England" data-size="small">
+    <td>Dinosaur2 - England</td>
+  </tr>
+  <tr id="three" class="dinosaur" data-country="Scotland" data-size="big">
+    <td>Dinosaur3 - Scotland</td>
+  </tr>
+  <tr id="four" class="dinosaur" data-country="England" data-size="small">
+    <td>Dinosaur4 - England</td>
+  </tr>
+  <tr id="five" class="dinosaur" data-country="Scotland" data-size="small">
+    <td>Dinosaur5 - Scotland</td>
+  </tr>
+</table>
+
