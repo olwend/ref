@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Dinosaur"
+    jcr:title="Dinosaur search"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
@@ -20,22 +20,34 @@
 		                jcr:primaryType="nt:unstructured"
 		                sling:resourceType="granite/ui/components/foundation/container">
 		                <items jcr:primaryType="nt:unstructured">
-		                    <name
+		                    <filterOne
 		                        jcr:primaryType="nt:unstructured"
-		                        fieldLabel="Dinosaur name"
-		                        name="./name"
+		                        fieldLabel="Filter one"
+		                        name="./filterOne"
 		                        sling:resourceType="granite/ui/components/foundation/form/select" >
 		                        <items jcr:primaryType="nt:unstructured">
 			                        <o1
 			                            jcr:primaryType="nt:unstructured"
-			                            text="One column"
-                       					value="4" />
+			                            text="Country"
+                       					value="country" />
+			                    </items>
+							</filterOne>
+							<filterTwo
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Filter two"
+		                        name="./filterTwo"
+		                        sling:resourceType="granite/ui/components/foundation/form/select" >
+		                        <items jcr:primaryType="nt:unstructured">
+			                        <o1
+			                            jcr:primaryType="nt:unstructured"
+			                            text="England"
+                       					value="england" />
 			                        <o2
 			                            jcr:primaryType="nt:unstructured"
-			                            text="Two columns"
-                       					value="8"/>
+			                            text="Scotland"
+                       					value="scotland"/>
 			                    </items>
-							</name>
+							</filterTwo>
 		            	</items>
 		            </column>
                 </items>

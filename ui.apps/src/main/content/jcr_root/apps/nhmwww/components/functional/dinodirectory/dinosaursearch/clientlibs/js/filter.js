@@ -5,7 +5,7 @@ $(document).on("change", ".filterDinosaurs", function () {
       
     row.hide()
     row.each(function(i, el) {
-         if($(el).attr('data-country') == filterValue) {
+         if($(el).attr('data-body-shape') == filterValue) {
              $(el).show();
          }
     })

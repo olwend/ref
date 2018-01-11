@@ -1,25 +1,19 @@
-Country
+<h3>${properties.filterOne} - ${properties.filterTwo}</h3>
+
+<p>Filter by body shape</p>
 <select class="filterDinosaurs" data-tableId="tableDinosaurs">
   <option value="All">All</option>
-  <option value="England">England</option>
-  <option value="Scotland">Scotland</option>
+  <option value="Sauropod">Sauropod</option>
+  <option value="Ceratopian">Ceratopian</option>
+  <option value="Euornithopod">Euornithopod</option>
+  <option value="Large theropod">Large theropod</option>
+  <option value="Small theropod">Small theropod</option>
+  <option value="Ankylosaurid">Ankylosaurid</option>
+  <option value="Ornithomimosaur">Ornithomimosaur</option>
 </select>
 
-<table id="tableDinosaurs">
-  <tr id="one" class="dinosaur" data-country="England" data-size="big">
-    <td>Dinosaur1 - England</td>
-  </tr>
-  <tr id="two"  class="dinosaur" data-country="England" data-size="small">
-    <td>Dinosaur2 - England</td>
-  </tr>
-  <tr id="three" class="dinosaur" data-country="Scotland" data-size="big">
-    <td>Dinosaur3 - Scotland</td>
-  </tr>
-  <tr id="four" class="dinosaur" data-country="England" data-size="small">
-    <td>Dinosaur4 - England</td>
-  </tr>
-  <tr id="five" class="dinosaur" data-country="Scotland" data-size="small">
-    <td>Dinosaur5 - Scotland</td>
-  </tr>
-</table>
-
+<sly data-sly-use.dinosaurSearch="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearch">
+	<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+		<li class="dinosaur" data-body-shape="${dinosaurs['bodyShape']}">${dinosaurs['genus']} - ${dinosaurs['bodyShape']}</li>
+	</ul>
+</sly>
