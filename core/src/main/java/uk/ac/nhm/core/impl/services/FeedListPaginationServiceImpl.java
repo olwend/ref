@@ -181,7 +181,7 @@ public class FeedListPaginationServiceImpl implements FeedListPaginationService 
 				final Query query = queryMgr.createQuery(keyQuery,javax.jcr.query.Query.JCR_SQL2);
 				query.setLimit(queryLimit);
 				final QueryResult queryResult = query.execute();
-	
+	LOG.error(query.getStatement());
 				final NodeIterator iterator = queryResult.getNodes();
 	
 				/* Get Resource resolver using resource resolver factory. */
