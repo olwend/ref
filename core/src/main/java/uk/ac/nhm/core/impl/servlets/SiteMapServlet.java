@@ -133,8 +133,6 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
     private List<String> damAssetTypes;
 
     private String excludeFromSiteMapProperty;
-    
-    private String characterEncoding;
 
     @Activate
     protected void activate(Map<String, Object> properties) {
@@ -152,29 +150,23 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
                 .asList(PropertiesUtil.toStringArray(properties.get(PROP_DAM_ASSETS_TYPES), new String[0]));
         this.excludeFromSiteMapProperty = PropertiesUtil.toString(properties.get(PROP_EXCLUDE_FROM_SITEMAP_PROPERTY),
                 NameConstants.PN_HIDE_IN_NAV);
-        this.characterEncoding = PropertiesUtil.toString(properties.get(PROP_CHARACTER_ENCODING_PROPERTY),
-                null);
     }
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
 
-        //response.setContentType(request.getResponseContentType());
     	response.setContentType("text/xml");
-        if (StringUtils.isNotEmpty(this.characterEncoding)) {
-            response.setCharacterEncoding(characterEncoding);
-        }
+        response.setCharacterEncoding("UTF-8");
+
         ResourceResolver resourceResolver = request.getResourceResolver();
-        //PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         Resource resource = resourceResolver.getResource("/content/nhmwww/en/home");
         Page page = resource.adaptTo(Page.class);
-        LOG.error(page.getTitle());
 
         XMLOutputFactory outputFactory = XMLOutputFactory.newFactory();
         try {
             XMLStreamWriter stream = outputFactory.createXMLStreamWriter(response.getWriter());
-            stream.writeStartDocument("1.0");
+            stream.writeStartDocument("UTF-8", "1.0");
 
             stream.writeStartElement("", "urlset", NS);
             stream.writeNamespace("", NS);
