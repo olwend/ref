@@ -8,6 +8,59 @@
     <cq:inplaceEditing
         jcr:primaryType="cq:InplaceEditingConfig"
         active="{Boolean}true"
-        configPath="../../dialog/items/tab1/items/text"
-        editorType="text"/>
+        editorType="text">
+        <config jcr:primaryType="nt:unstructured">
+        	<rtePlugins jcr:primaryType="nt:unstructured">
+        		<paraformat
+        			jcr:primaryType="nt:unstructured"
+        			features="*">
+       				<formats jcr:primaryType="cq:WidgetCollection">
+       					<nhm2
+       						description="Heading 2"
+       						jcr:primaryType="nt:unstructured"
+       						tag="h2" />
+      						<nhm3
+       						description="Heading 3"
+       						jcr:primaryType="nt:unstructured"
+       						tag="h3" />
+      						<nhm4
+       						description="Heading 4"
+       						jcr:primaryType="nt:unstructured"
+       						tag="h4" />
+      						<nhm5
+       						description="Heading 5"
+       						jcr:primaryType="nt:unstructured"
+       						tag="h5" />
+      						<p
+       						description="Paragraph"
+       						jcr:primaryType="nt:unstructured"
+       						tag="p" />
+       				</formats>
+       			</paraformat>
+       			<subsuperscript
+       				jcr:primaryType="nt:unstructured"
+       				features="*" />
+ 				<styles
+ 					jcr:primaryType="nt:unstructured"
+ 					features="*">
+ 					<styles jcr:primaryType="cq:WidgetCollection">
+ 						<headingBox
+ 							jcr:primaryType="nt:unstructured"
+ 							cssName="heading-box"
+ 							text="Heading box" />
+						<introText
+							jcr:primaryType="nt:unstructured"
+ 							cssName="intro-text"
+ 							text="Intro text" />
+ 					</styles>
+				</styles>
+				<misctools
+       				jcr:primaryType="nt:unstructured"
+       				features="*" />
+      			<spellcheck
+       				jcr:primaryType="nt:unstructured"
+       				features="*" />
+        	</rtePlugins>	
+        </config>
+	</cq:inplaceEditing>
 </jcr:root>

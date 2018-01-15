@@ -76,11 +76,11 @@
                         xtype="selection"
                         defaultValue="or">
                         <options jcr:primaryType="cq:WidgetCollection">
-                            <datecreated
+                            <and
                                 jcr:primaryType="nt:unstructured"
                                 text="And"
                                 value="and"/>
-                            <datemodified
+                            <or
                                 jcr:primaryType="nt:unstructured"
                                 text="Or"
                                 value="or"/>

@@ -1,11 +1,22 @@
 <%@page session="false"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.*"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.BigSplashHelper"%>
 
 <%
 	BigSplashHelper helper = new BigSplashHelper(slingRequest, currentPage, properties);
 %>
 
+<%if(helper.getVideoId() == null || helper.getImagePath() == null || helper.getTitle() == null) { %>
+	<div class="row">
+		<h4>Big splash</h4>
+		Required fields:
+		<ul>
+			<li>YouTube video ID</li>
+			<li>Image path</li>
+			<li>Title</li>
+		</ul>
+	</div>
+<%} else { %>
 	<!-- Basic tab -->
 
 <div class="bigsplash-video js--bigsplash-video" data-nhm-videoid="<%= helper.getVideoId() %>">
@@ -50,3 +61,5 @@
 
 	</div>
 </div>
+
+<%}%>

@@ -12,6 +12,7 @@
         afteredit="REFRESH_PAGE"
         afterinsert="REFRESH_PAGE"
         aftermove="REFRESH_PAGE"/>
+    
     <cq:dropTargets jcr:primaryType="nt:unstructured">
         <image
             jcr:primaryType="cq:DropTargetConfig"

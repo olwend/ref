@@ -4,7 +4,7 @@
         com.day.cq.commons.DiffInfo,
         com.day.cq.commons.DiffService,
         org.apache.sling.api.resource.ResourceUtil,
-        uk.ac.nhm.nhm_www.core.componentHelpers.NewsHelper"%>
+        uk.ac.nhm.core.componentHelpers.NewsHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <div class="main-section">
 	<%
@@ -48,9 +48,12 @@
 	<% if (!helper.getIsComponentInitialised()) {%>
 	<div class="row " data-equalizer>
 		<div class="large-12 columns">
-			<h2>Page not initialised</h2>
-			<em>Please add a tag for this story along with an image and enter a page summary in the Page
-				properties.</em>
+			<h4>Tagged content page</h4>
+			Required fields (editable in page properties):
+			<ul>
+				<li>Tag</li>
+				<li>Summary</li>
+			</ul>
 		</div>
 	</div>
 	<% } else {%>

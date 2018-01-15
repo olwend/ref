@@ -2,34 +2,20 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
     activeTab="{Long}0"
-    helpPath="en/cq/current/wcm/default_components.html#Image"
     xtype="dialog">
     <items
         jcr:primaryType="cq:Widget"
         xtype="tabpanel">
         <items jcr:primaryType="cq:WidgetCollection">
-            <videoPanel
-                jcr:primaryType="cq:Panel"
-                title="Video">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <video
-                        jcr:primaryType="cq:Widget"
-                        fieldDescription="Optional: Drag and drop a video from the YouTube tab of the Content Finder"
-                        fieldLabel="Video"
-                        name="./youtube"
-                        width="155"
-                        xtype="youtubevideofield"/>
-                </items>
-            </videoPanel>
             <titlePanel
                 jcr:primaryType="cq:Panel"
                 title="Title">
                 <items jcr:primaryType="cq:WidgetCollection">
-                <title
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="Title"
-                    name="./title"
-                    xtype="textfield"/>
+	                <title
+	                    jcr:primaryType="cq:Widget"
+	                    fieldLabel="Title"
+	                    name="./title"
+	                    xtype="textfield"/>
                 </items>
             </titlePanel>
         </items>

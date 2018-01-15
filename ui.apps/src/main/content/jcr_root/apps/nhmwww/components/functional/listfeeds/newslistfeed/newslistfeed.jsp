@@ -8,11 +8,11 @@
 <%@page import="com.day.cq.tagging.TagManager"%>
 <%@page import="org.apache.sling.api.resource.Resource"%>
 <%@page import="com.day.cq.tagging.Tag"%>
-<%@page import="uk.ac.nhm.nhm_www.core.services.FeedListPaginationService"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.DatedAndTaggedFeedListHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.DatedAndTaggedFeedListElement"%>
+<%@page import="uk.ac.nhm.core.services.FeedListPaginationService"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.DatedAndTaggedFeedListHelper"%>
+<%@page import="uk.ac.nhm.core.model.DatedAndTaggedFeedListElement"%>
 <%@page import="java.util.Iterator"%>
-<%-- <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper"%>  --%>
+<%-- <%@page import="uk.ac.nhm.core.componentHelpers.FeedListHelper"%>  --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%@page session="false" %>
 <cq:defineObjects />
@@ -20,14 +20,21 @@
 <cq:includeClientLib categories="nhm-www.newslist"/>
 
 <%	DatedAndTaggedFeedListHelper helper = new  DatedAndTaggedFeedListHelper(properties, pageManager, currentPage, request, resourceResolver);
-	if (helper.hasTags()) {
+	if (!helper.hasTags()) {
+		%>	<div class="row">
+				<h4>News list feed</h4>
+				Required fields:
+				<ul>
+					<li>Heading</li>
+					<li>Text</li>
+				</ul>
+			</div><%
+		return;
+	}
+	else {
 		final FeedListPaginationService searchService = sling.getService(FeedListPaginationService.class);
 		final String[] tags = helper.getTags();
 		searchService.setCqTags(tags);
-	}
-	else {
-		%><p>This component is not configured correctly</p><%
-		return;
 	}
 
 	String path = "";

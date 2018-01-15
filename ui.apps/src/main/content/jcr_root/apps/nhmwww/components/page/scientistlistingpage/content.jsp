@@ -1,7 +1,7 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%@page import="com.day.cq.wcm.api.WCMMode,
 				java.util.List,
-				uk.ac.nhm.nhm_www.core.services.StaffProfileService" %>
+				uk.ac.nhm.core.services.StaffProfileService" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <%

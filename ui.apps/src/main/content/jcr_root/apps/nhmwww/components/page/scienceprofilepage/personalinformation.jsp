@@ -1,8 +1,8 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.science.PhoneNumber,
-				uk.ac.nhm.nhm_www.core.model.science.EmailAddress,
-				uk.ac.nhm.nhm_www.core.model.science.WebSite,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
+<%@page import="uk.ac.nhm.core.model.science.PhoneNumber,
+				uk.ac.nhm.core.model.science.EmailAddress,
+				uk.ac.nhm.core.model.science.WebSite,
+				uk.ac.nhm.core.componentHelpers.ScientistProfileHelper,
 				java.util.List,
 				java.util.Set"%> 
 <%
