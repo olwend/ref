@@ -8,21 +8,21 @@ Bundle-Name: nhm-www - Core
 Bundle-SymbolicName: uk.ac.nhm.www.core
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Export-Package: uk.ac.nhm.nhm_www.core;version="1.0"
+Export-Package: uk.ac.nhm.core;version="1.0"
 Import-Package: javax.servlet,org.apache.sling.api;version="[2.3,3)",org
  .apache.sling.api.request;version="[2.4,3)",org.apache.sling.api.resour
  ce;version="[2.5,3)",org.apache.sling.api.servlets;version="[2.1,3)",or
  g.apache.sling.commons.osgi;version="[2.2,3)",org.apache.sling.settings
  ;version="[1.3,2)",org.osgi.service.event;version="[1.2,2)",org.slf4j;v
- ersion="[1.5,2)",uk.ac.nhm.nhm_www.core;version="[1.0,1.1)"
+ ersion="[1.5,2)",uk.ac.nhm.core;version="[1.0,1.1)"
 Originally-Created-By: Apache Maven Bundle Plugin
 Provide-Capability: osgi.service;effective:=active;objectClass="java.lan
  g.Runnable";scheduler.expression="*/30 * * * * ?";scheduler.concurrent=
  false;service.vendor=Adobe
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
-Service-Component: OSGI-INF/uk.ac.nhm.nhm_www.core.impl.filters.LoggingF
- ilter.xml,OSGI-INF/uk.ac.nhm.nhm_www.core.impl.HelloServiceImpl.xml,OSG
- I-INF/uk.ac.nhm.nhm_www.core.impl.schedulers.SimpleScheduledTask.xml,OS
- GI-INF/uk.ac.nhm.nhm_www.core.impl.listeners.SimpleResourceListener.xml
- ,OSGI-INF/uk.ac.nhm.nhm_www.core.impl.servlets.SimpleServlet.xml
+Service-Component: OSGI-INF/uk.ac.nhm.core.impl.filters.LoggingF
+ ilter.xml,OSGI-INF/uk.ac.nhm.core.impl.HelloServiceImpl.xml,OSG
+ I-INF/uk.ac.nhm.core.impl.schedulers.SimpleScheduledTask.xml,OS
+ GI-INF/uk.ac.nhm.core.impl.listeners.SimpleResourceListener.xml
+ ,OSGI-INF/uk.ac.nhm.core.impl.servlets.SimpleServlet.xml
 Tool: Bnd-2.3.0.201405100607

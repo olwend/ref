@@ -1,6 +1,6 @@
-<%@page import="uk.ac.nhm.nhm_www.core.model.science.teaching.TeachingActivityTemplate,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper,
-				uk.ac.nhm.nhm_www.core.model.science.Publication,
+<%@page import="uk.ac.nhm.core.model.science.teaching.TeachingActivityTemplate,
+				uk.ac.nhm.core.componentHelpers.ScientistProfileHelper,
+				uk.ac.nhm.core.model.science.Publication,
 				java.util.Set,
 				java.util.Map,
 				org.apache.commons.lang3.StringUtils"%>

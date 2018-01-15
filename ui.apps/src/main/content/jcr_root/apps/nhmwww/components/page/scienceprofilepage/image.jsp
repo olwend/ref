@@ -1,5 +1,5 @@
 <%@page import="com.day.cq.wcm.api.WCMMode,
-				uk.ac.nhm.nhm_www.core.componentHelpers.ScientistProfileHelper"%>
+				uk.ac.nhm.core.componentHelpers.ScientistProfileHelper"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%
 	final ScientistProfileHelper helper = new ScientistProfileHelper(resource);

@@ -8,11 +8,11 @@
 <%@page import="com.day.cq.tagging.TagManager"%>
 <%@page import="org.apache.sling.api.resource.Resource"%>
 <%@page import="com.day.cq.tagging.Tag"%>
-<%@page import="uk.ac.nhm.nhm_www.core.services.FeedListPaginationService"%>
-<%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.TaggedFeedListHelper"%>
-<%@page import="uk.ac.nhm.nhm_www.core.model.TaggedFeedListElement"%>
+<%@page import="uk.ac.nhm.core.services.FeedListPaginationService"%>
+<%@page import="uk.ac.nhm.core.componentHelpers.TaggedFeedListHelper"%>
+<%@page import="uk.ac.nhm.core.model.TaggedFeedListElement"%>
 <%@page import="java.util.Iterator"%>
-<%-- <%@page import="uk.ac.nhm.nhm_www.core.componentHelpers.FeedListHelper"%>  --%>
+<%-- <%@page import="uk.ac.nhm.core.componentHelpers.FeedListHelper"%>  --%>
 <%@include file="/apps/nhmwww/components/global.jsp"%> 
 <%@page session="false" %>
 <cq:defineObjects />

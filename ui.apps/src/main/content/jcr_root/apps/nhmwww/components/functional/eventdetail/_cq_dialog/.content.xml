@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Event Detail"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+    	sling:resourceType="granite/ui/components/foundation/container">
+		<layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
+		<items jcr:primaryType="nt:unstructured">
+			<configurationtab
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Event General Config"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<eventsList
+								jcr:primaryType="nt:unstructured"
+								name="./eventSelect"
+								text="Event Type"
+								sling:resourceType="granite/ui/components/foundation/form/radiogroup" >	
+	                           	<items jcr:primaryType="nt:unstructured">
+									<school
+			                            jcr:primaryType="nt:unstructured"
+			                            sling:resourceType="granite/ui/components/foundation/form/radio/"
+			                            text="School"
+			                            value="School"
+			                            class="cq-dialog-radio-showhide"
+		                                show-hide-target="schooltabcontainer" />
+			                        <science
+			                            jcr:primaryType="nt:unstructured"
+			                            sling:resourceType="granite/ui/components/foundation/form/radio/"
+			                            text="Science"
+			                            value="Science"
+			                            class="cq-dialog-radio-showhide"
+			                            show-hide-target="sciencetabcontainer" />
+			                        <tring
+			                            jcr:primaryType="nt:unstructured"
+			                            sling:resourceType="granite/ui/components/foundation/form/radio/"
+			                            text="Tring"
+			                            value="Tring"
+			                            class="cq-dialog-radio-showhide" />
+			                        <visitor
+			                            jcr:primaryType="nt:unstructured"
+			                            sling:resourceType="granite/ui/components/foundation/form/radio/"
+			                            text="Visitor"
+			                            value="Visitor"
+			                            class="cq-dialog-radio-showhide" />
+								</items>
+							</eventsList>
+							<eventTitle
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Event Title"
+		                        name="./jcr:eventTitle"
+		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+		                        required="{Boolean}true"/>
+	                        <eventDescription
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Event Description *"
+		                        name="./jcr:description"
+		                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+		                        required="{Boolean}true"
+		                        maxlength="{Long}125"
+		                        emptyText="The max length for this field is 125 characters"/>
+	                        <eventVenue
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Event Venue"
+		                        name="./eventVenue"
+		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+		                        required="{Boolean}true"/>
+	                        <eventGroup
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Event Group"
+		                        name="./eventGroup"
+		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+	                        <eventTileLink
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="Event Tile Link"
+								name="./eventTileLink"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+		                    <tags
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Tags"
+		                        name="./cq:tags"
+		                        sling:resourceType="cq/gui/components/common/tagspicker"
+		                        allowBulkEdit="{Boolean}true"
+		                        cq-msm-lockable="cq:tags"
+		                        cq:showOnCreate="{Boolean}true" />
+	                        <keywords
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Keywords"
+		                        name="./keywords"
+		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+		                    <fieldset
+		                        jcr:primaryType="nt:unstructured"
+		                        jcr:title="Dates"
+		                        sling:resourceType="granite/ui/components/foundation/form/fieldset">
+		                        <layout
+		                            jcr:primaryType="nt:unstructured"
+		                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+		                        <items jcr:primaryType="nt:unstructured">
+		                            <column
+		                                jcr:primaryType="nt:unstructured"
+		                                sling:resourceType="granite/ui/components/foundation/container">
+		                                <items jcr:primaryType="nt:unstructured">
+		                                    <dates
+		                                        jcr:primaryType="nt:unstructured"
+		                                        sling:resourceType="granite/ui/components/foundation/form/multifield"
+		                                        class="full-width"
+		                                        fieldLabel="Dates">
+		                                        <field
+		                                            jcr:primaryType="nt:unstructured"
+		                                            sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                            eaem-nested="NODE_STORE"
+		                                            name="./dateAndTime">
+		                                            <layout
+		                                                jcr:primaryType="nt:unstructured"
+		                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+		                                                method="absolute"/>
+		                                            <items jcr:primaryType="nt:unstructured">
+		                                                <column
+		                                                    jcr:primaryType="nt:unstructured"
+		                                                    sling:resourceType="granite/ui/components/foundation/container">
+		                                                    <items jcr:primaryType="nt:unstructured">
+			                                                    <isRecurring
+											                   		jcr:primaryType="nt:unstructured"
+																	text="Recurring"
+																	name="./isRecurring"
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox" 
+																	value="{Boolean}true" />
+		                                                        <dateTime
+																	jcr:primaryType="nt:unstructured"
+																	displayedFormat="MM-DD-YY"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+																	type="date"
+																	fieldLabel="Date"
+																	name="./dateTime" />
+																<allDay
+											                   		jcr:primaryType="nt:unstructured"
+																	text="All Day Event"
+																	name="./allDay"
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox"
+																	value="{Boolean}true" />
+																<eventDuration
+									                            	jcr:primaryType="nt:unstructured"
+									                            	fieldLabel="Duration"
+									                            	fieldDescription="Please enter the duration in minutes."
+									                            	name="./eventDuration"
+									                            	sling:resourceType="granite/ui/components/foundation/form/textfield" />
+								                            	<times
+																	jcr:primaryType="nt:unstructured"
+							                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+							                                        class="full-width"
+							                                        fieldLabel="Times">
+		                                                            <field
+		                                                                jcr:primaryType="nt:unstructured"
+		                                                                sling:resourceType="granite/ui/components/foundation/form/fieldset"
+		                                                                name="./times">
+		                                                                <layout
+							                                                jcr:primaryType="nt:unstructured"
+							                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+							                                                method="absolute"/>
+							                                            <items jcr:primaryType="nt:unstructured">
+							                                                <column
+							                                                    jcr:primaryType="nt:unstructured"
+							                                                    sling:resourceType="granite/ui/components/foundation/container">
+							                                                    <items jcr:primaryType="nt:unstructured">
+								                                                    <time
+																	                    jcr:primaryType="nt:unstructured"
+																	                    fieldLabel="Time"
+																	                    defaultValue="00:00"
+																	                    name="./time"
+																						sling:resourceType="granite/ui/components/coral/foundation/form/select">
+									                                                    <items jcr:primaryType="nt:unstructured">
+									                                                    	<time1 jcr:primaryType="nt:unstructured" text="00:00" value="00:00"/>
+																							<time2 jcr:primaryType="nt:unstructured" text="00:15" value="00:15"/>
+																							<time3 jcr:primaryType="nt:unstructured" text="00:30" value="00:30"/>
+																							<time4 jcr:primaryType="nt:unstructured" text="00:45" value="00:45"/>
+																							<time5 jcr:primaryType="nt:unstructured" text="01:00" value="01:00"/>
+																							<time6 jcr:primaryType="nt:unstructured" text="01:15" value="01:15"/>
+																							<time7 jcr:primaryType="nt:unstructured" text="01:30" value="01:30"/>
+																							<time8 jcr:primaryType="nt:unstructured" text="01:45" value="01:45"/>
+																							<time9 jcr:primaryType="nt:unstructured" text="02:00" value="02:00"/>
+																							<time10 jcr:primaryType="nt:unstructured" text="02:15" value="02:15"/>
+																							<time11 jcr:primaryType="nt:unstructured" text="02:30" value="02:30"/>
+																							<time12 jcr:primaryType="nt:unstructured" text="02:45" value="02:45"/>
+																							<time13 jcr:primaryType="nt:unstructured" text="03:00" value="03:00"/>
+																							<time14 jcr:primaryType="nt:unstructured" text="03:15" value="03:15"/>
+																							<time15 jcr:primaryType="nt:unstructured" text="03:30" value="03:30"/>
+																							<time16 jcr:primaryType="nt:unstructured" text="03:45" value="03:45"/>
+																							<time17 jcr:primaryType="nt:unstructured" text="04:00" value="04:00"/>
+																							<time18 jcr:primaryType="nt:unstructured" text="04:15" value="04:15"/>
+																							<time19 jcr:primaryType="nt:unstructured" text="04:30" value="04:30"/>
+																							<time20 jcr:primaryType="nt:unstructured" text="04:45" value="04:45"/>
+																							<time21 jcr:primaryType="nt:unstructured" text="05:00" value="05:00"/>
+																							<time22 jcr:primaryType="nt:unstructured" text="05:15" value="05:15"/>
+																							<time23 jcr:primaryType="nt:unstructured" text="05:30" value="05:30"/>
+																							<time24 jcr:primaryType="nt:unstructured" text="05:45" value="05:45"/>
+																							<time25 jcr:primaryType="nt:unstructured" text="06:00" value="06:00"/>
+																							<time26 jcr:primaryType="nt:unstructured" text="06:15" value="06:15"/>
+																							<time27 jcr:primaryType="nt:unstructured" text="06:30" value="06:30"/>
+																							<time28 jcr:primaryType="nt:unstructured" text="06:45" value="06:45"/>
+																							<time29 jcr:primaryType="nt:unstructured" text="07:00" value="07:00"/>
+																							<time30 jcr:primaryType="nt:unstructured" text="07:15" value="07:15"/>
+																							<time31 jcr:primaryType="nt:unstructured" text="07:30" value="07:30"/>
+																							<time32 jcr:primaryType="nt:unstructured" text="07:45" value="07:45"/>
+																							<time33 jcr:primaryType="nt:unstructured" text="08:00" value="08:00"/>
+																							<time34 jcr:primaryType="nt:unstructured" text="08:15" value="08:15"/>
+																							<time35 jcr:primaryType="nt:unstructured" text="08:30" value="08:30"/>
+																							<time36 jcr:primaryType="nt:unstructured" text="08:45" value="08:45"/>
+																							<time37 jcr:primaryType="nt:unstructured" text="09:00" value="09:00"/>
+																							<time38 jcr:primaryType="nt:unstructured" text="09:15" value="09:15"/>
+																							<time39 jcr:primaryType="nt:unstructured" text="09:30" value="09:30"/>
+																							<time40 jcr:primaryType="nt:unstructured" text="09:45" value="09:45"/>
+																							<time41 jcr:primaryType="nt:unstructured" text="10:00" value="10:00"/>
+																							<time42 jcr:primaryType="nt:unstructured" text="10:15" value="10:15"/>
+																							<time43 jcr:primaryType="nt:unstructured" text="10:30" value="10:30"/>
+																							<time44 jcr:primaryType="nt:unstructured" text="10:45" value="10:45"/>
+																							<time45 jcr:primaryType="nt:unstructured" text="11:00" value="11:00"/>
+																							<time46 jcr:primaryType="nt:unstructured" text="11:15" value="11:15"/>
+																							<time47 jcr:primaryType="nt:unstructured" text="11:30" value="11:30"/>
+																							<time48 jcr:primaryType="nt:unstructured" text="11:45" value="11:45"/>
+																							<time49 jcr:primaryType="nt:unstructured" text="12:00" value="12:00"/>
+																							<time50 jcr:primaryType="nt:unstructured" text="12:15" value="12:15"/>
+																							<time51 jcr:primaryType="nt:unstructured" text="12:30" value="12:30"/>
+																							<time52 jcr:primaryType="nt:unstructured" text="12:45" value="12:45"/>
+																							<time53 jcr:primaryType="nt:unstructured" text="13:00" value="13:00"/>
+																							<time54 jcr:primaryType="nt:unstructured" text="13:15" value="13:15"/>
+																							<time55 jcr:primaryType="nt:unstructured" text="13:30" value="13:30"/>
+																							<time56 jcr:primaryType="nt:unstructured" text="13:45" value="13:45"/>
+																							<time57 jcr:primaryType="nt:unstructured" text="14:00" value="14:00"/>
+																							<time58 jcr:primaryType="nt:unstructured" text="14:15" value="14:15"/>
+																							<time59 jcr:primaryType="nt:unstructured" text="14:30" value="14:30"/>
+																							<time60 jcr:primaryType="nt:unstructured" text="14:45" value="14:45"/>
+																							<time61 jcr:primaryType="nt:unstructured" text="15:00" value="15:00"/>
+																							<time62 jcr:primaryType="nt:unstructured" text="15:15" value="15:15"/>
+																							<time63 jcr:primaryType="nt:unstructured" text="15:30" value="15:30"/>
+																							<time64 jcr:primaryType="nt:unstructured" text="15:45" value="15:45"/>
+																							<time65 jcr:primaryType="nt:unstructured" text="16:00" value="16:00"/>
+																							<time66 jcr:primaryType="nt:unstructured" text="16:15" value="16:15"/>
+																							<time67 jcr:primaryType="nt:unstructured" text="16:30" value="16:30"/>
+																							<time68 jcr:primaryType="nt:unstructured" text="16:45" value="16:45"/>
+																							<time69 jcr:primaryType="nt:unstructured" text="17:00" value="17:00"/>
+																							<time70 jcr:primaryType="nt:unstructured" text="17:15" value="17:15"/>
+																							<time71 jcr:primaryType="nt:unstructured" text="17:30" value="17:30"/>
+																							<time72 jcr:primaryType="nt:unstructured" text="17:45" value="17:45"/>
+																							<time73 jcr:primaryType="nt:unstructured" text="18:00" value="18:00"/>
+																							<time74 jcr:primaryType="nt:unstructured" text="18:15" value="18:15"/>
+																							<time75 jcr:primaryType="nt:unstructured" text="18:30" value="18:30"/>
+																							<time76 jcr:primaryType="nt:unstructured" text="18:45" value="18:45"/>
+																							<time77 jcr:primaryType="nt:unstructured" text="19:00" value="19:00"/>
+																							<time78 jcr:primaryType="nt:unstructured" text="19:15" value="19:15"/>
+																							<time79 jcr:primaryType="nt:unstructured" text="19:30" value="19:30"/>
+																							<time80 jcr:primaryType="nt:unstructured" text="19:45" value="19:45"/>
+																							<time81 jcr:primaryType="nt:unstructured" text="20:00" value="20:00"/>
+																							<time82 jcr:primaryType="nt:unstructured" text="20:15" value="20:15"/>
+																							<time83 jcr:primaryType="nt:unstructured" text="20:30" value="20:30"/>
+																							<time84 jcr:primaryType="nt:unstructured" text="20:45" value="20:45"/>
+																							<time85 jcr:primaryType="nt:unstructured" text="21:00" value="21:00"/>
+																							<time86 jcr:primaryType="nt:unstructured" text="21:15" value="21:15"/>
+																							<time87 jcr:primaryType="nt:unstructured" text="21:30" value="21:30"/>
+																							<time88 jcr:primaryType="nt:unstructured" text="21:45" value="21:45"/>
+																							<time89 jcr:primaryType="nt:unstructured" text="22:00" value="22:00"/>
+																							<time90 jcr:primaryType="nt:unstructured" text="22:15" value="22:15"/>
+																							<time91 jcr:primaryType="nt:unstructured" text="22:30" value="22:30"/>
+																							<time92 jcr:primaryType="nt:unstructured" text="22:45" value="22:45"/>
+																							<time93 jcr:primaryType="nt:unstructured" text="23:00" value="23:00"/>
+																							<time94 jcr:primaryType="nt:unstructured" text="23:15" value="23:15"/>
+																							<time95 jcr:primaryType="nt:unstructured" text="23:30" value="23:30"/>
+																							<time96 jcr:primaryType="nt:unstructured" text="23:45" value="23:45"/>
+									                                                    </items>
+									                                                </time>
+									                                            </items>
+							                                                </column>
+							                                            </items>
+		                                                            </field>
+		                                                        </times>
+		                                                    </items>
+		                                                </column>
+		                                            </items>
+		                                        </field>
+		                                    </dates>
+		                                </items>
+		                            </column>
+		                        </items>
+		                    </fieldset>
+						</items>
+   					</column>
+       			</items>
+        	</configurationtab>
+        	<pricetab
+        		jcr:primaryType="nt:unstructured"
+				jcr:title="Event Prices"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<adult
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Adult *"
+			                    name="./adultPrice"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+			                    class="required-price" >
+			                </adult>
+			                <concession
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Concession *"
+			                    name="./concessionPrice"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+			                    class="required-price" >
+			                </concession>
+			                <member
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Member *"
+			                    name="./memberPrice"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+			                    class="required-price" >
+			                </member>
+			                <family
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Family *"
+			                    name="./familyPrice"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+			                    class="required-price" >
+			                </family>
+			                <custom
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Custom *"
+			                    name="./customPrice"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+			                    class="required-price" >
+			                </custom>
+			                <eventListing
+			                    jcr:primaryType="nt:unstructured"
+			                    required="{Boolean}true"
+			                    fieldLabel="Event Listing Price *"
+			                    name="./eventListingPrice"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield">
+			                </eventListing>
+						</items>
+					</column>
+				</items>
+        	</pricetab>
+        	<imagetab
+        		jcr:primaryType="nt:unstructured"
+				jcr:title="Image Link Config"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<ctaLink
+			                	jcr:primaryType="nt:unstructured"
+								fieldLabel="CTA Link"
+								name="./ctaLink"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								rootPath="/content/nhmwww" />
+							<ctaText
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="CTA Text"
+			                    name="./ctaText"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
+		                    <image
+		                       jcr:primaryType="nt:unstructured"
+		                       autoStart="{Boolean}false"
+		                       class="cq-droptarget"
+		                       fieldLabel="Image asset"
+		                       fieldNameParameter="./fileName"
+		                       fileReferenceParameter="./fileReference"
+		                       mimeTypes="[image]"
+		                       multiple="{Boolean}false"
+		                       name="./file"
+		                       sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+		                       title="Image"
+		                       uploadUrl="${suffix.path}"
+		                       useHTML5="{Boolean}true" />
+						</items>
+					</column>
+				</items>
+        	</imagetab>
+        	<schooltabcontainer jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/foundation/container"
+				jcr:title="School Config"
+				class="cq-dialog-container-showhide"
+				id="schooltabcontainer" >
+				<items jcr:primaryType="nt:unstructured">
+		        	<schooltab
+		        		jcr:primaryType="nt:unstructured"
+						jcr:title="School Conifig"
+						sling:resourceType="granite/ui/components/foundation/section">
+						<layout 
+							jcr:primaryType="nt:unstructured" 
+							margin="{Boolean}false"
+							sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+						<items jcr:primaryType="nt:unstructured">
+							<column
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<subject
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Subject"
+				                        name="./cq:subject"
+				                        sling:resourceType="cq/gui/components/common/tagspicker"
+				                        allowBulkEdit="{Boolean}true"
+				                        cq-msm-lockable="cq:tags"
+				                        cq:showOnCreate="{Boolean}true" />
+									<capacity
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Capacity"
+					                    name="./capacity"
+					                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
+				                    <eventDuration
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Event Duration"
+					                    name="./eventDuration"
+					                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
+								</items>
+							</column>
+						</items>
+		        	</schooltab>
+		       	</items>
+		    </schooltabcontainer>
+		    <sciencetabcontainer jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/foundation/container"
+				jcr:title="Science Config"
+				class="cq-dialog-container-showhide"
+				id="sciencetabcontainer" >
+				<items jcr:primaryType="nt:unstructured">
+		        	<sciencetab
+		        		jcr:primaryType="nt:unstructured"
+						jcr:title="Science Config"
+						sling:resourceType="granite/ui/components/foundation/section">
+						<layout 
+							jcr:primaryType="nt:unstructured" 
+							margin="{Boolean}false"
+							sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+						<items jcr:primaryType="nt:unstructured">
+							<column
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<subjectScience
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Subject"
+				                        name="./cq:subjectScience"
+				                        sling:resourceType="cq/gui/components/common/tagspicker"
+				                        allowBulkEdit="{Boolean}true"
+				                        cq-msm-lockable="cq:tags"
+				                        cq:showOnCreate="{Boolean}true" />
+			                        <speakerDetails
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Speaker Details"
+					                    name="./speakerDetails"
+					                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
+								</items>
+							</column>
+						</items>
+		        	</sciencetab>
+		        </items>
+		    </sciencetabcontainer>
+        	<soldouttab
+        		jcr:primaryType="nt:unstructured"
+				jcr:title="Sold Out"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout 
+					jcr:primaryType="nt:unstructured" 
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<soldOut
+			                    jcr:primaryType="nt:unstructured"
+			                    fieldLabel="Sold Out"
+			                    name="./jcr:soldOut"
+			                    sling:resourceType="granite/ui/components/foundation/form/textfield" />
+						</items>
+					</column>
+				</items>
+        	</soldouttab>
+		</items>
+	</content>
+</jcr:root>

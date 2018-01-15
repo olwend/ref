@@ -15,7 +15,7 @@
  */
 package apps.nhmwww.components.content.topnav;
 
-import com.adobe.cq.sightly.WCMUse;
+import com.adobe.cq.sightly.WCMUsePojo;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,7 +27,7 @@ import com.day.cq.commons.Filter;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 
-public class Topnav extends WCMUse {
+public class Topnav extends WCMUsePojo {
     
 	@Override
 	public void activate() throws Exception {

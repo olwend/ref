@@ -9,7 +9,7 @@
 %><%@page session="false" %><%
 %>
 <%@page session="false" 
-			import="uk.ac.nhm.nhm_www.core.componentHelpers.RowHelper"%>
+			import="uk.ac.nhm.core.componentHelpers.RowHelper"%>
 <%
 %>
 <cq:defineObjects />

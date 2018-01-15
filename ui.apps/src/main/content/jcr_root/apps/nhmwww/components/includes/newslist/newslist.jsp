@@ -4,9 +4,9 @@
 
 --%>
 <%@page session="false" 
-	import="uk.ac.nhm.nhm_www.core.model.NewsFeedElement,
-			uk.ac.nhm.nhm_www.core.componentHelpers.NewsListHelper, 
-			uk.ac.nhm.nhm_www.core.services.NewsPublicationService"%>
+	import="uk.ac.nhm.core.model.NewsFeedElement,
+			uk.ac.nhm.core.componentHelpers.NewsListHelper, 
+			uk.ac.nhm.core.services.NewsPublicationService"%>
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <%
 	final NewsListHelper helper = new NewsListHelper(resource);

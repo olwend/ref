@@ -83,8 +83,9 @@
     </div>
 </c:if>
 <c:if test="${empty eventType}">
-    The page has not been set up yet.
+    <p>Image & CTA</p>
 </c:if>
 <c:if test="${not empty eventType && !hasCTAImage}">
-    Please set an Image in the Page Properties.
+    <p>Image & CTA</p>
+    <p>Please set an image in the Event Detail dialog</p>
 </c:if>

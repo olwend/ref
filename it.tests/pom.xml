@@ -66,50 +66,35 @@
 	        </plugins>
 	</build>
 
+     <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S                                                -->
+    <!-- ====================================================================== -->
     <dependencies>
+<!--         <dependency> -->
+<!--             <groupId>uk.ac.nhm</groupId> -->
+<!--             <artifactId>nhm-www.core</artifactId> -->
+<!--             <version>0.0.1-SNAPSHOT</version> -->
+<!--         </dependency> -->
+
+
         <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.compendium</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.annotations</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <!-- TODO create separate API package, this is just to get the special Sling test runner -->
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.junit.core</artifactId>
-            <version>1.0.8</version>
-            <scope>provided</scope>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
         </dependency>
 
         <dependency>
-        	<groupId>uk.ac.nhm</groupId>
-        	<artifactId>nhm-www.core</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        	<type>bundle</type>
-        	<scope>provided</scope>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.day.cq.wcm</groupId>
+            <artifactId>cq-wcm-taglib</artifactId>
         </dependency>
         
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-api</artifactId>
-        	<scope>provided</scope>
-        </dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
     </dependencies>
 </project>
