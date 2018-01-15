@@ -1,5 +1,5 @@
 var searchTypes = [ '', 'default_tab', 'print_tab', 'elec_tab' ];
-var images = [ 'Vines.jpg', 'Caterpillar.jpg', 'Jellyfish.jpg', 'Map.jpg', 'Swan.jpg' ];
+var images = [ 'library-search-asia-reeves.jpg', 'library-search-blatterzeolith.jpg', 'library-search-dragonfly.jpg', 'library-search-tufted-auk.jpg', 'library-search-water-lillies.jpg' ];
 
 $(document).ready(function() {
 	// random search panel background
