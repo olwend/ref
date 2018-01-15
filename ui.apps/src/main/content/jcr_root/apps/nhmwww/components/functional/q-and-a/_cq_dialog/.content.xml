@@ -24,7 +24,7 @@
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
 	                            name="./question"
-	                            fieldLabel="Question"
+	                            fieldLabel="Question *"
 	                            required="true"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
@@ -126,7 +126,7 @@
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
 	                            name="./answer"
-	                            fieldLabel="Answer"
+	                            fieldLabel="Answer *"
 	                            required="true"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
