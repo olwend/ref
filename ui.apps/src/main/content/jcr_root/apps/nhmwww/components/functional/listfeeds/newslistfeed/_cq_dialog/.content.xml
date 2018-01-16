@@ -52,14 +52,9 @@
 				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
 				                    <numberOfItems
 										jcr:primaryType="nt:unstructured"
-										fieldLabel="Number of items""
+										fieldLabel="Number of items"
 										name="./noOfItems"
-										sling:resourceType="granite/ui/components/foundation/form/numberfield"/>
-				                    <numberOfItems
-				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Number of items"
-				                        name="./noOfItems"
-				                        xtype="granite/ui/components/foundation/form/numberfield" />
+										sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"/>
 									<hideMonths
 				                        jcr:primaryType="nt:unstructured"
 				                        name="./hideMonths"

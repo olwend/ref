@@ -10907,3 +10907,8 @@ input.searchGo {
 .discover .title-bar h1 {
   color: #565656 !important;
 }
+
+.headertextimage {
+  display: table;
+  width: 100%;
+}

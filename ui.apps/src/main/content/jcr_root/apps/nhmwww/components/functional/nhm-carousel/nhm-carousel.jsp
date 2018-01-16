@@ -20,7 +20,7 @@
 
 ArrayList<CarouselElement> elements = helper.getElements();  
 
-if(elements.size() == 0) { %>
+if(elements.size() == 0 && isOnEditMode) { %>
 	<div class="row">
 		<h4>Carousel</h4>
 		Required fields:
