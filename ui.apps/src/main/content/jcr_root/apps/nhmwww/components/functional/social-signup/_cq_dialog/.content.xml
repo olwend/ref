@@ -82,7 +82,19 @@
 		                            <eleven
 		                                jcr:primaryType="nt:unstructured"
 		                                text="Teachers"
-		                                value="Teachers"/>        
+		                                value="Teachers"/> 
+									<twelve
+		                                jcr:primaryType="nt:unstructured"
+		                                text="Latest NHM stories"
+		                                value="Latest NHM stories"/>
+		                             <thirteen
+		                                jcr:primaryType="nt:unstructured"
+		                                text="WPY"
+		                                value="remote WPY-website newsletter-si"/>
+		                            <fourteen
+		                                jcr:primaryType="nt:unstructured"
+		                                text="School newsletter"
+		                                value="remote website school-newsletter"/>       
 	                        	</items>
 	                    	</campaign>
 	                    	<dataprotection
@@ -140,7 +152,7 @@
 										features="[modifylink,unlink]" />
 									<misctools
 					       				jcr:primaryType="nt:unstructured"
-					       				features="[specialchars]" >
+					       				features="*" >
 					       				<specialCharsConfig jcr:primaryType="nt:unstructured">
 	                                        <chars jcr:primaryType="nt:unstructured">
 	                                            <copyright
@@ -163,7 +175,7 @@
 	                                <cui jcr:primaryType="nt:unstructured">
 	                                    <inline
 	                                        jcr:primaryType="nt:unstructured"
-	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,#styles,#paraformat]">
+	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,misctools#sourceedit,#styles,#paraformat]">
 	                                        <popovers jcr:primaryType="nt:unstructured">
 	                                            <justify
 	                                                jcr:primaryType="nt:unstructured"
