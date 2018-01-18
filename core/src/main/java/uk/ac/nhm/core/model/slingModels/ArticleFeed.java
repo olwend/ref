@@ -56,19 +56,18 @@ public class ArticleFeed {
 		this.setPageList(service.getPageData(rootPath, tags, order, tagsOperator, limit));
 
 		String rowSize = properties.get("rowsize", String.class);
-		if(limit.equals("1")) {
-			this.setLargeColumn("1");
+		
+		if(rowSize.equals("onecolumn")) {
 			this.setMediumColumn("1");
-		} else {
-			if(rowSize.equals("fullwidth")) {
-				this.setLargeColumn("4");
-			}
+			this.setLargeColumn("1");
+		}
 			
-			if(rowSize.equals("twocolumn")) {
-				this.setLargeColumn("2");
-			}
-			
-			this.setMediumColumn("2");
+		if(rowSize.equals("twocolumn")) {
+			this.setLargeColumn("2");
+		}
+		
+		if(rowSize.equals("fullwidth")) {
+			this.setLargeColumn("4");
 		}
 		
 		//this.showreadmore = properties.get("showreadmore",boolean.class);
