@@ -11,10 +11,29 @@
 <sly data-sly-test="${properties.name}">
 	<div data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
-		<h2>${dinosaur.genus}</h2>
-
+		${dinosaur.genus}
+<br>
+		${dinosaur.namePronounciation}
+<br>
+		${dinosaur.nameMeaning}
+<br>
     	<img src="${dinosaur.imageUrl}">
-		<p>Diet: ${dinosaur.diet}</p>
-	
+<br>
+		${dinosaur.description}   
+<br>
+		Diet: ${dinosaur.diet}
+<br>
+		Country: ${dinosaur.country}
+<br>
+		Period: ${dinosaur.period}
+<br>
+		Taxonomic details
+<br>
+		Taxonomy: ${dinosaur.taxonomy}
+<br>
+		Named by: ${dinosaur.namedBy}
+<br>
+		Type: ${dinosaur.type}
+
 	</div>
 </sly>

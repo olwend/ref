@@ -20,8 +20,17 @@ public class Dinosaur {
 	@Inject
 	private String name;
 	
-	private String genus;
+	private String country;
+	private String description;
 	private String diet;
+	private String genus;
+	private String nameMeaning;
+	private String namePronounciation;
+	private String namedBy;
+	private String period;
+	private String taxonomy;
+	private String type;
+	
 	private String imageUrl;
 	
 	private static final String BASE_URL = "http://staging.nhm.ac.uk/api/dino-directory-api/dinosaur/name";
@@ -40,17 +49,101 @@ public class Dinosaur {
 			JSONObject dinosaur = new JSONObject(getMethod.getResponseBodyAsString());
 			JSONObject dinosaurMedia = dinosaur.getJSONArray("mediaCollection").getJSONObject(0);
 			
-			this.setGenus(dinosaur.getString("genus"));
-			this.setDiet(dinosaur.getString("dietTypeName"));
+			//Country
+			JSONArray countries = dinosaur.getJSONArray("countries");
+			StringBuffer countriesBuffer = new StringBuffer();
+			for(int i=0; i<countries.length(); i++) {
+				JSONObject country = countries.getJSONObject(i);
+				if(i > 0) {
+					countriesBuffer.append(", " + country.getString("country"));
+				} else {
+					countriesBuffer.append(country.getString("country"));
+				}
+			}
+
+			this.setCountry(countriesBuffer.toString());
 			
-			this.setImageUrl("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory"
-					+ dinosaurMedia.getString("mediaTypePath")
-					+ dinosaurMedia.getString("mediaContentTypePath")
+			//Description
+			JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
+			
+			int mass = 0;			
+			if(!dinosaur.isNull("massFrom")) {
+				mass = dinosaur.getInt("massFrom");
+			} else if(!dinosaur.isNull("massTo")) {
+				mass = dinosaur.getInt("massTo");
+			}
+			
+			int length = 0;
+			if(!dinosaur.isNull("lengthFrom")) {
+				length = dinosaur.getInt("lengthFrom");
+			} else if(!dinosaur.isNull("lengthTo")) {
+				length = dinosaur.getInt("lengthTo");
+			}
+			
+			StringBuffer descriptionBuffer = new StringBuffer();
+			descriptionBuffer.append("A ");
+			
+			if(mass > 0) {
+				descriptionBuffer.append(String.valueOf(mass) + "kg");
+			}
+			if(length > 0) {
+				if(mass > 0) {
+					descriptionBuffer.append(", " + String.valueOf(length) + "m");
+				} else {
+					descriptionBuffer.append(String.valueOf(length) + "m");
+				}
+			}
+			
+			descriptionBuffer.append(" " + bodyShape.getString("bodyShape").toLowerCase());
+			this.setDescription(descriptionBuffer.toString());
+			
+			this.setDiet(dinosaur.getString("dietTypeName"));
+			this.setGenus(dinosaur.getString("genus").toUpperCase());
+			this.setNameMeaning(dinosaur.getString("nameMeaning"));
+			this.setNamePronounciation(dinosaur.getString("namePronounciation"));
+			this.setNamedBy(dinosaur.getString("genusNamedBy") + " (" + String.valueOf(dinosaur.getInt("genusYear")) + ")");
+			
+			//Period
+			JSONObject period = dinosaur.getJSONObject("period");
+			this.setPeriod(period.getString("period"));
+			
+			//Taxonomy
+			JSONObject taxonomy = dinosaur.getJSONObject("taxTaxon");
+			this.setTaxonomy(taxonomy.getString("taxonomyCSV").replaceAll(",", ", "));
+			this.setType(taxonomy.getString("taxon"));
+			
+			this.setImageUrl("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
+					+ dinosaurMedia.getString("mediaTypePath") + "/"
+					+ dinosaurMedia.getString("mediaContentTypeName")
 					+ "/small/" + dinosaurMedia.getString("identifier") + ".jpg");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDiet() {
+		return diet;
+	}
+
+	public void setDiet(String diet) {
+		this.diet = diet;
 	}
 
 	public String getGenus() {
@@ -61,12 +154,52 @@ public class Dinosaur {
 		this.genus = genus;
 	}
 
-	public String getDiet() {
-		return diet;
+	public String getNameMeaning() {
+		return nameMeaning;
 	}
 
-	public void setDiet(String diet) {
-		this.diet = diet;
+	public void setNameMeaning(String nameMeaning) {
+		this.nameMeaning = nameMeaning;
+	}
+
+	public String getNamePronounciation() {
+		return namePronounciation;
+	}
+
+	public void setNamePronounciation(String namePronounciation) {
+		this.namePronounciation = namePronounciation;
+	}
+
+	public String getNamedBy() {
+		return namedBy;
+	}
+
+	public void setNamedBy(String namedBy) {
+		this.namedBy = namedBy;
+	}
+
+	public String getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
+	}
+
+	public String getTaxonomy() {
+		return taxonomy;
+	}
+
+	public void setTaxonomy(String taxonomy) {
+		this.taxonomy = taxonomy;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getImageUrl() {
