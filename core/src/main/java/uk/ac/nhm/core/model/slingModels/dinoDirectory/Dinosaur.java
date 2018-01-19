@@ -54,7 +54,9 @@ public class Dinosaur {
 			StringBuffer countriesBuffer = new StringBuffer();
 			for(int i=0; i<countries.length(); i++) {
 				JSONObject country = countries.getJSONObject(i);
-				if(i > 0) {
+				if(i == (countries.length() - 1)) {
+					countriesBuffer.append(" and " + country.getString("country"));
+				} else if(i > 0) {
 					countriesBuffer.append(", " + country.getString("country"));
 				} else {
 					countriesBuffer.append(country.getString("country"));
@@ -81,7 +83,6 @@ public class Dinosaur {
 			}
 			
 			StringBuffer descriptionBuffer = new StringBuffer();
-			descriptionBuffer.append("A ");
 			
 			if(mass > 0) {
 				descriptionBuffer.append(String.valueOf(mass) + "kg");
