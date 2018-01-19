@@ -57,17 +57,19 @@ public class ArticleFeed {
 
 		String rowSize = properties.get("rowsize", String.class);
 		
-		if(rowSize.equals("onecolumn")) {
-			this.setMediumColumn("1");
-			this.setLargeColumn("1");
+		if(rowSize.equals("fullwidth")) {
+			this.setMediumColumn("2");
+			this.setLargeColumn("4");
 		}
-			
+		
 		if(rowSize.equals("twocolumn")) {
+			this.setMediumColumn("2");
 			this.setLargeColumn("2");
 		}
 		
-		if(rowSize.equals("fullwidth")) {
-			this.setLargeColumn("4");
+		if(rowSize.equals("onecolumn")) {
+			this.setMediumColumn("1");
+			this.setLargeColumn("1");
 		}
 		
 		//this.showreadmore = properties.get("showreadmore",boolean.class);
