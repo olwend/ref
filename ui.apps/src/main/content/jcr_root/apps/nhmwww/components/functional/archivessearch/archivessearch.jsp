@@ -45,7 +45,7 @@
 				<input type="hidden" name="displayField" value="all">
 				<!-- Enable this if "Expand My Results" is enabled by default in Views Wizard -->
 				<input type="hidden" name="pcAvailabiltyMode" value="true">
-				<input type="text" id="primoQueryTemp" class="primo-search-style" value="" placeholder="Search all collections">
+				<input type="text" id="primoQueryTemp" class="primo-search-style" value="" placeholder="Search our collections">
 				<!-- Search Button -->
 				<input id="go" title="Search" onclick="searchPrimo()" type="button" value="Search" alt="Search">
 			</form>
