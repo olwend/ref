@@ -34,6 +34,7 @@ public class ArticleFeed {
 	private String mediumColumn = null;
 	private String largeColumn = null;
 	private String readmorelink = null;
+	private String cssClass = null;
 	
 
 	@PostConstruct
@@ -56,20 +57,24 @@ public class ArticleFeed {
 		this.setPageList(service.getPageData(rootPath, tags, order, tagsOperator, limit));
 
 		String rowSize = properties.get("rowsize", String.class);
+		String cssClass = properties.get("cssClass", String.class);
 		
 		if(rowSize.equals("fullwidth")) {
 			this.setMediumColumn("2");
 			this.setLargeColumn("4");
+			this.setCssClass("articlefeed__full-width");
 		}
 		
 		if(rowSize.equals("twocolumn")) {
 			this.setMediumColumn("2");
 			this.setLargeColumn("2");
+			this.setCssClass("articlefeed__two-column");
 		}
 		
 		if(rowSize.equals("onecolumn")) {
 			this.setMediumColumn("1");
 			this.setLargeColumn("1");
+			this.setCssClass("articlefeed__one-column");
 		}
 		
 		//this.showreadmore = properties.get("showreadmore",boolean.class);
@@ -110,6 +115,14 @@ public class ArticleFeed {
 
 	public void setLargeColumn(String largeColumn) {
 		this.largeColumn = largeColumn;
+	}
+
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	public void setCssClass(String cssClass) {
+		this.cssClass = cssClass;
 	}
 
 	

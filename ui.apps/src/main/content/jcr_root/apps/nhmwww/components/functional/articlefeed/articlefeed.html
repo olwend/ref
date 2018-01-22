@@ -10,7 +10,7 @@
 </div>
 
 <div data-sly-test="${properties.rootpath && properties.rowsize}">
-	<div data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.ArticleFeed">
+	<div data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.ArticleFeed" class="${articlefeed.cssClass}">
 		<div class="articlefeed--title" data-sly-test="${properties.title}">
 			<h2>${properties.title}</h2>
 		</div>
