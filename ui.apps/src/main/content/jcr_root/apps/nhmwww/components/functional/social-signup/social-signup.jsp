@@ -43,11 +43,11 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<form
-				id="newsletter_signup"
-				action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
-				method="get">
+		<form
+			id="newsletter_signup"
+			action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html"
+			method="get">
+			<div class="row">
 				<div class="small-12 medium-12 large-12 columns social-signup--form-container">
 					<div class="social-signup--first-name social-signup--field">
 						<div class="form-field firstname">
@@ -73,38 +73,39 @@
 					<input type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
 
 				</div>
-			</form>
-		</div>
-
-		<div class="row">
-			<div class="small-12 medium-12 large-12 columns social-signup--error-container">
-				<div class="errors"></div>
 			</div>
-		</div>
 
-		<div class="row">
-			<div class="small-12 medium-12 large-12 columns social-signup--icon-container">
-				<p><%=helper.getDescription()%></p>
-				<a href="https://www.facebook.com/naturalhistorymuseum">
-					<img src="/etc/designs/nhmwww/img/icons/facebook.png" alt="" class="social-signup--icon" />
-				</a>
-				<a href="https://twitter.com/NHM_London">
-					<img src="/etc/designs/nhmwww/img/icons/twitter.png" alt="" class="social-signup--icon" />
-				</a>
-				<a href="https://www.youtube.com/user/naturalhistorymuseum">
-					<img src="/etc/designs/nhmwww/img/icons/youtube.png" alt="" class="social-signup--icon" />
-				</a>
-				<a href="https://instagram.com/natural_history_museum">
-					<img src="/etc/designs/nhmwww/img/icons/instagram-logo-white.png" alt="" class="social-signup--icon" />
-				</a>
-				<a href="http://www.pinterest.com/nhmlondon">
-					<img src="/etc/designs/nhmwww/img/icons/pinterest.png" alt="" class="social-signup--icon" />
-				</a>
-				<a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts">
-					<img src="/etc/designs/nhmwww/img/icons/gplus.png" alt="" class="social-signup--icon" />
-				</a>
+			<div class="row">
+				<div class="small-12 medium-12 large-12 columns social-signup--error-container">
+					<div class="errors"></div>
+				</div>
 			</div>
-		</div>
+
+			<div class="row">
+				<div class="small-12 medium-12 large-12 columns social-signup--icon-container">
+					<p><%=helper.getDescription()%></p>
+					<a href="https://www.facebook.com/naturalhistorymuseum">
+						<img src="/etc/designs/nhmwww/img/icons/facebook.png" alt="" class="social-signup--icon" />
+					</a>
+					<a href="https://twitter.com/NHM_London">
+						<img src="/etc/designs/nhmwww/img/icons/twitter.png" alt="" class="social-signup--icon" />
+					</a>
+					<a href="https://www.youtube.com/user/naturalhistorymuseum">
+						<img src="/etc/designs/nhmwww/img/icons/youtube.png" alt="" class="social-signup--icon" />
+					</a>
+					<a href="https://instagram.com/natural_history_museum">
+						<img src="/etc/designs/nhmwww/img/icons/instagram-logo-white.png" alt="" class="social-signup--icon" />
+					</a>
+					<a href="http://www.pinterest.com/nhmlondon">
+						<img src="/etc/designs/nhmwww/img/icons/pinterest.png" alt="" class="social-signup--icon" />
+					</a>
+					<a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts">
+						<img src="/etc/designs/nhmwww/img/icons/gplus.png" alt="" class="social-signup--icon" />
+					</a>
+				</div>
+			</div>
+
+		</form>
 
 	</div>
 
