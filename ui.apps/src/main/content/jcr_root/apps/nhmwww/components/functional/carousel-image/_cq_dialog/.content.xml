@@ -24,6 +24,14 @@
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container">
 						<items jcr:primaryType="nt:unstructured">
+							<imageresourcetype
+			                   	jcr:primaryType="nt:unstructured"
+								name="./image/sling:resourceType"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								value="nhmwww/components/functional/foundation5image"
+								renderHidden="{Boolean}true"
+								wrapperClass="dialog-hide-field"
+								fieldDescription="Hidden field for image upload resource type" />
 							<image
 		                       jcr:primaryType="nt:unstructured"
 		                       autoStart="{Boolean}false"
