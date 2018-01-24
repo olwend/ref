@@ -57,7 +57,6 @@ public class ArticleFeed {
 		this.setPageList(service.getPageData(rootPath, tags, order, tagsOperator, limit));
 
 		String rowSize = properties.get("rowsize", String.class);
-		String cssClass = properties.get("cssClass", String.class);
 		
 		if(rowSize.equals("fullwidth")) {
 			this.setMediumColumn("2");
