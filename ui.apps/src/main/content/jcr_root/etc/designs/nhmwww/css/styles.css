@@ -5722,8 +5722,11 @@ html.js-noScroll {
   .bigsplash-video--controls {
     display: block;
     position: absolute;
-    max-width: 30px;
+    max-width: 65px;
     bottom: 0;
+  }
+  .bigsplash-video--controls .ico {
+    max-width: 30px;
   }
 }
 
@@ -5735,10 +5738,6 @@ html.js-noScroll {
 
 .bigsplash-video--controls-pause, .bigsplash-video--controls-play {
   cursor: pointer;
-}
-
-.bigsplash-video--controls-play.ico {
-  display: none;
 }
 
 .bigsplash-image {

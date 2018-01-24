@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.0 - AEM 6.3 upgrade - 15-Jan-2018
+- WR-1085 - Upgrade dialogs to use Touch UI
+
 ## 1.3.6 - Debonair Dryptosaurus - 07-Dec-2017
 - WR-812 - Refactor NHM Video component
 - WR-1173 - Investigate why Discover landing page performance has deteriorated
