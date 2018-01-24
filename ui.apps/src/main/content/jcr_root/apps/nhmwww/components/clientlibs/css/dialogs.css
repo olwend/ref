@@ -68,3 +68,7 @@
 	top: 0;
 	bottom: unset;
 }
+
+.dialog-hidden-field {
+	display:none;
+}

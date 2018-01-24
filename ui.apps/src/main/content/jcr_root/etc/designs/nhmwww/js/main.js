@@ -284,16 +284,12 @@ jQuery(document).ready(function() {
         e.preventDefault();
         var player = jQuery('.js--bigsplash-video').data('player');
         player.pauseVideo();
-        jQuery('.js--bigsplash-video--controls-pause').css('display', 'none');
-        jQuery('.js--bigsplash-video--controls-play').css('display', 'inline');
     });
 
     jQuery('.js--bigsplash-video--controls-play').on('click', function(e){
         e.preventDefault();
         var player = jQuery('.js--bigsplash-video').data('player');
         player.playVideo();
-        jQuery('.js--bigsplash-video--controls-play').css('display', 'none');
-        jQuery('.js--bigsplash-video--controls-pause').css('display', 'inline');
     });
     /** End WR-1064 **/
 
