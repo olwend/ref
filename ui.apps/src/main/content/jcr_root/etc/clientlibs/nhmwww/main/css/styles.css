@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -5677,6 +5677,38 @@ html.js-noScroll {
 
 .articlefeed--read-more-link {
   text-align: center;
+}
+
+.featuredarticle--image {
+  position: relative;
+}
+
+.featuredarticle--text-container {
+  position: absolute;
+  bottom: 100px;
+  max-width: 520px;
+  padding: 1em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  color: #FFFFFF;
+  margin: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .featuredarticle--title {
+    font-size: 1.7em;
+    font-family: Elysio-Light;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .featuredarticle--title {
+    font-size: 1.8333em;
+  }
+}
+
+.featuredarticle--tag {
+  margin-bottom: 1em;
 }
 
 /** BIG SPLASH PARTIAL **/
@@ -10709,11 +10741,12 @@ input.searchGo {
   border-bottom-color: #A1164E;
 }
 
-.headertextimage {
-    display: table;
-    width: 100%;
+.discover .title-bar h1,
+.discover .title-bar p {
+  color: #565656 !important;
 }
 
-.discover .title-bar h1 {
-  color: #565656 !important;
+.headertextimage {
+  display: table;
+  width: 100%;
 }
