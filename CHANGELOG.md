@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.1 - Eldritch Eoraptor - 25-Jan-2018
+- WR-1025 - Investigate creating XML sitemaps in AEM
+- WR-1201 - Big Splash play button hidden by CTA area
+- WR-1238 - Add edit mode validation for HTI and Image components
+- WR-1227 - Update Library & Archives Search component
+- WR-1240 - Update popular search terms
+- WR-1248 - Article image dialog bug
+- WR-1249 - Remove etc.clientlib paths
+
 ## 2.0.0 - AEM 6.3 upgrade - 15-Jan-2018
 - WR-1085 - Upgrade dialogs to use Touch UI
 
