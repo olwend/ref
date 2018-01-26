@@ -5589,7 +5589,6 @@ html.js-noScroll {
 
 .discover .row {
   width: 100%;
-  margin-bottom: 0;
 }
 
 .discover .row .row {
@@ -6718,6 +6717,10 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-element-wrapper {
   position: relative;
+}
+
+.discoverrelated .discover .discover-element {
+  margin-bottom: 0;
 }
 
 .discoverrelated .discover .discover-element-text {
