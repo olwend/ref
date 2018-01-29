@@ -1,5 +1,4 @@
 
-<!-- <div id = "farticle"> -->
 <sly data-sly-test="${!properties.articlepath || !properties.imagepath}">
 	<div class="row">
 	<h4>Featured article</h4>
@@ -15,18 +14,25 @@
 	<sly data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
 	<a href="${properties.articlepath}">
 		<div class="featuredarticle--container">
-			<img class="featuredarticle--image" src="${properties.imagepath}" alt="header image">
+			<div class="featuredarticle--image-container">
+				<img class="featuredarticle--image" src="${properties.imagepath}" alt="header image">
+			</div>
+
 			<div class="row">
 				<div class="featuredarticle--text-container">
-					<p class="featuredarticle--tag" data-sly-test="${articlefeed.tagName}">${articlefeed.tagName}</p>
-					<p class="featuredarticle--title">${articlefeed.title}</p>
-					<p class="featuredarticle--date">${articlefeed.date}</p>
-					<p class="featuredarticle--description">${articlefeed.description}</p>
+					<p class="featuredarticle--tag" alt="subject" data-sly-test="${articlefeed.tagName}">${articlefeed.tagName}</p>
+					<p class="featuredarticle--title" alt="article title">${articlefeed.title}</p>
+					<p class="featuredarticle--date" alt="publication date">${articlefeed.date}</p>
+					<p class="featuredarticle--description" alt="description">${articlefeed.description}</p>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}
 				</div>
 			</div>
 		</div>
-	<p>${properties.imagecaption @ context='html'}</p>
+
 	</a>
 	</sly>
 </sly>
-<!-- </div> -->
