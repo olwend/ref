@@ -9356,6 +9356,20 @@ input.searchGo {
   margin-bottom: 1.5em;
 }
 
+.qahub--answer-container a,
+.qahub--answer-container a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
+.qahub--answer-container a {
+  border-bottom: 1px dotted #565656;
+}
+
+.qahub--answer-container a:hover {
+  border-bottom: 1px solid #565656;
+}
+
 @media screen and (min-width: 768px) {
   .qahub--answer-container {
     padding-left: 10px;
@@ -9398,6 +9412,15 @@ input.searchGo {
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
+  text-decoration: none;
+}
+
+.qasingle--container a {
+  border-bottom: 1px dotted #565656;
+}
+
+.qasingle--container a:hover {
+  border-bottom: 1px solid #565656;
 }
 
 .qasingle--question-title-container {
