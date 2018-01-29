@@ -8,6 +8,12 @@ $(document).ready(function() {
 	  questionListTotalHeight += $(this).outerHeight();
 	});
 
+	// Check if the list of questions is shorter than the list window and hide the scrollbar
+	// container if necessary
+	if ( questionListTotalHeight < $('.qahub--question-list').height() ) {
+		$('.qahub--question-list').css('overflow-y', 'hidden');
+	}
+
 	$('#prev-question').data('question', questionCount);
 	$('#qa-question-0').addClass('js-qahub--question-selected');
 

@@ -13,11 +13,13 @@
 
 <sly data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub" data-sly-test="${properties.rootpath}">
 
+<div class="row qahub--container">
+
 	<sly data-sly-test="${!qahub.questionList}">
 		This query returns no results
 	</sly>
 
-	<sly data-sly-test="${qahub.questionList}" class="qahub--container row">
+	<sly data-sly-test="${qahub.questionList}">
 
 		<div class="qahub--question-container columns small-12 medium-4 large-4" >
 			<h3 class="qahub--question-title">Quick questions</h3>
@@ -54,13 +56,13 @@
 						<sly data-sly-test="${listList.index == 0}">
 							<div class="answer" id="qa${listList.index}">
 								<h3 class="qa-hub--answer-title">${list['question']}</h3>
-								<p>${list['answer']}</p>
+								<p>${list['answer'] @ context='html'}</p>
 							</div>
 						</sly>
 						<sly data-sly-test="${listList.index > 0}">
 							<div class="answer" style="display: none;" id="qa${listList.index}">
 								<h3 class="qa-hub--answer-title">${list['question']}</h3>
-								<p>${list['answer']}</p>
+								<p>${list['answer'] @ context='html'}</p>
 							</div>
 						</sly>
 					</sly>
@@ -79,5 +81,7 @@
 		</div>
 
 	</sly>
+
+</div>
 
 </sly>
