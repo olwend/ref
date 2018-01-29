@@ -9396,7 +9396,9 @@ input.searchGo {
   text-align: right;
 }
 
+.qahub--controls-container a,
 .qahub--controls-container a:hover {
+  border-bottom: none;
   text-decoration: none;
 }
 
