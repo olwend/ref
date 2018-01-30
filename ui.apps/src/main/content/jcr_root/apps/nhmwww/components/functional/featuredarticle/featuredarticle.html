@@ -13,9 +13,15 @@
 <sly data-sly-test="${properties.articlepath && properties.imagepath}">
 	<sly data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
 	<a href="${properties.articlepath}">
+
 		<div class="featuredarticle--container">
 			<div class="featuredarticle--image-container">
 				<img class="featuredarticle--image" src="${properties.imagepath}" alt="header image">
+			</div>
+
+			<div class="row">
+				<div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}
+				</div>
 			</div>
 
 			<div class="row">
@@ -24,11 +30,6 @@
 					<p class="featuredarticle--title" alt="article title">${articlefeed.title}</p>
 					<p class="featuredarticle--date" alt="publication date">${articlefeed.date}</p>
 					<p class="featuredarticle--description" alt="description">${articlefeed.description}</p>
-				</div>
-
-			</div>
-			<div class="row">
-				<div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}
 				</div>
 			</div>
 		</div>
