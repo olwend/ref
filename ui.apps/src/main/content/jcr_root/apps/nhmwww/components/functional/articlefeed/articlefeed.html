@@ -10,7 +10,7 @@
 </div>
 
 <div data-sly-test="${properties.rootpath && properties.rowsize}">
-	<div data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.ArticleFeed">
+	<div data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.ArticleFeed" class="${articlefeed.cssClass}">
 		<div class="articlefeed--title" data-sly-test="${properties.title}">
 			<h2>${properties.title}</h2>
 		</div>
@@ -20,8 +20,7 @@
 				This query returns no results
 			</div>
 			<div data-sly-test="${articlefeed.pageList}">
-				<ul data-sly-list.list="${articlefeed.pageList}"
-					class="small-block-grid-1 medium-block-grid-2 large-block-grid-${articlefeed.columns}">
+				<ul data-sly-list.list="${articlefeed.pageList}" class="small-block-grid-1 medium-block-grid-${articlefeed.mediumColumn} large-block-grid-${articlefeed.largeColumn}">
 					<li data-sly-test="${list.size > 0}">
 						<div class="articlefeed--item">
 							<div class="articlefeed--item__image">
