@@ -86,7 +86,7 @@
 										features="[modifylink,unlink]" />
 									<misctools
 					       				jcr:primaryType="nt:unstructured"
-					       				features="[specialchars]" >
+					       				features="*" >
 					       				<specialCharsConfig jcr:primaryType="nt:unstructured">
 	                                        <chars jcr:primaryType="nt:unstructured">
 	                                            <copyright
@@ -109,7 +109,7 @@
 	                                <cui jcr:primaryType="nt:unstructured">
 	                                    <inline
 	                                        jcr:primaryType="nt:unstructured"
-	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,#styles,#paraformat]">
+	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,misctools#sourceedit,#styles,#paraformat]">
 	                                        <popovers jcr:primaryType="nt:unstructured">
 	                                            <justify
 	                                                jcr:primaryType="nt:unstructured"
@@ -188,7 +188,7 @@
 										features="[modifylink,unlink]" />
 									<misctools
 					       				jcr:primaryType="nt:unstructured"
-					       				features="[specialchars]" >
+					       				features="*" >
 					       				<specialCharsConfig jcr:primaryType="nt:unstructured">
 	                                        <chars jcr:primaryType="nt:unstructured">
 	                                            <copyright
@@ -211,7 +211,7 @@
 	                                <cui jcr:primaryType="nt:unstructured">
 	                                    <inline
 	                                        jcr:primaryType="nt:unstructured"
-	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,#styles,#paraformat]">
+	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,misctools#sourceedit,#styles,#paraformat]">
 	                                        <popovers jcr:primaryType="nt:unstructured">
 	                                            <justify
 	                                                jcr:primaryType="nt:unstructured"
@@ -319,7 +319,7 @@
 										features="[modifylink,unlink]" />
 									<misctools
 					       				jcr:primaryType="nt:unstructured"
-					       				features="[specialchars]" >
+					       				features="*" >
 					       				<specialCharsConfig jcr:primaryType="nt:unstructured">
 	                                        <chars jcr:primaryType="nt:unstructured">
 	                                            <copyright
@@ -342,7 +342,7 @@
 	                                <cui jcr:primaryType="nt:unstructured">
 	                                    <inline
 	                                        jcr:primaryType="nt:unstructured"
-	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,#styles,#paraformat]">
+	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,misctools#sourceedit,#styles,#paraformat]">
 	                                        <popovers jcr:primaryType="nt:unstructured">
 	                                            <justify
 	                                                jcr:primaryType="nt:unstructured"
@@ -387,6 +387,14 @@
 								jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/container">
 								<items jcr:primaryType="nt:unstructured">
+									<imageresourcetype
+					                   	jcr:primaryType="nt:unstructured"
+										name="./image/sling:resourceType"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										value="nhmwww/components/functional/foundation5image"
+										renderHidden="{Boolean}true"
+										wrapperClass="dialog-hide-field"
+										fieldDescription="Hidden field for image upload resource type" />
 									<image
 										jcr:primaryType="nt:unstructured"
 										autoStart="{Boolean}false"

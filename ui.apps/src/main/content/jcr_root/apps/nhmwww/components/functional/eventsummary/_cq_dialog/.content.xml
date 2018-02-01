@@ -145,7 +145,7 @@
 										features="[modifylink,unlink]" />
 									<misctools
 					       				jcr:primaryType="nt:unstructured"
-					       				features="[specialchars]" >
+					       				features="*" >
 					       				<specialCharsConfig jcr:primaryType="nt:unstructured">
 	                                        <chars jcr:primaryType="nt:unstructured">
 	                                            <copyright
@@ -168,7 +168,7 @@
 	                                <cui jcr:primaryType="nt:unstructured">
 	                                    <inline
 	                                        jcr:primaryType="nt:unstructured"
-	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,#styles,#paraformat]">
+	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,misctools#sourceedit,#styles,#paraformat]">
 	                                        <popovers jcr:primaryType="nt:unstructured">
 	                                            <justify
 	                                                jcr:primaryType="nt:unstructured"
