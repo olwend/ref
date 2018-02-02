@@ -27,6 +27,11 @@
 <br>
 		Period: ${dinosaur.period}
 <br>
+		<div data-sly-list="${dinosaur.textBlockCollection}">
+			${item['title'] @ context='html'}
+			${item['textBlock'] @ context='html'}
+		</div>
+<br>
 		Taxonomic details
 <br>
 		Taxonomy: ${dinosaur.taxonomy}

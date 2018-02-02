@@ -1,5 +1,9 @@
 package uk.ac.nhm.core.model.slingModels.dinoDirectory;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -29,6 +33,7 @@ public class Dinosaur {
 	private String namedBy;
 	private String period;
 	private String taxonomy;
+	private List<Map<String, String>> textBlockCollection;
 	private String type;
 	
 	private String imageUrl;
@@ -54,7 +59,8 @@ public class Dinosaur {
 			StringBuffer countriesBuffer = new StringBuffer();
 			for(int i=0; i<countries.length(); i++) {
 				JSONObject country = countries.getJSONObject(i);
-				if(i == (countries.length() - 1)) {
+				
+				if(i == (countries.length() - 1) && countries.length() > 1) {
 					countriesBuffer.append(" and " + country.getString("country"));
 				} else if(i > 0) {
 					countriesBuffer.append(", " + country.getString("country"));
@@ -117,6 +123,20 @@ public class Dinosaur {
 					+ dinosaurMedia.getString("mediaTypePath") + "/"
 					+ dinosaurMedia.getString("mediaContentTypeName")
 					+ "/small/" + dinosaurMedia.getString("identifier") + ".jpg");
+			
+			//Text block
+			JSONArray textBlockArray = dinosaur.getJSONArray("textBlockCollection");
+			for(int i=0; i<textBlockArray.length(); i++) {
+				JSONObject textBlock = textBlockArray.getJSONObject(i);
+				
+				if(textBlock.getString("identifier").equals("detail")) {
+					Map<String, String> textBlockMap = new HashMap<String, String>();
+					textBlockMap.put("title", textBlock.getString("title"));
+					textBlockMap.put("textBlock", textBlock.getString("textBlock"));
+					textBlockCollection.add(textBlockMap);
+				}
+			}
+			this.setTextBlockCollection(textBlockCollection);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -193,6 +213,14 @@ public class Dinosaur {
 
 	public void setTaxonomy(String taxonomy) {
 		this.taxonomy = taxonomy;
+	}
+
+	public List<Map<String, String>> getTextBlockCollection() {
+		return textBlockCollection;
+	}
+
+	public void setTextBlockCollection(List<Map<String, String>> textBlockCollection) {
+		this.textBlockCollection = textBlockCollection;
 	}
 
 	public String getType() {
