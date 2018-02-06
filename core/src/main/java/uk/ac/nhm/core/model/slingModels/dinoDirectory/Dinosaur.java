@@ -107,7 +107,7 @@ public class Dinosaur {
 			this.setDescription(descriptionBuffer.toString());
 			
 			this.setDiet(dinosaur.getString("dietTypeName"));
-			this.setGenus(dinosaur.getString("genus").toUpperCase());
+			this.setGenus(dinosaur.getString("genus"));
 			this.setNameMeaning(dinosaur.getString("nameMeaning"));
 			this.setNamePronounciation(dinosaur.getString("namePronounciation"));
 			this.setNamedBy(dinosaur.getString("genusNamedBy") + " (" + String.valueOf(dinosaur.getInt("genusYear")) + ")");
