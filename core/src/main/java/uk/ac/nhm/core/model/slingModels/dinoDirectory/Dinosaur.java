@@ -1,5 +1,6 @@
 package uk.ac.nhm.core.model.slingModels.dinoDirectory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,7 @@ public class Dinosaur {
 	private String description;
 	private String diet;
 	private String genus;
+	private String mya;
 	private String nameMeaning;
 	private String namePronounciation;
 	private String namedBy;
@@ -114,6 +116,21 @@ public class Dinosaur {
 			JSONObject period = dinosaur.getJSONObject("period");
 			this.setPeriod(period.getString("period"));
 			
+			String myaFrom = String.valueOf(dinosaur.getInt("myaFrom"));
+			String myaTo = String.valueOf(dinosaur.getInt("myaTo"));
+			
+			String mya = null;
+			
+			if(!myaFrom.equals(null) && !myaTo.equals(null)) {
+				mya = myaFrom + " - " + myaTo + " million years ago";
+			} else if(!myaFrom.equals(null)) {
+				mya = myaFrom + " million years ago";
+			} else if(!myaTo.equals(null)) {
+				mya = myaTo + " million years ago";
+			}
+			
+			this.setMya(mya);
+			
 			//Taxonomy
 			JSONObject taxonomy = dinosaur.getJSONObject("taxTaxon");
 			this.setTaxonomy(taxonomy.getString("taxonomyCSV").replaceAll(",", ", "));
@@ -126,13 +143,22 @@ public class Dinosaur {
 			
 			//Text block
 			JSONArray textBlockArray = dinosaur.getJSONArray("textBlockCollection");
+			List<Map<String, String>> textBlockCollection = new ArrayList<Map<String, String>>();
+			
 			for(int i=0; i<textBlockArray.length(); i++) {
 				JSONObject textBlock = textBlockArray.getJSONObject(i);
 				
-				if(textBlock.getString("identifier").equals("detail")) {
+				String identifier = textBlock.getString("identifier");
+				if(identifier.equals("detail")) {
 					Map<String, String> textBlockMap = new HashMap<String, String>();
-					textBlockMap.put("title", textBlock.getString("title"));
-					textBlockMap.put("textBlock", textBlock.getString("textBlock"));
+					
+					if(!textBlock.isNull("title")) {
+						textBlockMap.put("title", textBlock.getString("title"));
+					}
+					if(!textBlock.isNull("textBlock")) {
+						textBlockMap.put("textBlock", textBlock.getString("textBlock"));
+					}
+					
 					textBlockCollection.add(textBlockMap);
 				}
 			}
@@ -173,6 +199,14 @@ public class Dinosaur {
 
 	public void setGenus(String genus) {
 		this.genus = genus;
+	}
+
+	public String getMya() {
+		return mya;
+	}
+
+	public void setMya(String mya) {
+		this.mya = mya;
 	}
 
 	public String getNameMeaning() {

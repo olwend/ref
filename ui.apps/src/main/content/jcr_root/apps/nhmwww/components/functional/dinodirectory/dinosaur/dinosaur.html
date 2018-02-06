@@ -21,11 +21,15 @@
 <br>
 		${dinosaur.description}   
 <br>
+		<!-- Dinosaur/man image -->
+<br>
 		Diet: ${dinosaur.diet}
 <br>
 		Country: ${dinosaur.country}
 <br>
-		Period: ${dinosaur.period}
+		Period: ${dinosaur.period} (${dinosaur.mya})
+<br>
+		<!-- Timeline image -->
 <br>
 		<div data-sly-list="${dinosaur.textBlockCollection}">
 			${item['title'] @ context='html'}
@@ -38,7 +42,7 @@
 <br>
 		Named by: ${dinosaur.namedBy}
 <br>
-		Type: ${dinosaur.type}
+		Type species: ${dinosaur.type}
 
 	</div>
 </sly>
