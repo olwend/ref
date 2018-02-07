@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.2 - Flexible Fukuiraptor - 01-Feb-2018
+- WR-1220 - Create styling for article feed "1" limit in sidebar
+- WR-1237 - Replace data-interchange in Discover Related component with HTML5 <picture>
+- WR-1250 - Reinstate margin-bottom on rows in Discover
+
+## 2.0.1 - Eldritch Eoraptor - 25-Jan-2018
+- WR-1025 - Investigate creating XML sitemaps in AEM
+- WR-1201 - Big Splash play button hidden by CTA area
+- WR-1238 - Add edit mode validation for HTI and Image components
+- WR-1227 - Update Library & Archives Search component
+- WR-1240 - Update popular search terms
+- WR-1248 - Article image dialog bug
+- WR-1249 - Remove etc.clientlib paths
+
 ## 2.0.0 - AEM 6.3 upgrade - 15-Jan-2018
 - WR-1085 - Upgrade dialogs to use Touch UI
 

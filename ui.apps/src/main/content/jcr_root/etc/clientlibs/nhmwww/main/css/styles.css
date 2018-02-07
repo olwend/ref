@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -5589,7 +5589,6 @@ html.js-noScroll {
 
 .discover .row {
   width: 100%;
-  margin-bottom: 0;
 }
 
 .discover .row .row {
@@ -5602,10 +5601,6 @@ html.js-noScroll {
 
 .discover .discover-image {
   margin-bottom: 1em;
-}
-
-.articlefeed {
-  margin: 0 20px;
 }
 
 .articlefeed a {
@@ -5677,6 +5672,10 @@ html.js-noScroll {
 
 .articlefeed--read-more-link {
   text-align: center;
+}
+
+.articlefeed__full-width {
+  margin: 0 20px;
 }
 
 /** BIG SPLASH PARTIAL **/
@@ -6718,6 +6717,10 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-element-wrapper {
   position: relative;
+}
+
+.discoverrelated .discover .discover-element {
+  margin-bottom: 0;
 }
 
 .discoverrelated .discover .discover-element-text {
