@@ -12,7 +12,7 @@
 						<span class="ir">Menu</span>
 					</a>
 			</div>
-			<nav class="global-header--bar global-header--menu__nav row cf">
+			<nav class="global-header--bar global-header--menu__nav js-qahub-control row cf">
 					<ul class="global-header--nav-list cf">
 						<li class="global-header--nav-list__item link-visit">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/visit.html">Visit</a>
