@@ -29,42 +29,45 @@ public class FeaturedArticle {
 
 	@Inject
 	ValueMap properties;
-	
+
 	private final TextUtils textUtils = new TextUtils();
 
+	private String articlePath = null;
 	private String title = null;
 	private String description = null;
 	private String tagName = null;
 	private String date = null;
-	
+
 	@PostConstruct
 	protected void init() {
-		String articlePath = properties.get("articlepath", String.class);
-		
+		String resourcePath = properties.get("articlepath", String.class);
+
+		this.setArticlePath(resourcePath);
+
 		ResourceResolver resolver = request.getResourceResolver();
-		Resource resource = resolver.getResource(articlePath);
+		Resource resource = resolver.getResource(resourcePath);
 		ValueMap properties = resource.adaptTo(ValueMap.class);
-		
+
 		this.setTitle(properties.get("jcr:content/article/jcr:title", String.class));
 		this.setDescription(textUtils.stripHtmlTags(properties.get("jcr:content/article/snippet", String.class)));
-		
+
 		if(properties.containsKey("jcr:content/article/hubTag")) {
 			String tagPath = "/etc/tags/nhm/" + properties.get("jcr:content/article/hubTag", String.class).split(":")[1];
 			Resource tagsResource = resolver.getResource(tagPath);
 			ValueMap tagsProperties = tagsResource.adaptTo(ValueMap.class);
 			this.setTagName(tagsProperties.get("jcr:title", String.class).toUpperCase());
 		}
-		
+
 		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
-		
+
 		if(properties.containsKey("jcr:content/article/datepublished")) {
-    		DateTime dt = dateFormatter.parseDateTime(properties.get("jcr:content/article/datepublished", String.class));
+			DateTime dt = dateFormatter.parseDateTime(properties.get("jcr:content/article/datepublished", String.class));
 			MutableDateTime mdt = dt.toMutableDateTime();
 			String datePublished = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-    		this.setDate(datePublished);
-    	}
+			this.setDate(datePublished);
+		}
 	}
-	
+
 	public String getMonth(int month) {
 		return new DateFormatSymbols().getMonths()[month-1];
 	}
@@ -75,6 +78,22 @@ public class FeaturedArticle {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getArticlePath() {
+		return articlePath;
+	}
+
+	public void setArticlePath(String resourcePath) {
+		if(resourcePath != null) {
+			if(!resourcePath.isEmpty()) {
+				if(!resourcePath.contains(".html")) {
+					this.articlePath = resourcePath + ".html";
+				} else {
+					this.articlePath = resourcePath;
+				}
+			}
+		}
 	}
 
 	public String getDescription() {

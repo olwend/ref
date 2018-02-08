@@ -1,4 +1,3 @@
-
 <sly data-sly-test="${!properties.articlepath || !properties.imagepath}">
 	<div class="row">
 	<h4>Featured article</h4>
@@ -11,29 +10,22 @@
 </sly>
 
 <sly data-sly-test="${properties.articlepath && properties.imagepath}">
-	<sly data-sly-use.articlefeed="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
-	<a href="${properties.articlepath}">
-
-	<div class="featuredarticle--container">
-		<div class="featuredarticle--image-container">
-			<img class="featuredarticle--image" src="${properties.imagepath}" alt="header image">
-		</div>
-
-	<!-- 		<div class="row">
-				<div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}
+	<sly data-sly-use.featuredarticle="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
+		<a href="${featuredarticle.articlePath}">
+			<div class="featuredarticle--container">
+				<div class="featuredarticle--image-container">
+					<img class="featuredarticle--image" src="${properties.imagepath}" alt="header image">
 				</div>
-			</div> -->
-
-			<div class="row">
-				<div class="featuredarticle--text-container" data-testid="article-text-container">
-					<p class="featuredarticle--tag" alt="subject" data-sly-test="${articlefeed.tagName}" data-testid="article-tag">${articlefeed.tagName}</p>
-					<p class="featuredarticle--title" alt="article title">${articlefeed.title}</p>
-					<p class="featuredarticle--date" alt="publication date">${articlefeed.date}</p>
-					<p class="featuredarticle--description" alt="description">${articlefeed.description}</p>
+				<!-- <div class="row"><div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}</div></div> -->
+				<div class="row">
+					<div class="featuredarticle--text-container">
+						<p class="featuredarticle--tag" data-sly-test="${featuredarticle.tagName}">${featuredarticle.tagName}</p>
+						<h2 class="featuredarticle--title">${featuredarticle.title}</h2>
+						<p class="featuredarticle--date">${featuredarticle.date}</p>
+						<p class="featuredarticle--description">${featuredarticle.description}</p>
+					</div>
 				</div>
 			</div>
-		</div>
-
-	</a>
+		</a>
 	</sly>
 </sly>
