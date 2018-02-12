@@ -1,4 +1,4 @@
-<sly data-sly-test="${!properties.articlepath || !properties.imagepath}">
+<sly data-sly-test="${!properties.articlepath}">
 	<div class="row">
 	<h4>Featured article</h4>
 	Required fields:
@@ -9,12 +9,11 @@
 	</div>
 </sly>
 
-<sly data-sly-test="${properties.articlepath && properties.imagepath}">
+<sly data-sly-test="${properties.articlepath}">
 	<sly data-sly-use.featuredarticle="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
 		<a href="${featuredarticle.articlePath}">
 			<div class="featuredarticle--container">
-				<div class="featuredarticle--image-container">
-					<div data-sly-resource="${'image' @ resourceType='nhmwww/components/functional/foundation5image', wcmmode='disabled'}"></div>
+				<div class="featuredarticle--image-container" data-sly-resource="${'image' @ resourceType='nhmwww/components/functional/foundation5image', wcmmode='disabled'}">
 				</div>
 				<!-- <div class="row"><div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}</div></div> -->
 				<div class="row">
