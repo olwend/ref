@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -5589,7 +5589,6 @@ html.js-noScroll {
 
 .discover .row {
   width: 100%;
-  margin-bottom: 0;
 }
 
 .discover .row .row {
@@ -5602,10 +5601,6 @@ html.js-noScroll {
 
 .discover .discover-image {
   margin-bottom: 1em;
-}
-
-.articlefeed {
-  margin: 0 20px;
 }
 
 .articlefeed a {
@@ -5679,6 +5674,10 @@ html.js-noScroll {
   text-align: center;
 }
 
+.articlefeed__full-width {
+  margin: 0 20px;
+}
+
 /** BIG SPLASH PARTIAL **/
 .bigsplash .row {
   height: 100%;
@@ -5722,8 +5721,11 @@ html.js-noScroll {
   .bigsplash-video--controls {
     display: block;
     position: absolute;
-    max-width: 30px;
+    max-width: 65px;
     bottom: 0;
+  }
+  .bigsplash-video--controls .ico {
+    max-width: 30px;
   }
 }
 
@@ -5735,10 +5737,6 @@ html.js-noScroll {
 
 .bigsplash-video--controls-pause, .bigsplash-video--controls-play {
   cursor: pointer;
-}
-
-.bigsplash-video--controls-play.ico {
-  display: none;
 }
 
 .bigsplash-image {
@@ -6719,6 +6717,10 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-element-wrapper {
   position: relative;
+}
+
+.discoverrelated .discover .discover-element {
+  margin-bottom: 0;
 }
 
 .discoverrelated .discover .discover-element-text {
@@ -9244,6 +9246,230 @@ input.searchGo {
   top: auto !important;
 }
 
+.qahub p {
+  margin: 0;
+}
+
+.qahub--container {
+  padding: 0 20px;
+}
+
+.qahub--question-container a {
+  color: #565656;
+}
+
+.qahub--question-container a:hover {
+  text-decoration: none;
+  color: #0983BB;
+}
+
+.qahub--question-title {
+  margin: 0 0 2px 0;
+  padding: 0.5em 20px;
+  background-color: #0983BB;
+  color: #FFFFFF;
+}
+
+.qahub--question-up, .qahub--question-down, .qahub--question-expand {
+  text-align: center;
+  padding: 5px 0;
+  background-color: #EEEEEE;
+}
+
+.qahub--question-up img, .qahub--question-down img, .qahub--question-expand img {
+  max-height: 10px;
+}
+
+.qahub--question-up,
+.qahub--question-expand img:first-child {
+  transform: rotate(0.5turn);
+}
+
+.qahub--question-down, .qahub--question-expand {
+  margin-bottom: 2px;
+}
+
+.qahub--question-up, .qahub--question-down {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .qahub--question-up, .qahub--question-down {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .qahub--question-expand {
+    display: none;
+  }
+}
+
+.qahub--question-list {
+  height: 100px;
+  margin: 2px 0;
+  padding: 0;
+  background-color: #EEEEEE;
+  font-size: 1.1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  .qahub--question-list {
+    height: 306px;
+    font-size: 1.3rem;
+  }
+}
+
+.qahub--question-list li {
+  padding: 5px 20px;
+  background-color: #EEEEEE;
+}
+
+.qahub--question-list li.js-qahub--question-selected {
+  background-color: #0983BB;
+}
+
+.qahub--question-list li.js-qahub--question-selected span {
+  color: #FFFFFF;
+}
+
+.qahub--question-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.qahub--question-list::-webkit-scrollbar-track {
+  background: #EEEEEE;
+}
+
+.qahub--question-list::-webkit-scrollbar-thumb, .qahub--question-list::-webkit-scrollbar-thumb:window-inactive {
+  width: 16px;
+  border-right: 10px solid #EEEEEE;
+  border-top: 2px solid #EEEEEE;
+  border-bottom: 2px solid #EEEEEE;
+  background: #FFFFFF;
+}
+
+.qahub--answer-container {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 1.5em;
+}
+
+.qahub--answer-container a,
+.qahub--answer-container a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
+.qahub--answer-container a {
+  border-bottom: 1px dotted #565656;
+}
+
+.qahub--answer-container a:hover {
+  border-bottom: 1px solid #565656;
+}
+
+@media screen and (min-width: 768px) {
+  .qahub--answer-container {
+    padding-left: 10px;
+  }
+}
+
+.qahub--answer-list {
+  height: 630px;
+  padding: 20px;
+  background-color: #EEEEEE;
+}
+
+@media screen and (min-width: 1024px) {
+  .qahub--answer-list {
+    height: 370px;
+  }
+}
+
+.qahub--controls-container {
+  height: 75px;
+  margin-top: 2px;
+  padding: 20px;
+  background-color: #EEEEEE;
+  text-align: right;
+}
+
+.qahub--controls-container a,
+.qahub--controls-container a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.qahub--previous-question img {
+  transform: rotate(0.5turn);
+  padding: 0 20px;
+}
+
+.template--nhm-page-no-titlebar .qasingle--container .qasingle--question-title-container {
+  margin-top: 1.5em;
+}
+
+.qasingle--container a,
+.qasingle--container a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
+.qasingle--container a {
+  border-bottom: 1px dotted #565656;
+}
+
+.qasingle--container a:hover {
+  border-bottom: 1px solid #565656;
+}
+
+.qasingle--question-title-container {
+  margin: 0 0 2px 0;
+  padding: 0.5em 20px;
+  background-color: #0983BB;
+}
+
+.qasingle--question-title {
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+.qasingle--question-content {
+  background-color: #EEEEEE;
+  padding: 20px;
+  margin-bottom: 2px;
+}
+
+.qasingle--next-question-container {
+  background-color: #EEEEEE;
+  padding: 20px;
+}
+
+.qasingle--next-question-container .ico {
+  max-width: 30px;
+  max-height: 30px;
+  margin-top: 0;
+}
+
+.qasingle--next-question-container .ico svg {
+  height: 30px;
+  width: 30px;
+}
+
+.qasingle--next-question {
+  margin: 0;
+}
+
+.qasingle--next-question-arrow {
+  max-width: 30px;
+}
+
 /** ABOUT-US THEME PARTIAL **/
 .about-us {
   /** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
@@ -10709,11 +10935,12 @@ input.searchGo {
   border-bottom-color: #A1164E;
 }
 
-.headertextimage {
-    display: table;
-    width: 100%;
+.discover .title-bar h1,
+.discover .title-bar p {
+  color: #565656 !important;
 }
 
-.discover .title-bar h1 {
-  color: #565656 !important;
+.headertextimage {
+  display: table;
+  width: 100%;
 }

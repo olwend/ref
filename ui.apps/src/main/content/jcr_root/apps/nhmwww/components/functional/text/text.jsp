@@ -8,7 +8,7 @@
 	if(helper.isComponentInitialised()) {
 %>
 	<%=helper.getText()%>
-<% } else { %>
+<% } else if (isOnEditMode || isOnDesignMode) { %>
 	<div class="row">
 		<h4>Text</h4>
 	</div>

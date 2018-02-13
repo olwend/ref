@@ -12,7 +12,7 @@
 						<span class="ir">Menu</span>
 					</a>
 			</div>
-			<nav class="global-header--bar global-header--menu__nav row cf">
+			<nav class="global-header--bar global-header--menu__nav js-qahub-control row cf">
 					<ul class="global-header--nav-list cf">
 						<li class="global-header--nav-list__item link-visit">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/visit.html">Visit</a>
@@ -120,8 +120,8 @@
 				<ul>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/venom-killer-and-cure.html">Venom</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html"> Wildlife Photographer of the Year</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/bluewhale">Hope the blue whale</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/oceans.html">Oceans</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/dippy-on-tour.html">Dippy on Tour</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/human-evolution.html">Human evolution</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/search.html?q=dinosaurs">Dinosaurs</a></li>
 				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a fossil</a></li>
 				</ul>

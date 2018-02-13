@@ -31,8 +31,10 @@ public class ArticleFeed {
 	ArticleFeedService service;
 
 	private List<Map<String, String>> pageList = null;
-	private String columns = null;
+	private String mediumColumn = null;
+	private String largeColumn = null;
 	private String readmorelink = null;
+	private String cssClass = null;
 	
 	@PostConstruct
 	protected void init() {
@@ -54,13 +56,24 @@ public class ArticleFeed {
 		this.setPageList(service.getPageData(rootPath, tags, order, tagsOperator, limit));
 
 		String rowSize = properties.get("rowsize", String.class);
+		
 		if(rowSize.equals("fullwidth")) {
-			this.setColumns("4");
-		}
-		if(rowSize.equals("twocolumn")) {
-			this.setColumns("2");
+			this.setMediumColumn("2");
+			this.setLargeColumn("4");
+			this.setCssClass("articlefeed__full-width");
 		}
 		
+		if(rowSize.equals("twocolumn")) {
+			this.setMediumColumn("2");
+			this.setLargeColumn("2");
+			this.setCssClass("articlefeed__two-column");
+		}
+		
+		if(rowSize.equals("onecolumn")) {
+			this.setMediumColumn("1");
+			this.setLargeColumn("1");
+			this.setCssClass("articlefeed__one-column");
+		}
 		
 		//this.showreadmore = properties.get("showreadmore",boolean.class);
 		this.readmorelink = properties.get("readmorelink",String.class);
@@ -81,17 +94,33 @@ public class ArticleFeed {
 	public void setPageList(List<Map<String, String>> pageList) {
 		this.pageList = pageList;
 	}
-
-	public String getColumns() {
-		return columns;
-	}
-
-	public void setColumns(String columns) {
-		this.columns = columns;
-	}
 	
 	public String getReadmorelink() {
 		return readmorelink;
+	}
+
+	public String getMediumColumn() {
+		return mediumColumn;
+	}
+
+	public void setMediumColumn(String mediumColumn) {
+		this.mediumColumn = mediumColumn;
+	}
+
+	public String getLargeColumn() {
+		return largeColumn;
+	}
+
+	public void setLargeColumn(String largeColumn) {
+		this.largeColumn = largeColumn;
+	}
+
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	public void setCssClass(String cssClass) {
+		this.cssClass = cssClass;
 	}
 
 	
