@@ -19,7 +19,7 @@
 				<p>${dinosaur.namePronounciation}</p>
 			</div>
 			<div class="dinosaur--meaning">
-				<p>${dinosaur.nameMeaning}</p>
+				<p>"${dinosaur.nameMeaning}"</p>
 			</div>
 		</div>
 
@@ -59,8 +59,13 @@
 			${item['textBlock'] @ context='html'}
 		</div>
 
+				<!-- Don't do anything with this yet -->
+		<!-- <div class="dinosaur--secondimage"> -->
+			<!-- Second image -->
+		<!-- </div> -->
+
 		<div class="dinosaur--taxonomy-container">
-			<h3 class="dinosaur--taxonomy-title">Taxonomic details</h3>
+			<!-- <h3 class="dinosaur--taxonomy-title">Taxonomic details</h3> -->
 			<p class="dinosaur--taxonomy-detail">Taxonomy: ${dinosaur.taxonomy}</p>
 			<p class="dinosaur--taxonomy-detail">Named by: ${dinosaur.namedBy}</p>
 			<p class="dinosaur--taxonomy-detail">Type species: ${dinosaur.type}</p>
