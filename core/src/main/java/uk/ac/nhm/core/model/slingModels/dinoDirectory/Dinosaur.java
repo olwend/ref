@@ -12,15 +12,22 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Source;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.ac.nhm.core.services.DinoDirectoryEnvironmentService;
+
 @Model(adaptables = Resource.class)
 public class Dinosaur {
 
 	private final static Logger LOG = LoggerFactory.getLogger(Dinosaur.class);
+	
+	@Inject
+	@Source("osgi-services")
+	DinoDirectoryEnvironmentService service;
 	
 	@Inject
 	private String name;
@@ -40,11 +47,11 @@ public class Dinosaur {
 	
 	private String imageUrl;
 	
-	private static final String BASE_URL = "http://staging.nhm.ac.uk/api/dino-directory-api/dinosaur/name";
-	
 	@PostConstruct
 	protected void init() {
-		String requestUrl = BASE_URL + "/" + name;
+		final String BASE_URL = service.getDinoDirectoryUrl();
+		
+		String requestUrl = BASE_URL + "/dinosaur/name/" + name;
 		
 		HttpClient httpClient = new HttpClient();
 		GetMethod getMethod = new GetMethod(requestUrl);

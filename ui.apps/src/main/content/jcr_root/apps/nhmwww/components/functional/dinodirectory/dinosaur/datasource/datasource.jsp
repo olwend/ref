@@ -22,7 +22,7 @@
 <%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0"%>
 <cq:defineObjects />
 <%
-	String requestUrl = "http://staging.nhm.ac.uk/api/dino-directory-api/dinosaur/?view=genus";
+	String requestUrl = "http://www.nhm.ac.uk/api/dino-directory-api/dinosaur/?view=genus";
 
 	HttpClient httpClient = new HttpClient();
 	GetMethod getMethod = new GetMethod(requestUrl);
