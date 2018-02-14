@@ -5688,24 +5688,31 @@ html.js-noScroll {
   padding-top: 0;
 }
 
+.featuredarticle--image-container {
+  overflow: hidden;
+}
+
 @media screen and (min-width: 768px) {
   .featuredarticle--image-container {
     max-height: 240px;
-    overflow: hidden;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .featuredarticle--image-container {
     max-height: 320px;
-    overflow: hidden;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
+  .featuredarticle--image-container {
+    max-height: 425px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   .featuredarticle--image-container {
     max-height: 595px;
-    overflow: hidden;
   }
 }
 
@@ -5770,7 +5777,6 @@ html.js-noScroll {
 
 @media screen and (min-width: 1025px) {
   .featuredarticle--tag {
-    font-size: 1em;
     margin-bottom: 0.5em;
   }
 }
