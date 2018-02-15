@@ -1,0 +1,7 @@
+#base=js
+granite/granite.js
+granite/jquery-ui.js
+granite/jquery.js
+granite/utils.js
+foundation/jquery-ui.js
+foundation/jquery.js

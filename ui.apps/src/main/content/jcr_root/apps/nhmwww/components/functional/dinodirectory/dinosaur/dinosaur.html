@@ -9,31 +9,67 @@
 </sly>
 
 <sly data-sly-test="${properties.name}">
-	<div data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
+	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
-		${dinosaur.genus}
-<br>
-		${dinosaur.namePronounciation}
-<br>
-		${dinosaur.nameMeaning}
-<br>
-    	<img src="${dinosaur.imageUrl}">
-<br>
-		${dinosaur.description}   
-<br>
-		Diet: ${dinosaur.diet}
-<br>
-		Country: ${dinosaur.country}
-<br>
-		Period: ${dinosaur.period}
-<br>
-		Taxonomic details
-<br>
-		Taxonomy: ${dinosaur.taxonomy}
-<br>
-		Named by: ${dinosaur.namedBy}
-<br>
-		Type: ${dinosaur.type}
+		<div class="dinosaur--title-container">
+			<div class="dinosaur--name">
+				<p>${dinosaur.genus}</p>
+			</div>
+			<div class="dinosaur--pronunciation">
+				<p>${dinosaur.namePronounciation}</p>
+			</div>
+			<div class="dinosaur--meaning">
+				<p>"${dinosaur.nameMeaning}"</p>
+			</div>
+		</div>
+
+		<div class="dinosaur--image-container">
+			<img class="dinosaur--image" src="${dinosaur.imageUrl}">
+		</div>
+
+		<div class="dinosaur--description-container">
+			<div class="dinosaur--description">
+				<p>${dinosaur.description}</p>
+			</div>
+			<!-- Don't do anything with this yet -->
+			<!-- <div class="dinosaur--comparison"> -->
+				<!-- Dinosaur/man image -->
+			<!-- </div> -->
+		</div>
+
+		<div class="dinosaur--info-container">
+			<div class="dinosaur--diet">
+				<p>Diet: ${dinosaur.diet}</p>
+			</div>
+			<div class="dinosaur--country">
+				<p>Country: ${dinosaur.country}</p>
+			</div>
+			<div class="dinosaur--period">
+				<p>Period: ${dinosaur.period} (${dinosaur.mya})</p>
+			</div>
+		</div>
+
+		<!-- Don't do anything with this yet -->
+		<!-- <div class="dinosaur--timeline"> -->
+			<!-- Timeline image -->
+		<!-- </div> -->
+
+		<div class="dinosaur--content-container" data-sly-list="${dinosaur.textBlockCollection}">
+			<h4 class="dinosaur--content-title">${item['title']}</h4>
+			${item['textBlock'] @ context='html'}
+		</div>
+
+				<!-- Don't do anything with this yet -->
+		<!-- <div class="dinosaur--secondimage"> -->
+			<!-- Second image -->
+		<!-- </div> -->
+
+		<div class="dinosaur--taxonomy-container">
+			<!-- <h3 class="dinosaur--taxonomy-title">Taxonomic details</h3> -->
+			<p class="dinosaur--taxonomy-detail">Taxonomy: ${dinosaur.taxonomy}</p>
+			<p class="dinosaur--taxonomy-detail">Named by: ${dinosaur.namedBy}</p>
+			<p class="dinosaur--taxonomy-detail">Type species: ${dinosaur.type}</p>
+		</div>
 
 	</div>
 </sly>

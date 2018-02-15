@@ -11,16 +11,16 @@
 	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 		<a href="<%= helper.getImageLinkURL() %>"<%=helper.getNewWindowHtml()%>>
 	<% } %>
-	    <img alt='<%= helper.getAlt() %>' data-interchange="
-	    	[<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>, (default)],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (max-width: 480px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.LARGE) %>, (only screen and (min-width: 481px) and (max-width: 640px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>, (only screen and (min-width: 641px) and (max-width: 1024px))],
-		    [<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %>, (only screen and (min-width: 1025px)],">
-	<%-- Fallback content for non-JS browsers. --%>
-	<noscript>
-	    <img src='<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>' alt='<%= helper.getAlt() %>'>
-	</noscript>
+		<picture>
+			<source media="(max-width: 480px)" 
+					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %> 320w" />
+			<source media="(min-width: 481px) and (max-width: 1024px)"
+					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %> 1024w" />
+			<source media="(min-width: 1025px)"
+					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %> 320w" />
+			<img src="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>" alt="<%= helper.getAlt() %>" />
+		</picture>
+	
 	<% if(helper.getImageLinkURL() != null && !helper.getImageLinkURL().equals("")) { %>
 		</a>
 	<% } %>
