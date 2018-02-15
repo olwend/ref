@@ -29,7 +29,7 @@
 
 		<div class="dinosaur--description-container">
 			<div class="dinosaur--description">
-				<p>${dinosaur.description}</p>
+				<p>${dinosaur.description} <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 			</div>
 			<!-- Don't do anything with this yet -->
 			<!-- <div class="dinosaur--comparison"> -->
@@ -42,10 +42,14 @@
 				<p>Diet: ${dinosaur.diet}</p>
 			</div>
 			<div class="dinosaur--country">
-				<p>Country: ${dinosaur.country}</p>
+            	<p>Country:
+                    <sly data-sly-list.country="${dinosaur.countryList}">
+                        <a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
+                    </sly>
+                </p>
 			</div>
 			<div class="dinosaur--period">
-				<p>Period: ${dinosaur.period} (${dinosaur.mya})</p>
+				<p>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a> ${dinosaur.mya}</p>
 			</div>
 		</div>
 
