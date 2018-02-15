@@ -30,6 +30,18 @@
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Country"
                        					value="country" />
+                       				<o2
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Body shape"
+                       					value="bodyshape" />
+                       				<o3
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Period"
+                       					value="period" />
+                       				<o4
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Initial"
+                       					value="initial" />
 			                    </items>
 							</filterOne>
 							<filterTwo
@@ -46,6 +58,10 @@
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Scotland"
                        					value="scotland"/>
+                       				<o3
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Sauropod"
+                       					value="sauropod"/>
 			                    </items>
 							</filterTwo>
 		            	</items>

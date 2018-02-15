@@ -1,19 +1,23 @@
 <h3>${properties.filterOne} - ${properties.filterTwo}</h3>
 
-<p>Filter by body shape</p>
-<select class="filterDinosaurs" data-tableId="tableDinosaurs">
-  <option value="All">All</option>
-  <option value="Sauropod">Sauropod</option>
-  <option value="Ceratopian">Ceratopian</option>
-  <option value="Euornithopod">Euornithopod</option>
-  <option value="Large theropod">Large theropod</option>
-  <option value="Small theropod">Small theropod</option>
-  <option value="Ankylosaurid">Ankylosaurid</option>
-  <option value="Ornithomimosaur">Ornithomimosaur</option>
-</select>
+<sly data-sly-test="{properties.filterOne == 'bodyshape'}">
+	<sly data-sly-include="bodyshape.html">
+</sly>
+
+<sly data-sly-test="{properties.filterOne == 'period'}">
+	<sly data-sly-include="period.html">
+</sly>
+
+<sly data-sly-test="{properties.filterOne == 'country'}">
+	<sly data-sly-include="country.html">
+</sly>
+
+<sly data-sly-test="{properties.filterOne == 'initial'}">
+	<sly data-sly-include="initial.html">
+</sly>
 
 <sly data-sly-use.dinosaurSearch="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearch">
 	<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-		<li class="dinosaur" data-body-shape="${dinosaurs['bodyShape']}">${dinosaurs['genus']} - ${dinosaurs['bodyShape']}</li>
+		<li>${dinosaurs['genus']}</li>
 	</ul>
 </sly>
