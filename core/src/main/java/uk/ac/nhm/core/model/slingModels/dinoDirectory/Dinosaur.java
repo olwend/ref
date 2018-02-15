@@ -32,7 +32,8 @@ public class Dinosaur {
 	@Inject
 	private String name;
 	
-	private String country;
+	private Map<String, String> bodyShape;
+	private List<Map<String, String>> countryList;
 	private String description;
 	private String diet;
 	private String genus;
@@ -40,7 +41,7 @@ public class Dinosaur {
 	private String nameMeaning;
 	private String namePronounciation;
 	private String namedBy;
-	private String period;
+	private Map<String, String> period;
 	private String taxonomy;
 	private List<Map<String, String>> textBlockCollection;
 	private String type;
@@ -64,25 +65,31 @@ public class Dinosaur {
 			JSONObject dinosaurMedia = dinosaur.getJSONArray("mediaCollection").getJSONObject(0);
 			
 			//Country
+			List<Map<String, String>> countryList = new ArrayList<Map<String, String>>();
 			JSONArray countries = dinosaur.getJSONArray("countries");
-			StringBuffer countriesBuffer = new StringBuffer();
+
 			for(int i=0; i<countries.length(); i++) {
+				Map<String, String> countryMap = new HashMap<String, String>();
 				JSONObject country = countries.getJSONObject(i);
 				
-				if(i == (countries.length() - 1) && countries.length() > 1) {
-					countriesBuffer.append(" and " + country.getString("country"));
-				} else if(i > 0) {
-					countriesBuffer.append(", " + country.getString("country"));
-				} else {
-					countriesBuffer.append(country.getString("country"));
-				}
+				countryMap.put("name", country.getString("country"));
+				countryMap.put("url", "http://www.nhm.ac.uk/discover/dino-directory/country/" + country.getString("country") + "/gallery.html");
+				countryList.add(countryMap);
 			}
-
-			this.setCountry(countriesBuffer.toString());
+			
+			this.setCountryList(countryList);
+			
+			//Body shape
+			JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
+			Map<String, String> bodyShapeMap = new HashMap<String, String>();
+			
+			bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
+			bodyShapeMap.put("url", 
+					"http://www.nhm.ac.uk/discover/dino-directory/body-shape/" + bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+			
+			this.setBodyShape(bodyShapeMap);
 			
 			//Description
-			JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
-			
 			int mass = 0;			
 			if(!dinosaur.isNull("massFrom")) {
 				mass = dinosaur.getInt("massFrom");
@@ -110,7 +117,6 @@ public class Dinosaur {
 				}
 			}
 			
-			descriptionBuffer.append(" " + bodyShape.getString("bodyShape").toLowerCase());
 			this.setDescription(descriptionBuffer.toString());
 			
 			this.setDiet(dinosaur.getString("dietTypeName"));
@@ -121,7 +127,13 @@ public class Dinosaur {
 			
 			//Period
 			JSONObject period = dinosaur.getJSONObject("period");
-			this.setPeriod(period.getString("period"));
+			Map<String, String> periodMap = new HashMap<String, String>();
+			
+			periodMap.put("name", period.getString("period"));
+			periodMap.put("url", 
+					"http://www.nhm.ac.uk/discover/dino-directory/timeline/" + period.getString("period").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+			
+			this.setPeriod(periodMap);
 			
 			String myaFrom = String.valueOf(dinosaur.getInt("myaFrom"));
 			String myaTo = String.valueOf(dinosaur.getInt("myaTo"));
@@ -129,11 +141,11 @@ public class Dinosaur {
 			String mya = null;
 			
 			if(!myaFrom.equals(null) && !myaTo.equals(null)) {
-				mya = myaFrom + " - " + myaTo + " million years ago";
+				mya = myaFrom + " - " + myaTo + " million BCE";
 			} else if(!myaFrom.equals(null)) {
-				mya = myaFrom + " million years ago";
+				mya = myaFrom + " million BCE";
 			} else if(!myaTo.equals(null)) {
-				mya = myaTo + " million years ago";
+				mya = myaTo + " million BCE";
 			}
 			
 			this.setMya(mya);
@@ -176,12 +188,20 @@ public class Dinosaur {
 		}
 	}
 	
-	public String getCountry() {
-		return country;
+	public Map<String, String> getBodyShape() {
+		return bodyShape;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setBodyShape(Map<String, String> bodyShape) {
+		this.bodyShape = bodyShape;
+	}
+
+	public List<Map<String, String>> getCountryList() {
+		return countryList;
+	}
+
+	public void setCountryList(List<Map<String, String>> countryList) {
+		this.countryList = countryList;
 	}
 
 	public String getDescription() {
@@ -240,11 +260,11 @@ public class Dinosaur {
 		this.namedBy = namedBy;
 	}
 
-	public String getPeriod() {
+	public Map<String, String> getPeriod() {
 		return period;
 	}
 
-	public void setPeriod(String period) {
+	public void setPeriod(Map<String, String> period) {
 		this.period = period;
 	}
 
