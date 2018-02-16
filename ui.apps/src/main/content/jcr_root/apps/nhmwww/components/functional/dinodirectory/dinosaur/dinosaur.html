@@ -1,3 +1,7 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.dinodirectory.dinosaur'}" data-sly-unwrap></meta>
+</sly>
+
 <sly data-sly-test="${!properties.name}">
 	<div class="row">
 		<h4>Dinosaur</h4>
