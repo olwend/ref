@@ -35,22 +35,24 @@
 			<div class="dinosaur--description">
 				<p>${dinosaur.description} <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 			</div>
-			<!-- Don't do anything with this yet -->
-			<!-- <div class="dinosaur--comparison"> -->
-				<!-- Dinosaur/man image -->
-			<!-- </div> -->
+			<div class="dinosaur--comparison">
+				<div class="dinosaur--comparison-dino">
+					<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg">
+				</div>
+				<div class="dinosaur--comparison-human"></div>
+			</div>
 		</div>
 
 		<div class="dinosaur--info-container">
 			<div class="dinosaur--diet">
-				<p>Diet: ${dinosaur.diet}</p> <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/${dinosaur.diet}.svg">
+				<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg"> </p>
 			</div>
 			<div class="dinosaur--country">
-            	<p>Country:
-                    <sly data-sly-list.country="${dinosaur.countryList}">
-                        <a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
-                    </sly>
-                </p>
+				<p>Country:
+					<sly data-sly-list.country="${dinosaur.countryList}">
+						<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
+					</sly>
+				</p>
 			</div>
 			<div class="dinosaur--period">
 				<p>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a> ${dinosaur.mya}</p>
@@ -67,7 +69,7 @@
 			${item['textBlock'] @ context='html'}
 		</div>
 
-				<!-- Don't do anything with this yet -->
+		<!-- Don't do anything with this yet -->
 		<!-- <div class="dinosaur--secondimage"> -->
 			<!-- Second image -->
 		<!-- </div> -->
