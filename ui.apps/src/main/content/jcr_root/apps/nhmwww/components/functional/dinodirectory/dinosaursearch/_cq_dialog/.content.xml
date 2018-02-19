@@ -22,48 +22,64 @@
 		                <items jcr:primaryType="nt:unstructured">
 		                    <filterOne
 		                        jcr:primaryType="nt:unstructured"
-		                        fieldLabel="Filter one"
+		                        fieldLabel="Filter type"
 		                        name="./filterOne"
 		                        sling:resourceType="granite/ui/components/foundation/form/select" >
 		                        <items jcr:primaryType="nt:unstructured">
-			                        <o1
-			                            jcr:primaryType="nt:unstructured"
-			                            text="Country"
-                       					value="country" />
-                       				<o2
+		                        	<o1
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Body shape"
                        					value="bodyshape" />
-                       				<o3
+			                        <o2
 			                            jcr:primaryType="nt:unstructured"
-			                            text="Period"
-                       					value="period" />
-                       				<o4
+			                            text="Country"
+                       					value="country" />
+                       				<o3
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Initial"
                        					value="initial" />
+                       				<o4
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Period"
+                       					value="period" />
 			                    </items>
 							</filterOne>
-							<filterTwo
+							<filterBodyShape
 		                        jcr:primaryType="nt:unstructured"
-		                        fieldLabel="Filter two"
-		                        name="./filterTwo"
+		                        fieldLabel="Body shape"
+		                        name="./filterBodyShape"
 		                        sling:resourceType="granite/ui/components/foundation/form/select" >
-		                        <items jcr:primaryType="nt:unstructured">
-			                        <o1
-			                            jcr:primaryType="nt:unstructured"
-			                            text="England"
-                       					value="england" />
-			                        <o2
-			                            jcr:primaryType="nt:unstructured"
-			                            text="Scotland"
-                       					value="scotland"/>
-                       				<o3
-			                            jcr:primaryType="nt:unstructured"
-			                            text="Sauropod"
-                       					value="sauropod"/>
-			                    </items>
-							</filterTwo>
+		                        <datasource
+		                        	jcr:primaryType="nt:unstructured"
+		                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaursearch/datasources/datasourcebodyshape" />
+							</filterBodyShape>
+							<filterCountry
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Country"
+		                        name="./filterCountry"
+		                        sling:resourceType="granite/ui/components/foundation/form/select" >
+		                        <datasource
+		                        	jcr:primaryType="nt:unstructured"
+		                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaursearch/datasources/datasourcecountry" />
+							</filterCountry>
+							<filterInitial
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Initial"
+		                        name="./filterInitial"
+		                        sling:resourceType="granite/ui/components/foundation/form/select" >
+		                       	<datasource
+		                        	jcr:primaryType="nt:unstructured"
+		                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaursearch/datasources/datasourceinitial" />
+							</filterInitial>
+							<filterPeriod
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Period"
+		                        name="./filterPeriod"
+		                        sling:resourceType="granite/ui/components/foundation/form/select" >
+		                        <datasource
+		                        	jcr:primaryType="nt:unstructured"
+		                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaursearch/datasources/datasourceperiod" />
+							</filterPeriod>
 		            	</items>
 		            </column>
                 </items>

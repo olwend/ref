@@ -73,37 +73,3 @@
 		}
 	}
 })($, $(document));
-
-/**
- * Validators
- */
-
-//Validator for Event Detail component to check if a price has been added
-//(function ($, $document) {
-//	"use strict";
-//
-//	$(document).on("click", ".cq-dialog-submit", function (e) {
-//		if($('.required-price').length) {
-//			e.stopPropagation();
-//			e.preventDefault();
-//	
-//			var $form = $(this).closest("form.foundation-form");
-//	        var textfieldNotEmpty = false;
-//	        
-//			$('.required-price').each( function() {
-//				var value = $(this).val();
-//	
-//				if(value != "") {
-//					textfieldNotEmpty = true;
-//				}
-//			});
-//	
-//			if(textfieldNotEmpty == false) {
-//				alert("nope");
-//				//TODO - present the error to the user
-//			} else {
-//				$form.submit();
-//			}
-//		}
-//	});
-//})($, $(document), document, Granite.$, Granite.author);
