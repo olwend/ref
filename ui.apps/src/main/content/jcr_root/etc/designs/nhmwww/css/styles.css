@@ -9525,6 +9525,22 @@ input.searchGo {
   }
 }
 
+.qahub--answer-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.qahub--answer-list::-webkit-scrollbar-track {
+  background: #EEEEEE;
+}
+
+.qahub--answer-list::-webkit-scrollbar-thumb, .qahub--answer-list::-webkit-scrollbar-thumb:window-inactive {
+  width: 16px;
+  border-right: 10px solid #EEEEEE;
+  border-top: 2px solid #EEEEEE;
+  border-bottom: 2px solid #EEEEEE;
+  background: #FFFFFF;
+}
+
 .qahub--controls-container {
   height: 75px;
   margin-top: 2px;
