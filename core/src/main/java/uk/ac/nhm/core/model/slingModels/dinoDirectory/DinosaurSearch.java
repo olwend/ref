@@ -65,10 +65,8 @@ public class DinosaurSearch {
 				
 				JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
 
-				String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
-						+ dinosaurMedia.getString("mediaTypePath") + "/"
-						+ dinosaurMedia.getString("mediaContentTypeName")
-						+ "/small/" + dinosaurMedia.getString("identifier") + ".jpg";
+				String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/thumb/"
+						+ dinosaurMedia.getString("identifier") + ".gif";
 				
 				dinosaurMap.put("imageUrl", imageUrl);
 				
