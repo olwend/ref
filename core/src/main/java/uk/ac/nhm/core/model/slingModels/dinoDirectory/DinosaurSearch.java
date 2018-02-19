@@ -1,5 +1,6 @@
 package uk.ac.nhm.core.model.slingModels.dinoDirectory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
@@ -18,7 +20,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.core.services.DinoDirectoryEnvironmentService;
+import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryEnvironmentService;
 
 @Model(adaptables = Resource.class)
 public class DinosaurSearch {
@@ -39,6 +41,8 @@ public class DinosaurSearch {
 	
 	private final static String BASE_CONTENT_URL = "/content/nhmwww/en/home/discover/dino-directory/";
 	
+	private String title;
+	private String description;
 	private List<Map<String, String>> dinosaurList = null;
 	
 	@PostConstruct
@@ -51,10 +55,16 @@ public class DinosaurSearch {
 		GetMethod getMethod = new GetMethod(requestUrl);
 		
 		LOG.info(requestUrl);
-		
+
 		dinosaurList = new ArrayList<Map<String, String>>();
 		
 		try {
+			//Filter two value has been modified to create a string that works for API calls.
+			//Need to turn it back into presentable string.
+			title = filterTwo.replaceAll("%20", " ");
+			title = title.replaceAll("-", " ");
+			title = title.substring(0, 1).toUpperCase() + title.substring(1);
+	
 			httpClient.executeMethod(getMethod);
 			JSONArray dinosaurs = new JSONArray(getMethod.getResponseBodyAsString());
 			for(int i=0; i<dinosaurs.length(); i++) {
@@ -71,6 +81,24 @@ public class DinosaurSearch {
 				dinosaurMap.put("imageUrl", imageUrl);
 				
 				dinosaurList.add(dinosaurMap);
+				
+				//Need to modify title and description based on filter one value.
+				//Body shape
+				if(filterOne.equals("bodyshape") && i == (dinosaurs.length() - 1)) {
+					description = dinosaurs.getJSONObject(i).getJSONObject("bodyShape").getString("description");
+					description = description.substring(0, 1).toUpperCase() + description.substring(1);
+					title = title + "s";
+				}
+				
+				//country
+				
+				if(filterOne.equals("initial")) {
+					title = "Dinosaurs beginning with " + title;
+				}
+				
+				if(filterOne.equals("period")) {
+					title = title + " period";
+				}
 			}
 			
 			
@@ -78,7 +106,25 @@ public class DinosaurSearch {
 			e.printStackTrace();
 		}
 		
+		this.setTitle(title);
+		this.setDescription(description);
 		this.setDinosaurList(dinosaurList);
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List<Map<String, String>> getDinosaurList() {

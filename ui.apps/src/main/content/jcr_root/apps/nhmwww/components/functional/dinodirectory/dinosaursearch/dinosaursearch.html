@@ -1,6 +1,7 @@
-<h3>${properties.filterOne} - ${properties.filterTwo}</h3>
-
 <sly data-sly-use.dinosaurSearch="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearch">
+	<h1>${dinosaurSearch.title}</h1>
+	<p>${dinosaurSearch.description}</p>
+
 	<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
 		<li>
 			<a href="${dinosaurs['url']}">

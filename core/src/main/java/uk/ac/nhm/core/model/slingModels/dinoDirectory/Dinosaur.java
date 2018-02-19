@@ -18,7 +18,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.core.services.DinoDirectoryEnvironmentService;
+import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryEnvironmentService;
 
 @Model(adaptables = Resource.class)
 public class Dinosaur {

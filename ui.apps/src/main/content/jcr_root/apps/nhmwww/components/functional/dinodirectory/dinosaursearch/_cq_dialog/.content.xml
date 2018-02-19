@@ -24,7 +24,8 @@
 		                        jcr:primaryType="nt:unstructured"
 		                        fieldLabel="Filter type"
 		                        name="./filterOne"
-		                        sling:resourceType="granite/ui/components/foundation/form/select" >
+		                        sling:resourceType="granite/ui/components/foundation/form/select"
+		                        emptyOption="{Boolean}true" >
 		                        <items jcr:primaryType="nt:unstructured">
 		                        	<o1
 			                            jcr:primaryType="nt:unstructured"
