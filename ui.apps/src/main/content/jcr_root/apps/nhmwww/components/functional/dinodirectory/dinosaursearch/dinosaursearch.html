@@ -2,6 +2,11 @@
 
 <sly data-sly-use.dinosaurSearch="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearch">
 	<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-		<li>${dinosaurs['genus']}</li>
+		<li>
+			<a href="${dinosaurs['url']}">
+				<img src="${dinosaurs['imageUrl']}">
+				${dinosaurs['genus']}
+			</a>
+		</li>
 	</ul>
 </sly>

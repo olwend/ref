@@ -47,7 +47,7 @@
 			
 			JSONObject country = countries.getJSONObject(i);
 
-			vm.put("value", country.getString("country"));
+			vm.put("value", country.getString("country").replaceAll(" ", "%20"));
 			vm.put("text", country.getString("country"));
 			
 			countryList.add(new ValueMapResource(resolver, new ResourceMetadata(), "nt:unstructured", vm));

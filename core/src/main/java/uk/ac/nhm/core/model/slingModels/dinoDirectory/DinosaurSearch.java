@@ -37,6 +37,8 @@ public class DinosaurSearch {
 	@Inject
 	private String filterTwo;
 	
+	private final static String BASE_CONTENT_URL = "/content/nhmwww/en/home/discover/dino-directory/";
+	
 	private List<Map<String, String>> dinosaurList = null;
 	
 	@PostConstruct
@@ -59,18 +61,20 @@ public class DinosaurSearch {
 				Map<String, String> dinosaurMap = new HashMap<String, String>();
 				
 				dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
-				dinosaurMap.put("bodyShape", dinosaurs.getJSONObject(i).getJSONObject("bodyShape").getString("bodyShape"));
+				dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase() + ".html");
+				
+				JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
+
+				String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
+						+ dinosaurMedia.getString("mediaTypePath") + "/"
+						+ dinosaurMedia.getString("mediaContentTypeName")
+						+ "/small/" + dinosaurMedia.getString("identifier") + ".jpg";
+				
+				dinosaurMap.put("imageUrl", imageUrl);
+				
 				dinosaurList.add(dinosaurMap);
 			}
-//			JSONObject dinosaurMedia = dinosaur.getJSONArray("mediaCollection").getJSONObject(0);
-//			
-//			this.setGenus(dinosaur.getString("genus"));
-//			this.setDiet(dinosaur.getString("dietTypeName"));
-//			
-//			this.setImageUrl("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory"
-//					+ dinosaurMedia.getString("mediaTypePath")
-//					+ dinosaurMedia.getString("mediaContentTypePath")
-//					+ "/small/" + dinosaurMedia.getString("identifier") + ".jpg");
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
