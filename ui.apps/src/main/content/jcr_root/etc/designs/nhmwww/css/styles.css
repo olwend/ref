@@ -9513,10 +9513,15 @@ input.searchGo {
 }
 
 .qahub--answer-list {
-  height: 630px;
   padding: 20px;
   background-color: #EEEEEE;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .qahub--answer-list {
+    height: 630px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
