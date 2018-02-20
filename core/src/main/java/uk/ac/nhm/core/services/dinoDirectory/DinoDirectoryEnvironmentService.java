@@ -1,4 +1,4 @@
-package uk.ac.nhm.core.services;
+package uk.ac.nhm.core.services.dinoDirectory;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;

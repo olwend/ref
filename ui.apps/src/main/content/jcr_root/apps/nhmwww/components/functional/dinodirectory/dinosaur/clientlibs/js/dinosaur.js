@@ -18,7 +18,7 @@ $(document).ready(function() {
   // console.log(dinoSize);
 
   // Change human outline base on ratio of dinosaur size to human size
-  if ( ratioDinoHuman >= 8 ) {
+  if ( ratioDinoHuman >= 70 ) {
     humanOutline = 'human-crouching';
     margin = -120
   } else if ( ratioDinoHuman >= 35 ) {
