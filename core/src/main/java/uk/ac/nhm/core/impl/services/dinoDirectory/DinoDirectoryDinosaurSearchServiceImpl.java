@@ -65,7 +65,6 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 	public String getTitle(String filterOne, String filterTwo) {
 		//Filter two value has been modified to create a string that works for API calls.
 		//Need to turn it back into presentable string.
-		
 		String title = filterTwo.replaceAll("%20", " ");
 		title = title.replaceAll("-", " ");
 		title = title.substring(0, 1).toUpperCase() + title.substring(1);
@@ -86,15 +85,11 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 	}
 
 	@Override
-	public String getDescription() {
-		// TODO Auto-generated method stub
-		
-		//Need to modify title and description based on filter one value.
+	public String getDescription(String filterOne, String filterTwo) {
 		//Body shape
 //		if(filterOne.equals("bodyshape") && i == (dinosaurs.length() - 1)) {
 //			description = dinosaurs.getJSONObject(i).getJSONObject("bodyShape").getString("description");
 //			description = description.substring(0, 1).toUpperCase() + description.substring(1);
-//			title = title + "s";
 //		}
 		return null;
 	}

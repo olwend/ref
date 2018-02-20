@@ -9,5 +9,5 @@ public interface DinoDirectoryDinosaurSearchService {
 	
 	public String getTitle(String filterOne, String filterTwo);
 	
-	public String getDescription();
+	public String getDescription(String filterOne, String filterTwo);
 }
