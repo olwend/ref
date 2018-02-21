@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryDinosaurSearchService;
 
-@Component
-@Service
+@Component(immediate = true, metatype = false)
+@Service (value = DinoDirectoryDinosaurSearchServiceImpl.class)
 public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDinosaurSearchService {
 
 	private final static Logger LOG = LoggerFactory.getLogger(DinoDirectoryDinosaurSearchServiceImpl.class);

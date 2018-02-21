@@ -8,7 +8,7 @@ import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Service;
 import org.osgi.service.component.ComponentContext;
 
-@Component (label = "Dino Directory Environment Service", description = "Service to configure environment for Dino Directory API calls.", metatype = true, immediate = true)
+@Component (label = "Dino Directory Environment Service", description = "Service to configure environment for Dino Directory API calls.", metatype = false, immediate = true)
 @Service (value = DinoDirectoryEnvironmentService.class)
 @Properties(value = {
 		@Property(name = "nhm.dinoDirectory.environment", label = "Dino Directory API base URL", value = "http://staging.nhm.ac.uk/api/dino-directory-api"),
