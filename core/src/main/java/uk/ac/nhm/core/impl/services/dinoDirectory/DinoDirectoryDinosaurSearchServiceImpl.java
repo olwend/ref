@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryDinosaurSearchService;
 
-@Component(immediate = true, metatype = false)
-@Service (value = DinoDirectoryDinosaurSearchServiceImpl.class)
+@Component
+@Service
 public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDinosaurSearchService {
 
 	private final static Logger LOG = LoggerFactory.getLogger(DinoDirectoryDinosaurSearchServiceImpl.class);
@@ -29,7 +29,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 		
 		final String BASE_URL = environmentUrl;
 		
-		String requestUrl = BASE_URL + "/dinosaur/" + filterOne + "/" + filterTwo;
+		String requestUrl = BASE_URL + "/dinosaur/galleryview/" + filterOne + "/" + filterTwo;
 		
 		HttpClient httpClient = new HttpClient();
 		GetMethod getMethod = new GetMethod(requestUrl);

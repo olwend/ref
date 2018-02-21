@@ -73,3 +73,35 @@
 		}
 	}
 })($, $(document));
+
+//Listener to show/hide item or container based on drop down value
+//See Dinosaur Search for example implementation
+(function ($, $document) {
+	"use strict";
+
+	$(document).on("foundation-contentloaded", function(e) {
+		$(".cq-dialog-select-showhide").each( function() {
+			selectShowHide($(this));
+		});
+	});
+
+	$(document).on('selected.select', '#filterSelection', function(e) {  
+        selectShowHide($(this));
+    });
+
+	function selectShowHide($selectElement) {
+		var currentSelect = "select-" + $selectElement.children('select').val();
+
+        $(".showhide-target").each( function() {
+			console.log($(this).attr('id'));
+            if($(this).attr('id') == currentSelect) {
+				$(this).toggleClass('hidden', false);
+            }
+
+            if($(this).attr('id') != currentSelect) {
+				$(this).toggleClass('hidden', true);
+            }
+		});
+	}
+
+})($, $(document));
