@@ -9534,9 +9534,15 @@ input.searchGo {
   overflow-x: hidden;
 }
 
+@media screen and (min-width: 768px) {
+  .qahub--question-list {
+    height: 566px;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .qahub--question-list {
-    height: 306px;
+    height: 386px;
     font-size: 1.3rem;
   }
 }
@@ -9599,17 +9605,52 @@ input.searchGo {
 }
 
 .qahub--answer-list {
+<<<<<<< HEAD
   height: 630px;
   padding: 20px;
   background-color: #EEEEEE;
+=======
+  padding: 20px;
+  background-color: #EEEEEE;
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .qahub--answer-list {
+    height: 630px;
+  }
+>>>>>>> origin/release-2.0.5
 }
 
 @media screen and (min-width: 1024px) {
   .qahub--answer-list {
+<<<<<<< HEAD
     height: 370px;
   }
 }
 
+=======
+    height: 450px;
+  }
+}
+
+.qahub--answer-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.qahub--answer-list::-webkit-scrollbar-track {
+  background: #EEEEEE;
+}
+
+.qahub--answer-list::-webkit-scrollbar-thumb, .qahub--answer-list::-webkit-scrollbar-thumb:window-inactive {
+  width: 16px;
+  border-right: 10px solid #EEEEEE;
+  border-top: 2px solid #EEEEEE;
+  border-bottom: 2px solid #EEEEEE;
+  background: #FFFFFF;
+}
+
+>>>>>>> origin/release-2.0.5
 .qahub--controls-container {
   height: 75px;
   margin-top: 2px;
@@ -9629,10 +9670,13 @@ input.searchGo {
   padding: 0 20px;
 }
 
+<<<<<<< HEAD
 .template--nhm-page-no-titlebar .qasingle--container .qasingle--question-title-container {
   margin-top: 1.5em;
 }
 
+=======
+>>>>>>> origin/release-2.0.5
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
