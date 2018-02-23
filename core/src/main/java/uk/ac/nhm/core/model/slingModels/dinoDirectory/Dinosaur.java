@@ -50,6 +50,13 @@ public class Dinosaur {
 	
 	@PostConstruct
 	protected void init() {
+		String host = null;
+		if(service.getDinoDirectoryUrl().contains("staging")) {
+			host = "staging";
+		} else {
+			host = "www";
+		}
+		
 		final String BASE_URL = service.getDinoDirectoryUrl();
 		
 		String requestUrl = BASE_URL + "/dinosaur/name/" + name;
@@ -73,7 +80,7 @@ public class Dinosaur {
 				JSONObject country = countries.getJSONObject(i);
 				
 				countryMap.put("name", country.getString("country"));
-				countryMap.put("url", "http://www.nhm.ac.uk/discover/dino-directory/country/" + country.getString("country") + "/gallery.html");
+				countryMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/country/" + country.getString("country") + "/gallery.html");
 				countryList.add(countryMap);
 			}
 			
@@ -84,8 +91,7 @@ public class Dinosaur {
 			Map<String, String> bodyShapeMap = new HashMap<String, String>();
 			
 			bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
-			bodyShapeMap.put("url", 
-					"http://www.nhm.ac.uk/discover/dino-directory/body-shape/" + bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+			bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" + bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + ".html");
 			
 			this.setBodyShape(bodyShapeMap);
 			
@@ -130,8 +136,7 @@ public class Dinosaur {
 			Map<String, String> periodMap = new HashMap<String, String>();
 			
 			periodMap.put("name", period.getString("period"));
-			periodMap.put("url", 
-					"http://www.nhm.ac.uk/discover/dino-directory/timeline/" + period.getString("period").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+			periodMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/timeline/" + period.getString("period").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
 			
 			this.setPeriod(periodMap);
 			
