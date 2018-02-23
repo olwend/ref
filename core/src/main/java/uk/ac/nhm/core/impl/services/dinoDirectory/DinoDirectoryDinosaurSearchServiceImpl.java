@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.lang3.text.WordUtils;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 import org.json.JSONArray;
@@ -23,6 +24,8 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 	private final static Logger LOG = LoggerFactory.getLogger(DinoDirectoryDinosaurSearchServiceImpl.class);
 
 	private final static String BASE_CONTENT_URL = "/content/nhmwww/en/home/discover/dino-directory/";
+	
+	private WordUtils wordUtils;
 	
 	public List<Map<String, String>> getDinosaurList(String filterOne, String filterTwo, String environmentUrl) {
 		List<Map<String, String>> dinosaurList = new ArrayList<Map<String, String>>();
@@ -65,12 +68,18 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 	public String getTitle(String filterOne, String filterTwo) {
 		//Filter two value has been modified to create a string that works for API calls.
 		//Need to turn it back into presentable string.
+		
 		String title = filterTwo.replaceAll("%20", " ");
 		title = title.replaceAll("-", " ");
-		title = title.substring(0, 1).toUpperCase() + title.substring(1);
-		
+
 		if(filterOne.equals("bodyshape")) {
+			title = title.substring(0, 1).toUpperCase() + title.substring(1);
 			title = title + "s";
+		}
+		
+		if(filterOne.equals("country")) {
+			title = WordUtils.capitalizeFully(title);
+			title = "Dinosaurs beginning with " + title;
 		}
 		
 		if(filterOne.equals("initial")) {
@@ -78,6 +87,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 		}
 		
 		if(filterOne.equals("period")) {
+			title = WordUtils.capitalizeFully(title);
 			title = title + " period";
 		}
 		

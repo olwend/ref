@@ -66,7 +66,7 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		
 		//Period
 		title = service.getTitle("period", "late-jurassic");
-		assertEquals(title, "Late jurassic period");
+		assertEquals(title, "Late Jurassic period");
 	}
 	
 }
