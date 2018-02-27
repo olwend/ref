@@ -12,7 +12,7 @@ $(document).ready(function() {
     dinoWidth = ( 100 / totalSize ) * dinoSize,
     humanWidth = ( 100 / totalSize ) * humanSize,
     humanOutline = 'human-look-up', // Default human outline for larger dinosaurs
-    margin = 0;
+    humanSuffix = '';
 
   // console.log('Ratio: ' + ratioDinoHuman);
   // console.log(dinoSize);
@@ -20,14 +20,16 @@ $(document).ready(function() {
   // Change human outline base on ratio of dinosaur size to human size
   if ( ratioDinoHuman >= 70 ) {
     humanOutline = 'human-crouching';
-    margin = -120
   } else if ( ratioDinoHuman >= 35 ) {
     humanOutline = 'human-look-down';
   } else if ( ratioDinoHuman >= 15 ) {
     humanOutline = 'human-look-ahead';
   }
 
-  jQuery('.dinosaur--comparison-human').html("<img src='/etc/designs/nhmwww/img/svgs/dinodirectory/human/"+humanOutline+".svg'/>").css('width', humanWidth+'%').css('margin-top', margin+'px');
+  // Determine if the outline should be male or female
+  Math.random() < 0.5 ? humanSuffix = '-m' : humanSuffix = '-f';
+
+  jQuery('.dinosaur--comparison-human').html("<img src='/etc/designs/nhmwww/img/svgs/dinodirectory/human/"+humanOutline+humanSuffix+".svg'/>").css('width', humanWidth+'%');
   jQuery('.dinosaur--comparison-dino').css('width', dinoWidth+'%');
 });
 /** End WR-1213 **/
