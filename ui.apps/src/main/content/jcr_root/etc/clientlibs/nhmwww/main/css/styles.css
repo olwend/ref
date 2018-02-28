@@ -6444,14 +6444,23 @@ div#cookie-bar p {
 }
 
 /** WR-1213 SINGLE DINO PAGE **/
+.dinosaur a {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaur a:hover {
+  color: #000000;
+}
+
 .dinosaur--container {
   position: relative;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
 }
 
 .dinosaur--title-container {
   margin: 20px;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
 .dinosaur--name {
@@ -6467,6 +6476,7 @@ div#cookie-bar p {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
+  font-size: 23px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6489,12 +6499,16 @@ div#cookie-bar p {
   }
 }
 
+.dinosaur--meaning p {
+  margin: 0;
+}
+
 .dinosaur--image-container {
   margin-bottom: 20px;
 }
 
 .dinosaur--description-container {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.18em;
   padding: 0 20px;
   margin-bottom: 20px;
@@ -6522,21 +6536,22 @@ div#cookie-bar p {
 }
 
 .dinosaur--info-container {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.18em;
   padding: 0 20px;
 }
 
-.dinosaur--content-container {
-  margin: 20px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1em;
+.dinosaur--info-container p {
+  margin-bottom: 10px;
 }
 
-.dinosaur--taxonomy-container {
+.dinosaur--content-container, .dinosaur--taxonomy-container {
   margin: 20px;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
+  padding-top: 10px;
+}
+
+.dinosaur--taxonomy-container p {
+  margin-bottom: 10px;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
