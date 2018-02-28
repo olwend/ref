@@ -15,11 +15,14 @@
     favIcon = null;
   }
 %><head>
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8"<%=xs%>>
-  <meta name="keywords" content="<%= xssAPI.encodeForHTMLAttr(WCMUtils.getKeywords(currentPage, false)) %>"<%=xs%>>
-  <meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"<%=xs%>>
+	
+	<title><%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum</title>
+	<meta name="description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
+	<meta name="keywords" content="<%= xssAPI.encodeForHTMLAttr(WCMUtils.getKeywords(currentPage, false)) %>"<%=xs%>>
+	
 	<meta name="twitter:widgets:csp" content="on">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@NHM_London">
@@ -44,12 +47,13 @@
 		<%}
 	}%>
 
-	<title><%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum</title>
-  <cq:include script="headlibs.jsp"/>
-  <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
+	
+	
+	<cq:include script="headlibs.jsp"/>
+	<cq:include script="/libs/wcm/core/components/init/init.jsp"/>
 
-  <% if (favIcon != null) { %>
-  <link rel="icon" type="image/vnd.microsoft.icon" href="<%= xssAPI.getValidHref(favIcon) %>"<%=xs%>>
-  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="<%= xssAPI.getValidHref(favIcon) %>"<%=xs%>>
-  <% } %>
+	<% if (favIcon != null) { %>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="<%= xssAPI.getValidHref(favIcon) %>"<%=xs%>>
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="<%= xssAPI.getValidHref(favIcon) %>"<%=xs%>>
+	<% } %>
 </head>
