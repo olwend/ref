@@ -35,7 +35,7 @@ public class Dinosaur {
 	private Map<String, String> bodyShape;
 	private List<Map<String, String>> countryList;
 	private String description;
-	private Double length;
+	private double length;
 	private String diet;
 	private String genus;
 	private String mya;
@@ -218,11 +218,11 @@ public class Dinosaur {
 		this.description = description;
 	}
 
-	public Double getLength() {
+	public double getLength() {
 		return length;
 	}
 
-	public void setLength(Double length) {
+	public void setLength(double length) {
 		this.length = length;
 	}
 
