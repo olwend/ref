@@ -45,12 +45,9 @@ public class Dinosaur {
 	private Map<String, String> period;
 	private String taxonomy;
 	private List<Map<String, String>> textBlockCollection;
+	private List<String> dinosaurMediaCollection;
 	private String type;
-
 	private String imageUrl;
-	private String imageUrl2;
-
-	private JSONObject dinosaurMedia2;
 
 	@PostConstruct
 	protected void init() {
@@ -74,10 +71,6 @@ public class Dinosaur {
 			httpClient.executeMethod(getMethod);
 			JSONObject dinosaur = new JSONObject(getMethod.getResponseBodyAsString());
 			JSONObject dinosaurMedia = dinosaur.getJSONArray("mediaCollection").getJSONObject(0);
-
-			if ( dinosaur.getJSONArray("mediaCollection").length() > 1 ) {
-				dinosaurMedia2 = dinosaur.getJSONArray("mediaCollection").getJSONObject(1);
-			}
 
 			//Country
 			List<Map<String, String>> countryList = new ArrayList<Map<String, String>>();
@@ -168,17 +161,24 @@ public class Dinosaur {
 			this.setTaxonomy(taxonomy.getString("taxonomyCSV").replaceAll(",", ", "));
 			this.setType(taxonomy.getString("taxon"));
 
+			JSONArray dinosaurMediaArray = dinosaur.getJSONArray("mediaCollection");
+			List<String> dinosaurMediaCollection = new ArrayList<String>();
+
+			for(int i=1; i<dinosaurMediaArray.length(); i++) {
+				JSONObject dinosaurMediaElement = dinosaurMediaArray.getJSONObject(i);
+				String dinosaurImageURL = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
+					+ dinosaurMediaElement.getString("mediaTypePath") + "/"
+					+ dinosaurMediaElement.getString("mediaContentTypeName")
+					+ "/small/" + dinosaurMediaElement.getString("identifier") + ".jpg";
+
+				dinosaurMediaCollection.add(dinosaurImageURL);
+			}
+			this.setDinosaurMediaCollection(dinosaurMediaCollection);
+
 			this.setImageUrl("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
 					+ dinosaurMedia.getString("mediaTypePath") + "/"
 					+ dinosaurMedia.getString("mediaContentTypeName")
 					+ "/small/" + dinosaurMedia.getString("identifier") + ".jpg");
-
-			if (dinosaurMedia2 != null && dinosaurMedia2.length() > 0 ) {
-				this.setImageUrl2("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
-					+ dinosaurMedia2.getString("mediaTypePath") + "/"
-					+ dinosaurMedia2.getString("mediaContentTypeName")
-					+ "/small/" + dinosaurMedia2.getString("identifier") + ".jpg");
-			}
 
 			//Text block
 			JSONArray textBlockArray = dinosaur.getJSONArray("textBlockCollection");
@@ -312,6 +312,14 @@ public class Dinosaur {
 		this.textBlockCollection = textBlockCollection;
 	}
 
+	public List<String> getDinosaurMediaCollection() {
+		return dinosaurMediaCollection;
+	}
+
+	public void setDinosaurMediaCollection(List<String> dinosaurMediaCollection) {
+		this.dinosaurMediaCollection = dinosaurMediaCollection;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -326,14 +334,6 @@ public class Dinosaur {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
-	}
-
-	public String getImageUrl2() {
-		return imageUrl2;
-	}
-
-	public void setImageUrl2(String imageUrl2) {
-		this.imageUrl2 = imageUrl2;
 	}
 
 }
