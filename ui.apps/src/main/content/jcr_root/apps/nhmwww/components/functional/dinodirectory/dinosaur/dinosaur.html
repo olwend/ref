@@ -70,6 +70,12 @@
 			${item['textBlock'] @ context='html'}
 		</div>
 
+		<div class="row" data-sly-test="${dinosaur.imageUrl2}">
+			<div class="dinosaur--image-container small-12 medium-6 medium-offset-3 large-6 large-offset-3 columns">
+				<img class="dinosaur--image" src="${dinosaur.imageUrl2}">
+			</div>
+		</div>
+
 		<div class="dinosaur--taxonomy-container">
 			<h3 class="dinosaur--section-title">Taxonomic details</h3>
 			<p class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
