@@ -11,16 +11,18 @@
 
 <sly data-sly-test="${properties.filterOne && properties.filterTwo}">
 	<sly data-sly-use.dinosaurSearch="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearch">
-		<h1>${dinosaurSearch.title}</h1>
-		<p>${dinosaurSearch.description}</p>
-	
-		<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
-			<li>
-				<a href="${dinosaurs['url']}">
-					<img src="${dinosaurs['imageUrl']}">
-					${dinosaurs['genus']}
-				</a>
-			</li>
-		</ul>
+		<div class="dinosaursearch--container">
+			<h1 class="dinosaursearch--title">${dinosaurSearch.title}</h1>
+			<p class="dinosaursearch--description">${dinosaurSearch.description}</p>
+
+			<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-4 large-block-grid-6">
+				<li class="dinosaursearch--dinosaur">
+					<a href="${dinosaurs['url']}">
+						<img src="${dinosaurs['imageUrl']}">
+						<p class="dinosaursearch--genus">${dinosaurs['genus']}</p>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</sly>
 </sly>

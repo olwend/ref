@@ -6443,96 +6443,25 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
-/** WR-1213 SINGLE DINO PAGE **/
-.dinosaur--container {
-  position: relative;
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.2em;
-}
-
-.dinosaur--title-container {
+/** DINOSAUR SEARCH PAGE **/
+.dinosaursearch--container {
   margin: 20px;
-}
-
-.dinosaur--name {
-  font-size: 2.375em;
-  padding: 0;
-}
-
-.dinosaur--name p {
-  margin: 0;
-}
-
-.dinosaur--name-description {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--name-description {
-    flex-direction: row;
+  .dinosaursearch--dinosaur {
+    text-align: center;
   }
 }
 
-.dinosaur--pronunciation {
-  font-style: italic;
-}
-
-.dinosaur--pronunciation p {
-  margin: 0;
+.dinosaursearch--genus {
+  display: inline-block;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation p {
-    margin-right: 20px;
+  .dinosaursearch--genus {
+    display: block;
   }
-}
-
-.dinosaur--image-container {
-  margin-bottom: 20px;
-}
-
-.dinosaur--description-container {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
-  padding: 0 20px;
-  margin-bottom: 20px;
-}
-
-.dinosaur--comparison {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-evenly;
-  max-width: 350px;
-}
-
-.dinosaur--comparison-dino {
-  margin-right: 20px;
-}
-
-.dinosaur--comparison-human img {
-  width: 100%;
-}
-
-.dinosaur--info-container {
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
-  padding: 0 20px;
-}
-
-.dinosaur--content-container {
-  margin: 20px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1em;
-}
-
-.dinosaur--taxonomy-container {
-  margin: 20px;
-  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
@@ -9605,11 +9534,6 @@ input.searchGo {
 }
 
 .qahub--answer-list {
-<<<<<<< HEAD
-  height: 630px;
-  padding: 20px;
-  background-color: #EEEEEE;
-=======
   padding: 20px;
   background-color: #EEEEEE;
   overflow-y: scroll;
@@ -9619,17 +9543,10 @@ input.searchGo {
   .qahub--answer-list {
     height: 630px;
   }
->>>>>>> origin/release-2.0.5
 }
 
 @media screen and (min-width: 1024px) {
   .qahub--answer-list {
-<<<<<<< HEAD
-    height: 370px;
-  }
-}
-
-=======
     height: 450px;
   }
 }
@@ -9650,7 +9567,6 @@ input.searchGo {
   background: #FFFFFF;
 }
 
->>>>>>> origin/release-2.0.5
 .qahub--controls-container {
   height: 75px;
   margin-top: 2px;
@@ -9670,13 +9586,6 @@ input.searchGo {
   padding: 0 20px;
 }
 
-<<<<<<< HEAD
-.template--nhm-page-no-titlebar .qasingle--container .qasingle--question-title-container {
-  margin-top: 1.5em;
-}
-
-=======
->>>>>>> origin/release-2.0.5
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
