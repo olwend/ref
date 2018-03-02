@@ -1,12 +1,10 @@
 /** WR-1213 - Single dino page size comparison **/
 $(document).ready(function() {
-  var dinoSize = parseInt(jQuery('.dinosaur--description').data('dino-length')),
-    humanSize = 1.1; // Default human size for larger dinosaurs
+  var dinoSize = parseFloat(jQuery('.dinosaur--description').data('dino-length')),
+    humanSize = 1.0; // Default human size for larger dinosaurs
 
   // Sliding scale of human size to give a better layout on smaller dinosaurs
-  if (dinoSize < 2) { humanSize = 0.5; } else
-  if (dinoSize < 5) { humanSize = 0.7; } else
-  if (dinoSize < 10) { humanSize = 0.9; }
+  if (dinoSize <= 5) { humanSize = 0.8; }
 
   var ratioDinoHuman = ( humanSize / dinoSize ) * 100,
     totalSize = humanSize + dinoSize,
@@ -16,11 +14,11 @@ $(document).ready(function() {
     humanSuffix = '';
 
   // Change human outline base on ratio of dinosaur size to human size
-  if ( ratioDinoHuman >= 45 ) {
+  if ( ratioDinoHuman >= 30 ) {
     humanOutline = 'human-crouching';
-  } else if ( ratioDinoHuman >= 35 ) {
-    humanOutline = 'human-look-down';
-  } else if ( ratioDinoHuman >= 15 ) {
+  // } else if ( ratioDinoHuman >= 20 ) {
+    // humanOutline = 'human-look-down';
+  } else if ( ratioDinoHuman >= 25 ) {
     humanOutline = 'human-look-ahead';
   }
 
