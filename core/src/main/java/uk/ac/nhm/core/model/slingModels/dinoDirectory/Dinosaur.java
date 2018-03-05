@@ -36,19 +36,22 @@ public class Dinosaur {
 	private Map<String, String> bodyShape;
 	private List<Map<String, String>> countryList;
 	private String description;
-	private double length;
 	private String diet;
+	private List<String> dinosaurMediaCollection;
+	private String food;
 	private String genus;
+	private String howItMoved;
+	private String imageUrl;
+	private double length;
 	private String mya;
 	private String nameMeaning;
 	private String namePronounciation;
 	private String namedBy;
 	private Map<String, String> period;
 	private String taxonomy;
+	private String teeth;
 	private List<Map<String, String>> textBlockCollection;
-	private List<String> dinosaurMediaCollection;
 	private String type;
-	private String imageUrl;
 
 	private static final String BASE_IMAGE_URL = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/";
 	
@@ -204,9 +207,23 @@ public class Dinosaur {
 
 			//Optional fields
 			
-			//Food
-			//How it moved
-			//etc...
+			if(!dinosaur.isNull("dentition")) {
+				String teeth = dinosaur.getString("dentition");
+				teeth = teeth.substring(0, 1).toUpperCase() + teeth.substring(1);
+				this.setTeeth(teeth);
+			}
+
+			if(!dinosaur.isNull("locomotion")) {
+				String howItMoved = dinosaur.getString("locomotion");
+				howItMoved = howItMoved.substring(0, 1).toUpperCase() + howItMoved.substring(1);
+				this.setHowItMoved(howItMoved);
+			}
+			
+			if(!dinosaur.isNull("diet")) {
+				String food = dinosaur.getString("diet");
+				food = food.substring(0, 1).toUpperCase() + food.substring(1);
+				this.setFood(food);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -247,20 +264,28 @@ public class Dinosaur {
 		this.description = description;
 	}
 
-	public double getLength() {
-		return length;
-	}
-
-	public void setLength(double length) {
-		this.length = length;
-	}
-
 	public String getDiet() {
 		return diet;
 	}
 
 	public void setDiet(String diet) {
 		this.diet = diet;
+	}
+
+	public List<String> getDinosaurMediaCollection() {
+		return dinosaurMediaCollection;
+	}
+
+	public void setDinosaurMediaCollection(List<String> dinosaurMediaCollection) {
+		this.dinosaurMediaCollection = dinosaurMediaCollection;
+	}
+	
+	public String getFood() {
+		return food;
+	}
+
+	public void setFood(String food) {
+		this.food = food;
 	}
 
 	public String getGenus() {
@@ -271,6 +296,30 @@ public class Dinosaur {
 		this.genus = genus;
 	}
 
+	public String getHowItMoved() {
+		return howItMoved;
+	}
+
+	public void setHowItMoved(String howItMoved) {
+		this.howItMoved = howItMoved;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	
+	public double getLength() {
+		return length;
+	}
+
+	public void setLength(double length) {
+		this.length = length;
+	}
+	
 	public String getMya() {
 		return mya;
 	}
@@ -319,6 +368,14 @@ public class Dinosaur {
 		this.taxonomy = taxonomy;
 	}
 
+	public String getTeeth() {
+		return teeth;
+	}
+
+	public void setTeeth(String teeth) {
+		this.teeth = teeth;
+	}
+
 	public List<Map<String, String>> getTextBlockCollection() {
 		return textBlockCollection;
 	}
@@ -327,28 +384,12 @@ public class Dinosaur {
 		this.textBlockCollection = textBlockCollection;
 	}
 
-	public List<String> getDinosaurMediaCollection() {
-		return dinosaurMediaCollection;
-	}
-
-	public void setDinosaurMediaCollection(List<String> dinosaurMediaCollection) {
-		this.dinosaurMediaCollection = dinosaurMediaCollection;
-	}
-
 	public String getType() {
 		return type;
 	}
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
 	}
 
 }

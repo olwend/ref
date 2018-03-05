@@ -62,6 +62,15 @@
 				<div class="dinosaur--period">
 					<p>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a> ${dinosaur.mya}</p>
 				</div>
+				<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
+					<p>Teeth: ${dinosaur.teeth}</p>
+				</sly>
+				<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
+					<p>How it moved: ${dinosaur.howItMoved}</p>
+				</sly>
+				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
+					<p>Food: ${dinosaur.food}</p>
+				</sly>
 			</div>
 		</div>
 
