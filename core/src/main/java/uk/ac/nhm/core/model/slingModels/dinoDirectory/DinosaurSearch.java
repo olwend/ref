@@ -43,7 +43,7 @@ public class DinosaurSearch {
 		String environmentUrl = environmentService.getDinoDirectoryUrl();
 		
 		this.setTitle(searchService.getTitle(filterOne, filterTwo));
-		this.setDescription("description");
+		this.setDescription(searchService.getDescription(filterOne, filterTwo, environmentUrl));
 		this.setDinosaurList(searchService.getDinosaurList(filterOne, filterTwo, environmentUrl));
 	}
 

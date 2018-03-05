@@ -25,7 +25,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 
 	private final static String BASE_CONTENT_URL = "/content/nhmwww/en/home/discover/dino-directory/";
 	
-	private WordUtils wordUtils;
+	private HttpClient httpClient = new HttpClient();
 	
 	public List<Map<String, String>> getDinosaurList(String filterOne, String filterTwo, String environmentUrl) {
 		List<Map<String, String>> dinosaurList = new ArrayList<Map<String, String>>();
@@ -34,7 +34,6 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 		
 		String requestUrl = BASE_URL + "/dinosaur/galleryview/" + filterOne + "/" + filterTwo;
 		
-		HttpClient httpClient = new HttpClient();
 		GetMethod getMethod = new GetMethod(requestUrl);
 		
 		LOG.info(requestUrl);
@@ -73,7 +72,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 		title = title.replaceAll("-", " ");
 
 		if(filterOne.equals("bodyshape")) {
-			title = title.substring(0, 1).toUpperCase() + title.substring(1);
+			title = WordUtils.capitalizeFully(title);
 			title = title + " dinosaurs";
 		}
 		
@@ -96,13 +95,60 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 	}
 
 	@Override
-	public String getDescription(String filterOne, String filterTwo) {
-		//Body shape
-//		if(filterOne.equals("bodyshape") && i == (dinosaurs.length() - 1)) {
-//			description = dinosaurs.getJSONObject(i).getJSONObject("bodyShape").getString("description");
-//			description = description.substring(0, 1).toUpperCase() + description.substring(1);
-//		}
-		return null;
+	public String getDescription(String filterOne, String filterTwo, String environmentUrl) {
+		
+		final String BASE_URL = environmentUrl;
+		
+		String description = null;
+		String requestUrl = BASE_URL + "/" + filterOne + "/";
+		filterTwo = filterTwo.replaceAll("%20", " ").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
+		
+		GetMethod getMethod = new GetMethod(requestUrl);
+		
+		LOG.info(requestUrl);
+		
+		try {
+			httpClient.executeMethod(getMethod);
+			JSONArray filterItems = new JSONArray(getMethod.getResponseBodyAsString());
+			for(int i=0; i<filterItems.length(); i++) {
+				
+				JSONObject filterItem = filterItems.getJSONObject(i);
+
+				if(filterOne.equals("bodyshape")) {
+					String filterItemTitle = filterItem.getString("bodyShape").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
+					if(filterItemTitle.equals(filterTwo)) {
+						description = filterItem.getString("description");
+					}
+				}
+				
+				if(filterOne.equals("country")) {
+					String filterItemTitle = filterItem.getString("country").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
+					if(filterItemTitle.equals(filterTwo)) {
+						if(filterItem.getInt("dinosaurCount") > 1) {
+							description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs found in " + filterItem.getString("country");							
+						} else {
+							description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur found in " + filterItem.getString("country");
+						}
+					}
+				}
+				
+				if(filterOne.equals("period")) {
+					
+				}
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		//Transform description
+		description = description.substring(0, 1).toUpperCase() + description.substring(1);
+		
+		if(filterOne.equals("bodyshape")) {
+			description = description + ".";
+		}
+		
+		return description;
 	}
 	
 }

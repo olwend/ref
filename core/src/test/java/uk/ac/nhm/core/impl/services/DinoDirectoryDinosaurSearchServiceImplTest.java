@@ -54,11 +54,17 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		
 		//Body shape
 		title = service.getTitle("bodyshape", "large-theropod");
-		assertEquals(title, "Large theropod dinosaurs");
+		assertEquals(title, "Large Theropod dinosaurs");
+		
+		title = service.getTitle("bodyshape", "sauropod");
+		assertEquals(title, "Sauropod dinosaurs");
 		
 		//Country
 		title = service.getTitle("country", "North%20Africa");
 		assertEquals(title, "Dinosaurs in North Africa");
+
+		title = service.getTitle("country", "England");
+		assertEquals(title, "Dinosaurs in England");
 		
 		//Initial
 		title = service.getTitle("initial", "a");
@@ -67,6 +73,22 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		//Period
 		title = service.getTitle("period", "late-jurassic");
 		assertEquals(title, "Dinosaurs in the late Jurassic");
+	}
+	
+	@Test
+	public void testGetDescription() {
+		String description;
+		
+		//Body shape
+		description = service.getDescription("bodyshape", "large-theropod", BASE_URL);
+		assertEquals(description, "Large carnivores that walked on 2 legs.");
+		
+		//Country
+		description = service.getDescription("country", "North%20Africa", BASE_URL);
+		assertEquals(description, "1 dinosaur found in North Africa");
+		
+		description = service.getDescription("country", "England", BASE_URL);
+		assertEquals(description, "22 dinosaurs found in England");
 	}
 	
 }
