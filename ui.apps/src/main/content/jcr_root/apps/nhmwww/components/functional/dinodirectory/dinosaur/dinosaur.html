@@ -37,7 +37,7 @@
 
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-6 large-6 columns">
-				<div class="dinosaur--description">
+				<div class="dinosaur--description" data-dino-length="${dinosaur.length}">
 					<p>${dinosaur.description} <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 				</div>
 				<div class="dinosaur--comparison">
@@ -65,26 +65,24 @@
 			</div>
 		</div>
 
-		<!-- Don't do anything with this yet -->
-		<!-- <div class="dinosaur--timeline"> -->
-			<!-- Timeline image -->
-		<!-- </div> -->
-
 		<div class="dinosaur--content-container" data-sly-list="${dinosaur.textBlockCollection}">
 			<h4 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h4>
 			${item['textBlock'] @ context='html'}
 		</div>
 
-		<!-- Don't do anything with this yet -->
-		<!-- <div class="dinosaur--secondimage"> -->
-			<!-- Second image -->
-		<!-- </div> -->
+		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
+			<div class="row">
+				<div class="dinosaur--image-container small-12 medium-6 medium-offset-3 large-6 large-offset-3 columns">
+					<img class="dinosaur--image" src="${item}">
+				</div>
+			</div>
+		</sly>
 
 		<div class="dinosaur--taxonomy-container">
-			<!-- <h3 class="dinosaur--taxonomy-title">Taxonomic details</h3> -->
-			<p class="dinosaur--taxonomy-detail">Taxonomy: ${dinosaur.taxonomy}</p>
-			<p class="dinosaur--taxonomy-detail">Named by: ${dinosaur.namedBy}</p>
-			<p class="dinosaur--taxonomy-detail">Type species: ${dinosaur.type}</p>
+			<h3 class="dinosaur--section-title">Taxonomic details</h3>
+			<p class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
+			<p class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</p>
+			<p class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</p>
 		</div>
 
 	</div>
