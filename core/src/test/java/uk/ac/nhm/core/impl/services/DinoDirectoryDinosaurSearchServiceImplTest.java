@@ -54,11 +54,11 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		
 		//Body shape
 		title = service.getTitle("bodyshape", "large-theropod");
-		assertEquals(title, "Large theropods");
+		assertEquals(title, "Large theropod dinosaurs");
 		
 		//Country
 		title = service.getTitle("country", "North%20Africa");
-		assertEquals(title, "North Africa");
+		assertEquals(title, "Dinosaurs in North Africa");
 		
 		//Initial
 		title = service.getTitle("initial", "a");
@@ -66,7 +66,7 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		
 		//Period
 		title = service.getTitle("period", "late-jurassic");
-		assertEquals(title, "Late Jurassic period");
+		assertEquals(title, "Dinosaurs in the late Jurassic");
 	}
 	
 }

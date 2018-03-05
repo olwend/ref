@@ -74,21 +74,22 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 
 		if(filterOne.equals("bodyshape")) {
 			title = title.substring(0, 1).toUpperCase() + title.substring(1);
-			title = title + "s";
+			title = title + " dinosaurs";
 		}
 		
 		if(filterOne.equals("country")) {
 			title = WordUtils.capitalizeFully(title);
-			title = "Dinosaurs beginning with " + title;
+			title = "Dinosaurs in " + title;
 		}
 		
 		if(filterOne.equals("initial")) {
-			title = "Dinosaurs beginning with " + title;
+			title = "Dinosaurs beginning with " + title.toUpperCase();
 		}
 		
 		if(filterOne.equals("period")) {
 			title = WordUtils.capitalizeFully(title);
-			title = title + " period";
+			title = title.substring(0, 1).toLowerCase() + title.substring(1);
+			title = "Dinosaurs in the " + title;
 		}
 		
 		return title;
