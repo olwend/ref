@@ -6443,25 +6443,115 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
-/** DINOSAUR SEARCH PAGE **/
-.dinosaursearch--container {
+/** WR-1213 SINGLE DINO PAGE **/
+.dinosaur a {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaur a:hover {
+  color: #000000;
+}
+
+.dinosaur--container {
+  position: relative;
+  font-size: 1.2em;
+}
+
+.dinosaur--title-container {
   margin: 20px;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.dinosaur--name {
+  font-size: 2.375em;
+  padding: 0;
+}
+
+.dinosaur--name p {
+  margin: 0;
+}
+
+.dinosaur--name-description {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  font-size: 23px;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaursearch--dinosaur {
-    text-align: center;
+  .dinosaur--name-description {
+    flex-direction: row;
   }
 }
 
-.dinosaursearch--genus {
-  display: inline-block;
+.dinosaur--pronunciation {
+  font-style: italic;
+}
+
+.dinosaur--pronunciation p {
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaursearch--genus {
-    display: block;
+  .dinosaur--pronunciation p {
+    margin-right: 20px;
   }
+}
+
+.dinosaur--meaning p {
+  margin: 0;
+}
+
+.dinosaur--image-container {
+  margin-bottom: 20px;
+}
+
+.dinosaur--description-container {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.dinosaur--comparison {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  max-width: 350px;
+}
+
+.dinosaur--comparison-dino {
+  margin-right: 20px;
+}
+
+.dinosaur--comparison-dino img {
+  width: 100%;
+}
+
+.dinosaur--comparison-human img {
+  width: 100%;
+}
+
+.dinosaur--info-container {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
+  padding: 0 20px;
+}
+
+.dinosaur--info-container p {
+  margin-bottom: 10px;
+}
+
+.dinosaur--content-container, .dinosaur--taxonomy-container {
+  margin: 20px;
+  padding-top: 10px;
+}
+
+.dinosaur--taxonomy-container p {
+  margin-bottom: 10px;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
@@ -9463,15 +9553,9 @@ input.searchGo {
   overflow-x: hidden;
 }
 
-@media screen and (min-width: 768px) {
-  .qahub--question-list {
-    height: 566px;
-  }
-}
-
 @media screen and (min-width: 1024px) {
   .qahub--question-list {
-    height: 386px;
+    height: 306px;
     font-size: 1.3rem;
   }
 }
@@ -9534,37 +9618,15 @@ input.searchGo {
 }
 
 .qahub--answer-list {
+  height: 630px;
   padding: 20px;
   background-color: #EEEEEE;
-  overflow-y: scroll;
-}
-
-@media screen and (min-width: 768px) {
-  .qahub--answer-list {
-    height: 630px;
-  }
 }
 
 @media screen and (min-width: 1024px) {
   .qahub--answer-list {
-    height: 450px;
+    height: 370px;
   }
-}
-
-.qahub--answer-list::-webkit-scrollbar {
-  width: 20px;
-}
-
-.qahub--answer-list::-webkit-scrollbar-track {
-  background: #EEEEEE;
-}
-
-.qahub--answer-list::-webkit-scrollbar-thumb, .qahub--answer-list::-webkit-scrollbar-thumb:window-inactive {
-  width: 16px;
-  border-right: 10px solid #EEEEEE;
-  border-top: 2px solid #EEEEEE;
-  border-bottom: 2px solid #EEEEEE;
-  background: #FFFFFF;
 }
 
 .qahub--controls-container {
@@ -9584,6 +9646,10 @@ input.searchGo {
 .qahub--previous-question img {
   transform: rotate(0.5turn);
   padding: 0 20px;
+}
+
+.template--nhm-page-no-titlebar .qasingle--container .qasingle--question-title-container {
+  margin-top: 1.5em;
 }
 
 .qasingle--container a,
