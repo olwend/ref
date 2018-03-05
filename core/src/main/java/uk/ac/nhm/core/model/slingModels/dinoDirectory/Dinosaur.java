@@ -14,6 +14,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Source;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,8 @@ public class Dinosaur {
 	private String type;
 	private String imageUrl;
 
+	private static final String BASE_IMAGE_URL = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/";
+	
 	@PostConstruct
 	protected void init() {
 		String host = null;
@@ -162,16 +165,10 @@ public class Dinosaur {
 			for(int i=0; i<dinosaurMediaArray.length(); i++) {
 				JSONObject dinosaurMediaElement = dinosaurMediaArray.getJSONObject(i);
 
-				if ( dinosaurMediaElement.getBoolean("isDefault") == true ) {
-					this.setImageUrl("http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
-					+ dinosaurMediaElement.getString("mediaTypePath") + "/"
-					+ dinosaurMediaElement.getString("mediaContentTypeName")
-					+ "/small/" + dinosaurMediaElement.getString("identifier") + ".jpg");
+				if(dinosaurMediaElement.getBoolean("isDefault") == true) {
+					this.setImageUrl(getImagePath(dinosaurMediaElement));
 				} else {
-					String dinosaurImageURL = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/"
-						+ dinosaurMediaElement.getString("mediaTypePath") + "/"
-						+ dinosaurMediaElement.getString("mediaContentTypeName")
-						+ "/small/" + dinosaurMediaElement.getString("identifier") + ".jpg";
+					String dinosaurImageURL = getImagePath(dinosaurMediaElement);
 					dinosaurMediaCollection.add(dinosaurImageURL);
 				}
 			}
@@ -205,11 +202,27 @@ public class Dinosaur {
 			}
 			this.setTextBlockCollection(textBlockCollection);
 
+			//Optional fields
+			
+			//Food
+			//How it moved
+			//etc...
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	public String getImagePath(JSONObject dinosaurMediaElement) throws JSONException {
+		String imagePath = 
+				BASE_IMAGE_URL
+				+ dinosaurMediaElement.getString("mediaTypePath") 
+				+ "/" + dinosaurMediaElement.getString("mediaContentTypeName")
+				+ "/small/" + dinosaurMediaElement.getString("identifier") + ".jpg";
+		
+		return imagePath;
+	}
+	
 	public Map<String, String> getBodyShape() {
 		return bodyShape;
 	}
