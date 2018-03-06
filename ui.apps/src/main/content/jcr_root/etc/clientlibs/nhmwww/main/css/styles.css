@@ -9553,9 +9553,15 @@ input.searchGo {
   overflow-x: hidden;
 }
 
+@media screen and (min-width: 768px) {
+  .qahub--question-list {
+    height: 566px;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .qahub--question-list {
-    height: 306px;
+    height: 386px;
     font-size: 1.3rem;
   }
 }
@@ -9618,15 +9624,37 @@ input.searchGo {
 }
 
 .qahub--answer-list {
-  height: 630px;
   padding: 20px;
   background-color: #EEEEEE;
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .qahub--answer-list {
+    height: 630px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .qahub--answer-list {
-    height: 370px;
+    height: 450px;
   }
+}
+
+.qahub--answer-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.qahub--answer-list::-webkit-scrollbar-track {
+  background: #EEEEEE;
+}
+
+.qahub--answer-list::-webkit-scrollbar-thumb, .qahub--answer-list::-webkit-scrollbar-thumb:window-inactive {
+  width: 16px;
+  border-right: 10px solid #EEEEEE;
+  border-top: 2px solid #EEEEEE;
+  border-bottom: 2px solid #EEEEEE;
+  background: #FFFFFF;
 }
 
 .qahub--controls-container {
@@ -9646,10 +9674,6 @@ input.searchGo {
 .qahub--previous-question img {
   transform: rotate(0.5turn);
   padding: 0 20px;
-}
-
-.template--nhm-page-no-titlebar .qasingle--container .qasingle--question-title-container {
-  margin-top: 1.5em;
 }
 
 .qasingle--container a,
