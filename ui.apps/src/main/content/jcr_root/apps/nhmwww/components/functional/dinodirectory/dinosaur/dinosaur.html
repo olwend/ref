@@ -69,7 +69,7 @@
 					<p>How it moved: ${dinosaur.howItMoved}</p>
 				</sly>
 				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
-					<p>Food: ${dinosaur.food}</p>
+					<p>Food: ${dinosaur.food @ context='html'}</p>
 				</sly>
 			</div>
 		</div>
