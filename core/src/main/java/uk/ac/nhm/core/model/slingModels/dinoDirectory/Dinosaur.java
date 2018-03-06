@@ -97,7 +97,8 @@ public class Dinosaur {
 			Map<String, String> bodyShapeMap = new HashMap<String, String>();
 
 			bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
-			bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" + bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + ".html");
+			bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" 
+					+ bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
 
 			this.setBodyShape(bodyShapeMap);
 
