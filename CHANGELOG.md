@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.5 - Indulgent Iguanodon - 22-Feb-2018
+- WR-1176 - Update to Q&A Hub CSS
+
+## 2.0.4 - Hangry Hagryphus - 15-Feb-2018
+- WR-1182 - Featured Article component
+
+## 2.0.3 - Gallant Gallimimus - 07-Feb-2018
+- WR-1192 - Q&A Hub
+
 ## 2.0.2 - Flexible Fukuiraptor - 01-Feb-2018
 - WR-1220 - Create styling for article feed "1" limit in sidebar
 - WR-1237 - Replace data-interchange in Discover Related component with HTML5 <picture>

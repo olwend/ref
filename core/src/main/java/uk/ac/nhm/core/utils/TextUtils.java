@@ -52,7 +52,7 @@ public class TextUtils {
 		String aemEnv = tokens[2];
 		
 		//Construct new hostname
-		String newHost = aemName + "-disp" + aemNum + "-" + aemEnv;
+		String newHost = "aem-disp" + aemNum + "-" + aemEnv;
 		
 		return newHost;
 	}
