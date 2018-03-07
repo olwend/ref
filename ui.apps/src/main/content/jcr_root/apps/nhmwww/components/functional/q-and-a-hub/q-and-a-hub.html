@@ -1,0 +1,83 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.qahub'}" data-sly-unwrap></meta>
+</sly>
+
+<div class="row" data-sly-test="${!properties.rootpath}">
+	<h4>Q & A hub</h4>
+	Required fields:
+	<ul>
+		<li>Root path</li>
+		<li>Tag</li>
+	</ul>
+</div>
+
+<sly data-sly-use.qahub="uk.ac.nhm.core.model.slingModels.QAHub" data-sly-test="${properties.rootpath}">
+
+<div class="row qahub--container">
+
+	<sly data-sly-test="${!qahub.questionList}">
+		This query returns no results
+	</sly>
+
+	<sly data-sly-test="${qahub.questionList}">
+
+		<div class="qahub--question-container columns small-12 medium-4 large-4" >
+			<h3 class="qahub--question-title">Quick questions</h3>
+			<a href="#" class="qahub--question-list-nav" data-direction="up">
+				<div class="qahub--question-up">
+					<img src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Scroll the list of questions up">
+				</div>
+			</a>
+			<ol class="qahub--question-list" data-sly-list.list="${qahub.questionList}">
+				<a href="#" class="js-qa-nav" data-question="${listList.index}">
+					<li data-sly-test="${list.size > 0}" id="qa-question-${listList.index}" class="qa-question">
+						<span>${list['question']}</span>
+					</li>
+				</a>
+			</ol>
+			<a href="#" class="qahub--question-list-nav" data-direction="down">
+				<div class="qahub--question-down">
+					<img src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Scroll the list of questions down">
+				</div>
+			</a>
+			<a href="#" class="qahub--question-list-nav" data-direction="expand">
+				<div class="qahub--question-expand">
+					<img id="expand-up" src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Contract the list of questions" style="display: none">
+					<img id="expand-down" src="/etc/designs/nhmwww/img/arrows/down-arrow.png" alt="Expand the list of questions">
+				</div>
+			</a>
+		</div>
+
+		<div class="qahub--answer-list-container columns small-12 medium-8 large-8" >
+
+			<div class="qahub--answer-list">
+				<div class="qahub--answer-title-container">
+					<sly data-sly-list.list="${qahub.questionList}" >
+						<h3 id="qa-title-${listList.index}" class="qahub--answer-title" style="display: none;">${list['question']}</h3>
+					</sly>
+				</div>
+				<div class="qahub--answer-container">
+					<sly data-sly-list.list="${qahub.questionList}" >
+						<div id="qa-text-${listList.index}" class="qahub--answer-text" style="display: none;">
+							${list['answer'] @ context='html'}
+						</div>
+					</sly>
+				</div>
+			</div>
+
+			<div class="qahub--controls-container">
+				<a href="#" id="prev-question" class="js-qa-nav qahub--previous-question" data-question="">
+					<img src="/etc/designs/nhmwww/img/arrows/mobile-menu-arrow.png" alt="Go to previous question">
+				</a>
+				<a href="#" id="next-question" class="js-qa-nav qahub--next-question" data-question="1">
+					<img src="/etc/designs/nhmwww/img/arrows/mobile-menu-arrow.png" alt="Go to next question">
+				</a>
+			</div>
+
+		</div>
+
+	</sly>
+
+</div>
+
+</sly>

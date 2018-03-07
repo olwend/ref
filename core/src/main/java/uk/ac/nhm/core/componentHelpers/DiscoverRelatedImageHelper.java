@@ -90,16 +90,16 @@ public class DiscoverRelatedImageHelper {
 		switch (imageSize) {
 
 		case DEFAULT:
-			return this.getPath() + ".img.320.medium." + this.getExtension() + this.getSuffix();
+			return this.getPath() + ".img.320.medium." + this.getExtension();
 
 		case SMALL:
-			return this.getPath() + ".img.320.medium." + this.getExtension() + this.getSuffix();
+			return this.getPath() + ".img.320.medium." + this.getExtension();
 			
 		case MEDIUM:
-			return this.getPath() + ".img.480.medium." + this.getExtension() + this.getSuffix();
+			return this.getPath() + ".img.480.medium." + this.getExtension();
 			
 		case LARGE:
-			return this.getPath() + ".img.620.high." + this.getExtension() + this.getSuffix();
+			return this.getPath() + ".img.620.high." + this.getExtension();
 
 		default:
 			throw new UnsupportedOperationException("Image Interchange size not supported");}
