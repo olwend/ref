@@ -153,11 +153,11 @@ public class Dinosaur {
 			String mya = null;
 
 			if(!myaFrom.equals(null) && !myaTo.equals(null)) {
-				mya = myaFrom + " - " + myaTo + " million BCE";
+				mya = myaFrom + " - " + myaTo + " million years ago";
 			} else if(!myaFrom.equals(null)) {
-				mya = myaFrom + " million BCE";
+				mya = myaFrom + " million years ago";
 			} else if(!myaTo.equals(null)) {
-				mya = myaTo + " million BCE";
+				mya = myaTo + " million years ago";
 			}
 
 			this.setMya(mya);
