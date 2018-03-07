@@ -48,25 +48,21 @@
 			</a>
 		</div>
 
-		<div class="qahub--answer-container columns small-12 medium-8 large-8" >
+		<div class="qahub--answer-list-container columns small-12 medium-8 large-8" >
 
 			<div class="qahub--answer-list">
-				<sly data-sly-list.list="${qahub.questionList}" >
-					<sly data-sly-test="${list.size > 0}">
-						<sly data-sly-test="${listList.index == 0}">
-							<div class="answer" id="qa${listList.index}">
-								<h3 class="qa-hub--answer-title">${list['question']}</h3>
-								<p>${list['answer'] @ context='html'}</p>
-							</div>
-						</sly>
-						<sly data-sly-test="${listList.index > 0}">
-							<div class="answer" style="display: none;" id="qa${listList.index}">
-								<h3 class="qa-hub--answer-title">${list['question']}</h3>
-								<p>${list['answer'] @ context='html'}</p>
-							</div>
-						</sly>
+				<div class="qahub--answer-title-container">
+					<sly data-sly-list.list="${qahub.questionList}" >
+						<h3 id="qa-title-${listList.index}" class="qahub--answer-title" style="display: none;">${list['question']}</h3>
 					</sly>
-				</sly>
+				</div>
+				<div class="qahub--answer-container">
+					<sly data-sly-list.list="${qahub.questionList}" >
+						<div id="qa-text-${listList.index}" class="qahub--answer-text" style="display: none;">
+							${list['answer'] @ context='html'}
+						</div>
+					</sly>
+				</div>
 			</div>
 
 			<div class="qahub--controls-container">

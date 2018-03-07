@@ -9595,7 +9595,7 @@ input.searchGo {
   background: #FFFFFF;
 }
 
-.qahub--answer-container {
+.qahub--answer-list-container {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
@@ -9603,53 +9603,64 @@ input.searchGo {
   margin-bottom: 1.5em;
 }
 
-.qahub--answer-container a,
-.qahub--answer-container a:hover {
+.qahub--answer-list-container a,
+.qahub--answer-list-container a:hover {
   color: #565656;
   text-decoration: none;
 }
 
-.qahub--answer-container a {
+.qahub--answer-list-container a {
   border-bottom: 1px dotted #565656;
 }
 
-.qahub--answer-container a:hover {
+.qahub--answer-list-container a:hover {
   border-bottom: 1px solid #565656;
 }
 
 @media screen and (min-width: 768px) {
-  .qahub--answer-container {
+  .qahub--answer-list-container {
     padding-left: 10px;
   }
 }
 
-.qahub--answer-list {
+.qahub--answer-title-container {
+  padding: 20px 20px 15px 20px;
+  margin-bottom: 2px;
+  background-color: #EEEEEE;
+}
+
+.qahub--answer-title {
+  padding: 0;
+  margin: 0;
+}
+
+.qahub--answer-container {
+  overflow-y: scroll;
   padding: 20px;
   background-color: #EEEEEE;
-  overflow-y: scroll;
 }
 
 @media screen and (min-width: 768px) {
-  .qahub--answer-list {
-    height: 630px;
+  .qahub--answer-container {
+    height: 555px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .qahub--answer-list {
-    height: 450px;
+  .qahub--answer-container {
+    height: 375px;
   }
 }
 
-.qahub--answer-list::-webkit-scrollbar {
+.qahub--answer-container::-webkit-scrollbar {
   width: 20px;
 }
 
-.qahub--answer-list::-webkit-scrollbar-track {
+.qahub--answer-container::-webkit-scrollbar-track {
   background: #EEEEEE;
 }
 
-.qahub--answer-list::-webkit-scrollbar-thumb, .qahub--answer-list::-webkit-scrollbar-thumb:window-inactive {
+.qahub--answer-container::-webkit-scrollbar-thumb, .qahub--answer-container::-webkit-scrollbar-thumb:window-inactive {
   width: 16px;
   border-right: 10px solid #EEEEEE;
   border-top: 2px solid #EEEEEE;
