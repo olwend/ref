@@ -210,19 +210,16 @@ public class Dinosaur {
 			
 			if(!dinosaur.isNull("dentition")) {
 				String teeth = dinosaur.getString("dentition");
-				teeth = teeth.substring(0, 1).toUpperCase() + teeth.substring(1);
 				this.setTeeth(teeth);
 			}
 
 			if(!dinosaur.isNull("locomotion")) {
 				String howItMoved = dinosaur.getString("locomotion");
-				howItMoved = howItMoved.substring(0, 1).toUpperCase() + howItMoved.substring(1);
 				this.setHowItMoved(howItMoved);
 			}
 			
 			if(!dinosaur.isNull("diet")) {
 				String food = dinosaur.getString("diet");
-				food = food.substring(0, 1).toUpperCase() + food.substring(1);
 				this.setFood(food);
 			}
 			
