@@ -46,7 +46,7 @@
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/support-us.html">Join and support</a>
 						</li>
 						<li class="global-header--nav-list__item link-shop">
-							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
+							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk">Shop</a>
 						</li>
 						<li class="global-header--nav-list__item link-schools">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/schools.html">Schools</a>
