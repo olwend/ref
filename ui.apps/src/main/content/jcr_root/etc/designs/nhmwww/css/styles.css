@@ -6443,6 +6443,117 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
+/** WR-1213 SINGLE DINO PAGE **/
+.dinosaur a {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaur a:hover {
+  color: #000000;
+}
+
+.dinosaur--container {
+  position: relative;
+  font-size: 1.2em;
+}
+
+.dinosaur--title-container {
+  margin: 20px;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.dinosaur--name {
+  font-size: 2.375em;
+  padding: 0;
+}
+
+.dinosaur--name p {
+  margin: 0;
+}
+
+.dinosaur--name-description {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  font-size: 23px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur--name-description {
+    flex-direction: row;
+  }
+}
+
+.dinosaur--pronunciation {
+  font-style: italic;
+}
+
+.dinosaur--pronunciation p {
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur--pronunciation p {
+    margin-right: 20px;
+  }
+}
+
+.dinosaur--meaning p {
+  margin: 0;
+}
+
+.dinosaur--image-container {
+  margin-bottom: 20px;
+}
+
+.dinosaur--description-container {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.dinosaur--comparison {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  max-width: 350px;
+}
+
+.dinosaur--comparison-dino {
+  margin-right: 20px;
+}
+
+.dinosaur--comparison-dino img {
+  width: 100%;
+}
+
+.dinosaur--comparison-human img {
+  width: 100%;
+}
+
+.dinosaur--info-container {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
+  padding: 0 20px;
+}
+
+.dinosaur--info-container p {
+  margin-bottom: 10px;
+}
+
+.dinosaur--content-container, .dinosaur--taxonomy-container {
+  margin: 20px;
+  padding-top: 10px;
+}
+
+.dinosaur--taxonomy-container p {
+  margin-bottom: 10px;
+}
+
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;
@@ -9484,7 +9595,7 @@ input.searchGo {
   background: #FFFFFF;
 }
 
-.qahub--answer-container {
+.qahub--answer-list-container {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
@@ -9492,53 +9603,64 @@ input.searchGo {
   margin-bottom: 1.5em;
 }
 
-.qahub--answer-container a,
-.qahub--answer-container a:hover {
+.qahub--answer-list-container a,
+.qahub--answer-list-container a:hover {
   color: #565656;
   text-decoration: none;
 }
 
-.qahub--answer-container a {
+.qahub--answer-list-container a {
   border-bottom: 1px dotted #565656;
 }
 
-.qahub--answer-container a:hover {
+.qahub--answer-list-container a:hover {
   border-bottom: 1px solid #565656;
 }
 
 @media screen and (min-width: 768px) {
-  .qahub--answer-container {
+  .qahub--answer-list-container {
     padding-left: 10px;
   }
 }
 
-.qahub--answer-list {
+.qahub--answer-title-container {
+  padding: 20px 20px 15px 20px;
+  margin-bottom: 2px;
+  background-color: #EEEEEE;
+}
+
+.qahub--answer-title {
+  padding: 0;
+  margin: 0;
+}
+
+.qahub--answer-container {
+  overflow-y: scroll;
   padding: 20px;
   background-color: #EEEEEE;
-  overflow-y: scroll;
 }
 
 @media screen and (min-width: 768px) {
-  .qahub--answer-list {
-    height: 630px;
+  .qahub--answer-container {
+    height: 555px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .qahub--answer-list {
-    height: 450px;
+  .qahub--answer-container {
+    height: 375px;
   }
 }
 
-.qahub--answer-list::-webkit-scrollbar {
+.qahub--answer-container::-webkit-scrollbar {
   width: 20px;
 }
 
-.qahub--answer-list::-webkit-scrollbar-track {
+.qahub--answer-container::-webkit-scrollbar-track {
   background: #EEEEEE;
 }
 
-.qahub--answer-list::-webkit-scrollbar-thumb, .qahub--answer-list::-webkit-scrollbar-thumb:window-inactive {
+.qahub--answer-container::-webkit-scrollbar-thumb, .qahub--answer-container::-webkit-scrollbar-thumb:window-inactive {
   width: 16px;
   border-right: 10px solid #EEEEEE;
   border-top: 2px solid #EEEEEE;

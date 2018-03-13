@@ -1,0 +1,98 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.dinodirectory.dinosaur'}" data-sly-unwrap></meta>
+</sly>
+
+<sly data-sly-test="${!properties.name}">
+	<div class="row">
+		<h4>Dinosaur</h4>
+		Required fields:
+		<ul>
+			<li>Dinosaur name</li>
+		</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.name}">
+	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
+
+		<div class="dinosaur--title-container">
+			<div class="dinosaur--name">
+				<p>${dinosaur.genus}</p>
+			</div>
+			<div class="dinosaur--name-description">
+				<div class="dinosaur--pronunciation">
+					<p>${dinosaur.namePronounciation}</p>
+				</div>
+				<div class="dinosaur--meaning">
+					<p>"${dinosaur.nameMeaning}"</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="dinosaur--image-container small-12 medium-6 medium-offset-3 large-6 large-offset-3 columns">
+				<img class="dinosaur--image" src="${dinosaur.imageUrl}">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="dinosaur--description-container small-12 medium-6 large-6 columns">
+				<div class="dinosaur--description" data-dino-length="${dinosaur.length}">
+					<p>${dinosaur.description} <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
+				</div>
+				<div class="dinosaur--comparison">
+					<div class="dinosaur--comparison-dino">
+						<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg">
+					</div>
+					<div class="dinosaur--comparison-human"></div>
+				</div>
+			</div>
+
+			<div class="dinosaur--info-container small-12 medium-6 large-6 columns">
+				<div class="dinosaur--diet">
+					<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg"> </p>
+				</div>
+				<div class="dinosaur--country">
+					<p>Country:
+						<sly data-sly-list.country="${dinosaur.countryList}">
+							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
+						</sly>
+					</p>
+				</div>
+				<div class="dinosaur--period">
+					<p>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a> ${dinosaur.mya}</p>
+				</div>
+				<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
+					<p>Teeth: ${dinosaur.teeth}</p>
+				</sly>
+				<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
+					<p>How it moved: ${dinosaur.howItMoved}</p>
+				</sly>
+				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
+					<p>Food: ${dinosaur.food @ context='html'}</p>
+				</sly>
+			</div>
+		</div>
+
+		<div class="dinosaur--content-container" data-sly-list="${dinosaur.textBlockCollection}">
+			<h4 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h4>
+			${item['textBlock'] @ context='html'}
+		</div>
+
+		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
+			<div class="row">
+				<div class="dinosaur--image-container small-12 medium-6 medium-offset-3 large-6 large-offset-3 columns">
+					<img class="dinosaur--image" src="${item}">
+				</div>
+			</div>
+		</sly>
+
+		<div class="dinosaur--taxonomy-container">
+			<h3 class="dinosaur--section-title">Taxonomic details</h3>
+			<p class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
+			<p class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</p>
+			<p class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</p>
+		</div>
+
+	</div>
+</sly>
