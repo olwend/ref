@@ -153,7 +153,7 @@ public class Dinosaur {
 			String mya = null;
 
 			if(!myaFrom.equals(null) && !myaTo.equals(null)) {
-				mya = myaFrom + " - " + myaTo + " million years ago";
+				mya = myaFrom + "-" + myaTo + " million years ago";
 			} else if(!myaFrom.equals(null)) {
 				mya = myaFrom + " million years ago";
 			} else if(!myaTo.equals(null)) {

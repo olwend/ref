@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6464,12 +6464,17 @@ div#cookie-bar p {
 }
 
 .dinosaur--name {
-  font-size: 2.375em;
-  padding: 0;
+  font-size: 2.1em;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.dinosaur--name p {
-  margin: 0;
+@media screen and (min-width: 768px) {
+  .dinosaur--name {
+    font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+    font-size: 2.375em;
+  }
 }
 
 .dinosaur--name-description {
@@ -6483,10 +6488,6 @@ div#cookie-bar p {
   .dinosaur--name-description {
     flex-direction: row;
   }
-}
-
-.dinosaur--pronunciation {
-  font-style: italic;
 }
 
 .dinosaur--pronunciation p {
@@ -6505,6 +6506,23 @@ div#cookie-bar p {
 
 .dinosaur--image-container {
   margin-bottom: 20px;
+  padding: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .dinosaur--image-container {
+    padding: 0 20px;
+  }
+}
+
+.dinosaur--image {
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .dinosaur--image {
+    width: auto;
+  }
 }
 
 .dinosaur--description-container {
@@ -6546,12 +6564,23 @@ div#cookie-bar p {
 }
 
 .dinosaur--content-container, .dinosaur--taxonomy-container {
-  margin: 20px;
-  padding-top: 10px;
+  padding: 10px 20px 20px 20px;
+}
+
+.dinosaur--taxonomy-container {
+  margin-bottom: 40px;
 }
 
 .dinosaur--taxonomy-container p {
   margin-bottom: 10px;
+}
+
+.dinosaur--content-title {
+  margin-top: 40px;
+}
+
+.dinosaur--section-title {
+  margin-top: 40px;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
