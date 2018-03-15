@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.8 - Lanky Liliensternus - 15-Mar-2018
+- WR-1287 - Strip all tracking params from Shop link in Main nav
+- WR-1294 - Dinosaur page adjustments
+- WR-1297 - Arrows to navigate through months view missing from events calendar
+
 ## 2.0.7 - Kyphotic Kuluyaku - 08-Mar-2018
 - WR-1213 - Create single dino pages
 - WR-1284 - Stick-y header on Q&A hub component
