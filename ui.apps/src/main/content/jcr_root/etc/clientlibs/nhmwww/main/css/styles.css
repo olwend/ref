@@ -6443,6 +6443,27 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
+/** DINOSAUR SEARCH PAGE **/
+.dinosaursearch--container {
+  margin: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur {
+    text-align: center;
+  }
+}
+
+.dinosaursearch--genus {
+  display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--genus {
+    display: block;
+  }
+}
+
 /** WR-1213 SINGLE DINO PAGE **/
 .dinosaur a {
   color: #565656;
