@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -8590,7 +8590,7 @@ div#cookie-bar p {
   padding: 0 !important;
   font-size: 1.5em;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 /** GRAND SUMMARY CTABUTTON PARTIAL **/
