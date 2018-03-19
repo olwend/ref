@@ -5692,7 +5692,7 @@ html.js-noScroll {
 .articlefeed--read-more-link a:hover {
   background-color: #AAAAAA;
   color: #FFFFFF;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .articlefeed--read-more-link a:focus {
