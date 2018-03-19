@@ -7002,6 +7002,33 @@ div#cookie-bar p {
   font-size: 1em;
 }
 
+.discoverrelated .discover .discover-related--read-more-link {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a {
+  border: 5px solid #AAAAAA;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding: 10px 10px 5px 10px;
+  font-size: 1.2rem;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a:hover {
+  background-color: #AAAAAA;
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a:focus {
+  border: 5px solid #565656;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a:active {
+  border: 5px solid #565656;
+}
+
 /** REFACTOR-DISCOVER-PUBLICATION PARTIAL **/
 .discoverpublication h1 {
   padding: 0 0.5em !important;
@@ -8590,7 +8617,7 @@ div#cookie-bar p {
   padding: 0 !important;
   font-size: 1.5em;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 /** GRAND SUMMARY CTABUTTON PARTIAL **/
