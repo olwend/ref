@@ -34,7 +34,7 @@
 									<a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
-									<a href="/content/nhmwww/en/home/about-us/news.html" data-gtm="subnav-link">News</a>
+									<a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a>
 								</li>
 								<li class="global-header--menu__subnav-discover" data-gtm="subnav-link">
 									<a href="https://blog.nhm.ac.uk/">Blog</a>
@@ -46,7 +46,7 @@
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/support-us.html">Join and support</a>
 						</li>
 						<li class="global-header--nav-list__item link-shop">
-							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
+							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk">Shop</a>
 						</li>
 						<li class="global-header--nav-list__item link-schools">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/schools.html">Schools</a>
@@ -81,7 +81,7 @@
 				<li><a href="/content/nhmwww/en/home/discover/oceans.html" data-gtm="subnav-link">Oceans</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a></li>
-				<li><a href="/content/nhmwww/en/home/about-us/news.html" data-gtm="subnav-link">News</a></li>
+				<li><a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a></li>
 				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
 			</ul>
 		</div>

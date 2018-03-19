@@ -57,7 +57,7 @@
       </div>
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/about-us.html" class="main-footer--link">About us</a></h4>
-        <p><a href="http://www.nhm.ac.uk/about-us/news.html" class="main-footer--link">News</a></p>
+        <p><a href="http://www.nhm.ac.uk/discover/news.html" class="main-footer--link">News</a></p>
         <p><a href="http://www.nhm.ac.uk/press-office.html" class="main-footer--link">Press office</a></p>
         <p><a href="http://www.nhm.ac.uk/about-us/governance.html" class="main-footer--link">Governance</a></p>
         <p><a href="http://www.nhm.ac.uk/contact-us.html" class="main-footer--link">Contact us</a></p>
