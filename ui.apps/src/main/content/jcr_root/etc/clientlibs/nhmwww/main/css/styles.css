@@ -7002,11 +7002,7 @@ div#cookie-bar p {
   text-decoration: underline;
 }
 
-.discoverrelated .discover .discover-related--read-more-link a:focus {
-  border: 5px solid #565656;
-}
-
-.discoverrelated .discover .discover-related--read-more-link a:active {
+.discoverrelated .discover .discover-related--read-more-link a:focus, .discoverrelated .discover .discover-related--read-more-link a:active {
   border: 5px solid #565656;
 }
 
