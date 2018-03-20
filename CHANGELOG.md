@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.0.8 - Lanky Liliensternus - 15-Mar-2018
+- WR-1287 - Strip all tracking params from Shop link in Main nav
+- WR-1294 - Dinosaur page adjustments
+- WR-1297 - Arrows to navigate through months view missing from events calendar
+
+## 2.0.7 - Kyphotic Kuluyaku - 08-Mar-2018
+- WR-1213 - Create single dino pages
+- WR-1284 - Stick-y header on Q&A hub component
+- WR-1288 - Add sharing tags to base template
+- WR-1290 - Add missing fields (teeth, food and movement) into single dino component and style
+- WR-1292 - Change dispatcher path in events calendar cache flush
+
+## 2.0.6 - Jocose Jaxartosaurus - 01-Mar-2018
+- WR-1223 - Convert news to NHM Article template
+- WR-1232 - Take science profile workflow paths out of code
+
 ## 2.0.5 - Indulgent Iguanodon - 22-Feb-2018
 - WR-1176 - Update to Q&A Hub CSS
 

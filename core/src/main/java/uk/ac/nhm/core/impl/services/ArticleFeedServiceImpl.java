@@ -134,7 +134,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		    	
 		    	if(node.hasProperty("jcr:content/article/snippet")) {
 		    		//Snippet string likely to contain html tags - strip them out
-		    		String snippet = textUtils.stripHtmlTags(node.getProperty("jcr:content/article/snippet").getString());
+		    		String snippet = node.getProperty("jcr:content/article/snippet").getString();
 		    		nodeMap.put("excerpt", snippet);
 		    	} else if(node.hasProperty("jcr:content/jcr:description")) {
 		    		nodeMap.put("excerpt", node.getProperty("jcr:content/jcr:description").getString());
