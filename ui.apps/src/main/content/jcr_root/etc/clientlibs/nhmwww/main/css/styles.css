@@ -8590,7 +8590,7 @@ div#cookie-bar p {
   padding: 0 !important;
   font-size: 1.5em;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 /** GRAND SUMMARY CTABUTTON PARTIAL **/
@@ -9746,6 +9746,18 @@ input.searchGo {
   background-color: #EEEEEE;
   padding: 20px;
   margin-bottom: 2px;
+}
+
+.qasingle--image {
+  float: right;
+}
+
+.qasingle--image img {
+  border-radius: 50%;
+}
+
+.qasingle--answer-container {
+  float: left;
 }
 
 .qasingle--next-question-container {
