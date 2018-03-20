@@ -5672,13 +5672,6 @@ html.js-noScroll {
 
 .articlefeed--read-more-link {
   text-align: center;
-}
-
-.articlefeed__full-width {
-  margin: 0 20px;
-}
-
-.articlefeed--read-more-link {
   margin-bottom: 0.5rem;
 }
 
@@ -5696,12 +5689,12 @@ html.js-noScroll {
   text-decoration: underline;
 }
 
-.articlefeed--read-more-link a:focus {
+.articlefeed--read-more-link a:focus, .articlefeed--read-more-link a:active {
   border: 5px solid #565656;
 }
 
-.articlefeed--read-more-link a:active {
-  border: 5px solid #565656;
+.articlefeed .articlefeed__full-width {
+  margin: 0 20px;
 }
 
 .featuredarticle a,
