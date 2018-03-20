@@ -18,13 +18,16 @@
 			<h4 class="qasingle--question">${properties.question @ context ='html'}</h4>
 		</div>
 		<div class="qasingle--answer-container" data-sly-test="${properties.answer}">
-			<p class="qasingle--answer">${properties.answer @ context ='html'}</p>
+				<div class="qasingle--image" data-sly-test="${properties.fileReference}">
+					<img src="${properties.fileReference}">	
+				</div>
+			<p class="qasingle--answer">${properties.answer @ context ='html'}
+
+			</p>
 		</div>
 	</div>
 	
-	<div class="qasingle--image" data-sly-test="${properties.fileReference}">
-		<img src="${properties.fileReference}">
-	</div>
+
 
 	<div data-sly-use.qa="uk.ac.nhm.core.model.slingModels.QA" data-sly-test="${qa.nextQuestion}">
 		<a href="${qa.nextQuestion['link']}">
