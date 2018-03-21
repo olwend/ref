@@ -9716,6 +9716,10 @@ input.searchGo {
   padding: 0 20px;
 }
 
+.qasingle--container {
+  background-color: #EEEEEE;
+}
+
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
@@ -9742,22 +9746,38 @@ input.searchGo {
   color: #FFFFFF;
 }
 
-.qasingle--question-content {
+.qasingle--question-container {
   background-color: #EEEEEE;
-  padding: 20px;
+  padding: 20px 20px 20px 10px;
   margin-bottom: 2px;
+}
+
+.qasingle--question {
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
 }
 
 .qasingle--image {
   float: right;
+  padding-left: 300px;
+  background-color: #EEEEEE;
+  padding: 40px 20px 20px 0px;
+  margin-bottom: 2px;
 }
 
 .qasingle--image img {
   border-radius: 50%;
+  float: right;
 }
 
 .qasingle--answer-container {
   float: left;
+}
+
+.qasingle--answer-container p {
+  padding-left: 300px;
+  background-color: #EEEEEE;
+  padding: 0px 20px 0px 20px;
+  margin-bottom: 2px;
 }
 
 .qasingle--next-question-container {
