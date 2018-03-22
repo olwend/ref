@@ -5671,7 +5671,25 @@ html.js-noScroll {
 }
 
 .articlefeed--read-more-link {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.articlefeed--read-more-link a {
+  border: 5px solid #AAAAAA;
+  padding: 10px 10px 5px 10px;
+  font-size: 1.2rem;
+}
+
+.articlefeed--read-more-link a:hover {
+  background-color: #AAAAAA;
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.articlefeed--read-more-link a:focus, .articlefeed--read-more-link a:active {
+  border: 5px solid #565656;
 }
 
 .articlefeed__full-width {
@@ -7001,6 +7019,29 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--title {
   padding: 0 20px;
+}
+
+.discoverrelated .discover .discover-related--read-more-link {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a {
+  color: #565656;
+  border: 5px solid #AAAAAA;
+  padding: 10px 10px 5px 10px;
+  font-size: 1.2rem;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a:hover {
+  background-color: #AAAAAA;
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a:focus, .discoverrelated .discover .discover-related--read-more-link a:active {
+  border: 5px solid #565656;
 }
 
 .discoverrelated .discover .discover-element-wrapper {

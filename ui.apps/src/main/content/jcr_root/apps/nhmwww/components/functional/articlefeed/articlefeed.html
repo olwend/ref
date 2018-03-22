@@ -48,7 +48,7 @@
 									<a href="${list['path']}.html">${list['title'] @ context='html'}</a>
 								</p>
 								<p class="articlefeed--item__date">${list['datepublished']}</p>
-								<p class="articlefeed--item__excerpt">${list['excerpt']}</p>
+								<p class="articlefeed--item__excerpt">${list['excerpt'] @ context='html'}</p>
 							</div>
 						</div>
 					</li>
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div class="articlefeed--read-more-link" data-sly-test="${properties.showreadmore && articlefeed.readmorelink}">
-			<a href="${articlefeed.readmorelink}">Read more</a>
+			<a href="${articlefeed.readmorelink}" aria-label="Read more: ${properties.title}">Read more</a>
 		</div>
 	</div>
 </div>
