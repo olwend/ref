@@ -32,26 +32,26 @@
 		                        	<o1
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Body shape"
-                       					value="bodyshape" />
+                       					value="body-shapes" />
 			                        <o2
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Country"
-                       					value="country" />
+                       					value="countries" />
                        				<o3
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Initial"
-                       					value="initial" />
+                       					value="initials" />
                        				<o4
 			                            jcr:primaryType="nt:unstructured"
 			                            text="Period"
-                       					value="period" />
+                       					value="periods" />
 			                    </items>
 							</filterOne>
 							<filterBodyShapeContainer
 								jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/container"
 								class="hidden showhide-target"
-				                id="select-bodyshape">
+				                id="select-body-shapes">
 								<items jcr:primaryType="nt:unstructured">
 									<filterBodyShape
 				                        jcr:primaryType="nt:unstructured"
@@ -68,7 +68,7 @@
 								jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/container"
 								class="hidden showhide-target"
-				                id="select-country">
+				                id="select-countries">
 								<items jcr:primaryType="nt:unstructured">
 									<filterCountry
 				                        jcr:primaryType="nt:unstructured"
@@ -85,7 +85,7 @@
 								jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/container"
 								class="hidden showhide-target"
-				                id="select-initial">
+				                id="select-initials">
 								<items jcr:primaryType="nt:unstructured">
 									<filterInitial
 				                        jcr:primaryType="nt:unstructured"
@@ -102,7 +102,7 @@
 								jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/container"
 								class="hidden showhide-target"
-				                id="select-period">
+				                id="select-periods">
 								<items jcr:primaryType="nt:unstructured">
 									<filterPeriod
 				                        jcr:primaryType="nt:unstructured"

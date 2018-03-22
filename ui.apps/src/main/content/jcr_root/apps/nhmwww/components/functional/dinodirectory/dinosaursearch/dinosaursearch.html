@@ -13,7 +13,7 @@
 	<sly data-sly-use.dinosaurSearch="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearch">
 		<div class="dinosaursearch--container">
 			<h1 class="dinosaursearch--title">${dinosaurSearch.title}</h1>
-			<p class="dinosaursearch--description">${dinosaurSearch.description}</p>
+			<p class="dinosaursearch--description">${dinosaurSearch.description @ context='html'}</p>
 
 			<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-4 large-block-grid-6">
 				<li class="dinosaursearch--dinosaur">

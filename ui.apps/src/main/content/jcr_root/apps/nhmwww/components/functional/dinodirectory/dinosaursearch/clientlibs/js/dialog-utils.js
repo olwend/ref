@@ -16,19 +16,19 @@ $(document).on("click", ".cq-dialog-submit", function () {
 
         filterOne = $("select[name='./filterOne']").val();
 
-        if(filterOne == 'bodyshape') {
+        if(filterOne == 'body-shapes') {
         	filterTwo = $("select[name='./filterBodyShape']").val();
         }
         
-        if(filterOne == 'country') {
+        if(filterOne == 'countries') {
         	filterTwo = $("select[name='./filterCountry']").val();
         }
         
-        if(filterOne == 'initial') {
+        if(filterOne == 'initials') {
         	filterTwo = $("select[name='./filterInitial']").val();
         }
         
-        if(filterOne == 'period') {
+        if(filterOne == 'periods') {
         	filterTwo = $("select[name='./filterPeriod']").val();
         }
         

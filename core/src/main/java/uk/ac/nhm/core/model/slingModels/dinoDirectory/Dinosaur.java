@@ -66,7 +66,7 @@ public class Dinosaur {
 
 		final String BASE_URL = service.getDinoDirectoryUrl();
 
-		String requestUrl = BASE_URL + "/dinosaur/name/" + name;
+		String requestUrl = BASE_URL + "/dinosaurs/" + name;
 
 		HttpClient httpClient = new HttpClient();
 		GetMethod getMethod = new GetMethod(requestUrl);

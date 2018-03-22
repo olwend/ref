@@ -22,20 +22,33 @@
 <%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0"%>
 <cq:defineObjects />
 <%
-  ResourceResolver resolver = resource.getResourceResolver();
+	String requestUrl = "http://staging.nhm.ac.uk/api/dino-directory-api/initials";
+	
+	HttpClient httpClient = new HttpClient();
+	GetMethod getMethod = new GetMethod(requestUrl);
+	
+	// set fallback
+	request.setAttribute(DataSource.class.getName(), EmptyDataSource.instance());
+
+	ResourceResolver resolver = resource.getResourceResolver();
 
 	//Create an ArrayList to hold data
 	List<Resource> initialList = new ArrayList<Resource>();
 
 	try {
-		for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
-      		ValueMap vm = null;
+		httpClient.executeMethod(getMethod);
+		JSONArray initials = new JSONArray(getMethod.getResponseBodyAsString());
+		
+		for(int i=0; i<initials.length(); i++) {
+			ValueMap vm = null;
 
 			//allocate memory to the Map instance
 			vm = new ValueMapDecorator(new HashMap<String, Object>());
-		
-			vm.put("value", String.valueOf(alphabet).toLowerCase());
-			vm.put("text", String.valueOf(alphabet));
+			
+			JSONObject bodyShape = initials.getJSONObject(i);
+
+			vm.put("value", bodyShape.getString("initial"));
+			vm.put("text", bodyShape.getString("initial"));
 			
 			initialList.add(new ValueMapResource(resolver, new ResourceMetadata(), "nt:unstructured", vm));
 		}
