@@ -41,6 +41,10 @@
 				                                jcr:primaryType="nt:unstructured"
 				                                text="Two column"
 				                                value="twocolumn"/>
+				                        	<onecolumn
+				                                jcr:primaryType="nt:unstructured"
+				                                text="One column"
+				                                value="onecolumn"/> 
 					                    </items>
 					                </rowsize>
 					                <showreadmore
