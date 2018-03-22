@@ -8872,12 +8872,14 @@ a.button-cta {
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
-.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+.row2cells21 .large-8.medium-8.columns,
+.row2cells12 .large-8.medium-8.columns {
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  .row2cells21 .large-8.medium-8.columns,
+  .row2cells12 .large-8.medium-8.columns {
     width: 65.7%;
   }
 }
