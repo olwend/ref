@@ -6474,12 +6474,22 @@ div#cookie-bar p {
 
 .dinosaursearch--genus {
   display: inline-block;
+  font-style: italic;
 }
 
 @media screen and (min-width: 768px) {
   .dinosaursearch--genus {
     display: block;
   }
+}
+
+.dinosaursearch a {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaursearch a:hover {
+  color: #000000;
 }
 
 /** WR-1213 SINGLE DINO PAGE **/
