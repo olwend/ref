@@ -9758,9 +9758,7 @@ input.searchGo {
 
 .qasingle--image {
   float: right;
-  padding-left: 300px;
-  background-color: #EEEEEE;
-  padding: 40px 20px 20px 0px;
+  padding: 40px 20px 20px 0;
   margin-bottom: 2px;
 }
 
@@ -9774,9 +9772,8 @@ input.searchGo {
 }
 
 .qasingle--answer-container p {
-  padding-left: 300px;
   background-color: #EEEEEE;
-  padding: 0px 20px 0px 20px;
+  padding: 0 20px;
   margin-bottom: 2px;
 }
 
