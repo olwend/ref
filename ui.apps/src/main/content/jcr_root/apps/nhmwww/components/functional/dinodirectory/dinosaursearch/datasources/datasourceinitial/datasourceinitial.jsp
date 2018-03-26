@@ -48,7 +48,7 @@
 			JSONObject bodyShape = initials.getJSONObject(i);
 
 			vm.put("value", bodyShape.getString("initial"));
-			vm.put("text", bodyShape.getString("initial"));
+			vm.put("text", bodyShape.getString("initial").toUpperCase());
 			
 			initialList.add(new ValueMapResource(resolver, new ResourceMetadata(), "nt:unstructured", vm));
 		}

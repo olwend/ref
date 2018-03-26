@@ -39,7 +39,7 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 	
 	@Test
 	public void testGetDinosaurList() {
-		List<Map<String, String>> dinosaurList = service.getDinosaurList("bodyshape", "large-theropod", BASE_URL);
+		List<Map<String, String>> dinosaurList = service.getDinosaurList("body-shapes", "large-theropod", BASE_URL);
 		assertThat(dinosaurList.size(), greaterThan(0));
 		
 		Map<String, String> dinosaur = dinosaurList.get(0);
@@ -53,25 +53,25 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		String title;
 		
 		//Body shape
-		title = service.getTitle("bodyshape", "large-theropod");
+		title = service.getTitle("body-shapes", "large-theropod");
 		assertEquals(title, "Large Theropod dinosaurs");
 		
-		title = service.getTitle("bodyshape", "sauropod");
+		title = service.getTitle("body-shapes", "sauropod");
 		assertEquals(title, "Sauropod dinosaurs");
 		
 		//Country
-		title = service.getTitle("country", "North%20Africa");
+		title = service.getTitle("countries", "North%20Africa");
 		assertEquals(title, "Dinosaurs in North Africa");
 
-		title = service.getTitle("country", "England");
+		title = service.getTitle("countries", "England");
 		assertEquals(title, "Dinosaurs in England");
 		
 		//Initial
-		title = service.getTitle("initial", "a");
+		title = service.getTitle("initials", "a");
 		assertEquals(title, "Dinosaurs beginning with A");
 		
 		//Period
-		title = service.getTitle("period", "late-jurassic");
+		title = service.getTitle("periods", "late-jurassic");
 		assertEquals(title, "Dinosaurs in the late Jurassic");
 	}
 	
@@ -80,15 +80,26 @@ public class DinoDirectoryDinosaurSearchServiceImplTest {
 		String description;
 		
 		//Body shape
-		description = service.getDescription("bodyshape", "large-theropod", BASE_URL);
+		description = service.getDescription("body-shapes", "large-theropod", BASE_URL);
 		assertEquals(description, "Large carnivores that walked on 2 legs.");
 		
 		//Country
-		description = service.getDescription("country", "North%20Africa", BASE_URL);
+		description = service.getDescription("countries", "North%20Africa", BASE_URL);
 		assertEquals(description, "1 dinosaur found in North Africa");
 		
-		description = service.getDescription("country", "England", BASE_URL);
+		description = service.getDescription("countries", "England", BASE_URL);
 		assertEquals(description, "22 dinosaurs found in England");
+		
+		//Initial
+		description = service.getDescription("initials", "a", BASE_URL);
+		assertEquals(description, "40 dinosaurs beginning with A");
+		
+		description = service.getDescription("initials", "q", BASE_URL);
+		assertEquals(description, "1 dinosaur beginning with Q");
+		
+		//Period
+		description = service.getDescription("periods", "late-jurassic", BASE_URL);
+		assertEquals(description, "(159 to 144 million years ago)<br>46 dinosaurs from the Late Jurassic");
 	}
 	
 }
