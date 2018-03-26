@@ -6483,12 +6483,12 @@ div#cookie-bar p {
   }
 }
 
-.dinosaursearch a {
+.dinosaursearch--genus a {
   color: #565656;
   text-decoration: underline;
 }
 
-.dinosaursearch a:hover {
+.dinosaursearch--genus a:hover {
   color: #000000;
 }
 

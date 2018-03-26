@@ -19,8 +19,10 @@
 				<li class="dinosaursearch--dinosaur">
 					<a href="${dinosaurs['url']}">
 						<img src="${dinosaurs['imageUrl']}">
-						<p class="dinosaursearch--genus">${dinosaurs['genus']}</p>
 					</a>
+					<p class="dinosaursearch--genus">
+						<a href="${dinosaurs['url']}">${dinosaurs['genus']}</a>
+					</p>
 				</li>
 			</ul>
 		</div>
