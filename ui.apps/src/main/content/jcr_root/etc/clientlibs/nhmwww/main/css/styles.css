@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -9343,7 +9343,7 @@ a.button-cta {
   flex-direction: row;
 }
 
-.social-share--icons .facebook img, .social-share--icons .twitter img, .social-share--icons .email img {
+.social-share--icons .facebook img, .social-share--icons .twitter img, .social-share--icons .email img, .social-share--icons .whatsapp img {
   max-height: 30px;
   max-width: 40px;
   margin-right: 8px;
