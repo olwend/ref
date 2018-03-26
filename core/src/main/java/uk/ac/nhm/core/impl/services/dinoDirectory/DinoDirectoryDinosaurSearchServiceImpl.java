@@ -102,7 +102,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 		final String BASE_URL = environmentUrl;
 
 		String description = null;
-		String requestUrl = BASE_URL + "/" + filterOne;
+		String requestUrl = BASE_URL + "/" + filterOne + "/" + filterTwo;
 		filterTwo = filterTwo.replaceAll("%20", " ").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
 
 		GetMethod getMethod = new GetMethod(requestUrl);
@@ -111,54 +111,38 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 
 		try {
 			httpClient.executeMethod(getMethod);
-			JSONArray filterItems = new JSONArray(getMethod.getResponseBodyAsString());
-			for(int i=0; i<filterItems.length(); i++) {
+			JSONObject filterItem = new JSONObject(getMethod.getResponseBodyAsString());
 
-				JSONObject filterItem = filterItems.getJSONObject(i);
-
-				if(filterOne.equals("body-shapes")) {
-					String filterItemTitle = filterItem.getString("bodyShape").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
-					if(filterItemTitle.equals(filterTwo)) {
-						description = filterItem.getString("description");
-					}
-				}
-
-				if(filterOne.equals("countries")) {
-					String filterItemTitle = filterItem.getString("country").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
-					if(filterItemTitle.equals(filterTwo)) {
-						if(filterItem.getInt("dinosaurCount") > 1) {
-							description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs found in " + filterItem.getString("country");
-						} else {
-							description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur found in " + filterItem.getString("country");
-						}
-					}
-				}
-
-				if(filterOne.equals("periods")) {
-					String filterItemTitle = filterItem.getString("period").replaceAll("-", "").replaceAll(" ", "").toLowerCase();
-					if(filterItemTitle.equals(filterTwo)) {
-						if(filterItem.getInt("dinosaurCount") > 1) {
-							description = "(" + String.valueOf(filterItem.getInt("myaFrom")) + " to " + String.valueOf(filterItem.getInt("myaTo")) + " million years ago)<br>"
-									+ String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs from the " + filterItem.getString("period");
-						} else {
-							description = "(" + String.valueOf(filterItem.getInt("myaFrom")) + " to " + String.valueOf(filterItem.getInt("myaTo")) + " million years ago)<br>"
-									+ String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur from the " + filterItem.getString("period");
-						}
-					}
-				}
-				
-				if(filterOne.equals("initials")) {
-					String filterItemTitle = filterItem.getString("initial");
-					if(filterItemTitle.equals(filterTwo)) {
-						if(filterItem.getInt("dinosaurCount") > 1) {
-							description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();
-						} else {
-							description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur beginning with " + filterItem.getString("initial").toUpperCase();
-						}
-					}
-				}
-
+			if(filterOne.equals("body-shapes")) {
+				description = filterItem.getString("description");
 			}
+
+			if(filterOne.equals("countries")) {
+				if(filterItem.getInt("dinosaurCount") > 1) {
+					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs found in " + filterItem.getString("country");
+				} else {
+					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur found in " + filterItem.getString("country");
+				}
+			}
+
+			if(filterOne.equals("periods")) {
+				if(filterItem.getInt("dinosaurCount") > 1) {
+					description = "(" + String.valueOf(filterItem.getInt("myaFrom")) + " to " + String.valueOf(filterItem.getInt("myaTo")) + " million years ago)<br>"
+						+ String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs from the " + filterItem.getString("period");
+				} else {
+					description = "(" + String.valueOf(filterItem.getInt("myaFrom")) + " to " + String.valueOf(filterItem.getInt("myaTo")) + " million years ago)<br>"
+						+ String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur from the " + filterItem.getString("period");
+				}
+			}
+			
+			if(filterOne.equals("initials")) {
+				if(filterItem.getInt("dinosaurCount") > 1) {
+					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();
+				} else {
+					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur beginning with " + filterItem.getString("initial").toUpperCase();
+				}
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
