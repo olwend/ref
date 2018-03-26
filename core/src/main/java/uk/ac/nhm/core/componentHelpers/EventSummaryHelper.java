@@ -15,6 +15,7 @@ public class EventSummaryHelper extends HelperBase {
 	private String text;
 	private String svgSection;
 	private Boolean isInitialised;
+	private String sectionOverride;
 	
 	public EventSummaryHelper(ValueMap properties, String section) {
 		this.properties = properties;
@@ -33,6 +34,11 @@ public class EventSummaryHelper extends HelperBase {
 		//Set Calendar as default
 		this.iconClass = this.properties.get("icon",String.class) == null ? "dates" : this.properties.get("icon", String.class);
 
+		if (this.properties.get("section-override") != null) {
+			this.sectionOverride = properties.get("section-override", String.class);
+			this.svgSection = this.sectionOverride.toLowerCase().trim();
+		}
+		
 		this.setSvgColour();
 		this.setEnumIcon();
 	}
