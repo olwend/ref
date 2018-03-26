@@ -76,7 +76,8 @@ public class QAHubServiceImpl implements QAHubService {
 			Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
 
 			query.setStart(0);
-
+			//Set limit to 100 - there shouldn't be more than that!
+			query.setHitsPerPage(100);
 			SearchResult result = query.getResult();
 
 			LOG.info(result.getQueryStatement());
