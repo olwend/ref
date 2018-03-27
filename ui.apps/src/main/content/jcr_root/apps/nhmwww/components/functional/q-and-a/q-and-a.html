@@ -14,25 +14,24 @@
 	<div class="qasingle--question-title-container">
 			<h3 class="qasingle--question-title">Quick question</h3>
 	</div>
-		<div class="qasingle--question-container" data-sly-test="${properties.question}">
-			<h4 class="qasingle--question">${properties.question @ context ='html'}</h4>
+	<div class="qasingle--question-container" data-sly-test="${properties.question}">
+		<h4 class="qasingle--question">${properties.question @ context ='html'}</h4>
+	</div>
+	
+	<div class= "small-12 medium-12 large-12 columns question-content" data-sly-test="${properties.fileReference}">
+		<div class="small-4 medium-4 large-4 qasingle--image" >
+			<img src="${properties.fileReference}">	
 		</div>
-		
-		<div class= "small-12 medium-12 large-12 columns question-content" data-sly-test="${properties.fileReference}">
-			<div class="small-4 medium-4 large-4 qasingle--image" >
-				<img src="${properties.fileReference}">	
-			</div>
-			<div class="small-8 medium-8 large-8 qasingle--answer-container" data-sly-test="${properties.answer}">
-				<p class="qasingle--answer">${properties.answer @ context ='html'}</p>
-			</div>
+		<div class="small-8 medium-8 large-8 qasingle--answer-container" data-sly-test="${properties.answer}">
+			<p class="qasingle--answer">${properties.answer @ context ='html'}</p>
 		</div>
-		
-		<div class= "small-12 medium-12 large-12 columns question-content" data-sly-test="${!properties.fileReference}">
-			<div class="small-12 medium-12 large-12 qasingle--answer-container" data-sly-test="${properties.answer}">
-				<p class="qasingle--answer">${properties.answer @ context ='html'}</p>
-			</div>
+	</div>
+	
+	<div class= "small-12 medium-12 large-12 columns question-content" data-sly-test="${!properties.fileReference}">
+		<div class="small-12 medium-12 large-12 qasingle--answer-container" data-sly-test="${properties.answer}">
+			<p class="qasingle--answer">${properties.answer @ context ='html'}</p>
 		</div>
-	</div>	
+	</div>
 	
 	<div data-sly-use.qa="uk.ac.nhm.core.model.slingModels.QA" data-sly-test="${qa.nextQuestion}">
 		<a href="${qa.nextQuestion['link']}">
