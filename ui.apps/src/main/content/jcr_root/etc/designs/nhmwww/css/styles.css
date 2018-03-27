@@ -9748,12 +9748,12 @@ input.searchGo {
 
 .qasingle--question-container {
   background-color: #EEEEEE;
-  padding: 20px;
+  padding: 20px 20px 12px 20px;
   margin-bottom: 2px;
 }
 
 .qasingle--question {
-  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
 }
 
 .qasingle--image {
