@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.9 - Munificent Micropachycephalosaurus - 22-Mar-2018
+- WR-1198 / WR-1274 - Read more button changes for Article Feed
+- WR-1222 - Read more button added to Discover Related
+- WR-1304 - SASS tidy up
+- WR-1263 - AEM Author: need a solution to see all pages in a section when browsing
+- WR-1247 - CTA in HTI - icons don't inherit section colour when icon is selected and "Inherit from section" is used
+- WR-1269 - Italics being stripped from snippet of Discover articles when article is pulled through to Discover Related / Article feed
+
 ## 2.0.8 - Lanky Liliensternus - 15-Mar-2018
 - WR-1287 - Strip all tracking params from Shop link in Main nav
 - WR-1294 - Dinosaur page adjustments
@@ -245,7 +253,7 @@ B WR-1020 - Carousel image component dialog fix
 ## 1.1.39 - 22-Feb-2017
 
 - WR-1007 - Remove unnecessary font file declarations
-- WR-1010 - "DiscoverRelatedImage" component showing as "Image” in AEM Sidekick
+- WR-1010 - "DiscoverRelatedImage" component showing as "Image" in AEM Sidekick
 
 ## 1.1.38 - 16-Feb-2017
 

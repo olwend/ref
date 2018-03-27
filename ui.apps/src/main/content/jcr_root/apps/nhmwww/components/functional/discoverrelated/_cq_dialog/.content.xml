@@ -5,7 +5,7 @@
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
     mode="edit">
-    <content 
+    <content
     	jcr:primaryType="nt:unstructured"
     	sling:resourceType="granite/ui/components/foundation/container">
     			<layout
@@ -41,6 +41,19 @@
     										rootPath="/content/nhmwww"
 									        name="./posts" />
 									</posts>
+									<showreadmore
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Show 'Read more' link"
+										name="./showreadmore"
+										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+										text="Show 'Read more' link"
+										value="{Boolean}true" />
+									<readmorelink
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Read more link"
+										name="./readmorelink"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										rootPath="/content/nhmwww" />
     							</items>
     						</column>
     					</items>

@@ -11,7 +11,13 @@
 <%
 	final String[] posts = properties.get("posts", String[].class);
 	final String title = properties.get("title", "Related posts");
-	
+	final String showReadMore = properties.get("showreadmore", "false");
+	String readMoreLink = properties.get("readmorelink", "");
+
+	if(readMoreLink != null && !readMoreLink.contains(".html")) {
+        readMoreLink = readMoreLink + ".html";
+    }
+
 if(posts == null) { %>
 	<div class="row">
 		<h4>Discover related</h4>
@@ -20,7 +26,7 @@ if(posts == null) { %>
 			<li>Related posts</li>
 		</ul>
 	</div>
-<% } else {	
+<% } else {
 %>
 <div class="discover">
 	<h3 class="discover-related--title"><%= title %></h3>
@@ -99,11 +105,16 @@ if(posts == null) { %>
 			} catch (Exception e) {
 				//Do something
 			}
-			
-			
+
+
 			}
 %>
 	</ul>
+	<% if(showReadMore.equals("true")) { %>
+		<div class="discover-related--read-more-link">
+			<a href="<%=readMoreLink%>">Read more</a>
+		</div>
+	<%}%>
 	</div>
 <%
 	}
