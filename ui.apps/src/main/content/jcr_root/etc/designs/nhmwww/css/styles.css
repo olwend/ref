@@ -9707,10 +9707,27 @@ input.searchGo {
   padding: 0 20px;
 }
 
+.qasingle--container {
+  background-color: #EEEEEE;
+}
+
+.qasingle--container h1 {
+  font-size: 1.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
+  color: #565656;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--container h1 {
+    font-size: 1.8em;
+  }
+}
+
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
-  text-decoration: none;
 }
 
 .qasingle--container a {
@@ -9741,6 +9758,7 @@ input.searchGo {
 
 .qasingle--question {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  background-color: #EEEEEE;
 }
 
 .qasingle--image {
@@ -9761,7 +9779,7 @@ input.searchGo {
 .qasingle--answer-container p {
   background-color: #EEEEEE;
   padding: 0 20px;
-  margin-bottom: 2px;
+  margin-bottom: 1em;
 }
 
 .qasingle--next-question-container {
