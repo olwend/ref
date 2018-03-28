@@ -9728,6 +9728,7 @@ input.searchGo {
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
+  text-decoration: none;
 }
 
 .qasingle--container a {
@@ -9785,6 +9786,14 @@ input.searchGo {
 .qasingle--next-question-container {
   background-color: #EEEEEE;
   padding: 20px;
+}
+
+.qasingle--next-question-container p {
+  border-bottom: 1px dotted #565656;
+}
+
+.qasingle--next-question-container p:hover {
+  border-bottom: 1px solid #565656;
 }
 
 .qasingle--next-question-container .ico {
