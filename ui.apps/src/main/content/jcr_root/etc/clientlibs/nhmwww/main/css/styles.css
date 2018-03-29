@@ -9766,22 +9766,29 @@ input.searchGo {
   border-bottom: 4px solid #FFFFFF;
 }
 
+.qasingle--question-content p {
+  background-color: #EEEEEE;
+  padding: 0 20px;
+  margin-bottom: 1em;
+  order: 1;
+}
+
 .qasingle--image {
   background-color: #EEEEEE;
-  float: right;
   padding: 8px 20px 20px 5px;
   margin-bottom: 2px;
+  float: left;
+  order: 2;
 }
 
 .qasingle--image img {
   border-radius: 50%;
-  float: right;
 }
 
-.qasingle--answer-container p {
-  background-color: #EEEEEE;
-  padding: 0 20px;
-  margin-bottom: 1em;
+@media screen and (min-width: 768px) {
+  .qasingle--image {
+    float: right;
+  }
 }
 
 .qasingle--next-question {

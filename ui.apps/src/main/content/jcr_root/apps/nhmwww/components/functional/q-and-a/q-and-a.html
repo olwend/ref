@@ -20,22 +20,22 @@
 	</div>
 	
 	<div class="small-12 medium-12 large-12 columns qasingle--question-content" data-sly-test="${properties.fileReference}">
+		
 		<div class="small-4 medium-4 large-4 qasingle--image">
 			<img src="${properties.fileReference}">
 		</div>
 		
-		<div class="small-8 medium-8 large-8 qasingle--answer-container" data-sly-test="${properties.answer}">
+		<div class="small-8 medium-8 large-8" data-sly-test="${properties.answer}">
 			${properties.answer @ context ='html'}
 		</div>
 	</div>
 	
 	<div class="small-12 medium-12 large-12 columns qasingle--question-content" data-sly-test="${!properties.fileReference}">
-		<div class="small-12 medium-12 large-12 qasingle--answer-container" data-sly-test="${properties.answer}">
+		<div class="small-12 medium-12 large-12" data-sly-test="${properties.answer}">
 			${properties.answer @ context ='html'}
 		</div>
 	</div>
 	
-
 	<div data-sly-use.qa="uk.ac.nhm.core.model.slingModels.QA" data-sly-test="${qa.nextQuestion}">
 		<a href="${qa.nextQuestion['link']}">
 			<div class="qasingle--next-question-container clearfix" >
