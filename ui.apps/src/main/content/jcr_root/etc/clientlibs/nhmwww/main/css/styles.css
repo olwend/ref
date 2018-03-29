@@ -9770,37 +9770,46 @@ input.searchGo {
   background-color: #EEEEEE;
   padding: 0 20px;
   margin-bottom: 1em;
-  order: 1;
 }
 
 .qasingle--image {
   background-color: #EEEEEE;
-  padding: 8px 20px 20px 5px;
+  padding: 2px 20px 20px 35px;
   margin-bottom: 2px;
-  float: left;
-  order: 2;
 }
 
 .qasingle--image img {
   border-radius: 50%;
+  position: relative;
+  top: 50%;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   .qasingle--image {
     float: right;
+    padding: 8px 20px 20px 5px;
   }
 }
 
-.qasingle--next-question {
-  padding: 20px;
-  margin: 0;
+@media screen and (min-width: 768px) {
+  .qasingle--next-question {
+    padding: 20px;
+    margin: 0;
+  }
 }
 
 .qasingle--next-question-container .ico {
   margin: 20px;
   max-width: 30px;
   max-height: 30px;
-  margin-top: 20px;
+  margin-top: -10px;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--next-question-container .ico {
+    margin-top: 20px;
+  }
 }
 
 .qasingle--next-question-container .ico svg {
