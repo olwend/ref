@@ -9762,7 +9762,12 @@ input.searchGo {
   background-color: #EEEEEE;
 }
 
+.qasingle--question-content {
+  border-bottom: 4px solid #FFFFFF;
+}
+
 .qasingle--image {
+  background-color: #EEEEEE;
   float: right;
   padding: 8px 20px 20px 5px;
   margin-bottom: 2px;
@@ -9773,46 +9778,27 @@ input.searchGo {
   float: right;
 }
 
-.qasingle--answer-container {
-  float: left;
-}
-
 .qasingle--answer-container p {
   background-color: #EEEEEE;
   padding: 0 20px;
   margin-bottom: 1em;
 }
 
-.qasingle--next-question-container {
-  background-color: #EEEEEE;
+.qasingle--next-question {
   padding: 20px;
-}
-
-.qasingle--next-question-container p {
-  border-bottom: 1px dotted #565656;
-}
-
-.qasingle--next-question-container p:hover {
-  border-bottom: 1px solid #565656;
+  margin: 0;
 }
 
 .qasingle--next-question-container .ico {
+  margin: 20px;
   max-width: 30px;
   max-height: 30px;
-  margin-top: 0;
+  margin-top: 20px;
 }
 
 .qasingle--next-question-container .ico svg {
   height: 30px;
   width: 30px;
-}
-
-.qasingle--next-question {
-  margin: 0;
-}
-
-.qasingle--next-question-arrow {
-  max-width: 30px;
 }
 
 /** ABOUT-US THEME PARTIAL **/
