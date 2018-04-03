@@ -9729,10 +9729,13 @@ input.searchGo {
   border-bottom: 1px dotted #565656;
 }
 
+.qasingle--container a:hover {
+  border-bottom: 1px solid #565656;
+}
+
 .qasingle--container a,
 .qasingle--container a:hover {
   color: #565656;
-  border-bottom: 1px solid #565656;
   text-decoration: none;
 }
 
@@ -9744,6 +9747,8 @@ input.searchGo {
 
 .qasingle--question-title {
   color: #EEEEEE;
+  padding: 0;
+  margin: 0;
 }
 
 .qasingle--question-container {
