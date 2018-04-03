@@ -9725,29 +9725,24 @@ input.searchGo {
   }
 }
 
-.qasingle--container a,
-.qasingle--container a:hover {
-  color: #565656;
-  text-decoration: none;
-}
-
 .qasingle--container a {
   border-bottom: 1px dotted #565656;
 }
 
+.qasingle--container a,
 .qasingle--container a:hover {
+  color: #565656;
   border-bottom: 1px solid #565656;
+  text-decoration: none;
 }
 
 .qasingle--question-title-container {
-  margin: 0 0 2px 0;
+  margin-bottom: 2px;
   padding: 0.5em 20px;
   background-color: #0983BB;
 }
 
 .qasingle--question-title {
-  margin: 0;
-  padding: 0;
   color: #EEEEEE;
 }
 
@@ -9805,10 +9800,9 @@ input.searchGo {
 }
 
 .qasingle--next-question-container .ico {
-  margin: 20px;
+  margin: -10px 20px 20px 20px;
   max-width: 30px;
   max-height: 30px;
-  margin-top: -10px;
 }
 
 @media screen and (min-width: 768px) {
