@@ -9792,10 +9792,15 @@ input.searchGo {
   }
 }
 
+.qasingle--next-question {
+  padding: 10px;
+  padding-left: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .qasingle--next-question {
-    padding: 20px;
     margin: 0;
+    padding: 20px;
   }
 }
 
