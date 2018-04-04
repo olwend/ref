@@ -17,8 +17,7 @@
 
 		<div class="dinosaur--title-container">
 			<div class="small-12 medium-3 large-3 columns">
-				<div class="dinosaur--social-share-header">
-					<cq:include path="socialshareheader" resourceType="nhmwww/components/functional/socialshare"/>
+				<div class="dinosaur--social-share-header" data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}">
 				</div>
 			</div>
 			<h1 class="dinosaur--name">${dinosaur.genus}</h1>
