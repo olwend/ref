@@ -9793,19 +9793,27 @@ input.searchGo {
 }
 
 .qasingle--next-question {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   padding-left: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .qasingle--next-question {
+    flex-direction: row;
     margin: 0;
     padding: 20px;
   }
 }
 
+.qasingle--next-question-title {
+  margin-bottom: 0;
+}
+
 .qasingle--next-question-container .ico {
-  margin: -10px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
   max-width: 30px;
   max-height: 30px;
 }
