@@ -9819,7 +9819,7 @@ input.searchGo {
 }
 
 .qasingle--next-question-container .ico {
-  margin: 10px;
+  margin: 10px 20px 10px 10px;
   max-width: 30px;
   max-height: 30px;
 }
