@@ -1,0 +1,12 @@
+Dino search
+
+<sly data-sly-use.dinosaurnav="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurNav">
+	<form name="userRegistrationForm" method="get" action="${dinosaurnav.targetPage}">
+		<input type="text" name="search">
+		<input type="submit" value="Submit">
+	</form>
+
+	<ul data-sly-list.list="${dinosaurnav.dinosaurList}">
+		<li>${list['title']} - ${list['score']}</li>
+	</ul>
+</sly>
