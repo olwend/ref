@@ -26,11 +26,17 @@
 							<div class="articlefeed--item__image">
 								<div data-sly-test="${list['imageType'] == 'image'}">
 									<a href="${list['path']}.html">
-										<img data-interchange="
-											[${list['context']}.img.320.medium${list['extension']}, (default)],
-											[${list['context']}.img.480.medium${list['extension']}, (only screen and (max-width: 480px))],
-											[${list['context']}.img.620.high${list['extension']}, (only screen and (min-width: 481px))],
-											[${list['context']}.img.320.medium${list['extension']}, (only screen and (min-width: 1025px))],">
+			
+								<picture>
+										<source media="(max-width: 480px)" 
+												srcset="${list['context']}.img.480.medium${list['extension']} 320w" />
+										<source media="(min-width: 481px) and (max-width: 1024px)"
+												srcset="${list['context']}.img.620.high${list['extension']} 1024w" />
+										<source media="(min-width: 1025px)"
+												srcset="${list['context']}.img.320.medium${list['extension']} 320w" />
+										<img src="${list['context']}.img.320.medium${list['extension']}" />
+									</picture>	
+									
 									</a>
 								</div>
 								<div data-sly-test="${list['imageType'] == 'video'}">
