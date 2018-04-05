@@ -75,11 +75,11 @@ public class DinoDirectoryNavServiceImpl implements DinoDirectoryNavService {
 			    	score = score - (distance * 5);
 			    	
 			    	if(searchValue.toLowerCase().startsWith(hit.getTitle().substring(0, 3).toLowerCase())) {
-			    		score = score + 8;
+			    		score = score + 9;
 			    	} else if(searchValue.toLowerCase().startsWith(hit.getTitle().substring(0, 2).toLowerCase())) {
-			    		score = score + 6;
+			    		score = score + 8;
 			    	} else if(searchValue.toLowerCase().startsWith(hit.getTitle().substring(0, 1).toLowerCase())) {
-			    		score = score + 4;
+			    		score = score + 6;
 			    	}
 			    	
 			    	dinosaurMap.put("score", String.valueOf(score));
