@@ -16,17 +16,16 @@
 	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
 		<div class="dinosaur--title-container">
-			<div class="small-12 medium-3 large-3 columns">
-				<div class="dinosaur--social-share-header" data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}">
-				</div>
-			</div>
+			<div class="small-12 medium-3 large-3 columns"></div>
 			<h1 class="dinosaur--name">${dinosaur.genus}</h1>
-			<div class="dinosaur--name-description">
-				<div class="dinosaur--pronunciation">
-					<p>${dinosaur.namePronounciation}</p>
+				<div class="dinosaur--name-description">
+					<div class="dinosaur--pronunciation">
+						<p>${dinosaur.namePronounciation}</p>
 				</div>
 				<div class="dinosaur--meaning">
 					<p>'${dinosaur.nameMeaning}'</p>
+				</div>
+				<div class="dinosaur--social-share-header" data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}">
 				</div>
 			</div>
 		</div>
