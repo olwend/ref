@@ -44,17 +44,17 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 			for(int i=0; i<dinosaurs.length(); i++) {
 				if(dinosaurs.getJSONObject(i).getBoolean("publish") == true) {
 					Map<String, String> dinosaurMap = new HashMap<String, String>();
-	
+
 					dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
 					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase() + ".html");
-	
+
 					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
-	
-					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/thumb/"
-							+ dinosaurMedia.getString("identifier") + ".gif";
-	
+
+					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
+							+ dinosaurMedia.getString("identifier") + ".jpg";
+
 					dinosaurMap.put("imageUrl", imageUrl);
-	
+
 					dinosaurList.add(dinosaurMap);
 				}
 			}
@@ -134,7 +134,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 						+ String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur from the " + filterItem.getString("period");
 				}
 			}
-			
+
 			if(filterOne.equals("initials")) {
 				if(filterItem.getInt("dinosaurCount") > 1) {
 					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();

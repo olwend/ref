@@ -6466,15 +6466,48 @@ div#cookie-bar p {
   margin: 20px;
 }
 
+.dinosaursearch--dino-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.dinosaursearch--dinosaur {
+  background-color: #EEEEEE;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
 @media screen and (min-width: 768px) {
   .dinosaursearch--dinosaur {
+    background-color: #FFFFFF;
     text-align: center;
+    margin-bottom: 20px !important;
+  }
+}
+
+.dinosaursearch--dinosaur img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 230px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 170px;
   }
 }
 
 .dinosaursearch--genus {
   display: inline-block;
   font-style: italic;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
