@@ -1,8 +1,12 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.dinodirectory.dinosaurnav'}" data-sly-unwrap></meta>
+</sly>
+
 Dino search
 
 <sly data-sly-use.dinosaurnav="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurNav">
 	<form name="userRegistrationForm" method="get" action="${dinosaurnav.targetPage}">
-		<input type="text" name="search">
+		<input type="text" name="search" id="dinosaurs">
 		<input type="submit" value="Submit">
 	</form>
 

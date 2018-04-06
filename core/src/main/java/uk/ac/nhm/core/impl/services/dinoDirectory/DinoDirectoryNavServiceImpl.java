@@ -49,6 +49,11 @@ public class DinoDirectoryNavServiceImpl implements DinoDirectoryNavService {
 
 			queryMap.put("path", "/content/nhmwww/en/home/discover/dino-directory");
 			queryMap.put("type", "cq:Page");
+			
+			//Pre-search string cleanup
+			searchValue = searchValue.replaceAll("soros", "saurus");
+			searchValue = searchValue.replaceAll("sorus", "saurus");
+			
 			//Use the tilde to activate Lucene's fuzzy matching
 			queryMap.put("fulltext", searchValue + "~");
 			
