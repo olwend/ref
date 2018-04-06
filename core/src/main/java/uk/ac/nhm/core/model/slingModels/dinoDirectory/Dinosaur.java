@@ -136,7 +136,7 @@ public class Dinosaur {
 			this.setDiet(dinosaur.getString("dietTypeName"));
 			
 			if(!dinosaur.isNull("nameHyphenated")) {
-				this.setNameHyphenated(dinosaur.getString("nameHyphenated").replaceAll("-", "-<br>"));
+				this.setNameHyphenated(dinosaur.getString("nameHyphenated"));
 			} else {
 				this.setNameHyphenated(dinosaur.getString("genus"));
 			}
