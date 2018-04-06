@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6492,6 +6492,22 @@ div#cookie-bar p {
   .dinosaur--name {
     font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
     font-size: 2.375em;
+  }
+}
+
+.dinosaur--name-unhyphenated {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .dinosaur--name-unhyphenated {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .dinosaur--name-hyphenated {
+    display: none;
   }
 }
 
