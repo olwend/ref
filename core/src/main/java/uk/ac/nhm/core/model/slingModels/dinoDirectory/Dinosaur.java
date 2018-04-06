@@ -44,6 +44,7 @@ public class Dinosaur {
 	private String imageUrl;
 	private double length;
 	private String mya;
+	private String nameHyphenated;
 	private String nameMeaning;
 	private String namePronounciation;
 	private String namedBy;
@@ -133,6 +134,13 @@ public class Dinosaur {
 			this.setDescription(descriptionBuffer.toString());
 			this.setLength(lengthValue);
 			this.setDiet(dinosaur.getString("dietTypeName"));
+			
+			if(!dinosaur.isNull("nameHyphenated")) {
+				this.setNameHyphenated(dinosaur.getString("nameHyphenated").replaceAll("-", "-<br>"));
+			} else {
+				this.setNameHyphenated(dinosaur.getString("genus"));
+			}
+			
 			this.setGenus(dinosaur.getString("genus"));
 			this.setNameMeaning(dinosaur.getString("nameMeaning"));
 			this.setNamePronounciation(dinosaur.getString("namePronounciation"));
@@ -324,6 +332,14 @@ public class Dinosaur {
 
 	public void setMya(String mya) {
 		this.mya = mya;
+	}
+
+	public String getNameHyphenated() {
+		return nameHyphenated;
+	}
+
+	public void setNameHyphenated(String nameHyphenated) {
+		this.nameHyphenated = nameHyphenated;
 	}
 
 	public String getNameMeaning() {
