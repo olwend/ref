@@ -6495,20 +6495,8 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--name-unhyphenated {
+.dinosaur--name-hyphenated {
   display: none;
-}
-
-@media screen and (min-width: 480px) {
-  .dinosaur--name-unhyphenated {
-    display: block;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  .dinosaur--name-hyphenated {
-    display: none;
-  }
 }
 
 .dinosaur--name-description {
