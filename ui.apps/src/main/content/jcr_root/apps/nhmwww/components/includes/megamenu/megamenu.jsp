@@ -31,6 +31,9 @@
 									<a href="/content/nhmwww/en/home/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
+									<a href="/content/nhmwww/en/home/discover/space.html" data-gtm="subnav-link">Space</a>
+								</li>
+								<li class="global-header--menu__subnav-discover">
 									<a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
@@ -80,6 +83,7 @@
 			<ul>
 				<li><a href="/content/nhmwww/en/home/discover/oceans.html" data-gtm="subnav-link">Oceans</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a></li>
+				<li><a href="/content/nhmwww/en/home/discover/space.html" data-gtm="subnav-link">Space</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a></li>
 				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
