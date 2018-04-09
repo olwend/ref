@@ -6522,18 +6522,25 @@ div#cookie-bar p {
   margin: 0;
 }
 
+@media screen and (min-width: 768px) {
+  .dinosaur--social-share-header {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+  }
+}
+
 .dinosaur--social-share-header .social-share--container {
   height: auto;
   min-height: auto;
-  padding-left: 0;
-  padding-top: 10px;
+  padding-right: 0;
+  padding-top: 0;
 }
 
 @media screen and (min-width: 768px) {
   .dinosaur--social-share-header .social-share--container {
-    flex-direction: row;
-    padding-top: 0;
-    padding-left: 480px;
+    align-items: flex-end;
+    justify-content: end;
   }
 }
 
