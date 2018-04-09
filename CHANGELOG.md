@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.11 - Ostentatious Orodromeus - 05-Apr-2018
+- WR-1314 - Single Question design tweaks
+- WR-1315 - Temporary fix for dam workflow
+
 ## 2.0.10 - Nifty Nothronychus - 28-Mar-2018
 - WR-1219 - Add image field to single Q&A component
 - WR-1234 - Refactor Social Signup component
