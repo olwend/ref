@@ -1,6 +1,3 @@
-
-
-
 <link rel="stylesheet" href="/etc/clientlibs/nhmwww/granite/css/jquery-ui.css" />
 
 <script type="text/javascript" src="/etc/clientlibs/nhmwww/granite/js/granite/jquery.js" ></script>
