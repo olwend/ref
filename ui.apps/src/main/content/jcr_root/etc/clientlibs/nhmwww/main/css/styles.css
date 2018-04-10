@@ -6469,13 +6469,15 @@ div#cookie-bar p {
 .dinosaursearch--container a {
   color: #565656;
   text-decoration: underline;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .dinosaursearch--container a:hover {
   color: #000000;
 }
 
-.dinosaursearch--container a img:hover {
+.dinosaursearch--container a:hover img {
   opacity: 0.7;
 }
 
