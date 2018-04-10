@@ -6479,7 +6479,6 @@ div#cookie-bar p {
 .dinosaur--title-container {
   padding: 20px 20px 0 20px;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  flex-direction: column;
 }
 
 .dinosaur--name {
