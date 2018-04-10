@@ -15,10 +15,9 @@
 <sly data-sly-test="${properties.name}">
 	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
-		<div class="dinosaur--title-container ">
-			<h1 class="dinosaur--name small-12 medium-12 large-8 columns">${dinosaur.genus}</h1>
-			<div class="dinosaur--social-share-header  small-12 medium-12 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div>
-			<div class="dinosaur--name-description small-12 medium-12 large-12 columns">
+		<div class="dinosaur--title-container small-12 medium-6 large-6 columns ">
+			<h1 class="dinosaur--name">${dinosaur.genus}</h1>
+			<div class="dinosaur--name-description">
 				<div class="dinosaur--pronunciation">
 					<p>${dinosaur.namePronounciation}</p>
 				</div>
@@ -26,8 +25,8 @@
 					<p>'${dinosaur.nameMeaning}'</p>
 				</div>
 			</div>
-			<!-- <div class="dinosaur--social-share-header  small-12 medium-12 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div> -->
 		</div>
+		<div class="dinosaur--social-share-header  small-4 medium-4 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div>
 		<div class="row">
 			<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
 				<img class="dinosaur--image" src="${dinosaur.imageUrl}">
