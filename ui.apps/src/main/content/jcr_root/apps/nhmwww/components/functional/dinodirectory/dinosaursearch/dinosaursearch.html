@@ -16,14 +16,14 @@
 			<p class="dinosaursearch--description">${dinosaurSearch.description @ context='html'}</p>
 
 			<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-4 large-block-grid-6 dinosaursearch--dino-list">
-				<li class="dinosaursearch--dinosaur">
-					<a href="${dinosaurs['url']}">
+				<a href="${dinosaurs['url']}">
+					<li class="dinosaursearch--dinosaur">
 						<img src="${dinosaurs['imageUrl']}">
-					</a>
-					<p class="dinosaursearch--genus">
-						<a href="${dinosaurs['url']}">${dinosaurs['genus']}</a>
-					</p>
-				</li>
+						<p class="dinosaursearch--genus">
+							${dinosaurs['genus']}
+						</p>
+					</li>
+				</a>
 			</ul>
 		</div>
 	</sly>

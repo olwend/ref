@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6479,9 +6479,14 @@ div#cookie-bar p {
   margin-bottom: 10px !important;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .dinosaursearch--dinosaur {
     background-color: #FFFFFF;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur {
     text-align: center;
     margin-bottom: 20px !important;
   }
@@ -6494,6 +6499,12 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .dinosaursearch--dinosaur img {
+    max-width: 167px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dinosaursearch--dinosaur img {
     max-width: 230px;
   }
 }
@@ -6502,6 +6513,10 @@ div#cookie-bar p {
   .dinosaursearch--dinosaur img {
     max-width: 170px;
   }
+}
+
+.dinosaursearch--dinosaur img:hover {
+  opacity: 0.7;
 }
 
 .dinosaursearch--genus {
