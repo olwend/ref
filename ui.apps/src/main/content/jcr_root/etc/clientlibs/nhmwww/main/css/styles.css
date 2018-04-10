@@ -6466,6 +6466,19 @@ div#cookie-bar p {
   margin: 20px;
 }
 
+.dinosaursearch--container a {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaursearch--container a:hover {
+  color: #000000;
+}
+
+.dinosaursearch--container a img:hover {
+  opacity: 0.7;
+}
+
 .dinosaursearch--dino-list {
   display: flex;
   flex-wrap: wrap;
@@ -6515,10 +6528,6 @@ div#cookie-bar p {
   }
 }
 
-.dinosaursearch--dinosaur img:hover {
-  opacity: 0.7;
-}
-
 .dinosaursearch--genus {
   display: inline-block;
   font-style: italic;
@@ -6529,15 +6538,6 @@ div#cookie-bar p {
   .dinosaursearch--genus {
     display: block;
   }
-}
-
-.dinosaursearch--genus a {
-  color: #565656;
-  text-decoration: underline;
-}
-
-.dinosaursearch--genus a:hover {
-  color: #000000;
 }
 
 /** WR-1213 SINGLE DINO PAGE **/
