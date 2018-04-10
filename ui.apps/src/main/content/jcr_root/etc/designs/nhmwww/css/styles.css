@@ -6466,17 +6466,12 @@ div#cookie-bar p {
   margin: 20px;
 }
 
-.dinosaursearch--container a {
+.dinosaursearch--container a p {
   color: #565656;
   text-decoration: underline;
 }
 
-.dinosaursearch--container a img {
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-
-.dinosaursearch--container a:hover {
+.dinosaursearch--container a:hover p {
   color: #000000;
 }
 
