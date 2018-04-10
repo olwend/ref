@@ -6495,6 +6495,10 @@ div#cookie-bar p {
   }
 }
 
+.dinosaur--name-hyphenated {
+  display: none;
+}
+
 .dinosaur--name-description {
   display: -webkit-flex;
   display: flex;
