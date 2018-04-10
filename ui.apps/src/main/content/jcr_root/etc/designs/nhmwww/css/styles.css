@@ -6469,6 +6469,9 @@ div#cookie-bar p {
 .dinosaursearch--container a {
   color: #565656;
   text-decoration: underline;
+}
+
+.dinosaursearch--container a img {
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
