@@ -39,7 +39,7 @@
 					<p>${dinosaur.description} long</br>
 					 <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 				</div>
-				<div class="dinosaur--comparison">
+				<div data-sly-test="${dinosaur.bodyShape}" class="dinosaur--comparison">
 					<div class="dinosaur--comparison-dino">
 						<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg">
 					</div>
