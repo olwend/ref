@@ -44,6 +44,7 @@ public class Dinosaur {
 	private String imageUrl;
 	private double length;
 	private String mya;
+	private String nameHyphenated;
 	private String nameMeaning;
 	private String namePronounciation;
 	private String namedBy;
@@ -93,14 +94,16 @@ public class Dinosaur {
 			this.setCountryList(countryList);
 
 			//Body shape
-			JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
-			Map<String, String> bodyShapeMap = new HashMap<String, String>();
-
-			bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
-			bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" 
-					+ bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
-
-			this.setBodyShape(bodyShapeMap);
+			if(!dinosaur.isNull("bodyShape")) {
+				JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
+				Map<String, String> bodyShapeMap = new HashMap<String, String>();
+	
+				bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
+				bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" 
+						+ bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+	
+				this.setBodyShape(bodyShapeMap);
+			}
 
 			//Description
 			int mass = 0;
@@ -133,6 +136,13 @@ public class Dinosaur {
 			this.setDescription(descriptionBuffer.toString());
 			this.setLength(lengthValue);
 			this.setDiet(dinosaur.getString("dietTypeName"));
+			
+			if(!dinosaur.isNull("nameHyphenated")) {
+				this.setNameHyphenated(dinosaur.getString("nameHyphenated"));
+			} else {
+				this.setNameHyphenated(dinosaur.getString("genus"));
+			}
+			
 			this.setGenus(dinosaur.getString("genus"));
 			this.setNameMeaning(dinosaur.getString("nameMeaning"));
 			this.setNamePronounciation(dinosaur.getString("namePronounciation"));
@@ -147,21 +157,28 @@ public class Dinosaur {
 
 			this.setPeriod(periodMap);
 
-			String myaFrom = String.valueOf(dinosaur.getInt("myaFrom"));
-			String myaTo = String.valueOf(dinosaur.getInt("myaTo"));
-
+			String myaFrom = null;
+			String myaTo = null;
 			String mya = null;
+			
+			if(!dinosaur.isNull("myaFrom")) {
+				myaFrom = String.valueOf(dinosaur.getInt("myaFrom"));
+			}
 
-			if(!myaFrom.equals(null) && !myaTo.equals(null)) {
+			if(!dinosaur.isNull("myaTo")) {
+				myaTo = String.valueOf(dinosaur.getInt("myaTo"));
+			}
+			
+			if(!(myaFrom == null) && !(myaTo == null)) {
 				mya = myaFrom + "-" + myaTo + " million years ago";
-			} else if(!myaFrom.equals(null)) {
+			} else if(!(myaFrom == null)) {
 				mya = myaFrom + " million years ago";
-			} else if(!myaTo.equals(null)) {
+			} else if(!(myaTo == null)) {
 				mya = myaTo + " million years ago";
 			}
 
 			this.setMya(mya);
-
+			
 			//Images
 			JSONArray dinosaurMediaArray = dinosaur.getJSONArray("mediaCollection");
 			List<String> dinosaurMediaCollection = new ArrayList<String>();
@@ -324,6 +341,14 @@ public class Dinosaur {
 
 	public void setMya(String mya) {
 		this.mya = mya;
+	}
+
+	public String getNameHyphenated() {
+		return nameHyphenated;
+	}
+
+	public void setNameHyphenated(String nameHyphenated) {
+		this.nameHyphenated = nameHyphenated;
 	}
 
 	public String getNameMeaning() {
