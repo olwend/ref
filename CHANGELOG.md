@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.11 - Ostentatious Orodromeus - 05-Apr-2018
+- WR-1314 - Single Question design tweaks
+- WR-1315 - Temporary fix for dam workflow
+
+## 2.0.10 - Nifty Nothronychus - 28-Mar-2018
+- WR-1219 - Add image field to single Q&A component
+- WR-1234 - Refactor Social Signup component
+- WR-1302 - Add the Space hub to the Discover navigation
+- WR-1303 - In Q&A single the question title should be a h1
+- WR-1305 - Fix clientlib includes for component-specific clientlibs
+- WR-1310 - Single dino refactor
+- WR-1312 - Q&A SearchResult limit lift
+- WR-1313 - Remove underline on hover from read more link CTA on Discover
+
 ## 2.0.9 - Munificent Micropachycephalosaurus - 22-Mar-2018
 - WR-1198 / WR-1274 - Read more button changes for Article Feed
 - WR-1222 - Read more button added to Discover Related
