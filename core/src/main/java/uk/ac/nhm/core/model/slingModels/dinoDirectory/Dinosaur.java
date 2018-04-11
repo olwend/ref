@@ -134,7 +134,7 @@ public class Dinosaur {
 				if(lengthValue > 0) {
 					bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
 				} else {
-					bodyShapeMap.put("name", "Body type: " + bodyShape.getString("bodyShape").toLowerCase());
+					bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
 				}
 				bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" 
 						+ bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
