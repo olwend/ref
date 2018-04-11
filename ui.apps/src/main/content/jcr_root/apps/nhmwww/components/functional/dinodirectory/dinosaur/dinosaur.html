@@ -51,9 +51,11 @@
 				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
 					<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg"> </p>
 				</div>
-				<div data-sly-list.country="${dinosaur.countryList}" class="dinosaur--country">
+				<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
 					<p>Country:
-						<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
+						<sly data-sly-list.country="${dinosaur.countryList}">
+							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
+						</sly>
 					</p>
 				</div>
 				<div class="dinosaur--period">
