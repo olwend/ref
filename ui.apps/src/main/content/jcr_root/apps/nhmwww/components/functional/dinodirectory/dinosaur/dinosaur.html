@@ -37,7 +37,7 @@
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-12 large-4 columns">
 				<div class="dinosaur--description" data-dino-length="${dinosaur.length}">
-					<p>${dinosaur.description}<sly data-sly-test="{dinosaur.length}">Body type:</sly> <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
+					<p>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 				</div>
 				<div data-sly-test="${dinosaur.bodyShape && dinosaur.length}" class="dinosaur--comparison">
 					<div class="dinosaur--comparison-dino">
