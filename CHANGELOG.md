@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.0.12 - Ponderous Plateosaurus - 12-Apr-2018
+- WR-1214 - Create single dino filter pages
+- WR-1272 - Add social share to single dino pages
+- WR-1298 - Create the onward journey script for the dinosaur directory single dino pages
+- WR-1300 - If a dinosaur has a "hyphenated name" add that to the single and filter dino pages
+- WR-1306 - SASS variable updates
+- WR-1307 - Event Calendar loading image is hosted off site
+- WR-1311 - Remove references to Chivo font in webfonts.css
+- WR-1318 - Social Signup refactor needs to be reverted
+- WR-1324 - Fix validation on single dino component
+- WR-1325 - Do something with dinosaurs missing a body shape
+- WR-1327 - Improve validation on fields in single dino
+
+## 2.0.11 - Ostentatious Orodromeus - 05-Apr-2018
+- WR-1314 - Single Question design tweaks
+- WR-1315 - Temporary fix for dam workflow
+
 ## 2.0.10 - Nifty Nothronychus - 28-Mar-2018
 - WR-1219 - Add image field to single Q&A component
 - WR-1234 - Refactor Social Signup component

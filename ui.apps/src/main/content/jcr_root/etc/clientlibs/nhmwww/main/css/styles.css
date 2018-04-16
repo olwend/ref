@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6461,6 +6461,85 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
+/** DINOSAUR SEARCH PAGE **/
+.dinosaursearch--container {
+  margin: 20px;
+}
+
+.dinosaursearch--container a p {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaursearch--container a:hover p {
+  color: #000000;
+}
+
+.dinosaursearch--container a:hover img {
+  opacity: 0.7;
+}
+
+.dinosaursearch--dino-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.dinosaursearch--dinosaur {
+  background-color: #EEEEEE;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+@media screen and (min-width: 480px) {
+  .dinosaursearch--dinosaur {
+    background-color: #FFFFFF;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur {
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+}
+
+.dinosaursearch--dinosaur img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 167px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 230px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 170px;
+  }
+}
+
+.dinosaursearch--genus {
+  display: inline-block;
+  font-style: italic;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--genus {
+    display: block;
+  }
+}
+
 /** WR-1213 SINGLE DINO PAGE **/
 .dinosaur a {
   color: #565656;
@@ -6477,7 +6556,7 @@ div#cookie-bar p {
 }
 
 .dinosaur--title-container {
-  margin: 20px;
+  padding: 20px 20px 0 20px;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
@@ -6493,6 +6572,10 @@ div#cookie-bar p {
     font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
     font-size: 2.375em;
   }
+}
+
+.dinosaur--name-hyphenated {
+  display: none;
 }
 
 .dinosaur--name-description {
@@ -6522,12 +6605,34 @@ div#cookie-bar p {
   margin: 0;
 }
 
+.dinosaur--social-share-header {
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur--social-share-header {
+    padding: 25px 10px 20px 20px;
+  }
+}
+
+.dinosaur--social-share-header .social-share--container {
+  height: auto;
+  min-height: auto;
+  padding: 0;
+}
+
+@media screen and (min-width: 641px) {
+  .dinosaur--social-share-header .social-share--container {
+    align-items: flex-end;
+  }
+}
+
 .dinosaur--image-container {
   margin-bottom: 20px;
   padding: 0;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 641px) {
   .dinosaur--image-container {
     padding: 0 20px;
   }
@@ -6537,7 +6642,7 @@ div#cookie-bar p {
   width: 100%;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 641px) {
   .dinosaur--image {
     width: auto;
   }
@@ -7280,7 +7385,7 @@ div#cookie-bar p {
   width: 100vw;
   height: 100vh;
   background-color: rgba(192, 192, 192, 0.5);
-  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-image: url("../../../../../etc/designs/nhmwww/img/event-calendar-load.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -9351,7 +9456,8 @@ a.button-cta {
 
 /** WR-1023 social signup component **/
 .social-signup .row {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .social-signup h3,
@@ -9363,8 +9469,11 @@ a.button-cta {
   padding: 0 0.75em;
 }
 
-.social-signup--title-container {
+.social-signup--title-wrapper {
   padding-left: 0;
+}
+
+.social-signup--title-row {
   margin-left: 0 !important;
 }
 
@@ -9372,7 +9481,6 @@ a.button-cta {
   padding: 20px;
   background-color: #808080;
   color: #FFFFFF;
-  margin-bottom: 15px;
 }
 
 .social-signup--description p {
@@ -9391,17 +9499,17 @@ a.button-cta {
   text-decoration: none;
 }
 
-.social-signup--icon-container p {
+.social-signup--link-icons p {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 16px;
   margin-bottom: 8px;
 }
 
-.social-signup--icon-container a {
+.social-signup--link-icons a {
   border-bottom: 0;
 }
 
-.social-signup--icon {
+.social-signup--img__social {
   max-height: 40px;
   max-width: 14%;
   padding: 0 2px;
@@ -9419,65 +9527,6 @@ a.button-cta {
   margin-bottom: 0.5em;
 }
 
-@media screen and (min-width: 768px) {
-  .social-signup .social-signup--fullwidth .social-signup--form-container,
-  .social-signup .social-signup--2cells2col .social-signup--form-container,
-  .social-signup .social-signup--2cellsequal .social-signup--form-container {
-    display: -webkit-flex;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .social-signup .social-signup--fullwidth .social-signup--field,
-  .social-signup .social-signup--2cells2col .social-signup--field,
-  .social-signup .social-signup--2cellsequal .social-signup--field {
-    flex: 1;
-    margin: 0 5px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .social-signup .social-signup--fullwidth .social-signup--form-container {
-    flex-flow: row nowrap;
-  }
-  .social-signup .social-signup--fullwidth .social-signup--field {
-    min-width: 20%;
-  }
-  .social-signup .social-signup--fullwidth .social-signup--first-name {
-    margin-left: 0;
-  }
-  .social-signup .social-signup--fullwidth .social-signup--button-submit {
-    margin-right: 0;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .social-signup .social-signup--2cells2col .social-signup--form-container,
-  .social-signup .social-signup--2cellsequal .social-signup--form-container {
-    flex-flow: row wrap;
-  }
-  .social-signup .social-signup--2cells2col .social-signup--field,
-  .social-signup .social-signup--2cellsequal .social-signup--field {
-    min-width: 40%;
-  }
-  .social-signup .social-signup--2cells2col .social-signup--first-name,
-  .social-signup .social-signup--2cells2col .social-signup--email-address,
-  .social-signup .social-signup--2cellsequal .social-signup--first-name,
-  .social-signup .social-signup--2cellsequal .social-signup--email-address {
-    margin-left: 0;
-  }
-  .social-signup .social-signup--2cells2col .social-signup--last-name,
-  .social-signup .social-signup--2cells2col .social-signup--button-submit,
-  .social-signup .social-signup--2cellsequal .social-signup--last-name,
-  .social-signup .social-signup--2cellsequal .social-signup--button-submit {
-    margin-right: 0;
-  }
-  .social-signup .social-signup--2cells2col .social-signup--button-submit,
-  .social-signup .social-signup--2cellsequal .social-signup--button-submit {
-    min-width: 30%;
-    max-width: 30%;
-  }
-}
-
 .button__newsletter-signup {
   width: 100%;
   background-color: #808080;
@@ -9490,6 +9539,112 @@ a.button-cta {
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
   background-color: #808080;
+}
+
+.large-4 .social-signup.parbase .social-signup--form__first-name,
+.large-4 .social-signup.parbase .social-signup--form__last-name,
+.large-4 .social-signup.parbase .social-signup--form__email-address,
+.large-4 .social-signup.parbase .social-signup--form__button-submit {
+  width: 100%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__first-name,
+.large-6 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__last-name {
+  width: 50%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__email-address,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  width: 75%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__button-submit,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  width: 25%;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__first-name,
+.large-6 .social-signup.parbase .social-signup--form__email-address,
+.large-8 .social-signup.parbase .social-signup--form__first-name,
+.large-8 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-6 .social-signup.parbase .social-signup--form__last-name,
+.large-6 .social-signup.parbase .social-signup--form__button-submit,
+.large-8 .social-signup.parbase .social-signup--form__last-name,
+.large-8 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .large-6 .social-signup.parbase .social-signup--form__first-name,
+  .large-6 .social-signup.parbase .social-signup--form__last-name,
+  .large-6 .social-signup.parbase .social-signup--form__email-address,
+  .large-6 .social-signup.parbase .social-signup--form__button-submit,
+  .large-8 .social-signup.parbase .social-signup--form__first-name,
+  .large-8 .social-signup.parbase .social-signup--form__last-name,
+  .large-8 .social-signup.parbase .social-signup--form__email-address,
+  .large-8 .social-signup.parbase .social-signup--form__button-submit {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.large-12 .social-signup.parbase .social-signup--description p {
+  font-size: 26px;
+  line-height: 38px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__first-name,
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address {
+  padding-right: 10px;
+}
+
+.large-12 .social-signup.parbase .social-signup--form__last-name,
+.large-12 .social-signup.parbase .social-signup--form__email-address,
+.large-12 .social-signup.parbase .social-signup--form__button-submit {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .large-12 .social-signup.parbase .social-signup--description p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address {
+    padding-right: 10px;
+    padding-left: 0;
+  }
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-left: 10px;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .large-12 .social-signup.parbase .social-signup--form__first-name,
+  .large-12 .social-signup.parbase .social-signup--form__last-name,
+  .large-12 .social-signup.parbase .social-signup--form__email-address,
+  .large-12 .social-signup.parbase .social-signup--form__button-submit {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
@@ -9711,10 +9866,18 @@ input.searchGo {
   background-color: #EEEEEE;
 }
 
-.qasingle--container a,
-.qasingle--container a:hover {
+.qasingle--container h1 {
+  font-size: 1.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
   color: #565656;
-  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--container h1 {
+    font-size: 1.8em;
+  }
 }
 
 .qasingle--container a {
@@ -9725,16 +9888,22 @@ input.searchGo {
   border-bottom: 1px solid #565656;
 }
 
+.qasingle--container a,
+.qasingle--container a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
 .qasingle--question-title-container {
-  margin: 0 0 2px 0;
+  margin-bottom: 2px;
   padding: 0.5em 20px;
   background-color: #0983BB;
 }
 
 .qasingle--question-title {
-  margin: 0;
+  color: #EEEEEE;
   padding: 0;
-  color: #FFFFFF;
+  margin: 0;
 }
 
 .qasingle--question-container {
@@ -9745,51 +9914,80 @@ input.searchGo {
 
 .qasingle--question {
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  background-color: #EEEEEE;
+}
+
+.qasingle--question-content {
+  border-bottom: 4px solid #FFFFFF;
+}
+
+.qasingle--question-content p {
+  background-color: #EEEEEE;
+  padding: 0 20px;
+  margin-bottom: 1em;
 }
 
 .qasingle--image {
-  float: right;
-  padding: 8px 20px 20px 5px;
+  background-color: #EEEEEE;
+  padding: 2px 20px 20px 35px;
   margin-bottom: 2px;
 }
 
 .qasingle--image img {
   border-radius: 50%;
-  float: right;
+  position: relative;
+  top: 50%;
+  text-align: center;
 }
 
-.qasingle--answer-container {
-  float: left;
+@media screen and (min-width: 768px) {
+  .qasingle--image {
+    float: right;
+    padding: 8px 20px 20px 5px;
+  }
 }
 
-.qasingle--answer-container p {
-  background-color: #EEEEEE;
-  padding: 0 20px;
-  margin-bottom: 2px;
+.qasingle--next-question {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-left: 20px;
+  max-width: 80%;
 }
 
-.qasingle--next-question-container {
-  background-color: #EEEEEE;
-  padding: 20px;
+@media screen and (min-width: 768px) {
+  .qasingle--next-question {
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .qasingle--next-question {
+    flex-direction: row;
+  }
+}
+
+.qasingle--next-question-title {
+  margin-bottom: 0;
 }
 
 .qasingle--next-question-container .ico {
+  margin: 10px 20px 10px 10px;
   max-width: 30px;
   max-height: 30px;
-  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--next-question-container .ico {
+    margin-top: 20px;
+  }
 }
 
 .qasingle--next-question-container .ico svg {
   height: 30px;
   width: 30px;
-}
-
-.qasingle--next-question {
-  margin: 0;
-}
-
-.qasingle--next-question-arrow {
-  max-width: 30px;
 }
 
 /** ABOUT-US THEME PARTIAL **/
