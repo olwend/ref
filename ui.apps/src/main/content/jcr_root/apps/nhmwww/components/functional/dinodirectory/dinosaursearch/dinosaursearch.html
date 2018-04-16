@@ -15,7 +15,7 @@
 			<h1 class="dinosaursearch--title">${dinosaurSearch.title}</h1>
 			<p class="dinosaursearch--description">${dinosaurSearch.description @ context='html'}</p>
 
-			<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-4 large-block-grid-6 dinosaursearch--dino-list">
+			<ul data-sly-list.dinosaurs="${dinosaurSearch.dinosaurList}" class="small-block-grid-1 medium-block-grid-4 large-block-grid-4 dinosaursearch--dino-list">
 				<li class="dinosaursearch--dinosaur">
 					<a href="${dinosaurs['url']}">
 						<img src="${dinosaurs['imageUrl']}">
