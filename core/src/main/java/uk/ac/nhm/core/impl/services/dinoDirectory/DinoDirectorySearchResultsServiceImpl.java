@@ -23,13 +23,13 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 
-import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryNavService;
+import uk.ac.nhm.core.services.dinoDirectory.DinoDirectorySearchResultsService;
 
 @Component
 @Service
-public class DinoDirectoryNavServiceImpl implements DinoDirectoryNavService {
+public class DinoDirectorySearchResultsServiceImpl implements DinoDirectorySearchResultsService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(DinoDirectoryNavServiceImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DinoDirectorySearchResultsServiceImpl.class);
 	
 	@Reference
 	private SlingRepository repository;

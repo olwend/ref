@@ -1,0 +1,7 @@
+Search results
+
+<sly data-sly-use.dinosaursearchresults="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearchResults">
+	<ul data-sly-list.list="${dinosaursearchresults.dinosaurList}">
+		<li>${list['title']} - ${list['score']}</li>
+	</ul>
+</sly>
