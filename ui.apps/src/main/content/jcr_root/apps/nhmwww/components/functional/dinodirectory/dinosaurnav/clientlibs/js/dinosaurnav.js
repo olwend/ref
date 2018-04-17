@@ -1,7 +1,7 @@
 $( function() {
 	//Get a list of names from the API
     var availableDinosaurs = [];
-    $.getJSON('http://localhost:8081/dino-directory-api-0.1/dinosaurs?view=genus', function(data) {
+    $.getJSON('http://staging.nhm.ac.uk/api/dino-directory-api/dinosaurs?view=genus', function(data) {
         
         for(var i=0; i<data.length; i++) {
             var url = "/content/nhmwww/en/home/discover/dino-directory/" + data[i].genus.toLowerCase() + ".html";
