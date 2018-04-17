@@ -46,7 +46,7 @@ $(document).ready(function() {
 		    				$this.find('.errors').show();
 		    			}
 		    		},
-		    	    error :function( jqxhr, textStatus, error ) { 
+		    	    error :function( jqxhr, textStatus, error ) {
 		    	    	$this.find('.errors').html('There has been an error and we cannot subscribe you to the newsletter at this time.');
 		    	    	$this.find('.errors').show();
 		    	    }

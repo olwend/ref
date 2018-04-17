@@ -15,8 +15,9 @@
 <sly data-sly-test="${properties.name}">
 	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
-		<div class="dinosaur--title-container">
-			<h1 class="dinosaur--name">${dinosaur.genus}</h1>
+		<div class="dinosaur--title-container small-12 medium-8 large-8 columns ">
+			<h1 class="dinosaur--name dinosaur--name-unhyphenated">${dinosaur.genus}</h1>
+			<h1 class="dinosaur--name dinosaur--name-hyphenated">${dinosaur.nameHyphenated}</h1>
 			<div class="dinosaur--name-description">
 				<div class="dinosaur--pronunciation">
 					<p>${dinosaur.namePronounciation}</p>
@@ -26,7 +27,7 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="dinosaur--social-share-header  small-12 medium-4 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div>
 		<div class="row">
 			<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
 				<img class="dinosaur--image" src="${dinosaur.imageUrl}">
@@ -36,9 +37,9 @@
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-12 large-4 columns">
 				<div class="dinosaur--description" data-dino-length="${dinosaur.length}">
-					<p>${dinosaur.description} <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
+					<p>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 				</div>
-				<div class="dinosaur--comparison">
+				<div data-sly-test="${dinosaur.bodyShape && dinosaur.length}" class="dinosaur--comparison">
 					<div class="dinosaur--comparison-dino">
 						<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg">
 					</div>
@@ -47,10 +48,10 @@
 			</div>
 
 			<div class="dinosaur--info-container small-12 medium-12 large-8 columns">
-				<div class="dinosaur--diet">
+				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
 					<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg"> </p>
 				</div>
-				<div class="dinosaur--country">
+				<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
 					<p>Country:
 						<sly data-sly-list.country="${dinosaur.countryList}">
 							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
@@ -85,11 +86,11 @@
 			</div>
 		</sly>
 
-		<div class="dinosaur--taxonomy-container small-12 medium-12 large-8 large-offset-4">
+		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-8 large-offset-4">
 			<h3 class="dinosaur--section-title">Taxonomic details</h3>
-			<p class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
-			<p class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</p>
-			<p class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</p>
+			<p data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
+			<p data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</p>
+			<p data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</p>
 		</div>
 
 	</div>

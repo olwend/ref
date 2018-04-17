@@ -19,12 +19,12 @@
   import="uk.ac.nhm.core.componentHelpers.SocialSignupHelper"%>
 <%@page
   import="uk.ac.nhm.core.componentHelpers.DynamicPageHelper"%>
-  
+
 	<%
 		SocialSignupHelper helper = new SocialSignupHelper(properties, resource);
 		DynamicPageHelper dynamicPageHelper = new DynamicPageHelper(resource, properties, request);
 	%>
-  
+
 <cq:defineObjects />
 <cq:includeClientLib categories="uk.ac.nhm.social-signup" />
 
@@ -68,8 +68,8 @@
           <button class="button__newsletter-signup" type="submit">Sign up</button>
         </div>
       </div>
-      <input type="text" name="question" class="question"> 
-      <input type="hidden" name="source" value="www.nhm.ac.uk"> 
+      <input type="text" name="question" class="question">
+      <input type="hidden" name="source" value="www.nhm.ac.uk">
       <input type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
       <div class="row">
         <div class="small-12 columns">

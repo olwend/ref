@@ -1,5 +1,40 @@
 # Changelog
 
+## 2.0.12 - Ponderous Plateosaurus - 12-Apr-2018
+- WR-1214 - Create single dino filter pages
+- WR-1272 - Add social share to single dino pages
+- WR-1298 - Create the onward journey script for the dinosaur directory single dino pages
+- WR-1300 - If a dinosaur has a "hyphenated name" add that to the single and filter dino pages
+- WR-1306 - SASS variable updates
+- WR-1307 - Event Calendar loading image is hosted off site
+- WR-1311 - Remove references to Chivo font in webfonts.css
+- WR-1318 - Social Signup refactor needs to be reverted
+- WR-1324 - Fix validation on single dino component
+- WR-1325 - Do something with dinosaurs missing a body shape
+- WR-1327 - Improve validation on fields in single dino
+
+## 2.0.11 - Ostentatious Orodromeus - 05-Apr-2018
+- WR-1314 - Single Question design tweaks
+- WR-1315 - Temporary fix for dam workflow
+
+## 2.0.10 - Nifty Nothronychus - 28-Mar-2018
+- WR-1219 - Add image field to single Q&A component
+- WR-1234 - Refactor Social Signup component
+- WR-1302 - Add the Space hub to the Discover navigation
+- WR-1303 - In Q&A single the question title should be a h1
+- WR-1305 - Fix clientlib includes for component-specific clientlibs
+- WR-1310 - Single dino refactor
+- WR-1312 - Q&A SearchResult limit lift
+- WR-1313 - Remove underline on hover from read more link CTA on Discover
+
+## 2.0.9 - Munificent Micropachycephalosaurus - 22-Mar-2018
+- WR-1198 / WR-1274 - Read more button changes for Article Feed
+- WR-1222 - Read more button added to Discover Related
+- WR-1304 - SASS tidy up
+- WR-1263 - AEM Author: need a solution to see all pages in a section when browsing
+- WR-1247 - CTA in HTI - icons don't inherit section colour when icon is selected and "Inherit from section" is used
+- WR-1269 - Italics being stripped from snippet of Discover articles when article is pulled through to Discover Related / Article feed
+
 ## 2.0.8 - Lanky Liliensternus - 15-Mar-2018
 - WR-1287 - Strip all tracking params from Shop link in Main nav
 - WR-1294 - Dinosaur page adjustments
@@ -245,7 +280,7 @@ B WR-1020 - Carousel image component dialog fix
 ## 1.1.39 - 22-Feb-2017
 
 - WR-1007 - Remove unnecessary font file declarations
-- WR-1010 - "DiscoverRelatedImage" component showing as "Image” in AEM Sidekick
+- WR-1010 - "DiscoverRelatedImage" component showing as "Image" in AEM Sidekick
 
 ## 1.1.38 - 16-Feb-2017
 
