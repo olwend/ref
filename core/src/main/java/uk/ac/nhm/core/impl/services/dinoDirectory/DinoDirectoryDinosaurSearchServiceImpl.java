@@ -46,7 +46,7 @@ public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDino
 					Map<String, String> dinosaurMap = new HashMap<String, String>();
 
 					dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
-					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase() + ".html");
+					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase().replaceAll(" ", "") + ".html");
 
 					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
 

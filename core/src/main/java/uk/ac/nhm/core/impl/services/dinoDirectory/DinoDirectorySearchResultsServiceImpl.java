@@ -16,7 +16,6 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.jcr.api.SlingRepository;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +44,8 @@ public class DinoDirectorySearchResultsServiceImpl implements DinoDirectorySearc
 	
 	@Override
 	public List<Map<String, String>> getSearchResults(String searchValue, String environmentUrl) {
+		
+		LOG.info("Dino directory search=" + searchValue);
 		
 		final String BASE_URL = environmentUrl;
 		
