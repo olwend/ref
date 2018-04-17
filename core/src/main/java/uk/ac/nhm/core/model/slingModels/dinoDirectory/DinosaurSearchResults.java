@@ -12,6 +12,7 @@ import org.apache.sling.models.annotations.Source;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryEnvironmentService;
 import uk.ac.nhm.core.services.dinoDirectory.DinoDirectorySearchResultsService;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -24,13 +25,19 @@ public class DinosaurSearchResults {
 	
 	@Inject
 	@Source("osgi-services")
+	DinoDirectoryEnvironmentService environmentService;
+	
+	@Inject
+	@Source("osgi-services")
 	DinoDirectorySearchResultsService service;
 	
 	private List<Map<String, String>> dinosaurList;
 	
 	@PostConstruct
 	protected void init() {
-		this.setDinosaurList(service.getSearchResults(request.getParameter("search")));
+		String environmentUrl = environmentService.getDinoDirectoryUrl();
+		
+		this.setDinosaurList(service.getSearchResults(request.getParameter("search"), environmentUrl));
 	}
 
 	public List<Map<String, String>> getDinosaurList() {

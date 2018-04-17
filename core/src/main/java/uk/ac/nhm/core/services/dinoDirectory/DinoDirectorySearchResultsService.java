@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface DinoDirectorySearchResultsService {
 
-	public List<Map<String, String>> getSearchResults(String searchValue);
+	public List<Map<String, String>> getSearchResults(String searchValue, String environmentUrl);
 	
 }

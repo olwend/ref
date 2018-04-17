@@ -1,7 +1,17 @@
-Search results
+<div class="dinosaursearch--container">
 
-<sly data-sly-use.dinosaursearchresults="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearchResults">
-	<ul data-sly-list.list="${dinosaursearchresults.dinosaurList}">
-		<li>${list['title']} - ${list['score']}</li>
-	</ul>
-</sly>
+	<h1 class="dinosaursearch--title">Search results</h1>
+	
+	<sly data-sly-use.dinosaursearchresults="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurSearchResults">
+		<ul data-sly-list.list="${dinosaursearchresults.dinosaurList}" class="small-block-grid-1 medium-block-grid-4 large-block-grid-4 dinosaursearch--dino-list">
+			<li class="dinosaursearch--dinosaur">
+				<a href="${list['link']}">
+					<img src="${dinosaurs['imageUrl']}">
+					<p class="dinosaursearch--genus">
+						${list['title']}
+					</p>
+				</a>
+			</li>
+		</ul>
+	</sly>
+</div>

@@ -9,11 +9,15 @@ import java.util.Map;
 
 import javax.jcr.Session;
 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.jcr.api.SlingRepository;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,8 +41,12 @@ public class DinoDirectorySearchResultsServiceImpl implements DinoDirectorySearc
 	@Reference
 	private QueryBuilder builder;
 	
+	private HttpClient httpClient = new HttpClient();
+	
 	@Override
-	public List<Map<String, String>> getSearchResults(String searchValue) {
+	public List<Map<String, String>> getSearchResults(String searchValue, String environmentUrl) {
+		
+		final String BASE_URL = environmentUrl;
 		
 		List<Map<String, String>> dinosaurList = new ArrayList<Map<String, String>>();
 		
@@ -69,7 +77,26 @@ public class DinoDirectorySearchResultsServiceImpl implements DinoDirectorySearc
 		    for(Hit hit : result.getHits()) {
 		    	Map<String, String> dinosaurMap = new HashMap<String, String>();
 		    	dinosaurMap.put("title", hit.getTitle());
-		    	dinosaurList.add(dinosaurMap);
+		    	dinosaurMap.put("link", hit.getPath() + ".html");
+		    	
+		    	String requestUrl = BASE_URL + "/dinosaurs/" + hit.getTitle().toLowerCase();
+
+		    	LOG.error(requestUrl);
+		    	
+				GetMethod getMethod = new GetMethod(requestUrl);
+		    	
+				try {
+					httpClient.executeMethod(getMethod);
+					JSONObject dinosaur = new JSONObject(getMethod.getResponseBodyAsString());
+					JSONObject dinosaurMedia = dinosaur.getJSONArray("mediaCollection").getJSONObject(0);
+
+					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
+							+ dinosaurMedia.getString("identifier") + ".jpg";
+
+					dinosaurMap.put("imageUrl", imageUrl);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		    	
 		    	int score = 100;
 		    	if(searchValue.toLowerCase().equals(hit.getTitle().toLowerCase())) {
@@ -89,6 +116,8 @@ public class DinoDirectorySearchResultsServiceImpl implements DinoDirectorySearc
 			    	
 			    	dinosaurMap.put("score", String.valueOf(score));
 		    	}
+		    	
+		    	dinosaurList.add(dinosaurMap);
 		    }
 		} catch(Exception e) {
 			//Do something with e
