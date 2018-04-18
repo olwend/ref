@@ -117,9 +117,9 @@ public class Dinosaur {
 			}
 			if(lengthValue > 0) {
 				if(mass > 0) {
-					descriptionBuffer.append(", " + String.valueOf(lengthValue) + "m");
+					descriptionBuffer.append(", " + String.valueOf(lengthValue) + "m-long");
 				} else {
-					descriptionBuffer.append(String.valueOf(lengthValue) + "m");
+					descriptionBuffer.append(String.valueOf(lengthValue) + "m-long");
 				}
 			}
 
