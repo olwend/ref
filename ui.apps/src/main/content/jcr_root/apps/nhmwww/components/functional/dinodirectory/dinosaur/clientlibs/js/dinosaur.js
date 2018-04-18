@@ -5,6 +5,7 @@ $(document).ready(function() {
 
   // Sliding scale of human size to give a better layout on smaller dinosaurs
   if (dinoSize <= 5) { humanSize = 0.8; }
+  if (dinoSize < 3) { humanSize = 0.6; }
 
   var ratioDinoHuman = ( humanSize / dinoSize ) * 100,
     totalSize = humanSize + dinoSize,
