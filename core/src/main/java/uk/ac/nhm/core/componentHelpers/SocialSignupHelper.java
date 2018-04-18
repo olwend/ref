@@ -15,7 +15,7 @@ public class SocialSignupHelper extends HelperBase {
 
 	private String title = "Don't miss a thing";
 	private String description = "Follow us on social media";
-	
+
 	/**
 	 * Set a default campaign in case it does not get set
 	 */

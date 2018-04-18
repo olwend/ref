@@ -5685,7 +5685,7 @@ html.js-noScroll {
 .articlefeed--read-more-link a:hover {
   background-color: #AAAAAA;
   color: #FFFFFF;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .articlefeed--read-more-link a:focus, .articlefeed--read-more-link a:active {
@@ -6461,6 +6461,85 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
+/** DINOSAUR SEARCH PAGE **/
+.dinosaursearch--container {
+  margin: 20px;
+}
+
+.dinosaursearch--container a p {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaursearch--container a:hover p {
+  color: #000000;
+}
+
+.dinosaursearch--container a:hover img {
+  opacity: 0.7;
+}
+
+.dinosaursearch--dino-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.dinosaursearch--dinosaur {
+  background-color: #EEEEEE;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+@media screen and (min-width: 480px) {
+  .dinosaursearch--dinosaur {
+    background-color: #FFFFFF;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur {
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+}
+
+.dinosaursearch--dinosaur img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 167px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 230px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .dinosaursearch--dinosaur img {
+    max-width: 170px;
+  }
+}
+
+.dinosaursearch--genus {
+  display: inline-block;
+  font-style: italic;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearch--genus {
+    display: block;
+  }
+}
+
 /** WR-1213 SINGLE DINO PAGE **/
 .dinosaur a {
   color: #565656;
@@ -6477,7 +6556,7 @@ div#cookie-bar p {
 }
 
 .dinosaur--title-container {
-  margin: 20px;
+  padding: 20px 20px 0 20px;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
@@ -6493,6 +6572,10 @@ div#cookie-bar p {
     font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
     font-size: 2.375em;
   }
+}
+
+.dinosaur--name-hyphenated {
+  display: none;
 }
 
 .dinosaur--name-description {
@@ -6522,12 +6605,34 @@ div#cookie-bar p {
   margin: 0;
 }
 
+.dinosaur--social-share-header {
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur--social-share-header {
+    padding: 25px 10px 20px 20px;
+  }
+}
+
+.dinosaur--social-share-header .social-share--container {
+  height: auto;
+  min-height: auto;
+  padding: 0;
+}
+
+@media screen and (min-width: 641px) {
+  .dinosaur--social-share-header .social-share--container {
+    align-items: flex-end;
+  }
+}
+
 .dinosaur--image-container {
   margin-bottom: 20px;
   padding: 0;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 641px) {
   .dinosaur--image-container {
     padding: 0 20px;
   }
@@ -6537,7 +6642,7 @@ div#cookie-bar p {
   width: 100%;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 641px) {
   .dinosaur--image {
     width: auto;
   }
@@ -7016,7 +7121,7 @@ div#cookie-bar p {
 .discoverrelated .discover .discover-related--read-more-link a:hover {
   background-color: #AAAAAA;
   color: #FFFFFF;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .discoverrelated .discover .discover-related--read-more-link a:focus, .discoverrelated .discover .discover-related--read-more-link a:active {
@@ -7280,7 +7385,7 @@ div#cookie-bar p {
   width: 100vw;
   height: 100vh;
   background-color: rgba(192, 192, 192, 0.5);
-  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-image: url("../../../../../etc/designs/nhmwww/img/event-calendar-load.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -8872,18 +8977,26 @@ a.button-cta {
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
-.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+.row2cells21 .large-8.medium-8.columns,
+.row2cells12 .large-8.medium-8.columns {
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  .row2cells21 .large-8.medium-8.columns,
+  .row2cells12 .large-8.medium-8.columns {
     width: 65.7%;
   }
 }
 
 .article .headertextimage {
   margin-top: 12px !important;
+}
+
+/** Hotfix for Touch UI layout bug **/
+.headertextimage {
+  display: table;
+  width: 100%;
 }
 
 /** LINK LIST PARTIAL **/
@@ -9355,7 +9468,8 @@ a.button-cta {
   margin-right: 0;
 }
 
-.social-signup h3, .social-signup p {
+.social-signup h3,
+.social-signup p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
@@ -9375,7 +9489,6 @@ a.button-cta {
   padding: 20px;
   background-color: #808080;
   color: #FFFFFF;
-  margin-bottom: 15px;
 }
 
 .social-signup--description p {
@@ -9407,7 +9520,7 @@ a.button-cta {
 .social-signup--img__social {
   max-height: 40px;
   max-width: 14%;
-  padding: 0 2px 0 2px;
+  padding: 0 2px;
 }
 
 .social-signup .errors {
@@ -9757,10 +9870,22 @@ input.searchGo {
   padding: 0 20px;
 }
 
-.qasingle--container a,
-.qasingle--container a:hover {
+.qasingle--container {
+  background-color: #EEEEEE;
+}
+
+.qasingle--container h1 {
+  font-size: 1.5em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  line-height: 1.35em;
+  padding-bottom: 0.3em;
   color: #565656;
-  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--container h1 {
+    font-size: 1.8em;
+  }
 }
 
 .qasingle--container a {
@@ -9771,46 +9896,106 @@ input.searchGo {
   border-bottom: 1px solid #565656;
 }
 
+.qasingle--container a,
+.qasingle--container a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
 .qasingle--question-title-container {
-  margin: 0 0 2px 0;
+  margin-bottom: 2px;
   padding: 0.5em 20px;
   background-color: #0983BB;
 }
 
 .qasingle--question-title {
-  margin: 0;
+  color: #EEEEEE;
   padding: 0;
-  color: #FFFFFF;
+  margin: 0;
 }
 
-.qasingle--question-content {
+.qasingle--question-container {
   background-color: #EEEEEE;
-  padding: 20px;
+  padding: 20px 20px 12px 20px;
   margin-bottom: 2px;
 }
 
-.qasingle--next-question-container {
+.qasingle--question {
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
   background-color: #EEEEEE;
-  padding: 20px;
+}
+
+.qasingle--question-content {
+  border-bottom: 4px solid #FFFFFF;
+}
+
+.qasingle--question-content p {
+  background-color: #EEEEEE;
+  padding: 0 20px;
+  margin-bottom: 1em;
+}
+
+.qasingle--image {
+  background-color: #EEEEEE;
+  padding: 2px 20px 20px 35px;
+  margin-bottom: 2px;
+}
+
+.qasingle--image img {
+  border-radius: 50%;
+  position: relative;
+  top: 50%;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--image {
+    float: right;
+    padding: 8px 20px 20px 5px;
+  }
+}
+
+.qasingle--next-question {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-left: 20px;
+  max-width: 80%;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--next-question {
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .qasingle--next-question {
+    flex-direction: row;
+  }
+}
+
+.qasingle--next-question-title {
+  margin-bottom: 0;
 }
 
 .qasingle--next-question-container .ico {
+  margin: 10px 20px 10px 10px;
   max-width: 30px;
   max-height: 30px;
-  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .qasingle--next-question-container .ico {
+    margin-top: 20px;
+  }
 }
 
 .qasingle--next-question-container .ico svg {
   height: 30px;
   width: 30px;
-}
-
-.qasingle--next-question {
-  margin: 0;
-}
-
-.qasingle--next-question-arrow {
-  max-width: 30px;
 }
 
 /** ABOUT-US THEME PARTIAL **/
@@ -10295,8 +10480,19 @@ input.searchGo {
   /** enews signup form styles **/
 }
 
+.discover h1 {
+  padding: 0;
+  color: #565656;
+}
+
 .discover .title-bar {
   padding: 0.5em 0.75em;
+  /** Hotfix for Article feed title bar **/
+}
+
+.discover .title-bar h1,
+.discover .title-bar p {
+  color: #565656;
 }
 
 @media screen and (min-width: 768px) {
@@ -10305,11 +10501,6 @@ input.searchGo {
     margin-top: 0;
     margin-bottom: 1.2em;
   }
-}
-
-.discover h1 {
-  padding: 0;
-  color: #565656;
 }
 
 .discover .discoverpublication h1 {
@@ -11276,14 +11467,4 @@ input.searchGo {
 /** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
 .global-header--nav-list__item:hover.link-visit, .global-header--nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
-}
-
-.discover .title-bar h1,
-.discover .title-bar p {
-  color: #565656 !important;
-}
-
-.headertextimage {
-  display: table;
-  width: 100%;
 }
