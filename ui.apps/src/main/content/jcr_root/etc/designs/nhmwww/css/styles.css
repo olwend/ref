@@ -6706,6 +6706,55 @@ div#cookie-bar p {
   margin-top: 40px;
 }
 
+/** DINOSAUR NAVIGATION **/
+.dinosaurnav {
+  margin: 0 20px;
+}
+
+.dinosaurnav--search-form {
+  margin-top: 25px;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.dinosaurnav--search-button {
+  padding: 0;
+  width: 50px;
+  background-color: #FFFFFF;
+  border: 1px solid #AAAAAA;
+}
+
+.dinosaurnav--description {
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+}
+
+.dinosaurnav--category-title {
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.dinosaurnav--category-icon {
+  margin-bottom: 5px;
+}
+
+.dinosaurnav .js-dinosaurnav--category {
+  margin-left: 30px;
+}
+
+.dinosaurnav .js-dinosaurnav--category,
+.dinosaurnav .js-dinosaurnav--category-contract {
+  display: none;
+}
+
+.dinosaurnav .js-dinosaurnav--category-country {
+  height: 300px;
+  overflow-y: scroll;
+}
+
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;

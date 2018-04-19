@@ -1,20 +1,28 @@
-<link rel="stylesheet" href="/etc/clientlibs/nhmwww/granite/css/jquery-ui.css" />
-<script type="text/javascript" src="/etc/clientlibs/nhmwww/granite/js/granite/jquery-ui.js" ></script>
-<script type="text/javascript" src="/etc/clientlibs/nhmwww/granite/js/foundation/jquery-ui.js" ></script>
+<sly data-sly-use.dinonavClientLib="${'/libs/granite/sightly/templates/clientlib.html'}"
+	data-sly-call="${dinonavClientLib.all @ categories='nhmwww.dinodirectory.dinosaurnav'}" />
 
-<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
-	<meta data-sly-call="${clientLib.all @ categories='nhmwww.dinodirectory.dinosaurnav'}" data-sly-unwrap></meta>
-</sly>
+
+<link rel="stylesheet" href="/etc.clientlibs/clientlibs/granite/jquery-ui.css" type="text/css">
+<script type="text/javascript" src="/etc/clientlibs/foundation/jquery-ui.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/clientlibs/granite/jquery-ui.js"></script>
 
 <sly data-sly-use.dinosaurnav="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurNav">
 	<form name="userRegistrationForm" method="get" action="${dinosaurNav.targetPage}">
-		<input type="text" name="search" placeholder="Search the directory" id="dinosaur-input">
-		<input type="submit" value="Submit">
+		<div class="dinosaurnav--search-form" >
+			<input id="dinosaur-input" class="dinosaurnav--search-input" type="text" name="search" placeholder="Search dinosaurs" />
+			<button class="dinosaurnav--search-button postfix" type="submit" value="Submit"><img src="/etc/designs/nhmwww/img/icons/search-icon.png"></button>
+		</div>
 	</form>
 </sly>
 
-<p>Body type</p>
-<ul>
+<p class="dinosaurnav--description">Explore dinosaurs by:</p>
+
+<div class="js-dinosaurnav--category-control" data-dinonav-category="bodytype">
+	<img class="js-dinosaurnav--category-expand dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/plus-discover.png">
+	<img class="js-dinosaurnav--category-contract dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/minus-discover.png">
+	<p class="dinosaurnav--category-title">Body type</p>
+</div>
+<ul class="js-dinosaurnav--category js-dinosaurnav--category-bodytype">
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ankylosaurid/gallery.html">Ankylosaurid</a></li>
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ceratopian/gallery.html">Ceratopian</a></li>
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/euornithopod/gallery.html">Euornithopod</a></li>
@@ -24,8 +32,26 @@
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/small-theropod/gallery.html">Small theropod</a></li>
 </ul>
 
-<p>Country</p>
-<ul>
+<div class="js-dinosaurnav--category-control" data-dinonav-category="timeperiod">
+	<img class="js-dinosaurnav--category-expand dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/plus-discover.png">
+	<img class="js-dinosaurnav--category-contract dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/minus-discover.png">
+	<p class="dinosaurnav--category-title">Time period</p>
+</div>
+<ul class="js-dinosaurnav--category js-dinosaurnav--category-timeperiod">
+	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-triassic/gallery.html">Late Triassic</a></li>
+	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/early-jurassic/gallery.html">Early Jurassic</a></li>
+	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/mid-jurassic/gallery.html">Mid Jurassic</a></li>
+	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-jurassic/gallery.html">Late Jurassic</a></li>
+	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/early-cretaceous/gallery.html">Early Cretaceous</a></li>
+	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-cretaceous/gallery.html">Late Cretaceous</a></li>
+</ul>
+
+<div class="js-dinosaurnav--category-control" data-dinonav-category="country">
+	<img class="js-dinosaurnav--category-expand dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/plus-discover.png">
+	<img class="js-dinosaurnav--category-contract dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/minus-discover.png">
+	<p class="dinosaurnav--category-title">Country</p>
+</div>
+<ul class="js-dinosaurnav--category js-dinosaurnav--category-country">
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/country/algeria/gallery.html">Algeria</a></li>
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/country/antarctica/gallery.html">Antarctica</a></li>
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/country/argentina/gallery.html">Argentina</a></li>
@@ -67,18 +93,12 @@
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/country/zimbabwe/gallery.html">Zimbabwe</a></li>
 </ul>
 
-<p>Time period</p>
-<ul>
-	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-triassic/gallery.html">Late Triassic</a></li>
-	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/early-jurassic/gallery.html">Early Jurassic</a></li>
-	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/mid-jurassic/gallery.html">Mid Jurassic</a></li>
-	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-jurassic/gallery.html">Late Jurassic</a></li>
-	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/early-cretaceous/gallery.html">Early Cretaceous</a></li>
-	<li><a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-cretaceous/gallery.html">Late Cretaceous</a></li>
-</ul>
-
-<p>A-Z</p>
-<ul>
+<div class="js-dinosaurnav--category-control" data-dinonav-category="az">
+	<img class="js-dinosaurnav--category-expand dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/plus-discover.png">
+	<img class="js-dinosaurnav--category-contract dinosaurnav--category-icon" src="/etc/designs/nhmwww/img/png-icons/minus-discover.png">
+	<p class="dinosaurnav--category-title">A-Z</p>
+</div>
+<ul class="js-dinosaurnav--category js-dinosaurnav--category-az" >
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/name/a/gallery.html">A</a></li>
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/name/b/gallery.html">B</a></li>
 	<li><a href="/content/nhmwww/en/home/discover/dino-directory/name/c/gallery.html">C</a></li>
