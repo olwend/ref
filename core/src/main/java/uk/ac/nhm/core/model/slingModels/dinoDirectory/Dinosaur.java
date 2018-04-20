@@ -79,30 +79,20 @@ public class Dinosaur {
 			JSONObject dinosaur = new JSONObject(getMethod.getResponseBodyAsString());
 
 			//Country
-			List<Map<String, String>> countryList = new ArrayList<Map<String, String>>();
-			JSONArray countries = dinosaur.getJSONArray("countries");
-
-			for(int i=0; i<countries.length(); i++) {
-				Map<String, String> countryMap = new HashMap<String, String>();
-				JSONObject country = countries.getJSONObject(i);
-
-				countryMap.put("name", country.getString("country"));
-				countryMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/country/" + country.getString("country") + "/gallery.html");
-				countryList.add(countryMap);
-			}
-
-			this.setCountryList(countryList);
-
-			//Body shape
-			if(!dinosaur.isNull("bodyShape")) {
-				JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
-				Map<String, String> bodyShapeMap = new HashMap<String, String>();
+			if(!dinosaur.isNull("countries")) {
+				List<Map<String, String>> countryList = new ArrayList<Map<String, String>>();
+				JSONArray countries = dinosaur.getJSONArray("countries");
 	
-				bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
-				bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" 
-						+ bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+				for(int i=0; i<countries.length(); i++) {
+					Map<String, String> countryMap = new HashMap<String, String>();
+					JSONObject country = countries.getJSONObject(i);
 	
-				this.setBodyShape(bodyShapeMap);
+					countryMap.put("name", country.getString("country"));
+					countryMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/country/" + country.getString("country") + "/gallery.html");
+					countryList.add(countryMap);
+				}
+				
+				this.setCountryList(countryList);
 			}
 
 			//Description
@@ -127,15 +117,34 @@ public class Dinosaur {
 			}
 			if(lengthValue > 0) {
 				if(mass > 0) {
-					descriptionBuffer.append(", " + String.valueOf(lengthValue) + "m long");
+					descriptionBuffer.append(", " + String.valueOf(lengthValue) + "m-long");
 				} else {
-					descriptionBuffer.append(String.valueOf(lengthValue) + "m long");
+					descriptionBuffer.append(String.valueOf(lengthValue) + "m-long");
 				}
 			}
 
 			this.setDescription(descriptionBuffer.toString());
 			this.setLength(lengthValue);
-			this.setDiet(dinosaur.getString("dietTypeName"));
+			
+			//Body shape
+			if(!dinosaur.isNull("bodyShape")) {
+				JSONObject bodyShape = dinosaur.getJSONObject("bodyShape");
+				Map<String, String> bodyShapeMap = new HashMap<String, String>();
+	
+				if(lengthValue > 0) {
+					bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
+				} else {
+					bodyShapeMap.put("name", bodyShape.getString("bodyShape").toLowerCase());
+				}
+				bodyShapeMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/body-shape/" 
+						+ bodyShape.getString("bodyShape").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+	
+				this.setBodyShape(bodyShapeMap);
+			}
+			
+			if(!dinosaur.isNull("dietTypeName")) {
+				this.setDiet(dinosaur.getString("dietTypeName"));
+			}
 			
 			if(!dinosaur.isNull("nameHyphenated")) {
 				this.setNameHyphenated(dinosaur.getString("nameHyphenated"));
@@ -146,17 +155,24 @@ public class Dinosaur {
 			this.setGenus(dinosaur.getString("genus"));
 			this.setNameMeaning(dinosaur.getString("nameMeaning"));
 			this.setNamePronounciation(dinosaur.getString("namePronounciation"));
-			this.setNamedBy(dinosaur.getString("genusNamedBy") + " (" + String.valueOf(dinosaur.getInt("genusYear")) + ")");
+			
+			if(!dinosaur.isNull("genusNamedBy") && !dinosaur.isNull("genusYear")){
+				this.setNamedBy(dinosaur.getString("genusNamedBy") + " (" + String.valueOf(dinosaur.getInt("genusYear")) + ")");
+			} else if (!dinosaur.isNull("genusNamedBy")) {
+				this.setNamedBy(dinosaur.getString("genusNamedBy"));
+			}
 
 			//Period
-			JSONObject period = dinosaur.getJSONObject("period");
-			Map<String, String> periodMap = new HashMap<String, String>();
-
-			periodMap.put("name", period.getString("period"));
-			periodMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/timeline/" + period.getString("period").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
-
-			this.setPeriod(periodMap);
-
+			if(!dinosaur.isNull("period")) {
+				JSONObject period = dinosaur.getJSONObject("period");
+				Map<String, String> periodMap = new HashMap<String, String>();
+		
+				periodMap.put("name", period.getString("period"));
+				periodMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/timeline/" + period.getString("period").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
+		
+				this.setPeriod(periodMap);
+			}
+		
 			String myaFrom = null;
 			String myaTo = null;
 			String mya = null;
@@ -196,9 +212,11 @@ public class Dinosaur {
 			this.setDinosaurMediaCollection(dinosaurMediaCollection);
 
 			//Taxonomy
-			JSONObject taxonomy = dinosaur.getJSONObject("taxTaxon");
-			this.setTaxonomy(taxonomy.getString("taxonomyCSV").replaceAll(",", ", "));
-			this.setType(taxonomy.getString("taxon"));
+			if(!dinosaur.isNull("taxTaxon")) {
+				JSONObject taxonomy = dinosaur.getJSONObject("taxTaxon");
+				this.setTaxonomy(taxonomy.getString("taxonomyCSV").replaceAll(",", ", "));
+				this.setType(taxonomy.getString("taxon"));
+			}
 
 			//Text block
 			JSONArray textBlockArray = dinosaur.getJSONArray("textBlockCollection");

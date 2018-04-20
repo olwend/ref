@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.0.13 - Quirky Quaesitosaurus - 19-Apr-2018
+- WR-1235 - Review hotfixes in AEM 6.3 Author for HTI and CTA components
+- WR-1323 - Add "long" after length in Single Dino page
+- WR-1331 - Switch out the Anklysorid body type logo
+- WR-1332 - Add a space after colon in the Next Question link on Q&A single
+- WR-1333 - Check the dino scale math
+
+## 2.0.12 - Ponderous Plateosaurus - 12-Apr-2018
+- WR-1214 - Create single dino filter pages
+- WR-1272 - Add social share to single dino pages
+- WR-1298 - Create the onward journey script for the dinosaur directory single dino pages
+- WR-1300 - If a dinosaur has a "hyphenated name" add that to the single and filter dino pages
+- WR-1306 - SASS variable updates
+- WR-1307 - Event Calendar loading image is hosted off site
+- WR-1311 - Remove references to Chivo font in webfonts.css
+- WR-1318 - Social Signup refactor needs to be reverted
+- WR-1324 - Fix validation on single dino component
+- WR-1325 - Do something with dinosaurs missing a body shape
+- WR-1327 - Improve validation on fields in single dino
+
 ## 2.0.11 - Ostentatious Orodromeus - 05-Apr-2018
 - WR-1314 - Single Question design tweaks
 - WR-1315 - Temporary fix for dam workflow
