@@ -4841,7 +4841,6 @@ p {
   line-height: 1.5em;
   margin-bottom: 1em;
   font-size: 1em;
-  margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6474,9 +6473,8 @@ div#cookie-bar p {
 
 .dinosaur h2 {
   line-height: 1.5em;
-  margin-bottom: 1em;
+  margin: .2em 1em 1em 0;
   font-size: 1em;
-  margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
