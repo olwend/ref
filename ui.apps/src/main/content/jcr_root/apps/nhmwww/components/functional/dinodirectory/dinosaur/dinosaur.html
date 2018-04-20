@@ -52,27 +52,27 @@
 				<h3>Facts</h3>
 
 				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
-					<h2>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="diet symbol"> </h2>
+					<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="diet symbol"> </p>
 
 				</div>
 				<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
-					<h2>Country:
+					<p>Country:
 						<sly data-sly-list.country="${dinosaur.countryList}">
 							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
 						</sly>
-					</h2>
+					</p>
 				</div>
 				<div class="dinosaur--period">
-					<h2>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</h2>
+					<p>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</p>
 				</div>
 				<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
-					<h2>Teeth: ${dinosaur.teeth}</h2>
+					<p>Teeth: ${dinosaur.teeth}</p>
 				</sly>
 				<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
-					<h2>How it moved: ${dinosaur.howItMoved}</h2>
+					<p>How it moved: ${dinosaur.howItMoved}</p>
 				</sly>
 				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
-					<h2>Food: ${dinosaur.food @ context='html'}</h2>
+					<p>Food: ${dinosaur.food @ context='html'}</p>
 				</sly>
 			</div>
 		</div>
