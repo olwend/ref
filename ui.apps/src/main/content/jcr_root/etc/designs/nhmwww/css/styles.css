@@ -6711,6 +6711,16 @@ div#cookie-bar p {
   margin: 0 20px;
 }
 
+.dinosaurnav a {
+  text-decoration: none;
+  color: #AAAAAA;
+}
+
+.dinosaurnav a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
 .dinosaurnav--search-form {
   margin-top: 25px;
   display: -webkit-flex;
@@ -6742,7 +6752,7 @@ div#cookie-bar p {
 }
 
 .dinosaurnav .js-dinosaurnav--category {
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
 .dinosaurnav .js-dinosaurnav--category,
@@ -6753,6 +6763,15 @@ div#cookie-bar p {
 .dinosaurnav .js-dinosaurnav--category-country {
   height: 300px;
   overflow-y: scroll;
+}
+
+.dinosaurnav .js-dinosaurnav--category-az ul {
+  list-style: none;
+}
+
+.dinosaurnav .js-dinosaurnav--category-az li {
+  display: inline-block;
+  width: 40px;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/

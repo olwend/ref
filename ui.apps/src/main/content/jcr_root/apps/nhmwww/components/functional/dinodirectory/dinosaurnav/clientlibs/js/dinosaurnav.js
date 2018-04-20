@@ -37,7 +37,8 @@ $( function() {
 });
 
 $( document ).ready(function() {
-    $('.js-dinosaurnav--category-control').click(function() {
+    $('.js-dinosaurnav--category-control').click(function(e) {
+        e.preventDefault();
         var category = $(this).data("dinonav-category");
         if ( $('.js-dinosaurnav--category-'+category).hasClass('active') ) {
             $('.js-dinosaurnav--category-'+category).stop().slideUp().removeClass('active');
