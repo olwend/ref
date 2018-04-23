@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6552,12 +6552,28 @@ div#cookie-bar p {
 
 .dinosaur h2 {
   line-height: 1.5em;
-  margin: .2em 1em 1em 0;
+  margin: .2em 1em .1em 0;
+  padding-bottom: 0;
   font-size: 1em;
 }
 
 @media screen and (min-width: 768px) {
   .dinosaur h2 {
+    font-size: 1.125em;
+  }
+}
+
+.dinosaur h4 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  line-height: 1.5em;
+  margin: .2em 1em .1em 0;
+  margin-bottom: 10px;
+  padding-bottom: 0;
+  font-size: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur h4 {
     font-size: 1.125em;
   }
 }

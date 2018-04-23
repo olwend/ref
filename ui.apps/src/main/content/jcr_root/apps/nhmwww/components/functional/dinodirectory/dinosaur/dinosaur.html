@@ -43,36 +43,33 @@
 					<div class="dinosaur--comparison-dino">
 						<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg" alt="dinosaur bodyshape">
 					</div>
-					<div class="dinosaur--comparison-human" alt="human comparison image"></div>
+					<div class="dinosaur--comparison-human" alt="human comparison"></div>
 				</div>
 			</div>
 
 			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
-			
-				<h3>Facts</h3>
-
 				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
-					<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="diet symbol"> </p>
+					<h2>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="diet symbol"> </h2>
 
 				</div>
 				<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
-					<p>Country:
+					<h2>Country:
 						<sly data-sly-list.country="${dinosaur.countryList}">
 							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
 						</sly>
-					</p>
+					</h2>
 				</div>
 				<div class="dinosaur--period">
-					<p>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</p>
+					<h2>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</h2>
 				</div>
 				<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
-					<p>Teeth: ${dinosaur.teeth}</p>
+					<h2>Teeth: ${dinosaur.teeth}</h2>
 				</sly>
 				<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
-					<p>How it moved: ${dinosaur.howItMoved}</p>
+					<h2>How it moved: ${dinosaur.howItMoved}</h2>
 				</sly>
 				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
-					<p>Food: ${dinosaur.food @ context='html'}</p>
+					<h2>Food: ${dinosaur.food @ context='html'}</h2>
 				</sly>
 			</div>
 		</div>
@@ -93,8 +90,8 @@
 		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-7 large-offset-5">
 			<h3 class="dinosaur--section-title">Taxonomic details</h3>
 			<p data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
-			<p data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</p>
-			<p data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</p>
+			<h4 data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</h4>
+			<h4 data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</h4>
 		</div>
 
 	</div>
