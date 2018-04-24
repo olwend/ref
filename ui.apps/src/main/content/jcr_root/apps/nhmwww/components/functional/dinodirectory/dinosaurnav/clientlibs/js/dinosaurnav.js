@@ -39,18 +39,31 @@ $( function() {
 $( document ).ready(function() {
     $('.js-dinosaurnav--category-control').click(function(e) {
         e.preventDefault();
-        var category = $(this).data("dinonav-category");
-        if ( $('.js-dinosaurnav--category-'+category).hasClass('active') ) {
-            $('.js-dinosaurnav--category-'+category).stop().slideUp().removeClass('active');
-            $(this).children(".js-dinosaurnav--category-contract").hide();
-            $(this).children(".js-dinosaurnav--category-expand").show();
+        if ( $(this).hasClass('active') ) {
+            $(this).removeClass('active');
+            $(this).next('.js-dinosaurnav--category').stop().slideUp();
+            $(this).children().find('.js-dinosaurnav--category-contract').hide();
+            $(this).children().find('.js-dinosaurnav--category-expand').show();
         } else {
-            $('.js-dinosaurnav--category').stop().slideUp().removeClass('active');
-            $('.js-dinosaurnav--category-'+category).stop().slideDown().addClass('active');
-            $(".js-dinosaurnav--category-contract").hide();
-            $(".js-dinosaurnav--category-expand").show();
-            $(this).children(".js-dinosaurnav--category-expand").hide();
-            $(this).children(".js-dinosaurnav--category-contract").show();
+            $('.js-dinosaurnav--category-control').removeClass('active');
+            $('.js-dinosaurnav--category').stop().slideUp();
+            $('.js-dinosaurnav--category-contract').hide();
+            $('.js-dinosaurnav--category-expand').show();
+            $(this).addClass('active');
+            $(this).next('.js-dinosaurnav--category').stop().slideDown();
+            $(this).children().find('.js-dinosaurnav--category-expand').hide();
+            $(this).children().find('.js-dinosaurnav--category-contract').show();
         }
     });
+
+    if (window.innerWidth < 750) {
+        $('#dinosaur-input').focus(function(e) {
+            $('.dinosaurnav--browse-container').slideDown();
+        });
+
+        $('.dinosaurnav--close-icon').click(function(e) {
+            e.preventDefault();
+            $('.dinosaurnav--browse-container').slideUp();
+        })
+    }
 });

@@ -6736,6 +6736,27 @@ div#cookie-bar p {
   border: 1px solid #AAAAAA;
 }
 
+.dinosaurnav--browse-container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--browse-container {
+    display: block;
+  }
+}
+
+.dinosaurnav--close-icon {
+  position: absolute;
+  right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--close-icon {
+    display: none;
+  }
+}
+
 .dinosaurnav--description {
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   font-size: 21px;
@@ -6751,6 +6772,28 @@ div#cookie-bar p {
   margin-bottom: 5px;
 }
 
+.dinosaurnav--category-country {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--category-country {
+    max-height: 300px;
+  }
+}
+
+.dinosaurnav--category-az ul {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.dinosaurnav--category-az li {
+  flex-basis: 40px;
+}
+
 .dinosaurnav .js-dinosaurnav--category {
   margin-left: 35px;
 }
@@ -6758,20 +6801,6 @@ div#cookie-bar p {
 .dinosaurnav .js-dinosaurnav--category,
 .dinosaurnav .js-dinosaurnav--category-contract {
   display: none;
-}
-
-.dinosaurnav .js-dinosaurnav--category-country {
-  height: 300px;
-  overflow-y: scroll;
-}
-
-.dinosaurnav .js-dinosaurnav--category-az ul {
-  list-style: none;
-}
-
-.dinosaurnav .js-dinosaurnav--category-az li {
-  display: inline-block;
-  width: 40px;
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
