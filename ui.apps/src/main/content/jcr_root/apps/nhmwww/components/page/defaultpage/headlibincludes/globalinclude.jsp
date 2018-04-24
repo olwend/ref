@@ -23,8 +23,8 @@
 <cq:includeClientLib css="nhmwww.main" />
 
 <!-- START WR-1011: split mainJS clientlib into separate clientlibs -->
-<cq:includeClientLib js="nhmwww.foundation" />
-<cq:includeClientLib js="nhmwww.plugins" />
+<cq:includeClientLib js="nhmwww.main.foundation" />
+<cq:includeClientLib js="nhmwww.main.plugins" />
 <cq:includeClientLib js="nhmwww.main" />
 <!--  END WR-1011 -->
 
