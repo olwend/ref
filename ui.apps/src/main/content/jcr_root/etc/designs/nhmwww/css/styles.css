@@ -8977,18 +8977,26 @@ a.button-cta {
 }
 
 /** overrides headertextimage.scss custom Foundation widths **/
-.row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+.row2cells21 .large-8.medium-8.columns,
+.row2cells12 .large-8.medium-8.columns {
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .row2cells21 .large-8.medium-8.columns, .row2cells12 .large-8.medium-8.columns {
+  .row2cells21 .large-8.medium-8.columns,
+  .row2cells12 .large-8.medium-8.columns {
     width: 65.7%;
   }
 }
 
 .article .headertextimage {
   margin-top: 12px !important;
+}
+
+/** Hotfix for Touch UI layout bug **/
+.headertextimage {
+  display: table;
+  width: 100%;
 }
 
 /** LINK LIST PARTIAL **/
@@ -10472,8 +10480,19 @@ input.searchGo {
   /** enews signup form styles **/
 }
 
+.discover h1 {
+  padding: 0;
+  color: #565656;
+}
+
 .discover .title-bar {
   padding: 0.5em 0.75em;
+  /** Hotfix for Article feed title bar **/
+}
+
+.discover .title-bar h1,
+.discover .title-bar p {
+  color: #565656;
 }
 
 @media screen and (min-width: 768px) {
@@ -10482,11 +10501,6 @@ input.searchGo {
     margin-top: 0;
     margin-bottom: 1.2em;
   }
-}
-
-.discover h1 {
-  padding: 0;
-  color: #565656;
 }
 
 .discover .discoverpublication h1 {
@@ -11455,12 +11469,8 @@ input.searchGo {
   border-bottom-color: #A1164E;
 }
 
+/** Hotfix for release 2.0.13 **/
 .discover .title-bar h1,
 .discover .title-bar p {
   color: #565656 !important;
-}
-
-.headertextimage {
-  display: table;
-  width: 100%;
 }

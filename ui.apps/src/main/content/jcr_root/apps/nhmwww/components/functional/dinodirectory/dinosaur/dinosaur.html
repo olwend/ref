@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="row">
-			<div class="dinosaur--description-container small-12 medium-12 large-4 columns">
+			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
 				<div class="dinosaur--description" data-dino-length="${dinosaur.length}">
 					<p>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></p>
 				</div>
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 
-			<div class="dinosaur--info-container small-12 medium-12 large-8 columns">
+			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
 				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
 					<p>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg"> </p>
 				</div>
@@ -73,20 +73,20 @@
 			</div>
 		</div>
 
-		<div class="dinosaur--content-container small-12 medium-12 large-8 large-offset-4 columns" data-sly-list="${dinosaur.textBlockCollection}">
+		<div class="dinosaur--content-container small-12 medium-12 large-7 large-offset-5 columns" data-sly-list="${dinosaur.textBlockCollection}">
 			<h4 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h4>
 			${item['textBlock'] @ context='html'}
 		</div>
 
 		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
 			<div class="row">
-				<div class="dinosaur--image-container small-12 medium-12 large-8 large-offset-4 columns">
+				<div class="dinosaur--image-container small-12 medium-12 large-7 large-offset-5 columns">
 					<img class="dinosaur--image" src="${item}">
 				</div>
 			</div>
 		</sly>
 
-		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-8 large-offset-4">
+		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-7 large-offset-5">
 			<h3 class="dinosaur--section-title">Taxonomic details</h3>
 			<p data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</p>
 			<p data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</p>
