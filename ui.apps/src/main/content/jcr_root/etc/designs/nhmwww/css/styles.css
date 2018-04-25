@@ -6550,7 +6550,7 @@ div#cookie-bar p {
   color: #000000;
 }
 
-.dinosaur h2 {
+.dinosaur h2, .dinosaur h4 {
   line-height: 1.5em;
   margin: .2em 1em .1em 0;
   padding-bottom: 0;
@@ -6558,24 +6558,14 @@ div#cookie-bar p {
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur h2 {
+  .dinosaur h2, .dinosaur h4 {
     font-size: 1.125em;
   }
 }
 
 .dinosaur h4 {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
-  line-height: 1.5em;
-  margin: .2em 1em .1em 0;
-  margin-bottom: 10px;
-  padding-bottom: 0;
-  font-size: 1em;
-}
-
-@media screen and (min-width: 768px) {
-  .dinosaur h4 {
-    font-size: 1.125em;
-  }
+  margin: .2em 1em .25em 0;
 }
 
 .dinosaur--container {
