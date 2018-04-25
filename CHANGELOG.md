@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.14 - Ruffled Rugops - 26-Apr-2018
+- WR-1267 - Add WhatsApp sharing icon to Discover Articles
+- WR-1317 - Restore use of JQuery clientlibs
+- WR-1338 - Rename Dinosaur Search component to Dinosaur Filter
+
 ## 2.0.13 - Quirky Quaesitosaurus - 19-Apr-2018
 - WR-1235 - Review hotfixes in AEM 6.3 Author for HTI and CTA components
 - WR-1323 - Add "long" after length in Single Dino page
