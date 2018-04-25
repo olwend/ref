@@ -1,4 +1,3 @@
 #base=js
 
-filter.js
 dialog-utils.js
