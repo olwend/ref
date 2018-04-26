@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6461,31 +6461,31 @@ div#cookie-bar p {
   text-decoration: none;
 }
 
-/** DINOSAUR SEARCH PAGE **/
-.dinosaursearch--container {
+/** DINOSAUR FILTER PAGE **/
+.dinosaurfilter--container {
   margin: 20px;
 }
 
-.dinosaursearch--container a p {
+.dinosaurfilter--container a p {
   color: #565656;
   text-decoration: underline;
 }
 
-.dinosaursearch--container a:hover p {
+.dinosaurfilter--container a:hover p {
   color: #000000;
 }
 
-.dinosaursearch--container a:hover img {
+.dinosaurfilter--container a:hover img {
   opacity: 0.7;
 }
 
-.dinosaursearch--dino-list {
+.dinosaurfilter--dino-list {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
 }
 
-.dinosaursearch--dinosaur {
+.dinosaurfilter--dinosaur {
   background-color: #EEEEEE;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
@@ -6493,49 +6493,49 @@ div#cookie-bar p {
 }
 
 @media screen and (min-width: 480px) {
-  .dinosaursearch--dinosaur {
+  .dinosaurfilter--dinosaur {
     background-color: #FFFFFF;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaursearch--dinosaur {
+  .dinosaurfilter--dinosaur {
     text-align: center;
     margin-bottom: 20px !important;
   }
 }
 
-.dinosaursearch--dinosaur img {
+.dinosaurfilter--dinosaur img {
   max-width: 100px;
   margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaursearch--dinosaur img {
+  .dinosaurfilter--dinosaur img {
     max-width: 167px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .dinosaursearch--dinosaur img {
+  .dinosaurfilter--dinosaur img {
     max-width: 230px;
   }
 }
 
 @media screen and (min-width: 1025px) {
-  .dinosaursearch--dinosaur img {
+  .dinosaurfilter--dinosaur img {
     max-width: 170px;
   }
 }
 
-.dinosaursearch--genus {
+.dinosaurfilter--genus {
   display: inline-block;
   font-style: italic;
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaursearch--genus {
+  .dinosaurfilter--genus {
     display: block;
   }
 }
@@ -9553,7 +9553,7 @@ a.button-cta {
   flex-direction: row;
 }
 
-.social-share--icons .facebook img, .social-share--icons .twitter img, .social-share--icons .email img {
+.social-share--icons .facebook img, .social-share--icons .twitter img, .social-share--icons .email img, .social-share--icons .whatsapp img {
   max-height: 30px;
   max-width: 40px;
   margin-right: 8px;

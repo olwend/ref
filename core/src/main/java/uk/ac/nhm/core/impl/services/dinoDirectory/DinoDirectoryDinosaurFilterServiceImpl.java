@@ -15,13 +15,13 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryDinosaurSearchService;
+import uk.ac.nhm.core.services.dinoDirectory.DinoDirectoryDinosaurFilterService;
 
 @Component
 @Service
-public class DinoDirectoryDinosaurSearchServiceImpl implements DinoDirectoryDinosaurSearchService {
+public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDinosaurFilterService {
 
-	private final static Logger LOG = LoggerFactory.getLogger(DinoDirectoryDinosaurSearchServiceImpl.class);
+	private final static Logger LOG = LoggerFactory.getLogger(DinoDirectoryDinosaurFilterServiceImpl.class);
 
 	private final static String BASE_CONTENT_URL = "/content/nhmwww/en/home/discover/dino-directory/";
 
