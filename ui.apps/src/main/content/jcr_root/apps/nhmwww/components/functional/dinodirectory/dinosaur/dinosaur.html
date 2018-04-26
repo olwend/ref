@@ -23,7 +23,7 @@
 					<h2>${dinosaur.namePronounciation}</h2>
 				</div>
 				<div class="dinosaur--meaning">
-					<h2>'${dinosaur.nameMeaning}'</h2>
+					<dl>'${dinosaur.nameMeaning}'</dl>
 				</div>
 			</div>
 		</div>
@@ -37,7 +37,7 @@
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
 				<div class="dinosaur--description" data-dino-length="${dinosaur.length}">
-					<h2>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></h2>
+					<dl>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> <a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></>
 				</div>
 				<div data-sly-test="${dinosaur.bodyShape && dinosaur.length}" class="dinosaur--comparison">
 					<div class="dinosaur--comparison-dino">
@@ -48,51 +48,51 @@
 			</div>
 
 			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
-
+				<h3>Facts</h3>
 				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
-					<h2>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="diet symbol"> </h2>
+					<dl>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="diet symbol"> </dl>
 
 				</div>
 				<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
-					<h2>Country:
+					<dl>Country:
 						<sly data-sly-list.country="${dinosaur.countryList}">
 							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
 						</sly>
-					</h2>
+					</dl>
 				</div>
 				<div class="dinosaur--period">
-					<h2>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</h2>
+					<dl>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</dl>
 				</div>
 				<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
-					<h2>Teeth: ${dinosaur.teeth}</h2>
+					<dl>Teeth: ${dinosaur.teeth}</dl>
 				</sly>
 				<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
-					<h2>How it moved: ${dinosaur.howItMoved}</h2>
+					<dl>How it moved: ${dinosaur.howItMoved}</dl>
 				</sly>
 				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
-					<h2>Food: ${dinosaur.food @ context='html'}</h2>
+					<dl>Food: ${dinosaur.food @ context='html'}</dl>
 				</sly>
 			</div>
 		</div>
 
 		<div class="dinosaur--content-container small-12 medium-12 large-7 large-offset-5 columns" data-sly-list="${dinosaur.textBlockCollection}">
-			<h4 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h4>
+			<h3 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h3>
 			${item['textBlock'] @ context='html'}
 		</div>
 
 		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
 			<div class="row">
 				<div class="dinosaur--image-container small-12 medium-12 large-7 large-offset-5 columns">
-					<img class="dinosaur--image" src="${item}">
+					<img class="dinosaur--image" src="${item}" alt="dinosaur milieu">
 				</div>
 			</div>
 		</sly>
 
 		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-7 large-offset-5">
 			<h3 class="dinosaur--section-title">Taxonomic details</h3>
-			<h5 data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</h5>
-			<h5 data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</h5>
-			<h5 data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</h5>
+			<h4 data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</h4>
+			<h4 data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</h4>
+			<h4 data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</h4>
 		</div>
 
 	</div>
