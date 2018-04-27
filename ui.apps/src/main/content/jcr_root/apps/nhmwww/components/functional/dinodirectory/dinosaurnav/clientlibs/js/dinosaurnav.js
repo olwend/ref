@@ -56,14 +56,22 @@ $( document ).ready(function() {
         }
     });
 
-    if (window.innerWidth < 750) {
-        $('#dinosaur-input').focus(function(e) {
-            $('.dinosaurnav--browse-container').slideDown();
-        });
-
-        $('.dinosaurnav--close-icon').click(function(e) {
+    $('.dinosaurnav--description').click(function(e){
+        if (window.innerWidth < 750) {
             e.preventDefault();
-            $('.dinosaurnav--browse-container').slideUp();
-        })
-    }
+            if ( $(this).hasClass('active') ) {
+                $(this).removeClass('active');
+                $('.dinosaurnav--browse-options').stop().slideUp();
+                $('.js-dinosaurnav--browse-contract').hide();
+                $('.js-dinosaurnav--browse-expand').show();
+            } else {
+                $(this).addClass('active');
+                $('.dinosaurnav--browse-options').stop().slideDown();
+                $('.js-dinosaurnav--browse-contract').show();
+                $('.js-dinosaurnav--browse-expand').hide();
+
+            }
+            // $('.dinosaurnav--browse-options').stop().slideToggle();
+        }
+    });
 });

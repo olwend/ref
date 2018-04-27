@@ -6713,7 +6713,7 @@ div#cookie-bar p {
 
 .dinosaurnav a {
   text-decoration: none;
-  color: #AAAAAA;
+  color: #808080;
 }
 
 .dinosaurnav a:hover {
@@ -6722,11 +6722,17 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--search-form {
-  margin-top: 25px;
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  margin: 25px 0;
+  border: 2px solid #808080;
+}
+
+.dinosaurnav--search-form input,
+.dinosaurnav--search-form button {
+  margin: 0;
 }
 
 .dinosaurnav--search-button {
@@ -6736,23 +6742,43 @@ div#cookie-bar p {
   border: 1px solid #AAAAAA;
 }
 
+.dinosaurnav--search-button img {
+  max-width: 27px;
+  max-height: 27px;
+}
+
 .dinosaurnav--browse-container {
+  border: 2px solid #808080;
+  padding: 5px;
+}
+
+.dinosaurnav--browse-options {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaurnav--browse-container {
+  .dinosaurnav--browse-options {
     display: block;
   }
 }
 
-.dinosaurnav--close-icon {
+.dinosaurnav--browse-options p {
+  margin: 10px 0;
+}
+
+.dinosaurnav--browse-options ul {
+  margin: 0;
+}
+
+.dinosaurnav--browse-icon {
   position: absolute;
-  right: 20px;
+  right: 27px;
+  margin-top: 7px;
+  z-index: -1;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaurnav--close-icon {
+  .dinosaurnav--browse-icon {
     display: none;
   }
 }
@@ -6760,6 +6786,11 @@ div#cookie-bar p {
 .dinosaurnav--description {
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   font-size: 21px;
+  margin: 0;
+}
+
+.dinosaurnav .js-dinosaurnav--browse-contract {
+  display: none;
 }
 
 .dinosaurnav--category-title {
@@ -6791,7 +6822,7 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--category-az li {
-  flex-basis: 40px;
+  flex-basis: 45px;
 }
 
 .dinosaurnav .js-dinosaurnav--category {
