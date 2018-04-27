@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6801,6 +6801,80 @@ div#cookie-bar p {
 .dinosaurnav .js-dinosaurnav--category,
 .dinosaurnav .js-dinosaurnav--category-contract {
   display: none;
+}
+
+/** DINOSAUR SEARCH RESULTS **/
+.dinosaursearchresults {
+  margin: 0 20px;
+}
+
+.dinosaursearchresults a {
+  text-decoration: none;
+  color: #AAAAAA;
+}
+
+.dinosaursearchresults a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+.dinosaursearchresults--title {
+  margin-top: 15px;
+}
+
+.dinosaursearchresults--dinosaur {
+  background-color: #EEEEEE;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+@media screen and (min-width: 480px) {
+  .dinosaursearchresults--dinosaur {
+    background-color: #FFFFFF;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearchresults--dinosaur {
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+}
+
+.dinosaursearchresults--dinosaur img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearchresults--dinosaur img {
+    max-width: 167px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dinosaursearchresults--dinosaur img {
+    max-width: 230px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .dinosaursearchresults--dinosaur img {
+    max-width: 170px;
+  }
+}
+
+.dinosaursearchresults--genus {
+  display: inline-block;
+  font-style: italic;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearchresults--genus {
+    display: block;
+  }
 }
 
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
