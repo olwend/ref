@@ -6708,7 +6708,7 @@ div#cookie-bar p {
 
 /** DINOSAUR NAVIGATION **/
 .dinosaurnav {
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .dinosaurnav a {
@@ -6726,9 +6726,9 @@ div#cookie-bar p {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 25px 0;
-  border: 2px solid #808080;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  margin: 25px 0 10px 0;
+  border: 3px solid #808080;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
 .dinosaurnav--search-form input,
@@ -6737,8 +6737,10 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--search-form input {
-  padding: 0 5px;
-  font-size: 22px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -6749,9 +6751,11 @@ div#cookie-bar p {
 
 .dinosaurnav--search-button {
   padding: 0;
-  width: 50px;
+  min-width: 40px;
+  height: 40px;
   background-color: #FFFFFF;
-  border: 1px solid #AAAAAA;
+  border: none;
+  border-left: 3px solid #808080;
   background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -6768,8 +6772,8 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--browse-container {
-  border: 2px solid #808080;
-  padding: 5px;
+  border: 3px solid #808080;
+  padding: 5px 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6790,17 +6794,23 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--browse-options p {
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .dinosaurnav--browse-options ul {
   margin: 0;
 }
 
+.dinosaurnav--browse-options li {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+}
+
 .dinosaurnav--browse-icon {
   position: absolute;
-  right: 27px;
-  margin-top: 7px;
+  right: 23px;
+  margin-top: 8px;
   z-index: -1;
 }
 
@@ -6811,8 +6821,9 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--description {
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
-  font-size: 21px;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
   margin: 0;
 }
 
@@ -6822,8 +6833,9 @@ div#cookie-bar p {
 
 .dinosaurnav--category-title {
   font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
   display: inline-block;
-  margin-bottom: 10px;
 }
 
 .dinosaurnav--category-icon {
@@ -6839,6 +6851,22 @@ div#cookie-bar p {
   .dinosaurnav--category-country {
     max-height: 300px;
   }
+}
+
+.dinosaurnav--category-country::-webkit-scrollbar {
+  width: 20px;
+}
+
+.dinosaurnav--category-country::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+.dinosaurnav--category-country::-webkit-scrollbar-thumb, .dinosaurnav--category-country::-webkit-scrollbar-thumb:window-inactive {
+  width: 8px;
+  border-right: 10px solid #FFFFFF;
+  border-top: 5px solid #FFFFFF;
+  border-bottom: 5px solid #FFFFFF;
+  background: #808080;
 }
 
 .dinosaurnav--category-az ul {
