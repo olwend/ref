@@ -26,7 +26,7 @@ $(document).ready(function() {
   // Determine if the outline should be male or female
   Math.random() < 0.5 ? humanSuffix = '-m' : humanSuffix = '-f';
 
-  jQuery('.dinosaur--comparison-human').html('<img alt="human comparison" src="/etc/designs/nhmwww/img/svgs/dinodirectory/human/'+humanOutline+humanSuffix+'.svg"/>').css('width', humanWidth+'%');
+  jQuery('.dinosaur--comparison-human').html('<img alt="human comparison to show scale" src="/etc/designs/nhmwww/img/svgs/dinodirectory/human/'+humanOutline+humanSuffix+'.svg"/>').css('width', humanWidth+'%');
   jQuery('.dinosaur--comparison-dino').css('width', dinoWidth+'%');
   /** End WR-1213 **/
 
