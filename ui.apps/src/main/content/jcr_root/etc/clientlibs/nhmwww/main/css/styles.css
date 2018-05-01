@@ -6552,8 +6552,9 @@ div#cookie-bar p {
 
 .dinosaur dd {
   line-height: 1.5em;
-  margin: 0 0.8em 1em 0;
+  margin: 0 0 1em 0;
   font-size: 1em;
+  text-rendering: optimizeLegibility;
 }
 
 @media screen and (min-width: 768px) {
@@ -6564,7 +6565,7 @@ div#cookie-bar p {
 
 .dinosaur dl {
   line-height: 0;
-  margin: 0 0 1em 0;
+  margin: 0;
   font-size: 1.18em;
 }
 
@@ -6614,6 +6615,10 @@ div#cookie-bar p {
   display: flex;
   flex-direction: column;
   font-size: 23px;
+}
+
+.dinosaur--name-description dd {
+  margin-right: 0.8em;
 }
 
 @media screen and (min-width: 768px) {
@@ -6683,12 +6688,15 @@ div#cookie-bar p {
   display: inline;
 }
 
+.dinosaur--info-container dd {
+  margin-bottom: .5em;
+}
+
 .dinosaur--description-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.18em;
   padding: 0 20px;
-  margin-bottom: 20px;
-  display: inline !important;
+  margin: 0 0 20px 0;
 }
 
 .dinosaur--comparison {

@@ -45,9 +45,9 @@
 					<div class="dinosaur--comparison-human"></div>
 				</div>
 			</div>
-			<dl>
-			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
-			
+
+			<dl class="dinosaur--info-container small-12 medium-12 large-7 columns">
+	
 				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
 					<dd>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="icon ${dinosaur.diet}"> </dd>
 				</div>
@@ -70,7 +70,6 @@
 				<div data-sly-test="${dinosaur.food}" class="dinosaur--food">
 					<dd>Food: ${dinosaur.food @ context='html'}</dd>
 				</div>
-			</div>
 			</dl>
 		</div>
 
