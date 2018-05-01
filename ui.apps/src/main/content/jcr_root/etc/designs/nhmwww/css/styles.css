@@ -6728,6 +6728,7 @@ div#cookie-bar p {
   flex-wrap: nowrap;
   margin: 25px 0;
   border: 2px solid #808080;
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
 }
 
 .dinosaurnav--search-form input,
@@ -6735,11 +6736,30 @@ div#cookie-bar p {
   margin: 0;
 }
 
+.dinosaurnav--search-form input {
+  padding: 0 5px;
+  font-size: 22px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .dinosaurnav--search-form input {
+    font-size: 15px;
+  }
+}
+
 .dinosaurnav--search-button {
   padding: 0;
   width: 50px;
   background-color: #FFFFFF;
   border: 1px solid #AAAAAA;
+  background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.dinosaurnav--search-button:hover {
+  background-color: #AAAAAA;
+  background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
 }
 
 .dinosaurnav--search-button img {
@@ -6750,6 +6770,13 @@ div#cookie-bar p {
 .dinosaurnav--browse-container {
   border: 2px solid #808080;
   padding: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--browse-container {
+    border: none;
+    padding: 0;
+  }
 }
 
 .dinosaurnav--browse-options {
@@ -6822,11 +6849,15 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--category-az li {
-  flex-basis: 45px;
+  flex-basis: 40px;
 }
 
 .dinosaurnav .js-dinosaurnav--category {
-  margin-left: 35px;
+  margin-left: 30px;
+}
+
+.dinosaurnav .js-dinosaurnav--category a {
+  text-decoration: underline;
 }
 
 .dinosaurnav .js-dinosaurnav--category,
