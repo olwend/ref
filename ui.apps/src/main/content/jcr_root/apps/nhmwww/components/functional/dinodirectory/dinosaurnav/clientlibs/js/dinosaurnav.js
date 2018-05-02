@@ -37,13 +37,12 @@ $( function() {
 });
 
 $( document ).ready(function() {
-    $('.js-dinosaurnav--category-control').click(function(e) {
-        e.preventDefault();
+    $('.js-dinosaurnav--category-control').click(function() {
         if ( $(this).hasClass('active') ) {
             $(this).removeClass('active');
             $(this).next('.js-dinosaurnav--category').stop().slideUp();
-            $(this).children().find('.js-dinosaurnav--category-contract').hide();
-            $(this).children().find('.js-dinosaurnav--category-expand').show();
+            $(this).find('.js-dinosaurnav--category-contract').hide();
+            $(this).find('.js-dinosaurnav--category-expand').show();
         } else {
             $('.js-dinosaurnav--category-control').removeClass('active');
             $('.js-dinosaurnav--category').stop().slideUp();
@@ -51,27 +50,25 @@ $( document ).ready(function() {
             $('.js-dinosaurnav--category-expand').show();
             $(this).addClass('active');
             $(this).next('.js-dinosaurnav--category').stop().slideDown();
-            $(this).children().find('.js-dinosaurnav--category-expand').hide();
-            $(this).children().find('.js-dinosaurnav--category-contract').show();
+            $(this).find('.js-dinosaurnav--category-expand').hide();
+            $(this).find('.js-dinosaurnav--category-contract').show();
         }
     });
 
-    $('.dinosaurnav--description').click(function(e){
+    $('.dinosaurnav--description').click(function(){
         if (window.innerWidth < 750) {
-            e.preventDefault();
             if ( $(this).hasClass('active') ) {
                 $(this).removeClass('active');
-                $('.dinosaurnav--browse-options').stop().slideUp();
-                $('.js-dinosaurnav--browse-contract').hide();
-                $('.js-dinosaurnav--browse-expand').show();
+                $('.dinosaurnav--categories').stop().slideUp();
+                $('.js-dinosaurnav--categories-contract').hide();
+                $('.js-dinosaurnav--categories-expand').show();
             } else {
                 $(this).addClass('active');
-                $('.dinosaurnav--browse-options').stop().slideDown();
-                $('.js-dinosaurnav--browse-contract').show();
-                $('.js-dinosaurnav--browse-expand').hide();
+                $('.dinosaurnav--categories').stop().slideDown();
+                $('.js-dinosaurnav--categories-contract').show();
+                $('.js-dinosaurnav--categories-expand').hide();
 
             }
-            // $('.dinosaurnav--browse-options').stop().slideToggle();
         }
     });
 });

@@ -6711,16 +6711,6 @@ div#cookie-bar p {
   margin: 0 10px;
 }
 
-.dinosaurnav a {
-  text-decoration: none;
-  color: #808080;
-}
-
-.dinosaurnav a:hover {
-  text-decoration: none;
-  color: #000000;
-}
-
 .dinosaurnav--search-form {
   display: -webkit-flex;
   display: flex;
@@ -6771,51 +6761,37 @@ div#cookie-bar p {
   max-height: 27px;
 }
 
-.dinosaurnav--browse-container {
+.dinosaurnav--categories-container {
   border: 3px solid #808080;
   padding: 5px 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaurnav--browse-container {
+  .dinosaurnav--categories-container {
     border: none;
     padding: 0;
   }
 }
 
-.dinosaurnav--browse-options {
+.dinosaurnav--categories {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaurnav--browse-options {
+  .dinosaurnav--categories {
     display: block;
   }
 }
 
-.dinosaurnav--browse-options p {
-  margin: 10px;
-}
-
-.dinosaurnav--browse-options ul {
-  margin: 0;
-}
-
-.dinosaurnav--browse-options li {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  line-height: 26px;
-}
-
-.dinosaurnav--browse-icon {
+.dinosaurnav--categories-container-icon {
   position: absolute;
   right: 23px;
-  margin-top: 8px;
+  margin-top: 5px;
   z-index: -1;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaurnav--browse-icon {
+  .dinosaurnav--categories-container-icon {
     display: none;
   }
 }
@@ -6827,8 +6803,13 @@ div#cookie-bar p {
   margin: 0;
 }
 
-.dinosaurnav .js-dinosaurnav--browse-contract {
-  display: none;
+.dinosaurnav--category-title-container {
+  cursor: pointer;
+  color: #565656;
+}
+
+.dinosaurnav--category-title-container:hover {
+  color: #000000;
 }
 
 .dinosaurnav--category-title {
@@ -6836,10 +6817,31 @@ div#cookie-bar p {
   font-size: 20px;
   line-height: 24px;
   display: inline-block;
+  margin: 10px;
 }
 
 .dinosaurnav--category-icon {
   margin-bottom: 5px;
+}
+
+.dinosaurnav--category {
+  margin-left: 30px;
+}
+
+.dinosaurnav--category-list {
+  margin: 0;
+}
+
+.dinosaurnav--category-list li {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  text-decoration: underline;
+  color: #565656;
+}
+
+.dinosaurnav--category-list li:hover {
+  color: #000000;
 }
 
 .dinosaurnav--category-country {
@@ -6880,16 +6882,7 @@ div#cookie-bar p {
   flex-basis: 40px;
 }
 
-.dinosaurnav .js-dinosaurnav--category {
-  margin-left: 30px;
-}
-
-.dinosaurnav .js-dinosaurnav--category a {
-  text-decoration: underline;
-}
-
-.dinosaurnav .js-dinosaurnav--category,
-.dinosaurnav .js-dinosaurnav--category-contract {
+.dinosaurnav--category, .dinosaurnav--icon-contract {
   display: none;
 }
 
