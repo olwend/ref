@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -9481,7 +9481,7 @@ a.button-cta {
 }
 
 .social-signup--description a {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   border-bottom: 1px dotted #FFFFFF;
 }
 
