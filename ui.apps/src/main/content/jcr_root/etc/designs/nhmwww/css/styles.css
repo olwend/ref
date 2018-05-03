@@ -6512,7 +6512,8 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .dinosaurfilter--dinosaur img {
-    max-width: 167px;
+    max-width: 119px;
+    margin-right: 0;
   }
 }
 
@@ -6524,20 +6525,19 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .dinosaurfilter--dinosaur img {
-    max-width: 170px;
+    max-width: 150px;
   }
 }
 
-.dinosaurfilter--genus {
+.dinosaurfilter--name {
   display: inline-block;
   font-style: italic;
   margin: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .dinosaurfilter--genus {
-    display: block;
-  }
+.dinosaurfilter--name-hyphenated {
+  display: none;
+  margin-bottom: -27px;
 }
 
 /** WR-1213 SINGLE DINO PAGE **/
