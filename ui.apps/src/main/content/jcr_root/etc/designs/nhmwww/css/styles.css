@@ -6711,12 +6711,12 @@ div#cookie-bar p {
   margin: 0 10px;
 }
 
-.dinosaurnav a p {
+.dinosaurnav a {
   color: #565656;
   text-decoration: underline;
 }
 
-.dinosaurnav a:hover p {
+.dinosaurnav a:hover {
   color: #000000;
 }
 
