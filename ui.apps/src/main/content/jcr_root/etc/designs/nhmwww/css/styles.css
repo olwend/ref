@@ -6566,7 +6566,7 @@ div#cookie-bar p {
 .dinosaur dl {
   line-height: 0;
   margin: 0;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .dinosaur h2 {
@@ -6675,6 +6675,10 @@ div#cookie-bar p {
   }
 }
 
+.dinosaur--info-container dl {
+  font-size: 1em;
+}
+
 .dinosaur--info-container dd {
   font-size: 1.125em;
   margin-bottom: .5em;
@@ -6691,6 +6695,10 @@ div#cookie-bar p {
   font-size: 1.18em;
   padding: 0 20px;
   margin-bottom: 20px;
+}
+
+.dinosaur--description-container dl {
+  font-size: 1em;
 }
 
 .dinosaur--comparison {
