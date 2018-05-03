@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.14 - Ruffled Rugops - 26-Apr-2018
+- WR-1267 - Add WhatsApp sharing icon to Discover Articles
+- WR-1317 - Restore use of JQuery clientlibs
+- WR-1338 - Rename Dinosaur Search component to Dinosaur Filter
+
+## 2.0.13 - Quirky Quaesitosaurus - 19-Apr-2018
+- WR-1235 - Review hotfixes in AEM 6.3 Author for HTI and CTA components
+- WR-1323 - Add "long" after length in Single Dino page
+- WR-1331 - Switch out the Anklysorid body type logo
+- WR-1332 - Add a space after colon in the Next Question link on Q&A single
+- WR-1333 - Check the dino scale math
+
 ## 2.0.12 - Ponderous Plateosaurus - 12-Apr-2018
 - WR-1214 - Create single dino filter pages
 - WR-1272 - Add social share to single dino pages
