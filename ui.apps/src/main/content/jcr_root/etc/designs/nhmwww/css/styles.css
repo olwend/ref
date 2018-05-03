@@ -6711,6 +6711,15 @@ div#cookie-bar p {
   margin: 0 10px;
 }
 
+.dinosaurnav a p {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaurnav a:hover p {
+  color: #000000;
+}
+
 .dinosaurnav--search-form {
   display: -webkit-flex;
   display: flex;
@@ -6891,14 +6900,17 @@ div#cookie-bar p {
   margin: 0 20px;
 }
 
-.dinosaursearchresults a {
-  text-decoration: none;
-  color: #AAAAAA;
+.dinosaursearchresults a p {
+  color: #565656;
+  text-decoration: underline;
 }
 
-.dinosaursearchresults a:hover {
-  text-decoration: none;
+.dinosaursearchresults a:hover p {
   color: #000000;
+}
+
+.dinosaursearchresults a:hover img {
+  opacity: 0.7;
 }
 
 .dinosaursearchresults--title {
