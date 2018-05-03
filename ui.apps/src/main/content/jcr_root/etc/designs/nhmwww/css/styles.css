@@ -6566,7 +6566,7 @@ div#cookie-bar p {
 .dinosaur dl {
   line-height: 0;
   margin: 0;
-  font-size: 1.18em;
+  font-size: 1em;
 }
 
 .dinosaur h2 {
@@ -6609,7 +6609,7 @@ div#cookie-bar p {
 }
 
 .dinosaur--name-description dd {
-  margin-right: 0.8em;
+  margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6618,17 +6618,17 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--pronunciation p {
+.dinosaur--pronunciation p, .dinosaur--pronunciation dd {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation p {
+  .dinosaur--pronunciation p, .dinosaur--pronunciation dd {
     margin-right: 20px;
   }
 }
 
-.dinosaur--meaning p {
+.dinosaur--meaning p, .dinosaur--meaning dd {
   margin: 0;
 }
 
@@ -6683,7 +6683,7 @@ div#cookie-bar p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.18em;
   padding: 0 20px;
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
 }
 
 .dinosaur--comparison {
