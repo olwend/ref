@@ -6736,6 +6736,10 @@ div#cookie-bar p {
   margin-bottom: 40px;
 }
 
+.dinosaur--taxonomy-container dl {
+  font-size: 1em;
+}
+
 .dinosaur--taxonomy-container p, .dinosaur--taxonomy-container dd {
   margin-bottom: 10px;
   margin-right: 0;

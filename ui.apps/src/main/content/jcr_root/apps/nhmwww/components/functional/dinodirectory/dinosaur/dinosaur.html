@@ -49,31 +49,31 @@
 				</div>
 			</div>
 
-			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
-				<dl>
-				<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
+		<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
+			<dl>
+				<sly data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
 					<dd>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="icon ${dinosaur.diet}"> </dd>
-				</div>
-				<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
+				</sly>
+				<sly data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
 					<dd>Country:
 						<sly data-sly-list.country="${dinosaur.countryList}">
 							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
 						</sly>
 					</dd>
-				</div>
+				</sly>
 				<div class="dinosaur--period">
 					<dd>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</dd>
 				</div>
-				<div data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
+				<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
 					<dd>Teeth: ${dinosaur.teeth}</dd>
-				</div>
-				<div data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
+				</sly>
+				<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
 					<dd>How it moved: ${dinosaur.howItMoved}</dd>
-				</div>
-				<div data-sly-test="${dinosaur.food}" class="dinosaur--food">
+				</sly>
+				<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
 					<dd>Food: ${dinosaur.food @ context='html'}</dd>
-				</div>
-				</dl>
+				</sly>
+			</dl>
 		</div>
 
 		<div class="dinosaur--content-container small-12 medium-12 large-7 large-offset-5 columns" data-sly-list="${dinosaur.textBlockCollection}">
@@ -98,7 +98,5 @@
 				<dd data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</dd>
 			</dl>
 		</div>
-
-
 	</div>
 </sly>
