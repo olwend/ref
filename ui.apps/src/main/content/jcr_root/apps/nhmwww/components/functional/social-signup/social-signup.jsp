@@ -41,24 +41,24 @@
 		<form id="newsletter_signup" action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html" method="get">
 
 			<div class="social-signup--input-container">
-				<div class="social-signup--firstname form-field firstname">
-					<input type="text" name="firstname" class="item-input" placeholder="First name">
+				<div class="social-signup--firstname form-field firstname" role="textbox">
+				<input type="text" name="firstname" class="item-input" placeholder="First name"  aria-label="input first name"></input>
 				</div>
 
-				<div class="social-signup--lastname form-field lastname">
-					<input type="text" name="lastname" class="item-input" placeholder="Surname">
+				<div class="social-signup--lastname form-field lastname" role="textbox">
+					<input type="text" name="lastname" class="item-input" placeholder="Surname" aria-label="input surname">
 				</div>
 
-				<div class="social-signup--email form-field email">
-					<input type="text" name="email" class="item-input" placeholder="Email address">
+				<div class="social-signup--email form-field email" role="textbox">
+					<input type="text" name="email" class="item-input" placeholder="Email address" aria-label="input email">
 				</div>
 
-				<div class="social-signup--submit">
-					<button class="button__newsletter-signup" type="submit">Sign up</button>
+				<div class="social-signup--submit" role="button">
+					<button class="button__newsletter-signup" aria-label="input button" type="submit">Sign up</button>
 				</div>
 			</div>
 
-			<input type="text" name="question" class="question">
+			<input type="text" name="question" class="question" aria-label="textbox">
 			<input type="hidden" name="source" value="www.nhm.ac.uk">
 			<input type="hidden" name="campaign" value="<%=helper.getCampaign()%>">
 
@@ -69,22 +69,22 @@
 			<div class="social-signup--link-icons">
 				<p><%=helper.getDescription()%></p>
 				<a href="https://www.facebook.com/naturalhistorymuseum">
-					<img src="/etc/designs/nhmwww/img/icons/facebook.png" class="social-signup--img__social" />
+					<img src="/etc/designs/nhmwww/img/icons/facebook.png" class="social-signup--img__social" alt="facebook icon"/>
 				</a>
 				<a href="https://twitter.com/NHM_London">
-					<img src="/etc/designs/nhmwww/img/icons/twitter.png" class="social-signup--img__social" />
+					<img src="/etc/designs/nhmwww/img/icons/twitter.png" class="social-signup--img__social" alt="twitter icon" />
 				</a>
 				<a href="https://www.youtube.com/user/naturalhistorymuseum">
-					<img src="/etc/designs/nhmwww/img/icons/youtube.png" class="social-signup--img__social" />
+					<img src="/etc/designs/nhmwww/img/icons/youtube.png" class="social-signup--img__social" alt="you tube icon" />
 				</a>
 				<a href="https://instagram.com/natural_history_museum">
-					<img src="/etc/designs/nhmwww/img/icons/instagram-logo-white.png" class="social-signup--img__social" />
+					<img src="/etc/designs/nhmwww/img/icons/instagram-logo-white.png" class="social-signup--img__social "alt="instagram icon" />
 				</a>
 				<a href="http://www.pinterest.com/nhmlondon">
-					<img src="/etc/designs/nhmwww/img/icons/pinterest.png" class="social-signup--img__social" />
+					<img src="/etc/designs/nhmwww/img/icons/pinterest.png" class="social-signup--img__social" alt="pinterest icon" />
 				</a>
 				<a href="https://plus.google.com/+NaturalHistoryMuseumLondon/posts">
-					<img src="/etc/designs/nhmwww/img/icons/gplus.png" class="social-signup--img__social" />
+					<img src="/etc/designs/nhmwww/img/icons/gplus.png" class="social-signup--img__social" alt="google plus icon"/>
 				</a>
 			</div>
 
