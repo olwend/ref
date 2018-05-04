@@ -1,8 +1,8 @@
 <%--
 
-  Row 2 Cells 1col then 2 col component.
+  Row 2 Cells 1col then 3 col component.
 
-  This component add a single row with two cells one of 33% followed by 66%
+  This component add a single row with two cells one of 25% followed by 75%
 
 --%><%
 %><%@include file="/libs/foundation/global.jsp"%><%
