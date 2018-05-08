@@ -5072,6 +5072,13 @@ html.js-noScroll {
   }
 }
 
+/** WR-1334 - Create a 1-3 row **/
+@media only screen and (min-width: 48em) {
+  .row2cells13 .large-9.medium-9.columns {
+    width: 74%;
+  }
+}
+
 /** ARTICLE TEMPLATE PARTIAL **/
 .article .row {
   width: 100%;
