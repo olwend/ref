@@ -9557,6 +9557,10 @@ a.button-cta {
   border-bottom: 0;
 }
 
+.social-signup--link-icons a:hover {
+  text-decoration: none;
+}
+
 .social-signup--img__social {
   max-height: 40px;
   max-width: 14%;
