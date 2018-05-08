@@ -6542,6 +6542,13 @@ div#cookie-bar p {
   margin: 0;
 }
 
+@media screen and (min-width: 640px) {
+  .dinosaurfilter--name {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .dinosaurfilter--name-hyphenated {
   display: none;
   margin-bottom: -27px;

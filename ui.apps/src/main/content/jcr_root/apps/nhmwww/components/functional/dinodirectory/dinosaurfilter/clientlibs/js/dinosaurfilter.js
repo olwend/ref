@@ -3,9 +3,9 @@ $(document).ready(function() {
     $('.dinosaurfilter--dinosaur').each(function() {
 
         var dinosaur = $(this),
-            nameWidth = dinosaur.find(".dinosaurfilter--name-unhyphenated")[0].scrollWidth, // nameWidth checks the full width of the element
-            containerWidth = dinosaur.width(); // containerWidth checks the displayed width of the element
-        if (nameWidth > containerWidth) { // If in portrait mode and full name width is greater than displayed width, i.e. overflowing
+            nameWidth = dinosaur.find(".dinosaurfilter--name-unhyphenated")[0].scrollWidth,
+            containerWidth = dinosaur.width();
+        if (nameWidth > ( containerWidth + 2 )) { // containerWidth has 2px added to account for variance in Foundation's block-grid column sizing
             dinosaur.find(".dinosaurfilter--name-unhyphenated").hide();
             dinosaur.find(".dinosaurfilter--name-hyphenated").show();
         }
