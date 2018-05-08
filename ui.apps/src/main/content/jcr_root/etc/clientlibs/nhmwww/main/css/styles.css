@@ -6687,12 +6687,6 @@ div#cookie-bar p {
   margin-bottom: 10px;
 }
 
-@media screen and (min-width: 768px) {
-  .dinosaur--info-container dd {
-    font-size: 1.125em;
-  }
-}
-
 .dinosaur--description-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.18em;
