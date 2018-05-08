@@ -6618,17 +6618,20 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--pronunciation p, .dinosaur--pronunciation dd {
+.dinosaur--pronunciation p,
+.dinosaur--pronunciation dd {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation p, .dinosaur--pronunciation dd {
+  .dinosaur--pronunciation p,
+  .dinosaur--pronunciation dd {
     margin-right: 20px;
   }
 }
 
-.dinosaur--meaning p, .dinosaur--meaning dd {
+.dinosaur--meaning p,
+.dinosaur--meaning dd {
   margin: 0;
 }
 
@@ -6681,7 +6684,7 @@ div#cookie-bar p {
 
 .dinosaur--info-container dd {
   font-size: 1.125em;
-  margin-bottom: .5em;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6740,7 +6743,8 @@ div#cookie-bar p {
   font-size: 1em;
 }
 
-.dinosaur--taxonomy-container p, .dinosaur--taxonomy-container dd {
+.dinosaur--taxonomy-container p,
+.dinosaur--taxonomy-container dd {
   margin-bottom: 10px;
   margin-right: 0;
 }
