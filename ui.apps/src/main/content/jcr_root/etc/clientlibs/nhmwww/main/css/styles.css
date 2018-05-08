@@ -6726,7 +6726,7 @@ div#cookie-bar p {
   flex-direction: row;
   flex-wrap: nowrap;
   margin: 25px 0 10px 0;
-  border: 3px solid #808080;
+  border: 3px solid #AAAAAA;
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
 }
 
@@ -6740,6 +6740,7 @@ div#cookie-bar p {
   font-size: 20px;
   line-height: 24px;
   border: none;
+  padding: 10px 10px 6px 10px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -6748,13 +6749,20 @@ div#cookie-bar p {
   }
 }
 
+.dinosaurnav--search-form input::placeholder,
+.dinosaurnav--search-form input ::-webkit-input-placeholder,
+.dinosaurnav--search-form input :-ms-input-placeholder {
+  color: #565656;
+  opacity: 1;
+}
+
 .dinosaurnav--search-button {
   padding: 0;
   min-width: 40px;
   height: 40px;
   background-color: #FFFFFF;
   border: none;
-  border-left: 3px solid #808080;
+  border-left: 3px solid #AAAAAA;
   background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -6771,7 +6779,7 @@ div#cookie-bar p {
 }
 
 .dinosaurnav--categories-container {
-  border: 3px solid #808080;
+  border: 3px solid #AAAAAA;
   padding: 5px 10px;
 }
 
@@ -6812,6 +6820,12 @@ div#cookie-bar p {
   margin: 0;
 }
 
+@media screen and (min-width: 768px) {
+  .dinosaurnav--description {
+    margin: 0 0 10px 0;
+  }
+}
+
 .dinosaurnav--category-title-container {
   cursor: pointer;
   color: #565656;
@@ -6845,11 +6859,25 @@ div#cookie-bar p {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 26px;
+  height: 100%;
   text-decoration: underline;
   color: #565656;
 }
 
 .dinosaurnav--category-list li:hover {
+  color: #000000;
+}
+
+.dinosaurnav--category-list-link {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  padding-bottom: 10px;
+  text-decoration: underline;
+  color: #565656;
+}
+
+.dinosaurnav--category-list-link:hover {
   color: #000000;
 }
 
@@ -6880,15 +6908,24 @@ div#cookie-bar p {
   background: #808080;
 }
 
-.dinosaurnav--category-az ul {
+.dinosaurnav--category-az {
+  margin-left: 15px;
+}
+
+.dinosaurnav--category-az .dinosaurnav--category-list {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.dinosaurnav--category-az li {
+.dinosaurnav--category-az .dinosaurnav--category-list a {
   flex-basis: 40px;
+  text-align: center;
+}
+
+.dinosaurnav--category-az .dinosaurnav--category-list-link {
+  line-height: 30px;
 }
 
 .dinosaurnav--category, .dinosaurnav--icon-contract {
