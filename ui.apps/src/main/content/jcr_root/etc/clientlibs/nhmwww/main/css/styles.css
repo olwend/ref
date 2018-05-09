@@ -6569,10 +6569,6 @@ div#cookie-bar p {
   font-size: 1.2em;
 }
 
-.dinosaur h2 {
-  font-size: 1.5em;
-}
-
 .dinosaur--container {
   position: relative;
   font-size: 1.2em;
@@ -6725,12 +6721,13 @@ div#cookie-bar p {
   padding: 0 20px;
 }
 
-.dinosaur--content-container, .dinosaur--taxonomy-container {
+.dinosaur--content-container {
   padding: 10px 20px 20px 20px;
 }
 
 .dinosaur--taxonomy-container {
   margin-bottom: 40px;
+  padding: 10px 20px 20px 20px;
 }
 
 .dinosaur--taxonomy-container dl {
