@@ -13,7 +13,7 @@
         $(document).on("dialog-ready", function() {
         	
         	var dialogTitle = $('.cq-dialog-header').text();
-        	if(dialogTitle.includes("Image gallery - gallery")) {
+        	if(dialogTitle.includes("Image gallery")) {
         		
 	            var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
 	 
@@ -135,7 +135,7 @@
     var collectDataFromFields = function(){
         $(document).on("click", ".cq-dialog-submit", function ($multifield) {
         	var dialogTitle = $('.cq-dialog-header').text();
-        	if(dialogTitle.includes("Carousel")) {
+        	if(dialogTitle.includes("Image gallery")) {
 	            var $form = $(this).closest("form.foundation-form");
 	 
 	            var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
