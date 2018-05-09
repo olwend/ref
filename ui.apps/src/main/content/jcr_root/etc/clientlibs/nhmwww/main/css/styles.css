@@ -6721,6 +6721,304 @@ div#cookie-bar p {
   margin-top: 40px;
 }
 
+/** DINOSAUR NAVIGATION **/
+.dinosaurnav {
+  margin: 0 10px;
+}
+
+.dinosaurnav a {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaurnav a:hover {
+  color: #000000;
+}
+
+.dinosaurnav--search-form {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 25px 0 10px 0;
+  border: 3px solid #AAAAAA;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+}
+
+.dinosaurnav--search-form input,
+.dinosaurnav--search-form button {
+  margin: 0;
+}
+
+.dinosaurnav--search-form input {
+  height: 40px;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  padding: 10px 10px 6px 10px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .dinosaurnav--search-form input {
+    font-size: 15px;
+  }
+}
+
+.dinosaurnav--search-form input::placeholder,
+.dinosaurnav--search-form input ::-webkit-input-placeholder,
+.dinosaurnav--search-form input :-ms-input-placeholder {
+  color: #565656;
+  opacity: 1;
+}
+
+.dinosaurnav--search-button {
+  padding: 0;
+  min-width: 40px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border: none;
+  border-left: 3px solid #AAAAAA;
+  background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.dinosaurnav--search-button:hover {
+  background-color: #AAAAAA;
+  background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
+}
+
+.dinosaurnav--categories-container {
+  border: 3px solid #AAAAAA;
+  padding: 5px 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--categories-container {
+    border: none;
+    padding: 0;
+  }
+}
+
+.dinosaurnav--categories {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--categories {
+    display: block;
+  }
+}
+
+.dinosaurnav--categories-container-icon {
+  position: absolute;
+  right: 23px;
+  margin-top: 5px;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--categories-container-icon {
+    display: none;
+  }
+}
+
+.dinosaurnav--description {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--description {
+    margin: 20px 0 10px 0;
+  }
+}
+
+.dinosaurnav--category-title-container {
+  cursor: pointer;
+  color: #565656;
+}
+
+.dinosaurnav--category-title-container:hover {
+  color: #000000;
+}
+
+.dinosaurnav--category-title {
+  font-family: "Elysio-Medium", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.dinosaurnav--category-icon {
+  margin-bottom: 5px;
+}
+
+.dinosaurnav--category {
+  margin-left: 30px;
+}
+
+.dinosaurnav--category-list {
+  margin: 0;
+}
+
+.dinosaurnav--category-list li {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  height: 100%;
+  text-decoration: underline;
+  color: #565656;
+}
+
+.dinosaurnav--category-list li:hover {
+  color: #000000;
+}
+
+.dinosaurnav--category-list-link {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  padding-bottom: 10px;
+  text-decoration: underline;
+  color: #565656;
+}
+
+.dinosaurnav--category-list-link:hover {
+  color: #000000;
+}
+
+.dinosaurnav--category-country {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaurnav--category-country {
+    max-height: 300px;
+  }
+}
+
+.dinosaurnav--category-country::-webkit-scrollbar {
+  width: 20px;
+}
+
+.dinosaurnav--category-country::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+.dinosaurnav--category-country::-webkit-scrollbar-thumb, .dinosaurnav--category-country::-webkit-scrollbar-thumb:window-inactive {
+  width: 8px;
+  border-right: 10px solid #FFFFFF;
+  border-top: 5px solid #FFFFFF;
+  border-bottom: 5px solid #FFFFFF;
+  background: #808080;
+}
+
+.dinosaurnav--category-az {
+  margin-left: 15px;
+}
+
+.dinosaurnav--category-az .dinosaurnav--category-list {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.dinosaurnav--category-az .dinosaurnav--category-list a {
+  flex-basis: 40px;
+  text-align: center;
+}
+
+.dinosaurnav--category-az .dinosaurnav--category-list-link {
+  line-height: 30px;
+}
+
+.dinosaurnav--category, .dinosaurnav--icon-contract {
+  display: none;
+}
+
+/** DINOSAUR SEARCH RESULTS **/
+.dinosaursearchresults {
+  margin: 0 20px;
+}
+
+.dinosaursearchresults a p {
+  color: #565656;
+  text-decoration: underline;
+}
+
+.dinosaursearchresults a:hover p {
+  color: #000000;
+}
+
+.dinosaursearchresults a:hover img {
+  opacity: 0.7;
+}
+
+.dinosaursearchresults--title {
+  margin-top: 15px;
+}
+
+.dinosaursearchresults--dinosaur {
+  background-color: #EEEEEE;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+@media screen and (min-width: 480px) {
+  .dinosaursearchresults--dinosaur {
+    background-color: #FFFFFF;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearchresults--dinosaur {
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+}
+
+.dinosaursearchresults--dinosaur img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearchresults--dinosaur img {
+    max-width: 167px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dinosaursearchresults--dinosaur img {
+    max-width: 230px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .dinosaursearchresults--dinosaur img {
+    max-width: 170px;
+  }
+}
+
+.dinosaursearchresults--genus {
+  display: inline-block;
+  font-style: italic;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaursearchresults--genus {
+    display: block;
+  }
+}
+
 /** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
 .directory-search {
   padding: 1.5em 1.5em 1em 1.5em;
