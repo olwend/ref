@@ -48,6 +48,12 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 					dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
 					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase().replaceAll(" ", "") + ".html");
 
+					if(!dinosaurs.getJSONObject(i).isNull("nameHyphenated")) {
+						dinosaurMap.put("nameHyphenated", dinosaurs.getJSONObject(i).getString("nameHyphenated"));
+					} else {
+						dinosaurMap.put("nameHyphenated", null);
+					}
+
 					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
 
 					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"

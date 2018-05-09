@@ -5072,6 +5072,13 @@ html.js-noScroll {
   }
 }
 
+/** WR-1334 - Create a 1-3 row **/
+@media only screen and (min-width: 48em) {
+  .row2cells13 .large-9.medium-9.columns {
+    width: 74%;
+  }
+}
+
 /** ARTICLE TEMPLATE PARTIAL **/
 .article .row {
   width: 100%;
@@ -6512,7 +6519,8 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .dinosaurfilter--dinosaur img {
-    max-width: 167px;
+    max-width: 119px;
+    margin-right: 0;
   }
 }
 
@@ -6524,20 +6532,26 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .dinosaurfilter--dinosaur img {
-    max-width: 170px;
+    max-width: 150px;
   }
 }
 
-.dinosaurfilter--genus {
+.dinosaurfilter--name {
   display: inline-block;
   font-style: italic;
   margin: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .dinosaurfilter--genus {
-    display: block;
+@media screen and (min-width: 640px) {
+  .dinosaurfilter--name {
+    display: flex;
+    flex-direction: column;
   }
+}
+
+.dinosaurfilter--name-hyphenated {
+  display: none;
+  margin-bottom: -27px;
 }
 
 /** WR-1213 SINGLE DINO PAGE **/
@@ -6588,6 +6602,7 @@ div#cookie-bar p {
 @media screen and (min-width: 768px) {
   .dinosaur--name-description {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -9761,35 +9776,19 @@ a.button-cta {
 }
 
 /** WR-1023 social signup component **/
-.social-signup .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.social-signup h3,
-.social-signup p {
+.social-signup--title {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-}
-
-.social-signup h3 {
   padding: 0 0.75em;
 }
 
-.social-signup--title-wrapper {
-  padding-left: 0;
-}
-
-.social-signup--title-row {
-  margin-left: 0 !important;
-}
-
-.social-signup--container {
+.social-signup--form-container {
   padding: 20px;
   background-color: #808080;
   color: #FFFFFF;
 }
 
 .social-signup--description p {
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 20px;
   line-height: 26px;
 }
@@ -9805,6 +9804,62 @@ a.button-cta {
   text-decoration: none;
 }
 
+.social-signup .js-social-signup--medium {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.social-signup .js-social-signup--medium .social-signup--firstname,
+.social-signup .js-social-signup--medium .social-signup--lastname {
+  width: 50%;
+}
+
+.social-signup .js-social-signup--medium .social-signup--email {
+  width: 65%;
+}
+
+.social-signup .js-social-signup--medium .social-signup--submit {
+  width: 35%;
+}
+
+.social-signup .js-social-signup--medium .social-signup--firstname,
+.social-signup .js-social-signup--medium .social-signup--email {
+  padding-right: 10px;
+}
+
+.social-signup .js-social-signup--medium .social-signup--lastname,
+.social-signup .js-social-signup--medium .social-signup--submit {
+  padding-left: 10px;
+}
+
+.social-signup .js-social-signup--large {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.social-signup .js-social-signup--large .social-signup--firstname,
+.social-signup .js-social-signup--large .social-signup--lastname,
+.social-signup .js-social-signup--large .social-signup--email,
+.social-signup .js-social-signup--large .social-signup--submit {
+  width: 25%;
+}
+
+.social-signup .js-social-signup--large .social-signup--firstname,
+.social-signup .js-social-signup--large .social-signup--lastname,
+.social-signup .js-social-signup--large .social-signup--email {
+  padding-right: 10px;
+}
+
+.social-signup .js-social-signup--large .social-signup--lastname,
+.social-signup .js-social-signup--large .social-signup--email,
+.social-signup .js-social-signup--large .social-signup--submit {
+  padding-left: 10px;
+}
+
 .social-signup--link-icons p {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 16px;
@@ -9813,6 +9868,10 @@ a.button-cta {
 
 .social-signup--link-icons a {
   border-bottom: 0;
+}
+
+.social-signup--link-icons a:hover {
+  text-decoration: none;
 }
 
 .social-signup--img__social {
@@ -9845,112 +9904,6 @@ a.button-cta {
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
   background-color: #808080;
-}
-
-.large-4 .social-signup.parbase .social-signup--form__first-name,
-.large-4 .social-signup.parbase .social-signup--form__last-name,
-.large-4 .social-signup.parbase .social-signup--form__email-address,
-.large-4 .social-signup.parbase .social-signup--form__button-submit {
-  width: 100%;
-}
-
-.large-6 .social-signup.parbase .social-signup--form__first-name,
-.large-6 .social-signup.parbase .social-signup--form__last-name,
-.large-8 .social-signup.parbase .social-signup--form__first-name,
-.large-8 .social-signup.parbase .social-signup--form__last-name {
-  width: 50%;
-}
-
-.large-6 .social-signup.parbase .social-signup--form__email-address,
-.large-8 .social-signup.parbase .social-signup--form__email-address {
-  width: 75%;
-}
-
-.large-6 .social-signup.parbase .social-signup--form__button-submit,
-.large-8 .social-signup.parbase .social-signup--form__button-submit {
-  width: 25%;
-}
-
-.large-6 .social-signup.parbase .social-signup--form__first-name,
-.large-6 .social-signup.parbase .social-signup--form__email-address,
-.large-8 .social-signup.parbase .social-signup--form__first-name,
-.large-8 .social-signup.parbase .social-signup--form__email-address {
-  padding-right: 10px;
-}
-
-.large-6 .social-signup.parbase .social-signup--form__last-name,
-.large-6 .social-signup.parbase .social-signup--form__button-submit,
-.large-8 .social-signup.parbase .social-signup--form__last-name,
-.large-8 .social-signup.parbase .social-signup--form__button-submit {
-  padding-left: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .large-6 .social-signup.parbase .social-signup--form__first-name,
-  .large-6 .social-signup.parbase .social-signup--form__last-name,
-  .large-6 .social-signup.parbase .social-signup--form__email-address,
-  .large-6 .social-signup.parbase .social-signup--form__button-submit,
-  .large-8 .social-signup.parbase .social-signup--form__first-name,
-  .large-8 .social-signup.parbase .social-signup--form__last-name,
-  .large-8 .social-signup.parbase .social-signup--form__email-address,
-  .large-8 .social-signup.parbase .social-signup--form__button-submit {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
-.large-12 .social-signup.parbase .social-signup--description p {
-  font-size: 26px;
-  line-height: 38px;
-}
-
-.large-12 .social-signup.parbase .social-signup--form__first-name,
-.large-12 .social-signup.parbase .social-signup--form__last-name,
-.large-12 .social-signup.parbase .social-signup--form__email-address {
-  padding-right: 10px;
-}
-
-.large-12 .social-signup.parbase .social-signup--form__last-name,
-.large-12 .social-signup.parbase .social-signup--form__email-address,
-.large-12 .social-signup.parbase .social-signup--form__button-submit {
-  padding-left: 10px;
-}
-
-@media screen and (max-width: 1024px) {
-  .large-12 .social-signup.parbase .social-signup--description p {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  .large-12 .social-signup.parbase .social-signup--form__email-address {
-    padding-left: 0;
-  }
-  .large-12 .social-signup.parbase .social-signup--form__last-name {
-    padding-right: 0;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .large-12 .social-signup.parbase .social-signup--form__first-name,
-  .large-12 .social-signup.parbase .social-signup--form__email-address {
-    padding-right: 10px;
-    padding-left: 0;
-  }
-  .large-12 .social-signup.parbase .social-signup--form__last-name,
-  .large-12 .social-signup.parbase .social-signup--form__button-submit {
-    padding-left: 10px;
-    padding-right: 0;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .large-12 .social-signup.parbase .social-signup--form__first-name,
-  .large-12 .social-signup.parbase .social-signup--form__last-name,
-  .large-12 .social-signup.parbase .social-signup--form__email-address,
-  .large-12 .social-signup.parbase .social-signup--form__button-submit {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
