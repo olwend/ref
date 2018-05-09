@@ -6773,11 +6773,6 @@ div#cookie-bar p {
   background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
 }
 
-.dinosaurnav--search-button img {
-  max-width: 27px;
-  max-height: 27px;
-}
-
 .dinosaurnav--categories-container {
   border: 3px solid #AAAAAA;
   padding: 5px 10px;
@@ -6822,7 +6817,7 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .dinosaurnav--description {
-    margin: 0 0 10px 0;
+    margin: 20px 0 10px 0;
   }
 }
 
