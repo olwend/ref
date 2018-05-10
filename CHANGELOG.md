@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.15 - Sanctimonious Supersaurus - 10-May-2018
+- WR-1320 - Dino Directory: Search and tertiary nav component
+- WR-1334 - Create 1,3 row
+- WR-1335 - Resize single dino and dino filter components for 1,3 row
+- WR-1340 - Social Signup refactor v2.0
+
 ## 2.0.14 - Ruffled Rugops - 26-Apr-2018
 - WR-1267 - Add WhatsApp sharing icon to Discover Articles
 - WR-1317 - Restore use of JQuery clientlibs
