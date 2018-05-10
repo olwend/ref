@@ -91,13 +91,14 @@
 
 
 		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-7 large-offset-5">
-			<dl>
-	
+			<div class="row">
 				<h3 class="dinosaur--section-title">Taxonomic details</h3>
-				<dd data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</dd>
-				<dd data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</dd>
-				<dd data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</dd>
-			</dl>
+				<dl>
+					<dd data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</dd>
+					<dd data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</dd>
+					<dd data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</dd>
+				</dl>
+			</div>
 		</div>
 	</div>
 </sly>
