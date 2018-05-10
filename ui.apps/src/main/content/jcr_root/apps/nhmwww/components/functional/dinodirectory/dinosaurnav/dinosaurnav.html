@@ -1,0 +1,153 @@
+<sly data-sly-use.dinonavClientLib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-call="${dinonavClientLib.all @ categories='nhmwww.dinodirectory.dinosaurnav'}"
+/>
+
+<link rel="stylesheet" href="/etc.clientlibs/clientlibs/granite/jquery-ui.css" type="text/css">
+<script type="text/javascript" src="/etc/clientlibs/foundation/jquery-ui.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/clientlibs/granite/jquery-ui.js"></script>
+
+<sly data-sly-use.dinosaurnav="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurNav">
+	<form name="userRegistrationForm" method="get" action="${dinosaurNav.targetPage}">
+		<div class="dinosaurnav--search-form">
+			<input id="dinosaur-input" class="dinosaurnav--search-input" type="text" name="search" placeholder="Search dinosaurs" aria-label="Input field to search for a dinosaur"
+			/>
+			<button class="dinosaurnav--search-button" type="submit" value="Submit" aria-label="Submit button to search for a dinosaur">&nbsp;</button>
+		</div>
+	</form>
+</sly>
+
+<div class="dinosaurnav--categories-container">
+	<img class="dinosaurnav--categories-container-icon dinosaurnav--icon-expand js-dinosaurnav--categories-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
+	 alt="Expand the dinosaur category options" />
+	<img class="dinosaurnav--categories-container-icon dinosaurnav--icon-contract js-dinosaurnav--categories-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
+	 alt="Close the dinosaur category options" />
+	<p class="dinosaurnav--description">Explore dinosaurs by:</p>
+
+	<div class="dinosaurnav--categories">
+		<div class="dinosaurnav--category-title-container js-dinosaurnav--category-control">
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-expand js-dinosaurnav--category-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
+			 alt="Expand the dinosaur A-Z category" />
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
+			 alt="Close the dinosaur A-Z category" />
+			<p class="dinosaurnav--category-title">Name (A-Z)</p>
+		</div>
+		<div class="dinosaurnav--category dinosaurnav--category-az js-dinosaurnav--category">
+			<div class="dinosaurnav--category-list">
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/a/gallery.html"><div class="dinosaurnav--category-list-link">A</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/b/gallery.html"><div class="dinosaurnav--category-list-link">B</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/c/gallery.html"><div class="dinosaurnav--category-list-link">C</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/d/gallery.html"><div class="dinosaurnav--category-list-link">D</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/e/gallery.html"><div class="dinosaurnav--category-list-link">E</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/f/gallery.html"><div class="dinosaurnav--category-list-link">F</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/g/gallery.html"><div class="dinosaurnav--category-list-link">G</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/h/gallery.html"><div class="dinosaurnav--category-list-link">H</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/i/gallery.html"><div class="dinosaurnav--category-list-link">I</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/j/gallery.html"><div class="dinosaurnav--category-list-link">J</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/k/gallery.html"><div class="dinosaurnav--category-list-link">K</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/l/gallery.html"><div class="dinosaurnav--category-list-link">L</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/m/gallery.html"><div class="dinosaurnav--category-list-link">M</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/n/gallery.html"><div class="dinosaurnav--category-list-link">N</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/o/gallery.html"><div class="dinosaurnav--category-list-link">O</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/p/gallery.html"><div class="dinosaurnav--category-list-link">P</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/q/gallery.html"><div class="dinosaurnav--category-list-link">Q</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/r/gallery.html"><div class="dinosaurnav--category-list-link">R</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/s/gallery.html"><div class="dinosaurnav--category-list-link">S</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/t/gallery.html"><div class="dinosaurnav--category-list-link">T</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/u/gallery.html"><div class="dinosaurnav--category-list-link">U</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/v/gallery.html"><div class="dinosaurnav--category-list-link">V</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/w/gallery.html"><div class="dinosaurnav--category-list-link">W</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/y/gallery.html"><div class="dinosaurnav--category-list-link">Y</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/z/gallery.html"><div class="dinosaurnav--category-list-link">Z</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/name/name-az-all.html"><div class="dinosaurnav--category-list-link">All</div></a>
+			</div>
+		</div>
+
+		<div class="dinosaurnav--category-title-container js-dinosaurnav--category-control">
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-expand js-dinosaurnav--category-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
+			 alt="Expand the dinosaur time period category" />
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
+			 alt="Close the dinosaur time period category" />
+			<p class="dinosaurnav--category-title">When they lived</p>
+		</div>
+		<div class="dinosaurnav--category dinosaurnav--category-timeperiod js-dinosaurnav--category">
+			<div class="dinosaurnav--category-list">
+				<a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-triassic/gallery.html"><div class="dinosaurnav--category-list-link">Late Triassic</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/timeline/early-jurassic/gallery.html"><div class="dinosaurnav--category-list-link">Early Jurassic</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/timeline/mid-jurassic/gallery.html"><div class="dinosaurnav--category-list-link">Mid Jurassic</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-jurassic/gallery.html"><div class="dinosaurnav--category-list-link">Late Jurassic</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/timeline/early-cretaceous/gallery.html"><div class="dinosaurnav--category-list-link">Early Cretaceous</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/timeline/late-cretaceous/gallery.html"><div class="dinosaurnav--category-list-link">Late Cretaceous</div></a>
+			</div>
+		</div>
+
+		<div class="dinosaurnav--category-title-container js-dinosaurnav--category-control">
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-expand js-dinosaurnav--category-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
+			 alt="Expand the dinosaur country category" />
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
+			 alt="Close the dinosaur country category" />
+			<p class="dinosaurnav--category-title">Country</p>
+		</div>
+		<div class="dinosaurnav--category dinosaurnav--category-country js-dinosaurnav--category">
+			<div class="dinosaurnav--category-list">
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/algeria/gallery.html"><div class="dinosaurnav--category-list-link">Algeria</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/antarctica/gallery.html"><div class="dinosaurnav--category-list-link">Antarctica</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/argentina/gallery.html"><div class="dinosaurnav--category-list-link">Argentina</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/australia/gallery.html"><div class="dinosaurnav--category-list-link">Australia</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/austria/gallery.html"><div class="dinosaurnav--category-list-link">Austria</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/belgium/gallery.html"><div class="dinosaurnav--category-list-link">Belgium</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/brazil/gallery.html"><div class="dinosaurnav--category-list-link">Brazil</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/canada/gallery.html"><div class="dinosaurnav--category-list-link">Canada</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/chile/gallery.html"><div class="dinosaurnav--category-list-link">Chile</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/china/gallery.html"><div class="dinosaurnav--category-list-link">China</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/egypt/gallery.html"><div class="dinosaurnav--category-list-link">Egypt</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/england/gallery.html"><div class="dinosaurnav--category-list-link">England</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/france/gallery.html"><div class="dinosaurnav--category-list-link">France</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/germany/gallery.html"><div class="dinosaurnav--category-list-link">Germany</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/india/gallery.html"><div class="dinosaurnav--category-list-link">India</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/japan/gallery.html"><div class="dinosaurnav--category-list-link">Japan</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/kazakhstan/gallery.html"><div class="dinosaurnav--category-list-link">Kazakhstan</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/lesotho/gallery.html"><div class="dinosaurnav--category-list-link">Lesotho</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/madagascar/gallery.html"><div class="dinosaurnav--category-list-link">Madagascar</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/malawi/gallery.html"><div class="dinosaurnav--category-list-link">Malawi</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/mongolia/gallery.html"><div class="dinosaurnav--category-list-link">Mongolia</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/morocco/gallery.html"><div class="dinosaurnav--category-list-link">Morocco</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/niger/gallery.html"><div class="dinosaurnav--category-list-link">Niger</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/north-africa/gallery.html"><div class="dinosaurnav--category-list-link">North Africa</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/portugal/gallery.html"><div class="dinosaurnav--category-list-link">Portugal</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/romania/gallery.html"><div class="dinosaurnav--category-list-link">Romania</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/russia/gallery.html"><div class="dinosaurnav--category-list-link">Russia</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/scotland/gallery.html"><div class="dinosaurnav--category-list-link">Scotland</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/south-africa/gallery.html"><div class="dinosaurnav--category-list-link">South Africa</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/spain/gallery.html"><div class="dinosaurnav--category-list-link">Spain</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/switzerland/gallery.html"><div class="dinosaurnav--category-list-link">Switzerland</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/tanzania/gallery.html"><div class="dinosaurnav--category-list-link">Tanzania</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/tunisia/gallery.html"><div class="dinosaurnav--category-list-link">Tunisia</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/united-kingdom/gallery.html"><div class="dinosaurnav--category-list-link">United Kingdom</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/uruguay/gallery.html"><div class="dinosaurnav--category-list-link">Uruguay</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/usa/gallery.html"><div class="dinosaurnav--category-list-link">USA</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/uzbekistan/gallery.html"><div class="dinosaurnav--category-list-link">Uzbekistan</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/wales/gallery.html"><div class="dinosaurnav--category-list-link">Wales</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/country/zimbabwe/gallery.html"><div class="dinosaurnav--category-list-link">Zimbabwe</div></a>
+			</div>
+		</div>
+
+		<div class="dinosaurnav--category-title-container js-dinosaurnav--category-control">
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-expand js-dinosaurnav--category-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
+			 alt="Expand the dinosaur bodytype category" />
+			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
+			 alt="Close the dinosaur bodytype category" />
+			<p class="dinosaurnav--category-title">Body shape</p>
+		</div>
+		<div class="dinosaurnav--category dinosaurnav--category-bodytype js-dinosaurnav--category">
+			<div class="dinosaurnav--category-list">
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ankylosaurid/gallery.html"><div class="dinosaurnav--category-list-link">Ankylosaurid</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ceratopsian/gallery.html"><div class="dinosaurnav--category-list-link">Ceratopsian</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/euornithopod/gallery.html"><div class="dinosaurnav--category-list-link">Euornithopod</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ornithomimosaur/gallery.html"><div class="dinosaurnav--category-list-link">Ornithomimosaur</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/sauropod/gallery.html"><div class="dinosaurnav--category-list-link">Sauropod</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/large-theropod/gallery.html"><div class="dinosaurnav--category-list-link">Large theropod</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/small-theropod/gallery.html"><div class="dinosaurnav--category-list-link">Small theropod</div></a>
+			</div>
+		</div>
+	</div>
+
+</div>
