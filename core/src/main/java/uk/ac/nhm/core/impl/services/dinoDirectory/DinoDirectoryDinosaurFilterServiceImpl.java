@@ -85,7 +85,7 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 		}
 
 		if(filterOne.equals("countries")) {
-			if(title.equals("USA")) {
+			if(title.equals("usa")) {
 				title = title.toUpperCase();
 			} else {
 				title = WordUtils.capitalizeFully(title);
