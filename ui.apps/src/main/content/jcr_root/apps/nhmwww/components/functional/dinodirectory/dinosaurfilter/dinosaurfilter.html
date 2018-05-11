@@ -1,0 +1,37 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.dinodirectory.dinosaurfilter'}" data-sly-unwrap></meta>
+</sly>
+
+<sly data-sly-test="${!properties.filterOne || !properties.filterTwo}">
+	<div class="row">
+	<h4>Dinosaur filter</h4>
+	Required fields:
+	<ul>
+		<li>Filter one</li>
+		<li>Filter two</li>
+	</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.filterOne && properties.filterTwo}">
+	<sly data-sly-use.dinosaurFilter="uk.ac.nhm.core.model.slingModels.dinoDirectory.DinosaurFilter">
+		<div class="dinosaurfilter--container">
+			<h1 class="dinosaurfilter--title">${dinosaurFilter.title}</h1>
+			<p class="dinosaurfilter--description">${dinosaurFilter.description @ context='html'}</p>
+
+			<ul data-sly-list.dinosaurs="${dinosaurFilter.dinosaurList}" class="small-block-grid-1 medium-block-grid-3 large-block-grid-5 dinosaurfilter--dino-list">
+				<li class="dinosaurfilter--dinosaur">
+					<a href="${dinosaurs['url']}">
+						<img src="${dinosaurs['imageUrl']}">
+						<p class="dinosaurfilter--name dinosaurfilter--name-unhyphenated">
+							${dinosaurs['genus']}
+						</p>
+						<p class="dinosaurfilter--name dinosaurfilter--name-hyphenated" data-sly-test="${dinosaurs['nameHyphenated']}">
+							${dinosaurs['nameHyphenated']}
+						</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</sly>
+</sly>
