@@ -65,6 +65,9 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		title = service.getTitle("countries", "England");
 		assertEquals(title, "Dinosaurs in England");
+		
+		title = service.getTitle("countries", "USA");
+		assertEquals(title, "Dinosaurs in USA");
 
 		//Initial
 		title = service.getTitle("initials", "a");
