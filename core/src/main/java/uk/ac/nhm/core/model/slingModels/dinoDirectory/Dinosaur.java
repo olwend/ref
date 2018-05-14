@@ -88,7 +88,8 @@ public class Dinosaur {
 					JSONObject country = countries.getJSONObject(i);
 	
 					countryMap.put("name", country.getString("country"));
-					countryMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/country/" + country.getString("country") + "/gallery.html");
+					countryMap.put("url", "http://" + host + ".nhm.ac.uk/discover/dino-directory/country/" 
+							+ country.getString("country").toLowerCase().replaceAll(" ", "-") + "/gallery.html");
 					countryList.add(countryMap);
 				}
 				
