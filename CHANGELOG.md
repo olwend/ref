@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.16 - Tragic Triceratops - 14-May-2018
+- WR-1344 - Accessibility: Footer: Replace Empty heading
+- WR-1347 - Accessibility: Social sign up missing labels & alt text 
+- WR-1365 - Replace country URL in single dino links
+- WR-1367 - Change title in USA page
+
 ## 2.0.15 - Sanctimonious Supersaurus - 10-May-2018
 - WR-1320 - Dino Directory: Search and tertiary nav component
 - WR-1334 - Create 1,3 row
