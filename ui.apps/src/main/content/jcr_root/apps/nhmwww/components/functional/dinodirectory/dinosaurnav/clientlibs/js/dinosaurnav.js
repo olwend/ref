@@ -1,7 +1,7 @@
 $( function() {
 	//Get a list of names from the API
     var availableDinosaurs = [];
-    $.getJSON('http://staging.nhm.ac.uk/api/dino-directory-api/dinosaurs?view=genus', function(data) {
+    $.getJSON('http://www.nhm.ac.uk/api/dino-directory-api/dinosaurs?view=genus', function(data) {
 
         for(var i=0; i<data.length; i++) {
             var url = "/content/nhmwww/en/home/discover/dino-directory/" + data[i].genus.toLowerCase() + ".html";
@@ -16,6 +16,10 @@ $( function() {
 
 			//Only show 10 items in the autocomplete list
             response(results.slice(0, 10));
+        },
+        focus: function (event, ui) {
+            event.preventDefault();
+            this.value = ui.item.label;
         },
         select: function(event, ui) {
         	//Override default and use label rather than value for input text
