@@ -46,7 +46,13 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 					Map<String, String> dinosaurMap = new HashMap<String, String>();
 
 					dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
-					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase() + ".html");
+					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase().replaceAll(" ", "") + ".html");
+
+					if(!dinosaurs.getJSONObject(i).isNull("nameHyphenated")) {
+						dinosaurMap.put("nameHyphenated", dinosaurs.getJSONObject(i).getString("nameHyphenated"));
+					} else {
+						dinosaurMap.put("nameHyphenated", null);
+					}
 
 					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
 
@@ -79,7 +85,11 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 		}
 
 		if(filterOne.equals("countries")) {
-			title = WordUtils.capitalizeFully(title);
+			if(title.equals("usa")) {
+				title = title.toUpperCase();
+			} else {
+				title = WordUtils.capitalizeFully(title);
+			}
 			title = "Dinosaurs in " + title;
 		}
 
