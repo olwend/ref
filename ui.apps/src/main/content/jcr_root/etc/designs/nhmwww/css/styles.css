@@ -6554,6 +6554,10 @@ div#cookie-bar p {
   margin-bottom: -27px;
 }
 
+.dinosaurfilter--all-list {
+  text-align: left;
+}
+
 /** WR-1213 SINGLE DINO PAGE **/
 .dinosaur a {
   color: #565656;
