@@ -22,9 +22,16 @@
 
   ==============================================================================
 
---%><%@include file="/libs/foundation/global.jsp" %><%
+--%>
+<%@page import="uk.ac.nhm.core.componentHelpers.ArticleHelper"%>
+<%@include file="/libs/foundation/global.jsp" %><%
 %><%@ page import="com.day.cq.commons.Doctype" %>
 <%@ page import="uk.ac.nhm.core.utils.*" %>
+
+<%
+	ArticleHelper helper = new ArticleHelper(resource);
+%>
+
 <%
     String xs = Doctype.isXHTML(request) ? "/" : "";
     String favIcon = currentDesign.getPath() + "/favicon.ico";
@@ -48,13 +55,14 @@
 	<meta name="twitter:site" content="@NHM_London">
 	<meta name="twitter:creator" content="@NHM_London">
 	<meta name="twitter:card" content="summary_large_image">
-<%-- 	<meta name="twitter:title" content="<%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum">
-	<meta name="twitter:description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>> --%>
+	<meta name="twitter:title" content="<%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum">
+	<meta name="twitter:description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
 	
-	<%if(helper.getOgTitle() != null) {%>
+<%if(helper.getOgTitle() != null) {%>
 		<meta property="og:title" content="<%=helper.getOgTitle() %>">
 		<meta name="twitter:title" content="<%=helper.getOgTitle() %>">
 	<%} %>
+		
 	<%if(helper.getOgDescription() != null) {%>
 		<meta property="og:description" content="<%=helper.getOgDescription() %>" >
 		<meta name="twitter:description" content="<%=helper.getOgDescription() %>">
@@ -63,13 +71,11 @@
 		if(helper.getSelectTab().equals("image")) {%>
 			<meta property="og:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
 			<meta name="twitter:image" content="http://<%=request.getServerName() %><%=helper.getOgImagePath() %>">
-		<%}
+		<%} %>
 		else if(helper.getSelectTab().equals("video")) { %>
 			<meta property="og:image" content="http://img.youtube.com/vi/<%= helper.getOgImagePath()%>/maxresdefault.jpg"/>
 			<meta name="twitter:image" content="http://img.youtube.com/vi/<%= helper.getOgImagePath()%>/maxresdefault.jpg">
-		<%}
-	}%>
-	
+		<%} %>
 	
     <cq:include script="headlibs.jsp"/>
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
