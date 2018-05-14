@@ -34,7 +34,7 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 		String requestUrl = null;
 		
 		if(filterTwo.equals("all")) {
-			requestUrl = BASE_URL + "/dinosaurs?view=genus";
+			requestUrl = BASE_URL + "/dinosaurs";
 		} else {
 			requestUrl = BASE_URL + "/" + filterOne + "/" + filterTwo + "/dinosaurs";
 		}
@@ -59,12 +59,14 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 						dinosaurMap.put("nameHyphenated", null);
 					}
 
-					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
-
-					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
-							+ dinosaurMedia.getString("identifier") + ".jpg";
-
-					dinosaurMap.put("imageUrl", imageUrl);
+					if(!filterTwo.equals("all")) {
+						JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
+	
+						String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
+								+ dinosaurMedia.getString("identifier") + ".jpg";
+	
+						dinosaurMap.put("imageUrl", imageUrl);
+					}
 
 					dinosaurList.add(dinosaurMap);
 				}
