@@ -10,7 +10,7 @@ public class SocialSignupHelper extends HelperBase {
 	/**
 	 * Provide a default data protection statement
 	 */
-	private String dataProtection = "<p>Sign up for our emails and receive regular updates about upcoming events and exhibitions."
+	private String dataProtection = "<p>Get email updates about our news, science, exhibitions, events, products, services and fundraising activities. You must be over the age of 13.."
 			+ " <a href=\"http://www.nhm.ac.uk/about-us/privacy-policy.html\">Privacy notice</a>.</p>";
 
 	private String title = "Don't miss a thing";
