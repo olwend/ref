@@ -6741,7 +6741,7 @@ div#cookie-bar p {
 }
 
 .dinosaur--content-container {
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 0 20px;
 }
 
 .dinosaur--taxonomy-container {
@@ -6760,10 +6760,6 @@ div#cookie-bar p {
 }
 
 .dinosaur--content-title {
-  margin-top: 40px;
-}
-
-.dinosaur--section-title {
   margin-top: 40px;
 }
 
