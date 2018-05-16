@@ -1,0 +1,23 @@
+<!-- <sly data-sly-test="${!properties.name}"> -->
+	<div class="row">
+		<h4>Image gallery</h4>
+		Required fields:
+		<ul>
+			<li>...</li>
+		</ul>
+	</div>
+<!-- </sly> -->
+
+<!-- <sly data-sly-test="${properties.name}"> -->
+
+<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImageGallery">
+	${imagepage.components}
+	
+	<ul data-sly-list.list="${imagepage.imagePageItems}">
+		<li>
+			<div data-sly-resource="${list['par'] @ resourceType='nhmwww/components/functional/imagepage/text'}"></div>
+        </li>
+	</ul>
+</sly>
+
+<!-- </sly> -->
