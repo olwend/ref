@@ -4648,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6568,6 +6568,25 @@ div#cookie-bar p {
   color: #000000;
 }
 
+.dinosaur dd {
+  line-height: 1.5em;
+  margin: 0 0 1em 0;
+  font-size: 1em;
+  text-rendering: optimizeLegibility;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur dd {
+    font-size: 1.125em;
+  }
+}
+
+.dinosaur dl {
+  line-height: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+
 .dinosaur--container {
   position: relative;
   font-size: 1.2em;
@@ -6603,6 +6622,10 @@ div#cookie-bar p {
   font-size: 23px;
 }
 
+.dinosaur--name-description dd {
+  margin-right: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .dinosaur--name-description {
     flex-direction: row;
@@ -6610,17 +6633,20 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--pronunciation p {
+.dinosaur--pronunciation p,
+.dinosaur--pronunciation dd {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation p {
+  .dinosaur--pronunciation p,
+  .dinosaur--pronunciation dd {
     margin-right: 20px;
   }
 }
 
-.dinosaur--meaning p {
+.dinosaur--meaning p,
+.dinosaur--meaning dd {
   margin: 0;
 }
 
@@ -6667,11 +6693,24 @@ div#cookie-bar p {
   }
 }
 
+.dinosaur--info-container dl {
+  font-size: 1em;
+}
+
+.dinosaur--info-container dd {
+  font-size: 1.125em;
+  margin-bottom: 10px;
+}
+
 .dinosaur--description-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.18em;
   padding: 0 20px;
   margin-bottom: 20px;
+}
+
+.dinosaur--description-container dl {
+  font-size: 1em;
 }
 
 .dinosaur--comparison {
@@ -6701,20 +6740,23 @@ div#cookie-bar p {
   padding: 0 20px;
 }
 
-.dinosaur--info-container p {
-  margin-bottom: 10px;
-}
-
-.dinosaur--content-container, .dinosaur--taxonomy-container {
+.dinosaur--content-container {
   padding: 10px 20px 20px 20px;
 }
 
 .dinosaur--taxonomy-container {
   margin-bottom: 40px;
+  padding: 10px 20px 20px 20px;
 }
 
-.dinosaur--taxonomy-container p {
+.dinosaur--taxonomy-container dl {
+  font-size: 1em;
+}
+
+.dinosaur--taxonomy-container p,
+.dinosaur--taxonomy-container dd {
   margin-bottom: 10px;
+  margin-right: 0;
 }
 
 .dinosaur--content-title {
