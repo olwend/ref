@@ -6554,6 +6554,10 @@ div#cookie-bar p {
   margin-bottom: -27px;
 }
 
+.dinosaurfilter--all-list {
+  text-align: left;
+}
+
 /** WR-1213 SINGLE DINO PAGE **/
 .dinosaur a {
   color: #565656;
@@ -6783,7 +6787,7 @@ div#cookie-bar p {
   background-position: center center;
 }
 
-.dinosaurnav--search-button:hover {
+.dinosaurnav--search-button:hover, .dinosaurnav--search-button:focus {
   background-color: #AAAAAA;
   background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
 }
@@ -6821,6 +6825,20 @@ div#cookie-bar p {
   .dinosaurnav--categories-container-icon {
     display: none;
   }
+}
+
+.dinosaurnav--button {
+  width: 80%;
+  text-align: left;
+  border: none;
+  background-color: #FFFFFF;
+  color: #565656;
+  padding: 2px 0;
+}
+
+.dinosaurnav--button:hover, .dinosaurnav--button:focus {
+  background-color: #FFFFFF;
+  color: #565656;
 }
 
 .dinosaurnav--description {
@@ -10743,7 +10761,7 @@ input.searchGo {
 
 .discover .title-bar h1,
 .discover .title-bar p {
-  color: #565656;
+  color: #565656 !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -11718,10 +11736,4 @@ input.searchGo {
 /** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
 .global-header--nav-list__item:hover.link-visit, .global-header--nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
-}
-
-/** Hotfix for release 2.0.13 **/
-.discover .title-bar h1,
-.discover .title-bar p {
-  color: #565656 !important;
 }
