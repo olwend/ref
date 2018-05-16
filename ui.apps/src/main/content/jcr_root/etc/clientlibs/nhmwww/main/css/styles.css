@@ -6783,7 +6783,7 @@ div#cookie-bar p {
   background-position: center center;
 }
 
-.dinosaurnav--search-button:hover {
+.dinosaurnav--search-button:hover, .dinosaurnav--search-button:focus {
   background-color: #AAAAAA;
   background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
 }
@@ -6821,6 +6821,20 @@ div#cookie-bar p {
   .dinosaurnav--categories-container-icon {
     display: none;
   }
+}
+
+.dinosaurnav--button {
+  width: 80%;
+  text-align: left;
+  border: none;
+  background-color: #FFFFFF;
+  color: #565656;
+  padding: 2px 0;
+}
+
+.dinosaurnav--button:hover, .dinosaurnav--button:focus {
+  background-color: #FFFFFF;
+  color: #565656;
 }
 
 .dinosaurnav--description {
