@@ -22,9 +22,11 @@
 
   ==============================================================================
 
---%><%@include file="/libs/foundation/global.jsp" %><%
+--%>
+<%@include file="/libs/foundation/global.jsp" %><%
 %><%@ page import="com.day.cq.commons.Doctype" %>
 <%@ page import="uk.ac.nhm.core.utils.*" %>
+
 <%
     String xs = Doctype.isXHTML(request) ? "/" : "";
     String favIcon = currentDesign.getPath() + "/favicon.ico";
@@ -47,9 +49,10 @@
     <meta name="twitter:widgets:csp" content="on">
 	<meta name="twitter:site" content="@NHM_London">
 	<meta name="twitter:creator" content="@NHM_London">
+	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="<%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum">
 	<meta name="twitter:description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
-
+	
     <cq:include script="headlibs.jsp"/>
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
 

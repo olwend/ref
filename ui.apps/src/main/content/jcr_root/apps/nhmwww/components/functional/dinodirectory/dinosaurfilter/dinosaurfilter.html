@@ -20,9 +20,11 @@
 			<p class="dinosaurfilter--description">${dinosaurFilter.description @ context='html'}</p>
 
 			<ul data-sly-list.dinosaurs="${dinosaurFilter.dinosaurList}" class="small-block-grid-1 medium-block-grid-3 large-block-grid-5 dinosaurfilter--dino-list">
-				<li class="dinosaurfilter--dinosaur">
+				<li class="dinosaurfilter--dinosaur ${!dinosaurs['imageUrl'] ? 'dinosaurfilter--all-list' : ''}">
 					<a href="${dinosaurs['url']}">
-						<img src="${dinosaurs['imageUrl']}">
+						<sly data-sly-test="${dinosaurs['imageUrl']}">
+							<img src="${dinosaurs['imageUrl']}">
+						</sly>
 						<p class="dinosaurfilter--name dinosaurfilter--name-unhyphenated">
 							${dinosaurs['genus']}
 						</p>
