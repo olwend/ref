@@ -35,6 +35,12 @@
 	//Create an ArrayList to hold data
 	List<Resource> initialList = new ArrayList<Resource>();
 
+	//Add all option to top of datasource list
+	ValueMap vmAll = new ValueMapDecorator(new HashMap<String, Object>());
+	vmAll.put("value", "all");
+	vmAll.put("text", "All");
+	initialList.add(new ValueMapResource(resolver, new ResourceMetadata(), "nt:unstructured", vmAll));
+	
 	try {
 		httpClient.executeMethod(getMethod);
 		JSONArray initials = new JSONArray(getMethod.getResponseBodyAsString());

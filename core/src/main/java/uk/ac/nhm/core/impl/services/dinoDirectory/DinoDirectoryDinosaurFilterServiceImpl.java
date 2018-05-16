@@ -31,8 +31,13 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 		List<Map<String, String>> dinosaurList = new ArrayList<Map<String, String>>();
 
 		final String BASE_URL = environmentUrl;
-
-		String requestUrl = BASE_URL + "/" + filterOne + "/" + filterTwo + "/dinosaurs";
+		String requestUrl = null;
+		
+		if(filterTwo.equals("all")) {
+			requestUrl = BASE_URL + "/dinosaurs";
+		} else {
+			requestUrl = BASE_URL + "/" + filterOne + "/" + filterTwo + "/dinosaurs";
+		}
 
 		GetMethod getMethod = new GetMethod(requestUrl);
 
@@ -54,12 +59,14 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 						dinosaurMap.put("nameHyphenated", null);
 					}
 
-					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
-
-					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
-							+ dinosaurMedia.getString("identifier") + ".jpg";
-
-					dinosaurMap.put("imageUrl", imageUrl);
+					if(!filterTwo.equals("all")) {
+						JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
+	
+						String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
+								+ dinosaurMedia.getString("identifier") + ".jpg";
+	
+						dinosaurMap.put("imageUrl", imageUrl);
+					}
 
 					dinosaurList.add(dinosaurMap);
 				}
@@ -94,7 +101,11 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 		}
 
 		if(filterOne.equals("initials")) {
-			title = "Dinosaurs beginning with " + title.toUpperCase();
+			if(filterTwo.equals("all")) {
+				title = "All dinosaurs";
+			} else {
+				title = "Dinosaurs beginning with " + title.toUpperCase();
+			}
 		}
 
 		if(filterOne.equals("periods")) {
@@ -146,10 +157,14 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 			}
 
 			if(filterOne.equals("initials")) {
-				if(filterItem.getInt("dinosaurCount") > 1) {
-					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();
-				} else {
-					description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur beginning with " + filterItem.getString("initial").toUpperCase();
+				if(filterTwo.equals("all")) {
+					description = null;
+				} else { 
+					if(filterItem.getInt("dinosaurCount") > 1) {
+						description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();
+					} else {
+						description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaur beginning with " + filterItem.getString("initial").toUpperCase();
+					}
 				}
 			}
 
@@ -158,7 +173,9 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 		}
 
 		//Transform description
-		description = description.substring(0, 1).toUpperCase() + description.substring(1);
+		if(description != null) {
+			description = description.substring(0, 1).toUpperCase() + description.substring(1);
+		}
 
 		if(filterOne.equals("body-shapes")) {
 			description = description + ".";
