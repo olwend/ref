@@ -23,7 +23,7 @@
 		                    jcr:primaryType="nt:unstructured"
 		                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
 		                    eaem-nested="NODE_STORE"
-		                    name="./carouselItems" >
+		                    name="./imagePageItems" >
                             <layout
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
