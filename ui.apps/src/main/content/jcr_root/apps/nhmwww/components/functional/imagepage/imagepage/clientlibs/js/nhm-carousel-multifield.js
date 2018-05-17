@@ -191,11 +191,25 @@
  
         //remove the field, so that individual values are not POSTed
         $field.remove();
- 
+
         $('<input />').attr('type', 'hidden')
             .attr('name', fieldSetName + "/par" + counter + "/" + name)
             .attr('value', value)
             .appendTo($form);
+
+        if(name == "components") {
+			 $('<input />').attr('type', 'hidden')
+             .attr('name', fieldSetName + "/par" + counter + "/sling:resourceType")
+                .attr('value', "nhmwww/components/functional/imagepage/" + value)
+                .appendTo($form);
+
+            if(value == "text") {
+                $('<input />').attr('type', 'hidden')
+                 .attr('name', fieldSetName + "/par" + counter + "/textIsRich")
+                    .attr('value', "true")
+                    .appendTo($form);
+            }
+        }
     }
  
     function addNestedMultifieldData($form, outerMultiName, $nestedMultiField){
@@ -214,7 +228,12 @@
             $fields.each(function (counter, field) {
                 fillValue($form, nName, $(field), (iCounter + 1));
             });
+            
+
+            
         });
+        
+        
     }
  
     function collectDataFromFields(){

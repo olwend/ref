@@ -11,11 +11,9 @@
 <!-- <sly data-sly-test="${properties.name}"> -->
 
 <sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImageGallery">
-	${imagepage.components}
-	
 	<ul data-sly-list.list="${imagepage.imagePageItems}">
 		<li>
-			<div data-sly-resource="${list['par'] @ resourceType='nhmwww/components/functional/imagepage/text'}"></div>
+			<div data-sly-resource="${list.par}"></div>
         </li>
 	</ul>
 </sly>

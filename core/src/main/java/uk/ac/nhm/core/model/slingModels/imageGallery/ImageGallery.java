@@ -54,28 +54,13 @@ public class ImageGallery {
 			Node childNode = itemsNodeIterator.nextNode();
 			Map<String, String> imagePageItemMap = new HashMap<String, String>();
 			
-			imagePageItemMap.put("type", "nhmwww/components/functional/imagepage/" + childNode.getProperty("components").getString());
-			imagePageItemMap.put("value", childNode.getProperty("itemHeading").getString());
 			String par = "imagePageItems/par" + (i + 1);
 			imagePageItemMap.put("par", par);
+						
 			itemsList.add(imagePageItemMap);
+			
 			i++;
 		}
-//		this.setComponents(properties.get("imagePageItems", String.class));
-//
-//		String[] imagePageItems = properties.get("imagePageItems", String[].class);
-//		String imagePageItemsString = "[";
-//		
-//		for(int i=0; i<imagePageItems.length; i++) {
-//			Map<String, String> imagePageItemMap = new HashMap<String, String>();
-//			
-//			JSONObject jsonObject = new JSONObject(imagePageItems[i]);
-//			imagePageItemMap.put("type", "nhmwww/components/functional/imagepage/" + jsonObject.getString("components"));
-//			imagePageItemMap.put("value", jsonObject.getString("itemHeading"));
-//			String par = "imagePageItems/par" + (i + 1);
-//			imagePageItemMap.put("par", par);
-//			itemsList.add(imagePageItemMap);
-//		}
 		
 		this.setImagePageItems(itemsList);
 	}
