@@ -41,32 +41,32 @@
         $field.val(date.format($parent.data("stored-format")));
     }
  
-    function isTagsField($fieldWrapper) {
-        return !_.isEmpty($fieldWrapper) && ($fieldWrapper.children(".js-cq-TagsPickerField").length > 0);
-    }
- 
-    function getTagsFieldName($fieldWrapper) {
-        return $fieldWrapper.children(".js-cq-TagsPickerField").data("property-path").substr(2);
-    }
- 
-    function getTagObject(tag){
-        var tagPath = "/etc/tags/" + tag.replace(":", "/");
-        return $.get(tagPath + ".tag.json");
-    }
- 
-    function setTagsField($fieldWrapper, tags) {
-        if(_.isEmpty(tags)){
-            return;
-        }
- 
-        var cuiTagList = $fieldWrapper.find(".coral-TagList").data("tagList");
- 
-        _.each(tags, function(tag){
-            getTagObject(tag).done(function(data){
-                cuiTagList._appendItem( { value: data.tagID, display: data.titlePath} );
-            });
-        });
-    }
+//    function isTagsField($fieldWrapper) {
+//        return !_.isEmpty($fieldWrapper) && ($fieldWrapper.children(".js-cq-TagsPickerField").length > 0);
+//    }
+// 
+//    function getTagsFieldName($fieldWrapper) {
+//        return $fieldWrapper.children(".js-cq-TagsPickerField").data("property-path").substr(2);
+//    }
+// 
+//    function getTagObject(tag){
+//        var tagPath = "/etc/tags/" + tag.replace(":", "/");
+//        return $.get(tagPath + ".tag.json");
+//    }
+// 
+//    function setTagsField($fieldWrapper, tags) {
+//        if(_.isEmpty(tags)){
+//            return;
+//        }
+// 
+//        var cuiTagList = $fieldWrapper.find(".coral-TagList").data("tagList");
+// 
+//        _.each(tags, function(tag){
+//            getTagObject(tag).done(function(data){
+//                cuiTagList._appendItem( { value: data.tagID, display: data.titlePath} );
+//            });
+//        });
+//    }
  
     function isMultifield($formFieldWrapper){
         return ($formFieldWrapper.children("[data-init='multifield']").length > 0);
@@ -132,10 +132,11 @@
                     });
  
                     return;
-                }else if(isTagsField($formFieldWrapper)){
-                    setTagsField($formFieldWrapper, value[getTagsFieldName($formFieldWrapper)]);
-                    return;
                 }
+//                else if(isTagsField($formFieldWrapper)){
+//                    setTagsField($formFieldWrapper, value[getTagsFieldName($formFieldWrapper)]);
+//                    return;
+//                }
  
                 $field = $formFieldWrapper.find("[name]");
  
@@ -182,8 +183,25 @@
         if (name.indexOf("./") === 0) {
             name = name.substring(2);
         }
- 
-        value = $field.val();
+
+        if(name == "file") {
+            $field.each(function() {
+              $.each(this.attributes, function() {
+                // this.attributes is not a plain object, but an array
+                // of attribute nodes, which contain both the name and value
+                if(this.specified) {
+                    if(this.name == "value" && this.value.startsWith("/content")) {
+                        value = this.value;
+                        name = "fileReference";
+                  		console.log(this.name, this.value);
+                    }
+                }
+              });
+            });
+        } else {
+        	value = $field.val();
+        }
+        //console.log($field);
  
         if (isCheckbox($field)) {
             value = $field.prop("checked") ? $field.val() : "";
@@ -207,6 +225,20 @@
                 $('<input />').attr('type', 'hidden')
                  .attr('name', fieldSetName + "/par" + counter + "/textIsRich")
                     .attr('value', "true")
+                    .appendTo($form);
+            }
+            
+            var d = new Date();
+            //2018-05-16T14:14:47.040+01:00
+            if(value == "image") {
+				$('<input />').attr('type', 'date')
+	                .attr('name', fieldSetName + "/par" + counter + "/jcr:created")
+					.attr('value', d)
+	                .appendTo($form);
+
+                $('<input />').attr('type', 'hidden')
+                	.attr('name', fieldSetName + "/par" + counter + "/jcr:createdBy")
+                    .attr('value', "admin")
                     .appendTo($form);
             }
         }
