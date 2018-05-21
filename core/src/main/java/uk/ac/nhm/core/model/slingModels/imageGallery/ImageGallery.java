@@ -54,8 +54,8 @@ public class ImageGallery {
 			Node childNode = itemsNodeIterator.nextNode();
 			Map<String, String> imagePageItemMap = new HashMap<String, String>();
 			
-			String par = "imagePageItems/par" + (i + 1);
-			imagePageItemMap.put("par", par);
+			String row = "imagePageItems/row" + (i + 1);
+			imagePageItemMap.put("row", row);
 						
 			itemsList.add(imagePageItemMap);
 			

@@ -2,7 +2,8 @@
     var EAEM_NESTED = "eaem-nested",
         DATA_EAEM_NESTED = "data-" + EAEM_NESTED,
         CFFW = ".coral-Form-fieldwrapper",
-        NODE_STORE = "NODE_STORE";
+        NODE_STORE = "NODE_STORE",
+        componentNode = "";
  
     function isNodeStoreMultifield(type) {
         return (type === NODE_STORE);
@@ -210,20 +211,34 @@
         //remove the field, so that individual values are not POSTed
         $field.remove();
 
-        $('<input />').attr('type', 'hidden')
-            .attr('name', fieldSetName + "/par" + counter + "/" + name)
-            .attr('value', value)
-            .appendTo($form);
+
 
         if(name == "components") {
+			componentNode = value;
+
+			$('<input />').attr('type', 'hidden')
+             .attr('name', fieldSetName + "/row" + counter + "/sling:resourceType")
+                .attr('value', "nhmwww/components/functional/layout/rowfullwidth")
+                .appendTo($form);
+
+            $('<input />').attr('type', 'hidden')
+             .attr('name', fieldSetName + "/row" + counter + "/par2/sling:resourceType")
+                .attr('value', "foundation/components/parsys")
+                .appendTo($form);
+
 			 $('<input />').attr('type', 'hidden')
-             .attr('name', fieldSetName + "/par" + counter + "/sling:resourceType")
+             .attr('name', fieldSetName + "/row" + counter + "/par2/" + value + "/sling:resourceType")
                 .attr('value', "nhmwww/components/functional/imagepage/" + value)
                 .appendTo($form);
 
             if(value == "text") {
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/par" + counter + "/textIsRich")
+                    .attr('name', fieldSetName + "/row" + counter + "/par2/" + value + "/" + name)
+                    .attr('value', value)
+                    .appendTo($form);
+
+                $('<input />').attr('type', 'hidden')
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/" + value + "/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
             }
@@ -232,15 +247,20 @@
             //2018-05-16T14:14:47.040+01:00
             if(value == "image") {
 				$('<input />').attr('type', 'date')
-	                .attr('name', fieldSetName + "/par" + counter + "/jcr:created")
+	                .attr('name', fieldSetName + "/row" + counter + "/par2/" + value + "/jcr:created")
 					.attr('value', d)
 	                .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                	.attr('name', fieldSetName + "/par" + counter + "/jcr:createdBy")
+                	.attr('name', fieldSetName + "/row" + counter + "/par2/" + value + "/jcr:createdBy")
                     .attr('value', "admin")
                     .appendTo($form);
             }
+        } else {
+			$('<input />').attr('type', 'hidden')
+                .attr('name', fieldSetName + "/row" + counter + "/par2/" + componentNode  + "/" +name)
+                .attr('value', value)
+                .appendTo($form);
         }
     }
  
