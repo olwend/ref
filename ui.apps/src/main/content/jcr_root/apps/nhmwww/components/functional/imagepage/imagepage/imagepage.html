@@ -1,4 +1,4 @@
-<!-- <sly data-sly-test="${!properties.name}"> -->
+<sly data-sly-test="${!properties.jcr:title}">
 	<div class="row">
 		<h4>Image gallery</h4>
 		Required fields:
@@ -6,16 +6,36 @@
 			<li>...</li>
 		</ul>
 	</div>
-<!-- </sly> -->
-
-<!-- <sly data-sly-test="${properties.name}"> -->
-
-<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImageGallery">
-	<ul data-sly-list.list="${imagepage.imagePageItems}">
-		<li>
-			<div data-sly-resource="${list.row}"></div>
-        </li>
-	</ul>
 </sly>
 
-<!-- </sly> -->
+<sly data-sly-test="${properties.jcr:title}">
+
+	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImageGallery">
+
+		<div class="hero">
+            <div data-sly-resource="${'leadimage'}"></div>
+        </div>
+
+		<div class="row">
+			<div class="small-3 medium-3 large-3 columns">
+				<div data-sly-resource="${'leadimagecaption'}"></div>
+			</div>
+			<div class="small-9 medium-9 large-9 columns">
+				<h2>${imagepage.title}</h2>
+				
+				<p>${imagepage.author}</p>
+				<p>${imagepage.datePublished}</p>
+				<p>${imagepage.dateLastUpdated}</p>
+
+				<div data-sly-resource="${'introductiontext'}"></div>
+			</div>
+		</div>
+	
+		<ul data-sly-list.list="${imagepage.imagePageItems}">
+			<li>
+				<div data-sly-resource="${list.row}"></div>
+	        </li>
+		</ul>
+	</sly>
+
+</sly>
