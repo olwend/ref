@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.18 - Valiant Valdosaurus - 24-May-2018
+- WR-1370 - GDPR social sign up
+- WR-1371 - GDPR enews sign up
+- WR-1373 - Dino reduce gap between content and taxonomic detail 
 
 ## 2.0.17 - Ubiquitous Utahraptor - 17-May-2018
 - WR-1361 - Fix dino nav autocomplete bug
