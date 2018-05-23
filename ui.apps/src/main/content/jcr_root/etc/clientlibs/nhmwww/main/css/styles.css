@@ -6763,6 +6763,10 @@ div#cookie-bar p {
   margin-top: 40px;
 }
 
+.dinosaur--section-title {
+  margin-top: 20px;
+}
+
 /** DINOSAUR NAVIGATION **/
 .dinosaurnav {
   margin: 0 10px;
