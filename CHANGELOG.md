@@ -1,7 +1,7 @@
 # Changelog
 ## 2.0.18 - Valiant Valdosaurus - 24-May-2018
-- WR-1370 - GDPR social sign up
-- WR-1371 - GDPR enews sign up
+- WR-1370 - GDPR text change to social / signup component
+- WR-1371 - GDPR text change to enews signup
 - WR-1373 - Dino reduce gap between content and taxonomic detail 
 
 ## 2.0.17 - Ubiquitous Utahraptor - 17-May-2018
@@ -12,7 +12,7 @@
 - WR-1369 - Align text on single dino to match design 
 - WR-1011 - Investigate separating JS 
 - WR-1354 - Twitter card to all templates 
-- WR-1353 - Add “all” option to a-z dino filter 
+- WR-1353 - Add "all" option to a-z dino filter 
 
 ## 2.0.16 - Tragic Triceratops - 14-May-2018
 - WR-1344 - Accessibility: Footer: Replace Empty heading
