@@ -29,9 +29,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Model(adaptables = SlingHttpServletRequest.class)
-public class ImageGallery {
+public class ImagePageNew {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ImageGallery.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ImagePageNew.class);
 
 	@Inject
 	ValueMap properties;
