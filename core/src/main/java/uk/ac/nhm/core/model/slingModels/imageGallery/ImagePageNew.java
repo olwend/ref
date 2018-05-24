@@ -74,25 +74,19 @@ public class ImagePageNew {
 		
 		List<Map<String, String>> itemsList = new ArrayList<Map<String, String>>();
 		
-		String imagePathItemsPath = request.getResource().getPath() + "/imagePageItems";
-		Node itemsNode = resourceResolver.getResource(imagePathItemsPath).adaptTo(Node.class);
-		NodeIterator itemsNodeIterator = itemsNode.getNodes();
-		
-		int i = 0;
-		
-		while(itemsNodeIterator.hasNext()) {
-			Node childNode = itemsNodeIterator.nextNode();
-			Map<String, String> imagePageItemMap = new HashMap<String, String>();
-			
-			String row = "imagePageItems/row" + (i + 1);
-			imagePageItemMap.put("row", row);
-						
-			itemsList.add(imagePageItemMap);
-			
-			i++;
-		}
-		
-		this.setImagePageItems(itemsList);
+		String imagePathItemsPath = request.getResource().getPath() + "/imagepageitems";
+		LOG.error(imagePathItemsPath);
+//		Node itemsNode = resourceResolver.getResource(imagePathItemsPath).adaptTo(Node.class);
+//		NodeIterator itemsNodeIterator = itemsNode.getNodes();
+//		
+//		int i = 0;
+//		
+//		while(itemsNodeIterator.hasNext()) {
+//			LOG.error(String.valueOf(i));
+//			i++;
+//		}
+//		
+//		this.setImagePageItems(itemsList);
 	}
 
 	public String getMonth(int month) {

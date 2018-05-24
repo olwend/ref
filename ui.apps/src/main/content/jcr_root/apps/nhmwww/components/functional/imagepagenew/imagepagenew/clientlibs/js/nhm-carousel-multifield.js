@@ -3,6 +3,8 @@
         CFFW = ".coral-Form-fieldwrapper",
         THUMBNAIL_IMG_CLASS = "cq-FileUpload-thumbnail-img",
         SEP_SUFFIX = "-",
+        RTE_CONTAINER = "richtext-container",
+        RTE_EDITABLE = ".coral-RichText-editable",
         SEL_FILE_UPLOAD = ".coral-FileUpload",
         SEL_FILE_REFERENCE = ".cq-FileUpload-filereference",
         SEL_FILE_NAME = ".cq-FileUpload-filename",
@@ -77,6 +79,18 @@
         $field.prop("checked", $field.attr("value") === value);
     }
 
+    function setHiddenOrRichText($field, value){
+        $field.val(value);
+ 
+        var $rteContainer = $field.parent();
+ 
+        if(!$rteContainer.hasClass(RTE_CONTAINER)){
+            return;
+        }
+ 
+        $rteContainer.children(RTE_EDITABLE).empty().append(value);
+    }
+    
     function setWidgetValue($field, value) {
         if (_.isEmpty($field)) {
             return;
@@ -86,6 +100,8 @@
             setSelectOne($field, value);
         } else if (isCheckbox($field)) {
             setCheckBox($field, value);
+        } else if($field.prop("type") == "hidden") {
+            setHiddenOrRichText($field, value);
         } else {
             $field.val(value);
         }

@@ -349,17 +349,17 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <product
+                                            <imagepageitems
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/foundation/form/multifield"
                                                 class="full-width"
                                                 eaem-nested=""
-                                                fieldDescription="Click '+' to add a Product"
-                                                fieldLabel="Product">
+                                                fieldDescription="Click '+' to add an item"
+                                                fieldLabel="Image page item">
                                                 <field
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/foundation/form/fieldset"
-                                                    name="./products">
+                                                    name="./imagepageitems">
                                                     <layout
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
@@ -752,7 +752,7 @@
                                                         </column>
                                                     </items>
                                                 </field>
-                                            </product>
+                                            </imagepageitems>
                                         </items>
                                     </column>
                                 </items>
