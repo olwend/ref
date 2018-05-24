@@ -59,7 +59,7 @@ $( document ).ready(function() {
         }
     });
 
-    $('.dinosaurnav--description').click(function(){
+    $('.js-dinosaurnav--description-container').click(function(){
         if (window.innerWidth < 750) {
             if ( $(this).hasClass('active') ) {
                 $(this).removeClass('active');

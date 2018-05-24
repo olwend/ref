@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.17 - Ubiquitous Utahraptor - 17-May-2018
+- WR-1361 - Fix dino nav autocomplete bug
+- WR-1364 - Hotfix Sass partial
+- WR-1363 - Dino nav buttons 
+- WR-1328 - Accessibility single dino page
+- WR-1369 - Align text on single dino to match design 
+- WR-1011 - Investigate separating JS 
+- WR-1354 - Twitter card to all templates 
+- WR-1353 - Add “all” option to a-z dino filter 
+
 ## 2.0.16 - Tragic Triceratops - 14-May-2018
 - WR-1344 - Accessibility: Footer: Replace Empty heading
 - WR-1347 - Accessibility: Social sign up missing labels & alt text 
