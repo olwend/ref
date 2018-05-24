@@ -5058,10 +5058,6 @@ h6 {
   max-width: rem-calc(1160);
 }
 
-.row .row {
-  margin: 0;
-}
-
 /** WR-1035 Search bar replacement - prevents scroll when search is open **/
 html.js-noScroll {
   position: fixed;
@@ -5705,6 +5701,10 @@ html.js-noScroll {
 
 .articlefeed__full-width {
   margin: 0 20px;
+}
+
+.row .featuredarticle .row {
+  margin: 0;
 }
 
 .featuredarticle a,
