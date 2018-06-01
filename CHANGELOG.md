@@ -1,4 +1,9 @@
 # Changelog
+## 2.0.19 - Winking Wuerhosaurus - 04-Jun-2018
+- WR-1360 - Ensure text box aligns when using featured article in full width row
+- WR-1362 - Add hyphenated name to Dino Directory API genus view
+- WR-1385 - Change Ceratopsian -pages to correct spelling
+
 ## 2.0.18 - Valiant Valdosaurus - 24-May-2018
 - WR-1370 - GDPR text change to social / signup component
 - WR-1371 - GDPR text change to enews signup
