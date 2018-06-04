@@ -1,4 +1,2 @@
 #base=js
-foundation.min.js
-plugins.js
 main.js

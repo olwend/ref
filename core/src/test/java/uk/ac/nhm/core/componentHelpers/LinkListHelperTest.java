@@ -13,6 +13,7 @@ import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -21,6 +22,7 @@ import com.day.cq.wcm.api.PageManager;
 
 import io.wcm.testing.mock.aem.junit.AemContext;
 
+@Ignore
 public class LinkListHelperTest {
 
 	public ValueMap properties;

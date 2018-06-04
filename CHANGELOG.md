@@ -1,4 +1,102 @@
 # Changelog
+## 2.0.18 - Valiant Valdosaurus - 24-May-2018
+- WR-1370 - GDPR text change to social / signup component
+- WR-1371 - GDPR text change to enews signup
+- WR-1373 - Dino reduce gap between content and taxonomic detail 
+
+## 2.0.17 - Ubiquitous Utahraptor - 17-May-2018
+- WR-1361 - Fix dino nav autocomplete bug
+- WR-1364 - Hotfix Sass partial
+- WR-1363 - Dino nav buttons 
+- WR-1328 - Accessibility single dino page
+- WR-1369 - Align text on single dino to match design 
+- WR-1011 - Investigate separating JS 
+- WR-1354 - Twitter card to all templates 
+- WR-1353 - Add "all" option to a-z dino filter 
+
+## 2.0.16 - Tragic Triceratops - 14-May-2018
+- WR-1344 - Accessibility: Footer: Replace Empty heading
+- WR-1347 - Accessibility: Social sign up missing labels & alt text 
+- WR-1365 - Replace country URL in single dino links
+- WR-1367 - Change title in USA page
+
+## 2.0.15 - Sanctimonious Supersaurus - 10-May-2018
+- WR-1320 - Dino Directory: Search and tertiary nav component
+- WR-1334 - Create 1,3 row
+- WR-1335 - Resize single dino and dino filter components for 1,3 row
+- WR-1340 - Social Signup refactor v2.0
+
+## 2.0.14 - Ruffled Rugops - 26-Apr-2018
+- WR-1267 - Add WhatsApp sharing icon to Discover Articles
+- WR-1317 - Restore use of JQuery clientlibs
+- WR-1338 - Rename Dinosaur Search component to Dinosaur Filter
+
+## 2.0.13 - Quirky Quaesitosaurus - 19-Apr-2018
+- WR-1235 - Review hotfixes in AEM 6.3 Author for HTI and CTA components
+- WR-1323 - Add "long" after length in Single Dino page
+- WR-1331 - Switch out the Anklysorid body type logo
+- WR-1332 - Add a space after colon in the Next Question link on Q&A single
+- WR-1333 - Check the dino scale math
+
+## 2.0.12 - Ponderous Plateosaurus - 12-Apr-2018
+- WR-1214 - Create single dino filter pages
+- WR-1272 - Add social share to single dino pages
+- WR-1298 - Create the onward journey script for the dinosaur directory single dino pages
+- WR-1300 - If a dinosaur has a "hyphenated name" add that to the single and filter dino pages
+- WR-1306 - SASS variable updates
+- WR-1307 - Event Calendar loading image is hosted off site
+- WR-1311 - Remove references to Chivo font in webfonts.css
+- WR-1318 - Social Signup refactor needs to be reverted
+- WR-1324 - Fix validation on single dino component
+- WR-1325 - Do something with dinosaurs missing a body shape
+- WR-1327 - Improve validation on fields in single dino
+
+## 2.0.11 - Ostentatious Orodromeus - 05-Apr-2018
+- WR-1314 - Single Question design tweaks
+- WR-1315 - Temporary fix for dam workflow
+
+## 2.0.10 - Nifty Nothronychus - 28-Mar-2018
+- WR-1219 - Add image field to single Q&A component
+- WR-1234 - Refactor Social Signup component
+- WR-1302 - Add the Space hub to the Discover navigation
+- WR-1303 - In Q&A single the question title should be a h1
+- WR-1305 - Fix clientlib includes for component-specific clientlibs
+- WR-1310 - Single dino refactor
+- WR-1312 - Q&A SearchResult limit lift
+- WR-1313 - Remove underline on hover from read more link CTA on Discover
+
+## 2.0.9 - Munificent Micropachycephalosaurus - 22-Mar-2018
+- WR-1198 / WR-1274 - Read more button changes for Article Feed
+- WR-1222 - Read more button added to Discover Related
+- WR-1304 - SASS tidy up
+- WR-1263 - AEM Author: need a solution to see all pages in a section when browsing
+- WR-1247 - CTA in HTI - icons don't inherit section colour when icon is selected and "Inherit from section" is used
+- WR-1269 - Italics being stripped from snippet of Discover articles when article is pulled through to Discover Related / Article feed
+
+## 2.0.8 - Lanky Liliensternus - 15-Mar-2018
+- WR-1287 - Strip all tracking params from Shop link in Main nav
+- WR-1294 - Dinosaur page adjustments
+- WR-1297 - Arrows to navigate through months view missing from events calendar
+
+## 2.0.7 - Kyphotic Kuluyaku - 08-Mar-2018
+- WR-1213 - Create single dino pages
+- WR-1284 - Stick-y header on Q&A hub component
+- WR-1288 - Add sharing tags to base template
+- WR-1290 - Add missing fields (teeth, food and movement) into single dino component and style
+- WR-1292 - Change dispatcher path in events calendar cache flush
+
+## 2.0.6 - Jocose Jaxartosaurus - 01-Mar-2018
+- WR-1223 - Convert news to NHM Article template
+- WR-1232 - Take science profile workflow paths out of code
+
+## 2.0.5 - Indulgent Iguanodon - 22-Feb-2018
+- WR-1176 - Update to Q&A Hub CSS
+
+## 2.0.4 - Hangry Hagryphus - 15-Feb-2018
+- WR-1182 - Featured Article component
+
+## 2.0.3 - Gallant Gallimimus - 07-Feb-2018
+- WR-1192 - Q&A Hub
 
 ## 2.0.2 - Flexible Fukuiraptor - 01-Feb-2018
 - WR-1220 - Create styling for article feed "1" limit in sidebar
@@ -220,7 +318,7 @@ B WR-1020 - Carousel image component dialog fix
 ## 1.1.39 - 22-Feb-2017
 
 - WR-1007 - Remove unnecessary font file declarations
-- WR-1010 - "DiscoverRelatedImage" component showing as "Image” in AEM Sidekick
+- WR-1010 - "DiscoverRelatedImage" component showing as "Image" in AEM Sidekick
 
 ## 1.1.38 - 16-Feb-2017
 

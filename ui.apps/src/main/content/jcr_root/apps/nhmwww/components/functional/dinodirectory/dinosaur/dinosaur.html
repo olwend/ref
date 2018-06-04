@@ -1,0 +1,102 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.dinodirectory.dinosaur'}" data-sly-unwrap></meta>
+</sly>
+
+<sly data-sly-test="${!properties.name}">
+	<div class="row">
+		<h4>Dinosaur</h4>
+		Required fields:
+		<ul>
+			<li>Dinosaur name</li>
+		</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.name}">
+	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
+
+		<div class="dinosaur--title-container small-12 medium-8 large-8 columns ">
+			<h1 class="dinosaur--name dinosaur--name-unhyphenated">${dinosaur.genus}</h1>
+			<h1 class="dinosaur--name dinosaur--name-hyphenated">${dinosaur.nameHyphenated}</h1>
+			<dl class="dinosaur--name-description">
+				<div class="dinosaur--pronunciation">
+					<dd>${dinosaur.namePronounciation}</dd>
+				</div>
+				<div class="dinosaur--meaning">
+					<dd>'${dinosaur.nameMeaning}'</dd>
+				</div>
+			</dl>
+		</div>
+		<div class="dinosaur--social-share-header  small-12 medium-4 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div>
+		<div class="row">
+			<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
+				<img class="dinosaur--image" src="${dinosaur.imageUrl}" alt="${dinosaur.genus}">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
+				<dl class="dinosaur--description" data-dino-length="${dinosaur.length}">
+					<dd>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> 
+					<a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a>
+					</dd>
+				</dl>
+				<div data-sly-test="${dinosaur.bodyShape && dinosaur.length}" class="dinosaur--comparison">
+					<div class="dinosaur--comparison-dino">
+						<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg" alt="${dinosaur.bodyShape['name']} silhouette">
+					</div>
+					<div class="dinosaur--comparison-human"></div>
+				</div>
+			</div>
+
+			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
+				<dl>
+					<div data-sly-test="{dinosaur.diet}" class="dinosaur--diet">
+						<dd>Diet: ${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="${dinosaur.diet} food icon"></dd>
+					</div>
+					<div data-sly-test="${dinosaur.countryList}" class="dinosaur--country">
+						<dd>Country:
+							<sly data-sly-list.country="${dinosaur.countryList}">
+								<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
+							</sly>
+						</dd>
+					</div>
+					<div class="dinosaur--period">
+						<dd>Period: <a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a>, ${dinosaur.mya}</dd>
+					</div>
+					<sly data-sly-test="${dinosaur.teeth}" class="dinosaur--teeth">
+						<dd>Teeth: ${dinosaur.teeth}</dd>
+					</sly>
+					<sly data-sly-test="${dinosaur.howItMoved}" class="dinosaur--how-it-moved">
+						<dd>How it moved: ${dinosaur.howItMoved}</dd>
+					</sly>
+					<sly data-sly-test="${dinosaur.food}" class="dinosaur--food">
+						<dd>Food: ${dinosaur.food @ context='html'}</dd>
+					</sly>
+				</dl>
+			</div>
+		</div>
+
+		<div class="dinosaur--content-container small-12 medium-12 large-12 columns" data-sly-list="${dinosaur.textBlockCollection}">
+			<h2 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h2>
+			${item['textBlock'] @ context='html'}
+		</div>
+
+		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
+			<div class="row">
+				<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
+					<img class="dinosaur--image" src="${item}" alt="${dinosaur.genus} milieu">
+				</div>
+			</div>
+		</sly>
+
+		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-12 columns">
+			<h2 class="dinosaur--section-title">Taxonomic details</h2>
+				<dl>
+					<dd data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</dd>
+					<dd data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</dd>
+					<dd data-sly-test="${dinosaur.type}" class="dinosaur--taxonomy-detail"><strong>Type species:</strong> ${dinosaur.type}</dd>
+				</dl>
+			</div>
+		</div>
+</sly>

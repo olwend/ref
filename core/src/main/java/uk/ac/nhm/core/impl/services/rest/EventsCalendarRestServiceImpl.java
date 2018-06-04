@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.felix.scr.annotations.Component;
+
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.LoginException;
@@ -38,6 +38,7 @@ import org.joda.time.LocalDate;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,8 +48,7 @@ import com.day.cq.wcm.api.PageManagerFactory;
 
 import uk.ac.nhm.core.services.EventsCalendarRestService;
 
-@Service(value = EventsCalendarRestServiceImpl.class)
-@Component(label = "Natural History Museum Events Calendar Rest API", metatype = true, immediate = true)
+@Component(service = EventsCalendarRestServiceImpl.class)
 @Path("/calendar")
 public class EventsCalendarRestServiceImpl implements EventsCalendarRestService {
 

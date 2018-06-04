@@ -115,39 +115,34 @@ public class ImportXMLWorkflow implements WorkflowProcess {
 	 */
 	@Override
 	public void execute(final WorkItem item, final WorkflowSession wfsession, final MetaDataMap args) throws WorkflowException  {
-
-		/**if(args.get("xmlPath") != null) {
-			this.xmlPath = args.get("xmlPath").toString();
+		
+		LOG.info("Running Import Staff Profiles XML workflow");
+		
+		if(args.get("xmlPath") != null) {
+			this.xmlPath = args.get("xmlPath", String.class);
+			LOG.info(this.xmlPath);
 		} else {
 			LOG.error("xml path is null");
 			return;
 		}
 
 		if(args.get("contentPath") != null) {
-			this.contentPath = args.get("contentPath").toString();
+			this.contentPath = args.get("contentPath", String.class);
+			LOG.info(this.contentPath);
 		}
 
 		if(args.get("damPath") != null) {
-			this.damPath = args.get("damPath").toString() + "/";
+			this.damPath = args.get("damPath", String.class);
+			LOG.info(this.damPath);
 		}
 
 		if (args.get("imagesPath") != null) {
-			this.imagesPath = args.get("imagesPath").toString();
+			this.imagesPath = args.get("imagesPath", String.class);
 			if (!this.imagesPath.endsWith("/")) {
 				this.imagesPath = this.imagesPath + "/";
 			}
-		}*/
-
-        this.xmlPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM\\";
-        this.imagesPath = "C:\\Users\\Public\\Downloads\\symplectic-batch\\Live\\NHM-images\\";
-        
-        //Local testing - alisp2
-//        this.xmlPath = "C:\\science-profiles\\NHM\\";
-//        this.imagesPath = "C:\\science-profiles\\NHM-images\\";
-        
-        this.contentPath = "/content/nhmwww/en/home/our-science/departments-and-staff/staff-directory";
-        this.damPath = "/content/dam/nhmwww/our-science/dpts-facilities-staff/staff-directory/";
-        
+			LOG.info(this.imagesPath);
+		} 
 		
 		final Path path = Paths.get(this.xmlPath);
 
