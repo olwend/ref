@@ -47,27 +47,29 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 			httpClient.executeMethod(getMethod);
 			JSONArray dinosaurs = new JSONArray(getMethod.getResponseBodyAsString());
 			for(int i=0; i<dinosaurs.length(); i++) {
-				Map<String, String> dinosaurMap = new HashMap<String, String>();
+				if(dinosaurs.getJSONObject(i).getBoolean("publish") == true) {
+					Map<String, String> dinosaurMap = new HashMap<String, String>();
 
-				dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
-				dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase().replaceAll(" ", "") + ".html");
+					dinosaurMap.put("genus", dinosaurs.getJSONObject(i).getString("genus"));
+					dinosaurMap.put("url", BASE_CONTENT_URL + dinosaurs.getJSONObject(i).getString("genus").toLowerCase().replaceAll(" ", "") + ".html");
 
-				if(!dinosaurs.getJSONObject(i).isNull("nameHyphenated")) {
-					dinosaurMap.put("nameHyphenated", dinosaurs.getJSONObject(i).getString("nameHyphenated"));
-				} else {
-					dinosaurMap.put("nameHyphenated", null);
+					if(!dinosaurs.getJSONObject(i).isNull("nameHyphenated")) {
+						dinosaurMap.put("nameHyphenated", dinosaurs.getJSONObject(i).getString("nameHyphenated"));
+					} else {
+						dinosaurMap.put("nameHyphenated", null);
+					}
+
+					if(!filterTwo.equals("all")) {
+						JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
+
+						String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
+								+ dinosaurMedia.getString("identifier") + ".jpg";
+
+						dinosaurMap.put("imageUrl", imageUrl);
+					}
+
+					dinosaurList.add(dinosaurMap);
 				}
-
-				if(!filterTwo.equals("all")) {
-					JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
-
-					String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
-							+ dinosaurMedia.getString("identifier") + ".jpg";
-
-					dinosaurMap.put("imageUrl", imageUrl);
-				}
-
-				dinosaurList.add(dinosaurMap);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -157,7 +159,7 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 			if(filterOne.equals("initials")) {
 				if(filterTwo.equals("all")) {
 					description = null;
-				} else { 
+				} else {
 					if(filterItem.getInt("dinosaurCount") > 1) {
 						description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();
 					} else {
