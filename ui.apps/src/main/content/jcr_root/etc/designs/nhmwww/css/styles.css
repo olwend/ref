@@ -2678,10 +2678,6 @@ i.ico img {
   color: #ffffff;
 }
 
-input.question {
-  display: none;
-}
-
 .expandable {
   margin: 1.25em 0;
   padding: 1em 5%;
@@ -9968,6 +9964,10 @@ a.button-cta {
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
   background-color: #808080;
+}
+
+input.question {
+  display: none;
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
