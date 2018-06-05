@@ -15,19 +15,22 @@
 <sly data-sly-test="${properties.name}">
 	<div class="dinosaur--container" data-sly-use.dinosaur="uk.ac.nhm.core.model.slingModels.dinoDirectory.Dinosaur">
 
-		<div class="dinosaur--title-container small-12 medium-8 large-8 columns ">
-			<h1 class="dinosaur--name dinosaur--name-unhyphenated">${dinosaur.genus}</h1>
-			<h1 class="dinosaur--name dinosaur--name-hyphenated">${dinosaur.nameHyphenated}</h1>
-			<dl class="dinosaur--name-description">
-				<div class="dinosaur--pronunciation">
-					<dd>${dinosaur.namePronounciation}</dd>
-				</div>
-				<div class="dinosaur--meaning">
-					<dd>'${dinosaur.nameMeaning}'</dd>
-				</div>
-			</dl>
+		<div class="row">
+			<div class="dinosaur--title-container small-12 medium-8 large-8 columns ">
+				<h1 class="dinosaur--name dinosaur--name-unhyphenated">${dinosaur.genus}</h1>
+				<h1 class="dinosaur--name dinosaur--name-hyphenated">${dinosaur.nameHyphenated}</h1>
+				<dl class="dinosaur--name-description">
+					<div class="dinosaur--pronunciation">
+						<dd>${dinosaur.namePronounciation}</dd>
+					</div>
+					<div class="dinosaur--meaning">
+						<dd>'${dinosaur.nameMeaning}'</dd>
+					</div>
+				</dl>
+			</div>
+			<div class="dinosaur--social-share-header small-12 medium-4 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div>
 		</div>
-		<div class="dinosaur--social-share-header  small-12 medium-4 large-4 columns"  data-sly-resource="${'socialshare' @ resourceType='nhmwww/components/functional/socialshare/'}"></div>
+
 		<div class="row">
 			<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
 				<img class="dinosaur--image" src="${dinosaur.imageUrl}" alt="${dinosaur.genus}">
@@ -37,7 +40,7 @@
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
 				<dl class="dinosaur--description" data-dino-length="${dinosaur.length}">
-					<dd>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> 
+					<dd>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly>
 					<a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a>
 					</dd>
 				</dl>
@@ -77,9 +80,11 @@
 			</div>
 		</div>
 
-		<div class="dinosaur--content-container small-12 medium-12 large-12 columns" data-sly-list="${dinosaur.textBlockCollection}">
-			<h2 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h2>
-			${item['textBlock'] @ context='html'}
+		<div class="row">
+			<div class="dinosaur--content-container small-12 medium-12 large-12 columns" data-sly-list="${dinosaur.textBlockCollection}">
+				<h2 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h2>
+				${item['textBlock'] @ context='html'}
+			</div>
 		</div>
 
 		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
@@ -90,8 +95,9 @@
 			</div>
 		</sly>
 
-		<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-12 columns">
-			<h2 class="dinosaur--section-title">Taxonomic details</h2>
+		<div class="row">
+			<div data-sly-test="${dinosaur.taxonomy || dinosaur.namedBy || dinosaur.type}" class="dinosaur--taxonomy-container small-12 medium-12 large-12 columns">
+				<h2 class="dinosaur--section-title">Taxonomic details</h2>
 				<dl>
 					<dd data-sly-test="${dinosaur.taxonomy}" class="dinosaur--taxonomy-detail"><strong>Taxonomy:</strong> ${dinosaur.taxonomy}</dd>
 					<dd data-sly-test="${dinosaur.namedBy}" class="dinosaur--taxonomy-detail"><strong>Named by:</strong> ${dinosaur.namedBy}</dd>
@@ -99,4 +105,6 @@
 				</dl>
 			</div>
 		</div>
+
+	</div>
 </sly>
