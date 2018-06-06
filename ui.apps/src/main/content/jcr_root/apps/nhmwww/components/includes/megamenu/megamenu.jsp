@@ -34,7 +34,7 @@
 									<a href="/content/nhmwww/en/home/discover/space.html" data-gtm="subnav-link">Space</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
-									<a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a>
+									<a href="/content/nhmwww/en/home/discover/dinosaurs.html" data-gtm="subnav-link">Dinosaurs</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
 									<a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a>
