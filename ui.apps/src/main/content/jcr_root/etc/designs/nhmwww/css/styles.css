@@ -6683,7 +6683,18 @@ div#cookie-bar p {
 }
 
 .dinosaur--description {
-  font-size: 1.6rem;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 1.55rem;
+  margin-bottom: 0;
+}
+
+.dinosaur--description dt,
+.dinosaur--description dd {
+  margin-right: 5px;
+  font-weight: normal;
 }
 
 .dinosaur--comparison {
@@ -6713,7 +6724,7 @@ div#cookie-bar p {
 }
 
 .dinosaur--info {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
 }
 
 .dinosaur--info dt {
@@ -6733,18 +6744,21 @@ div#cookie-bar p {
   padding: 10px 20px 20px 20px;
 }
 
-.dinosaur--section-title {
-  margin-top: 20px;
-}
-
-.dinosaur--taxonomy-detail {
+.dinosaur--taxonomy {
   font-size: 1.3rem;
 }
 
-.dinosaur--list {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
+.dinosaur--taxonomy-title {
+  margin-top: 20px;
+}
+
+.dinosaur--list dt {
+  float: left;
+  margin: 0 5px 0 0;
+}
+
+.dinosaur--list dt {
+  clear: left;
 }
 
 /** DINOSAUR NAVIGATION **/
