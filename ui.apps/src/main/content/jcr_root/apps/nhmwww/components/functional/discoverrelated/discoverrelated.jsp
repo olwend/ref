@@ -57,6 +57,7 @@ if(posts == null) { %>
 %>
 		<li class="discover-element">
 			<div class="discover-element-wrapper">
+				<a href="<%= postPage.getPath() %>.html">
 <%
 			if (helper.isImageHeadType() && helper.isImageConfigured()) {
 				WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
