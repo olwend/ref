@@ -7411,7 +7411,12 @@ div#cookie-bar p {
 }
 
 /** REFACTOR-DISCOVER-ELEMENT PARTIAL **/
+.discover-element a {
+  color: #000000;
+}
+
 .discover-element a:hover {
+  color: #000000;
   text-decoration: none;
 }
 
@@ -7421,7 +7426,6 @@ div#cookie-bar p {
 }
 
 .discover-element .element-title:hover {
-
   color: #000000;
   text-decoration: underline;
 }
