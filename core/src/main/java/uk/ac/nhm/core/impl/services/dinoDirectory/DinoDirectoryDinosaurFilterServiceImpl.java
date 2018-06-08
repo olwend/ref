@@ -32,9 +32,9 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 
 		final String BASE_URL = environmentUrl;
 		String requestUrl = null;
-		
+
 		if(filterTwo.equals("all")) {
-			requestUrl = BASE_URL + "/dinosaurs";
+			requestUrl = BASE_URL + "/dinosaurs?view=genus";
 		} else {
 			requestUrl = BASE_URL + "/" + filterOne + "/" + filterTwo + "/dinosaurs";
 		}
@@ -61,10 +61,10 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 
 					if(!filterTwo.equals("all")) {
 						JSONObject dinosaurMedia = dinosaurs.getJSONObject(i).getJSONArray("mediaCollection").getJSONObject(0);
-	
+
 						String imageUrl = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/"
 								+ dinosaurMedia.getString("identifier") + ".jpg";
-	
+
 						dinosaurMap.put("imageUrl", imageUrl);
 					}
 
@@ -159,7 +159,7 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 			if(filterOne.equals("initials")) {
 				if(filterTwo.equals("all")) {
 					description = null;
-				} else { 
+				} else {
 					if(filterItem.getInt("dinosaurCount") > 1) {
 						description = String.valueOf(filterItem.getInt("dinosaurCount")) + " dinosaurs beginning with " + filterItem.getString("initial").toUpperCase();
 					} else {
