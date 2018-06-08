@@ -7411,13 +7411,19 @@ div#cookie-bar p {
 }
 
 /** REFACTOR-DISCOVER-ELEMENT PARTIAL **/
+.discover-element a:hover {
+  text-decoration: none;
+}
+
 .discover-element .element-title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #565656;
 }
 
 .discover-element .element-title:hover {
+
   color: #000000;
+  text-decoration: underline;
 }
 
 .discover-element-wrapper {
