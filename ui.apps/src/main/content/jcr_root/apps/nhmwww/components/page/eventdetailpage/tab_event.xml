@@ -124,6 +124,19 @@
                     fieldLabel="Keywords"
                     name="./keywords"
                     xtype="textfield"/>
+                 <hideFromSearch
+                        jcr:primaryType="cq:Widget"
+                        cls="dialog-checkbox"
+                        dName="hideFromSearch"
+                        fieldLabel="Hide from event Search"
+                        inputValue="true"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            afterlayout="function(component){initEventDateLayout(component);}"
+                            selectionchanged="function(field,value,isChecked) {eventRecurTypeSelected(field,value,isChecked); }"/>
+               </hideFromSearch>
             </items>
         </basic>
         <dateAndTime

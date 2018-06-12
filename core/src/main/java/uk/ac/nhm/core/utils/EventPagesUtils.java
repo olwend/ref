@@ -267,7 +267,11 @@ public class EventPagesUtils {
 			events.put("scienceSubject", event.getScienceSubject());
 			events.put("speakerDetails", event.getSpeakerDetails());
 
-			eventsJSONArray.put(events);
+			
+		
+				eventsJSONArray.put(events);
+		
+		
 		}
 		eventsObject.put("Events", eventsJSONArray);
 
