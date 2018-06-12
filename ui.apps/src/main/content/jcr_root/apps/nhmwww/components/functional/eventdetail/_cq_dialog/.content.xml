@@ -103,7 +103,7 @@
 		                        fieldLabel="Keywords"
 		                        name="./keywords"
 		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
-                              <hideFromSearch
+                           <hideFromSearch
 	                   		jcr:primaryType="nt:unstructured"
 							text="Hide from event search"
 							name="./hideFromSearch"

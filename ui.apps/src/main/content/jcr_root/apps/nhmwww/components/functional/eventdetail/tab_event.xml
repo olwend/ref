@@ -124,19 +124,16 @@
                     fieldLabel="Keywords"
                     name="./keywords"
                     xtype="textfield"/>
-                  <hideFromSearch
-                        jcr:primaryType="cq:Widget"
-                        cls="dialog-checkbox"
-                        dName="hideFromSearch"
-                        fieldLabel="Hide from event Search"
-                        inputValue="true"
-                        type="checkbox"
-                        xtype="selection">
-                        <listeners
-                            jcr:primaryType="nt:unstructured"
-                            afterlayout="function(component){initEventDateLayout(component);}"
-                            selectionchanged="function(field,value,isChecked) {eventRecurTypeSelected(field,value,isChecked); }"/>
-                    </hideFromSearch>
+        
+				 <hideFromSearch
+				    jcr:primaryType="nt:unstructured"
+				    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+				    text="Hide from event Search"
+				    name="./hideFromSearch"
+				    value="{Boolean}true"/>
+			
+    
+    
             </items>
         </basic>
         <dateAndTime

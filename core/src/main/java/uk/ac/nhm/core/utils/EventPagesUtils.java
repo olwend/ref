@@ -112,6 +112,7 @@ public class EventPagesUtils {
 		final String eventTileLink = "eventTileLink";
 		final String tags = "./cq:tags";
 		final String keywords = "keywords";
+		final String hideFromSearch = "hideFromSearch";
 		final String datesRecurrence = "jcr:datesRecurrence";
 		final String allDayRecurrence = "jcr:allDayRecurrence";
 		final String timesRecurrence = "jcr:timesRecurrence";
@@ -160,6 +161,16 @@ public class EventPagesUtils {
 		if (iteratedNode.hasProperty(keywords)) {
 			eventDetail.setKeywords(iteratedNode.getProperty(keywords).getString());
 		}
+		
+		if (iteratedNode.hasProperty(hideFromSearch)) 
+		   {
+			if(iteratedNode.getProperty(hideFromSearch).getString().equals("true")) 
+			 {
+			 eventDetail.setHideFromSearch(true);
+		     }
+		else { eventDetail.setHideFromSearch(false); }
+		   }
+		
 		if (iteratedNode.hasProperty(datesRecurrence)) {
 			eventDetail.setDates(createDatesArray(iteratedNode.getProperty(datesRecurrence).getString()));
 		}
@@ -267,11 +278,14 @@ public class EventPagesUtils {
 			events.put("scienceSubject", event.getScienceSubject());
 			events.put("speakerDetails", event.getSpeakerDetails());
 
-			
-		
+			System.out.println("gethidefromSearch: " + event.getHideFromSearch());
+			if(event.getHideFromSearch() != null) {
+		   if(!Boolean.valueOf(event.getHideFromSearch()))
+		       {
+			   System.out.println("event added: " + event.getTitle());
 				eventsJSONArray.put(events);
-		
-		
+		       }
+			}
 		}
 		eventsObject.put("Events", eventsJSONArray);
 
