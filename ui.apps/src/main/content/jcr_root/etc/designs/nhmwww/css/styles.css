@@ -2678,10 +2678,6 @@ i.ico img {
   color: #ffffff;
 }
 
-input.question {
-  display: none;
-}
-
 .expandable {
   margin: 1.25em 0;
   padding: 1em 5%;
@@ -5701,6 +5697,10 @@ html.js-noScroll {
 
 .articlefeed__full-width {
   margin: 0 20px;
+}
+
+.row .featuredarticle .row {
+  margin: 0;
 }
 
 .featuredarticle a,
@@ -9843,7 +9843,7 @@ a.button-cta {
 
 .social-signup--form-container {
   padding: 20px;
-  background-color: #808080;
+  background-color: #565656;
   color: #FFFFFF;
 }
 
@@ -9954,7 +9954,7 @@ a.button-cta {
 
 .button__newsletter-signup {
   width: 100%;
-  background-color: #808080;
+  background-color: #565656;
   border: 2px solid #FFFFFF;
   max-height: 37px;
   padding-top: 7px;
@@ -9963,7 +9963,11 @@ a.button-cta {
 }
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
-  background-color: #808080;
+  background-color: #565656;
+}
+
+input.question {
+  display: none;
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
