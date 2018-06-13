@@ -19,9 +19,9 @@
 				<div class="row">
 					<div class="featuredarticle--text-container">
 						<p class="featuredarticle--tag" data-sly-test="${featuredarticle.tagName}">${featuredarticle.tagName}</p>
-						<h2 class="featuredarticle--title">${featuredarticle.title}</h2>
+						<h2 class="featuredarticle--title">${featuredarticle.title @ context='html'}</h2>
 						<p class="featuredarticle--date">${featuredarticle.date}</p>
-						<p class="featuredarticle--description">${featuredarticle.description}</p>
+						<p class="featuredarticle--description">${featuredarticle.description @ context='html'}</p>
 					</div>
 				</div>
 			</div>
