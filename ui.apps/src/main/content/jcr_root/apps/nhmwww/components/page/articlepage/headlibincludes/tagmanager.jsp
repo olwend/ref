@@ -10,7 +10,7 @@
 
 <!-- WR-1074 - add Google Optimise for A/B testing -->
 <!-- Initialise the dataLayer -->
-<%if(hubTagMap.get("title") != null) { %>
+<%if(hubTagMap != null) { %>
 <script>dataLayer = ['primaryHubTag':'<%=hubTagMap.get("title")%>'];</script>
 <%} else { %>
 <script>dataLayer = ['primaryHubTag':''];</script>
