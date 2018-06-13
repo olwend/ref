@@ -88,7 +88,7 @@ public class DinoDirectoryDinosaurFilterServiceImpl implements DinoDirectoryDino
 
 		if(filterOne.equals("body-shapes")) {
 			title = WordUtils.capitalizeFully(title);
-			title = title + " dinosaurs";
+			title = title + "s";
 		}
 
 		if(filterOne.equals("countries")) {
