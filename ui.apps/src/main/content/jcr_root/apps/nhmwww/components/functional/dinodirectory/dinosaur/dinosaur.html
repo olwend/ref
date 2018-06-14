@@ -32,13 +32,7 @@
 			<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
 				<img class="dinosaur--image" src="${dinosaur.imageUrl}" alt="${dinosaur.genus}">
 				<sly data-sly-test="${dinosaur.imageCopyright}">
-					<sly data-sly-test="${dinosaur.imageCreditType == 'Copyright'}">
-						Copyright
-					</sly>
-					<sly data-sly-test="${dinosaur.imageCreditType == 'Credit'}">
-						Credit
-					</sly>
-					${dinosaur.imageCopyright}
+					<p class="dinosaur--copyright"><sly data-sly-test="${dinosaur.imageCreditType == 'Copyright'}">Copyright:</sly><sly data-sly-test="${dinosaur.imageCreditType == 'Credit'}">Credit:</sly> ${dinosaur.imageCopyright}</p>
 				</sly>
 			</div>
 		</div>
@@ -46,7 +40,7 @@
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
 				<dl class="dinosaur--description" data-dino-length="${dinosaur.length}">
-					<dd>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly> 
+					<dd>${dinosaur.description}<sly data-sly-test="${!dinosaur.description}">Body type:</sly>
 					<a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a>
 					</dd>
 				</dl>
@@ -90,20 +84,14 @@
 			<h2 class="dinosaur--content-title" data-sly-test="${item['title']}">${item['title']}</h2>
 			${item['textBlock'] @ context='html'}
 		</div>
-		
+
 		<sly data-sly-test="${dinosaur.dinosaurMediaCollection}" data-sly-list="${dinosaur.dinosaurMediaCollection}">
 			<div class="row">
 				<div class="dinosaur--image-container small-12 medium-12 large-12 columns">
 					<img class="dinosaur--image" src="${item['url']}" alt="${dinosaur.genus} milieu">
-									<sly data-sly-test="${item['copyright']}">
-					<sly data-sly-test="${item['creditType'] == 'Copyright'}">
-						Copyright
+					<sly data-sly-test="${item['copyright']}">
+						<p class="dinosaur--copyright"><sly data-sly-test="${item['creditType'] == 'Copyright'}">Copyright:</sly><sly data-sly-test="${item['creditType'] == 'Credit'}">Credit:</sly> ${item['copyright']}</p>
 					</sly>
-					<sly data-sly-test="${item['creditType'] == 'Credit'}">
-						Credit
-					</sly>
-					${item['copyright']}
-				</sly>
 				</div>
 			</div>
 		</sly>
