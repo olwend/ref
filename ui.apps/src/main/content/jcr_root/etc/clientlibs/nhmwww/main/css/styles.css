@@ -6673,9 +6673,9 @@ div#cookie-bar p {
 }
 
 .dinosaur--copyright {
-  margin: 0 20px;
-  font-size: 0.9rem;
-  text-align: right;
+  margin: 0;
+  font-size: 0.75rem;
+  text-align: left;
 }
 
 .dinosaur--description-container {
