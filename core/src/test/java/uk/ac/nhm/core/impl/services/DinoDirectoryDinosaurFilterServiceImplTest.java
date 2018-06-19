@@ -1,11 +1,15 @@
 package uk.ac.nhm.core.impl.services;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertEquals;
 
+import org.hamcrest.text.MatchesPattern;
+
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.sling.testing.mock.osgi.junit.OsgiContext;
 import org.junit.Before;
@@ -87,22 +91,27 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 		assertEquals(description, "Large carnivores that walked on two legs.");
 
 		//Country
-		description = service.getDescription("countries", "North%20Africa", BASE_URL);
-		assertEquals(description, "1 dinosaur found in North Africa");
-
+		Pattern countryPatternMultiple = Pattern.compile("^\\d+ dinosaurs found in England");
 		description = service.getDescription("countries", "England", BASE_URL);
-		assertEquals(description, "21 dinosaurs found in England");
+		assertThat(description, MatchesPattern.matchesPattern(countryPatternMultiple));
 
+		Pattern countryPatternSingle = Pattern.compile("^\\d+ dinosaur found in North Africa");
+		description = service.getDescription("countries", "North%20Africa", BASE_URL);
+		assertThat(description, MatchesPattern.matchesPattern(countryPatternSingle));
+		
 		//Initial
+		Pattern initialPatternMultiple = Pattern.compile("^\\d+ dinosaurs beginning with A");
 		description = service.getDescription("initials", "a", BASE_URL);
-		assertEquals(description, "37 dinosaurs beginning with A");
+		assertThat(description, MatchesPattern.matchesPattern(initialPatternMultiple));
 
+		Pattern initialPatternSingle = Pattern.compile("^\\d+ dinosaur beginning with Q");
 		description = service.getDescription("initials", "q", BASE_URL);
-		assertEquals(description, "1 dinosaur beginning with Q");
+		assertThat(description, MatchesPattern.matchesPattern(initialPatternSingle));
 
 		//Period
+		Pattern periodPattern = Pattern.compile("^\\(\\d+ to \\d+ million years ago\\)<br>\\d+ dinosaurs from the Late Jurassic");
 		description = service.getDescription("periods", "late-jurassic", BASE_URL);
-		assertEquals(description, "(164 to 145 million years ago)<br>43 dinosaurs from the Late Jurassic");
+		assertThat(description, MatchesPattern.matchesPattern(periodPattern));
 	}
 
 }
