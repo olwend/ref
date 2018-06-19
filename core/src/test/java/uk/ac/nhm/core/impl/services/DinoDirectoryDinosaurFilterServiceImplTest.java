@@ -84,7 +84,7 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		//Body shape
 		description = service.getDescription("body-shapes", "large-theropod", BASE_URL);
-		assertEquals(description, "Large carnivores that walked on 2 legs.");
+		assertEquals(description, "Large carnivores that walked on two legs.");
 
 		//Country
 		description = service.getDescription("countries", "North%20Africa", BASE_URL);
