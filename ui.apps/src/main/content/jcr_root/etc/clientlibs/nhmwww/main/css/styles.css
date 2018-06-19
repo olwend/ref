@@ -2678,10 +2678,6 @@ i.ico img {
   color: #ffffff;
 }
 
-input.question {
-  display: none;
-}
-
 .expandable {
   margin: 1.25em 0;
   padding: 1em 5%;
@@ -5703,6 +5699,10 @@ html.js-noScroll {
   margin: 0 20px;
 }
 
+.row .featuredarticle .row {
+  margin: 0;
+}
+
 .featuredarticle a,
 .featuredarticle a:hover {
   text-decoration: none;
@@ -6554,6 +6554,10 @@ div#cookie-bar p {
   margin-bottom: -27px;
 }
 
+.dinosaurfilter--all-list {
+  text-align: left;
+}
+
 /** WR-1213 SINGLE DINO PAGE **/
 .dinosaur a {
   color: #565656;
@@ -6562,6 +6566,10 @@ div#cookie-bar p {
 
 .dinosaur a:hover {
   color: #000000;
+}
+
+.dinosaur dd {
+  text-rendering: optimizeLegibility;
 }
 
 .dinosaur--container {
@@ -6596,7 +6604,8 @@ div#cookie-bar p {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  font-size: 23px;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -6606,17 +6615,17 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--pronunciation p {
+.dinosaur--pronunciation {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation p {
+  .dinosaur--pronunciation {
     margin-right: 20px;
   }
 }
 
-.dinosaur--meaning p {
+.dinosaur--meaning {
   margin: 0;
 }
 
@@ -6665,9 +6674,23 @@ div#cookie-bar p {
 
 .dinosaur--description-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
   padding: 0 20px;
   margin-bottom: 20px;
+}
+
+.dinosaur--description {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 1.55rem;
+  margin-bottom: 0;
+}
+
+.dinosaur--description dt,
+.dinosaur--description dd {
+  margin-right: 5px;
+  font-weight: normal;
 }
 
 .dinosaur--comparison {
@@ -6693,32 +6716,41 @@ div#cookie-bar p {
 
 .dinosaur--info-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
   padding: 0 20px;
 }
 
-.dinosaur--info-container p {
-  margin-bottom: 10px;
+.dinosaur--info {
+  font-size: 1.55rem;
 }
 
-.dinosaur--content-container, .dinosaur--taxonomy-container {
-  padding: 10px 20px 20px 20px;
+.dinosaur--info dt {
+  font-weight: normal;
 }
 
-.dinosaur--taxonomy-container {
-  margin-bottom: 40px;
-}
-
-.dinosaur--taxonomy-container p {
-  margin-bottom: 10px;
+.dinosaur--content-container {
+  padding: 10px 20px 0 20px;
 }
 
 .dinosaur--content-title {
   margin-top: 40px;
 }
 
-.dinosaur--section-title {
-  margin-top: 40px;
+.dinosaur--taxonomy-container {
+  margin-bottom: 40px;
+  padding: 10px 20px 20px 20px;
+}
+
+.dinosaur--taxonomy {
+  font-size: 1.3rem;
+}
+
+.dinosaur--taxonomy-title {
+  margin-top: 20px;
+}
+
+.dinosaur--list dt {
+  float: left;
+  margin: 0 5px 0 0;
 }
 
 /** DINOSAUR NAVIGATION **/
@@ -6783,7 +6815,7 @@ div#cookie-bar p {
   background-position: center center;
 }
 
-.dinosaurnav--search-button:hover {
+.dinosaurnav--search-button:hover, .dinosaurnav--search-button:focus {
   background-color: #AAAAAA;
   background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
 }
@@ -6821,6 +6853,20 @@ div#cookie-bar p {
   .dinosaurnav--categories-container-icon {
     display: none;
   }
+}
+
+.dinosaurnav--button {
+  width: 80%;
+  text-align: left;
+  border: none;
+  background-color: #FFFFFF;
+  color: #565656;
+  padding: 2px 0;
+}
+
+.dinosaurnav--button:hover, .dinosaurnav--button:focus {
+  background-color: #FFFFFF;
+  color: #565656;
 }
 
 .dinosaurnav--description {
@@ -9783,7 +9829,7 @@ a.button-cta {
 
 .social-signup--form-container {
   padding: 20px;
-  background-color: #808080;
+  background-color: #565656;
   color: #FFFFFF;
 }
 
@@ -9894,7 +9940,7 @@ a.button-cta {
 
 .button__newsletter-signup {
   width: 100%;
-  background-color: #808080;
+  background-color: #565656;
   border: 2px solid #FFFFFF;
   max-height: 37px;
   padding-top: 7px;
@@ -9903,7 +9949,11 @@ a.button-cta {
 }
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
-  background-color: #808080;
+  background-color: #565656;
+}
+
+input.question {
+  display: none;
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
@@ -10743,7 +10793,7 @@ input.searchGo {
 
 .discover .title-bar h1,
 .discover .title-bar p {
-  color: #565656;
+  color: #565656 !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -11718,10 +11768,4 @@ input.searchGo {
 /** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
 .global-header--nav-list__item:hover.link-visit, .global-header--nav-list__item.menuSelected.link-visit {
   border-bottom-color: #A1164E;
-}
-
-/** Hotfix for release 2.0.13 **/
-.discover .title-bar h1,
-.discover .title-bar p {
-  color: #565656 !important;
 }

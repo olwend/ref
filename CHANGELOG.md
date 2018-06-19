@@ -1,5 +1,42 @@
 # Changelog
 
+## 2.0.20 - Xanthous Xenotarsosaurus - 14-Jun-2018
+- WR-1366 - Comment legacy code in Social Signup component 
+- WR-1374 - Investigate layout when using <dl><dt><dd> 
+- WR-1390 - Remove the addition of "dinosaurs" and add "s" 
+- WR-1391 - Accessibility: Social signup form container contrast is too low - suggest change to dark grey 
+- WR-1394 - Featured Article - fix display of italics in headings 
+- WR-1396 - Discover subnav – Add a link to Collections 
+- WR-1397 - Update .gitignore to prevent merge errors with SASS repo
+- WR-1398 - Update popular search terms 
+- WR-1401 - Change "Body shape" in dino nav to "Type of dinosaur" 
+
+## 2.0.19 - Winking Wuerhosaurus - 04-Jun-2018
+- WR-1360 - Ensure text box aligns when using featured article in full width row
+- WR-1362 - Add hyphenated name to Dino Directory API genus view
+- WR-1385 - Change Ceratopsian -pages to correct spelling
+
+## 2.0.18 - Valiant Valdosaurus - 24-May-2018
+- WR-1370 - GDPR text change to social / signup component
+- WR-1371 - GDPR text change to enews signup
+- WR-1373 - Dino reduce gap between content and taxonomic detail 
+
+## 2.0.17 - Ubiquitous Utahraptor - 17-May-2018
+- WR-1361 - Fix dino nav autocomplete bug
+- WR-1364 - Hotfix Sass partial
+- WR-1363 - Dino nav buttons 
+- WR-1328 - Accessibility single dino page
+- WR-1369 - Align text on single dino to match design 
+- WR-1011 - Investigate separating JS 
+- WR-1354 - Twitter card to all templates 
+- WR-1353 - Add "all" option to a-z dino filter 
+
+## 2.0.16 - Tragic Triceratops - 14-May-2018
+- WR-1344 - Accessibility: Footer: Replace Empty heading
+- WR-1347 - Accessibility: Social sign up missing labels & alt text 
+- WR-1365 - Replace country URL in single dino links
+- WR-1367 - Change title in USA page
+
 ## 2.0.15 - Sanctimonious Supersaurus - 10-May-2018
 - WR-1320 - Dino Directory: Search and tertiary nav component
 - WR-1334 - Create 1,3 row
