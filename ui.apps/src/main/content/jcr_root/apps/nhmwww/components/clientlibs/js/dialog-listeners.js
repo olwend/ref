@@ -96,7 +96,11 @@
                 function postProcess(data){
                     _.each(mNames, function($multifield, mName){
                         $(".cq-dialog-select-showhide").each( function() {
-                            selectShowHide($(this));
+                            var $fieldset = $(this).closest('.coral-Form-fieldset');
+
+                            var $fields = $fieldset.children().children();
+            
+                            selectShowHideMultifield($fields);
                         });
                     });
                 }
@@ -132,14 +136,14 @@
         }
 
         function selectShowHideMultifield($fields) {
+            var currentSelect = "select-" + $fields.find('#filterSelection').children('select').val();
+
             $fields.each(function (j, field) {
-				var currentSelect = "select-twoimages";
-				console.log($(this));
                 if($(this).attr('id') != null) {
                     if($(this).attr('id').includes(currentSelect)) {
-                        $(this).toggleClass('hidden', false);
+                    	$(this).toggleClass('hidden', false);
                     }
-        
+
                     if(!$(this).attr('id').includes(currentSelect)) {
                         $(this).toggleClass('hidden', true);
                     }
