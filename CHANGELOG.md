@@ -1,4 +1,16 @@
 # Changelog
+
+## 2.0.20 - Xanthous Xenotarsosaurus - 14-Jun-2018
+- WR-1366 - Comment legacy code in Social Signup component 
+- WR-1374 - Investigate layout when using <dl><dt><dd> 
+- WR-1390 - Remove the addition of "dinosaurs" and add "s" 
+- WR-1391 - Accessibility: Social signup form container contrast is too low - suggest change to dark grey 
+- WR-1394 - Featured Article - fix display of italics in headings 
+- WR-1396 - Discover subnav – Add a link to Collections 
+- WR-1397 - Update .gitignore to prevent merge errors with SASS repo
+- WR-1398 - Update popular search terms 
+- WR-1401 - Change "Body shape" in dino nav to "Type of dinosaur" 
+
 ## 2.0.19 - Winking Wuerhosaurus - 04-Jun-2018
 - WR-1360 - Ensure text box aligns when using featured article in full width row
 - WR-1362 - Add hyphenated name to Dino Directory API genus view
