@@ -57,7 +57,7 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 		assertEquals(title, "Large Theropods");
 
 		title = service.getTitle("body-shapes", "sauropod");
-		assertEquals(title, "Sauropod dinosaurs");
+		assertEquals(title, "Sauropods");
 
 		//Country
 		title = service.getTitle("countries", "North%20Africa");
