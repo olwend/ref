@@ -91,18 +91,18 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 		assertEquals(description, "1 dinosaur found in North Africa");
 
 		description = service.getDescription("countries", "England", BASE_URL);
-		assertEquals(description, "22 dinosaurs found in England");
+		assertEquals(description, "21 dinosaurs found in England");
 
 		//Initial
 		description = service.getDescription("initials", "a", BASE_URL);
-		assertEquals(description, "40 dinosaurs beginning with A");
+		assertEquals(description, "37 dinosaurs beginning with A");
 
 		description = service.getDescription("initials", "q", BASE_URL);
 		assertEquals(description, "1 dinosaur beginning with Q");
 
 		//Period
 		description = service.getDescription("periods", "late-jurassic", BASE_URL);
-		assertEquals(description, "(159 to 144 million years ago)<br>46 dinosaurs from the Late Jurassic");
+		assertEquals(description, "(164 to 145 million years ago)<br>43 dinosaurs from the Late Jurassic");
 	}
 
 }
