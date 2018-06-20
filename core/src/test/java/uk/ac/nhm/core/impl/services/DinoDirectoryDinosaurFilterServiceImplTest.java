@@ -54,7 +54,7 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		//Body shape
 		title = service.getTitle("body-shapes", "large-theropod");
-		assertEquals(title, "Large Theropod dinosaurs");
+		assertEquals(title, "Large Theropods");
 
 		title = service.getTitle("body-shapes", "sauropod");
 		assertEquals(title, "Sauropod dinosaurs");
@@ -84,7 +84,7 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		//Body shape
 		description = service.getDescription("body-shapes", "large-theropod", BASE_URL);
-		assertEquals(description, "Large carnivores that walked on 2 legs.");
+		assertEquals(description, "Large carnivores that walked on two legs.");
 
 		//Country
 		description = service.getDescription("countries", "North%20Africa", BASE_URL);
