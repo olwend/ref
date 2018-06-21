@@ -85,16 +85,11 @@ public class ImagePageNew {
 			Node childNode = itemsNodeIterator.nextNode();
 			
 			Map<String, String> imagePageItemMap = new HashMap<String, String>();
-			
-			String components = childNode.getProperty("components").getString();
 
-			LOG.error(components);
-			String row = "imagepageitems/" + i;
+			String row = "imagepageitems/row" + i;
 			imagePageItemMap.put("row", row);
-			imagePageItemMap.put("components", components);
 			
 			itemsList.add(imagePageItemMap);
-			LOG.error(String.valueOf(i));
 			i++;
 		}
 		

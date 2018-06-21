@@ -146,12 +146,35 @@
         if(_.isEmpty(mName) || _.isEmpty(data)){
             return;
         }
-
+console.log(data);
 		var ttt = 0;
         _.each(data, function(value, key){
-
             if(key == "jcr:primaryType"){
                 return;
+            }
+
+            //Do something with the data in all dem rows
+			var componentType = value['components'];
+
+            if(componentType == "imageandtext") {
+				value['caption'] = value['par2']['row2cells13']['par']['caption']['text'];
+                value['text'] = value['par2']['row2cells13']['par2']['text']['text'];
+                //row layout
+            }
+
+            if(componentType == "text") {
+				//text
+            }
+
+            if(componentType == "twoimages") {
+                value['caption'] = value['par2']['row2cellsequal']['par']['caption']['text'];
+                value['caption2'] = value['par2']['row2cellsequal']['par2']['caption']['text'];
+            }
+
+            if(componentType == "pulloutimage") {
+				//caption
+                //text
+                //layout
             }
 
             $multifield.find(".js-coral-Multifield-add").click();
@@ -218,14 +241,15 @@ var kkk = 0;
 
         function handler(data){
             var fName = getJustName(getStringAfterLastSlash(imageField.fieldNames.fileName)),
-                fRef = getJustName(getStringAfterLastSlash(imageField.fieldNames.fileReference));
+                fRef = getJustName(getStringAfterLastSlash(imageField.fieldNames.fileReference)),
+                rowString = "row" + counter;
 
-            if(isFileNotFilled(data, counter, fRef)){
+            if(isFileNotFilled(data, rowString, fRef)){
                 return;
             }
 
-            var fileName = data[mName][counter][fName],
-                fileRef = data[mName][counter][fRef];
+            var fileName = data[mName][rowString][fName],
+                fileRef = data[mName][rowString][fRef];
 
             if (!fileRef) {
                 return;
@@ -242,10 +266,10 @@ var kkk = 0;
             $fileName.val(fileName);
         }
 
-        function isFileNotFilled(data, counter, fRef){
+        function isFileNotFilled(data, rowString, fRef){
             return _.isEmpty(data[mName])
-                    || _.isEmpty(data[mName][counter])
-                    || _.isEmpty(data[mName][counter][fRef])
+                    || _.isEmpty(data[mName][rowString])
+                    || _.isEmpty(data[mName][rowString][fRef])
         }
     }
 
@@ -271,6 +295,7 @@ var kkk = 0;
                     $multifield.on("click", ".js-coral-Multifield-add", function () {
                         buildImageField($multifield, mName);
                     });
+
                     buildMultiField(data[mName], $multifield, mName);
                 });
             }
@@ -297,7 +322,7 @@ var kkk = 0;
                 return;
             }
 console.log(componentNode);
-            var prefix = $fieldSet.data("name") + "/" + (counter + 1) + "/",
+            var prefix = $fieldSet.data("name") + "/row" + (counter + 1) + "/",
 
                 $fileRef = $widget.$element.find(SEL_FILE_REFERENCE),
                 refPath = prefix + getJustName($fileRef.attr("name")),
@@ -322,7 +347,7 @@ console.log(componentNode);
 
             if(componentNode == "imageandtext") {
 				$('<input />').attr('type', 'hidden')
-                    .attr('name', $fieldSet.data("name") + "/" + (counter + 1) + "/par2/imageandtext/fileReference")
+                    .attr('name', $fieldSet.data("name") + "/row" + (counter + 1) + "/par2/imagerow/par2/imageandtext/fileReference")
                     .attr('value', $fileRef.val())
                     .appendTo($form);
             } else if(componentNode == "twoimages") {
@@ -330,20 +355,20 @@ console.log(componentNode);
 
                 if(imageNumber == 1) {
                     $('<input />').attr('type', 'hidden')
-                        .attr('name', $fieldSet.data("name") + "/" + (counter + 1) + "/par/image/fileReference")
+                        .attr('name', $fieldSet.data("name") + "/row" + (counter + 1) + "/par2/row2cellsequal/par/image/fileReference")
                         .attr('value', $fileRef.val())
                         .appendTo($form);
                 }
 
                 if(imageNumber == 2) {
                     $('<input />').attr('type', 'hidden')
-                        .attr('name', $fieldSet.data("name") + "/" + (counter + 1) + "/par2/image/fileReference")
+                        .attr('name', $fieldSet.data("name") + "/row" + (counter + 1) + "/par2/row2cellsequal/par2/image/fileReference")
                         .attr('value', $fileRef.val())
                         .appendTo($form);
                 }
             } else if(componentNode == "pulloutimage") {
 				$('<input />').attr('type', 'hidden')
-                    .attr('name', $fieldSet.data("name") + "/" + (counter + 1) + "/par2/row2cells13/par/image/fileReference")
+                    .attr('name', $fieldSet.data("name") + "/row" + (counter + 1) + "/par2/row2cells13/par/image/fileReference")
                     .attr('value', $fileRef.val())
                     .appendTo($form);
             }	
@@ -384,7 +409,7 @@ console.log(componentNode);
         $field.remove();
 
         $('<input />').attr('type', 'hidden')
-            .attr('name', fieldSetName + "/" + counter + "/" + name)
+            .attr('name', fieldSetName + "/row" + counter + "/" + name)
             .attr('value', value)
             .appendTo($form);
 
@@ -392,148 +417,162 @@ console.log(componentNode);
 			componentNode = value;
 
             $('<input />').attr('type', 'hidden')
-             .attr('name', fieldSetName + "/" + counter + "/par2/sling:resourceType")
+             .attr('name', fieldSetName + "/row" + counter + "/par2/sling:resourceType")
                 .attr('value', "foundation/components/parsys")
                 .appendTo($form);
 
 			if(value == "imageandtext") {
 				$('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/" + value + "/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/imagerow/par2/imageandtext/sling:resourceType")
                     .attr('value', "nhmwww/components/functional/imagepage/image")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                    .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/caption/textIsRich")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/imagerow/par2/sling:resourceType")
+                    .attr('value', "foundation/components/parsys")
+                    .appendTo($form);
+
+
+                $('<input />').attr('type', 'hidden')
+                    .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/caption/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-	                .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/textIsRich")
+	                .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/textIsRich")
 	                .attr('value', "true")
 	                .appendTo($form);
             }
 
             if(value == "imageandtext" || value == "text") {
 				$('<input />').attr('type', 'hidden')
-                .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/sling:resourceType")
+                    .attr('name', fieldSetName + "/row" + counter + "/sling:resourceType")
+                    .attr('value', "nhmwww/components/functional/layout/herosection")
+                    .appendTo($form);
+
+				$('<input />').attr('type', 'hidden')
+                .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/sling:resourceType")
                     .attr('value', "nhmwww/components/functional/layout/row2cells13")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/sling:resourceType")
+                .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/sling:resourceType")
                     .attr('value', "foundation/components/parsys")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/sling:resourceType")
+                .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/sling:resourceType")
                     .attr('value', "foundation/components/parsys")
                     .appendTo($form);
             }
 
             if(value == "text") {
                 $('<input />').attr('type', 'hidden')
-                    .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/textIsRich")
+                    .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
             }
 
             if(value == "twoimages") {
 				$('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/sling:resourceType")
-                    .attr('value', "nhmwww/components/functional/layout/row2cellsequals")
+                 .attr('name', fieldSetName + "/row" + counter + "/sling:resourceType")
+                    .attr('value', "nhmwww/components/functional/layout/herosection")
                     .appendTo($form);
 
+				$('<input />').attr('type', 'hidden')
+                .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/sling:resourceType")
+                   .attr('value', "nhmwww/components/functional/layout/row2cellsequals")
+                   .appendTo($form);
+				
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par/sling:resourceType")
                     .attr('value', "foundation/components/parsys")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/image/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par2/image/sling:resourceType")
                     .attr('value', "nhmwww/components/functional/imagepage/image")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par/image/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par/image/sling:resourceType")
                     .attr('value', "nhmwww/components/functional/imagepage/image")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par/caption/textIsRich")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par/caption/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/caption/textIsRich")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par2/caption/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
             }
 
             if(value == "pulloutimage") {
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/sling:resourceType")
-                    .attr('value', "nhmwww/components/functional/layout/rowfullwidth")
+                 .attr('name', fieldSetName + "/row" + counter + "/sling:resourceType")
+                    .attr('value', "nhmwww/components/functional/layout/herosection")
                     .appendTo($form);
 
 				$('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/sling:resourceType")
                     .attr('value', "nhmwww/components/functional/layout/row2cells13")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/sling:resourceType")
                     .attr('value', "foundation/components/parsys")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/sling:resourceType")
                     .attr('value', "foundation/components/parsys")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/image/sling:resourceType")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/image/sling:resourceType")
                     .attr('value', "nhmwww/components/functional/imagepage/image")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/caption/textIsRich")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/caption/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
 
                 $('<input />').attr('type', 'hidden')
-                 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/textIsRich")
+                 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/textIsRich")
                     .attr('value', "true")
                     .appendTo($form);
             } 
-        } else if(name == "rowlayout" && (componentNode != "twoimages" && componentNode != "pulloutimage")) {
+        } else if(name == "rowlayout" && componentNode == "imageandtext") {
             $('<input />').attr('type', 'hidden')
-            .attr('name', fieldSetName + "/" + counter + "/sling:resourceType")
-            .attr('value', "nhmwww/components/functional/layout/" + value)
-            .appendTo($form);
+            	.attr('name', fieldSetName + "/row" + counter + "/par2/imagerow/sling:resourceType")
+	            .attr('value', "nhmwww/components/functional/layout/" + value)
+	            .appendTo($form);
         } else {
             if(componentNode == "imageandtext") {
     	        if(name == "caption") {
 					$('<input />').attr('type', 'hidden')
-                    	.attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/caption/text")
+                    	.attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/caption/text")
                         .attr('value', value)
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                   	 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/caption/sling:resourceType")
+                   	 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/caption/sling:resourceType")
                         .attr('value', 'nhmwww/components/functional/imagepage/text')
                         .appendTo($form);
                 }
-            }
-
-            if(componentNode == "imageandtext") {
+            
                 if(name == "text") {
                     $('<input />').attr('type', 'hidden')
-                    	.attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/text")
+                    	.attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/text")
                         .attr('value', value)
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                   	 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/sling:resourceType")
+                   	 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/sling:resourceType")
                         .attr('value', 'nhmwww/components/functional/imagepage/text')
                         .appendTo($form);
                 }
@@ -542,12 +581,12 @@ console.log(componentNode);
             if(componentNode == "text") {
                 if(name == "text") {
                     $('<input />').attr('type', 'hidden')
-                    	.attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/text")
+                    	.attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/text")
                         .attr('value', value)
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                   	 .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/sling:resourceType")
+                   	 .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/sling:resourceType")
                         .attr('value', 'nhmwww/components/functional/imagepage/text')
                         .appendTo($form);
                 }
@@ -556,24 +595,24 @@ console.log(componentNode);
             if(componentNode == "twoimages") {
                 if(name == "caption") {
 					$('<input />').attr('type', 'hidden')
-                     .attr('name', fieldSetName + "/" + counter + "/par/caption/text")
+                     .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par/caption/text")
                         .attr('value', value)
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                    .attr('name', fieldSetName + "/" + counter + "/par/caption/sling:resourceType")
+                    .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par/caption/sling:resourceType")
                         .attr('value', 'nhmwww/components/functional/imagepage/text')
                         .appendTo($form);
                 }
 
                 if(name == "caption2") {
 					$('<input />').attr('type', 'hidden')
-                     .attr('name', fieldSetName + "/" + counter + "/par2/caption/text")
+                     .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par2/caption/text")
                         .attr('value', value)
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                    .attr('name', fieldSetName + "/" + counter + "/par2/caption/sling:resourceType")
+                    .attr('name', fieldSetName + "/row" + counter + "/par2/row2cellsequal/par2/caption/sling:resourceType")
                         .attr('value', 'nhmwww/components/functional/imagepage/text')
                         .appendTo($form);
                 }
@@ -582,24 +621,24 @@ console.log(componentNode);
             if(componentNode == "pulloutimage") {
                 if(name == "caption") {
 					$('<input />').attr('type', 'hidden')
-                        .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/caption/sling:resourceType")
+                        .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/caption/sling:resourceType")
                         .attr('value', "nhmwww/components/functional/imagepage/text")
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                        .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par/caption/text")
+                        .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par/caption/text")
                         .attr('value', value)
                         .appendTo($form);
                 }
 
                 if(name == "text") {
 					$('<input />').attr('type', 'hidden')
-                        .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/sling:resourceType")
+                        .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/sling:resourceType")
                         .attr('value', "nhmwww/components/functional/imagepage/text")
                         .appendTo($form);
 
                     $('<input />').attr('type', 'hidden')
-                        .attr('name', fieldSetName + "/" + counter + "/par2/row2cells13/par2/text/text")
+                        .attr('name', fieldSetName + "/row" + counter + "/par2/row2cells13/par2/text/text")
                         .attr('value', value)
                         .appendTo($form);
                 }
