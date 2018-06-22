@@ -43,7 +43,6 @@ public class ImagePageNew {
 	SlingHttpServletRequest request;
 	
 	private String author= null;
-	private String components = null;
 	private String datePublished = null;
 	private String dateLastUpdated = null;
 	private String title = null;
@@ -82,12 +81,15 @@ public class ImagePageNew {
 		int i = 1;
 		
 		while(itemsNodeIterator.hasNext()) {
-			Node childNode = itemsNodeIterator.nextNode();
+			Node node = itemsNodeIterator.nextNode();
 			
 			Map<String, String> imagePageItemMap = new HashMap<String, String>();
 
+			String rowType = node.getProperty("components").getString();
+			LOG.error(rowType);
 			String row = "imagepageitems/row" + i;
 			imagePageItemMap.put("row", row);
+			imagePageItemMap.put("rowType", rowType);
 			
 			itemsList.add(imagePageItemMap);
 			i++;
@@ -106,14 +108,6 @@ public class ImagePageNew {
 
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-
-	public String getComponents() {
-		return components;
-	}
-
-	public void setComponents(String components) {
-		this.components = components;
 	}
 
 	public String getDatePublished() {
