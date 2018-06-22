@@ -5,4 +5,4 @@
     jcr:title="Image (new)"
     sling:resourceSuperType="foundation/components/parbase"
     allowedParents="[*/*parsys]"
-    componentGroup="NHM - image page"/>
+    componentGroup=".hidden"/>

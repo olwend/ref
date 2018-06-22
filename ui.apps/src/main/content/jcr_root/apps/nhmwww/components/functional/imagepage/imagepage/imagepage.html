@@ -10,7 +10,7 @@
 
 <sly data-sly-test="${properties.jcr:title}">
 
-	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImageGallery">
+	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImagePageNew">
 
 		<div class="hero">
             <div data-sly-resource="${'leadimage'}"></div>
@@ -30,10 +30,10 @@
 				<div data-sly-resource="${'introductiontext'}"></div>
 			</div>
 		</div>
-	
-		<ul data-sly-list.list="${imagepage.imagePageItems}">
+
+	<ul data-sly-list.list="${imagepage.imagePageItems}">
 			<li>
-				<div data-sly-resource="${list.row}"></div>
+				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
 	        </li>
 		</ul>
 	</sly>
