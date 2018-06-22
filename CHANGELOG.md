@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.21 - Yeatsian Yingshanosaurus - 21-Jun-2018
+- WR-1329 - Add copyright info to images in DD single
+- WR-1405 - Fix failing build tests
+- WR-1407 - Removing 'W' from Dino Directory navigation and changing Ankylosaurid to 'Armored Dinosaur’
+
 ## 2.0.20 - Xanthous Xenotarsosaurus - 14-Jun-2018
 - WR-1366 - Comment legacy code in Social Signup component 
 - WR-1374 - Investigate layout when using <dl><dt><dd> 
