@@ -10,7 +10,7 @@
 
 <sly data-sly-test="${properties.jcr:title}">
 
-	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imageGallery.ImagePageNew">
+	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.ImagePage">
 
 		<div class="hero">
             <div data-sly-resource="${'leadimage'}"></div>
@@ -21,19 +21,35 @@
 				<div data-sly-resource="${'leadimagecaption'}"></div>
 			</div>
 			<div class="small-9 medium-9 large-9 columns">
+				 <a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
+				 	${imagepage.hubTag['title']}
+				 </a>
+			
 				<h2>${imagepage.title}</h2>
 				
 				<p>${imagepage.author}</p>
 				<p>${imagepage.datePublished}</p>
 				<p>${imagepage.dateLastUpdated}</p>
 
+				<div data-sly-resource="${@ path='socialshareheader', resourceType='nhmwww/components/functional/socialshare'}" data-sly-unwrap></div>
+
 				<div data-sly-resource="${'introductiontext'}"></div>
 			</div>
 		</div>
 
-	<ul data-sly-list.list="${imagepage.imagePageItems}">
+		<ul data-sly-list.list="${imagepage.imagePageItems}">
 			<li>
 				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
+	        </li>
+		</ul>
+		
+		<div data-sly-resource="${@ path='socialsharefooter', resourceType='nhmwww/components/functional/socialshare'}" data-sly-unwrap></div>
+		
+		<ul data-sly-list.list="${imagepage.tagList}">
+			<li>
+				<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
+					${list['title']}
+				</a>
 	        </li>
 		</ul>
 	</sly>

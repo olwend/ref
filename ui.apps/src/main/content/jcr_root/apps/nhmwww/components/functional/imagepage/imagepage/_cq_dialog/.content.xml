@@ -290,6 +290,40 @@
 					</column>
 				</items>
 			</configuration>
+			<tags
+				jcr:primaryType="nt:unstructured"
+				jcr:title="Tags"
+				sling:resourceType="granite/ui/components/foundation/section">
+				<layout
+					jcr:primaryType="nt:unstructured"
+					margin="{Boolean}false"
+					sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" />
+				<items jcr:primaryType="nt:unstructured">
+					<column
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="granite/ui/components/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<hubtag
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Hub tag"
+		                        name="./hubTag"
+		                        sling:resourceType="cq/gui/components/common/tagspicker"
+		                        fieldDescription="Select one primary subject tag"
+		                        allowBulkEdit="{Boolean}true"
+		                        cq-msm-lockable="hubTag"
+		                        cq:showOnCreate="{Boolean}true" />
+	                        <othertags
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Other tags"
+		                        name="./otherTags"
+		                        sling:resourceType="cq/gui/components/common/tagspicker"
+		                        allowBulkEdit="{Boolean}true"
+		                        cq-msm-lockable="otherTags"
+		                        cq:showOnCreate="{Boolean}true" />
+						</items>
+					</column>
+				</items>
+			</tags>
 			<metadata
 				jcr:primaryType="nt:unstructured"
 				jcr:title="Metadata"

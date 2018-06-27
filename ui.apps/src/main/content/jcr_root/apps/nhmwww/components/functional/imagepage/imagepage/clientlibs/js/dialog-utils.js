@@ -4,34 +4,34 @@ $(document).on("click", ".cq-dialog-submit", function () {
     if(dialogTitle.includes("Image page")) {
     	var $form = $(this).closest("form.foundation-form");
 
-//    	//Tags
-//    	var hubTagArray = [],
-//            otherTagsArray = [],
-//        	allTagsArray = [];
-//
-//        //Only take the first tag in this field
-//		hubTagArray.push($("input[name='./hubTag']").val());
-//
-//        //Get values for each other tag
-//        $("input[name='./otherTags']").each(function() {
-//            otherTagsArray.push(this.value);
-//        });
-//
-//    	for(var i=0; i<hubTagArray.length; i++) {
-//    		allTagsArray.push(hubTagArray[i]);
-//    	}
-//
-//    	for(var i=0; i<otherTagsArray.length; i++) {
-//    		allTagsArray.push(otherTagsArray[i]);
-//    	}
-//
-//        for(var i=0; i<allTagsArray.length; i++) {
-//            $('<input />').attr('type', 'hidden')
-//            .attr('name', "./cq:tags")
-//            .attr('value', allTagsArray[i])
-//            .attr('class', 'cq-TagList-tag--existing')
-//            .appendTo($form);
-//        }
+    	//Tags
+    	var hubTagArray = [],
+            otherTagsArray = [],
+        	allTagsArray = [];
+
+        //Only take the first tag in this field
+		hubTagArray.push($("input[name='./hubTag']").val());
+
+        //Get values for each other tag
+        $("input[name='./otherTags']").each(function() {
+            otherTagsArray.push(this.value);
+        });
+
+    	for(var i=0; i<hubTagArray.length; i++) {
+    		allTagsArray.push(hubTagArray[i]);
+    	}
+
+    	for(var i=0; i<otherTagsArray.length; i++) {
+    		allTagsArray.push(otherTagsArray[i]);
+    	}
+
+        for(var i=0; i<allTagsArray.length; i++) {
+            $('<input />').attr('type', 'hidden')
+            .attr('name', "./cq:tags")
+            .attr('value', allTagsArray[i])
+            .attr('class', 'cq-TagList-tag--existing')
+            .appendTo($form);
+        }
     	
     	//Dates
 		var datePublished = getDate($("input[name='./datepublisheddate']").val()),

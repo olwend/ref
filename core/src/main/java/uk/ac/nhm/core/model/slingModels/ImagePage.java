@@ -1,4 +1,4 @@
-package uk.ac.nhm.core.model.slingModels.imageGallery;
+package uk.ac.nhm.core.model.slingModels;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
@@ -11,7 +11,6 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
-import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -22,16 +21,17 @@ import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Model(adaptables = SlingHttpServletRequest.class)
-public class ImagePageNew {
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 
-	private static final Logger LOG = LoggerFactory.getLogger(ImagePageNew.class);
+@Model(adaptables = SlingHttpServletRequest.class)
+public class ImagePage {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ImagePage.class);
 
 	@Inject
 	ValueMap properties;
@@ -42,15 +42,56 @@ public class ImagePageNew {
 	@Inject
 	SlingHttpServletRequest request;
 	
-	private String author= null;
+	public static final String HUB_TAG		= "hubTag";
+	public static final String OTHER_TAGS	= "otherTags";
+	
+	private String author = null;
 	private String datePublished = null;
 	private String dateLastUpdated = null;
 	private String title = null;
-			
+
+	private Map<String, String> hubTag = null;
+	private List<Map<String, String>> tagList = null;
 	private List<Map<String, String>> imagePageItems = null;
 	
 	@PostConstruct
 	protected void init() throws JSONException, PathNotFoundException, RepositoryException {
+		
+		TagManager tagMgr = resourceResolver.adaptTo(TagManager.class);
+		
+		//Set hub tag name
+		if(this.properties.get(HUB_TAG) != null) {
+			String[] hubTags = this.properties.get(HUB_TAG, String[].class);
+			if(hubTags.length > 0) {
+				Tag tag = tagMgr.resolve(hubTags[0]);
+				Map<String, String> tagMap = new HashMap<String, String>();
+				if(tag!=null) {
+					tagMap.put("title", tag.getTitle().toUpperCase());
+					tagMap.put("path", tag.getDescription());
+					this.setHubTag(tagMap);	
+				}
+			} 
+		} 
+		
+		//Get other tags
+		List<Map<String, String>> tagList = new ArrayList<Map<String, String>>();
+		
+		if(this.properties.get(OTHER_TAGS) != null) {
+			String[] otherTags = this.properties.get(OTHER_TAGS, String[].class);
+			if(otherTags.length > 0) {
+				for(int i=0; i<otherTags.length; i++) {
+					Tag tag = tagMgr.resolve(otherTags[i]);
+					Map<String, String> tagMap = new HashMap<String, String>();
+					if(tag!=null) {
+						tagMap.put("title", tag.getTitle());
+						tagMap.put("path", tag.getDescription());
+						tagList.add(tagMap);	
+					}
+				}
+			}
+		}
+		
+		this.setTagList(tagList);
 		
 		if(properties.get("author") != null) this.setAuthor("By " + properties.get("author", String.class));
 		
@@ -132,6 +173,22 @@ public class ImagePageNew {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Map<String, String> getHubTag() {
+		return hubTag;
+	}
+
+	public void setHubTag(Map<String, String> hubTag) {
+		this.hubTag = hubTag;
+	}
+
+	public List<Map<String, String>> getTagList() {
+		return tagList;
+	}
+
+	public void setTagList(List<Map<String, String>> tagList) {
+		this.tagList = tagList;
 	}
 
 	public List<Map<String, String>> getImagePageItems() {
