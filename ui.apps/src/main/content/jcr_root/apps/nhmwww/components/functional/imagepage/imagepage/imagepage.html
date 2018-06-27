@@ -31,7 +31,7 @@
 				<p>${imagepage.datePublished}</p>
 				<p>${imagepage.dateLastUpdated}</p>
 
-				<div data-sly-resource="${@ path='socialshareheader', resourceType='nhmwww/components/functional/socialshare'}" data-sly-unwrap></div>
+				<div data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
 
 				<div data-sly-resource="${'introductiontext'}"></div>
 			</div>
@@ -43,7 +43,7 @@
 	        </li>
 		</ul>
 		
-		<div data-sly-resource="${@ path='socialsharefooter', resourceType='nhmwww/components/functional/socialshare'}" data-sly-unwrap></div>
+		<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
 		
 		<ul data-sly-list.list="${imagepage.tagList}">
 			<li>
