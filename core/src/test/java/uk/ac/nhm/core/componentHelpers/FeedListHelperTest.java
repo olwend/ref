@@ -21,6 +21,7 @@ import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +34,7 @@ import com.day.cq.wcm.foundation.Image;
 import io.wcm.testing.mock.aem.junit.AemContext;
 import uk.ac.nhm.core.model.PressReleaseFeedListElementImpl;
 
-
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class FeedListHelperTest {
 

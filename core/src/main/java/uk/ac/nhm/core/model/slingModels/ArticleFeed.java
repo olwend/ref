@@ -36,7 +36,6 @@ public class ArticleFeed {
 	private String readmorelink = null;
 	private String cssClass = null;
 	
-
 	@PostConstruct
 	protected void init() {
 		String categoryParameter = request.getParameter("category");

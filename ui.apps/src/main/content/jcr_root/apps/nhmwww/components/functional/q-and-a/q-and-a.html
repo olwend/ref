@@ -10,22 +10,39 @@
 </div>
 
 <div class="qasingle--container row" data-sly-test="${properties.question}">
+
 	<div class="qasingle--question-title-container">
 		<h3 class="qasingle--question-title">Quick question</h3>
 	</div>
-	<div class="qasingle--question-content">
-		<div class="qasingle--question-container" data-sly-test="${properties.question}">
-			<h4 class="qasingle--question">${properties.question @ context ='html'}</h4>
+
+	<div class="qasingle--question-container" data-sly-test="${properties.question}">
+		<h1 class="qasingle--question">${properties.question @ context ='html'}</h1>
+	</div>
+
+	<div class="small-12 medium-12 large-12 columns qasingle--question-content" data-sly-test="${properties.fileReference}">
+
+		<div class="small-12 medium-4 large-4 columns qasingle--image">
+			<img src="${properties.fileReference}">
 		</div>
-		<div class="qasingle--answer-container" data-sly-test="${properties.answer}">
-			<p class="qasingle--answer">${properties.answer @ context ='html'}</p>
+
+		<div class="small-12 medium-8 large-8 columns"  data-sly-test="${properties.answer}">
+			${properties.answer @ context ='html'}
+		</div>
+	</div>
+
+	<div class="small-12 medium-12 large-12 columns qasingle--question-content" data-sly-test="${!properties.fileReference}">
+		<div class="small-12 medium-12 large-12" data-sly-test="${properties.answer}">
+			${properties.answer @ context ='html'}
 		</div>
 	</div>
 
 	<div data-sly-use.qa="uk.ac.nhm.core.model.slingModels.QA" data-sly-test="${qa.nextQuestion}">
 		<a href="${qa.nextQuestion['link']}">
 			<div class="qasingle--next-question-container clearfix" >
-				<p class="qasingle--next-question left">Next question: ${qa.nextQuestion['question'] @ context ='html'}</p>
+				<div class="qasingle--next-question left">
+					<p class="qasingle--next-question-title">Next question:&nbsp;</p>
+					<p class="qasingle--next-question-text">${qa.nextQuestion['question'] @ context ='html'}</p>
+				</div>
 				<i class="ico svg-ico right" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_direction_r.svg"  data-svg-title="icon__next_question" data-alt="Next question" data-stroke-width="10"></i>
 			</div>
 		</a>

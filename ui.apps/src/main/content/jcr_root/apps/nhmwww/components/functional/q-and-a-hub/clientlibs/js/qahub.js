@@ -3,6 +3,10 @@ $(document).ready(function() {
 	var questionCount = $('.qa-question').length - 1,
 		questionListTotalHeight = 0;
 
+	// Show first answer (all are hidden by default)
+	$('#qa-title-0').css('display', 'block');
+	$('#qa-text-0').css('display', 'block');
+
 	// Calculate total height of question list for mobile pulldown
 	$('.qa-question').each(function() {
 	  questionListTotalHeight += $(this).outerHeight();
@@ -23,7 +27,8 @@ $(document).ready(function() {
 		event.preventDefault();
 
 		var position = $(this).data('question'),
-			targetElement = $('#qa'+position),
+			targetElementTitle = $('#qa-title-'+position),
+			targetElementText = $('#qa-text-'+position),
 			questionListContainerOffset = $('.qahub--question-container').offset(),
 			questionListContainerScrollLimit = null,
 			questionListContainerScrollOffsetLimit = null,
@@ -61,8 +66,11 @@ $(document).ready(function() {
 		// Control answer visibility
 		// Use :visible selector to prevent fadeIn callback from firing immediately
 		// Use stop() to prevent fast concurrent clicks from queueing animations
-		targetElement.siblings('.answer:visible').stop().fadeOut('fast', function() {
-			targetElement.fadeIn('slow');
+		targetElementTitle.siblings('.qahub--answer-title:visible').stop().fadeOut('fast', function() {
+			targetElementTitle.fadeIn('slow');
+		});
+		targetElementText.siblings('.qahub--answer-text:visible').stop().fadeOut('fast', function() {
+			targetElementText.fadeIn('slow');
 		});
 
 		// Find values of previous and next questions, based on current question position
