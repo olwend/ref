@@ -48,6 +48,7 @@ public class ImagePage {
 	private String author = null;
 	private String datePublished = null;
 	private String dateLastUpdated = null;
+	private String introductionText = null;
 	private String title = null;
 
 	private Map<String, String> hubTag = null;
@@ -94,6 +95,7 @@ public class ImagePage {
 		this.setTagList(tagList);
 		
 		if(properties.get("author") != null) this.setAuthor("By " + properties.get("author", String.class));
+		if(properties.get("introduction") != null) this.setIntroductionText(properties.get("introduction", String.class));
 		
 		//Dates
 		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
@@ -165,6 +167,14 @@ public class ImagePage {
 
 	public void setDateLastUpdated(String dateLastUpdated) {
 		this.dateLastUpdated = dateLastUpdated;
+	}
+
+	public String getIntroductionText() {
+		return introductionText;
+	}
+
+	public void setIntroductionText(String introductionText) {
+		this.introductionText = introductionText;
 	}
 
 	public String getTitle() {
