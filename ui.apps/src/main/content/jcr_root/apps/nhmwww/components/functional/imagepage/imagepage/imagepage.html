@@ -8,43 +8,52 @@
 	</div>
 </sly>
 
-<sly data-sly-test="${properties.jcr:title}">
+<sly data-sly-test="${properties.jcr:title}"> 
 
+	<div class="imagepage--container" data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.ImagePage">
 	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.ImagePage">
 
-		<div class="hero">
+		<div class="imagepage--hero">
             <div data-sly-resource="${'image'}"></div>
         </div>
 
 		<div class="row">
-			<div class="small-3 medium-3 large-3 columns">
+			<div class="imagepage--caption small-3 medium-3 large-3 columns">
 				<div data-sly-resource="${'leadimagecaption'}"></div>
 			</div>
-			<div class="small-9 medium-9 large-9 columns">
+			<div class="imagepage--hub small-9 medium-9 large-9 columns">
 				 <a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
 				 	${imagepage.hubTag['title']}
 				 </a>
 			
-				<h2>${imagepage.title}</h2>
-				
-				<p>${imagepage.author}</p>
-				<p>${imagepage.datePublished}</p>
-				<p>${imagepage.dateLastUpdated}</p>
-
+			<h1>${imagepage.title}</h1>
+			
+			<dl class = "imagepage--metadata">
+			
+					<dt class="show-for-sr">Author:</dt>
+					<dd class="imagepage--author">'${imagepage.author}'</dd>
+					<dt class="show-for-sr">Date Published:</dt>
+					<dd class="imagepage--datepublished">${imagepage.datePublished}</dd>
+					<dt class="show-for-sr">Date Last Updated:</dt>
+					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
+			
+			</dl>
+			
+<!-- social share class - check if css in component -->
 				<div data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
 
 				<p>${imagepage.introductionText @ context='html'}</p>
 			</div>
 		</div>
-
+<!-- new class for sub items as many as are configured i.e. listed out -->
 		<ul data-sly-list.list="${imagepage.imagePageItems}">
 			<li>
 				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
 	        </li>
 		</ul>
-		
+<!-- why is social share also on footer? -->	
 		<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
-		
+	<!-- what is tagList?  -->	
 		<ul data-sly-list.list="${imagepage.tagList}">
 			<li>
 				<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
