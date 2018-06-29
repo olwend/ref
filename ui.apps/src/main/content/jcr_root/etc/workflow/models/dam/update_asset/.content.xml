@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-10-21T16:22:31.071-04:00"
+        cq:lastModified="{Date}2018-03-05T14:15:25.258Z"
         cq:lastModifiedBy="admin"
         cq:tags="[workflow:dam,workflow:wcm]"
         cq:template="/libs/cq/workflow/templates/model"
@@ -146,14 +146,16 @@
                 jcr:created="{Date}2015-09-28T17:50:46.962-07:00"
                 jcr:createdBy="admin"
                 jcr:description="Processes assets for use with Dynamic Media Image Services"
-                jcr:lastModified="{Date}2015-09-28T17:50:46.962-07:00"
+                jcr:lastModified="{Date}2018-03-05T11:29:22.871Z"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Dynamic Media Process Image Assets"
-                sling:resourceType="dam/components/s7imaging/dmimageprocess">
+                sling:resourceType="dam/components/s7imaging/dmimageprocess"
+                PROCESS="com.adobe.cq.dam.dm.process.workflow.DMImageProcess"
+                PROCESS_AUTO_ADVANCE="true">
                 <metaData
                     jcr:primaryType="nt:unstructured"
-                    CONFIGS="[140:100:false,48:48:false,319:319:false]"
+                    CONFIGS="320:320:false"
                     HEIGHT="1280"
                     MIME_TYPE="image/jpeg"
                     PROCESS="com.adobe.cq.dam.dm.process.workflow.DMImageProcess"
@@ -165,7 +167,7 @@
                 jcr:created="{Date}2014-07-15T00:55:55.869+05:30"
                 jcr:createdBy="admin"
                 jcr:description="This process will create one or more thumbnails for the asset, create web enabled rendition and update folder thumbnail."
-                jcr:lastModified="{Date}2016-08-04T20:18:39.069+05:30"
+                jcr:lastModified="{Date}2018-03-05T11:30:19.977Z"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Process Thumbnails"
@@ -174,18 +176,136 @@
                 PROCESS_AUTO_ADVANCE="true">
                 <metaData
                     jcr:primaryType="nt:unstructured"
-                    CONFIGS="[140:100:false,48:48:false,319:319:false]"
+                    CONFIGS="320:320:false"
                     CREATE_FPO_MIMETYPES="[image/pjpeg,image/jpeg,image/jpg,image/gif,image/x-png,image/tiff,image/png,application/x-photoshop,application/photoshop,image/vnd.adobe.photoshop,application/vnd.adobe.photoshop,image/bmp,image/x-tiff]"
                     FPO_QUALITY="10"
-                    HEIGHT="1280"
+                    HEIGHT="480"
                     MIME_TYPE="image/jpeg"
                     MIMETYPE="image/jpeg"
                     PROCESS="com.day.cq.dam.core.process.ThumbnailProcess"
                     PROCESS_AUTO_ADVANCE="true"
                     QUALITY="90"
                     SKIP="[audio/mpeg,video/(.*)]"
-                    WIDTH="1280"/>
+                    WIDTH="480"/>
             </thumbnailprocess>
+            <createwebenabledimag_1882147405
+                jcr:created="{Date}2018-03-05T14:15:16.242Z"
+                jcr:createdBy="admin"
+                jcr:description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+                jcr:lastModified="{Date}2018-03-05T14:15:16.242Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Create Web Enabled Image"
+                sling:resourceType="dam/components/workflow/createwebenabledimage">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="620"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="620"/>
+            </createwebenabledimag_1882147405>
+            <createwebenabledimag_1545555343
+                jcr:created="{Date}2018-03-05T11:31:40.754Z"
+                jcr:createdBy="admin"
+                jcr:description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+                jcr:lastModified="{Date}2018-03-05T14:15:25.216Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Create Web Enabled Image"
+                sling:resourceType="dam/components/workflow/createwebenabledimage"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="768"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="768"/>
+            </createwebenabledimag_1545555343>
+            <createwebenabledimag_292179644
+                jcr:created="{Date}2018-03-05T11:31:51.257Z"
+                jcr:createdBy="admin"
+                jcr:description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+                jcr:lastModified="{Date}2018-03-05T11:31:51.257Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Create Web Enabled Image"
+                sling:resourceType="dam/components/workflow/createwebenabledimage">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="960"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="960"/>
+            </createwebenabledimag_292179644>
+            <createwebenabledimag_1189613977
+                jcr:created="{Date}2018-03-05T11:32:02.553Z"
+                jcr:createdBy="admin"
+                jcr:description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+                jcr:lastModified="{Date}2018-03-05T11:32:02.553Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Create Web Enabled Image"
+                sling:resourceType="dam/components/workflow/createwebenabledimage">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="1024"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="1024"/>
+            </createwebenabledimag_1189613977>
+            <createwebenabledimag_1534129204
+                jcr:created="{Date}2018-03-05T11:32:51.152Z"
+                jcr:createdBy="admin"
+                jcr:description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+                jcr:lastModified="{Date}2018-03-05T11:32:51.152Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Create Web Enabled Image"
+                sling:resourceType="dam/components/workflow/createwebenabledimage">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="1160"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="1160"/>
+            </createwebenabledimag_1534129204>
+            <createwebenabledimag
+                jcr:created="{Date}2018-03-05T11:30:05.894Z"
+                jcr:createdBy="admin"
+                jcr:description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+                jcr:lastModified="{Date}2018-03-05T11:32:57.516Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Create Web Enabled Image"
+                sling:resourceType="dam/components/workflow/createwebenabledimage"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="1920"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="1920"/>
+            </createwebenabledimag>
             <deleteimagepreviewpr
                 jcr:created="{Date}2015-09-22T08:51:54.114-07:00"
                 jcr:createdBy="admin"
