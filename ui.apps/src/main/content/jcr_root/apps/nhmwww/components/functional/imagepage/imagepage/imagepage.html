@@ -16,7 +16,6 @@
 		<div class="hero">
             <div data-sly-resource="${'image'}"></div>
         </div>
-
 	
 		<div class="row">
 			<div class="imagepage--caption small-3 medium-3 large-3 columns">
@@ -27,18 +26,16 @@
 				 	${imagepage.hubTag['title']}
 				 </a>
 			
-			<h1>${imagepage.title}</h1>
-			
-			<dl class = "imagepage--metadata">
-			
+				<h1>${imagepage.title}</h1>
+				
+				<dl class = "imagepage--metadata">
 					<dt class="show-for-sr">Author:</dt>
-					<dd class="imagepage--author">'${imagepage.author}'</dd>
+					<dd class="imagepage--author">${imagepage.author}</dd>
 					<dt class="show-for-sr">Date Published:</dt>
 					<dd class="imagepage--datepublished">${imagepage.datePublished}</dd>
 					<dt class="show-for-sr">Date Last Updated:</dt>
 					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
-			
-			</dl>
+				</dl>
 			
 <!-- social share class - check if css in component -->
 				<div data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
@@ -52,16 +49,30 @@
 				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
 	        </li>
 		</ul>
-<!-- why is social share also on footer? -->	
-		<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
-	<!-- what is tagList?  -->	
-		<ul data-sly-list.list="${imagepage.tagList}">
-			<li>
-				<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
-					${list['title']}
-				</a>
-	        </li>
-		</ul>
+<!-- why is social share also on footer? -->
+		<div class="row">
+			<div class="imagepage--caption small-3 medium-3 large-3 columns">
+
+			</div>
+			<div class="imagepage--hub small-9 medium-9 large-9 columns">
+				<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
+				
+		<!-- what is tagList?  -->	
+				<ul data-sly-list.list="${imagepage.tagList}">
+					<li>
+						<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
+							${list['title']}
+						</a>
+			        </li>
+				</ul>
+			</div>
+			
+			<div class="small-12 medium-12 large-12 columns">
+				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
+			</div>
+		</div>
+		
+		
 	</sly>
 
 </sly>
