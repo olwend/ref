@@ -2678,6 +2678,10 @@ i.ico img {
   color: #ffffff;
 }
 
+input.question {
+  display: none;
+}
+
 .expandable {
   margin: 1.25em 0;
   padding: 1em 5%;
@@ -4644,7 +4648,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6569,7 +6573,22 @@ div#cookie-bar p {
 }
 
 .dinosaur dd {
+  line-height: 1.5em;
+  margin: 0 0 1em 0;
+  font-size: 1em;
   text-rendering: optimizeLegibility;
+}
+
+@media screen and (min-width: 768px) {
+  .dinosaur dd {
+    font-size: 1.125em;
+  }
+}
+
+.dinosaur dl {
+  line-height: 0;
+  margin: 0;
+  font-size: 1.2em;
 }
 
 .dinosaur--container {
@@ -6604,8 +6623,11 @@ div#cookie-bar p {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  font-size: 1.6rem;
-  margin: 0;
+  font-size: 23px;
+}
+
+.dinosaur--name-description dd {
+  margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -6615,17 +6637,20 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--pronunciation {
+.dinosaur--pronunciation p,
+.dinosaur--pronunciation dd {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation {
+  .dinosaur--pronunciation p,
+  .dinosaur--pronunciation dd {
     margin-right: 20px;
   }
 }
 
-.dinosaur--meaning {
+.dinosaur--meaning p,
+.dinosaur--meaning dd {
   margin: 0;
 }
 
@@ -6672,37 +6697,24 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--copyright {
-  margin: 0 20px;
-  font-size: 0.75rem;
-  text-align: left;
+.dinosaur--info-container dl {
+  font-size: 1em;
 }
 
-@media screen and (min-width: 640px) {
-  .dinosaur--copyright {
-    margin: 0;
-  }
+.dinosaur--info-container dd {
+  font-size: 1.125em;
+  margin-bottom: 10px;
 }
 
 .dinosaur--description-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-.dinosaur--description {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: 1.55rem;
-  margin-bottom: 0;
-}
-
-.dinosaur--description dt,
-.dinosaur--description dd {
-  margin-right: 5px;
-  font-weight: normal;
+.dinosaur--description-container dl {
+  font-size: 1em;
 }
 
 .dinosaur--comparison {
@@ -6728,23 +6740,12 @@ div#cookie-bar p {
 
 .dinosaur--info-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
   padding: 0 20px;
-}
-
-.dinosaur--info {
-  font-size: 1.55rem;
-}
-
-.dinosaur--info dt {
-  font-weight: normal;
 }
 
 .dinosaur--content-container {
   padding: 10px 20px 0 20px;
-}
-
-.dinosaur--content-title {
-  margin-top: 40px;
 }
 
 .dinosaur--taxonomy-container {
@@ -6752,17 +6753,22 @@ div#cookie-bar p {
   padding: 10px 20px 20px 20px;
 }
 
-.dinosaur--taxonomy {
-  font-size: 1.3rem;
+.dinosaur--taxonomy-container dl {
+  font-size: 1em;
 }
 
-.dinosaur--taxonomy-title {
+.dinosaur--taxonomy-container p,
+.dinosaur--taxonomy-container dd {
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.dinosaur--content-title {
+  margin-top: 40px;
+}
+
+.dinosaur--section-title {
   margin-top: 20px;
-}
-
-.dinosaur--list dt {
-  float: left;
-  margin: 0 5px 0 0;
 }
 
 /** DINOSAUR NAVIGATION **/
@@ -8120,6 +8126,74 @@ div#cookie-bar p {
 
 .image--and--cta--wrapper .image--not--matching--ratio {
   width: 100%;
+}
+
+/** IMAGE-PAGE**/
+.imagepage a,
+.imagepage a:hover {
+  text-decoration: none;
+}
+
+.imagepage--container {
+  position: relative;
+  padding-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .imagepage--container {
+    max-height: 240px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .imagepage--container {
+    max-height: 320px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .imagepage--container {
+    max-height: 425px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .imagepage--container {
+    max-height: 595px;
+  }
+}
+
+.imagepage--hub {
+  font-size: 1em;
+  margin-bottom: 0;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (min-width: 480px) {
+  .imagepage--hub {
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .imagepage--hub {
+    margin-bottom: 0.5em;
+  }
+}
+
+.imagepage--title {
+  font-size: 1.4em;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .imagepage--title {
+    color: #FFFFFF;
+    font-size: 1.5em;
+  }
 }
 
 /** REFACTOR MAP **/
@@ -9841,7 +9915,7 @@ a.button-cta {
 
 .social-signup--form-container {
   padding: 20px;
-  background-color: #565656;
+  background-color: #808080;
   color: #FFFFFF;
 }
 
@@ -9952,7 +10026,7 @@ a.button-cta {
 
 .button__newsletter-signup {
   width: 100%;
-  background-color: #565656;
+  background-color: #808080;
   border: 2px solid #FFFFFF;
   max-height: 37px;
   padding-top: 7px;
@@ -9961,11 +10035,7 @@ a.button-cta {
 }
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
-  background-color: #565656;
-}
-
-input.question {
-  display: none;
+  background-color: #808080;
 }
 
 /** WR-707 - fix positioning of events calendar search button **/
