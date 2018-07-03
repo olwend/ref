@@ -38,6 +38,7 @@
     								<file
 				                        jcr:primaryType="nt:unstructured"
 				                        autoStart="{Boolean}false"
+				                        allowUpload="{Boolean}false"
 				                        class="cq-droptarget"
 				                        fieldLabel="Image before"
 				                        fieldNameParameter="./fileNameBefore"
@@ -76,6 +77,7 @@
 										fieldDescription="Hidden field for image upload resource type" />
     								<file
 				                        jcr:primaryType="nt:unstructured"
+				                        allowUpload="{Boolean}false"
 				                        autoStart="{Boolean}false"
 				                        class="cq-droptarget"
 				                        fieldLabel="Image after"
