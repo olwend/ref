@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.0 - Zany Zuniceratops - 28-Jun-2018
+- WR-1293 - Put 6.3 DAM update asset workflow into code
+
 ## 2.0.21 - Yeatsian Yingshanosaurus - 21-Jun-2018
 - WR-1329 - Add copyright info to images in DD single
 - WR-1405 - Fix failing build tests

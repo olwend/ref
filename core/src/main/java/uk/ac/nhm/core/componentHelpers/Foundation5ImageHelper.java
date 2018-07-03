@@ -151,7 +151,7 @@ public class Foundation5ImageHelper {
 		switch (imageSize) {
 		case DEFAULT:
 			if (this.getImageWidth() > 1920) {
-				return this.getPath() + ".img.1920.high." + this.getExtension() + this.getSuffix();
+				return this.getOriginalImagePath() + "/_jcr_content/renditions/cq5dam.web.1920.1920.jpeg";
 			} else {
 				//Maybe use the following instead?
 				//return this.getPath() + ".img.full.high." + this.getExtension() + this.getSuffix();
@@ -159,18 +159,15 @@ public class Foundation5ImageHelper {
 			}
 
 		case SMALL:
-			if(this.getMobileImagePath() != null && !this.getMobileImagePath().equals("")){
-				return this.getMobileImagePath();
-			}	
 			if (this.getImageWidth() > 768) {
-				return this.getPath() + ".img.768.medium." + this.getExtension() + this.getSuffix();
+				return this.getOriginalImagePath() + "/_jcr_content/renditions/cq5dam.web.768.768.jpeg";
 			} else {
 				return this.getOriginalImagePath();
 			}
 
 		case MEDIUM:
 			if (this.getImageWidth() > 1024) {
-				return this.getPath() + ".img.1024.high." + this.getExtension() + this.getSuffix();
+				return this.getOriginalImagePath() + "/_jcr_content/renditions/cq5dam.web.1024.1024.jpeg";
 			} else {
 				return this.getOriginalImagePath();
 			}
