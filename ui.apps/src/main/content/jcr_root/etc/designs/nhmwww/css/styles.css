@@ -8129,37 +8129,12 @@ div#cookie-bar p {
 }
 
 /** IMAGE-PAGE**/
+.imagepage a {
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+}
+
 .imagepage a:hover {
   text-decoration: underline;
-}
-
-.imagepage--container {
-  position: relative;
-  padding-top: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .imagepage--container {
-    max-height: 240px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .imagepage--container {
-    max-height: 320px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .imagepage--container {
-    max-height: 425px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .imagepage--container {
-    max-height: 595px;
-  }
 }
 
 .imagepage--caption {
@@ -8170,7 +8145,7 @@ div#cookie-bar p {
 .imagepage--hub {
   margin-top: 30px;
   margin-bottom: 0;
-  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
+  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
 }
 
@@ -8188,6 +8163,10 @@ div#cookie-bar p {
 
 .imagepage--hub a {
   font-size: 1.5 rem;
+}
+
+.imagepage--hub p {
+  font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
 }
 
 .imagepage--social-share-header {
@@ -8226,14 +8205,9 @@ div#cookie-bar p {
   }
 }
 
-.imagepage--metadata {
-  font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  margin-left: 290px;
-}
-
 .imagepage--intro {
-  margin-left: 290px;
-  padding: 0;
+  font-size: .75em;
+  margin-bottom: 100px;
 }
 
 /** REFACTOR MAP **/
