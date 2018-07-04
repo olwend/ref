@@ -17,6 +17,11 @@
         </div>
 
 		<div class="row">
+		
+			<div class="imagepage--social-share-header" 
+			data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}">
+			</div>
+			
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
 				<p data-sly-resource="${'leadimagecaption'}"></p>
 			</div>
@@ -34,25 +39,19 @@
 					<dt class="show-for-sr">Date Last Updated:</dt>
 					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
 				</dl>
-					
 				<div class="imagepage--intro"> 
 					<p>${imagepage.introductionText @ context='html'}</p>
 				</div>
-				
-	<!-- social share class - check if css in component -->
-				<div class="imagepage--social-share-header" data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap>
-				</div>
-				
 			</div>
+						
 		</div>
 		
-<!-- new class for sub items as many as are configured i.e. listed out -->
 		<ul data-sly-list.list="${imagepage.imagePageItems}">
 			<li>
 				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
 	        </li>
 		</ul>
-<!-- why is social share also on footer? -->
+
 		<div class="row">
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
 
@@ -60,7 +59,6 @@
 			<div class="imagepage--hub small-12 medium-9 large-9 columns">
 				<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
 				
-		<!-- what is tagList?  -->	
 				<ul data-sly-list.list="${imagepage.tagList}">
 					<li>
 						<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
@@ -74,8 +72,7 @@
 				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
 			</div>
 		</div>
-		
-		
+	
 	</sly>
 
 </sly>
