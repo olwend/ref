@@ -21,12 +21,12 @@
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
 				<p data-sly-resource="${'leadimagecaption'}"></p>
 			</div>
-			<div class="imagepage--info small-12 medium-6 large-6 columns">
+			<div class="imagepage--info small-12 medium-9 large-9 columns">
 				<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
 					${imagepage.hubTag['title']}
 				</a>
 				<h1 class="imagepage--title">${imagepage.title}</h1>
-			
+			<div style="display:flex; flex-direction:row;justify-content;space-between">
 				<dl class="imagepage--metadata">
 					<dt class="show-for-sr">Author:</dt>
 					<dd class="imagepage--author">${imagepage.author}</dd>
@@ -35,13 +35,15 @@
 					<dt class="show-for-sr">Date Last Updated:</dt>
 					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
 				</dl>
+				
+				<div style="align-self:flex-end">
+					<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>				 
+				</div>
+			</div>
 				<div class="imagepage--intro"> 
 					<p>${imagepage.introductionText @ context='html'}</p>
 				</div>
-			</div>
-			<div class="imagepage--social-share-header small-12 medium-3 large-3 columns" 
-			data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}">
-			</div>				
+			</div>			
 		</div>
 		
 		<ul data-sly-list.list="${imagepage.imagePageItems}">

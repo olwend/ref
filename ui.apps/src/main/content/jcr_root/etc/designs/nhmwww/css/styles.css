@@ -8160,6 +8160,7 @@ div#cookie-bar p {
 
 .imagepage--intro {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
+  align-items: flex-end;
   font-size: .75em;
   margin-bottom: 1em;
 }
