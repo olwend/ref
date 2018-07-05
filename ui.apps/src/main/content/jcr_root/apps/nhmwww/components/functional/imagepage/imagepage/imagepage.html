@@ -17,15 +17,11 @@
         </div>
 
 		<div class="row">
-		
-			<div class="imagepage--social-share-header" 
-			data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}">
-			</div>
-			
+	
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
 				<p data-sly-resource="${'leadimagecaption'}"></p>
 			</div>
-			<div class="imagepage--info small-12 medium-9 large-9 columns">
+			<div class="imagepage--info small-12 medium-6 large-6 columns">
 				<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
 					${imagepage.hubTag['title']}
 				</a>
@@ -43,7 +39,9 @@
 					<p>${imagepage.introductionText @ context='html'}</p>
 				</div>
 			</div>
-						
+			<div class="imagepage--social-share-header small-12 medium-3 large-3 columns" 
+			data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}">
+			</div>				
 		</div>
 		
 		<ul data-sly-list.list="${imagepage.imagePageItems}">
