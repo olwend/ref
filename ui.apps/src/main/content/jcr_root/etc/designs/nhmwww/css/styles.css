@@ -8161,7 +8161,13 @@ div#cookie-bar p {
 .imagepage--intro {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
   font-size: .75em;
-  margin-bottom: 5.5em;
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 1025px) {
+  .imagepage--intro {
+    margin-bottom: 5.5em;
+  }
 }
 
 .imagepage--img {
