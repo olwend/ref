@@ -51,7 +51,13 @@ public class ThesisDissertation extends Publication{
 		
 		while( authorsIt.hasNext() ){
 			String authorName = authorsIt.next().toString();
-			processedAuthors.add(normalizeName(authorName, false));
+			String formattedName = null;
+			if(authorName.contains(surname)) {
+				formattedName = "<b>" + authorName + "</b>";
+			}else {
+				formattedName = authorName;
+			}
+			processedAuthors.add(formattedName);
 		}
 		
 		if (processedAuthors.size() > 5 && isFavourite) {
@@ -64,11 +70,7 @@ public class ThesisDissertation extends Publication{
 //		LOG.error("Current Author: " + currentAuthor);
 //		LOG.error("First Initial Author: " + firstInitial);
 		
-		//Use regular expression to find full author name including all intials
-		//Replace with same string in HTML bold tags
-		if (authorsString.contains(surname)) {
-			authorsString = authorsString.replaceAll(surname + "[A-Z]*", "<b>$0</b>");
-		}
+
 		
 		//Remove name delimiters placed there by the normalizer
 		authorsString = authorsString.replaceAll("#", "");

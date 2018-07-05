@@ -42,8 +42,7 @@ public class Dinosaur {
 	private String genus;
 	private String howItMoved;
 	private String imageUrl;
-	private String imageCopyright;
-	private String imageCreditType;
+	private String imageCredit;
 	private double length;
 	private String mya;
 	private String nameHyphenated;
@@ -205,22 +204,29 @@ public class Dinosaur {
 				JSONObject dinosaurMediaElement = dinosaurMediaArray.getJSONObject(i);
 				String dinosaurImageURL = getImagePath(dinosaurMediaElement);
 				String dinosaurImageCopyright = null;
+				String dinosaurImageCredit = null;
 				if(!dinosaurMediaElement.isNull("copyright")) {
 					dinosaurImageCopyright = dinosaurMediaElement.getString("copyright");
 				}
 				String dinosaurImageCreditType = null;
 				if(!dinosaurMediaElement.isNull("creditType")) {
 					dinosaurImageCreditType = dinosaurMediaElement.getString("creditType");
+				}else {
+					dinosaurImageCreditType = "Copyright"; //default to copyright if it doesn't exist
 				}
+				if(dinosaurImageCreditType.equals("Copyright")) {
+					dinosaurImageCredit = "\u00a9 " + dinosaurImageCopyright;
+				}else {
+					dinosaurImageCredit = "Credit: " + dinosaurImageCopyright;
+				}
+				
 				if(dinosaurMediaElement.getBoolean("isDefault") ==true) {
 					this.setImageUrl(dinosaurImageURL);
-					this.setImageCopyright(dinosaurImageCopyright);
-					this.setImageCreditType(dinosaurImageCreditType);
+					this.setImageCredit(dinosaurImageCredit);
 				}else {
 					Map<String, String> dinosaurImageMap = new HashMap<String, String>();
 					dinosaurImageMap.put("url", dinosaurImageURL);	
-					dinosaurImageMap.put("copyright", dinosaurImageCopyright);
-					dinosaurImageMap.put("creditType", dinosaurImageCreditType);
+					dinosaurImageMap.put("credit", dinosaurImageCredit);
 					dinosaurMediaCollection.add(dinosaurImageMap);
 				}
 
@@ -449,21 +455,15 @@ public class Dinosaur {
 		this.dinosaurMediaCollection = dinosaurMediaCollection;
 	}
 
-	public String getImageCopyright() {
-		return imageCopyright;
+	public String getImageCredit() {
+		return imageCredit;
 	}
 
-	public void setImageCopyright(String imageCopyright) {
-		this.imageCopyright = imageCopyright;
+	public void setImageCredit(String imageCredit) {
+		this.imageCredit = imageCredit;
 	}
 
-	public String getImageCreditType() {
-		return imageCreditType;
-	}
 
-	public void setImageCreditType(String imageCreditType) {
-		this.imageCreditType = imageCreditType;
-	}
 	
  
 }
