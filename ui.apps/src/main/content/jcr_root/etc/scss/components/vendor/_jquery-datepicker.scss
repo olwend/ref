@@ -1,0 +1,113 @@
+/*
+ * EVENT CALENDAR COMPONENT DATEPICKER STYLING
+ */
+
+.ui-datepicker {
+	height: auto;
+	margin: 5px auto 0;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.ui-datepicker:after,
+.ui-datepicker:before {
+	bottom: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.ui-datepicker:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #FFFFFF;
+	border-width: 19px;
+	margin-left: -19px;
+}
+
+.ui-datepicker:before {
+	border-bottom-color: rgba(0, 0, 0, 0.5);
+	border-width: 20px;
+	margin-left: -20px;
+}
+
+.ui-datepicker a {
+	text-decoration: none;
+}
+
+.ui-datepicker table {
+	width: 100%;
+}
+
+.ui-datepicker .ui-datepicker-title {
+	font-family: $font--elysio-light;
+	color: #565656;
+	font-size: 1.25em;
+	font-weight: normal;
+	text-align: center;
+}
+
+.ui-widget-header {
+	background: #FFFFFF;
+	border: none;
+}
+
+.ui-icon-circle-triangle-w {
+	background-position: -96px 0;
+}
+
+.ui-icon-circle-triangle-e {
+	background-position: -32px 0px;
+}
+
+.ui-datepicker th {
+	font-family: Arial, sans-serif;
+	color: #565656;
+	font-size: 0.9em;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+	border-color: #000000;
+	margin: 0 auto;
+	width: 2em;
+	border-radius: 2em;
+	-moz-border-radius: 2em;
+	-webkit-border-radius: 2em;
+	text-align: center;
+	font-family: $font--elysio-thin;
+	font-size: 1em;
+	color: #000000;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+	background: #FFFFFF;
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	color: #000000;
+	padding-top: 0.3em;
+}
+
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+	opacity: 1;
+}
+
+.ui-datepicker-unselectable .ui-state-default {
+	background: #D5D5D5;
+	color: #000000;
+	padding-top: 0.3em;
+}
+
+.ui-datepicker-calendar .ui-state-active,
+.ui-datepicker-calendar .ui-state-hover {
+	background: #565656;
+	color: #FFFFFF;
+	padding-top: 0.3em;
+}

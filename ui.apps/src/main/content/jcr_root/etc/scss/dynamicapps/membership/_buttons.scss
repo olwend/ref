@@ -1,0 +1,131 @@
+.continue-button-container {
+	position: relative;
+	border: 5px solid $support-us-color;
+	padding: 1.1em;
+	margin-bottom: 1.2em;
+	cursor: pointer;
+
+	@media screen and (min-width: $desktop + 1) {
+		margin-bottom: 0;
+	}
+
+	.ico {
+		position: absolute;
+
+		&.continue-button--icon {
+			height: 50px;
+			top: -12px;
+			width: 40%;
+
+			@media screen and (min-width: $widephone) {
+				top: -9px;
+			}
+
+			@media screen and (min-width: $tablet) {
+				width: 25%;
+				top: -6px;
+			}
+		}
+
+		&.continue-button--arrow {
+			top: -6px;
+			right: 0;
+			width: 33%;
+			height: 40px;
+
+			@media screen and (min-width: $widephone) {
+				top: -2px;
+				width: 28%;
+			}
+
+			@media screen and (min-width: $tablet) {
+				right: 16%;
+				width: 18%;
+				height: 54px;
+			}
+		}
+	}
+}
+
+.membership-form-page {
+	.continue-button--text {
+		position: relative;
+		left: 30%;
+		padding: 0;
+		margin: 0;
+		background-color: $white-color;
+		border: none;
+		font-family: $fontregular;
+		font-size: 1.4em;
+		color: $support-us-color;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+
+		@media screen and (min-width: $widephone) {
+			left: 39%;
+			font-size: 1.8em;
+		}
+
+		@media screen and (min-width: 640px) {
+			left: 46%;
+		}
+
+		@media screen and (min-width: $tablet) {
+			left: 63%;
+			font-size: 2em;
+		}
+
+		@media screen and (min-width: $desktop) {
+			left: 65%;
+		}
+
+		&:hover {
+			border: none;
+			color: $support-us-color;
+		}
+
+		&.continue-button--text__step-2 {
+			left: 48%;
+
+			@media screen and (min-width: $widephone) {
+				left: 52.5%;
+			}
+
+			@media screen and (min-width: $widedesktop) {
+				left: 55%;
+			}
+		}
+
+		&.continue-button--text__step-3 {
+			left: 34%;
+
+			@media screen and (min-width: $widephone) {
+				left: 40%;
+			}
+
+			@media screen and (min-width: 640px) {
+				left: 46%;
+			}
+
+			@media screen and (min-width: $desktop) {
+				left: 49%;
+			}
+		}
+	}
+}
+
+.button__membership {
+	background-color: $support-us-color;
+	padding: 0.6em 2em;
+	margin-bottom: 0;
+	font-family: $fontregular;
+
+	&:hover {
+		background-color: rgba($support-us-color, 0.75);
+	}
+
+	&:focus {
+		background-color: rgba($support-us-color, 0.75);
+	}
+}

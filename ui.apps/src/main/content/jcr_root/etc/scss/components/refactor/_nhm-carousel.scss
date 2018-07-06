@@ -1,0 +1,210 @@
+.caption {
+	color: color-palette(grey-color, dark);
+	font-family: font-name(elysio, regular);
+	font-size: 1em;
+	max-width: 100%;
+	bottom: 0;
+	width: 100%;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.carousel-wrapper {
+	max-width: 100%;
+	margin-bottom: 1.5em;
+
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	// from legacy _components.scss
+	.carousel {
+		margin-bottom: 4px;
+		margin-left: 0; // neccessary for IE8
+
+		li {
+			position: relative;
+
+			iframe {
+				display: block;
+				max-width: 100%;
+			}
+		}
+
+		[data-type="video"] {
+			.caption {
+				display: none;
+			}
+		}
+	}
+
+	.lSGallery {
+		width: 9999px !important;
+		background: $bg-color;
+
+		&:hover {
+			& + .lSAction {
+				filter: alpha(opacity = 100);
+				opacity: 1;
+			}
+		}
+	}
+
+	.lSAction {
+		zoom: 1;
+		filter: alpha(opacity = 0);
+		opacity: 0;
+		-webkit-transition: opacity 0.2s ease-in-out;
+		-moz-transition: opacity 0.2s ease-in-out;
+		-ms-transition: opacity 0.2s ease-in-out;
+		-o-transition: opacity 0.2s ease-in-out;
+		transition: opacity 0.2s ease-in-out;
+	}
+
+	.lSSlideWrapper {
+		&:hover {
+			.lSAction {
+				filter: alpha(opacity = 100);
+				opacity: 1;
+			}
+		}
+	}
+
+	.caption-outer-wrapper {
+		width: 100%;
+		position: static;
+		bottom: 0;
+		left: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			position: absolute;
+		}
+	}
+
+	/* WR-886 - tidy up styles for carousel in herosection */
+	.herosection &, .rowfullwidth & {
+		.caption-inner-wrapper {
+			display: table;
+			margin-left: auto;
+			margin-right: auto;
+			width: 100%;
+			max-width: 1160px;
+		}
+	}
+
+	.caption {
+		background-color: rgba(0, 0, 0, 0.9);
+		color: $color--white;
+		padding: ($padding-TB / 2) ($padding-RL / 2);
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: $padding-TB $padding-RL;
+		}
+
+		p {
+			font-family: font-name(elysio, light);
+			font-size: 0.9em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.15em;
+			}
+		}
+
+		h2 {
+			color: $color--white;
+			padding-bottom: 0;
+			margin-top: 0;
+		}
+
+		/* WR-886 - fix display of carousel in fullwidthrow */
+		.herosection &, .rowfullwidth & {
+			position: relative;
+			z-index: 2;
+			height: 142px;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				height: 100px;
+			}
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+				height: 85px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				height: auto;
+				max-height: 200px;
+				max-width: 70%;
+			}
+		}
+
+		/* WR-886 - tidy up styles for carousel in herosection */
+		.herosection & {
+			font-size: 1.1em;
+
+			h1 {
+				color: $color--white;
+				font-size: 2.5em;
+				padding-bottom: 0;
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					font-size: 3em;
+				}
+			}
+
+			h2 {
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					font-size: 1.7em;
+				}
+
+				@media screen and (min-width: $breakpoint--desktop) {
+					font-size: 1.8333em;
+				}
+			}
+
+			p {
+				line-height: 1.25em;
+			}
+
+			/** not sure where this is used **/
+			.dates {
+				background-color: $color--black;
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 1%;
+			}
+		}
+
+		/* WR-886 - fix display of carousel in fullwidthrow */
+		.rowfullwidth & {
+			h2 {
+				font-size: 1.35em;
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					font-size: 1.5em;
+				}
+
+				@media screen and (min-width: $breakpoint--desktop) {
+					font-size: 1.625em;
+				}
+			}
+
+			p {
+				line-height: 1.25em;
+				font-size: 1em;
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					font-size: 1.125em;
+				}
+
+				@media screen and (min-width: $breakpoint--desktop) {
+					font-size: 1.25em;
+				}
+			}
+		}
+	}
+}

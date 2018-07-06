@@ -1,0 +1,44 @@
+// from legacy _components.scss
+// unclear where this is used
+.section-link {
+	min-height: 24px;
+	padding: 3px 0 0 36px;
+	font-family: $arial;
+	font-weight: normal;
+	font-size: 18px;
+
+.ico-arrow {
+	position: absolute;
+	top: 8px;
+	right: -14px;
+	width: 8px;
+	height: 13px;
+}
+
+@include respond-min($tablet){
+	@include inline-block;
+	position: relative;
+	left: 2em;
+	top: -0.5em;
+	font-size: 14px;
+}
+
+&.calendar {
+    padding-left: 0;
+    .ico-cal {
+    	margin-right: 10px;
+    	width: 23px;
+    	height: 22px;
+    }
+  }
+  &.cart {
+  	position: relative;
+    .ico {
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    	width: 28px;
+    	height: 24px;
+    }
+  }
+}

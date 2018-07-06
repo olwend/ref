@@ -1,0 +1,128 @@
+.GreyBox {
+	margin-bottom: 1.2em;
+	padding: 0 0 1em 0 !important;
+
+	&.GreyBox--promo {
+		a {
+			color: $support-us-color;
+			text-decoration: none;
+			font-weight: normal;
+			border: none;
+
+			&:hover {
+				text-decoration: underline;
+				color: $support-us-color;
+			}
+		}
+	}
+
+	&.GreyBox--primary {
+		background-color: #A5629A; //IE8 fallback
+		background-color: rgba($support-us-color, 0.75);
+		color: $white-color;
+
+		h3 {
+			color: $white-color;
+		}
+
+		a {
+			color: $white-color;
+			border-bottom: 1px dotted $white-color;
+
+			&:hover {
+				color: $breadcrumb-link-color;
+				border-bottom-color: $breadcrumb-link-color;
+				border-bottom-style: solid;
+			}
+		}
+	}
+
+	&.GreyBox--secondary {
+		background-color: $contact-us-color;
+		color: $white-color;
+
+		h3 {
+			color: $white-color;
+		}
+
+		h4 {
+			margin: 0;
+			color: $white-color;
+		}
+
+		a {
+			color: $white-color;
+			border-bottom: 1px dotted $white-color;
+
+			&:hover {
+				color: $breadcrumb-link-color;
+				border-bottom-color: $breadcrumb-link-color;
+				border-bottom-style: solid;
+			}
+		}
+	}
+
+	.ctabutton--inside-greybox {
+		.info-tout__action {
+			border: none !important;
+			padding-top: 9px;
+			padding-bottom: 9px;
+
+			@media screen and (min-width: $tablet) {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			h3 {
+				color: $contact-us-color;
+				text-align: center;
+			}
+
+			a {
+				border: none;
+			}
+
+			&.tickets {
+				.ico {
+					&.nhm-branding {
+						left: 10%;
+						width: 13%;
+
+						@media screen and (min-width: $widephone) {
+							left: 10%;
+							width: 10%;
+						}
+
+						@media screen and (min-width: 640px) and (orientation: landscape) {
+							width: 8%;
+						}
+
+						@media screen and (min-width: $tablet) {
+							top: 17%;
+							width: 13%;
+						}
+					}
+
+					&.nhm-arrow {
+						height: 44%;
+						top: 30%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.direct-debit-promo--cta {
+	.ctabutton--inside-greybox {
+		.ico {
+			&.nhm-arrow {
+				right: 0;
+			}
+		}
+
+		h3 {
+			padding-left: 17.5%;
+		}
+	}
+}

@@ -1,0 +1,74 @@
+.image--and--cta--wrapper {
+	width: 100%;
+	position: relative;
+
+	@media screen and (max-width: $breakpoint--tablet__landscape) {
+		margin-bottom: 1em;
+	}
+
+	.cta--wrapper {
+		background-color: $color--white;
+		right: 0;
+		position: absolute;
+		top: 70%;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			top: 65%;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			top: 70%;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			top: 75%;
+		}
+
+		padding: 1.125em 0 1.125em 1.125em;
+		display: block;
+		font-family: font-name(elysio, regular);
+
+		.cta--text {
+			padding-bottom: 0;
+			margin-top: 0.4em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 0.25em;
+			}
+
+			font-size: 1.55em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.35em;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				font-size: 1.8em;
+			}
+
+			margin-bottom: 0;
+			margin-left: 0.3em;
+			font-family: font-name(elysio, regular);
+			color: color-palette(grey-color, dark);
+		}
+	}
+
+	.svg-ico {
+		height: 40px;
+		width: 100%;
+		position: relative;
+		top: 0;
+	}
+
+	.image--and--cta--image {
+		height: 435px;
+
+		@media screen and (max-width: $breakpoint--tablet__landscape) {
+			height: auto;
+		}
+	}
+
+	.image--not--matching--ratio {
+		width: 100%;
+	}
+}

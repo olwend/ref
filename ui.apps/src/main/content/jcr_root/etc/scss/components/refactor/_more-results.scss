@@ -1,0 +1,47 @@
+.more-results {
+	clear: both;
+	text-align: center;
+
+	a {
+		color: color-palette(grey-color, dark);
+
+		&:hover {
+			color: color-palette(grey-color, dark);
+		}
+	}
+}
+
+.more-results-text__directory-search-results {
+	font-size: 1.3em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.4em;
+	}
+}
+
+//Code needed by the Event Calendar Page
+.event--calendar--no--results,
+.event--calendar--more--results {
+	clear: both;
+	text-align: center;
+	background-color: #D8D8D8;
+}
+
+.more-results-text__event--calendar--search--results {
+	padding-top: 0.4em;
+	padding-bottom: 0;
+	line-height: 1.2em;
+	font-size: 1.3em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.4em;
+	}
+}
+
+.event--calendar--more--results:hover {
+	cursor: pointer;
+}
+
+.event--calendar--more--results--hide {
+	display: none;
+}
