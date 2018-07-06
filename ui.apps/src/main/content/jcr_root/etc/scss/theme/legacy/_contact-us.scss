@@ -1,0 +1,91 @@
+// from legacy _sections.scss
+.contact-us {
+	.GreyBox {
+		padding: 1em;
+	    background-color: $grey-color;
+
+		@include respond-min($desktop){
+	        padding: 1.5em;
+	    }
+		p {
+			margin-bottom:0px;
+		}
+
+		@include respond-min($widedesktop){
+	        padding: 2em;
+	    }
+		p {
+			margin-bottom:0px;
+		}
+	}
+
+	.BlackBox {
+	    padding: 1em;
+	    background-color:$black-box-bg-color;
+
+	    @include respond-min($tablet){
+	        padding: 1em;
+	    }
+
+	    @include respond-min($desktop){
+	        padding: 2em;
+	    }
+
+	    a {
+	    	color: $black-box-link-color;
+	    }
+
+	    p {
+	    	color: $black-box-body-text;
+	    }
+	}
+
+	.feature-box {
+	    @include respond-min($tablet){
+	        padding: 2em;
+	    }
+
+	   	h2, h3, a, p, li {
+	        color: $white-color;
+	    }
+	}
+
+	.aside-box {
+	    padding: 1em;
+	    background-color: $grey-box-bg-color;
+
+	   	h2, h3, a, p, li {
+	        color: $body-text-color;
+	    }
+
+	    @include respond-min($desktop){
+	        padding: 2em;
+	    }
+	}
+
+	.bottom-banner {
+	   	h2 {
+	        padding-bottom: 0;
+	        margin-bottom: 0.2rem;
+	    }
+	    & > div.large-4 {
+	    	position: relative;
+	    	left: 1em;
+	    	.info-tout__action {
+	    		border: none !important;
+	    	}
+	    }
+	    @include respond-min($tablet){
+	        padding: 1em 1.5em;
+	        & > div.large-4 {
+		    	left: 1.5em;
+		    }
+	    }
+	}
+
+}
+
+// from legacy _sections.scss
+.contact-us {
+	@include section-common-styles("contact-us", $contact-us-color, $contact-us-color-hover);
+}

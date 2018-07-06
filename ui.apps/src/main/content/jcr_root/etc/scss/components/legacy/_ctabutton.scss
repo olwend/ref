@@ -1,0 +1,342 @@
+// from legacy _components.scss
+// unclear where this is used
+.caption--cta {
+	background: $link-color;
+	background: rgba(42,108,217,0.9);
+
+	h4 {
+		font-family: $fontregular;
+		font-size: 20px;
+		color: #fff;
+		line-height: 1.6;
+		margin: 0px;
+	}
+	a {
+		position: relative;
+
+		@include respond-min($tablet){
+			display: inline;
+			color: #fff;
+
+      .ico {
+      	display: block;
+      	position: absolute;
+      	width: 7px;
+      	height: 20px;
+      	bottom: 5px;
+      	right: -14px;
+      }
+    }
+  }
+}
+
+// from legacy _components.scss
+.info-tout {
+	h3, p {
+		padding-left: 24%;
+		padding-right:18%;
+		color: #fff;
+	}
+	h3 {
+		margin-bottom: 0;
+		color: #fff;
+		font-family: $fontregular;
+		font-size: 1.8em;
+		line-height: 1;
+	}
+	p {
+		font-family: $fontregular;
+		font-size: 20px;
+	}
+	@include respond-min($tablet){
+		h3, p {
+			padding-left: 30%;
+			color: $link-color;
+		}
+		h3 {
+			font-size: 1.6em;
+          }
+          p {
+          	font-family: $fontregular;
+          	font-size: 1em;
+          }
+        }
+      }
+
+      .our-science {
+      	.info-tout {
+      		h3 {
+      			color: $our-science-color;
+      		}
+      	}
+      }
+
+      .info-tout__share {
+      	a {
+      		display: block;
+      		background-color: $link-color;
+        border-top: 5px solid #fff;
+        padding: 25px 0;
+        text-align: left;
+
+        .ico {
+        	height: 65%;
+        	width: 14%;
+        	top: 20%;
+        	position: absolute;
+        	left: 3.5%;
+
+        	@include respond-min($tablet) {
+        		position: static;
+        		height: 92px;
+        		width: 84px;
+        	}
+        }
+
+        p {
+        	margin: 0;
+        }
+
+        @include respond-min($tablet){
+            background-color: $bg-color;
+            border-top: 2px solid #fff;
+            text-align: center;
+
+            h3, p {
+            	padding-left: 0;
+            	color: $link-color;
+            }
+            h3 {
+            	margin: 14px 0 5px;
+            }
+            &:hover {
+                background-color: $link-color;
+
+                h3, p {
+                	color: #fff;
+                }
+              }
+
+            }
+            @include respond-min($desktop){
+            	width: 100%;
+            	float: left;
+            	position: relative;
+            	top: -2px;
+            	border-bottom: 0;
+            	border-right: 2px solid #fff;
+            }
+          }
+        }
+
+        .info-tout__action {
+        	background-color: $bg-color;
+        	background-repeat: no-repeat;
+    /* removed background pos and size as we're using SVGs not images for arrow */
+    display: block;
+    padding: 15px 0px;
+
+
+    a {
+    	color: $link-color;
+    	font-family: $fontregular;
+    	display: block;
+    	padding: 12px 0px;
+    }
+
+    h3 {
+    	color: $link-color;
+    }
+
+    p {
+    	margin-bottom: 0;
+    	margin-top: 0;
+    }
+
+      &:hover {
+        background-color: lighten($link-color, 40%); // this probably needs changing; not sure what to though
+
+        img.desktop {
+        	display: none;
+        }
+
+        img.mobile {
+        	display: block;
+        }
+
+        h3, p {
+            text-decoration: underline;
+          }
+        }
+
+        &.tickets, &.membership {
+        	position: relative;
+
+        	.ico {
+        		width: 12%;
+        		position: absolute;
+        		left: 4%;
+        		top: 1%;
+        		&.arrowl{
+        			left: auto;
+        			right: 4%;
+        			top: 25%;
+        			height: 50%;
+        		}
+        	}
+        }
+
+        @include respond-min($tablet){
+        	padding: 6px 0;
+        	position: relative;
+
+        	&.tickets {
+
+        		.ico {
+        			height: 70%;
+        			width: 18%;
+        			top: 15%;
+        		}
+        	}
+
+        	.ico {
+        		position: absolute;
+        		top: 0;
+        		left: 37px;
+        		left: 7%;
+        	}
+
+        	h3, p {
+        		padding-left: 24%;
+        		padding-right:18%;
+        	}
+        }
+    }
+
+    .our-science {
+    	.info-tout__action {
+    		&:hover {
+    			background-color: $our-science-color-hover;
+    		}
+    	}
+    }
+/*end nfo-tout__actions****************/
+
+
+.info-tout__countdown {
+	background: $link-color;
+	border-bottom: 5px solid #fff;
+	padding: 16px 0;
+
+	@include respond-min($tablet){
+		background: $bg-color;
+		border-bottom: 2px solid #fff;
+	}
+	@include respond-min($desktop) {
+		border-right: 2px solid #fff;
+	}
+	.countdown-circle--number {
+		color: #fff;
+		display: block;
+		font-size: 68px;
+		line-height: 1.4;
+		width: 100%;
+		@include respond-min($tablet){
+			color: $link-color;
+			font-size: 90px;
+			line-height: 0.9;
+			margin-top: 12px;
+		}
+	}
+	.countdown-circle--unit,
+	.countdown-circle--prompt {
+		display: none;
+		@include respond-min($tablet){
+			display: block;
+			font-size: 23px;
+			line-height: 1;
+		}
+	}
+	.countdown-circle--promo {
+		float: left;
+		color: #fff;
+		font-size: 35px;
+		line-height: 1.6;
+
+		span {
+			display: block;
+			font-size: 20px;
+		}
+		@include respond-min($tablet){
+			float: none;
+		}
+	}
+}
+
+// from legacy _components.scss
+/* THUMB CAPTIONS *******************************************/
+
+.thumb-caption {
+	max-height: 150px;
+	position: static;
+	font-family: $fontregular;
+	font-size: 1em;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	padding: 1em;
+	padding-left: 2em;
+
+	p {
+		color: $white-color;
+		font-size: 1em;
+		line-height: 1.3em;
+		margin-bottom:0;
+
+		@include respond-min($tablet){
+			font-size: 1.3em;
+		}
+		@include respond-min($desktop){
+			font-size: 1.5em;
+		}
+	}
+
+	@include respond-min($tablet){
+		max-width: 70%;
+		position: absolute;
+	}
+}
+
+/* THUMB CTAs *******************************************/
+
+.info-tout__action.tickets.thumb-cta {
+	width: 70%;
+	position: absolute;
+	bottom: 5%;
+	right: 0;
+}
+
+.home-thumb-left {
+	position:relative;
+
+	@include respond-min($tablet){
+		margin-right: 10px;
+	}
+}
+
+.home-thumb-right {
+	position:relative;
+	margin-top: 1.5em;
+
+	@include respond-min($tablet){
+		margin-left: 10px;
+		margin-top: 0;
+	}
+}
+
+.home-thumb-left,
+.home-thumb-right {
+	img {
+		width: 100%;
+	}
+}

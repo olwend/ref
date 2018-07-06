@@ -1,0 +1,150 @@
+/** need to copy carousel caption styles into new grand-summary caption box class, or ideally a generic class to cover carousel/hero/grand-summary caption boxes **/
+
+.grand-summary--wrapper {
+	background-color: $bg-color;
+	clear: both;
+
+	.row {
+		margin-bottom: 0;
+
+		@media screen and (max-width: $breakpoint--tablet__portrait) {
+			width: 100%;
+			margin-right: 0;
+			margin-left: 0;
+		}
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		.row {
+			.row {
+				margin: 0;
+			}
+		}
+	}
+
+	&.grand-summary--exhibition {
+		padding-bottom: $padding-RL;
+
+		.grand-summary--caption-container .caption {
+			padding: 0;
+		}
+	}
+}
+
+.grand-summary--exhibition-details-grid {
+	padding-top: $padding-RL / 2;
+	padding-left: $padding-RL;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-top: $padding-RL;
+	}
+}
+
+.grand-summary--exhibition-details-grid li:first-child {
+	padding-right: $padding-TB;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-left: 1em;
+	}
+}
+
+.grand-summary--exhibition-details-grid li:last-child {
+	padding-right: 0;
+}
+
+.grand-summary--exhibition-details-grid li {
+	padding-bottom: 0;
+	padding-left: 0;
+}
+
+.grand-summary--wrapper .info-sidebar {
+	margin-top: 1.5em;
+	margin-left: 0;
+	padding-top: 0;
+	padding-left: 0;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		margin-top: 0;
+	}
+
+	@media screen and (min-width: $breakpoint--desktop) {
+		padding-left: 2em;
+	}
+}
+
+.grand-summary--wrapper .info-sidebar li:first-child {
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		margin-top: 0;
+	}
+}
+
+.grand-summary--wrapper .info-sidebar li {
+	padding-top: 0;
+	padding-left: 0;
+	padding-right: 0;
+	margin-top: 0.75em;
+}
+
+.grand-summary--wrapper .info-sidebar li .ico {
+	position: relative;
+	width: 12%;
+}
+
+.grand-summary--caption-container .caption {
+	padding: 0;
+	height: auto;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-bottom: $padding-TB;
+	}
+
+	&.grand-summary--exhibition {
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			height: 146px;
+		}
+	}
+}
+
+.grand-summary--caption-title--container {
+	padding: $padding-TB $padding-RL 0.2em $padding-RL;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-top: $padding-RL / 2;
+	}
+}
+
+.grand-summary--caption-title {
+	font-size: 1.8em;
+	font-family: font-name(elysio, light);
+}
+
+.grand-summary--caption-description--container {
+	padding: 0 $padding-TB ($padding-RL / 2) $padding-RL;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-bottom: 0;
+		padding-left: $padding-RL;
+	}
+
+	p {
+		font-family: font-name(elysio, light);
+		font-size: 1em !important;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			font-size: 1.15em !important;
+		}
+	}
+}
+
+.grand-summary--caption-date--container {
+	background: rgba($color--white, 0.2);
+	padding: 0.6em 0.6em 0.6em $padding-RL;
+}
+
+.grand-summary--caption-date {
+	margin: 0;
+	padding: 0 !important;
+	font-size: 1.5em;
+	font-family: font-name(elysio, thin);
+	color: $color--white !important;
+}

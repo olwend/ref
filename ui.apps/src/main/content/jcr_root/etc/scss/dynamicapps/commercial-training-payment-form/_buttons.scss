@@ -1,0 +1,139 @@
+.continue-button-container {
+	position: relative;
+	border: 5px solid color-palette(business-services, base);
+	padding: 1.1em;
+	margin-bottom: 1.2em;
+	cursor: pointer;
+
+	@media screen and (min-width: $breakpoint--desktop) {
+		margin-bottom: 0;
+	}
+
+	.ico {
+		position: absolute;
+
+		&.continue-button--icon {
+			height: 50px;
+			top: -12px;
+			width: 40%;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				top: -9px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				width: 25%;
+				top: -6px;
+			}
+		}
+
+		&.continue-button--arrow {
+			top: -6px;
+			right: 0;
+			width: 33%;
+			height: 40px;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				top: -2px;
+				width: 28%;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				right: 16%;
+				width: 18%;
+				height: 54px;
+			}
+		}
+	}
+}
+
+.commercial-training-payment-form--page {
+	.continue-button--text {
+		position: relative;
+		left: 30%;
+		padding: 0;
+		margin: 0;
+		background-color: $color--white;
+		border: none;
+		font-family: font-name(elysio, regular);
+		font-size: 1.4em;
+		color: color-palette(business-services, base);
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+
+		@media screen and (min-width: $breakpoint--phone-small__landscape) {
+			left: 36%;
+			font-size: 1.8em;
+		}
+
+		@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+			left: 44%;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			left: 47%;
+			font-size: 2em;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			left: 50%;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop__max-width) {
+			left: 52%;
+		}
+
+		&:hover {
+			border: none;
+			color: color-palette(business-services, base);
+		}
+
+		&.continue-button--text__step-2 {
+			left: 48%;
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+				left: 58%;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				left: 63%;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				left: 48%;
+			}
+		}
+
+		&.continue-button--text__step-3 {
+			left: 34%;
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+				left: 40%;
+			}
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+				left: 46%;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				left: 49%;
+			}
+		}
+	}
+}
+
+.button__commercial-training-payment-form {
+	background-color: color-palette(business-services, base);
+	padding: 0.6em 2em;
+	margin-bottom: 0;
+	font-family: font-name(elysio, regular);
+
+	&:hover {
+		background-color: color-palette(business-services, 75pc);
+	}
+
+	&:focus {
+		background-color: color-palette(business-services, 75pc);
+	}
+}

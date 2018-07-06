@@ -1,0 +1,460 @@
+/* profile manager */
+
+div#page-container {
+   width: auto!important;
+   /* had to add !important due to another stylesheet (wide-modifications.css) also having !important */
+}
+
+.title {
+   margin-bottom: 1.2em;
+}
+
+#page-container {
+   border: none;
+
+   #page-body {
+      max-width: 1160px;
+      margin: 0 auto;
+      min-height: 600px;
+      background: none;
+
+      @media screen and (max-width: 1160px) {
+         padding-left: 15px;
+         padding-right: 15px;
+      }
+
+      @media screen and (max-width: 785px) {
+         min-height: 0;
+      }
+   }
+}
+
+.profile-manager {
+   h1, h2 {
+      font-family: "Elysio-Thin",Helvetica,Arial,sans-serif;
+   }
+
+   h1 {
+      text-align: left;
+      font-size: 2.8em;
+      margin-bottom: 3px;
+   }
+
+   h2 {
+      font-size: 2.4em;
+   }
+
+   p {
+      font-size: 16px;
+   }
+}
+
+.legacy-css {
+   .row{
+      width: 100%;
+   }
+
+   .column {
+      .panel-content {
+         
+         .left, .right {
+            margin: 0 10px 10px;
+         }
+
+         fieldset {
+            legend {
+               color: #565656;
+            }
+         }
+
+         #registrationForm {
+            label {
+               margin-left: 0;
+            }
+
+            .submit-button {
+               width: 190px;
+            }
+         }
+      }
+   }
+
+   #column-a{
+      margin-bottom: 1.2em;
+      padding-left: 0;
+      padding-right: 0;
+
+      @media screen and (max-width: 785px) {
+         min-height: 0;
+      }
+
+      .panel {
+         background-color: #f2f2f2;
+
+         h2 {
+            background-color: #00385d;
+            color: #fff;
+            padding: 5px 5px 5px 15px;
+            margin-top: 0;
+         }
+      }
+
+      .panel-content {
+         font-size: 16px;
+
+         &> .panel-content {
+            padding: 0 15px 10px 15px;
+         }
+
+         .personal-details {
+            width: 48%;
+            margin-right: 4%;
+
+            @media screen and (max-width: 700px) {
+               width: 100%;
+               margin-right: 0;
+               border-right: none;
+               float: none;
+            }
+
+            a.point-right {
+               background-image: none;
+               text-align: left;
+            }
+         }
+
+         p {
+            margin-left: 0;
+         }
+
+         .personal-pword {
+            width: 48%;
+
+            @media screen and (max-width: 700px) {
+                width: 100%;
+                float: none;
+            }
+         }
+      }
+
+      #fm1 {
+         padding: 10px;
+      }
+   }
+
+   #nav-content-level1 {
+      li {
+         font-size: 12px;
+      }
+   }
+
+   .secondary-nav-wrapper {
+      #nav-content-level1 {
+         li {
+            font-size: 1.4em;
+         }
+      }
+   }
+
+   .headertextimage {
+      @media screen and (max-width: 785px) {
+         margin-top: 0!important;
+      }
+   }
+
+   .GreyBox {
+      padding: 0 0 1em 1.5em;
+
+      @media screen and (max-width: 767px) {
+         padding: 0;
+      }
+   }
+
+   #utilities {
+      clear: both;
+      margin-bottom: 1.2em;
+
+      #utility-help {
+         padding: 10px;
+
+         h4 {
+            padding: 3px 0 3px 20px;
+         }
+      }
+
+      p{
+         padding: 0 0 10px 0;
+         margin: 0;
+      }
+   }
+
+   // edit.html
+   #column-c {
+      float: left;
+      margin: 0;
+      max-width: 940px;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+
+      .panel {
+         background-color: #f2f2f2;
+         margin-bottom: 1.2em;
+         max-width: 360px;
+         width: 100%;
+
+          @media screen and (max-width: 767px) {
+             margin-bottom: 0;
+         }
+
+         ul {
+            margin: 0 10px 10px 20px;
+         }
+      }
+
+      #panel-one {
+         max-width: 100%;
+         padding: 10px;
+         p {
+            margin: 0 0 10px 10px;
+         }
+
+         h4 {
+            margin-left: 10px;
+         }
+      }
+
+      .nature-plus, .business-centre, .about-us {
+          margin-bottom: 1.2em;
+
+         h2 {
+            background-image: none;
+            padding: 5px 5px 8px 15px;
+            color: #fff;
+            margin-top: 0;
+            font-size: 1.6em;
+         }
+
+         ul {
+            li {
+               background-repeat: no-repeat;
+               background-position: left 0.6em;
+               padding-left: 15px;
+            }
+         }
+      }
+
+      .nature-plus {
+         h3, h4, a {
+            color: #228900;
+         }
+
+         h4 {
+            padding-left: 10px;
+            font-size: 1.2em;
+         }
+      }
+
+      .business-centre {
+         a {
+            color: #000177;
+         }
+      }
+
+      .about-us {
+         a {
+            color: #377fbd;
+         }
+      }
+
+      fieldset {
+         legend {
+            color: #565656;
+         }
+      }
+
+      #accountForm, form {
+         fieldset {
+            padding: 25px 25px 15px 25px;
+
+            @media screen and (max-width: 1170px) {
+               padding: 15px 15px 15px 15px;
+            }
+            
+            #vacancyMonitorLocation, #vacancyMonitorEmploymentType, #vacancyMonitorBusinessType {
+               width: 41%;
+            }
+
+            #signUpForEmailAlerts {
+               width: 15%;
+            }
+         }
+
+         label {
+            font-size: 16px;
+            width: 35%;
+            height: 37px;
+            line-height: 37px;
+            line-height: 1.5\0; /* IE8 fix */
+            text-align: left;
+            padding: 0;
+
+            @media screen and (max-width: 1170px) {
+               width: 100%;
+               float: none;
+            }
+         }
+
+         input {
+            width: 65%;
+            font-size: 16px;
+            margin-bottom: 15px;
+
+            @media screen and (max-width: 1170px) {
+               width: 100%;
+            }
+         }
+
+         select {
+            width: 90px;
+            font-size: 16px;
+         }
+
+         input[type=submit] {
+            width: 190px;
+            height: 40px;
+            margin-left: 3%;
+            margin-top: 20px;
+         }
+
+         label[for="natureGroup"] {
+            line-height: 18px;
+
+            .required {
+               margin-left: -13px;
+            }
+         }
+
+         label[for="userName"] {
+
+            .required {
+               margin-left: -13px;
+            }
+         }
+
+         #age_age-11, #age_age-12plus {
+            width: 10%;
+         }
+
+         label[for="standardTerms"] {
+            height: auto;
+            line-height: 16px;
+            margin-left: 0;
+            width: 75%;
+         }
+
+         #standardTerms {
+            width: 9%;
+
+            @media screen and (min-width: 768px) {
+               width: 5%;
+            }
+
+            @media screen and (min-width: 1024px) {
+               width: 3%;
+            }
+         }
+      }
+
+      #fm1 {
+         #username, #password {
+            width: 100%;
+         }
+
+         .rememberMe {
+            #rememberMe {
+               width: initial;
+            }
+
+             label[for="rememberMe"] {
+               width: initial;
+             }
+         }
+
+         .buttons {
+            .main {
+               height: initial;
+               margin-left: 0;
+               margin-top: 0;
+               width: initial;
+               margin-bottom: 5px;
+            }
+
+            input[type="reset"] {
+                width: initial;
+                margin-bottom: 5px;
+            }
+         }
+      }
+   }
+
+   .column-fix {
+      float: right!important;
+   }
+
+   .nso-sso {
+      #panel-one {
+         h2 {
+            padding: 10px;
+            margin-top: 17px;
+            background-color: #eee;
+            background-image: none;
+            color: #565656;
+         }
+      }
+   }
+}
+
+.row {
+   .GreyBox {
+      background-color: initial;
+   }
+}
+
+.secondary-nav-wrapper {
+   .side-nav {
+      li {
+          list-style: none;
+          font-size: 1.125em;
+      }
+   }
+}
+
+//Global ?
+.main-footer {
+   .framed-wrapper {
+      text-align: left;
+   }
+
+   .footer-utility {
+      legend, .errors {
+         color: #fff;
+      }
+
+      fieldset {
+         padding-bottom: 16px;
+      }
+   }
+
+   form {
+      label {
+         width: 100%;
+         text-align: left;
+         padding: 0;
+      }
+   }
+}
+
+.nhm-breadcrumb {
+   text-align: left;
+}

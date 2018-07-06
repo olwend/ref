@@ -1,0 +1,194 @@
+.our-science {
+	.title-bar {
+		background-color: color-palette(our-science, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(our-science, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(our-science, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(our-science, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(our-science, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(our-science, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(our-science, base);
+
+		&:hover {
+			background-color: color-palette(our-science, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(our-science, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(our-science, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(our-science, 10pc);
+
+				a {
+					color: color-palette(our-science, base);
+
+					&:hover {
+						color: color-palette(our-science, base);
+						background-color: color-palette(our-science, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(our-science, 25pc);
+						color: color-palette(our-science, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(our-science, 25pc);
+
+					a {
+						color: color-palette(our-science, base);
+
+						&:hover {
+							color: color-palette(our-science, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.our-science {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(our-science, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(our-science, base);
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.our-science {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-our-science.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-our-science.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.our-science {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(our-science, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(our-science, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(our-science, base);
+		}
+	}
+}
+
+/** NHMEC-4 Added style to the search result <a> **/
+.our-science {
+	.event--calendar--search--result a {
+		color: color-palette(our-science, base);
+	}
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.our-science {
+	.image--and--cta--wrapper,
+	.image--and--cta--wrapper .cta--wrapper .cta--text {
+		color: color-palette(our-science, base);
+	}
+}
+
+/** NHMEC-52 Event schedule component**/
+.our-science {
+	.event--schedule--wrapper {
+		.event--schedule--title {
+			background-color: color-palette(our-science, base);
+		}
+
+		.event--schedule--tbody {
+			color: color-palette(our-science, base);
+		}
+	}
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.global-header--nav-list__item {
+	&:hover, &.menuSelected {
+		&.link-our-science {
+			border-bottom-color: color-palette(our-science, base);
+		}
+	}
+}

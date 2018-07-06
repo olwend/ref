@@ -2678,10 +2678,6 @@ i.ico img {
   color: #ffffff;
 }
 
-input.question {
-  display: none;
-}
-
 .expandable {
   margin: 1.25em 0;
   padding: 1em 5%;
@@ -4648,7 +4644,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6573,22 +6569,7 @@ div#cookie-bar p {
 }
 
 .dinosaur dd {
-  line-height: 1.5em;
-  margin: 0 0 1em 0;
-  font-size: 1em;
   text-rendering: optimizeLegibility;
-}
-
-@media screen and (min-width: 768px) {
-  .dinosaur dd {
-    font-size: 1.125em;
-  }
-}
-
-.dinosaur dl {
-  line-height: 0;
-  margin: 0;
-  font-size: 1.2em;
 }
 
 .dinosaur--container {
@@ -6623,11 +6604,8 @@ div#cookie-bar p {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  font-size: 23px;
-}
-
-.dinosaur--name-description dd {
-  margin-right: 20px;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -6637,20 +6615,17 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--pronunciation p,
-.dinosaur--pronunciation dd {
+.dinosaur--pronunciation {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .dinosaur--pronunciation p,
-  .dinosaur--pronunciation dd {
+  .dinosaur--pronunciation {
     margin-right: 20px;
   }
 }
 
-.dinosaur--meaning p,
-.dinosaur--meaning dd {
+.dinosaur--meaning {
   margin: 0;
 }
 
@@ -6697,24 +6672,37 @@ div#cookie-bar p {
   }
 }
 
-.dinosaur--info-container dl {
-  font-size: 1em;
+.dinosaur--copyright {
+  margin: 0 20px;
+  font-size: 0.75rem;
+  text-align: left;
 }
 
-.dinosaur--info-container dd {
-  font-size: 1.125em;
-  margin-bottom: 10px;
+@media screen and (min-width: 640px) {
+  .dinosaur--copyright {
+    margin: 0;
+  }
 }
 
 .dinosaur--description-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-.dinosaur--description-container dl {
-  font-size: 1em;
+.dinosaur--description {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 1.55rem;
+  margin-bottom: 0;
+}
+
+.dinosaur--description dt,
+.dinosaur--description dd {
+  margin-right: 5px;
+  font-weight: normal;
 }
 
 .dinosaur--comparison {
@@ -6740,12 +6728,23 @@ div#cookie-bar p {
 
 .dinosaur--info-container {
   font-family: "Elysio-Light", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
   padding: 0 20px;
+}
+
+.dinosaur--info {
+  font-size: 1.55rem;
+}
+
+.dinosaur--info dt {
+  font-weight: normal;
 }
 
 .dinosaur--content-container {
   padding: 10px 20px 0 20px;
+}
+
+.dinosaur--content-title {
+  margin-top: 40px;
 }
 
 .dinosaur--taxonomy-container {
@@ -6753,22 +6752,17 @@ div#cookie-bar p {
   padding: 10px 20px 20px 20px;
 }
 
-.dinosaur--taxonomy-container dl {
-  font-size: 1em;
+.dinosaur--taxonomy {
+  font-size: 1.3rem;
 }
 
-.dinosaur--taxonomy-container p,
-.dinosaur--taxonomy-container dd {
-  margin-bottom: 10px;
-  margin-right: 0;
-}
-
-.dinosaur--content-title {
-  margin-top: 40px;
-}
-
-.dinosaur--section-title {
+.dinosaur--taxonomy-title {
   margin-top: 20px;
+}
+
+.dinosaur--list dt {
+  float: left;
+  margin: 0 5px 0 0;
 }
 
 /** DINOSAUR NAVIGATION **/
@@ -9857,7 +9851,7 @@ a.button-cta {
 
 .social-signup--form-container {
   padding: 20px;
-  background-color: #808080;
+  background-color: #565656;
   color: #FFFFFF;
 }
 
@@ -9968,7 +9962,7 @@ a.button-cta {
 
 .button__newsletter-signup {
   width: 100%;
-  background-color: #808080;
+  background-color: #565656;
   border: 2px solid #FFFFFF;
   max-height: 37px;
   padding-top: 7px;
@@ -9977,7 +9971,11 @@ a.button-cta {
 }
 
 .button__newsletter-signup:hover, .button__newsletter-signup:focus {
-  background-color: #808080;
+  background-color: #565656;
+}
+
+input.question {
+  display: none;
 }
 
 /** WR-707 - fix positioning of events calendar search button **/

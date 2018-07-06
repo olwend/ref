@@ -7,7 +7,7 @@
     description="This workflow manages the update of assets"
     title="DAM Update Asset">
     <metaData
-        cq:lastModified="{Long}1477080042457"
+        cq:lastModified="{Long}1520259327674"
         cq:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"
         tags="dam,wcm"
@@ -127,7 +127,7 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                CONFIGS="[140:100:false,48:48:false,319:319:false]"
+                CONFIGS="320:320:false"
                 HEIGHT="1280"
                 MIME_TYPE="image/jpeg"
                 PROCESS="com.adobe.cq.dam.dm.process.workflow.DMImageProcess"
@@ -142,19 +142,109 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                CONFIGS="[140:100:false,48:48:false,319:319:false]"
+                CONFIGS="320:320:false"
                 CREATE_FPO_MIMETYPES="[image/pjpeg,image/jpeg,image/jpg,image/gif,image/x-png,image/tiff,image/png,application/x-photoshop,application/photoshop,image/vnd.adobe.photoshop,application/vnd.adobe.photoshop,image/bmp,image/x-tiff]"
                 FPO_QUALITY="10"
-                HEIGHT="1280"
+                HEIGHT="480"
                 MIME_TYPE="image/jpeg"
                 MIMETYPE="image/jpeg"
                 PROCESS="com.day.cq.dam.core.process.ThumbnailProcess"
                 PROCESS_AUTO_ADVANCE="true"
                 QUALITY="90"
                 SKIP="[audio/mpeg,video/(.*)]"
-                WIDTH="1280"/>
+                WIDTH="480"/>
         </node10>
         <node11
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+            title="Create Web Enabled Image"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                HEIGHT="620"
+                MIME_TYPE="image/jpeg"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true"
+                QUALITY="90"
+                SKIP="[audio/mpeg,video/(.*)]"
+                WIDTH="620"/>
+        </node11>
+        <node12
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+            title="Create Web Enabled Image"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                HEIGHT="768"
+                MIME_TYPE="image/jpeg"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true"
+                QUALITY="90"
+                SKIP="[audio/mpeg,video/(.*)]"
+                WIDTH="768"/>
+        </node12>
+        <node13
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+            title="Create Web Enabled Image"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                HEIGHT="960"
+                MIME_TYPE="image/jpeg"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true"
+                QUALITY="90"
+                SKIP="[audio/mpeg,video/(.*)]"
+                WIDTH="960"/>
+        </node13>
+        <node14
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+            title="Create Web Enabled Image"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                HEIGHT="1024"
+                MIME_TYPE="image/jpeg"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true"
+                QUALITY="90"
+                SKIP="[audio/mpeg,video/(.*)]"
+                WIDTH="1024"/>
+        </node14>
+        <node15
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+            title="Create Web Enabled Image"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                HEIGHT="1160"
+                MIME_TYPE="image/jpeg"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true"
+                QUALITY="90"
+                SKIP="[audio/mpeg,video/(.*)]"
+                WIDTH="1160"/>
+        </node15>
+        <node16
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to create a web enabled representation from an asset. Provides various configuration arguments."
+            title="Create Web Enabled Image"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                HEIGHT="1920"
+                MIME_TYPE="image/jpeg"
+                PROCESS="com.day.cq.dam.core.process.CreateWebEnabledImageProcess"
+                PROCESS_AUTO_ADVANCE="true"
+                QUALITY="90"
+                SKIP="[audio/mpeg,video/(.*)]"
+                WIDTH="1920"/>
+        </node16>
+        <node17
             jcr:primaryType="cq:WorkflowNode"
             description="Process to delete the image preview rendition"
             title="Delete Image Preview Rendition"
@@ -163,8 +253,8 @@
                 jcr:primaryType="nt:unstructured"
                 PROCESS="com.day.cq.dam.core.process.DeleteImagePreviewProcess"
                 PROCESS_AUTO_ADVANCE="true"/>
-        </node11>
-        <node12
+        </node17>
+        <node18
             jcr:primaryType="cq:WorkflowNode"
             description="This process will extract and upload the product assets"
             title="Product Asset Upload"
@@ -173,8 +263,8 @@
                 jcr:primaryType="nt:unstructured"
                 PROCESS="com.day.cq.dam.pim.impl.sourcing.upload.process.ProductAssetsUploadProcess"
                 PROCESS_AUTO_ADVANCE="true"/>
-        </node12>
-        <node13
+        </node18>
+        <node19
             jcr:primaryType="cq:WorkflowNode"
             description="This process will send DamEvent.Type.DAM_UPDATE_ASSET_WORKFLOW_COMPLETED event when DAM update asset workflow is completed"
             title="DAM Update Asset Workflow Completed"
@@ -183,8 +273,8 @@
                 jcr:primaryType="nt:unstructured"
                 PROCESS="com.day.cq.dam.core.impl.process.DamUpdateAssetWorkflowCompletedProcess"
                 PROCESS_AUTO_ADVANCE="true"/>
-        </node13>
-        <node14
+        </node19>
+        <node20
             jcr:primaryType="cq:WorkflowNode"
             description="This process will send email based on an email template to current user when a transient workflow is completed"
             title="Send Transient Workflow Completed Email"
@@ -194,13 +284,13 @@
                 PROCESS="com.day.cq.dam.core.impl.process.SendTransientWorkflowCompletedEmailProcess"
                 PROCESS_AUTO_ADVANCE="true"
                 templatePath="/etc/dam/workflow/notification/email/transientworkflowcompleted/en.txt"/>
-        </node14>
-        <node15
+        </node20>
+        <node21
             jcr:primaryType="cq:WorkflowNode"
             title="End"
             type="END">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node15>
+        </node21>
     </nodes>
     <transitions jcr:primaryType="nt:unstructured">
         <node0_x0023_node1
@@ -304,8 +394,50 @@
         <node14_x0023_node15
             jcr:primaryType="cq:WorkflowTransition"
             from="node14"
+            rule=""
             to="node15">
             <metaData jcr:primaryType="nt:unstructured"/>
         </node14_x0023_node15>
+        <node15_x0023_node16
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node15"
+            rule=""
+            to="node16">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node15_x0023_node16>
+        <node16_x0023_node17
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node16"
+            rule=""
+            to="node17">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node16_x0023_node17>
+        <node17_x0023_node18
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node17"
+            rule=""
+            to="node18">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node17_x0023_node18>
+        <node18_x0023_node19
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node18"
+            rule=""
+            to="node19">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node18_x0023_node19>
+        <node19_x0023_node20
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node19"
+            rule=""
+            to="node20">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node19_x0023_node20>
+        <node20_x0023_node21
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node20"
+            to="node21">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node20_x0023_node21>
     </transitions>
 </jcr:root>

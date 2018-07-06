@@ -1,0 +1,12 @@
+%placeholder_greyBox {
+	padding: ($padding-TB / 2) ($padding-RL / 2);
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding: $padding-TB $padding-RL;
+	}
+
+	p {
+		font-size: 1.125em;
+		margin-bottom: 1.2em;
+	}
+}

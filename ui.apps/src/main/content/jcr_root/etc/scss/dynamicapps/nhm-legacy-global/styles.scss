@@ -1,0 +1,165 @@
+//picLib
+a {
+	font-weight: normal;
+	border-bottom: none;
+
+	&:hover {
+		border-bottom-width: 1px;
+	}
+
+	// &:link, &:visited {
+	// 	color: #000;
+	// }
+}
+
+//picLib
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+//picLib
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+h1 {
+	//picLib
+	font-size: 2em;
+	margin-bottom: 0;
+	padding-bottom: 5px;
+
+	//patronMail
+	width: 100%;
+}
+
+//picLib
+h3 {
+	font-size: 1.4em;
+	margin: 0 10px 10px;
+}
+
+//picLib
+h5 {
+	color: #000177;
+}
+
+//picLib
+p {
+	font-size: 1em;
+	margin: 0 10px 10px;
+}
+
+//picLib
+.global-header-info {
+	.global-header-info__item {
+		font-size: 16px;
+	}
+}
+
+//profileManager
+.main-footer {
+	.framed-wrapper {
+		text-align: left;
+	}
+
+	.footer-utility {
+		legend, .errors {
+			color: #fff;
+      //picLib
+      font-size: 16px;
+    }
+
+    //picLib
+    .item-label, input {
+    	font-size: 14px;
+    }
+
+    fieldset {
+    	padding-bottom: 16px;
+    }
+  }
+
+  form {
+  	label {
+  		width: 100%;
+  		text-align: left;
+  		padding: 0;
+  	}
+  }
+
+  //picLib
+  .footer-nav {
+  	label {
+  		font-size: 14px;
+  	}
+  }
+
+	//picLib
+	.footer-info {
+		p {
+			font-size: 12.8px;
+		}
+	}
+}
+
+div#feedback-bar {
+	p {
+		font-size: 16px;
+	}
+}
+//
+
+body {
+	//picLib
+	// font-size: 76%;
+
+	//patronMail
+	color: #565656;
+}
+
+//picLib
+#page-body {
+	padding-left: 14px;
+	padding-top: 0;
+}
+//patronMail
+#page-body {
+	padding: 0;
+}
+
+#page-container {
+	//picLib
+	border: none;
+
+	//patronMail
+	width: 100%;
+}
+
+.row {
+	//patronMail
+	margin-bottom: 0;
+
+	//picLib
+	width: 100%;
+}
+
+//patronMail - possibly move out of global
+.breadcrumb {
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+//profileManager
+.nhm-breadcrumb {
+	text-align: left;
+}
+
+// Hide old Cookies banner
+#nhm-cookie-notify {
+	display: none;
+}
+
+//Force page-container to render at top of page (overrides nhm.js on some legacy apps)
+#page-container {
+	top: 0 !important;
+}

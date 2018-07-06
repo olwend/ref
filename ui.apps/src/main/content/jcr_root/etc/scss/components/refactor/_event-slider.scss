@@ -1,0 +1,110 @@
+/*** _EVENT-SLIDER.SCSS, FORMERLY _EVENTS.SCSS ***/
+.event-slider-wrapper {
+	/** WR-617 - change event slider H4 to H3 **/
+	h3 {
+		padding: $padding-TB / 2;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: ($padding-TB / 2) ($padding-RL / 2);
+		}
+	}
+
+	.event-slider {
+		li {
+			float: left;
+			width: 33%;
+
+			img {
+				width: 100%;
+			}
+
+			h4 {
+				font-family: font-name(arial);
+				font-size: 1em;
+				font-weight: bold;
+				line-height: 1.4;
+				margin: 0;
+				padding: 0;
+			}
+
+			p {
+				margin: 0.4em 0 0;
+				font-size: 0.875em;
+				color: color-palette(grey-color, dark);
+
+				a {
+					padding-right: 1em;
+				}
+			}
+		}
+
+		.event-slide-meta {
+			padding: 0.3125em 6%;
+		}
+
+		.event-slide-content {
+			padding: 1.25em 6%;
+		}
+	}
+}
+
+/** event-time and event-tag likely not used **/
+.event-slider {
+	.event-time,
+	.event-tag {
+		@include inline-block;
+
+		width: 49%;
+		min-height: 19px;
+		margin: 0;
+		padding-left: 9%;
+		position: relative;
+		color: $link-color;
+		font-size: 0.75em;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: block;
+			width: 100%;
+			padding-left: 12%;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			@include inline-block;
+
+			width: 49%;
+			padding-left: 8%;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop__max-width) {
+			width: 46%;
+		}
+
+		.ico {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.event-time {
+		.ico {
+			width: 19px;
+			height: 19px;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding-bottom: $padding-TB;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding-bottom: 0;
+		}
+	}
+
+	.event-tag {
+		.ico {
+			width: 17px;
+			height: 16px;
+		}
+	}
+}

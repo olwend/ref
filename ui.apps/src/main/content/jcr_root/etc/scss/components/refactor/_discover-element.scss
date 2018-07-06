@@ -1,0 +1,54 @@
+.discover-element {
+	.element-title {
+		font-family: font-name(arial);
+		color: color-palette(grey-color, dark);
+
+		&:hover {
+			color: $color--black;
+		}
+	}
+
+	&-wrapper {
+		background-color: color-palette(grey-color, light);
+	}
+
+	.element-tag {
+		padding-bottom: $padding-TB / 2;
+	}
+
+	.element-text {
+		margin-top: 0.6em;
+
+		p {
+			font-size: 1em;
+		}
+	}
+}
+
+.discover-element {
+	flex-basis: 100%;
+	margin-bottom: $padding-RL;
+
+	@media screen and (min-width: $breakpoint--phone-small__landscape) {
+		flex-basis: 48%;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		flex-basis: 23.5%;
+	}
+}
+
+.discover-element--video-container {
+	position: relative; // allows positioning the youtube icon
+
+	.discover-element--video-icon {
+		position: absolute;
+		right: $padding-TB;
+		bottom: $padding-TB;
+		max-width: 40px;
+	}
+
+	.discover-element--video-thumbnail {
+		width: 100%;
+	}
+}

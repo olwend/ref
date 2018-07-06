@@ -1,0 +1,351 @@
+//Global ??
+
+body {
+	color: #000;
+	font-size: 12.1667px;
+}
+
+//Details.html style for in the iframe
+a:hover {
+  border-bottom-width: 0;
+}
+
+td[colspan="2"] {
+	img {
+		height: 10px;
+	}
+}
+
+#frame-b {
+	height: 95px!important;
+}
+
+.dataTable_ms {
+	h4 {
+		font-weight: bold;
+		margin-bottom: 0;
+	}
+}
+
+#frame-e, #detailFrame {
+	height: 340px!important;
+}
+ 
+.button {
+  margin-bottom: 0;
+}
+
+select {
+	height: initial;
+	padding: 0;
+}
+
+select[name="genusMembers"] {
+	width: 328px!important;
+}
+
+table {
+	border-collapse: initial;
+	border-spacing: 1px;
+}
+
+.tabs {
+	li {
+		padding-top: 4px!important;
+
+		a {
+			font-weight: bold;
+		}
+	}
+}
+//Details.html style for in the iframe end
+
+#page-header {
+	padding-bottom: 0!important;
+}
+
+.nav-list.level-1 > .nav-list__item > a {
+	font-size: 22px;
+}
+
+.nav-list__item {
+	p {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	a {
+		font-size: 20px;
+	}
+}
+
+.dropdown-section p {
+	font-size: 14.4px;
+}
+
+.mega-thumb-caption {
+	p {
+		font-size: 24px;
+	}
+}
+
+.nav-list.level-2.share {
+	.nav-list__item {
+		h4 {
+			font-size: 18px;
+			color: #222;
+		}
+	}
+}
+
+.breadcrumb {
+	font-size: 14px;
+}
+
+.main-footer .footer-nav li, .main-footer .footer-utility p {
+	font-size: 17.6px;
+}
+
+div#page-container {
+	width: 100%!important;
+}
+
+#page-body {
+	width: 940px;
+	margin: 0 auto 20px auto;
+	min-height: 600px; /* added to fix the sticky nav being buggy */
+}
+
+.sticky-logo {
+	.ir {
+		line-height: 30px;
+	}
+}
+
+/* WR-1046: fix font size of copyright in footer */
+.copyright--span {
+  font-size: 16px;
+}
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+// End Global
+
+.button {
+	font-size: 12.1667px;
+}
+
+html > body #microsite-nav-backToSection {
+	margin-left: 110px;
+}
+
+#microsite-head {
+	h1 {
+		color: #015b28;
+	}
+
+	.textmenu {
+		ul {
+			font-size: 12.1667px;
+
+			a {
+				color: #015b28;
+
+				&:hover, &:visited , &:focus {
+					color: #015b28;
+				}
+			}
+		}
+	}
+}
+
+#microsite-body {
+	h2 {
+		padding-bottom: 0;
+	}
+
+	a:hover {
+		color: #015b28;
+	}
+
+	h3 {
+		margin-left: 0;
+		color: #015b28;
+	}
+
+	h4 {
+		font-weight: bold;
+		color: #015b28;
+		font-size: 14.6px;
+		margin-bottom: 0;
+
+		a {
+			font-weight: bold;
+		}
+	}
+
+	p {
+		margin-left: 0;
+		margin-right: 0;
+
+		a {
+			color: #015b28;
+
+			&:hover, &:visited , &:focus {
+				color: #015b28;
+			}
+		}
+	}
+
+	ul {
+		font-size: 12.1667px;
+
+		a {
+			color: #015b28;
+
+			&:hover, &:visited , &:focus {
+				color: #015b28;
+			}
+		}
+	}
+
+	ol {
+		font-size: 12.1667px;
+
+		li {
+			list-style: inherit;
+		}
+	}
+
+	table {
+		border-collapse: initial;
+		border-spacing: 1px;
+	}
+
+	td[colspan="2"] {
+		a {
+			font-weight: bold;
+		}
+
+		.pageTable {
+			img {
+				height: 17px;
+			}
+		}
+	}
+}
+
+#microsite-nav-local-menu {
+	margin-bottom: 0;
+}
+
+hr {
+	-moz-border-top-colors: #015b28;
+	height: 0;
+	margin: 15px 0;
+}
+
+#microsite-body > center > table {
+	width: 690px!important;
+
+	td[colspan="3"] {
+		input[type="submit"] {
+		}
+	}
+}
+
+.searchTable_ms {
+	select {
+		height: auto;
+		padding: 0;
+		background-color: #fff;
+		margin-bottom: 0;
+	}
+
+	input[type="text"] {
+		height: auto;
+		padding: 1px 3px;
+		box-shadow: none;
+		margin-bottom: 0;
+		&:focus {
+			background: #fff;
+			border-color: #ccc;
+		}
+	}
+
+	tbody th {
+		vertical-align: top;
+	}
+
+	input[type="submit"] {
+		padding: 1px 5px;
+		margin-top: -2px;
+	}
+
+	td[colspan="4"] {
+		padding-top: 10px;
+	}
+
+	input[type="button"] {
+		padding: 0 5px;
+	}
+
+	select[name="recLimit"] {
+		padding-right: 20px;
+	}
+
+	a {
+		font-weight: bold;
+
+		&:hover, &:focus {
+			color: #015b28;
+		}
+	}
+
+	td[colspan="1"] {
+		input[type="button"] {
+			margin-bottom: 4px;
+		}
+	}
+
+	td[colspan="7"] {
+		img {
+			height: 5px;
+		}
+	}
+}
+
+#dbNavButtons_down, #dbNavButtons_up {
+	margin: 3px 2px 3px 1px;
+	td {
+		vertical-align: top;
+		padding-right: 2px;
+		a {
+			font-size: 12.1667px;
+			margin-bottom: 0;
+
+			&:hover {
+				border-bottom: 0;
+				color: #fff;
+			}
+		}
+	}
+}
+
+#dbNavButtons_up {
+	td {
+		a {
+			font-size: 12.1667px;
+			padding-top: 2px;
+			padding-bottom: 3px;
+		}
+	}
+}

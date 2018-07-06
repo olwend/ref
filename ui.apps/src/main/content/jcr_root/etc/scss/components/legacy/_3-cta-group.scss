@@ -1,0 +1,18 @@
+// from legacy _components.scss
+// appears to be used in 3-cta-group - unfinished component
+.info-actions {
+  font-family: $fontregular;
+  padding: 0px;
+
+  @include respond-min($tablet){
+    margin-bottom: 35px;
+  }
+  @include respond-min($desktop){
+    .info-actions--buttons {
+      float: right;
+      .info-tout__action:first-child {
+        margin-bottom: 1em;
+      }
+    }
+  }
+}

@@ -1,0 +1,168 @@
+// from _fixes.scss
+.take-part {
+	.title-bar {
+		background-color: color-palette(take-part, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(take-part, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(take-part, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(take-part, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(take-part, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(take-part, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(take-part, base);
+
+		&:hover {
+			background-color: color-palette(take-part, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(take-part, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(take-part, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(take-part, 10pc);
+
+				a {
+					color: color-palette(take-part, base);
+
+					&:hover {
+						color: color-palette(take-part, base);
+						background-color: color-palette(take-part, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(take-part, 25pc);
+						color: color-palette(take-part, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(take-part, 25pc);
+
+					a {
+						color: color-palette(take-part, base);
+
+						&:hover {
+							color: color-palette(take-part, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.take-part {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(take-part, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(take-part, base);
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.take-part {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-take-part.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-take-part.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.take-part {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(take-part, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(take-part, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(take-part, base);
+		}
+	}
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.global-header--nav-list__item {
+	&:hover,
+	&.menuSelected {
+		&.link-take-part {
+			border-bottom-color: color-palette(take-part, base);
+		}
+	}
+}

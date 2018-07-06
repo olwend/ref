@@ -1,0 +1,163 @@
+.directory-search {
+	padding: $padding-RL $padding-RL $padding-TB $padding-RL;
+
+	&.row {
+		width: 100%;
+	}
+
+	a {
+		color: #B7B7B7;
+		font-size: 0.9em;
+		text-decoration: underline;
+
+		&:hover {
+			color: #B7B7B7;
+		}
+	}
+
+	select {
+		background-image: url("/etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png");
+		padding-left: $padding-TB;
+	}
+}
+
+.directory-search--label {
+	color: $color--white;
+	font-family: font-name(elysio, light);
+	font-size: 1.2em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1em;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		font-size: 1.2em;
+	}
+
+	margin-bottom: 0.2em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		margin-bottom: 0.6em;
+	}
+}
+
+.directory-search--fields-block-grid {
+	li {
+		padding-bottom: 0;
+
+		&:last-child {
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+.directory-search-button--container {
+	position: relative;
+	border: 4px solid $color--white;
+	padding: $padding-RL $padding-TB;
+	margin-top: 1em;
+	margin-bottom: 1.2em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-top: 1.95em;
+		margin-top: 2.25em;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		padding-top: $padding-RL;
+		margin-top: 2.6em;
+		margin-bottom: 0;
+	}
+
+	.ico {
+		position: absolute;
+
+		&.directory-search-button--icon {
+			top: -12px;
+			left: -3%;
+			width: 63%;
+			height: 50px;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				top: -9px;
+				left: -4%;
+				width: 58%;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				top: -11px;
+				left: -8%;
+				width: 68%;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				width: 63%;
+				top: -8px;
+				left: -3px;
+			}
+		}
+
+		&.directory-search-button--arrow {
+			top: -5px;
+			right: -8px;
+			width: 33%;
+			height: 40px;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				top: -3px;
+				width: 28%;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				top: -11px;
+				right: -17%;
+				width: 35%;
+				height: 54px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				top: -8px;
+				right: 0;
+				width: 30%;
+			}
+		}
+	}
+}
+
+.directory-search-button--text {
+	position: relative;
+	left: 60%;
+	padding: 0;
+	background: none;
+	border: none;
+	font-family: font-name(elysio, regular);
+	font-size: 1.5em;
+	color: $color--white;
+	text-decoration: none;
+
+	@media screen and (min-width: $breakpoint--phone-small__landscape) {
+		left: 86%;
+		font-size: 1.8em;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		top: 2px;
+		left: 54%;
+		font-size: 1.3em;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		left: 58%;
+		font-size: 1.75em;
+	}
+
+	@media screen and (min-width: $breakpoint--desktop__max-width) {
+		left: 68%;
+	}
+}
+
+.directory-search__science-profiles {
+	background-color: color-palette(grey-color, dark);
+}

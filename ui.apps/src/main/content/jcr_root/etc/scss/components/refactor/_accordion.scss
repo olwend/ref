@@ -1,0 +1,45 @@
+.accordion .accordion-navigation,
+.accordion dd {
+	clear: both;
+	margin-bottom: 1.2em !important;
+
+	& > a {
+		background-repeat: no-repeat;
+		background-position: 97% center;
+		background-color: color-palette(grey-color, light);
+		padding: $padding-TB ($padding-RL / 2);
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: $padding-TB $padding-RL;
+		}
+
+		&:hover {
+			background-repeat: no-repeat;
+			background-position: 97% center;
+			background-color: #E3E3E3;
+		}
+	}
+
+	&.active {
+		& > a {
+			background-repeat: no-repeat;
+			background-position: 97% center;
+			background-color: color-palette(grey-color, light);
+
+			&:hover {
+				background-repeat: no-repeat;
+				background-position: 97% center;
+				background-color: #E3E3E3;
+			}
+		}
+	}
+}
+
+.science-profiles-detail-page {
+	.accordion-navigation {
+		a {
+			font-family: font-name(elysio, light);
+			font-size: 1.125em;
+		}
+	}
+}

@@ -1,0 +1,538 @@
+/** WR-1040 new **/
+// layout/refactor/_layout.scss - padding-top:100px added to body to offset position:static of nav bar
+
+.global-header {
+	background: $color--white;
+	border-bottom: 1px solid color-palette(grey-color, mid-light);
+	top: 0;
+	width: 100%;
+	z-index: 99999;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		position: fixed;
+		height: 100px;
+	}
+
+	a {
+		color: $color--black;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.row .row { // discover.css fix, replaces something in nhm-foundation.css
+		margin: 0 auto;
+	}
+
+	&--container {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: column;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			flex-direction: row;
+			height: 100px;
+		}
+
+		&.row {
+			width: 100%;
+			margin-bottom: 0;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				width: 95%;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop__max-width) {
+				padding: 0 1.5em;
+			}
+		}
+	}
+
+	&--logo {
+		min-width: 250px;
+		height: 50px;
+		background: url("/etc/designs/nhmwww/img/logo.png") no-repeat left center;
+		background-size: 250px auto;
+		text-indent: -9999px;
+		margin-left: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			margin-left: 0;
+			top: 5px;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			width: 335px;
+			background-size: auto auto;
+		}
+
+		&__container {
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: row;
+		}
+	}
+
+	&--info {
+		display: inline-flex;
+		margin: 0;
+		padding-left: 1em;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: block;
+			margin: 0;
+		}
+
+		&__container {
+			display: none;
+			background-color: color-palette(grey-color, light);
+			padding-top: 15px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: -webkit-flex;
+				display: flex;
+				align-items: flex-end;
+				background: none;
+				margin-left: auto;
+			}
+		}
+
+		&__item {
+			height: 40px;
+			margin: 0;
+			padding: 0;
+
+			&:first-child {
+				padding-right: 10px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				&:first-child {
+					padding-right: 0;
+				}
+			}
+		}
+
+		a {
+			font-family: font-name(elysio, regular);
+			font-size: 0.9rem;
+
+			@media screen and (min-width: $breakpoint--phone-wide__portrait) {
+				font-size: 1rem;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 0.8rem;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				font-size: 1.1rem;
+			}
+		}
+
+		.svg-ico {
+			height: 20px;
+			width: 20px;
+
+			@media screen and (min-width: $breakpoint--phone-wide__portrait) {
+				height: 25px;
+				width: 25px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				height: 22px;
+				width: 22px;
+				margin-right: 5px;
+				margin-top: -5px;
+			}
+		}
+	}
+
+	&--bar {
+		&.row {
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	&--menu {
+		padding: 0 1em;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: 0;
+		}
+
+		&__nav {
+			display: none;
+			position: relative;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				&.row {
+					display: -webkit-flex;
+					display: flex;
+					align-items: flex-end;
+					height: 50px;
+				}
+			}
+		}
+
+		/** WR-1035 Adjust z-index to display the mobile menu collapse icon beneath the search menu close icon **/
+		&__trigger {
+			display: -webkit-flex;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			height: 50px;
+			width: 50px;
+			z-index: 99;
+			margin-right: 0;
+			margin-left: auto;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: none;
+			}
+
+			.ico {
+				width: 23px;
+				height: 23px;
+			}
+
+			.ico-menu-close,
+			.ico-menu-return {
+				display: none;
+			}
+
+			.ir {
+				text-indent: -9999px;
+			}
+
+			&.clicked {
+				.ico-menu-close {
+					@include inline-block;
+				}
+
+				.ico-menu-open,
+				.ico-menu-return {
+					display: none;
+				}
+			}
+
+			&.return {
+				.ico-menu-return {
+					@include inline-block;
+				}
+
+				.ico-menu-open,
+				.ico-menu-close {
+					display: none;
+				}
+			}
+		}
+
+		&__subnav {
+			&-discover {
+				display: none;
+				font-family: font-name(elysio, medium);
+				font-size: 1.1rem;
+				padding-left: 1em;
+			}
+		}
+	}
+
+	&--subnav {
+		background-color: color-palette(grey-color, mid-light);
+
+		.row {
+			margin-bottom: 0;
+
+			@media screen and (min-width: $breakpoint--desktop__max-width) {
+				padding: 0 1.5em;
+			}
+		}
+
+		ul {
+			display: none;
+			font-family: font-name(elysio, medium);
+			font-size: 1.2rem;
+			margin-bottom: 0;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 0.95rem;
+				height: 50px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				font-size: 1.1rem;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop-wide) {
+				font-size: 1.2rem;
+			}
+
+			li {
+				padding-right: 30px;
+				padding-top: 1px;
+			}
+		}
+	}
+
+	/** WR-1035 - Create Search Bar **/
+	&--search-bar,
+	&--search-bar__overlay,
+	&--search-bar__content {
+		display: none;
+	}
+
+	&--search-bar {
+		&__blocking-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 99;
+		}
+
+		&__overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 300px;
+			background-color: white;
+			opacity: 0.95;
+			z-index: 99;
+
+			@media screen and (max-width: $breakpoint--tablet__portrait) {
+				height: 350px;
+			}
+
+			@media screen and (max-width: $breakpoint--phone-wide__landscape) {
+				height: 450px;
+			}
+		}
+
+		&__content {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 300px;
+			padding-top: 50px;
+			z-index: 99;
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				padding-top: 51px;
+			}
+
+			@media screen and (max-width: $breakpoint--tablet__portrait) {
+				height: 350px;
+			}
+
+			@media screen and (max-width: $breakpoint--phone-wide__landscape) {
+				height: 450px;
+			}
+		}
+
+		&__close-icon {
+			position: absolute;
+			top: 13px;
+			right: 10px;
+			height: 23px;
+			width: 23px;
+			stroke-width: 10;
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				right: 17px;
+			}
+		}
+
+		&__form {
+			display: -webkit-flex;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			margin-bottom: 50px;
+		}
+
+		&__input[type="text"] {
+			display: inline;
+			font-family: font-name(elysio, thin);
+			font-size: 24px;
+			height: 50px;
+			width: 570px;
+			margin: 0;
+			border: 2px solid $color--black;
+
+			&:focus {
+				border: 2px solid $color--black;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				height: 48px;
+			}
+
+			@media screen and (max-width: $breakpoint--phone-wide__landscape) {
+				width: 250px;
+			}
+		}
+
+		&__submit-button {
+			background-color: $color--black;
+			height: 50px;
+			width: 50px;
+			padding: 0;
+			margin-bottom: 0;
+			margin-left: -5px;
+
+			&:hover {
+				background-color: $color--black;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				height: 48px;
+				width: 48px;
+			}
+		}
+
+		&__search-icon {
+			height: 36px;
+			width: 36px;
+			stroke-width: 2;
+		}
+
+		&__popular-search-terms {
+			text-align: center;
+			height: 150px;
+
+			@media screen and (max-width: $breakpoint--phone-wide__landscape) {
+				height: 200px;
+			}
+
+			ul {
+				line-height: 50px;
+			}
+		}
+
+		&__heading {
+			padding-bottom: 0;
+			margin-bottom: 20px;
+		}
+
+		&__link {
+			display: inline;
+			background-color: #B5B5B5;
+			font-size: 18px;
+			margin: 0 10px;
+			padding: 7px 8px;
+
+			a {
+				font-family: font-name(elysio, light);
+				white-space: nowrap;
+			}
+
+			@media screen and (max-width: $breakpoint--phone-wide__landscape) {
+				line-height: 3rem;
+			}
+		}
+	}
+
+	&--nav-list {
+		margin-bottom: 0;
+		text-align: left;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			height: 100%;
+			padding-top: 2px;
+		}
+
+		&__item {
+			display: -webkit-flex;
+			display: flex;
+			margin: 0;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: inline-flex;
+				height: 100%;
+				margin-right: 15px;
+
+				&:hover,
+				&.menuSelected {
+					border-bottom: none;
+
+					@media screen and (min-width: $breakpoint--tablet__portrait) {
+						border-bottom-style: solid;
+						border-bottom-width: 5px;
+					}
+				}
+			}
+
+			@media screen and (min-width: $breakpoint--desktop__max-width) {
+				margin-right: 30px;
+			}
+
+			a {
+				font-family: font-name(elysio, medium);
+				font-size: 1.4rem;
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					font-size: 0.95rem;
+				}
+
+				@media screen and (min-width: $breakpoint--tablet__landscape) {
+					font-size: 1.1rem;
+				}
+
+				@media screen and (min-width: $breakpoint--desktop-wide) {
+					font-size: 1.4rem;
+				}
+			}
+
+			&--subnav-link {
+				align-self: center;
+				margin-right: 0;
+				margin-left: auto;
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					display: none;
+				}
+			}
+		}
+
+		&__link {
+			padding: 10px 0;
+			line-height: 2rem;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				padding: 5px 0;
+				line-height: inherit;
+			}
+		}
+	}
+}
+
+.js-global-header--nav-list__hide {
+	display: none;
+}
+
+.js-global-header--nav-list__body {
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-top: 150px;
+	}
+}
+
+.js-global-header--nav-list__header {
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		height: 150px;
+	}
+}
+
+/** WR-1035 Adjust z-index to display the carousel slide icons beneath the search menu element **/
+.lSSlideOuter .lSPager.lSpg > li a {
+	z-index: 98;
+}

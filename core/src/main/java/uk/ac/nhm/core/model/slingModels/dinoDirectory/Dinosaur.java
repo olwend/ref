@@ -37,11 +37,12 @@ public class Dinosaur {
 	private List<Map<String, String>> countryList;
 	private String description;
 	private String diet;
-	private List<String> dinosaurMediaCollection;
+	private List<Map<String, String>> dinosaurMediaCollection;
 	private String food;
 	private String genus;
 	private String howItMoved;
 	private String imageUrl;
+	private String imageCredit;
 	private double length;
 	private String mya;
 	private String nameHyphenated;
@@ -197,18 +198,38 @@ public class Dinosaur {
 			this.setMya(mya);
 			
 			//Images
-			JSONArray dinosaurMediaArray = dinosaur.getJSONArray("mediaCollection");
-			List<String> dinosaurMediaCollection = new ArrayList<String>();
-
+			JSONArray dinosaurMediaArray = dinosaur.getJSONArray("mediaCollection");			
+			List<Map<String,String>> dinosaurMediaCollection = new ArrayList<Map<String, String>>();
 			for(int i=0; i<dinosaurMediaArray.length(); i++) {
 				JSONObject dinosaurMediaElement = dinosaurMediaArray.getJSONObject(i);
-
-				if(dinosaurMediaElement.getBoolean("isDefault") == true) {
-					this.setImageUrl(getImagePath(dinosaurMediaElement));
-				} else {
-					String dinosaurImageURL = getImagePath(dinosaurMediaElement);
-					dinosaurMediaCollection.add(dinosaurImageURL);
+				String dinosaurImageURL = getImagePath(dinosaurMediaElement);
+				String dinosaurImageCopyright = null;
+				String dinosaurImageCredit = null;
+				if(!dinosaurMediaElement.isNull("copyright")) {
+					dinosaurImageCopyright = dinosaurMediaElement.getString("copyright");
 				}
+				String dinosaurImageCreditType = null;
+				if(!dinosaurMediaElement.isNull("creditType")) {
+					dinosaurImageCreditType = dinosaurMediaElement.getString("creditType");
+				}else {
+					dinosaurImageCreditType = "Copyright"; //default to copyright if it doesn't exist
+				}
+				if(dinosaurImageCreditType.equals("Copyright")) {
+					dinosaurImageCredit = "\u00a9 " + dinosaurImageCopyright;
+				}else {
+					dinosaurImageCredit = "Credit: " + dinosaurImageCopyright;
+				}
+				
+				if(dinosaurMediaElement.getBoolean("isDefault") ==true) {
+					this.setImageUrl(dinosaurImageURL);
+					this.setImageCredit(dinosaurImageCredit);
+				}else {
+					Map<String, String> dinosaurImageMap = new HashMap<String, String>();
+					dinosaurImageMap.put("url", dinosaurImageURL);	
+					dinosaurImageMap.put("credit", dinosaurImageCredit);
+					dinosaurMediaCollection.add(dinosaurImageMap);
+				}
+
 			}
 			this.setDinosaurMediaCollection(dinosaurMediaCollection);
 
@@ -304,14 +325,6 @@ public class Dinosaur {
 
 	public void setDiet(String diet) {
 		this.diet = diet;
-	}
-
-	public List<String> getDinosaurMediaCollection() {
-		return dinosaurMediaCollection;
-	}
-
-	public void setDinosaurMediaCollection(List<String> dinosaurMediaCollection) {
-		this.dinosaurMediaCollection = dinosaurMediaCollection;
 	}
 	
 	public String getFood() {
@@ -434,4 +447,23 @@ public class Dinosaur {
 		this.type = type;
 	}
 
+	public List<Map<String, String>> getDinosaurMediaCollection() {
+		return dinosaurMediaCollection;
+	}
+
+	public void setDinosaurMediaCollection(List<Map<String, String>> dinosaurMediaCollection) {
+		this.dinosaurMediaCollection = dinosaurMediaCollection;
+	}
+
+	public String getImageCredit() {
+		return imageCredit;
+	}
+
+	public void setImageCredit(String imageCredit) {
+		this.imageCredit = imageCredit;
+	}
+
+
+	
+ 
 }

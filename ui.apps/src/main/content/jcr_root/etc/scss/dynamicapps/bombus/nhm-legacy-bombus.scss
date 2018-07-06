@@ -1,0 +1,76 @@
+body {
+	font-size: 12.1667px;
+	line-height: initial;
+
+	a {
+		color: #015b28;
+		font-weight: inherit;
+
+		&:hover, &:visited {
+			color: #015b28;
+		}
+	}
+
+	p {
+		margin: 0 0 5px 0;
+		line-height: initial;
+	}
+
+	td {
+		padding: 3px;
+	}
+
+	table {
+		border-collapse: initial;
+		border-spacing: 2px;
+	}
+}
+
+#page-body {
+	min-height: 600px;
+}
+
+.breadcrumb {
+	font-size: 14px;
+}
+
+.footer {
+	.main-footer {
+		clear: both;
+	}
+}
+
+#microsite-holder {
+	width: 762px;
+	margin: 0 auto 15px auto;
+	float: none;
+
+	#microsite-centre {
+		padding-top: 0;
+
+		h1 {
+			padding-top: 10px;
+		}
+
+		h2 {
+
+			line-height: initial;
+			a {
+				font-weight: bold;
+			}
+		}
+
+		img {
+			height: inherit;
+		}
+
+		blockquote{
+			border-left: none;
+			color: #000;
+
+			p {
+				color: #000;
+			}
+		}
+	}
+}

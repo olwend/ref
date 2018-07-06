@@ -1,0 +1,43 @@
+.event--schedule--wrapper {
+	font-family: font-name(arial);
+
+	.event--schedule--title {
+		padding: $padding-TB;
+		color: $color--white;
+	}
+
+	.event--schedule--tbody {
+		.event--schedule--td,
+		.event--schedule--times {
+			padding: $padding-TB;
+			background-color: color-palette(grey-color, light);
+			border-bottom: 1px solid $color--white;
+			vertical-align: top;
+		}
+
+		.event--schedule--times {
+			color: $color--black;
+			padding-left: 0;
+		}
+	}
+
+	.event--schedule--show--more {
+		text-align: center;
+		padding: $padding-TB;
+		background-color: color-palette(grey-color, light);
+		color: color-palette(grey-color, dark);
+		cursor: pointer;
+		border-top: 1px solid $color--white;
+	}
+
+	.event--schedule--show--more:after {
+		display: inline-block;
+		zoom: 1;
+		content: "";
+		width: 15px;
+		height: 10px;
+		margin-left: 5px;
+		background: url("../../../../../etc/designs/nhmwww/img/arrows/down-arrow.png") no-repeat 95% 60%;
+		background-size: 15px auto;
+	}
+}

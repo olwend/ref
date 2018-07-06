@@ -1,0 +1,153 @@
+//Global ??
+#page-header {
+	padding-bottom: 0!important;
+}
+
+.nav-list.level-1 > .nav-list__item > a {
+	font-size: 22px;
+}
+
+.nav-list__item {
+	p {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	a {
+		font-size: 20px;
+	}
+}
+
+.dropdown-section p {
+	font-size: 14.4px;
+}
+
+.mega-thumb-caption {
+	p {
+		font-size: 24px;
+	}
+}
+
+.nav-list.level-2.share {
+	.nav-list__item {
+		h4 {
+			font-size: 18px;
+			color: #222;
+		}
+	}
+}
+
+.breadcrumb {
+	font-size: 14px;
+}
+
+.main-footer .footer-nav li, .main-footer .footer-utility p {
+	font-size: 17.6px;
+}
+
+body {
+	color: #000;
+}
+
+div#page-container {
+	width: 100%!important;
+}
+
+#page-body {
+	width: 940px;
+	margin: 0 auto;
+	min-height: 600px;
+}
+
+.sticky-logo {
+	.ir {
+		line-height: 30px;
+	}
+}
+
+/* WR-1046: fix font size of copyright in footer */
+.copyright--span {
+  font-size: 16px;
+}
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+// End Global
+
+
+#page-header {
+	background-image: none;
+}
+
+html > body #microsite-nav-backToSection {
+	margin-left: 110px;
+	margin-bottom: 10px;
+}
+
+#microsite-body {
+	margin-bottom: 15px!important;
+
+	.panel {
+		margin-bottom: 40px;
+
+		.imageRight {
+			.imageCaptionWidth160 {
+				width: 160px;
+			}
+		}
+	}
+
+	h2 {
+		padding-bottom: 0;
+	}
+
+	a {
+		&:hover, &:visited, &:focus {
+			color: #015b28;
+		}
+	}
+
+	h3 {
+		margin-left: 0;
+		padding-bottom: 0;
+	}
+
+	h4 {
+		font-weight: bold;
+
+		a {
+			font-weight: bold;
+		}
+	}
+
+	p {
+		margin: 0;
+
+		a {
+			font-weight: normal;
+		}
+	}
+
+	select {
+		height: auto;
+		padding: 0;
+		background-color: #fff;
+		margin-bottom: 3px;
+	}
+
+	input {
+		padding: 1px 3px 1px 5px;
+	}
+}
+
+#microsite-nav-local-menu {
+	margin-bottom: 0;
+}

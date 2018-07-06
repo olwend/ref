@@ -397,6 +397,7 @@
 										fieldDescription="Hidden field for image upload resource type" />
 									<image
 										jcr:primaryType="nt:unstructured"
+										allowUpload="{Boolean}false"
 										autoStart="{Boolean}false"
 										class="cq-droptarget"
 										fieldNameParameter="./image/fileName"
