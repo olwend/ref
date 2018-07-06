@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.2 - 09-Jul-2018
+WR-1414 – Merge AEM & Sass repos into gitflow
+WR-1420 – Bug fix for Dino Directory copyright text
+
 ## 2.1.1 - 05-Jul-2018
 WR-1393 - Touch UI Author - make Discover Related and Featured Article components copy/pastable
 WR-1404 - Disallow uploads into image dialog fields
