@@ -8202,11 +8202,17 @@ div#cookie-bar p {
 }
 
 .imagepage--title {
-  font-size: 1.865em;
+  font-size: 1.5em;
   font-family: "Elysio-Thin", Helvetica, Arial, sans-serif;
   padding: 0;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 1025px) {
+  .imagepage--title {
+    font-size: 1.865em;
+  }
 }
 
 /** REFACTOR MAP **/
