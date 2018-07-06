@@ -1,0 +1,77 @@
+.imagepage {
+
+	a {
+		font-family: font-name(elysio, thin);
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+
+	&--caption {
+		font-family: font-name(elysio, regular);
+	}
+
+	&--info {
+		font-family: font-name(elysio, light);
+		margin-top: $padding-TB / 2;
+		font-size: 1.5rem;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				margin-bottom: 1em;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				margin-bottom: 0.5em;
+			}
+	}
+
+	&--intro {
+		font-family: font-name(elysio, light);
+		align-items: flex-end;
+		font-size: 1.3rem;
+		margin-bottom: 1em;
+
+			@media screen and (min-width: $breakpoint--desktop) {		margin-bottom: 5.5em;
+			}
+	}
+
+	&--img {
+		width: 100%;
+
+		@media screen and (min-width: $breakpoint--phone-wide__landscape + 1) {
+			width: auto;
+		}
+	}
+
+	&--metadata {
+		margin-bottom: 0;
+		padding-bottom: 9px;
+	}
+
+	&--social-share-header {
+
+		.social-share--container {
+			align-items: flex-end;
+			justify-content: end;
+			height: auto;
+			min-height: auto;
+			padding-left: 350px;
+		}
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape + 1) {
+				align-items: flex-end;
+			}
+	}
+
+	&--title {
+		font-size: 1.5em;
+		font-family: font-name(elysio, thin);
+		padding: 0;
+		margin-top: $padding-TB / 2;
+		margin-bottom: $padding-TB / 2;
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			font-size: 1.865em;
+		}
+	}
+}
