@@ -15,7 +15,7 @@
 			<source media="(max-width: 480px)" 
 					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %> 320w" />
 			<source media="(min-width: 481px) and (max-width: 1024px)"
-					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %> 1024w" />
+					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.MEDIUM) %>" />
 			<source media="(min-width: 1025px)"
 					srcset="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.SMALL) %> 320w" />
 			<img src="<%= helper.getPath(DiscoverRelatedImageHelper.ImageInterchangeSize.DEFAULT) %>" alt="<%= helper.getAlt() %>" />
