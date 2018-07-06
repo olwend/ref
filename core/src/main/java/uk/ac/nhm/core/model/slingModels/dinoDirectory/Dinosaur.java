@@ -207,7 +207,7 @@ public class Dinosaur {
 				if(!dinosaurMediaElement.isNull("creditType")) {
 					dinosaurImageCreditType = dinosaurMediaElement.getString("creditType");
 					if(dinosaurImageCreditType.equals("Copyright")) {
-						dinosaurImageCredit = "\u00a9 " + dinosaurImageCopyright;
+						dinosaurImageCredit = "© " + dinosaurImageCopyright;
 					} else {
 						dinosaurImageCredit = "Credit: " + dinosaurImageCopyright;
 					}
