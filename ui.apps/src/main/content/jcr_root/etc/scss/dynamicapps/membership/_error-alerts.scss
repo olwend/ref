@@ -1,0 +1,12 @@
+.error-alert, .ddi-alert {
+	background-color: #f5e6e6;
+	border: 1px solid #ae3c39;
+	margin: 0 0 1.8em 0 !important;
+	padding: 28px;
+	color: #ae3c39;
+	display: none;
+
+	p {
+		margin-bottom: 0;
+	}
+}

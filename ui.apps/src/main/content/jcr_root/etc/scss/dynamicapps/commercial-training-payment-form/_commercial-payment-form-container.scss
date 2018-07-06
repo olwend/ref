@@ -1,0 +1,147 @@
+.commercial-training-payment-form--container {
+	background-color: color-palette(grey-color, light);
+	color: color-palette(grey-color, dark);
+	font-family: font-name(elysio, regular);
+	margin-bottom: 1.2em;
+
+	/*** padding on membership-form-container also set in reset partial to override legacy styles ***/
+	padding: 1em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding: 2em;
+	}
+
+	.error--form-label {
+		color: #ae3c39;
+		font-family: font-name(arial);
+		font-size: 1em;
+	}
+	
+	.error--form-element {
+		background-color: #f5e6e6;
+		border: 1px solid #ae3c39;
+		margin: 0 0 1em 0;
+		color: #ae3c39;
+	}
+
+	label {
+		color: color-palette(grey-color, dark);
+		font-size: 1em;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			font-size: 1.125em;
+		}
+	}
+
+	legend {
+		font-size: 1.5em;
+		line-height: 1.2em;
+		color: color-palette(grey-color, dark);
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+	}
+
+	fieldset {
+		border: none;
+		margin: 0;
+		padding: 0;
+
+		legend {
+			background: none;
+		}
+	}
+
+	input {
+		font-family: font-name(arial);
+	}
+
+	select {
+		background-image: url(../images/drop-down-arrow.png);
+		background-color: $color--white;
+		padding-left: 1.8em;
+		font-family: font-name(arial);
+
+		option {
+			padding: 0.9em 1.8em;
+			background-color: $color--white;
+		}
+	}
+
+	// .membership-number {
+	// 	display: none;
+	// }
+
+	// .gift-provider {
+	// 	display: none;
+	// }
+
+	// .adult2 {
+	// 	display: none;
+	// }
+
+	// .child1 {
+	// 	display: none;
+	// }
+
+	// .child2 {
+	// 	display: none;
+	// }
+
+	// .child3 {
+	// 	display: none;
+	// }
+
+	// .child4 {
+	// 	display: none;
+	// }
+
+	// .welcome-pack-shipping {
+	// 	display: none;
+	// }
+
+	// .option-with-refund {
+	// 	display: none;
+	// }
+
+	// .billing-details {
+	// 	display: none;
+	// }
+
+	// .billing-details-container {
+	// 	padding-bottom: 0.5em;
+	// }
+
+	// .billing-details-label {
+	// 	font-weight: normal;
+	// 	font-size: 1.125em;
+	// }
+
+	.accept-terms {
+		font-family: font-name(elysio, regular);
+
+		input[type="checkbox"] {
+			float: left;
+			margin-bottom: 0;
+			margin-right: 0.5em;
+			margin-top: 0.2em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 0.4em;
+				margin-right: 0.75em;
+			}
+			
+		}
+
+		.inline-label {
+			display: table;
+		}
+	}
+
+	.data-protection-statement {
+		font-family: font-name(arial);
+	}
+
+	.mailing-list-options {
+		font-family: font-name(elysio, regular);
+	}
+}

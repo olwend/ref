@@ -1,0 +1,132 @@
+.legacy-css {
+	.banner {
+		margin: 0 auto;
+		background-color: #eee;
+
+		p {
+			font-size: 16px;
+		}
+	}
+
+	#formTable {
+		input[type="checkbox"] + label, input[type="radio"] + label {
+			display: inline;
+			//to fix a problem in ie where next label steps in
+			margin-right: 0;
+		}
+
+		label {
+			font-size: 16px;
+		}
+
+		td {
+			padding-top: 3px;
+			padding-bottom: 3px;
+			font-size: 16px;
+		}
+
+		.button {
+			margin-top: 10px;
+			margin-bottom: 0;
+			padding-top: 10px;
+			padding-bottom: 11px;
+		}
+
+		//to fix a problem in ie where next label steps in
+		label[for="form_answer_selection_869"], label[for="form_answer_selection_894"], label[for="form_answer_selection_895"], label[for="form_answer_selection_892"] {
+			padding-right: 16px; 
+		}
+	}
+}
+
+//Global ?
+body {
+	color: #565656;
+}
+
+#page-body {
+	padding: 0;
+}
+
+#page-container {
+	width: 100%;
+	border: none;
+}
+
+h1 {
+	width: 100%;
+	font-weight: normal;
+}
+
+.breadcrumb {
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+.nhm-breadcrumb {
+	text-align: left;
+}
+
+.row {
+	margin-bottom: 0;
+}
+//
+
+#nav-content {
+	background-color: #eee;
+	background-image: none;
+	width: 100%;
+
+	#nav-content-level1 {
+		background-image: none;
+		background-color: #eee;
+		border: none;
+		padding-left: 24px;
+		padding-bottom: 0.5em;
+
+		li {
+			border: none;
+			list-style: disc;
+			display: list-item;
+
+			a {
+				background-color: #eee;
+				padding-left: 0;
+				font-weight: normal;
+				border-bottom: none;
+
+				&:hover {
+					color: #808080;
+					background-image: none;
+					text-decoration: underline;
+				}			
+			}
+		}
+	}
+}
+
+ul#nav-content-level1 li a {
+	color: #808080;
+}
+
+//Global ?
+.main-footer {
+	.framed-wrapper {
+		text-align: left;
+	}
+
+	.footer-utility {
+		legend, .errors {
+			color: #fff;
+		}
+	}
+}
+//
+
+.global-header-info {
+	width: 48%;
+
+	.global-header-info__item {
+		font-size: 15px;
+	}
+}

@@ -1,0 +1,139 @@
+.immersive-footer {
+	font-family: font-name(arial);
+	height: 200px;
+	width: 100%;
+	color: $color--white;
+	background-color: $color--black;
+
+	@media screen and (min-width: $breakpoint--phone-small__landscape) {
+		height: 72px;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		height: 80px;
+	}
+
+	.row {
+		padding: 0 20px;
+		width: 100%;
+		max-width: 100%;
+		margin-bottom: 0;
+	}
+
+	a {
+		color: $color--white;
+		border-bottom: 1px dotted $color--white;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&--social {
+		@media screen and (min-width: $breakpoint--phone-small__landscape) {
+			float: left;
+		}
+
+		ul {
+			margin-top: 20px;
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				margin-top: 25px;
+			}
+
+			li {
+				display: inline;
+
+				&:last-child {
+					padding-left: 20px;
+				}
+			}
+		}
+
+		&-img {
+			height: 25px;
+		}
+
+		a {
+			border-bottom: none;
+		}
+	}
+
+	&--links {
+		@media screen and (min-width: $breakpoint--phone-small__landscape) {
+			float: right;
+		}
+
+		ul {
+			font-size: 0.9rem;
+			margin: 0;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				width: 400px;
+			}
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+				width: 500px;
+				margin-top: 20px;
+				text-align: right;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				width: 600px;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				width: 800px;
+				margin-top: 25px;
+			}
+
+			li {
+				&:last-child {
+					padding-top: 20px;
+				}
+
+				@media screen and (min-width: $breakpoint--phone-small__landscape) {
+					font-size: 0.65rem;
+
+					&:first-child {
+						padding-top: 20px;
+					}
+
+					&:nth-child(2) {
+						float: left;
+					}
+
+					&:last-child {
+						padding-top: 0;
+						float: right;
+					}
+				}
+
+				@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+					display: inline;
+					padding-left: 20px;
+
+					&:first-child {
+						padding-top: 0;
+					}
+
+					&:nth-child(2) {
+						float: none;
+					}
+
+					&:last-child {
+						float: none;
+					}
+				}
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					font-size: 0.8rem;
+				}
+
+				@media screen and (min-width: $breakpoint--tablet__landscape) {
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+}

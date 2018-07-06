@@ -1,0 +1,266 @@
+//Global ??
+
+body {
+	color: #000;
+	font-size: 12.1667px;
+}
+
+#page-header {
+	padding-bottom: 0!important;
+}
+
+.nav-list.level-1 > .nav-list__item > a {
+	font-size: 22px;
+}
+
+.nav-list__item {
+	p {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	a {
+		font-size: 20px;
+	}
+}
+
+.dropdown-section p {
+	font-size: 14.4px;
+}
+
+.mega-thumb-caption {
+	p {
+		font-size: 24px;
+	}
+}
+
+.nav-list.level-2.share {
+	.nav-list__item {
+		h4 {
+			font-size: 18px;
+			color: #222;
+		}
+	}
+}
+
+.breadcrumb {
+	font-size: 14px;
+}
+
+.main-footer .footer-nav li, .main-footer .footer-utility p {
+	font-size: 17.6px;
+}
+
+div#page-container {
+	width: 100%!important;
+}
+
+#page-body {
+	width: 940px;
+	margin: 0 auto 15px auto;
+	min-height: 600px; //added to fix the sticky nav being buggy
+}
+
+.sticky-logo {
+	.ir {
+		line-height: 30px;
+	}
+}
+
+/* WR-1046: fix font size of copyright in footer */
+.copyright--span {
+  font-size: 16px;
+}
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+// End Global
+
+
+#page-header {
+	background-image: none;
+}
+
+html > body #microsite-nav-backToSection {
+	margin-left: 110px;
+	margin-bottom: 10px;
+}
+
+#microsite-head {
+	h1 {
+		font-size: 24.3333px;
+		color: #015b28;
+
+		.subTitle {
+			font-size: 19.4667px;
+		}
+	}
+
+	ul {
+		font-size: 12.1667px;
+
+		a {
+			color: #015b28;
+		}
+	}
+}
+
+#microsite-body {
+	h2 {
+		padding-bottom: 0;
+	}
+
+	a {
+		color: #015b28;
+
+		&:hover {
+			color: #015b28;
+		}
+	}
+
+	h3 {
+		margin-left: 0;
+		padding-bottom: 0;
+		color: #015b28;
+	}
+
+	h4 {
+		font-weight: bold;
+		font-size: 14.6px;
+		color: #015b28;
+		margin-bottom: 0;
+
+		a {
+			font-weight: bold;
+		}
+	}
+
+	p {
+		margin-left: 0;
+		padding-bottom: 0;
+	}
+
+	ul {
+		font-size: 12.1667px;
+	}
+
+	select[name="FAMILY"] {
+		width: 250px;
+		height: auto;
+		padding: 0;
+		background-color: #fff;
+		margin-bottom: 0;
+	}
+
+	input[type="submit"] {
+		padding: 1px 5px;
+		margin-bottom: 1px;
+		margin-right: 2px;
+		margin-top: -2px;
+		width: 7.4em!important;
+	}
+
+	form {
+		select[name="SuperList"] {
+			height: auto;
+			padding: 1px 3px;
+			font-size: 12.1667px;
+			width: 34%;
+			margin-bottom: 3px;
+		}
+	}
+
+	table[name="List"] {
+		td {
+			padding: 3px;
+		}
+	}
+}
+
+#microsite-nav-local-menu {
+	margin-bottom: 0;
+}
+
+.searchTable_ms {
+	select {
+		height: auto;
+		padding: 0;
+		background-color: #fff;
+		margin-bottom: 0;
+	}
+
+	select[name="SUPERFAMIL"] {
+		width: 250px;
+	}
+
+	select[name="FAMILY"] {
+		width: 205px;
+	}
+
+	select[name="sort"] {
+		width: 110px;
+	}
+
+	input[type="text"] {
+		height: auto;
+		width: 202px;
+		padding: 1px 3px;
+		box-shadow: none;
+		margin-bottom: 0;
+		display: initial;
+		&:focus {
+			background: #fff;
+			border-color: #ccc;
+		}
+	}
+
+	input[type="submit"] {
+		padding: 1px 5px;
+		margin-bottom: 1px;
+		margin-right: 2px;
+		margin-top: -2px;
+		width: 7.4em!important;
+	}
+
+	input[type="reset"] {
+		padding-bottom: 1px;
+		width: 7.4em!important;
+	} 
+
+	td[colspan="5"] {
+		select {
+			width: 218px!important;
+		}
+	}
+}
+
+.collapseParas {
+	border-collapse: initial;
+	border-spacing: 1px;
+}
+
+#dbNavButtons_down, #dbNavButtons_up {
+	margin: 3px 2px 3px 1px;
+	td {
+		vertical-align: top;
+		padding-right: 2px;
+		a {
+			color: #fff;
+			font-size: 12.1667px;
+			margin-bottom: 0;
+
+			&:hover {
+				border-bottom: 0;
+				color: #fff;
+			}
+		}
+	}
+}

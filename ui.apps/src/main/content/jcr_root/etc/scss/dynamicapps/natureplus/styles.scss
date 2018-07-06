@@ -1,0 +1,88 @@
+#jive-userbar-search {
+	.jive-userbar-search-field {
+		display: inline-block;
+		height: auto;
+	}
+}
+
+#jive-body-tabbar-links {
+	margin-bottom: 0;
+}
+
+#np-logo {
+	top: 175px;
+}
+
+a {
+	&.point-right {
+		background-image: none;
+	}
+}
+
+#jive-body, #jive-body-full {
+	margin-top: 15px;
+
+	*, *::before, *::after {
+		box-sizing: content-box;
+	}
+}
+
+#jive-body-main {
+	font-size: 12px;
+
+	a {
+		color: #228900;
+	}
+}
+
+#user-bar-wrapper {
+	height: 120px;
+}
+
+#jive-breadcrumb {
+	top: -130px;
+}
+
+#jive-userbar-droplink {
+	top: 108px;
+}
+
+#jive-userbar-login {
+	display: none;
+}
+
+#np-login {
+	top: 50px;
+	left: 653px;
+	z-index: 999;
+}
+
+.jive-people-list li, .jive-person-list li {
+	font-size: 12px;
+}
+
+.jive-html-text-widget {
+	font-size: 12px;
+
+	ul {
+		font-size: 12px;
+	}
+
+	p {
+		font-size: 12px;
+	}
+}
+
+.global-header-info {
+	width: 55%;
+}
+
+.global-header {
+	&.sticky {
+		position: relative;
+	}
+}
+
+.nav-list__item.has-children > a::after {
+	display: none;
+}

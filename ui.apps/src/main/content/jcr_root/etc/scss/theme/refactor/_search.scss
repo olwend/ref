@@ -1,0 +1,15 @@
+.search {
+	.title-bar {
+		background-color: color-palette(search, base);
+	}
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.global-header--nav-list__item {
+	&:hover,
+	&.menuSelected {
+		&.link-search {
+			border-bottom-color: color-palette(search, base);
+		}
+	}
+}

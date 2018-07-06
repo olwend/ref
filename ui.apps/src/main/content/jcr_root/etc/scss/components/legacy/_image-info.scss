@@ -1,0 +1,36 @@
+// from legac _components.scss
+// unclear where this is used
+.image-info {
+	width: 68px;
+	height: 68px;
+	background-position: 20px 20px;
+	cursor: pointer;
+
+	.ico {
+		float: left;
+		height: 28px;
+		width: 28px;
+	}
+
+	p {
+		display: none;
+		padding: 0 8% 0 16%;
+		background: transparent url('/etc/designs/nhmwww/img/x.png') no-repeat top right;
+
+		@include respond-min($tablet){
+			padding: 0 6% 0 12%;
+		}
+	}
+	&.open {
+		width: auto;
+		max-width: 455px;
+		height: auto;
+		min-height: 68px;
+		background-color: #000;
+		background-color: rgba(0,0,0,0.7);
+
+		p {
+			display: block;
+		}
+	}
+}
