@@ -200,22 +200,21 @@ public class Dinosaur {
 			String dinosaurImageCredit = null;
 			String dinosaurImageCreditType = null;
 			
-			if(!dinosaurMediaElement.isNull("copyright")) {
+			if(dinosaurMediaElement.isNull("copyright")) {
+					dinosaurImageCredit = null;
+			}else {
 				dinosaurImageCopyright = dinosaurMediaElement.getString("copyright");
-			}
-			
-			if(!dinosaurMediaElement.isNull("creditType")) {
-				dinosaurImageCreditType = dinosaurMediaElement.getString("creditType");
-			} else {
-				dinosaurImageCreditType = "Copyright"; //default to copyright if it doesn't exist
-			}
-			
-			if(dinosaurImageCreditType.equals("Copyright")) {
-				dinosaurImageCredit = "\u00a9 " + dinosaurImageCopyright;
-			} else {
-				dinosaurImageCredit = "Credit: " + dinosaurImageCopyright;
-			}
-			
+				if(!dinosaurMediaElement.isNull("creditType")) {
+					dinosaurImageCreditType = dinosaurMediaElement.getString("creditType");
+					if(dinosaurImageCreditType.equals("Copyright")) {
+						dinosaurImageCredit = "\u00a9 " + dinosaurImageCopyright;
+					} else {
+						dinosaurImageCredit = "Credit: " + dinosaurImageCopyright;
+					}
+				} else {
+					dinosaurImageCredit = null;
+				}
+			}		
 			if(dinosaurMediaElement.getBoolean("isDefault") == true) {
 				this.setImageUrl(dinosaurImageURL);
 				this.setImageCredit(dinosaurImageCredit);
