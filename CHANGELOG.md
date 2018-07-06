@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.1 - 05-Jul-2018
+WR-1393 - Touch UI Author - make Discover Related and Featured Article components copy/pastable
+WR-1404 - Disallow uploads into image dialog fields
+WR-1409 - Single Dinosaur - Update and move copyright sly test to backend, fix broken sly tag
+WR-1413 - Merge AEM & Sass repos step 1: commit and deploy all necessary files (excluding SCSS files)
+WR-1417 - Update Article Feed and Discover Related to use new rendition paths
+WR-1419 - Science Profiles - errors in name formatting
+
 ## 2.1.0 - Zany Zuniceratops - 28-Jun-2018
 - WR-1293 - Put 6.3 DAM update asset workflow into code
 
