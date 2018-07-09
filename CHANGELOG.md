@@ -1,4 +1,32 @@
 # Changelog
+
+## 2.1.1 - 05-Jul-2018
+WR-1393 - Touch UI Author - make Discover Related and Featured Article components copy/pastable
+WR-1404 - Disallow uploads into image dialog fields
+WR-1409 - Single Dinosaur - Update and move copyright sly test to backend, fix broken sly tag
+WR-1413 - Merge AEM & Sass repos step 1: commit and deploy all necessary files (excluding SCSS files)
+WR-1417 - Update Article Feed and Discover Related to use new rendition paths
+WR-1419 - Science Profiles - errors in name formatting
+
+## 2.1.0 - Zany Zuniceratops - 28-Jun-2018
+- WR-1293 - Put 6.3 DAM update asset workflow into code
+
+## 2.0.21 - Yeatsian Yingshanosaurus - 21-Jun-2018
+- WR-1329 - Add copyright info to images in DD single
+- WR-1405 - Fix failing build tests
+- WR-1407 - Removing 'W' from Dino Directory navigation and changing Ankylosaurid to 'Armored Dinosaur’
+
+## 2.0.20 - Xanthous Xenotarsosaurus - 14-Jun-2018
+- WR-1366 - Comment legacy code in Social Signup component 
+- WR-1374 - Investigate layout when using <dl><dt><dd> 
+- WR-1390 - Remove the addition of "dinosaurs" and add "s" 
+- WR-1391 - Accessibility: Social signup form container contrast is too low - suggest change to dark grey 
+- WR-1394 - Featured Article - fix display of italics in headings 
+- WR-1396 - Discover subnav â€“ Add a link to Collections 
+- WR-1397 - Update .gitignore to prevent merge errors with SASS repo
+- WR-1398 - Update popular search terms 
+- WR-1401 - Change "Body shape" in dino nav to "Type of dinosaur" 
+
 ## 2.0.19 - Winking Wuerhosaurus - 04-Jun-2018
 - WR-1360 - Ensure text box aligns when using featured article in full width row
 - WR-1362 - Add hyphenated name to Dino Directory API genus view

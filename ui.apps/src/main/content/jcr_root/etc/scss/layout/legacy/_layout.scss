@@ -1,0 +1,111 @@
+// from legacy _common.scss
+/** Grid **/
+.row,
+.full-width,
+.herosection {
+	margin-bottom: 20px;
+
+	@include respond-min($desktop){
+		margin-bottom: 20px;
+	}
+}
+.row {
+	width: 95%;
+
+	@include respond-min(1200px){
+		width: 100%;
+	}
+}
+.full-width {
+	background-color: $bg-color;
+
+	.row {
+		margin-bottom: 0;
+	}
+}
+.columns {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+/*SECTION PADDINGS*/
+
+.large-left-section {
+    @include respond-min($tablet) {
+        padding-right: 20px;
+    }
+}
+.right-padding {
+    @include respond-min($tablet) {
+        padding-right: 10px;
+    }
+}
+.left-padding {
+    @include respond-min($tablet) {
+        padding-left: 10px;
+    }
+}
+.image-wrapper {
+	position: relative;
+}
+
+// from legacy _components.scss
+// unclear where this is used
+.row.subnav-section.info {
+//margin-top: 83px;
+}
+
+//from legacy _components.scss
+.large4-margin {
+
+	&.large-4{
+		width: 100%;
+	}
+
+	@include respond-min($tablet){
+		margin-left: 3%;
+		margin-top: 0;
+
+		&.large-4{
+			width: 31.33333%;
+		}
+	}
+	&:first-child{
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
+.large6-margin {
+
+	&.large-6{
+		width: 100%;
+	}
+
+	@include respond-min($tablet){
+		margin-left: 3%;
+		margin-top: 0;
+
+		&.large-6{
+			width: 48.5%;
+		}
+	}
+	&:first-child{
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
+// from legacy _components.scss
+@media only screen and (min-width: 64.063em) {
+	.row2cells21 .large-8.medium-8.columns,
+	.row2cells12 .large-8.medium-8.columns {
+		width: 64.94254%;
+	}
+}
+
+@media only screen and (min-width: 48em) {
+	.row2cells21 .large-8.medium-8.columns,
+	.row2cells12 .large-8.medium-8.columns {
+		width: 64.94254%;
+	}
+}

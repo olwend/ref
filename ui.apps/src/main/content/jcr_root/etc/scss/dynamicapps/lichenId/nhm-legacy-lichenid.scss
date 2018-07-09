@@ -1,0 +1,133 @@
+//Global ??
+#page-header {
+	padding-bottom: 0!important;
+}
+
+.nav-list.level-1 > .nav-list__item > a {
+	font-size: 22px;
+}
+
+.nav-list__item {
+	p {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	a {
+		font-size: 20px;
+	}
+}
+
+.dropdown-section p {
+	font-size: 14.4px;
+}
+
+.mega-thumb-caption {
+	p {
+		font-size: 24px;
+	}
+}
+
+.nav-list.level-2.share {
+	.nav-list__item {
+		h4 {
+			font-size: 18px;
+			color: #222;
+		}
+	}
+}
+
+.breadcrumb {
+	font-size: 14px;
+}
+
+.main-footer .footer-nav li, .main-footer .footer-utility p {
+	font-size: 17.6px;
+}
+
+body {
+	color: #000;
+}
+
+div#page-container {
+	width: 100%!important;
+}
+
+#page-body {
+	width: 940px;
+	margin: 0 auto;
+	min-height: 600px; /* added to fix the sticky nav being buggy */
+}
+
+.sticky-logo {
+	.ir {
+		line-height: 30px;
+	}
+}
+
+/* WR-1046: fix font size of copyright in footer */
+.copyright--span {
+  font-size: 16px;
+}
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+// End Global
+
+
+#microsite-body {
+	h2 {
+		padding-bottom: 0;
+	}
+
+	h3 {
+		margin-left: 0;
+		padding: 0;
+	}
+
+	table {
+		td {
+			p {
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	p {
+		margin-left: 0;
+		padding-bottom: 0!important;
+
+		a {
+			&:hover, &:visited, &:focus {
+				color: #228900;
+			}
+		}
+	}
+
+	input[type="radio"] {
+		margin-bottom: 0;
+	}
+
+	.imageRight {
+		img {
+			margin-top: 5px;
+		}
+
+		p {
+			margin: 0;
+			padding: 5px 10px;
+		}
+	}
+}
+
+#microsite-nav-local-menu {
+	margin-bottom: 0;
+}

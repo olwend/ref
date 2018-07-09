@@ -1,0 +1,47 @@
+.home {
+	a {
+		color: color-palette(home, base);
+	}
+
+	h2 {
+		/** not sure where this is used **/
+		#search-calendar select {
+			margin-bottom: 10px;
+		}
+	}
+
+	.carousel-wrapper {
+		.caption {
+			background-color: color-palette(home, 90pc);
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.home {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(home, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(home, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(home, base);
+		}
+	}
+}

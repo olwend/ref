@@ -1,0 +1,14 @@
+/** this may be part of CTABUTTON **/
+.bottom-banner {
+	h2 {
+		font-size: 1.5em;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			font-size: 1.75em;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			font-size: 1.8em;
+		}
+	}
+}

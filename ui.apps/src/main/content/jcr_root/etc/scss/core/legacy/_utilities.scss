@@ -1,0 +1,58 @@
+/** Utility **/
+.cf:before,
+.cf:after { 
+	content: " "; 
+	display: table; 
+}
+.cf:after { 
+	clear: both; 
+}
+.cf { 
+	*zoom: 1; 
+}
+.text-wrap { 
+	padding: 0px; 
+}
+.hidden { 
+	position: absolute;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+.tablet, 
+.desktop { 
+	display: none; 
+}
+.mobile { 
+	display: block; 
+}
+@include respond-min($tablet){
+	.mobile {
+		display: none;
+	}
+	.tablet {
+		display: block;
+	}
+}
+@include respond-min($desktop){
+	.tablet { 
+		display: none; 
+	}
+	.desktop { 
+		display: block; 
+	}
+}
+
+.ir {
+    display: block;
+    text-indent: -999em;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    text-align: left;
+    direction: ltr;
+}
+
+// from legacy _components.scss
+.paddingTB {
+    padding:10px 0px;
+}

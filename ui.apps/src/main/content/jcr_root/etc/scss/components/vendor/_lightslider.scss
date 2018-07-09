@@ -1,0 +1,78 @@
+/** /!!! Core CSS !!!/**/
+
+.lSSlideOuter {
+	overflow: hidden;
+
+	.carousel-wrapper &,
+	.event-slider-wrapper & {
+		position: relative !important;
+	}
+}
+
+.lightSlider:before, .lightSlider:after {
+	content: " ";
+	display: table;
+}
+
+.lightSlider {
+	overflow: hidden;
+}
+
+.lSSlideWrapper {
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.lSSlideWrapper > .lightSlider:after {
+	clear: both;
+}
+
+.lSSlideWrapper .lSSlide {
+	-webkit-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+	-webkit-transition: all 1s;
+	-webkit-transition-property: -webkit-transform,height;
+	-moz-transition-property: -moz-transform,height;
+	transition-property: transform,height;
+	-webkit-transition-duration: inherit;
+	transition-duration: inherit;
+	-webkit-transition-timing-function: inherit;
+	transition-timing-function: inherit;
+}
+
+.lSSlideWrapper .lSFade {
+	position: relative;
+}
+
+.lSSlideWrapper .lSFade > * {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	margin-right: 0;
+	width: 100%;
+}
+
+.lSSlideWrapper.usingCss .lSFade > * {
+	opacity: 0;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+	-webkit-transition-duration: inherit;
+	transition-duration: inherit;
+	-webkit-transition-property: opacity;
+	transition-property: opacity;
+	-webkit-transition-timing-function: inherit;
+	transition-timing-function: inherit;
+}
+
+.lSSlideWrapper .lSFade > *.active {
+	z-index: 10;
+}
+
+.lSSlideWrapper.usingCss .lSFade > *.active {
+	opacity: 1;
+}
+
+/** /!!! End of core CSS !!!/**/

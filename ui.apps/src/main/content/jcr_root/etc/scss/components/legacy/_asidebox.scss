@@ -1,0 +1,20 @@
+// from _components.scss
+// superseded by hti-box
+.AsideBox {
+   background-color:$grey-box-bg-color;
+    h2 {
+         color: #A1164E !important;
+         padding: 20px 0px 0.2em 10% !important;
+         font-size: 2em;
+    }
+    p {
+        margin-bottom: 0px;
+        line-height: 1.5;
+    }
+
+    @include respond-min($tablet){
+        h2{
+            font-size: 2em;
+        }
+    }
+}
