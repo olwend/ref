@@ -58,14 +58,16 @@
 			</div>
 			<div class="imagepage--info small-12 medium-9 large-9 columns">
 				<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
-				
-				<ul data-sly-list.list="${imagepage.tagList}">
-					<li>
-						<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
-							${list['title']}
-						</a>
-			        </li>
-				</ul>
+			
+				<div class="imagepage--tags-footer">	
+					<ul data-sly-list.list="${imagepage.tagList}">
+						<li>
+							<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
+								${list['title']}
+							</a>
+				        </li>
+					</ul>
+				</div>
 			</div>
 			
 			<div class="small-12 medium-12 large-12 columns">
