@@ -1,0 +1,78 @@
+<sly data-sly-test="${!properties.jcr:title}">
+	<div class="row">
+		<h4>Image gallery</h4>
+		Required fields:
+		<ul>
+			<li>...</li>
+		</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.jcr:title}"> 
+
+	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.ImagePage">
+	
+		<div class="hero">
+            <div data-sly-resource="${'image'}"></div>
+        </div>
+
+		<div class="row">
+	
+			<div class="imagepage--caption small-12 medium-3 large-3 columns">
+				<p data-sly-resource="${'leadimagecaption'}"></p>
+			</div>
+			<div class="imagepage--info small-12 medium-9 large-9 columns">
+				<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
+					${imagepage.hubTag['title']}
+				</a>
+				<h1 class="imagepage--title">${imagepage.title}</h1>
+			<div style="display:flex; flex-direction:row;justify-content;space-between">
+				<dl class="imagepage--metadata">
+					<dt class="show-for-sr">Author:</dt>
+					<dd class="imagepage--author">${imagepage.author}</dd>
+					<dt class="show-for-sr">Date Published:</dt>
+					<dd class="imagepage--datepublished">${imagepage.datePublished}</dd>
+					<dt class="show-for-sr">Date Last Updated:</dt>
+					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
+				</dl>
+				
+				<div class="imagepage--social-share-header" style="align-self:flex-end"> 
+					<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>				 
+				</div>
+			</div>
+				<div class="imagepage--intro"> 
+					<p>${imagepage.introductionText @ context='html'}</p>
+				</div>
+			</div>			
+		</div>
+		
+		<ul data-sly-list.list="${imagepage.imagePageItems}">
+			<li>
+				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
+	        </li>
+		</ul>
+
+		<div class="row">
+			<div class="imagepage--caption small-12 medium-3 large-3 columns">
+
+			</div>
+			<div class="imagepage--info small-12 medium-9 large-9 columns">
+				<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
+				
+				<ul data-sly-list.list="${imagepage.tagList}">
+					<li>
+						<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
+							${list['title']}
+						</a>
+			        </li>
+				</ul>
+			</div>
+			
+			<div class="small-12 medium-12 large-12 columns">
+				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
+			</div>
+		</div>
+	
+	</sly>
+
+</sly>
