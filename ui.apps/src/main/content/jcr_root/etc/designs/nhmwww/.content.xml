@@ -53,6 +53,26 @@
 	                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - image page]" />  
            	</article>
         </articlepage>
+        <imagepage jcr:primaryType="nt:unstructured">
+           	<imagepage
+           		jcr:primaryType="nt:unstructured"
+           		sling:resourceType="nhmwww/components/functional/imagepage/imagepage"> 
+           		<socialshareheader
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		
+                <socialsharefooter
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<socialsignup
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/social-signup" />
+           		<relatedpar
+	                jcr:primaryType="nt:unstructured"
+	                sling:resourceType="foundation/components/parsys"
+	                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - image page]" />  
+           	</imagepage>
+        </imagepage>
         <page-home jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"

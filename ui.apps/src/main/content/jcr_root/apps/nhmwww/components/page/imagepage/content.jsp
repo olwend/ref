@@ -1,4 +1,4 @@
 <%@include file="/apps/nhmwww/components/global.jsp"%>
 <div class="main-section">
-	<cq:include path="article" resourceType="nhmwww/components/functional/imagepage"/>
+	<cq:include path="article" resourceType="nhmwww/components/functional/imagepage/imagepage"/>
 </div>

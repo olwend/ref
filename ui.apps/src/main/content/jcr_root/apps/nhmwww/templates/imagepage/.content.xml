@@ -12,7 +12,7 @@
         sling:resourceType="nhmwww/components/page/imagepage">
            	<article
            		jcr:primaryType="nt:unstructured"
-           		sling:resourceType="nhmwww/components/functional/imagepage">
+           		sling:resourceType="nhmwww/components/functional/imagepage/imagepage">
            		<socialshareheader
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/socialshare" />
