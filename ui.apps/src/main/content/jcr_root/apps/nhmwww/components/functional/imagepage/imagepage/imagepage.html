@@ -53,12 +53,12 @@
 		</ul>
 
 		<div class="row">
-			<div class="imagepage--caption small-12 medium-3 large-3 columns">
+			<div class="imagepage--caption small-12 medium-3 large-3 columns"></div>
 
-			</div>
-			<div class="imagepage--info small-12 medium-9 large-9 columns">
-				<div data-sly-resource="${'socialsharefooter' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}" data-sly-unwrap></div>
-			
+				<div class="imagepage--social-share-header" style="align-self:flex-end"> 
+					<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>				 
+				</div>	
+				
 				<div class="imagepage--tags-footer">	
 					<ul data-sly-list.list="${imagepage.tagList}">
 						<li>
@@ -68,7 +68,6 @@
 				        </li>
 					</ul>
 				</div>
-			</div>
 			
 			<div class="small-12 medium-12 large-12 columns">
 				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
