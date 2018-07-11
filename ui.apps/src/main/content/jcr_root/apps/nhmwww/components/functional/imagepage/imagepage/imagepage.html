@@ -10,7 +10,7 @@
 
 <sly data-sly-test="${properties.jcr:title}"> 
 
-	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.ImagePage">
+	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.ImagePage">
 	
 		<div class="hero">
             <div data-sly-resource="${'image'}"></div>
@@ -46,11 +46,9 @@
 			</div>			
 		</div>
 		
-		<ul data-sly-list.list="${imagepage.imagePageItems}">
-			<li>
-				<div class="${list.rowType}" data-sly-resource="${list.row}"></div>
-	        </li>
-		</ul>
+		<div class="hero">
+            <sly data-sly-resource="${'par' @ resourceType='foundation/components/parsys'}"></sly>
+        </div>
 
 		<div class="row">
 			<div class="imagepage--caption small-12 medium-3 large-3 columns"></div>
@@ -68,6 +66,10 @@
 				        </li>
 					</ul>
 				</div>
+			
+			<div class="small-12 medium-12 large-12 columns">
+				<div data-sly-resource="${'socialsignup' @ resourceType='nhmwww/components/functional/social-signup'}" data-sly-unwrap></div>
+			</div>
 			
 			<div class="small-12 medium-12 large-12 columns">
 				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>

@@ -1,0 +1,37 @@
+<sly data-sly-test="${!properties.text}">
+	Image and text
+</sly>
+
+<sly data-sly-test="${properties.text}">
+	<sly data-sly-test="${properties.rowlayout=='herosection'}">
+	    <div class="hero">
+	        <div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+	    </div>
+	</sly>
+	
+	<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
+	<!-- TODO -->
+	    <div class="row">
+	        <div class="small-12 columns">
+	        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+	        </div>
+	    </div>
+	</sly>
+	
+	<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
+	    <div class="row">
+	        <div class="small-12 columns">
+	        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+	        </div>
+	    </div>
+	</sly>
+	
+	<div class="row">
+		<div class="small-12 medium-3 columns">
+			${properties.caption @ context='html'}
+		</div>
+		<div class="small-12 medium-9 columns">
+			${properties.text @ context='html'}
+		</div>
+	</div>
+</sly>

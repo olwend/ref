@@ -1,0 +1,15 @@
+<sly data-sly-test="${!properties.text}">
+	Pullout image
+</sly>
+
+<sly data-sly-test="${properties.text}">
+	<div class="row">
+		<div class="small-12 medium-3 columns">
+			<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+			${properties.caption @ context='html'}
+		</div>
+		<div class="small-12 medium-9 columns">
+			${properties.text @ context='html'}
+		</div>
+	</div>
+</sly>

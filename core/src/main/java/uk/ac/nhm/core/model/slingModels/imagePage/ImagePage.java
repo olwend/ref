@@ -1,4 +1,4 @@
-package uk.ac.nhm.core.model.slingModels;
+package uk.ac.nhm.core.model.slingModels.imagePage;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class ImagePage {
 
 	private Map<String, String> hubTag = null;
 	private List<Map<String, String>> tagList = null;
-	private List<Map<String, String>> imagePageItems = null;
+//	private List<Map<String, String>> imagePageItems = null;
 	
 	@PostConstruct
 	protected void init() throws JSONException, PathNotFoundException, RepositoryException {
@@ -114,31 +114,31 @@ public class ImagePage {
 		
 		this.setTitle(properties.get("jcr:title", String.class));
 		
-		List<Map<String, String>> itemsList = new ArrayList<Map<String, String>>();
-		
-		String imagePathItemsPath = request.getResource().getPath() + "/imagepageitems";
-		LOG.error(imagePathItemsPath);
-		Node itemsNode = resourceResolver.getResource(imagePathItemsPath).adaptTo(Node.class);
-		NodeIterator itemsNodeIterator = itemsNode.getNodes();
-
-		int i = 1;
-		
-		while(itemsNodeIterator.hasNext()) {
-			Node node = itemsNodeIterator.nextNode();
-			
-			Map<String, String> imagePageItemMap = new HashMap<String, String>();
-
-			String rowType = node.getProperty("components").getString();
-			LOG.error(rowType);
-			String row = "imagepageitems/row" + i;
-			imagePageItemMap.put("row", row);
-			imagePageItemMap.put("rowType", rowType);
-			
-			itemsList.add(imagePageItemMap);
-			i++;
-		}
-		
-		this.setImagePageItems(itemsList);
+//		List<Map<String, String>> itemsList = new ArrayList<Map<String, String>>();
+//		
+//		String imagePathItemsPath = request.getResource().getPath() + "/imagepageitems";
+//		LOG.error(imagePathItemsPath);
+//		Node itemsNode = resourceResolver.getResource(imagePathItemsPath).adaptTo(Node.class);
+//		NodeIterator itemsNodeIterator = itemsNode.getNodes();
+//
+//		int i = 1;
+//		
+//		while(itemsNodeIterator.hasNext()) {
+//			Node node = itemsNodeIterator.nextNode();
+//			
+//			Map<String, String> imagePageItemMap = new HashMap<String, String>();
+//
+//			String rowType = node.getProperty("components").getString();
+//			LOG.error(rowType);
+//			String row = "imagepageitems/row" + i;
+//			imagePageItemMap.put("row", row);
+//			imagePageItemMap.put("rowType", rowType);
+//			
+//			itemsList.add(imagePageItemMap);
+//			i++;
+//		}
+//		
+//		this.setImagePageItems(itemsList);
 	}
 
 	public String getMonth(int month) {
@@ -201,12 +201,12 @@ public class ImagePage {
 		this.tagList = tagList;
 	}
 
-	public List<Map<String, String>> getImagePageItems() {
-		return imagePageItems;
-	}
-
-	public void setImagePageItems(List<Map<String, String>> imagePageItems) {
-		this.imagePageItems = imagePageItems;
-	}
+//	public List<Map<String, String>> getImagePageItems() {
+//		return imagePageItems;
+//	}
+//
+//	public void setImagePageItems(List<Map<String, String>> imagePageItems) {
+//		this.imagePageItems = imagePageItems;
+//	}
 
 }
