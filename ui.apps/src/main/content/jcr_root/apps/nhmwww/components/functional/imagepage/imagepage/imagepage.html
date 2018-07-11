@@ -17,15 +17,17 @@
         </div>
 
 		<div class="row">
-	
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
 				<p data-sly-resource="${'leadimagecaption' @ wcmmode='disabled'}"></p>
 			</div>
+			
 			<div class="imagepage--info small-12 medium-9 large-9 columns">
 				<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
 					${imagepage.hubTag['title']}
 				</a>
+				
 				<h1 class="imagepage--title">${imagepage.title}</h1>
+				
 				<dl class="imagepage--metadata">
 					<dt class="show-for-sr">Author:</dt>
 					<dd class="imagepage--author">${imagepage.author}</dd>
@@ -38,11 +40,13 @@
 				<div class="imagepage--social-share-header" style="align-self:flex-end"> 
 					<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>				 
 				</div>
-			</div>
+				
 				<div class="imagepage--intro"> 
 					<p>${imagepage.introductionText @ context='html'}</p>
 				</div>
-			</div>		
+			</div>
+			
+		</div>		
 		
 		<div class="hero">
             <sly data-sly-resource="${'par' @ resourceType='foundation/components/parsys'}"></sly>
