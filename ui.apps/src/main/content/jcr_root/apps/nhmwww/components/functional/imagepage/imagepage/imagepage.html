@@ -1,19 +1,19 @@
-<sly data-sly-test="${!properties.jcr:title}">
-	<div class="row">
-		<h4>Image gallery</h4>
-		Required fields:
-		<ul>
-			<li>...</li>
-		</ul>
-	</div>
-</sly>
-
-<sly data-sly-test="${properties.jcr:title}"> 
-
-	<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.ImagePage">
+<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.ImagePage">
+	<sly data-sly-test="${imagepage.isConfigured == false}">
+		<div class="row">
+			<h4>Image page</h4>
+			Required fields:
+			<ul>
+				<li>Image page title</li>
+				<li>Introduction text</li>
+				<li>Lead image</li>
+			</ul>
+		</div>
+	</sly>
 	
+	<sly data-sly-test="${imagepage.isConfigured == true}"> 
 		<div class="hero">
-            <div data-sly-resource="${'image'}"></div>
+            <div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
         </div>
 
 		<div class="row">
@@ -77,7 +77,5 @@
 				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
 			</div>
 		</div>
-	
 	</sly>
-
 </sly>

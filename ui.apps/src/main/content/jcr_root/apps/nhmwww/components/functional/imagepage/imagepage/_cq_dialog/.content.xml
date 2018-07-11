@@ -135,8 +135,9 @@
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
 	                            name="./introduction"
-	                            fieldLabel="Introduction"
-	                            useFixedInlineToolbar="{Boolean}true" >
+	                            fieldLabel="Introduction *"
+	                            useFixedInlineToolbar="{Boolean}true"
+	                            required="true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
 	                                <paraformat
 					        			jcr:primaryType="nt:unstructured"

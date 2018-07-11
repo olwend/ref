@@ -12,8 +12,10 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
+import javax.jcr.ValueFormatException;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
@@ -42,8 +44,10 @@ public class ImagePage {
 	@Inject
 	SlingHttpServletRequest request;
 	
-	public static final String HUB_TAG		= "hubTag";
-	public static final String OTHER_TAGS	= "otherTags";
+	public static final String TITLE_ATTRIBUTE_NAME 		= "jcr:title";
+	public static final String INTRODUCTION_ATTRIBUTE_NAME  = "introduction";
+	public static final String HUB_TAG						= "hubTag";
+	public static final String OTHER_TAGS					= "otherTags";
 	
 	private String author = null;
 	private String datePublished = null;
@@ -118,6 +122,20 @@ public class ImagePage {
 		return new DateFormatSymbols().getMonths()[month-1];
 	}
 	
+	public boolean isConfigured() throws ValueFormatException, PathNotFoundException, RepositoryException {
+		String imagePath = request.getResource().getPath() + "/image";
+		Resource imageResource = resourceResolver.getResource(imagePath);
+		
+		if(this.properties != null
+					&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
+					&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
+					&& imageResource.adaptTo(Node.class).hasProperty("fileReference") != false) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public String getAuthor() {
 		return author;
 	}
@@ -173,13 +191,5 @@ public class ImagePage {
 	public void setTagList(List<Map<String, String>> tagList) {
 		this.tagList = tagList;
 	}
-
-//	public List<Map<String, String>> getImagePageItems() {
-//		return imagePageItems;
-//	}
-//
-//	public void setImagePageItems(List<Map<String, String>> imagePageItems) {
-//		this.imagePageItems = imagePageItems;
-//	}
 
 }
