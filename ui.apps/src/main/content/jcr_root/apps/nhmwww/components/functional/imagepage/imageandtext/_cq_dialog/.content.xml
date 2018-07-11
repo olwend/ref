@@ -50,6 +50,12 @@
 										renderHidden="{Boolean}true"
 										wrapperClass="dialog-hide-field"
 										fieldDescription="Hidden field for image upload resource type" />
+									<alt
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldDescription="Leave empty to use the image title defined in asset manager"
+				                        fieldLabel="Alt text"
+				                        name="./image/alt"
+				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 									<caption
 			                            jcr:primaryType="nt:unstructured"
 			                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
