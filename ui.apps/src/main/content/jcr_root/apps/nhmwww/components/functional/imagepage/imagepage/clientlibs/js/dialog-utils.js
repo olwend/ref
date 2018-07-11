@@ -1,6 +1,6 @@
 //Touch UI
 $(document).on("click", ".cq-dialog-submit", function () {
-    var dialogTitle = $('.cq-dialog-header').text();
+    var dialogTitle = $('.cq-dialog-header').text().trim();
     if(dialogTitle == "Image page") {
     	var $form = $(this).closest("form.foundation-form");
 

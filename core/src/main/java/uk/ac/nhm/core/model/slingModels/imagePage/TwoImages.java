@@ -42,9 +42,6 @@ public class TwoImages {
 		
 		if(image1Resource != null && image2Resource != null) {
 			this.setConfigured(true);
-			LOG.error("is this bugger configured?" + isConfigured);
-		} else {
-			LOG.error("SHITS BROKE YO");
 		}
 		
 	}
