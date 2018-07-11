@@ -1,5 +1,5 @@
 <sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.ImagePage">
-	<sly data-sly-test="${imagepage.isConfigured == false}">
+	<sly data-sly-test="${!imagepage.isConfigured}">
 		<div class="row">
 			<h4>Image page</h4>
 			Required fields:
@@ -13,7 +13,7 @@
 	
 	<sly data-sly-test="${imagepage.isConfigured == true}"> 
 		<div class="hero">
-            <div data-sly-resource="${'image' @ wcmmode='disabled'}">
+            <sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
         </div>
 
 		<div class="row">

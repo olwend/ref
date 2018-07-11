@@ -1,15 +1,24 @@
-<sly data-sly-test="${!properties.text}">
-	Pullout image
-</sly>
-
-<sly data-sly-test="${properties.text}">
-	<div class="row">
-		<div class="small-12 medium-3 columns">
-			<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-			${properties.caption @ context='html'}
+<sly data-sly-use.pulloutimage="uk.ac.nhm.core.model.slingModels.imagePage.PulloutImage">
+	<sly data-sly-test="${!pulloutimage.isConfigured}">
+		<div class="row">
+			<h4>Image page - pullout image</h4>
+			Required fields:
+			<ul>
+				<li>Image</li>
+				<li>Text</li>
+			</ul>
 		</div>
-		<div class="small-12 medium-9 columns">
-			${properties.text @ context='html'}
+	</sly>
+	
+	<sly data-sly-test="${pulloutimage.isConfigured}">
+		<div class="row">
+			<div class="small-12 medium-3 columns">
+				<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+				${properties.caption @ context='html'}
+			</div>
+			<div class="small-12 medium-9 columns">
+				${properties.text @ context='html'}
+			</div>
 		</div>
-	</div>
+	</sly>
 </sly>

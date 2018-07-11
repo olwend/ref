@@ -1,37 +1,46 @@
-<sly data-sly-test="${!properties.text}">
-	Image and text
-</sly>
-
-<sly data-sly-test="${properties.text}">
-	<sly data-sly-test="${properties.rowlayout=='herosection'}">
-	    <div class="hero">
-	        <div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-	    </div>
-	</sly>
-	
-	<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
-	<!-- TODO -->
-	    <div class="row">
-	        <div class="small-12 columns">
-	        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-	        </div>
-	    </div>
-	</sly>
-	
-	<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
-	    <div class="row">
-	        <div class="small-12 columns">
-	        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-	        </div>
-	    </div>
-	</sly>
-	
-	<div class="row">
-		<div class="small-12 medium-3 columns">
-			${properties.caption @ context='html'}
+<sly data-sly-use.imagetext="uk.ac.nhm.core.model.slingModels.imagePage.ImageText">
+	<sly data-sly-test="${!imagetext.isConfigured}">
+		<div class="row">
+			<h4>Image page - image and text</h4>
+			Required fields:
+			<ul>
+				<li>Image</li>
+				<li>Text</li>
+			</ul>
 		</div>
-		<div class="small-12 medium-9 columns">
-			${properties.text @ context='html'}
+	</sly>
+	
+	<sly data-sly-test="${imagetext.isConfigured}">
+		<sly data-sly-test="${properties.rowlayout=='herosection'}">
+		    <div class="hero">
+		        <div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+		    </div>
+		</sly>
+		
+		<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
+		<!-- TODO -->
+		    <div class="row">
+		        <div class="small-12 columns">
+		        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+		        </div>
+		    </div>
+		</sly>
+		
+		<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
+		    <div class="row">
+		        <div class="small-12 columns">
+		        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+		        </div>
+		    </div>
+		</sly>
+		
+		<div class="row">
+			<div class="small-12 medium-3 columns">
+				${properties.caption @ context='html'}
+			</div>
+			<div class="small-12 medium-9 columns">
+				${properties.text @ context='html'}
+			</div>
 		</div>
-	</div>
+	</sly>
 </sly>

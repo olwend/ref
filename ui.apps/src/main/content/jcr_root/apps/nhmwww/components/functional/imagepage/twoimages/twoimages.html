@@ -1,10 +1,17 @@
-<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.TwoImages">
+<sly data-sly-use.twoimages="uk.ac.nhm.core.model.slingModels.imagePage.TwoImages">
 
-    <sly data-sly-test="${!imagepage.isConfigured}">
-		Two images
+    <sly data-sly-test="${!twoimages.isConfigured}">
+		<div class="row">
+			<h4>Image page - two images</h4>
+			Required fields:
+			<ul>
+				<li>Image 1</li>
+				<li>Image 2</li>
+			</ul>
+		</div>
 	</sly>
 	
-	<sly data-sly-test="${imagepage.isConfigured}">
+	<sly data-sly-test="${twoimages.isConfigured}">
 		<div class="row">
 			<div class="small-12 medium-6 columns">
 				<div data-sly-resource="${'image1' @ wcmmode='disabled'}"></div>

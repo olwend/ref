@@ -16,9 +16,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Model(adaptables = SlingHttpServletRequest.class)
-public class TwoImages {
+public class ImageText {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TwoImages.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ImageText.class);
 
 	@Inject
 	ValueMap properties;
@@ -35,14 +35,12 @@ public class TwoImages {
 	}
 
 	public boolean isConfigured() throws RepositoryException {
-		String imagePathItemsPath1 = request.getResource().getPath() + "/image1";
-		Resource image1Resource = resourceResolver.getResource(imagePathItemsPath1);
+		String imagePath = request.getResource().getPath() + "/image";
+		Resource imageResource = resourceResolver.getResource(imagePath);
 		
-		String imagePathItemsPath2 = request.getResource().getPath() + "/image2";
-		Resource image2Resource = resourceResolver.getResource(imagePathItemsPath2);
-		
-		if(image1Resource.adaptTo(Node.class).hasProperty("fileReference") != false
-				&& image2Resource.adaptTo(Node.class).hasProperty("fileReference") != false) {
+		if(properties != null
+				&& properties.get("text", String.class) != null
+				&& imageResource.adaptTo(Node.class).hasProperty("fileReference") != false) {
 			return true;
 		} else {
 			return false;
