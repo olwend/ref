@@ -1,10 +1,18 @@
 .discover-element {
+
+	a,
+	a:hover {
+		color: color-palette(grey-color, dark);
+		text-decoration: none;
+	}
+
 	.element-title {
 		font-family: font-name(arial);
 		color: color-palette(grey-color, dark);
 
 		&:hover {
 			color: $color--black;
+			text-decoration: underline;
 		}
 	}
 
