@@ -1,13 +1,20 @@
+<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.TwoImages">
 
-Two images
-
-<div class="row">
-	<div class="small-12 medium-6 columns">
-		<div data-sly-resource="${'image1' @ wcmmode='disabled'}"></div>
-		${properties.caption1 @ context='html'}
-	</div>
-	<div class="small-12 medium-6 columns">
-		<div data-sly-resource="${'image2' @ wcmmode='disabled'}"></div>
-		${properties.caption2 @ context='html'}
-	</div>
-</div>
+    <sly data-sly-test="${!imagepage.isConfigured}">
+		Two images
+	</sly>
+	
+	<sly data-sly-test="${imagepage.isConfigured}">
+		<div class="row">
+			<div class="small-12 medium-6 columns">
+				<div data-sly-resource="${'image1' @ wcmmode='disabled'}"></div>
+				${properties.caption1 @ context='html'}
+			</div>
+			<div class="small-12 medium-6 columns">
+				<div data-sly-resource="${'image2' @ wcmmode='disabled'}"></div>
+				${properties.caption2 @ context='html'}
+			</div>
+		</div>
+	</sly>
+	
+</sly>
