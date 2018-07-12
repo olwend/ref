@@ -55,7 +55,7 @@
 							<leadimagecaption
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-	                            name="./leadimagecaption/text"
+	                            name="./leadImageCaption"
 	                            fieldLabel="Lead image caption"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
@@ -153,22 +153,6 @@
 	                                </cui>
 	                            </uiSettings>
 	                        </leadimagecaption>
-	                        <leadimagecaptionresourcetype
-			                   	jcr:primaryType="nt:unstructured"
-								name="./leadimagecaption/sling:resourceType"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-								value="nhmwww/components/functional/text"
-								renderHidden="{Boolean}true"
-								wrapperClass="dialog-hide-field"
-								fieldDescription="Hidden field for image upload resource type" />
-							<leadimagecaptionrrichtext
-			                   	jcr:primaryType="nt:unstructured"
-								name="./leadimagecaption/textIsRich"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-								value="true"
-								renderHidden="{Boolean}true"
-								wrapperClass="dialog-hide-field"
-								fieldDescription="Hidden field for image upload resource type" />
 							<introduction
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
@@ -271,22 +255,6 @@
 	                                </cui>
 	                            </uiSettings>
 	                        </introduction>
-	                        <introductionresourcetype
-			                   	jcr:primaryType="nt:unstructured"
-								name="./introductiontext/sling:resourceType"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-								value="nhmwww/components/functional/text"
-								renderHidden="{Boolean}true"
-								wrapperClass="dialog-hide-field"
-								fieldDescription="Hidden field for image upload resource type" />
-							<introductionrrichtext
-			                   	jcr:primaryType="nt:unstructured"
-								name="./introductiontext/textIsRich"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-								value="true"
-								renderHidden="{Boolean}true"
-								wrapperClass="dialog-hide-field"
-								fieldDescription="Hidden field for image upload resource type" />
 							<imageresourcetype
 			                   	jcr:primaryType="nt:unstructured"
 								name="./headType"

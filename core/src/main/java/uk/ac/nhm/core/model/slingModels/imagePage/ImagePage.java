@@ -50,6 +50,7 @@ public class ImagePage {
 	public static final String OTHER_TAGS					= "otherTags";
 	
 	private String author = null;
+	private String leadImageCaption = null;
 	private String datePublished = null;
 	private String dateLastUpdated = null;
 	private String introductionText = null;
@@ -98,6 +99,7 @@ public class ImagePage {
 		this.setTagList(tagList);
 		
 		if(properties.get("author") != null) this.setAuthor("By " + properties.get("author", String.class));
+		if(properties.get("leadImageCaption") != null) this.setLeadImageCaption(properties.get("leadImageCaption", String.class));
 		if(properties.get("introduction") != null) this.setIntroductionText(properties.get("introduction", String.class));
 		
 		//Dates
@@ -142,6 +144,14 @@ public class ImagePage {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getLeadImageCaption() {
+		return leadImageCaption;
+	}
+
+	public void setLeadImageCaption(String leadImageCaption) {
+		this.leadImageCaption = leadImageCaption;
 	}
 
 	public String getDatePublished() {

@@ -11,14 +11,21 @@
 		</div>
 	</sly>
 	
-	<sly data-sly-test="${imagepage.isConfigured == true}"> 
+	<sly data-sly-test="${imagepage.isConfigured == true}">
+		<sly data-sly-test="${wcmmode.edit}">
+			<div class="row">
+		        <h4>Image page</h4>
+		        Edit the image page dialog here
+		    </div>
+		</sly>
+	
 		<div class="hero">
             <sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
         </div>
 
 		<div class="row">
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
-				<sly data-sly-resource="${'leadimagecaption' @ wcmmode='disabled'}"></sly>
+				${imagepage.leadImageCaption @ context='html'}
 			</div>
 
 			<div class="imagepage--info small-12 medium-9 large-9 columns">
