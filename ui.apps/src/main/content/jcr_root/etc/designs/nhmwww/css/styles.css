@@ -84,12 +84,6 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #eeeeee;
 }
 
-.home .discover-element a,
-.home .discover-element a:hover {
-  color: #565656;
-  text-decoration: none;
-}
-
 .visit .GreyBox {
   padding: 1em;
   background-color: #eeeeee;
@@ -10913,6 +10907,13 @@ input.searchGo {
 
 .home .carousel-wrapper .caption {
   background-color: rgba(161, 22, 78, 0.9);
+}
+
+/*WR-1345 discover related accessibiity link fix*/
+.discover-element a,
+.discover-element a:hover {
+  color: #565656;
+  text-decoration: none;
 }
 
 /** WR-752 moved from legacy mixin for carousel component refactor **/
