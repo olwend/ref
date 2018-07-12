@@ -84,6 +84,12 @@ CSS files should not be edited directly, as those edits will be overridden next 
   background-color: #eeeeee;
 }
 
+.home .discover-element a,
+.home .discover-element a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
 .visit .GreyBox {
   padding: 1em;
   background-color: #eeeeee;

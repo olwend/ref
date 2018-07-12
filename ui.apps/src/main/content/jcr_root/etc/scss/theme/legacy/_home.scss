@@ -1,4 +1,12 @@
 // from legacy _sections.scss
 .home {
 	@include section-common-styles("visit", $visit-color, $visit-color-hover);
+
+.discover-element {
+	a,
+	a:hover {
+		color: color-palette(grey-color, dark);
+		text-decoration: none;
+	}
+}
 }
