@@ -141,12 +141,19 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		    	}
 
 		    	//Get image for Article template pages
-		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")) {
+		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")
+		    			|| node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/imagepage")) {
 			    	if(node.hasProperty("jcr:content/article/headType")) {
 			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
-			    			if(node.hasProperty("jcr:content/article/image/fileReference")) {
+			    			if(node.hasProperty("jcr:content/article/altFileReference")) {
+			    				String fileReference = node.getProperty("jcr:content/article/altFileReference").getString();
+			    				String extension = "." + fileReference.substring(fileReference.lastIndexOf(".") + 1);
+			    				
+								nodeMap.put("context", fileReference);
+								nodeMap.put("extension", extension);
+								nodeMap.put("imageType", "image");
+			    			} else if(node.hasProperty("jcr:content/article/image/fileReference")) {
 			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
-			    				String context = node.getPath() + "/jcr:content/article/image";
 			    				String extension = "." + fileReference.substring(fileReference.lastIndexOf(".") + 1);
 			    				
 								nodeMap.put("context", fileReference);
