@@ -1,0 +1,114 @@
+body {
+	font-family: font-name(arial);
+	font-size: 16px;
+	color: color-palette(grey-color, dark);
+	-webkit-font-smoothing: antialiased;
+}
+
+ul {
+	margin-left: 0px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: $link-color;
+
+	&:hover {
+		color: $link-color;
+		text-decoration: underline;
+	}
+}
+
+p {
+	line-height: 1.5em;
+	margin-bottom: 1em;
+	font-size: 1em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.125em;
+	}
+}
+
+h1 {
+	font-size: 2em;
+	line-height: 1.35em;
+	padding-bottom: $padding-TB / 2;
+	font-family: font-name(elysio, light);
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 2.8em;
+		font-family: font-name(elysio, thin);
+	}
+}
+
+h2 {
+	color: color-palette(grey-color, dark);
+	line-height: 1.35em;
+	padding-bottom: 0.3em;
+	font-family: font-name(elysio, light);
+	font-size: 1.7em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 2.1em;
+	}
+
+	/** unclear where this is used - no reference in JSP's **/
+	&.padded {
+		padding: 25px 18px;
+	}
+
+	// Ps shouldn't go inside H2s, but the CMS likes to put them there. Disregard paragraph styling and treat same as spans.
+	& > p {
+		display: inline;
+		font-size: 1em;
+		line-height: inherit;
+	}
+}
+
+h3 {
+	font-size: 1.5em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.8em;
+	}
+
+	font-family: font-name(elysio, light);
+	line-height: 1.35em;
+	padding-bottom: 0.3em;
+	color: color-palette(grey-color, dark);
+}
+
+h4 {
+	font-size: 1.3em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.5em;
+	}
+
+	font-family: font-name(elysio, light);
+	color: color-palette(grey-color, dark);
+	line-height: 1.35em;
+	padding-bottom: 0.3em;
+}
+
+h5 {
+	font-size: 1.25em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.3em;
+	}
+
+	font-family: font-name(elysio, light);
+	line-height: 1.35em;
+	padding-bottom: 0.3em;
+	color: color-palette(grey-color, dark);
+}
+
+h6 {
+	font-family: font-name(arial);
+	font-size: 1.125em;
+	font-weight: bold;
+}

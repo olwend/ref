@@ -1,0 +1,194 @@
+.schools {
+	.title-bar {
+		background-color: color-palette(schools, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(schools, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(schools, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(schools, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(schools, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(schools, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(schools, base);
+
+		&:hover {
+			background-color: color-palette(schools, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(schools, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(schools, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(schools, 10pc);
+
+				a {
+					color: color-palette(schools, base);
+
+					&:hover {
+						color: color-palette(schools, base);
+						background-color: color-palette(schools, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(schools, 25pc);
+						color: color-palette(schools, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(schools, 25pc);
+
+					a {
+						color: color-palette(schools, base);
+
+						&:hover {
+							color: color-palette(schools, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.schools {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(schools, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(schools, base);
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.schools {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-schools.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-schools.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.schools {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(schools, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(schools, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(schools, base);
+		}
+	}
+}
+
+/** NHMEC-4 Added style to the search result <a> **/
+.schools {
+	.event--calendar--search--result a {
+		color: color-palette(schools, base);
+	}
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.schools {
+	.image--and--cta--wrapper,
+	.image--and--cta--wrapper .cta--wrapper .cta--text {
+		color: color-palette(schools, base);
+	}
+}
+
+/** NHMEC-52 Event schedule component**/
+.schools {
+	.event--schedule--wrapper {
+		.event--schedule--title {
+			background-color: color-palette(schools, base);
+		}
+
+		.event--schedule--tbody {
+			color: color-palette(schools, base);
+		}
+	}
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.global-header--nav-list__item {
+	&:hover, &.menuSelected {
+		&.link-schools {
+			border-bottom-color: color-palette(schools, base);
+		}
+	}
+}

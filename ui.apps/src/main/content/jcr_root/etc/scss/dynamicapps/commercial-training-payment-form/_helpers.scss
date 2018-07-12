@@ -1,0 +1,39 @@
+.pr-0 {
+	padding-right: 0;
+}
+
+.pr-0__mobile-only {
+	padding-right: 0;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-right: 0.9375em;
+	}
+}
+
+.pr__tablet-only {
+	padding-right: 0;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-right: 0.9375em;
+	}
+
+	@media screen and (min-width: $breakpoint--desktop) {
+		padding-right: 0;
+	}
+}
+
+.pr__desktop-only {
+	padding-right: 0;
+
+	@media screen and (min-width: $breakpoint--desktop) {
+		padding-right: 0.9375em;
+	}
+}
+
+.mt-20 {
+	margin-top: 1.2em;
+}
+
+.mt-5 {
+	margin-top: 5px;
+}

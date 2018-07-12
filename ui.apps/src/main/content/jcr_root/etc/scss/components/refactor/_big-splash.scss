@@ -1,0 +1,201 @@
+.bigsplash {
+	.row {
+		height: 100%;
+		width: 100%;
+		margin: 0;
+
+		@media screen and (min-width: $breakpoint--desktop__max-width) {
+			padding: 0 20px;
+			margin: 0 auto;
+			max-width: 72.5rem;
+		}
+	}
+
+	&-video {
+		display: none;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: block;
+			position: relative;
+			pointer-events: none;
+			padding-bottom: 31.25%; // This hides the letterbox effect for the particular resolution video we use
+			max-width: 100%;
+			background: $color--black;
+
+			.youtubeplayer {
+				position: absolute;
+				left: 0;
+				height: 100%;
+			}
+		}
+
+		&--controls {
+			display: none;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: block;
+				position: absolute;
+				max-width: 65px;
+				bottom: 0;
+
+				.ico {
+					max-width: 30px;
+				}
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				bottom: 15px;
+			}
+
+			&-pause,
+			&-play {
+				cursor: pointer;
+			}
+		}
+	}
+
+	&-image {
+		background-size: cover;
+		background-position: center center;
+		height: 45vh;
+
+		@media screen and (min-width: $breakpoint--phone-small__landscape) {
+			height: 70vh;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: none;
+		}
+	}
+
+	&-text {
+		position: absolute;
+		bottom: 0;
+		color: $color--white;
+		font-family: font-name(elysio, medium);
+		width: 100%;
+		padding: 20px;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding-bottom: 3.5rem;
+			margin-bottom: 10px;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			padding-bottom: 4.3rem;
+			margin-bottom: 0;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop__max-width) {
+			padding-bottom: 4.6rem;
+			margin-bottom: 22px;
+		}
+
+		&--title {
+			color: $color--white !important;
+			font-family: font-name(elysio, medium);
+			padding: 0;
+			margin: 0;
+			font-weight: bold;
+			font-size: 2.8rem;
+			margin-bottom: 5px;
+
+			@media screen and (min-width: $breakpoint--phone-wide__portrait) {
+				font-size: 3.2rem;
+			}
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				font-size: 3rem;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 3.3rem;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__landscape) {
+				font-size: 3.5rem;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop__max-width) {
+				font-size: 3.8rem;
+			}
+
+			&-container {
+				margin-bottom: -10px;
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					display: block;
+					top: 0;
+					text-align: left;
+				}
+
+				a {
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		&--subtitle {
+			color: $color--white !important;
+			font-family: font-name(elysio, regular);
+			font-size: 1.1rem;
+			margin: 0;
+
+			@media screen and (min-width: $breakpoint--phone-wide__portrait) {
+				font-size: 1.4rem;
+			}
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				font-size: 1.3rem;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.4rem;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop__max-width) {
+				font-size: 1.6rem;
+			}
+
+			&-container {
+				a {
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		&--cta {
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.1rem;
+				border-bottom: 1px dotted $color--white;
+
+				&:hover {
+					text-decoration: none;
+					border-bottom-style: solid;
+				}
+			}
+
+			&-container {
+				display: none;
+
+				a,
+				a:hover {
+					color: $color--white !important;
+				}
+
+				@media screen and (min-width: $breakpoint--tablet__portrait) {
+					display: block;
+					padding-top: 12px;
+				}
+
+				@media screen and (min-width: $breakpoint--desktop__max-width) {
+					padding-top: 10px;
+				}
+			}
+		}
+	}
+}

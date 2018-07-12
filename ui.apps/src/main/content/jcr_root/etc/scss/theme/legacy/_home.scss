@@ -1,0 +1,4 @@
+// from legacy _sections.scss
+.home {
+	@include section-common-styles("visit", $visit-color, $visit-color-hover);
+}

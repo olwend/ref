@@ -1,0 +1,186 @@
+.event--calendar--wrapper {
+	display: table;
+	background-color: color-palette(grey-color, dark);
+	padding: 1.5em 1.5em 1em 1.5em;
+	color: $color--white;
+
+	@media screen and (max-width: $breakpoint--tablet__landscape) {
+		margin: 0;
+		width: 100%;
+	}
+
+	.event-calendar--keyword-search--wrapper {
+		@media screen and (min-width: $breakpoint--desktop) {
+			padding-right: 0.9em;
+		}
+	}
+
+	.event-calendar--date-pickers--wrapper {
+		@media screen and (min-width: $breakpoint--phone-wide__landscape + 1) {
+			padding-left: 0.9em;
+		}
+
+		@media screen and (max-width: $breakpoint--phone-wide__landscape) {
+			margin-top: 1em;
+		}
+	}
+
+	.calendar--search--label {
+		font-family: font-name(elysio, light);
+		margin-bottom: 0.6em;
+		font-size: 1.375em;
+	}
+
+	.search-keywords input {
+		border: none;
+		height: 2.8em;
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			height: 4.48em;
+		}
+	}
+
+	.search-icon {
+		background-color: color-palette(grey-color, light);
+		text-align: center;
+		cursor: pointer;
+		height: 3.5em;
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			height: 5.6em;
+		}
+
+		padding-top: 0.75em;
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			padding-top: 1.7em;
+		}
+	}
+
+	.search-keywords input,
+	.calendar--select select,
+	.dates--label,
+	.date--wrapper input {
+		font-family: font-name(elysio, regular);
+		font-size: 1.25em;
+	}
+
+	.calendar--select select {
+		background-image: url("../../../../../etc/designs/nhmwww/img/icons/directory-search-dropdown-arrow.png");
+		padding: 0.35rem 0.5rem 0.2rem;
+	}
+
+	.reset--filter {
+		font-family: font-name(arial);
+		font-size: 1em;
+		text-decoration: underline;
+		margin-bottom: 0.6em;
+		color: #B6B6B6;
+		cursor: pointer;
+	}
+
+	.date--picker {
+		margin: 0 0 1rem 0;
+		line-height: 1.6em;
+	}
+
+	.date--wrapper {
+		background: $color--white;
+		color: color-palette(grey-color, dark);
+		padding-right: 0.3em;
+
+		input,
+		input[type="text"][readonly] {
+			border: none;
+			box-shadow: none;
+			background: none;
+			height: 1.125em;
+			margin: 0.774em 0 0;
+			padding: 0 0 0 0.3em;
+			font-size: 1em;
+		}
+
+		input:focus {
+			background: none;
+		}
+	}
+
+	.calendar--text,
+	.calendar--icon {
+		margin-top: -1.2em;
+	}
+
+	.calendar--icon {
+		text-align: center;
+	}
+
+	.dates--label {
+		font-size: 1em;
+		padding-left: 0.3em;
+	}
+
+	.date--button {
+		cursor: pointer;
+		position: relative;
+		padding: 0;
+		background: none;
+		border: 1px solid $color--white;
+		font-family: font-name(elysio, regular);
+		font-size: 0.9em;
+
+		@media screen and (min-width: $breakpoint--phone-wide__portrait) {
+			font-size: 1.125em;
+		}
+
+		@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+			font-size: 1em;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			font-size: 1.125em;
+		}
+
+		color: $color--white;
+		text-decoration: none;
+		text-align: center;
+
+		input {
+			padding: 0;
+			background: none;
+			border: none;
+			line-height: 2.65em;
+
+			@media screen and (min-width: $breakpoint--phone-wide__portrait) {
+				line-height: 2.1em;
+			}
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+				line-height: 2.2em;
+			}
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				line-height: 1.9em;
+			}
+		}
+	}
+
+	.date--button:hover,
+	.date--button--selected {
+		background: $color--white;
+		color: color-palette(grey-color, dark);
+	}
+}
+
+#events-calendar-loading {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(192, 192, 192, 0.5);
+	background-image: url("../../../../../etc/designs/nhmwww/img/event-calendar-load.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+}

@@ -1,0 +1,79 @@
+/** puts Foundation row styles back to default **/
+.row {
+	margin: 0 auto;
+}
+
+.row .row {
+	margin: 0 auto;
+}
+
+/** redefining Foundation inline class as it does not work with JSP elements **/
+.inline-label {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.85rem !important;
+  vertical-align: baseline;
+}
+
+/** sets default text-align to left **/
+body {
+	text-align: left;
+}
+
+/** puts back styles for bulleted unordered lists **/
+.bullet-list {
+	margin-left: 1em;
+	
+	li {
+		list-style-position: outside;
+		list-style-type: disc;
+	}
+}
+
+// /** resets info-tout styles in CTA **/
+// .info-tout {
+// 	margin-top: 0;
+// }
+
+// /** footer reset styles override Foundation Forms CSS **/
+// .main-footer {
+// 	.columns {
+// 		padding-right: 0;
+// 	}
+
+// 	.framed-wrapper {
+// 		padding: 2em 5%;
+
+// 		@media screen and (min-width: $tablet) {
+// 			padding: 1.5em 2%;
+// 		}
+// 	}
+
+// 	.newslettersignup {
+// 		padding-right: 2%;
+
+// 		legend {
+// 			background: none;
+// 			color: $white-color;
+// 			font-weight: normal;
+// 			padding: 0;
+// 		}
+
+// 		label {
+// 			color: $white-color;
+// 		}
+
+// 		input {
+// 			height: auto;
+// 		}
+
+// 		input[type="text"] {
+// 			margin-bottom: 1em;
+// 		}
+
+// 		.question {
+// 			display: none;
+// 		}
+// 	}
+// }

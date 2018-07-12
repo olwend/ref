@@ -1,0 +1,12 @@
+/** overrides foundation.calendar.css in events calendar app **/
+input {
+	&.searchBox {
+		display: inline;
+	}
+
+	&.searchGo {
+		display: inline;
+		padding: 0 5px !important;
+		top: auto !important;
+	}
+}

@@ -1,0 +1,15 @@
+// from legacy _components.scss
+/* iframe *******************************************/
+
+figure {
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  width: 100%;
+  margin:0px;
+}
+/*alext2: removing as this is causing issues witht the RTE in AEM*/
+/* making this youtube specific ************************/
+iframe.youtubeplayer {
+  width: 100%;
+}

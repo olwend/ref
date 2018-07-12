@@ -1,0 +1,195 @@
+// from _fixes.scss
+.visit {
+	.title-bar {
+		background-color: color-palette(visit, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(visit, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(visit, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(visit, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(visit, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(visit, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(visit, base);
+
+		&:hover {
+			background-color: color-palette(visit, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(visit, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(visit, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(visit, 10pc);
+
+				a {
+					color: color-palette(visit, base);
+
+					&:hover {
+						color: color-palette(visit, base);
+						background-color: color-palette(visit, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(visit, 25pc);
+						color: color-palette(visit, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(visit, 25pc);
+
+					a {
+						color: color-palette(visit, base);
+
+						&:hover {
+							color: color-palette(visit, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.visit {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(visit, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(visit, base);
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.visit {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-visit.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-visit.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.visit {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(visit, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(visit, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(visit, base);
+		}
+	}
+}
+
+/** NHMEC-4 Added style to the search result <a> **/
+.visit {
+	.event--calendar--search--result a {
+		color: color-palette(visit, base);
+	}
+}
+
+/** Needed for the image and CTA component NHMEC-8 **/
+.visit {
+	.image--and--cta--wrapper,
+	.image--and--cta--wrapper .cta--wrapper .cta--text {
+		color: color-palette(visit, base);
+	}
+}
+
+/** NHMEC-52 Event schedule component**/
+.visit {
+	.event--schedule--wrapper {
+		.event--schedule--title {
+			background-color: color-palette(visit, base);
+		}
+
+		.event--schedule--tbody {
+			color: color-palette(visit, base);
+		}
+	}
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.global-header--nav-list__item {
+	&:hover, &.menuSelected {
+		&.link-visit {
+			border-bottom-color: color-palette(visit, base);
+		}
+	}
+}

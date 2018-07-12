@@ -1,0 +1,315 @@
+/* Dino Directory */
+
+// Global ?
+div#page-container {
+   width: 940px!important;
+   /* had to add !important due to another stylesheet (wide-modifications.css) also having !important */
+   border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+#page-body {
+	padding: 0;
+}
+
+.nhm-breadcrumb {
+   text-align: left;
+}
+
+.main-footer {
+   .footer--frame-wrapper {
+      text-align: left;
+   }
+
+   .footer-utility {
+      legend, .errors {
+         color: #fff;
+      }
+   }
+}
+
+/* WR-1049: fix for NHM logo positioning */
+.global-header-logo {
+	display: block;
+	position: relative;
+}
+//
+
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+//
+
+#page-body {
+
+	.dino-home {
+		h1 {
+			background-size: contain;
+			height: 555px;
+			width: 627px!important;
+		}
+	}
+}
+
+#dino {
+	p {
+		font-size: 14.6px;
+	}
+
+	#dino-wrap {
+		h2 {
+			padding-top: 15px;
+			margin-top: 0;
+			margin-bottom: 0;
+			color: #a73333;
+			font-size: 24.3333px;
+			font-weight: bold;
+
+			span {
+				color: #fff;
+				font-size: 23px;
+			}
+		}
+
+		.dino-card {
+			h2 {
+				font-weight: normal;
+				font-size: 23px;
+			}
+
+			.dino-card-link {
+				background-position: 96% 50%
+			}
+		}
+
+		.dino-wide {
+			h2 {
+				font-size: 15px;
+				color: #434343;
+			}
+		}
+
+		h3 {
+			font-size: 17.0333px;
+			font-weight: bold;
+			color: #a73333;
+			margin: 0 0 10px 0;
+			padding: 0;
+
+		}
+
+		table {
+			border-collapse: initial;
+			border-spacing: 2px;
+		}
+
+		.sorted {
+			min-width: 167px;
+		}
+
+		.sortable {
+			min-width: 215px;
+
+			a {
+				font-weight: bold;
+			}
+		}
+
+		.dino-gallery {
+			li {
+				box-sizing: initial;
+				width: 115px;
+
+				a {
+					img {
+						height: 105px!important;
+						width: 105px!important;
+					}
+				}
+			}
+
+			a:hover {
+				color: #a73333;
+			}
+
+			p {
+				font-size: 13px;
+				color: #a73333;
+			}
+		}
+
+		#time {
+			.timeline {
+				width: initial;
+			}
+
+			td {
+				min-width: 167px;
+			}
+		}
+
+		#row, #time {
+			font-size: 12.1667px;
+
+			th {
+				padding: 10px 9px;
+			}
+
+			[class*="span"] {
+				margin-left: 0;
+			}
+
+			td {
+				padding: 8px 0 8px 15px;
+
+				a, a:hover {
+					color: #a73333;
+				}
+			}
+		}
+
+		.atoz {
+			a {
+				font-size: 13.3833px;
+				padding: 10px 8px;
+			}
+		}
+
+		.continent-caption {
+			font-size: 12.1667px;
+		}
+
+		.dino-list {
+			box-sizing: initial;
+
+			a {
+				font-size: 12.1667px;
+				color: #a73333;
+			}
+		}
+
+		.country-list {
+			li {
+				a {
+					font-size: 13.3833px;
+				}
+			}
+		}
+
+		#body-map {
+			a {
+				span {
+					font-size: 12.1667px;
+				}
+			}
+		}
+
+		.recordset-nav-pages {
+			font-size: 12.1667px;
+		}
+
+		.dino-facts {
+			dt, dd {
+				font-size: 14.6px;
+			}
+
+			dd {
+				margin-bottom: 3px;
+			}
+
+			.length {
+				margin-top: 3px;
+			}
+		}
+	}
+}
+
+.dino-navsub {
+	.not-a-link {
+		a {
+			cursor: initial;
+		}
+	}
+
+	span {
+		a:hover {
+			color: #4e4e4e;
+		}
+	}
+
+	ul {
+		padding-left: 0;
+		li {
+			a {
+				color: #a73333;
+
+				&:hover {
+					color: #a73333;
+				}
+			}
+		}
+	}
+}
+
+// About Dinosaurs
+#column-a {
+	h1 {
+		font-size: 29.2px;
+		color: #a73333;
+		font-weight: bold;
+	}
+
+	h2 {
+		padding-top: 0;
+	}
+
+	h4 {
+		font-size: 14.6px;
+		color: #a73333;
+		font-weight: bold;
+	}
+}
+
+.what-panel {
+	.column-b {
+		h4 {
+			font-size: 14.6px;
+			color: #a73333;
+			font-weight: bold;
+		}
+
+		ul {
+			font-size: 12.1667px;
+
+			a {
+				color: #a73333;
+			}
+		}
+
+	}
+}
+
+//Hiding the magnifying glass on dino gallery because lightbox wont work on staging
+.dino-media {
+	.enlarge {
+		display: none!important; /*Used important to override any js styling from lightbox*/
+	}
+}
+
+
+
+
+
+

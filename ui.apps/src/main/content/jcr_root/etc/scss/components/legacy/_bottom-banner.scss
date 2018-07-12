@@ -1,0 +1,10 @@
+// from legacy _components.scss
+.bottom-banner {
+    padding: 1em;
+    @include respond-min($desktop){
+        padding: 2em;
+    }
+    h2 {
+        color: $white-color;
+    }
+}

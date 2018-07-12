@@ -1,0 +1,83 @@
+/** HTI styles need to be in class to override inheritance from Business Services section theme styles **/
+.commercial-training-payment-form--page {
+	.hti-wrapper {
+		margin-bottom: 1.2em !important;
+	}
+
+	.hti-box--text-wrapper {
+		padding: 1.5em 1.5em 0 1.5em;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: 2em 2em 0 2em;
+		}
+	}
+
+	.hti-box__light-grey {
+		a {
+			color: color-palette(business-services, base);
+			text-decoration: none;
+			font-weight: normal;
+			border: none;
+
+			&:hover {
+				text-decoration: underline;
+				color: color-palette(business-services, base);
+			}
+		}
+
+		h3 {
+			a {
+				color: color-palette(business-services, base);
+				text-decoration: none;
+				font-weight: normal;
+				border: none;
+
+				&:hover {
+					text-decoration: underline;
+					color: color-palette(business-services, base);
+				}
+			}
+		}
+	}
+
+	.hti-box__dark-grey {
+		.ctabutton--inside-hti--cta-text {
+			color: color-palette(contact-us, base);
+		}
+
+		a {
+			color: $color--white;
+			border-bottom: 1px dotted $color--white;
+
+			&:hover {
+				color: color-palette(grey-color, mid-light);
+				border-bottom-color: color-palette(grey-color, mid-light);
+				border-bottom-style: solid;
+			}
+		}
+
+		h4 {
+			margin: 0;
+			color: $color--white;
+		}
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(business-services, 75pc);
+
+		.ctabutton--inside-hti--cta-text {
+			color: #A5629A;
+		}
+
+		a {
+			color: $color--white;
+			border-bottom: 1px dotted $color--white;
+
+			&:hover {
+				color: color-palette(grey-color, mid-light);
+				border-bottom-color: color-palette(grey-color, mid-light);
+				border-bottom-style: solid;
+			}
+		}
+	}
+}
