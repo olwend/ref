@@ -38,7 +38,6 @@ public class ImageText {
 		ValueMap map = imageResource.adaptTo(ValueMap.class);
 		
 		if(properties != null
-				&& properties.get("text", String.class) != null
 				&& map.containsKey("fileReference")) {
 			return true;
 		} else {

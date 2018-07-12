@@ -5,7 +5,6 @@
 			Required fields:
 			<ul>
 				<li>Image</li>
-				<li>Text</li>
 			</ul>
 		</div>
 	</sly>
@@ -34,7 +33,7 @@
 		    </div>
 		</sly>
 		
-		<div class="row">
+		<div data-sly-test="${properties.caption || properties.text}" class="row">
 			<div class="small-12 medium-3 columns">
 				${properties.caption @ context='html'}
 			</div>
