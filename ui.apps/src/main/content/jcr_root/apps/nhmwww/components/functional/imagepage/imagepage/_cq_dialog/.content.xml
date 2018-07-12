@@ -255,7 +255,7 @@
 	                                </cui>
 	                            </uiSettings>
 	                        </introduction>
-							<imageresourcetype
+							<headtype
 			                   	jcr:primaryType="nt:unstructured"
 								name="./headType"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
