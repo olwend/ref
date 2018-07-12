@@ -128,11 +128,7 @@
             <artifactId>uber-jar</artifactId>
             <classifier>obfuscated-apis</classifier>
         </dependency>
-    	<dependency>
-			<groupId>io.wcm</groupId>
-			<artifactId>io.wcm.testing.aem-mock</artifactId>
-			<scope>test</scope>
-		</dependency>
+    	
         <dependency>
 		    <groupId>org.jsoup</groupId>
 		    <artifactId>jsoup</artifactId>
@@ -189,6 +185,11 @@
 		    <artifactId>java-hamcrest</artifactId>
 		    <scope>test</scope>
 		</dependency>
-		
+		<dependency>
+			<groupId>io.wcm</groupId>
+			<artifactId>io.wcm.testing.aem-mock</artifactId>
+			<scope>test</scope>
+			
+		</dependency>
     </dependencies>
 </project>

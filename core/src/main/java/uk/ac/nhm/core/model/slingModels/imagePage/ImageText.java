@@ -34,17 +34,23 @@ public class ImageText {
 		
 	}
 
-	public boolean isConfigured() throws RepositoryException {
-		String imagePath = request.getResource().getPath() + "/image";
-		Resource imageResource = resourceResolver.getResource(imagePath);
+	protected boolean getConfigured(Resource imageResource) throws RepositoryException {
+		ValueMap map = imageResource.adaptTo(ValueMap.class);
 		
 		if(properties != null
 				&& properties.get("text", String.class) != null
-				&& imageResource.adaptTo(Node.class).hasProperty("fileReference") != false) {
+				&& map.containsKey("fileReference")) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+	
+	public boolean isConfigured() throws RepositoryException {
+		String imagePath = request.getResource().getPath() + "/image";
+		Resource imageResource = resourceResolver.getResource(imagePath);
+		
+		return getConfigured(imageResource);
 	}
 
 }
