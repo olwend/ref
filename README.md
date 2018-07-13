@@ -33,7 +33,7 @@ The below instructions assume you already have the AEM JAR, Service Packs and ot
 
 2. Build your selected branch.
 3. Launch Browsersync using the BAT file
-4. Run `` grunt develop ``
-5. When you make any changes to the SCSS files in `` /etc/scss `` or the JS files in `` /etc/clientlibs `` or a template file, AEM Browsersync will automatically run a build and refresh the browser (though you may need to manually hard-refresh as well).
+4. Run `` grunt develop ``. This will (amongst other things) watch for any changes to the SCSS files, generate the CSS files in the `` /etc/clientlibs `` folder, and copy the CSS from `` /etc/clientlibs `` to `` /etc/designs ``. It will also watch for changes to the `` main.js `` file in `` /etc/clientlibs `` and copy it to `` /etc/designs ``. 
+5. When you make any changes to the SCSS files in `` /etc/scss ``, or the JS files in `` /etc/clientlibs ``, or a template file, AEM Browsersync will automatically run a build and refresh the browser (though you may need to manually hard-refresh as well).
 
 Note you will need to manually build if you make any changes to the Core Java files.
