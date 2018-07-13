@@ -1,11 +1,11 @@
 <div data-sly-test="${!properties.rootpath || !properties.rowsize}">
 	<div class="row">
-	<h4>Article feed</h4>
-	Required fields:
-	<ul>
-		<li>Path</li>
-		<li>Row size</li>
-	</ul>
+		<h4>Article feed</h4>
+		Required fields:
+		<ul>
+			<li>Path</li>
+			<li>Row size</li>
+		</ul>
 	</div>
 </div>
 
@@ -26,11 +26,15 @@
 							<div class="articlefeed--item__image">
 								<div data-sly-test="${list['imageType'] == 'image'}">
 									<a href="${list['path']}.html">
-										<img data-interchange="
-											[${list['context']}.img.320.medium${list['extension']}, (default)],
-											[${list['context']}.img.480.medium${list['extension']}, (only screen and (max-width: 480px))],
-											[${list['context']}.img.620.high${list['extension']}, (only screen and (min-width: 481px))],
-											[${list['context']}.img.320.medium${list['extension']}, (only screen and (min-width: 1025px))],">
+										<picture>
+											<source media="(max-width: 480px)" 
+													srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
+											<source media="(min-width: 481px) and (max-width: 1024px)"
+													srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.620.620.jpeg 1024w" />
+											<source media="(min-width: 1025px)"
+													srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
+											<img src="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" />
+										</picture>
 									</a>
 								</div>
 								<div data-sly-test="${list['imageType'] == 'video'}">

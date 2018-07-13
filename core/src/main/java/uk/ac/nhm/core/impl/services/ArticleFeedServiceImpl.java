@@ -149,7 +149,7 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 			    				String context = node.getPath() + "/jcr:content/article/image";
 			    				String extension = "." + fileReference.substring(fileReference.lastIndexOf(".") + 1);
 			    				
-								nodeMap.put("context", context);
+								nodeMap.put("context", fileReference);
 								nodeMap.put("extension", extension);
 								nodeMap.put("imageType", "image");
 							}

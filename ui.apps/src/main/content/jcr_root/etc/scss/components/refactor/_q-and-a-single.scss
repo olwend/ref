@@ -1,0 +1,122 @@
+.qasingle {
+	&--container {
+		background-color: color-palette(grey-color, light);
+
+		h1 {
+			font-size: 1.5em;
+			font-family: font-name(elysio, light);
+			line-height: 1.35em;
+			padding-bottom: 0.3em;
+			color: color-palette(grey-color, dark);
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.8em;
+			}
+		}
+
+		a {
+			border-bottom: 1px dotted color-palette(discover, base);
+		}
+
+		a:hover {
+			border-bottom: 1px solid color-palette(discover, base);
+		}
+
+		a,
+		a:hover {
+			color: color-palette(discover, base);
+			text-decoration: none;
+		}
+	}
+
+	&--question-title-container {
+		margin-bottom: 2px;
+		padding: ($padding-TB / 2) 20px;
+		background-color: color-palette(question, base);
+	}
+
+	&--question-title {
+		color: color-palette(grey-color, light);
+		padding: 0;
+		margin: 0;
+	}
+
+	&--question-container {
+		background-color: color-palette(grey-color, light);
+		padding: 20px 20px 12px 20px;
+		margin-bottom: 2px;
+	}
+
+	&--question {
+		font-family: font-name(elysio, regular);
+		background-color: color-palette(grey-color, light);
+	}
+
+	&--question-content {
+		border-bottom: 4px solid $color--white;
+
+		p {
+			background-color: color-palette(grey-color, light);
+			padding: 0 20px;
+			margin-bottom: 1em;
+		}
+	}
+
+	&--image {
+		background-color: color-palette(grey-color, light);
+		padding: 2px 20px 20px 35px;
+		margin-bottom: 2px;
+
+		img {
+			border-radius: 50%;
+			position: relative;
+			top: 50%;
+			text-align: center;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			float: right;
+			padding: 8px 20px 20px 5px;
+			}
+	}
+
+	&--next-question {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		padding-left: 20px;
+		max-width: 80%;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			margin: 0;
+			padding: 20px;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			flex-direction: row;
+		}
+	}
+
+	&--next-question-title {
+		margin-bottom: 0;
+	}
+
+	&--next-question-container {
+
+		.ico {
+			margin: 10px 20px 10px 10px;
+			max-width: 30px;
+			max-height: 30px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 20px;
+			}
+
+			svg {
+				height: 30px;
+				width: 30px;
+			}
+		}
+	}
+}

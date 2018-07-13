@@ -1,0 +1,134 @@
+// from legacy _components.scss
+.info-sidebar {
+	padding: 25px 0px 0px 2em;
+
+	p {
+		margin-bottom: 0px;
+		line-height: 1.5;
+	}
+
+	li {
+		position: relative;
+		min-height: 40px;
+		margin-top: 5%;
+		padding: 0.625em 0.625em 0 20%;
+
+		&:first-child {
+			margin-top: 0;
+		}
+		.ico {
+			@include inline-block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 41px;
+			height: 40px;
+			content: "";
+      }
+      &.tickets {
+      	.ico {
+      		width: 44px;
+      		height: 50px;
+      	}
+      }
+    }
+
+    @include respond-min($tablet){
+    padding-top: 0;
+
+    li {
+    	padding-left: 19%;
+    }
+  }
+
+  @include respond-min($desktop){
+  	li {
+  		padding-left: 16%;
+  	}
+  }
+}
+
+// from legacy _components.scss
+// likely to be phased out as aside-box is not used in improved HTI
+.aside-box .info-sidebar-icon-list {
+
+	li {
+		overflow: auto;
+		margin-bottom: 1em;
+	}
+
+	a {
+		font-size: 1em;
+
+	}
+
+	&.about-us p {
+		color: $take-part-color;
+		margin-bottom: 0;
+		padding-left: 2em;
+	}
+
+	a {
+		color: $take-part-link-color;
+	}
+
+	.ico {
+		position: absolute;
+		height: 1.5em;
+
+		margin-right: 0.5em;
+		width: 1.5em;
+	}
+}
+
+// from legacy _components.scss
+// unclear where used - possibly related to events summary component
+.info-summary {
+	margin: 0px auto;
+	background: $bg-color;
+
+	.info-summary__content {
+		padding: 0 1.25em 0.5em;
+	}
+	@include respond-min($desktop){
+    .info-summary__content {
+    	display: block !important;
+    }
+  }
+}
+.info-summary__sponsors {
+	border-top: 1px solid #ccc;
+	margin: 0 auto;
+	padding: 10px 0 0;
+
+	div {
+		height: 90px;
+	}
+	img {
+		display: block;
+		margin: 0.75em 0 0;
+		max-width: 70%;
+	}
+	p {
+		font-size: 13px;
+	}
+}
+
+// from legacy _components.scss
+// unclear where this is used
+ul.info-sidebar-box-visit {
+	padding-left: 10%;
+	li {
+		position: relative;
+    padding: 0;
+    .ico {
+    	display: inline-block;
+    	float: left;
+    	zoom: 1;
+      width: 45px;
+      height: 50px;
+      content: "";
+      padding-right: 5px;
+    }
+  }
+}

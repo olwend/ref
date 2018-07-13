@@ -1,0 +1,4 @@
+// from legacy _sections.scss
+.account {
+	@include section-common-styles("account", $account-color, $account-color-hover);
+}

@@ -1,0 +1,65 @@
+@import "../../core/legacy/variables";
+@import "../../core/refactor/variables";
+
+.legacy-css {
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		border-bottom: 1px dotted $black-color;
+		color: $black-color;
+
+		&:hover {
+			text-decoration: none;
+			border-bottom-style: solid;
+			border-bottom-color: $contact-us-color;
+			color: $contact-us-color;
+		}
+	}
+
+	p {
+		margin-bottom: 10px;
+	}
+
+	#column-a {
+		background-color: $grey-color;
+		padding: 1em 1.5em;
+	}
+
+	fieldset {
+		border: none;
+		padding: 0;
+	}
+
+	.mainInputWidth, .wide {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+
+	input.spam {
+		display: none;
+	}
+
+	.icon {
+		padding-bottom: 6px;
+		padding-left: 10px;
+	}
+
+	.requiredField {
+		color: #aa0000;
+	}
+
+	&.teacher-enews-form {
+		label {
+			display: inline;
+		}
+
+		.icon {
+			padding-left: 0;
+		}
+	}
+
+	.subPanel li {
+		list-style: disc;
+		margin-left: 20px;
+	}
+}

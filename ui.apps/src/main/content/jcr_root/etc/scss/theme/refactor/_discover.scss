@@ -1,0 +1,119 @@
+.discover {
+	h1 {
+		padding: 0;
+		color: color-palette(discover, base);
+	}
+
+	.title-bar {
+		padding: ($padding-TB / 2) ($padding-RL / 2);
+
+		/** Hotfix for Article feed title bar **/
+		h1,
+		p {
+			color: color-palette(grey-color, dark) !important;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: $padding-TB $padding-RL;
+			margin-top: 0;
+			margin-bottom: 1.2em;
+		}
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	/** WR-585: added to ensure that Discover publication styles are not affected by changes to base H1 **/
+	.discoverpublication {
+		h1 {
+			font-family: font-name(elysio, light);
+		}
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(grey-color, dark);
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(discover, base);
+
+		&:hover {
+			background-color: color-palette(discover, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(discover, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(discover, 90pc);
+		}
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.discover {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.discover {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(discover, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(discover, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(discover, base);
+		}
+	}
+}
+
+/** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
+.global-header--nav-list__item {
+	&:hover, &.menuSelected {
+		&.link-discover {
+			border-bottom-color: color-palette(discover, base);
+		}
+	}
+}

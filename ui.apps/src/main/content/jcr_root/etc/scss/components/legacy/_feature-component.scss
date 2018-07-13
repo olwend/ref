@@ -1,0 +1,85 @@
+// from legacy _components.scss
+// unclear where this is used
+.feature {
+	padding-top: 25px;
+
+	@include respond-min($tablet){
+		padding-top: 60px;
+
+		.columns:first-child {
+			padding-right: 1.25em;
+		}
+	}
+}
+.feature--sections {
+	margin: 50px 0px;
+	-webkit-transition: all 0.30s linear 0s; 
+	transition: all 0.30s linear 0s;
+
+	li {
+		float: left;
+		width: 18.4%;
+		margin-left: 2%;
+
+		&:first-child {
+			margin-left: 0;
+		}
+		&.selected, 
+		&:hover {
+			img { 
+				-webkit-filter: grayscale(0%); 
+				-moz-filter: grayscale(0%); 
+				filter: grayscale(0%); 
+				filter: gray;
+			}
+		}
+		&.selected {
+			img {
+				padding: 2px; 
+				border: 2px solid $link-color; 
+			}
+		}
+		&:hover {
+			img {
+				padding: 2px;
+				border: 2px solid $utility-color;
+			}
+		}
+		img {
+			width: 100%;
+			max-width: 95px;  
+			border-radius: 50%; 
+			-webkit-transition: all 0.10s linear 0s; 
+			transition: all 0.10s linear 0s; 
+			-webkit-filter: grayscale(100%); 
+			-moz-filter: grayscale(100%); 
+			filter: grayscale(100%); 
+			filter: gray; 
+		}
+	}
+}
+.feature--content {
+	li {
+		display: none;
+
+		&.selected {
+			display: block;
+		}
+	}
+	h3, h4 {
+		font-family: $arial;
+	}
+	h3 {
+		margin: 0;
+		color: $link-color;
+		font-size: 1.125em;
+		font-weight: bold;
+	}
+	h4 { 
+		color: $utility-color; 
+		font-size: 0.9em; 
+	}
+	p { 
+		margin: 2em 0 0; 
+	}
+}

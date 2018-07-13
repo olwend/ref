@@ -1,0 +1,27 @@
+.intro-text {
+	font-family: font-name(elysio, light);
+	padding-bottom: 0.3em;
+	font-size: 1.4em;
+	line-height: 1.35em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1.8em;
+	}
+}
+
+// pagesummarytext wraps around intro-text in Press Office detail pages **/
+.pagesummarytext {
+	padding: 0 ($padding-RL / 2);
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding: 0 $padding-RL;
+	}
+}
+
+.list__no-bullet {
+	margin-left: 0 !important;
+
+	li {
+		list-style-type: none !important;
+	}
+}

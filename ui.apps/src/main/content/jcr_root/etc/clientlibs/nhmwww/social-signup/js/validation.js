@@ -9,6 +9,7 @@ $(document).ready(function() {
 					required: true,
 					email: true
 				},
+//validation check to ensure honeypot question field is empty i.e.bot has not entered text
 				question: {
 					maxlength: 0
 				}

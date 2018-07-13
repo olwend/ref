@@ -90,17 +90,14 @@ public class DiscoverRelatedImageHelper {
 		switch (imageSize) {
 
 		case DEFAULT:
-			return this.getPath() + ".img.320.medium." + this.getExtension();
+			return this.originalImagePath + "/_jcr_content/renditions/cq5dam.web.480.480.jpeg";
 
 		case SMALL:
-			return this.getPath() + ".img.320.medium." + this.getExtension();
+			return this.originalImagePath + "/_jcr_content/renditions/cq5dam.web.480.480.jpeg";
 			
 		case MEDIUM:
-			return this.getPath() + ".img.480.medium." + this.getExtension();
+			return this.originalImagePath + "/_jcr_content/renditions/cq5dam.web.620.620.jpeg";
 			
-		case LARGE:
-			return this.getPath() + ".img.620.high." + this.getExtension();
-
 		default:
 			throw new UnsupportedOperationException("Image Interchange size not supported");}
 	}
