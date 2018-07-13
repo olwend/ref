@@ -10,18 +10,18 @@
 			</ul>
 		</div>
 	</sly>
-	
+
 	<sly data-sly-test="${imagepage.isConfigured == true}">
 		<sly data-sly-test="${wcmmode.edit}">
 			<div class="row">
-		        <h4>Image page</h4>
-		        Edit the image page dialog here
-		    </div>
+				<h4>Image page</h4>
+				Edit the image page dialog here
+			</div>
 		</sly>
-	
+
 		<div class="hero">
-            <sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
-        </div>
+			<sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
+		</div>
 
 		<div class="row">
 			<div class="imagepage--caption small-12 medium-3 large-3 columns">
@@ -44,15 +44,13 @@
 					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
 				</dl>
 
-				<div class="imagepage--social-share-header" style="align-self:flex-end">
+				<div class="imagepage--social-share-header">
 					<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>
 				</div>
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="imagepage--intro">
-				${imagepage.introductionText @ context='html'}
+				<div class="imagepage--intro">
+					${imagepage.introductionText @ context='html'}
+				</div>
 			</div>
 		</div>
 

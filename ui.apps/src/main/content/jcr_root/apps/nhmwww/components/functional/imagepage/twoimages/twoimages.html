@@ -10,18 +10,18 @@
 			</ul>
 		</div>
 	</sly>
-	
+
 	<sly data-sly-test="${twoimages.isConfigured}">
 		<div class="row">
 			<div class="small-12 medium-6 columns">
 				<div data-sly-resource="${'image1' @ wcmmode='disabled'}"></div>
-				${properties.caption1 @ context='html'}
+				<div class="imagepage--caption">${properties.caption1 @ context='html'}</div>
 			</div>
 			<div class="small-12 medium-6 columns">
 				<div data-sly-resource="${'image2' @ wcmmode='disabled'}"></div>
-				${properties.caption2 @ context='html'}
+				<div class="imagepage--caption">${properties.caption2 @ context='html'}</div>
 			</div>
 		</div>
 	</sly>
-	
+
 </sly>

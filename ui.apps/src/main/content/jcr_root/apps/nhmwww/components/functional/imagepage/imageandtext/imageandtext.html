@@ -8,14 +8,14 @@
 			</ul>
 		</div>
 	</sly>
-	
+
 	<sly data-sly-test="${imagetext.isConfigured}">
 		<sly data-sly-test="${properties.rowlayout=='herosection'}">
 		    <div class="hero">
 		        <div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
 		    </div>
 		</sly>
-		
+
 		<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
 		<!-- TODO -->
 		    <div class="row">
@@ -24,7 +24,7 @@
 		        </div>
 		    </div>
 		</sly>
-		
+
 		<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
 		    <div class="row">
 		        <div class="small-12 columns">
@@ -32,9 +32,8 @@
 		        </div>
 		    </div>
 		</sly>
-		
+			<div class="imagepage--caption small-12 medium-3 columns">
 		<div data-sly-test="${properties.caption || properties.text}" class="row">
-			<div class="small-12 medium-3 columns">
 				${properties.caption @ context='html'}
 			</div>
 			<div class="small-12 medium-9 columns">
