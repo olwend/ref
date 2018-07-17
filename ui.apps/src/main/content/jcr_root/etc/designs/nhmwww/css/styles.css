@@ -10893,6 +10893,10 @@ input.searchGo {
 }
 
 /** HOME THEME PARTIAL **/
+.home {
+  /*WR-1345 discover related accessibiity link fix*/
+}
+
 .home a {
   color: #A1164E;
 }
@@ -10909,9 +10913,8 @@ input.searchGo {
   background-color: rgba(161, 22, 78, 0.9);
 }
 
-/*WR-1345 discover related accessibiity link fix*/
-.discover-element a,
-.discover-element a:hover {
+.home .discover-element a,
+.home .discover-element a:hover {
   color: #565656;
   text-decoration: none;
 }

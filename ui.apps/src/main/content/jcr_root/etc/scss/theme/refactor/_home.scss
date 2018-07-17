@@ -15,8 +15,8 @@
 			background-color: color-palette(home, 90pc);
 		}
 	}
-}
-/*WR-1345 discover related accessibiity link fix*/
+
+	/*WR-1345 discover related accessibiity link fix*/
 	.discover-element {
 		a,
 		a:hover {
@@ -24,6 +24,7 @@
 			text-decoration: none;
 		}
 	}
+}
 
 /** WR-752 moved from legacy mixin for carousel component refactor **/
 .home {
