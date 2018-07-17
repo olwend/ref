@@ -264,7 +264,7 @@
 			                   	jcr:primaryType="nt:unstructured"
 								name="./image/sling:resourceType"
 								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-								value="nhmwww/components/functional/imagepage/image"
+								value="nhmwww/components/functional/foundation5image"
 								renderHidden="{Boolean}true"
 								wrapperClass="dialog-hide-field"
 								fieldDescription="Hidden field for image upload resource type" />
