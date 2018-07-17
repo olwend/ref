@@ -29,41 +29,27 @@ public class ImageTextModelTest {
 	}
 	
 	@Test
-	public void testOnlyText() throws Exception {
+	public void testNoImage() throws Exception {
 		ImageText imageTextModel = new ImageText();
 		
-		ValueMap properties = new ValueMapDecorator(new HashMap());
-		properties.put("text", "<p>Some test text<p>");
+		ValueMap properties = new ValueMapDecorator(new HashMap<String, Object>());
 		PrivateAccessor.setField(imageTextModel, "properties", properties);
-
+		
 		Resource resource = aemContext.resourceResolver().getResource("/content/sample/en/noimage/jcr:content/image");
-		
-		assertFalse(imageTextModel.getConfigured(resource));
-	}
-	
-	@Test
-	public void testImageOnly() throws Exception {
-		ImageText imageTextModel = new ImageText();
-		
-		ValueMap properties = new ValueMapDecorator(new HashMap());
-		PrivateAccessor.setField(imageTextModel, "properties", properties);
-		
-		Resource resource = aemContext.resourceResolver().getResource("/content/sample/en/hasimage/jcr:content/image");
 
 		assertFalse(imageTextModel.getConfigured(resource));
 	}
 	
 	@Test
-	public void testImageAndText() throws Exception {
+	public void testHasImage() throws Exception {
 		ImageText imageTextModel = new ImageText();
 		
-		ValueMap properties = new ValueMapDecorator(new HashMap());
-		properties.put("text", "<p>Some test text<p>");
+		ValueMap properties = new ValueMapDecorator(new HashMap<String, Object>());
 		PrivateAccessor.setField(imageTextModel, "properties", properties);
 		
 		Resource resource = aemContext.resourceResolver().getResource("/content/sample/en/hasimage/jcr:content/image");
 
 		assertTrue(imageTextModel.getConfigured(resource));
 	}
-	
+
 }

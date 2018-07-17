@@ -44,16 +44,19 @@ public class ImagePage {
 	@Inject
 	SlingHttpServletRequest request;
 	
-	public static final String TITLE_ATTRIBUTE_NAME 		= "jcr:title";
 	public static final String INTRODUCTION_ATTRIBUTE_NAME  = "introduction";
 	public static final String HUB_TAG						= "hubTag";
 	public static final String OTHER_TAGS					= "otherTags";
+	public static final String SNIPPET_ATTRIBUTE_NAME		= "snippet";
+	public static final String TITLE_ATTRIBUTE_NAME 		= "jcr:title";
 	
 	private String author = null;
 	private String leadImageCaption = null;
+	private String leadImageCredit = null;
 	private String datePublished = null;
 	private String dateLastUpdated = null;
 	private String introductionText = null;
+	private String snippet = null;
 	private String title = null;
 
 	private Map<String, String> hubTag = null;
@@ -100,7 +103,9 @@ public class ImagePage {
 		
 		if(properties.get("author") != null) this.setAuthor("By " + properties.get("author", String.class));
 		if(properties.get("leadImageCaption") != null) this.setLeadImageCaption(properties.get("leadImageCaption", String.class));
+		if(properties.get("leadImageCredit") != null) this.setLeadImageCredit(properties.get("leadImageCredit", String.class));
 		if(properties.get("introduction") != null) this.setIntroductionText(properties.get("introduction", String.class));
+		if(properties.get("snippet") != null) this.setSnippet(properties.get("snippet", String.class));
 		
 		//Dates
 		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
@@ -131,6 +136,7 @@ public class ImagePage {
 		if(this.properties != null
 					&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 					&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
+					&& this.properties.get(SNIPPET_ATTRIBUTE_NAME, String.class) != null
 					&& imageResource.adaptTo(Node.class).hasProperty("fileReference") != false) {
 			return true;
 		} else {
@@ -152,6 +158,14 @@ public class ImagePage {
 
 	public void setLeadImageCaption(String leadImageCaption) {
 		this.leadImageCaption = leadImageCaption;
+	}
+
+	public String getLeadImageCredit() {
+		return leadImageCredit;
+	}
+
+	public void setLeadImageCredit(String leadImageCredit) {
+		this.leadImageCredit = leadImageCredit;
 	}
 
 	public String getDatePublished() {
@@ -176,6 +190,14 @@ public class ImagePage {
 
 	public void setIntroductionText(String introductionText) {
 		this.introductionText = introductionText;
+	}
+
+	public String getSnippet() {
+		return snippet;
+	}
+
+	public void setSnippet(String snippet) {
+		this.snippet = snippet;
 	}
 
 	public String getTitle() {

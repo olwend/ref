@@ -35,6 +35,7 @@
 		<div data-sly-test="${properties.caption || properties.text}" class="row">
 			<div class="imagepage--caption small-12 medium-3 columns">
 				${properties.caption @ context='html'}
+				${properties.credit @ context='html'}
 			</div>
 			<div class="small-12 medium-9 columns">
 				${properties.text @ context='html'}
