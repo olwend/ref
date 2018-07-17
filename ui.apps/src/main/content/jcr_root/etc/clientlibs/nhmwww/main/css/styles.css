@@ -10907,6 +10907,12 @@ input.searchGo {
   background-color: rgba(161, 22, 78, 0.9);
 }
 
+.home .articlefeed a,
+.home .articlefeed a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
 /** WR-752 moved from legacy mixin for carousel component refactor **/
 .home .lSAction a:hover {
   background-color: rgba(161, 22, 78, 0.7);
