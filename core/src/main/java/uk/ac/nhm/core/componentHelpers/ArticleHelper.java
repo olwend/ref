@@ -273,6 +273,7 @@ public class ArticleHelper {
 		return this.properties !=null
 				&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 				&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
+				&& this.properties.get(SNIPPET_ATTRIBUTE_NAME, String.class) != null
 				&& (this.isImageHeadType() && this.imageConfigured 
 						|| this.isVideoHeadType() && this.getVideo() != null);
 	}
