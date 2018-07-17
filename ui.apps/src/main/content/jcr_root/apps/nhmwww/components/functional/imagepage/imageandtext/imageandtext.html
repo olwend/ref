@@ -11,33 +11,33 @@
 
 	<sly data-sly-test="${imagetext.isConfigured}">
 		<sly data-sly-test="${properties.rowlayout=='herosection'}">
-		    <div class="hero">
-		        <div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-		    </div>
+			<div class="hero imagepage--hero">
+				<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+			</div>
 		</sly>
 
 		<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
-		<!-- TODO -->
-		    <div class="row">
-		        <div class="small-12 columns">
-		        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-		        </div>
-		    </div>
+			<div class="row imagepage--babyhero">
+				<div class="small-12 columns">
+					<div class="imagepage--babyhero-breakout" data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+				</div>
+			</div>
 		</sly>
 
 		<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
-		    <div class="row">
-		        <div class="small-12 columns">
-		        	<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
-		        </div>
-		    </div>
-		</sly>
-		<div data-sly-test="${properties.caption || properties.text}" class="row">
-			<div class="imagepage--caption small-12 medium-3 columns">
-				${properties.caption @ context='html'}
-				${properties.credit @ context='html'}
+			<div class="row imagepage--fullwidth">
+				<div class="small-12 columns">
+					<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+				</div>
 			</div>
-			<div class="small-12 medium-9 columns">
+		</sly>
+
+		<div data-sly-test="${properties.caption || properties.text}" class="row">
+			<div class="imagepage--caption-container small-12 medium-12 large-3 columns">
+				<div class="imagepage--caption">${properties.caption @ context='html'}</div>
+				<div class="imagepage--credit">${properties.credit @ context='html'}</div>
+			</div>
+			<div class="imagepage--text-container small-12 medium-12 large-9 columns">
 				${properties.text @ context='html'}
 			</div>
 		</div>

@@ -24,16 +24,16 @@
 			<sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
 		</div>
 
-		<div class="row">
-			<div class="imagepage--caption small-12 medium-3 large-3 columns">
-				${imagepage.leadImageCaption @ context='html'}
-                ${imagepage.leadImageCredit @ context='html'}
+		<div class="row imagepage--header-text-container">
+			<div class="imagepage--caption-container small-12 medium-12 large-3 columns">
+				<div class="imagepage--caption">${imagepage.leadImageCaption @ context='html'}</div>
+				<div class="imagepage--credit">${imagepage.leadImageCredit @ context='html'}</div>
 			</div>
 
-			<div class="imagepage--info small-12 medium-9 large-9 columns">
-				<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">
-					${imagepage.hubTag['title']}
-				</a>
+			<div class="imagepage--info small-12 medium-12 large-9 columns">
+				<div class="imagepage--tag-header">
+					<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">${imagepage.hubTag['title']}</a>
+				</div>
 
 				<h1 class="imagepage--title">${imagepage.title}</h1>
 
