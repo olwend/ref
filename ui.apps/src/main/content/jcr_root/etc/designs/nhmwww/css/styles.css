@@ -8303,7 +8303,7 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .imagepage .imageandtext .imagepage--babyhero-breakout {
-    margin: 0 calc((-100vw + 100%) / 4);
+    margin: 0 calc((-100vw - -100%) / 4);
   }
 }
 
@@ -8318,10 +8318,10 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .imagepage .twoimages .imagepage--twoimages-image-left {
-    margin-left: calc((-100vw + 200% + 20px) / 4);
+    margin-left: calc((-100vw - -200% - -20px) / 4);
   }
   .imagepage .twoimages .imagepage--twoimages-image-right {
-    margin-right: calc((-100vw + 200% + 20px) / 4);
+    margin-right: calc((-100vw - -200% - -20px) / 4);
   }
 }
 
@@ -8396,13 +8396,13 @@ div#cookie-bar p {
     margin-bottom: 0;
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--pullout-image {
-    width: calc(100% + ((100vw - 400%) / 4));
+    width: calc(100% - (-1 * ((100vw - 400%) / 4)));
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--caption-container {
     width: 100%;
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--pullout-image {
-    margin-left: calc((-100vw + 400%) / 4);
+    margin-left: calc((-100vw - -400%) / 4);
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--caption-container {
     margin-top: 30px;

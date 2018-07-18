@@ -168,7 +168,7 @@
 		.imagepage--babyhero-breakout {
 			@media screen and (min-width: $breakpoint--desktop) {
 				// Take negative value of viewport width, remove width of parent to find gutter width, divide by 4 to find 50% of each gutter
-				margin: 0 calc((-100vw + 100%) / 4);
+				margin: 0 calc((-100vw - -100%) / 4);
 			}
 		}
 	}
@@ -188,13 +188,13 @@
 			.imagepage--twoimages-image-left {
 				// Take negative value of viewport width, remove twice width of parent (large-6)
 				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
-				margin-left: calc((-100vw + 200% + 20px) / 4);
+				margin-left: calc((-100vw - -200% - -20px) / 4);
 			}
 
 			.imagepage--twoimages-image-right {
 				// Take negative value of viewport width, remove twice width of parent (large-6)
 				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
-				margin-right: calc((-100vw + 200% + 20px) / 4);
+				margin-right: calc((-100vw - -200% - -20px) / 4);
 			}
 		}
 
@@ -263,7 +263,7 @@
 
 				.imagepage--pullout-image {
 					// Internet explorer doesn't support `unset`
-					width: calc(100% + ((100vw - 400%) / 4));
+					width: calc(100% - (-1 * ((100vw - 400%) / 4)));
 				}
 
 				.imagepage--caption-container {
@@ -273,7 +273,7 @@
 				.imagepage--pullout-image {
 					// Take negative value of viewport width, remove four times width of parent (large-3)
 					// to find side gutter width, divide by 4 to find 50% of each gutter
-					margin-left: calc((-100vw + 400%) / 4);
+					margin-left: calc((-100vw - -400%) / 4);
 				}
 
 				.imagepage--caption-container {
