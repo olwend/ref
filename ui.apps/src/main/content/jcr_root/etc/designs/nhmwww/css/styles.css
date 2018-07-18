@@ -8303,7 +8303,7 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .imagepage .imageandtext .imagepage--babyhero-breakout {
-    margin: 0 calc((-100vw + 100%) / 4);
+    margin: 0 calc((-100vw   +   100%) / 4);
   }
 }
 
@@ -8318,10 +8318,10 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .imagepage .twoimages .imagepage--twoimages-image-left {
-    margin-left: calc((-100vw + 200% + 20px) / 4);
+    margin-left: calc((-100vw   +   200%   +   20px) / 4);
   }
   .imagepage .twoimages .imagepage--twoimages-image-right {
-    margin-right: calc((-100vw + 200% + 20px) / 4);
+    margin-right: calc((-100vw   +   200%   +   20px) / 4);
   }
 }
 
@@ -8348,6 +8348,12 @@ div#cookie-bar p {
 @media screen and (min-width: 768px) {
   .imagepage .pulloutimage .imagepage--pullout {
     margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .imagepage .pulloutimage .imagepage--pullout {
+    margin-top: 0;
   }
 }
 
@@ -8394,7 +8400,7 @@ div#cookie-bar p {
     width: unset;
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--pullout-image {
-    margin-left: calc((-100vw + 400%) / 4);
+    margin-left: calc((-100vw   +   400%) / 4);
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--caption-container {
     margin-top: 30px;
@@ -8412,8 +8418,10 @@ div#cookie-bar p {
   }
 }
 
-.imagepage .text + .pulloutimage > .imagepage--pullout {
-  margin-top: 0;
+@media screen and (min-width: 1025px) {
+  .imagepage .text {
+    margin-top: 0;
+  }
 }
 
 .imagepage .text + .text {

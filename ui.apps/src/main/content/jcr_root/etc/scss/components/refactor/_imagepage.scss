@@ -170,7 +170,8 @@
 		.imagepage--babyhero-breakout {
 			@media screen and (min-width: $breakpoint--desktop) {
 				// Take negative value of viewport width, remove width of parent to find gutter width, divide by 4 to find 50% of each gutter
-				margin: 0 calc((-100vw + 100%) / 4);
+				// Extra whitespace used to negate AEM CSS compression bug
+				margin: 0 calc((-100vw   +   100%) / 4);
 			}
 		}
 	}
@@ -190,13 +191,15 @@
 			.imagepage--twoimages-image-left {
 				// Take negative value of viewport width, remove twice width of parent (large-6)
 				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
-				margin-left: calc((-100vw + 200% + 20px) / 4);
+				// Extra whitespace used to negate AEM CSS compression bug
+				margin-left: calc((-100vw   +   200%   +   20px) / 4);
 			}
 
 			.imagepage--twoimages-image-right {
 				// Take negative value of viewport width, remove twice width of parent (large-6)
 				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
-				margin-right: calc((-100vw + 200% + 20px) / 4);
+				// Extra whitespace used to negate AEM CSS compression bug
+				margin-right: calc((-100vw   +   200%   +   20px) / 4);
 			}
 		}
 
@@ -221,6 +224,10 @@
 
 			@media screen and (min-width: $breakpoint--tablet__portrait) {
 				margin-top: 50px;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				margin-top: 0;
 			}
 		}
 
@@ -267,7 +274,8 @@
 				.imagepage--pullout-image {
 					// Take negative value of viewport width, remove four times width of parent (large-3)
 					// to find side gutter width, divide by 4 to find 50% of each gutter
-					margin-left: calc((-100vw + 400%) / 4);
+					// Extra whitespace used to negate AEM CSS compression bug
+					margin-left: calc((-100vw   +   400%) / 4);
 				}
 
 				.imagepage--caption-container {
@@ -285,11 +293,15 @@
 			margin-top: 40px;
 		}
 
-		+ .pulloutimage { // Override top margin when pullout image directly follows text component
-			> .imagepage--pullout {
-				margin-top: 0;
-			}
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin-top: 0;
 		}
+
+		// + .pulloutimage { // Override top margin when pullout image directly follows text component
+		// 	> .imagepage--pullout {
+		// 		margin-top: 0;
+		// 	}
+		// }
 
 		+ .text { // Override top margin when text component directly follows text component
 			margin-top: 0;
