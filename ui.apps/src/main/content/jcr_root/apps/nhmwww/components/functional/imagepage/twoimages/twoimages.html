@@ -14,7 +14,7 @@
 	<sly data-sly-test="${twoimages.isConfigured}">
 		<div class="row">
 			<div class="imagepage--twoimages small-12 medium-6 columns">
-				<div class="imagepage--twoimages-image-left" data-sly-unwrap="${properties.rowlayout != 'babyherosection'}">
+				<div class="imagepage--twoimages-image-left" data-sly-unwrap="${properties.rowlayout != 'landscape'}">
                 	<div data-sly-resource="${'image1' @ wcmmode='disabled'}"></div>
                 </div>
 				<div class="imagepage--caption-container">
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="imagepage--twoimages small-12 medium-6 columns">
-				<div class="imagepage--twoimages-image-right" data-sly-unwrap="${properties.rowlayout != 'babyherosection'}"> 
+				<div class="imagepage--twoimages-image-right" data-sly-unwrap="${properties.rowlayout != 'landscape'}"> 
                 	<div data-sly-resource="${'image2' @ wcmmode='disabled'}"></div>
                 </div>
 				<div class="imagepage--caption-container">
