@@ -489,6 +489,23 @@
 			                                </cui>
 			                            </uiSettings>
 			                        </secondCredit>
+			                        <layout
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Row layout"
+					                    defaultValue="babyherosection"
+					                    name="./rowlayout"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+					                    <items jcr:primaryType="nt:unstructured">
+					                        <o1
+				                                jcr:primaryType="nt:unstructured"
+				                                text="Baby hero"
+				                                value="babyherosection"/>					                            
+				                            <o2
+				                                jcr:primaryType="nt:unstructured"
+				                                text="Full width"
+				                                value="rowfullwidth"/>
+										</items>
+									</layout>
                             	</items>
                         	</column>
 		                </items>
