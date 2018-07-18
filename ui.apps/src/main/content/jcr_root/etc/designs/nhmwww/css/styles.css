@@ -8134,7 +8134,6 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .imagepage .row {
-    padding: 0;
     margin: auto;
   }
 }
@@ -8195,8 +8194,8 @@ div#cookie-bar p {
 }
 
 .imagepage--caption p {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 16px;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+  font-size: 18px;
   line-height: 1.5em;
 }
 
@@ -8214,10 +8213,6 @@ div#cookie-bar p {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.5em;
-}
-
-.imagepage--tag-header {
-  font-size: 1.5rem;
 }
 
 .imagepage--title {
@@ -8265,6 +8260,10 @@ div#cookie-bar p {
   }
 }
 
+.imagepage--tags-header {
+  font-size: 1.5rem;
+}
+
 .imagepage--tags-footer {
   display: inline;
 }
@@ -8298,13 +8297,13 @@ div#cookie-bar p {
   .imagepage .imageandtext .imagepage--hero,
   .imagepage .imageandtext .imagepage--babyhero,
   .imagepage .imageandtext .imagepage--fullwidth {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 
 @media screen and (min-width: 1025px) {
   .imagepage .imageandtext .imagepage--babyhero-breakout {
-    margin: 0 -150px;
+    margin: 0 calc((-100vw + 100%) / 4);
   }
 }
 
@@ -8319,10 +8318,10 @@ div#cookie-bar p {
 
 @media screen and (min-width: 1025px) {
   .imagepage .twoimages .imagepage--twoimages-image-left {
-    margin-left: -150px;
+    margin-left: calc((-100vw + 200% + 20px) / 4);
   }
   .imagepage .twoimages .imagepage--twoimages-image-right {
-    margin-right: -150px;
+    margin-right: calc((-100vw + 200% + 20px) / 4);
   }
 }
 
@@ -8332,7 +8331,7 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .imagepage .twoimages .imagepage--twoimages {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 
@@ -8348,7 +8347,7 @@ div#cookie-bar p {
 
 @media screen and (min-width: 768px) {
   .imagepage .pulloutimage .imagepage--pullout {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 
@@ -8388,13 +8387,14 @@ div#cookie-bar p {
 @media screen and (min-width: 1025px) {
   .imagepage .pulloutimage .imagepage--pullout-image-text-container {
     display: block;
+    margin-bottom: 0;
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--pullout-image,
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--caption-container {
     width: unset;
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--pullout-image {
-    margin-left: -150px;
+    margin-left: calc((-100vw + 400%) / 4);
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--caption-container {
     margin-top: 30px;
@@ -8410,6 +8410,14 @@ div#cookie-bar p {
   .imagepage .text {
     margin-top: 40px;
   }
+}
+
+.imagepage .text + .pulloutimage > .imagepage--pullout {
+  margin-top: 0;
+}
+
+.imagepage .text + .text {
+  margin-top: 0;
 }
 
 /** REFACTOR MAP **/

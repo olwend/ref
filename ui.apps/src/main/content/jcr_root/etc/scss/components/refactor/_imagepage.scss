@@ -8,7 +8,6 @@
 		margin: 0;
 
 		@media screen and (min-width: $breakpoint--desktop) {
-			padding: 0;
 			margin: auto;
 		}
 
@@ -63,8 +62,8 @@
 		padding: 0;
 
 		p {
-			font-family: font-name(arial);
-			font-size: 16px;
+			font-family: font-name(elysio, regular);
+			font-size: 18px;
 			line-height: 1.5em;
 
 			&:last-child {
@@ -83,10 +82,6 @@
 			font-size: 14px;
 			line-height: 1.5em;
 		}
-	}
-
-	&--tag-header {
-		font-size: 1.5rem;
 	}
 
 	&--title {
@@ -135,6 +130,10 @@
 	}
 
 	&--tags {
+		&-header {
+			font-size: 1.5rem;
+		}
+
 		&-footer {
 			display: inline;
 
@@ -164,13 +163,14 @@
 			margin-top: 40px;
 
 			@media screen and (min-width: $breakpoint--tablet__portrait) {
-				margin-top: 60px;
+				margin-top: 50px;
 			}
 		}
 
 		.imagepage--babyhero-breakout {
 			@media screen and (min-width: $breakpoint--desktop) {
-				margin: 0 -150px;
+				// Take negative value of viewport width, remove width of parent to find gutter width, divide by 4 to find 50% of each gutter
+				margin: 0 calc((-100vw + 100%) / 4);
 			}
 		}
 	}
@@ -188,11 +188,15 @@
 
 		@media screen and (min-width: $breakpoint--desktop) {
 			.imagepage--twoimages-image-left {
-				margin-left: -150px;
+				// Take negative value of viewport width, remove twice width of parent (large-6)
+				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
+				margin-left: calc((-100vw + 200% + 20px) / 4);
 			}
 
 			.imagepage--twoimages-image-right {
-				margin-right: -150px;
+				// Take negative value of viewport width, remove twice width of parent (large-6)
+				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
+				margin-right: calc((-100vw + 200% + 20px) / 4);
 			}
 		}
 
@@ -200,7 +204,7 @@
 			margin-top: 40px;
 
 			@media screen and (min-width: $breakpoint--tablet__portrait) {
-				margin-top: 60px;
+				margin-top: 50px;
 			}
 		}
 
@@ -216,7 +220,7 @@
 			margin-top: 40px;
 
 			@media screen and (min-width: $breakpoint--tablet__portrait) {
-				margin-top: 60px;
+				margin-top: 50px;
 			}
 		}
 
@@ -253,6 +257,7 @@
 
 			@media screen and (min-width: $breakpoint--desktop) {
 				display: block;
+				margin-bottom: 0;
 
 				.imagepage--pullout-image,
 				.imagepage--caption-container {
@@ -260,7 +265,9 @@
 				}
 
 				.imagepage--pullout-image {
-					margin-left: -150px;
+					// Take negative value of viewport width, remove four times width of parent (large-3)
+					// to find side gutter width, divide by 4 to find 50% of each gutter
+					margin-left: calc((-100vw + 400%) / 4);
 				}
 
 				.imagepage--caption-container {
@@ -276,6 +283,16 @@
 
 		@media screen and (min-width: $breakpoint--tablet__portrait) {
 			margin-top: 40px;
+		}
+
+		+ .pulloutimage { // Override top margin when pullout image directly follows text component
+			> .imagepage--pullout {
+				margin-top: 0;
+			}
+		}
+
+		+ .text { // Override top margin when text component directly follows text component
+			margin-top: 0;
 		}
 	}
 }
