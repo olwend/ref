@@ -8396,7 +8396,7 @@ div#cookie-bar p {
     margin-bottom: 0;
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--pullout-image {
-    width: calc(100% - (-1 * ((100vw - 400%) / 4)));
+    width: calc(100% - -1 * ((100vw - 400%) / 4));
   }
   .imagepage .pulloutimage .imagepage--pullout-image-text-container .imagepage--caption-container {
     width: 100%;

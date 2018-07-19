@@ -263,7 +263,7 @@
 
 				.imagepage--pullout-image {
 					// Internet explorer doesn't support `unset`
-					width: calc(100% - (-1 * ((100vw - 400%) / 4)));
+					width: calc(100% - -1 * ((100vw - 400%) / 4));
 				}
 
 				.imagepage--caption-container {
