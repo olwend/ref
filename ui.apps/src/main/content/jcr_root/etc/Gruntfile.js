@@ -129,7 +129,7 @@ grunt.initConfig({
 			}
 		});
 
-	grunt.registerTask('develop', ['sass:web', 'watch']);
+	grunt.registerTask('develop', ['sass:web', 'copy:css', 'watch']);
 	grunt.registerTask('buildjs', ['concat']);
 	grunt.registerTask('develop-foundation', ['sass:foundation', 'watch:foundation']);
 	grunt.registerTask('develop-normalize', ['sass:normalize', 'watch:normalize']);
