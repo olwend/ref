@@ -99,7 +99,8 @@
                     	fieldLabel="Description" 
                     	name="./description" 
                     	width="155" 
-                    	xtype="textfield" />                    
+                    	xtype="textfield" />      
+              	              
                 </items>
             </basic>
         </items>

@@ -35,7 +35,7 @@
 	<div class="js-social-signup social-signup--form-container">
 
 		<div class="social-signup--description">
-			<%=helper.getDataProtection()%>
+			<%=helper.getGdprText()%>
 		</div>
 
 		<form id="newsletter_signup" action="<%=dynamicPageHelper.getProtocol() + hostPort + pathForSignup%>/jcr:content.newslettersignup.html" method="get">
