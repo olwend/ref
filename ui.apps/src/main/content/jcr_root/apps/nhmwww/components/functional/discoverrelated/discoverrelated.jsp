@@ -40,7 +40,8 @@ if(posts == null) { %>
 			Resource postResource = null;
 			String template = postPage.getProperties().get("cq:template", String.class);
 
-					if(template.equals("/apps/nhmwww/templates/articlepage")) {
+					if(template.equals("/apps/nhmwww/templates/articlepage")
+                      	|| template.equals("/apps/nhmwww/templates/imagepage")) {
 						postResource = postPage.getContentResource("article");
 					}
 			if (postResource == null) continue;

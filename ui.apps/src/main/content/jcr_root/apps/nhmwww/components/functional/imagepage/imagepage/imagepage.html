@@ -1,0 +1,94 @@
+<sly data-sly-use.imagepage="uk.ac.nhm.core.model.slingModels.imagePage.ImagePage">
+	<sly data-sly-test="${!imagepage.isConfigured}">
+		<div class="row">
+			<h4>Image page</h4>
+			Required fields:
+			<ul>
+				<li>Image page title</li>
+				<li>Introduction text</li>
+				<li>Snippet</li>
+				<li>Lead image</li>
+			</ul>
+		</div>
+	</sly>
+
+	<sly data-sly-test="${imagepage.isConfigured == true}">
+		<sly data-sly-test="${wcmmode.edit}">
+			<div class="row">
+				<h4>Image page</h4>
+				Edit the image page dialog here
+			</div>
+		</sly>
+
+		<div class="hero">
+			<sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
+		</div>
+
+		<div class="row imagepage--header-text-container">
+			<div class="imagepage--caption-container small-12 medium-12 large-3 columns">
+				<div class="imagepage--caption">${imagepage.leadImageCaption @ context='html'}</div>
+				<div class="imagepage--credit">${imagepage.leadImageCredit @ context='html'}</div>
+			</div>
+
+			<div class="imagepage--info small-12 medium-12 large-9 columns">
+				<div class="imagepage--tags-header">
+					<a data-sly-unwrap="${!imagepage.hubTag['path']}" href="${imagepage.hubTag['path']}">${imagepage.hubTag['title']}</a>
+				</div>
+
+				<h1 class="imagepage--title">${imagepage.title}</h1>
+
+				<dl class="imagepage--metadata">
+					<dt class="show-for-sr">Author:</dt>
+					<dd class="imagepage--author">${imagepage.author}</dd>
+					<dt class="show-for-sr">Date Published:</dt>
+					<dd class="imagepage--datepublished">${imagepage.datePublished}</dd>
+					<dt class="show-for-sr">Date Last Updated:</dt>
+					<dd class="imagepage--datelastupdated">${imagepage.dateLastUpdated}</dd>
+				</dl>
+
+				<div class="imagepage--social-share-header">
+					<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>
+				</div>
+
+				<div class="imagepage--intro">
+					${imagepage.introductionText @ context='html'}
+				</div>
+			</div>
+		</div>
+
+		<div class="hero">
+			<sly data-sly-resource="${'par' @ resourceType='foundation/components/parsys'}"></sly>
+		</div>
+
+		<div class="row">
+			<div class="imagepage--social-share-header">
+				<sly data-sly-resource="${'socialshareheader' @ resourceType='nhmwww/components/functional/socialshare', wcmmode='disabled'}"></sly>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="imagepage--tags-footer">
+				<ul data-sly-list.list="${imagepage.tagList}">
+					<li>
+						<a data-sly-unwrap="${!list['path']}" href="${list['path']}">
+							${list['title']}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="social-signup small-12 medium-12 large-12 columns">
+				<div data-sly-resource="${'socialsignup' @ resourceType='nhmwww/components/functional/social-signup'}" data-sly-unwrap></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 medium-12 large-12 columns">
+				<div data-sly-resource="${'relatedpar' @ resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
+			</div>
+		</div>
+
+	</sly>
+</sly>
