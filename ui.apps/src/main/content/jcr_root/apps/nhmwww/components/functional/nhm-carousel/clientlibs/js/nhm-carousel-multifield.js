@@ -13,7 +13,7 @@
         $(document).on("dialog-ready", function() {
         	
         	var dialogTitle = $('.cq-dialog-header').text();
-        	if(dialogTitle.includes("Image gallery - gallery")) {
+        	if(dialogTitle.includes("Carousel")) {
         		
 	            var mName = $("[" + DATA_EAEM_NESTED + "]").data("name");
 	 

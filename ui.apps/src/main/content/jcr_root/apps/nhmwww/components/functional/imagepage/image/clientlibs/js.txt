@@ -1,4 +1,0 @@
-#base=js
-
-ls.rias.min.js
-lazysizes.min.js
