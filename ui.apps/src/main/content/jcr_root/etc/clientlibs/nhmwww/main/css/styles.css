@@ -5611,8 +5611,8 @@ html.js-noScroll {
 }
 
 .articlefeed a:hover {
-  color: #000000;
-  text-decoration: underline;
+  color: #565656;
+  text-decoration: none;
 }
 
 .articlefeed--title {
@@ -5656,6 +5656,11 @@ html.js-noScroll {
 .articlefeed--item__title {
   font-weight: bold;
   margin-bottom: 0;
+}
+
+.articlefeed--item__title:hover {
+  color: #000000;
+  text-decoration: underline;
 }
 
 .articlefeed--item__excerpt {
@@ -7409,6 +7414,12 @@ div#cookie-bar p {
 }
 
 /** REFACTOR-DISCOVER-ELEMENT PARTIAL **/
+.discover-element a,
+.discover-element a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
 .discover-element .element-title {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #565656;
@@ -7416,6 +7427,7 @@ div#cookie-bar p {
 
 .discover-element .element-title:hover {
   color: #000000;
+  text-decoration: underline;
 }
 
 .discover-element-wrapper {
@@ -11194,6 +11206,10 @@ input.searchGo {
 }
 
 /** HOME THEME PARTIAL **/
+.home {
+  /*WR-1345 discover related accessibiity link fix*/
+}
+
 .home a {
   color: #A1164E;
 }
@@ -11208,6 +11224,18 @@ input.searchGo {
 
 .home .carousel-wrapper .caption {
   background-color: rgba(161, 22, 78, 0.9);
+}
+
+.home .discover-element a,
+.home .discover-element a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
+.home .articlefeed a,
+.home .articlefeed a:hover {
+  color: #565656;
+  text-decoration: none;
 }
 
 /** WR-752 moved from legacy mixin for carousel component refactor **/
