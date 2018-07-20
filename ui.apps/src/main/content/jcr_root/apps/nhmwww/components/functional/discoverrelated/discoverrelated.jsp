@@ -59,25 +59,23 @@ if(posts == null) { %>
 		<li class="discover-element">
 			<div class="discover-element-wrapper">
 				<a href="<%= postPage.getPath() %>.html">
-<%
-			if (helper.isImageHeadType() && helper.isImageConfigured()) {
-				WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
-					WCMMode.PREVIEW.toRequest(slingRequest);
-%>
-				<cq:include path="<%= postResource.getPath() + "/image" %>" resourceType="nhmwww/components/functional/discoverrelatedimage" />
-<%
-				beforeMode.toRequest(slingRequest);
-			} else {
-%>
+		<%
+					if (helper.isImageHeadType() && helper.isImageConfigured()) {
+						WCMMode beforeMode = WCMMode.fromRequest(slingRequest);
+							WCMMode.PREVIEW.toRequest(slingRequest);
+		%>
+						<cq:include path="<%= postResource.getPath() + "/image" %>" resourceType="nhmwww/components/functional/discoverrelatedimage" />
+		<%
+						beforeMode.toRequest(slingRequest);
+					} else {
+		%>
 					<div class="discover-element--video-container">
 						<img class="discover-element--video-icon" src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video">
 						<img class="discover-element--video-thumbnail" src="http://img.youtube.com/vi/<%= helper.getVideo() %>/mqdefault.jpg" alt="<%=helper.getTitle() %>">
 					</div>
 <%
-			}
+					}
 %>
-				</a>
-
 				<div class="discover-element-text">
 
 					<%if(helper.getHubTag() != null) {
@@ -85,11 +83,9 @@ if(posts == null) { %>
 							<div class="element-tag"><%= hubTag.get("title")%></div>
 					<%	} %>
 
-					<div>
-						<a class="element-title" href="<%= postPage.getPath() %>.html">
-							<%= xssAPI.filterHTML(helper.getTitle()) %>
-						</a>
-					</div>
+					<div class="element-title">
+					 <%= xssAPI.filterHTML(helper.getTitle()) %>
+					</div> 
 
 					<div class="element-date">
 						<%= helper.getPublishedDate() %>
@@ -99,7 +95,9 @@ if(posts == null) { %>
 						<%= xssAPI.filterHTML(helper.getSnippet()) %>
 					</div>
 				</div>
+				</a>
 			</div>
+
 		</li>
 <%
 
