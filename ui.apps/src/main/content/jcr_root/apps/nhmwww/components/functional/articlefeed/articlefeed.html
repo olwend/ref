@@ -1,11 +1,11 @@
 <div data-sly-test="${!properties.rootpath || !properties.rowsize}">
 	<div class="row">
-	<h4>Article feed</h4>
-	Required fields:
-	<ul>
-		<li>Path</li>
-		<li>Row size</li>
-	</ul>
+		<h4>Article feed</h4>
+		Required fields:
+		<ul>
+			<li>Path</li>
+			<li>Row size</li>
+		</ul>
 	</div>
 </div>
 
@@ -22,34 +22,35 @@
 			<div data-sly-test="${articlefeed.pageList}">
 				<ul data-sly-list.list="${articlefeed.pageList}" class="small-block-grid-1 medium-block-grid-${articlefeed.mediumColumn} large-block-grid-${articlefeed.largeColumn}">
 					<li data-sly-test="${list.size > 0}">
-						<div class="articlefeed--item">
-							<div class="articlefeed--item__image">
-								<div data-sly-test="${list['imageType'] == 'image'}">
-									<a href="${list['path']}.html">
-										<img data-interchange="
-											[${list['context']}.img.320.medium${list['extension']}, (default)],
-											[${list['context']}.img.480.medium${list['extension']}, (only screen and (max-width: 480px))],
-											[${list['context']}.img.620.high${list['extension']}, (only screen and (min-width: 481px))],
-											[${list['context']}.img.320.medium${list['extension']}, (only screen and (min-width: 1025px))],">
-									</a>
-								</div>
-								<div data-sly-test="${list['imageType'] == 'video'}">
-									<a href="${list['path']}.html">
+						<div class="articlefeed--item"> <a href="${list['path']}.html"> 
+								<div class="articlefeed--item__image"> 
+									<div data-sly-test="${list['imageType'] == 'image'}">
+										<picture>
+											<source media="(max-width: 480px)" 
+													srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
+											<source media="(min-width: 481px) and (max-width: 1024px)"
+													srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.620.620.jpeg 1024w" />
+											<source media="(min-width: 1025px)"
+													srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
+											<img src="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" />
+										</picture>
+									</div>
+									<div data-sly-test="${list['imageType'] == 'video'}">
 										<div class="articlefeed--video-container">
 											<img class="articlefeed--video-icon" src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video">
 											<img class="articlefeed--video-image" src="${list['imagePath']}">
 										</div>
-									</a>
+									</div>
 								</div>
-							</div>
-							<div class="articlefeed--item__text">
-								<p class="articlefeed--item__hubtag" data-sly-test="${list['hubtag']}">${list['hubtag']}</p>
-								<p class="articlefeed--item__title">
-									<a href="${list['path']}.html">${list['title'] @ context='html'}</a>
-								</p>
-								<p class="articlefeed--item__date">${list['datepublished']}</p>
-								<p class="articlefeed--item__excerpt">${list['excerpt'] @ context='html'}</p>
-							</div>
+								<div class="articlefeed--item__text">
+									<p class="articlefeed--item__hubtag" data-sly-test="${list['hubtag']}">${list['hubtag']}</p>
+									<p class="articlefeed--item__title">
+										${list['title'] @ context='html'} 
+									</p>
+									<p class="articlefeed--item__date">${list['datepublished']}</p>
+									<p class="articlefeed--item__excerpt">${list['excerpt'] @ context='html'}</p>
+								</div>
+							</a>
 						</div>
 					</li>
 				</ul>

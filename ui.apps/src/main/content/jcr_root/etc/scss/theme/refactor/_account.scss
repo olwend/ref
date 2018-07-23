@@ -1,0 +1,124 @@
+.account {
+	.title-bar {
+		background-color: color-palette(account, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(account, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(account, base);
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(account, base);
+
+		&:hover {
+			background-color: color-palette(account, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(account, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(account, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(account, 10pc);
+
+				a {
+					color: color-palette(account, base);
+
+					&:hover {
+						color: color-palette(account, base);
+						background-color: color-palette(account, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(account, 25pc);
+						color: color-palette(account, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(account, 25pc);
+
+					a {
+						color: color-palette(account, base);
+
+						&:hover {
+							color: color-palette(account, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.account {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-account.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-account.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.account {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(account, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(account, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(account, base);
+		}
+	}
+}

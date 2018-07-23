@@ -1,0 +1,13 @@
+// from legacy _components.scss
+// ensure that captions are properly positioned relative to the containing element
+// this should only apply to
+.foundation5image {
+	position: relative;
+
+	.caption {
+		h2 {
+			margin-bottom: 0.2rem;
+			padding-bottom: 0;
+		}
+	}
+}

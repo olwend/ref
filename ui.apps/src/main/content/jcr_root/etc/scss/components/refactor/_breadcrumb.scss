@@ -1,0 +1,18 @@
+.breadcrumb {
+	background-color: $color--black;
+	color: $color--white;
+	font-size: 0.875em;
+	padding: $padding-TB / 2;
+
+	a {
+		color: color-palette(grey-color, mid-light);
+
+		&:hover {
+			color: color-palette(grey-color, mid-light);
+		}
+	}
+
+	.row {
+		margin-bottom: 0;
+	}
+}

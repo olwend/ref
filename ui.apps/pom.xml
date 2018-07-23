@@ -62,6 +62,12 @@
 					<exclude>**/jcr_root/etc/clientlibs/**/*.js</exclude>
 					<exclude>**/jcr_root/etc/designs/**/*.css</exclude>
 					<exclude>**/jcr_root/etc/designs/**/*.js</exclude>
+					<exclude>**/etc/scss/**</exclude>
+					<exclude>**/etc/node_modules/**</exclude>
+					<exclude>**/etc/Gruntfile.js</exclude>
+					<exclude>**/etc/gruntfile-dynamicapps.js</exclude>
+					<exclude>**/etc/package.json</exclude>
+					<exclude>**/etc/package-lock.json</exclude>
 				</excludes>
 			</resource>
 		</resources>

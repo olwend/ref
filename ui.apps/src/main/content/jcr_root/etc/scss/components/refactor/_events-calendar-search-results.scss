@@ -1,0 +1,21 @@
+.event--calendar--search--result {
+	.event--calendar--search--result--title {
+		padding: 0.5em 0.7em 0 0.7em;
+	}
+
+	.event--calendar--search--result--description {
+		max-height: 6.2em;
+	}
+
+	.event--calendar--search--result--item--content {
+		padding: ($padding-TB / 2) 1.25em;
+	}
+
+	.event--calendar--search--result--content--text {
+		margin-bottom: 0.4em;
+	}
+}
+
+.event--calendar--search--result--main--title {
+	padding-left: 0.8em;
+}

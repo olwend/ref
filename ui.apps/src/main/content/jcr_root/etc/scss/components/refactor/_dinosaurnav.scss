@@ -1,0 +1,225 @@
+.dinosaurnav {
+	margin: 0 10px;
+
+	a {
+		color: color-palette(grey-color, dark);
+		text-decoration: underline;
+
+		&:hover {
+			color: $color--black;
+		}
+	}
+
+	&--search-form {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin: 25px 0 10px 0;
+		border: 3px solid color-palette(grey-color, base);
+		font-family: font-name(elysio, light);
+
+		input,
+		button {
+			margin: 0;
+		}
+
+		input {
+			height: 40px;
+			font-size: 20px;
+			line-height: 24px;
+			border: none;
+			padding: 10px 10px 6px 10px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) and (max-width: $breakpoint--tablet__landscape) {
+				font-size: 15px;
+			}
+
+			&::placeholder,
+			::-webkit-input-placeholder,
+			:-ms-input-placeholder {
+				color: color-palette(grey-color, dark);
+				opacity: 1;
+			}
+		}
+	}
+
+	&--search-button {
+		padding: 0;
+		min-width: 40px;
+		height: 40px;
+		background-color: $color--white;
+		border: none;
+		border-left: 3px solid color-palette(grey-color, base);
+		background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search.png");
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		&:hover,
+		&:focus {
+			background-color: color-palette(grey-color, base);
+			background-image: url("/etc/designs/nhmwww/img/png-icons/dinonav-search-inverted.png");
+		}
+	}
+
+	&--categories-container {
+		border: 3px solid color-palette(grey-color, base);
+		padding: 5px 10px;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			border: none;
+			padding: 0;
+		}
+	}
+
+	&--categories {
+		display: none;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: block;
+		}
+	}
+
+	&--categories-container-icon {
+		position: absolute;
+		right: 23px;
+		margin-top: 5px;
+		z-index: -1;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: none;
+		}
+	}
+
+	&--button {
+		width: 80%;
+		text-align: left;
+		border: none;
+		background-color: $color--white;
+		color: color-palette(grey-color, dark);
+		padding: 2px 0;
+
+		&:hover,
+		&:focus {
+			background-color: $color--white;
+			color: color-palette(grey-color, dark);
+		}
+	}
+
+	&--description {
+		font-family: font-name(elysio, light);
+		font-size: 20px;
+		line-height: 24px;
+		margin: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			margin: 20px 0 10px 0;
+		}
+	}
+
+	&--category-title-container {
+		cursor: pointer;
+		color: color-palette(grey-color, dark);
+
+		&:hover {
+			color: $color--black;
+		}
+	}
+
+	&--category-title {
+		font-family: font-name(elysio, medium);
+		font-size: 20px;
+		line-height: 24px;
+		display: inline-block;
+		margin: 10px;
+	}
+
+	&--category-icon {
+		margin-bottom: 5px;
+	}
+
+	&--category {
+		margin-left: 30px;
+	}
+
+	&--category-list {
+		margin: 0;
+
+		li {
+			font-family: font-name(elysio, light);
+			font-size: 18px;
+			line-height: 26px;
+			height: 100%;
+			text-decoration: underline;
+			color: color-palette(grey-color, dark);
+
+			&:hover {
+				color: $color--black;
+			}
+		}
+	}
+
+	&--category-list-link {
+		font-family: font-name(elysio, light);
+		font-size: 18px;
+		line-height: 26px;
+		padding-bottom: 10px;
+		text-decoration: underline;
+		color: color-palette(grey-color, dark);
+
+		&:hover {
+			color: $color--black;
+		}
+	}
+
+	&--category-country {
+		max-height: 200px;
+		overflow-y: scroll;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			max-height: 300px;
+		}
+
+		&::-webkit-scrollbar {
+			width: 20px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: $color--white;
+		}
+
+		&::-webkit-scrollbar-thumb,
+		&::-webkit-scrollbar-thumb:window-inactive {
+			width: 8px;
+			border-right: 10px solid $color--white;
+			border-top: 5px solid $color--white;
+			border-bottom: 5px solid $color--white;
+			background: color-palette(grey-color, mid-dark);
+		}
+	}
+
+	&--category-az {
+		margin-left: 15px;
+
+		.dinosaurnav--category-list {
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			a {
+				flex-basis: 40px;
+				text-align: center;
+			}
+		}
+
+		.dinosaurnav--category-list-link {
+			line-height: 30px;
+		}
+	}
+
+	&--category,
+	&--icon-contract {
+		display: none;
+	}
+}

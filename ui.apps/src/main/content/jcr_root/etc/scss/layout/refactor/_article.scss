@@ -1,0 +1,183 @@
+.article {
+	.row {
+		width: 100%;
+	}
+
+	&--image-caption,
+	&--container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	&--image-caption {
+		font-family: font-name(elysio, regular);
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&--tags {
+		&-header {
+			font-family: font-name(elysio, thin);
+			padding-bottom: 15px;
+			font-size: 1.5rem;
+		}
+
+		&-footer {
+			li {
+				background-color: color-palette(grey-color, light);
+				float: left;
+				margin: 0 8px 20px 0;
+				padding: 3px 10px;
+				border-radius: 10px;
+				font-weight: bold;
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@media screen and (min-width: $breakpoint--tablet__portrait) {
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	&--title {
+		&-header {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-bottom: 14px;
+		}
+	}
+
+	&--header-container {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 22px;
+
+		@media screen and (min-width: $breakpoint--phone-small__landscape) {
+			flex-direction: row;
+			justify-content: space-between;
+			margin-bottom: 30px;
+		}
+	}
+
+	&--meta {
+		&-container {
+			font-family: font-name(elysio, light);
+			padding-bottom: 22px;
+
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				padding-bottom: 0;
+			}
+		}
+
+		&-author {
+			padding-bottom: 9px;
+		}
+	}
+
+	&--social-share {
+		&-header,
+		&-footer {
+			.social-share--container {
+				padding: 0;
+				height: 25px;
+				min-height: 25px;
+
+				.social-share--title {
+					padding-bottom: 15px;
+				}
+
+				.social-share--icons div {
+					margin-right: 8px;
+					max-width: 30px;
+					max-height: 30px;
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					@media screen and (min-width: $breakpoint--tablet__landscape) {
+						max-width: 35px;
+						max-height: 35px;
+					}
+
+					img {
+						margin: 0;
+						max-width: 40px;
+						max-height: 30px;
+					}
+				}
+			}
+		}
+
+		&-header {
+			@media screen and (min-width: $breakpoint--phone-small__landscape) {
+				align-self: flex-end;
+				padding-top: 0;
+			}
+
+			.social-share--container {
+				@media screen and (min-width: $breakpoint--desktop) {
+					align-items: flex-end;
+				}
+
+				.social-share--title p {
+					font-family: font-name(elysio, light);
+					margin-bottom: 0;
+
+					@media screen and (min-width: $breakpoint--desktop) {
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+
+		&-footer {
+			.social-share--container {
+				align-items: flex-end;
+			}
+		}
+	}
+
+	&--introduction {
+		font-family: font-name(elysio, light);
+		font-size: 1.3rem;
+		margin-top: 0;
+
+		p {
+			margin-bottom: 30px;
+		}
+	}
+
+	&--content {
+		.parbase {
+			padding: 0;
+		}
+
+		.image {
+			margin-bottom: 1em;
+		}
+	}
+
+	&--hr-footer {
+		border-color: $color--black;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.socialsignup {
+		margin: 0 20px;
+
+		.social-signup--title-header {
+			padding: 0 20px;
+		}
+	}
+
+	.discover-video {
+		margin-bottom: 15px;
+	}
+}

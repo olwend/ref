@@ -1,0 +1,141 @@
+.social-signup {
+	&--title {
+		font-family: font-name(elysio, light);
+		padding: 0 ($padding-RL / 2);
+	}
+
+	&--form-container {
+		padding: 20px;
+		background-color: color-palette(grey-color,dark);
+		color: $color--white;
+	}
+
+	&--description {
+		p {
+			font-family: font-name(elysio, light);
+			font-size: 20px;
+			line-height: 26px;
+		}
+
+		a {
+			color: $color--white !important;
+			border-bottom: 1px dotted $color--white;
+
+			&:hover {
+				color: $color--white;
+				border-bottom: 1px solid $color--white;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.js-social-signup--medium {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		.social-signup--firstname,
+		.social-signup--lastname {
+			width: 50%;
+		}
+
+		.social-signup--email {
+			width: 65%;
+		}
+
+		.social-signup--submit {
+			width: 35%;
+		}
+
+		.social-signup--firstname,
+		.social-signup--email {
+			padding-right: 10px;
+		}
+
+		.social-signup--lastname,
+		.social-signup--submit {
+			padding-left: 10px;
+		}
+	}
+
+	.js-social-signup--large {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+
+		.social-signup--firstname,
+		.social-signup--lastname,
+		.social-signup--email,
+		.social-signup--submit {
+			width: 25%;
+		}
+
+		.social-signup--firstname,
+		.social-signup--lastname,
+		.social-signup--email {
+			padding-right: 10px;
+		}
+
+		.social-signup--lastname,
+		.social-signup--email,
+		.social-signup--submit {
+			padding-left: 10px;
+		}
+	}
+
+	&--link-icons {
+		p {
+			font-family: font-name(arial);
+			font-size: 16px;
+			margin-bottom: 8px;
+		}
+
+		a {
+			border-bottom: 0;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	&--img__social {
+		max-height: 40px;
+		max-width: 14%;
+		padding: 0 2px;
+	}
+
+	.errors {
+		background-color: #F5E6E6;
+		border: 2px solid #AE3C39;
+		padding: $padding-RL / 2;
+		color: #AE3C39;
+		font-size: 0.875em;
+		line-height: 1.5;
+		display: none;
+		width: 100%;
+		margin-bottom: 0.5em;
+	}
+}
+
+.button__newsletter-signup {
+	width: 100%;
+	background-color: color-palette(grey-color, dark);
+	border: 2px solid $color--white;
+	max-height: 37px;
+	padding-top: 7px;
+	padding-right: 1rem;
+	padding-left: 1rem;
+
+	&:hover,
+	&:focus {
+		background-color: color-palette(grey-color, dark);
+	}
+}
+
+// WR-1366 moved from core/legacy/_misc.scss
+input.question {
+	display: none; //honeypot field
+}

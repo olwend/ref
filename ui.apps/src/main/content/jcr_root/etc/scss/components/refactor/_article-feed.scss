@@ -1,0 +1,121 @@
+.discover {
+	.row {
+		width: 100%;
+
+		.row {
+			margin: 0;
+		}
+	}
+
+	.main-section {
+		margin-bottom: $padding-TB;
+	}
+
+	.discover-image {
+		margin-bottom: $padding-TB;
+	}
+}
+
+.articlefeed {
+	a {
+		color: color-palette(grey-color, dark);
+
+		&:hover {
+			color: color-palette(grey-color, dark);
+			text-decoration: none;
+		}
+	}
+
+	&--title {
+		padding-left: 20px;
+
+		h2 {
+			font-size: 1.5em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.8em;
+			}
+		}
+	}
+
+	&--item {
+		background-color: color-palette(grey-color, light);
+
+		&__image {
+			text-align: center;
+
+			img {
+				width: 100%; // Used to upscale YT thumbnails to full width
+			}
+		}
+
+		&__text {
+			padding: $padding-TB;
+
+			p {
+				font-size: 1rem;
+			}
+		}
+
+		&__hubtag {
+			margin-bottom: $padding-TB;
+		}
+
+		&__title {
+			font-weight: bold;
+			margin-bottom: 0;
+
+			&:hover {
+			color: $color--black;
+			text-decoration: underline;
+			}
+		}
+
+		&__excerpt {
+			margin-bottom: 0;
+		}
+	}
+
+	&--video {
+		&-container {
+			position: relative; // allows positioning the youtube icon
+		}
+
+		&-icon {
+			position: absolute;
+			right: $padding-TB;
+			bottom: $padding-TB;
+			max-width: 40px;
+		}
+	}
+
+	&--read-more-link {
+		font-family: font-name(elysio, light);
+		text-align: center;
+		margin-bottom : 0.5rem;
+
+		 a {
+			border: 5px solid color-palette(grey-color, base);
+			padding: 10px 10px 5px 10px;
+			font-size: 1.2rem;
+
+			&:hover {
+				background-color: color-palette(grey-color, base);
+				color: $color--white;
+				text-decoration: none;
+			}
+
+			&:focus,
+			&:active {
+				border: 5px solid color-palette(grey-color, dark);
+			}
+		}
+	}
+}
+
+.articlefeed__full-width {
+	margin: 0 20px;
+}
+
+
+
