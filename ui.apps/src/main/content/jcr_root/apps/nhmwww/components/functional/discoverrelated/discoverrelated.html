@@ -8,16 +8,16 @@
 	</div>
 </div>
 
-<div data-sly-test="${properties.posts}">
+<sly data-sly-test="${properties.posts}">
 	<div data-sly-use.discoverrelated="uk.ac.nhm.core.model.slingModels.DiscoverRelated" class="discover">
 		<h3 class="discover-related--title">${properties.title}</h3>
 		<ul class="related-posts--container small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-sly-list.list="${discoverrelated.pageList}">
 			<li class="discover-element">
 				<div class="discover-element-wrapper">
 					<a href="${list['path']}.html">
-						<div data-sly-test="${list['imageType'] == 'image'}">
+						<div class="discover-element--image" data-sly-test="${list['imageType'] == 'image'}">
 							<picture>
-								<source media="(max-width: 480px)" 
+								<source media="(max-width: 480px)"
 										srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
 								<source media="(min-width: 481px) and (max-width: 1024px)"
 										srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.620.620.jpeg 1024w" />
@@ -38,7 +38,7 @@
 
 							<div class="element-title">
 								${list['title'] @ context='html'}
-							</div> 
+							</div>
 
 							<div class="element-date">
 								${list['datepublished']}
@@ -53,4 +53,4 @@
 			</li>
 		</ul>
 	</div>
-</div>
+</sly>
