@@ -29,8 +29,8 @@ public class TwoImages {
 	@Inject
 	SlingHttpServletRequest request;
 
-	public String fileReference1 = null;
-	public String fileReference2 = null;
+	private String fileReference1 = null;
+	private String fileReference2 = null;
 	
 	private Resource imageResource1; 
 	private Resource imageResource2;

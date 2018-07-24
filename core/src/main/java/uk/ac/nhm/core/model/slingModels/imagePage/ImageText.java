@@ -28,7 +28,7 @@ public class ImageText {
 	@Inject
 	SlingHttpServletRequest request;
 	
-	public String fileReference = null;
+	private String fileReference = null;
 	
 	private Resource imageResource; 
 

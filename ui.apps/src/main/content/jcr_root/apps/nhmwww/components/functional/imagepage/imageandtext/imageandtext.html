@@ -12,14 +12,26 @@
 	<sly data-sly-test="${imagetext.isConfigured}">
 		<sly data-sly-test="${properties.rowlayout=='herosection'}">
 			<div class="hero imagepage--hero">
-				<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+				<picture>
+				<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+				<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+				<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" media="(min-width: 769px) and (max-width: 1160px)" />
+				<source srcset="${imagetext.fileReference}" />
+				<img src="${imagetext.fileReference}" alt="${image.alt}" />
+			</picture>
 			</div>
 		</sly>
 
 		<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
 			<div class="row imagepage--babyhero">
 				<div class="small-12 columns">
-					<div class="imagepage--babyhero-breakout" data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+					<picture>
+				<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+				<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+				<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" media="(min-width: 769px) and (max-width: 1160px)" />
+				<source srcset="${imagetext.fileReference}" />
+				<img src="${imagetext.fileReference}" alt="${image.alt}" />
+			</picture>
 				</div>
 			</div>
 		</sly>
