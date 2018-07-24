@@ -16,8 +16,12 @@
 		margin: 0;
 	}
 
-	&--header-text-container &--caption-container {
+	&--header-text-container &--caption {
 		display: none;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: block;
+		}
 	}
 
 	&--header-text-container,

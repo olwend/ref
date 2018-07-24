@@ -8154,8 +8154,14 @@ div#cookie-bar p {
   margin: 0;
 }
 
-.imagepage--header-text-container .imagepage--caption-container {
+.imagepage--header-text-container .imagepage--caption {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .imagepage--header-text-container .imagepage--caption {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 768px) {
