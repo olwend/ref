@@ -90,7 +90,7 @@
 				<li><a href="/content/nhmwww/en/home/discover/dinosaurs.html" data-gtm="subnav-link">Dinosaurs</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/collections.html" data-gtm="subnav-link">Collections</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a></li>
-				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
+				<li><a href="https://naturalhistorymuseum.blog" data-gtm="subnav-link">Blog</a></li>
 			</ul>
 		</div>
 	</div>
