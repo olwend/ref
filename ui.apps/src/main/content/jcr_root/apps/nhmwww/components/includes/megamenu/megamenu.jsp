@@ -124,7 +124,7 @@
 				</form>
 
 			<div class="global-header--search-bar__popular-search-terms">
-				<h3 class="global-header--search-bar__heading">Popular search terms:</h3>
+				<h5 class="global-header--search-bar__heading">Popular search terms:</h5>
 				<ul>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/life-in-the-dark.html">Life in the Dark</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/sensational-butterflies.html">Sensational Butterflies</a></li>
