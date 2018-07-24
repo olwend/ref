@@ -43,7 +43,7 @@
 									<a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a>
 								</li>
 								<li class="global-header--menu__subnav-discover" data-gtm="subnav-link">
-									<a href="https://blog.nhm.ac.uk/">Blog</a>
+									<a href="https://naturalhistorymuseum.blog/">Blog</a>
 								</li>
 						<li class="global-header--nav-list__item link-take-part">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/take-part.html">Take part</a>
