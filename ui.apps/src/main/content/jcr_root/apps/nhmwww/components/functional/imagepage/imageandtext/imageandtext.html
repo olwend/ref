@@ -27,7 +27,12 @@
 		<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
 			<div class="row imagepage--fullwidth">
 				<div class="small-12 columns">
-					<div data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+					<picture>
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+                		<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" />
+						<img src="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" alt="${image.alt}" />
+					</picture>
 				</div>
 			</div>
 		</sly>
