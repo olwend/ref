@@ -45,14 +45,18 @@ public class TwoImages {
 		imageResource2 = resourceResolver.getResource(imagePathItemsPath2);
 		
 		//Set model variables to export to view
-		ValueMap map1 = imageResource1.adaptTo(ValueMap.class);
-		if(map1.containsKey("fileReference")) {
-			fileReference1 = map1.get("fileReference", String.class);
+		if(imageResource1 != null) {
+			ValueMap map1 = imageResource1.adaptTo(ValueMap.class);
+			if(map1.containsKey("fileReference")) {
+				fileReference1 = map1.get("fileReference", String.class);
+			}
 		}
 		
-		ValueMap map2 = imageResource2.adaptTo(ValueMap.class);
-		if(map2.containsKey("fileReference")) {
-			fileReference2 = map2.get("fileReference", String.class);
+		if(imageResource2 != null) {
+			ValueMap map2 = imageResource2.adaptTo(ValueMap.class);
+			if(map2.containsKey("fileReference")) {
+				fileReference2 = map2.get("fileReference", String.class);
+			}
 		}
 	}
 

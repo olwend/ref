@@ -40,9 +40,11 @@ public class PulloutImage {
 		imageResource = resourceResolver.getResource(imagePath);
 		
 		//Set model variables to export to view
-		ValueMap map = imageResource.adaptTo(ValueMap.class);
-		if(map.containsKey("fileReference")) {
-			fileReference = map.get("fileReference", String.class);
+		if(imageResource != null) {
+			ValueMap map = imageResource.adaptTo(ValueMap.class);
+			if(map.containsKey("fileReference")) {
+				fileReference = map.get("fileReference", String.class);
+			}
 		}
 	}
 
