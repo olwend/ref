@@ -21,8 +21,8 @@
 		color: color-palette(grey-color, dark);
 
 		&:hover {
-			color: $color--black;
-			text-decoration: underline;
+			color: color-palette(grey-color, dark);
+			text-decoration: none;
 		}
 	}
 
@@ -46,7 +46,6 @@
 
 			img {
 				width: 100%; // Used to upscale YT thumbnails to full width
-
 			}
 		}
 
@@ -65,6 +64,11 @@
 		&__title {
 			font-weight: bold;
 			margin-bottom: 0;
+
+			&:hover {
+			color: $color--black;
+			text-decoration: underline;
+			}
 		}
 
 		&__excerpt {
@@ -75,7 +79,6 @@
 	&--video {
 		&-container {
 			position: relative; // allows positioning the youtube icon
-
 		}
 
 		&-icon {
