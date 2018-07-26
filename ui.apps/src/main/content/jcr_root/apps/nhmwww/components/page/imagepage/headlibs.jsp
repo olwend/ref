@@ -1,4 +1,4 @@
-<%@ include file="/apps/nhmwww/components/page/defaultpage/headlibincludes/globalinclude.jsp" %>
+<%@ include file="/apps/nhmwww/components/page/imagepage/headlibincludes/globalinclude.jsp" %>
 
 <script>
 // WR-1042 - YouTube API was loading quicker than page DOM, causing a "YT.Player is not a constructor" error and stopping Discover captions from being displayed on-click.
