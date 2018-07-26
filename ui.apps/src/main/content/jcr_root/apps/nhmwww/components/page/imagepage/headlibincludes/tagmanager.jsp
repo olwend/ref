@@ -11,9 +11,9 @@
 <!-- WR-1074 - add Google Optimise for A/B testing -->
 <!-- Initialise the dataLayer -->
 <%if(hubTagMap != null) { %>
-<script>dataLayer = ['primaryHubTag':'<%=hubTagMap.get("title")%>'];</script>
+<script>dataLayer = [{'primaryHubTag':'<%=hubTagMap.get("title")%>'}];</script>
 <%} else { %>
-<script>dataLayer = ['primaryHubTag':''];</script>
+<script>dataLayer = [{'primaryHubTag':''}];</script>
 <%} %>
 
 <!-- Page hiding snippet -->
