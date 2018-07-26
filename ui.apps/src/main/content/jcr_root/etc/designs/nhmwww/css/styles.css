@@ -9959,7 +9959,7 @@ a.button-cta {
 }
 
 .science-profiles-detail-page--tabs-container .tab-title.active a {
-  color: #357900;
+  color: #2C6100;
   background-color: #EEEEEE;
 }
 
@@ -11262,82 +11262,82 @@ input.searchGo {
 }
 
 .our-science .title-bar {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 .our-science h1 {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .intro-text {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .linklist--container--header a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .linklist--link-items li a:hover {
-  border-bottom-color: #357900;
+  border-bottom-color: #2C6100;
 }
 
 .our-science .linklist--column--header a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .button__enews-signup {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 .our-science .button__enews-signup:hover {
-  background-color: rgba(53, 121, 0, 0.75);
+  background-color: rgba(44, 97, 0, 0.75);
 }
 
 .our-science .button__enews-signup:focus {
-  background-color: rgba(53, 121, 0, 0.75);
+  background-color: rgba(44, 97, 0, 0.75);
 }
 
 .our-science .carousel .caption {
-  background-color: rgba(53, 121, 0, 0.9);
+  background-color: rgba(44, 97, 0, 0.9);
 }
 
 .our-science .secondary-nav-wrapper .side-nav li {
-  background-color: rgba(53, 121, 0, 0.1);
+  background-color: rgba(44, 97, 0, 0.1);
 }
 
 .our-science .secondary-nav-wrapper .side-nav li a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .secondary-nav-wrapper .side-nav li a:hover {
-  color: #357900;
-  background-color: rgba(53, 121, 0, 0.25);
+  color: #2C6100;
+  background-color: rgba(44, 97, 0, 0.25);
 }
 
 .our-science .secondary-nav-wrapper .side-nav li a:focus {
-  background-color: rgba(53, 121, 0, 0.25);
-  color: #357900;
+  background-color: rgba(44, 97, 0, 0.25);
+  color: #2C6100;
 }
 
 .our-science .secondary-nav-wrapper .side-nav li.selected {
-  background-color: rgba(53, 121, 0, 0.25);
+  background-color: rgba(44, 97, 0, 0.25);
 }
 
 .our-science .secondary-nav-wrapper .side-nav li.selected a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .secondary-nav-wrapper .side-nav li.selected a:hover {
-  color: #357900;
+  color: #2C6100;
 }
 
 /* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
 .our-science .ctabutton--inside-hti--cta-text {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .hti-box__feature-box {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 /** WR-737 Moved from legacy mixin for Accordion component refactor **/
@@ -11363,11 +11363,11 @@ input.searchGo {
 
 /** WR-752 moved from legacy mixin for carousel component refactor **/
 .our-science .lSAction a:hover {
-  background-color: rgba(53, 121, 0, 0.7);
+  background-color: rgba(44, 97, 0, 0.7);
 }
 
 .our-science .lSSlideOuter .lSPager.lSpg > li.active a {
-  border: 2px solid #357900;
+  border: 2px solid #2C6100;
 }
 
 .our-science .event-slide-content {
@@ -11375,32 +11375,32 @@ input.searchGo {
 }
 
 .our-science .event-slide-content a {
-  color: #357900;
+  color: #2C6100;
 }
 
 /** NHMEC-4 Added style to the search result <a> **/
 .our-science .event--calendar--search--result a {
-  color: #357900;
+  color: #2C6100;
 }
 
 /** Needed for the image and CTA component NHMEC-8 **/
 .our-science .image--and--cta--wrapper,
 .our-science .image--and--cta--wrapper .cta--wrapper .cta--text {
-  color: #357900;
+  color: #2C6100;
 }
 
 /** NHMEC-52 Event schedule component**/
 .our-science .event--schedule--wrapper .event--schedule--title {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 .our-science .event--schedule--wrapper .event--schedule--tbody {
-  color: #357900;
+  color: #2C6100;
 }
 
 /** WR-1060: Header theme fix - move megamenu theme variables to theme partials **/
 .global-header--nav-list__item:hover.link-our-science, .global-header--nav-list__item.menuSelected.link-our-science {
-  border-bottom-color: #357900;
+  border-bottom-color: #2C6100;
 }
 
 /** PRESS OFFICE THEME PARTIAL **/
