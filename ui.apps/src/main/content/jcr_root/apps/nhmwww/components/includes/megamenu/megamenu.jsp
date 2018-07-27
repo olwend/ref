@@ -43,7 +43,7 @@
 									<a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a>
 								</li>
 								<li class="global-header--menu__subnav-discover" data-gtm="subnav-link">
-									<a href="https://blog.nhm.ac.uk/">Blog</a>
+									<a href="https://naturalhistorymuseum.blog/">Blog</a>
 								</li>
 						<li class="global-header--nav-list__item link-take-part">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/take-part.html">Take part</a>
@@ -90,7 +90,7 @@
 				<li><a href="/content/nhmwww/en/home/discover/dinosaurs.html" data-gtm="subnav-link">Dinosaurs</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/collections.html" data-gtm="subnav-link">Collections</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a></li>
-				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
+				<li><a href="https://naturalhistorymuseum.blog" data-gtm="subnav-link">Blog</a></li>
 			</ul>
 		</div>
 	</div>
@@ -124,14 +124,14 @@
 				</form>
 
 			<div class="global-header--search-bar__popular-search-terms">
-				<h2 class="global-header--search-bar__heading">Popular search terms:</h2>
+				<h5 class="global-header--search-bar__heading">Popular search terms:</h5>
 				<ul>
-					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html">Wildlife Photographer of the Year</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/life-in-the-dark.html">Life in the Dark</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/sensational-butterflies.html">Sensational Butterflies</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/dinosaurs.html">Dinosaurs</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/space.html">Space</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/human-evolution.html">Human evolution</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/dippy-on-tour.html">Dippy on Tour</a></li>
-					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a bug</a></li>
 				</ul>
 			</div>
 		</div>
