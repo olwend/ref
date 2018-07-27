@@ -2,7 +2,6 @@ package uk.ac.nhm.core.model.slingModels.imagePage;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 
@@ -29,9 +28,23 @@ public class ImageText {
 	@Inject
 	SlingHttpServletRequest request;
 	
+	private String fileReference = null;
+	
+	private Resource imageResource; 
+
 	@PostConstruct
 	protected void init() throws JSONException, PathNotFoundException, RepositoryException {
+		//Set global imageResource
+		String imagePath = request.getResource().getPath() + "/image";
+		imageResource = resourceResolver.getResource(imagePath);
 		
+		//Set model variables to export to view
+		if(imageResource != null) {
+			ValueMap map = imageResource.adaptTo(ValueMap.class);
+			if(map.containsKey("fileReference")) {
+				fileReference = map.get("fileReference", String.class);
+			}
+		}
 	}
 
 	protected boolean getConfigured(Resource imageResource) throws RepositoryException {
@@ -46,10 +59,15 @@ public class ImageText {
 	}
 	
 	public boolean isConfigured() throws RepositoryException {
-		String imagePath = request.getResource().getPath() + "/image";
-		Resource imageResource = resourceResolver.getResource(imagePath);
-		
 		return getConfigured(imageResource);
+	}
+	
+	public String getFileReference() {
+		return this.fileReference;
+	}
+	
+	public void setFileReference(String fileReference) {
+		this.fileReference = fileReference;
 	}
 
 }

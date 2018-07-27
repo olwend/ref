@@ -51,6 +51,7 @@ public class ImagePage {
 	public static final String TITLE_ATTRIBUTE_NAME 		= "jcr:title";
 	
 	private String author = null;
+	private String fileReference = null;
 	private String leadImageCaption = null;
 	private String leadImageCredit = null;
 	private String datePublished = null;
@@ -58,12 +59,24 @@ public class ImagePage {
 	private String introductionText = null;
 	private String snippet = null;
 	private String title = null;
+	
+	private Resource imageResource;
 
 	private Map<String, String> hubTag = null;
 	private List<Map<String, String>> tagList = null;
 	
 	@PostConstruct
 	protected void init() throws JSONException, PathNotFoundException, RepositoryException {
+		String imagePath = request.getResource().getPath() + "/image";
+		imageResource = resourceResolver.getResource(imagePath);
+		
+		//Set model variables to export to view
+		if(imageResource != null) {
+			ValueMap map = imageResource.adaptTo(ValueMap.class);
+			if(map.containsKey("fileReference")) {
+				fileReference = map.get("fileReference", String.class);
+			}
+		}
 		
 		TagManager tagMgr = resourceResolver.adaptTo(TagManager.class);
 		
@@ -130,9 +143,6 @@ public class ImagePage {
 	}
 	
 	public boolean isConfigured() throws ValueFormatException, PathNotFoundException, RepositoryException {
-		String imagePath = request.getResource().getPath() + "/image";
-		Resource imageResource = resourceResolver.getResource(imagePath);
-		
 		if(this.properties != null
 					&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 					&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
@@ -150,6 +160,14 @@ public class ImagePage {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getFileReference() {
+		return fileReference;
+	}
+
+	public void setFileReference(String fileReference) {
+		this.fileReference = fileReference;
 	}
 
 	public String getLeadImageCaption() {

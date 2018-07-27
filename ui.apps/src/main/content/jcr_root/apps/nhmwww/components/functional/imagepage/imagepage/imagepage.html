@@ -21,7 +21,13 @@
 		</sly>
 
 		<div class="hero">
-			<sly data-sly-resource="${'image' @ wcmmode='disabled'}"></sly>
+			<picture>
+				<source srcset="${imagepage.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+				<source srcset="${imagepage.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+				<source srcset="${imagepage.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" media="(min-width: 769px) and (max-width: 1160px)" />
+				<source srcset="${imagepage.fileReference}" />
+				<img src="${imagepage.fileReference}" alt="${image.alt}" />
+			</picture>
 		</div>
 
 		<div class="row imagepage--header-text-container">
