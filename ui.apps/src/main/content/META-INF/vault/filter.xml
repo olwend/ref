@@ -11,4 +11,5 @@
 	<filter root="/etc/workflow/models/dam/update_asset"/>
     <filter root="/etc/designs/nhmwww"/>
     <filter root="/apps/wcm/core/content"/>
+    <filter root="/apps/clientlibs"/>
 </workspaceFilter>

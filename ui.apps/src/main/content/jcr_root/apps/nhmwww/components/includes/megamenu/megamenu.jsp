@@ -124,14 +124,14 @@
 				</form>
 
 			<div class="global-header--search-bar__popular-search-terms">
-				<h2 class="global-header--search-bar__heading">Popular search terms:</h2>
+				<h5 class="global-header--search-bar__heading">Popular search terms:</h5>
 				<ul>
-					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html">Wildlife Photographer of the Year</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/life-in-the-dark.html">Life in the Dark</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/sensational-butterflies.html">Sensational Butterflies</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/dinosaurs.html">Dinosaurs</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/space.html">Space</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/human-evolution.html">Human evolution</a></li>
 					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/dippy-on-tour.html">Dippy on Tour</a></li>
-					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a bug</a></li>
 				</ul>
 			</div>
 		</div>
