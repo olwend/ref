@@ -1,0 +1,37 @@
+<sly data-sly-use.twoimages="uk.ac.nhm.core.model.slingModels.imagePage.TwoImages">
+
+    <sly data-sly-test="${!twoimages.isConfigured}">
+		<div class="row">
+			<h4>Image page - two images</h4>
+			Required fields:
+			<ul>
+				<li>Image 1</li>
+				<li>Image 2</li>
+			</ul>
+		</div>
+	</sly>
+
+	<sly data-sly-test="${twoimages.isConfigured}">
+		<div class="row">
+			<div class="imagepage--twoimages small-12 medium-6 columns">
+				<div class="imagepage--twoimages-image-left" data-sly-unwrap="${properties.rowlayout != 'landscape'}">
+                	<div data-sly-resource="${'image1' @ wcmmode='disabled'}"></div>
+                </div>
+				<div class="imagepage--caption-container">
+					<div class="imagepage--caption">${properties.caption1 @ context='html'}</div>
+					<div class="imagepage--credit">${properties.credit1 @ context='html'}</div>
+				</div>
+			</div>
+			<div class="imagepage--twoimages small-12 medium-6 columns">
+				<div class="imagepage--twoimages-image-right" data-sly-unwrap="${properties.rowlayout != 'landscape'}"> 
+                	<div data-sly-resource="${'image2' @ wcmmode='disabled'}"></div>
+                </div>
+				<div class="imagepage--caption-container">
+					<div class="imagepage--caption">${properties.caption2 @ context='html'}</div>
+					<div class="imagepage--credit">${properties.credit2 @ context='html'}</div>
+				</div>
+			</div>
+		</div>
+	</sly>
+
+</sly>

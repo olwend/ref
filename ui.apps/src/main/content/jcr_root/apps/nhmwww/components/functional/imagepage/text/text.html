@@ -1,0 +1,20 @@
+<sly data-sly-test="${!properties.text}">
+	<div class="row">
+		<h4>Image page - text</h4>
+		Required fields:
+		<ul>
+			<li>Text</li>
+		</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.text}">
+	<div class="row">
+		<div class="small-12 medium-12 large-3 columns">
+
+		</div>
+		<div class="small-12 medium-12 large-9 columns">
+			${properties.text @ context='html'}
+		</div>
+	</div>
+</sly>
