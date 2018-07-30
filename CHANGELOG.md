@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.4 - 30-Jul-2018
+WR-1358 - Add primary hub tag to datalayer 
+WR-1423 - Search terms update 
+WR-1425 - Add crop ratios to asset manager editor 
+WR-1428 - Discover Related refactor for thumbnail override 
+WR-1432 - Change the link to the blog in megamenu  
+WR-1433 - Remove H2 class from the Popular Search Terms title 
+WR-1435 - Image page - update to layout styling 
+WR-1436 - Image page components refactor
+
 ## 2.1.3 - 23-Jul-2018
 WR-1345 - Accessibility: discover related repeated link
 WR-1359 - Create image page component
