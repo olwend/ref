@@ -38,10 +38,13 @@ public class DiscoverRelated {
 	ArticleFeedService service;
 	
 	private List<Map<String, String>> pageList;
+	
+	private String readmorelink;
 
 	@PostConstruct
 	protected void init() {
 		setPageList(properties);
+		setReadMoreLink(properties);
 	}
 	
 	public List<Map<String, String>> getPageList() {
@@ -69,6 +72,22 @@ public class DiscoverRelated {
 		}
 		
 		pageList = itemList;
+	}
+	
+	public void setReadMoreLink(ValueMap properties) {
+		//Set read more link if present
+		readmorelink = properties.get("readmorelink",String.class);
+		if(readmorelink != null) {
+			if(!readmorelink.isEmpty()) {
+				if(!readmorelink.contains(".html")) {
+					readmorelink = readmorelink + ".html";
+				}
+			}
+		}
+	}
+	
+	public String getReadmorelink() {
+		return readmorelink;
 	}
 	
 }
