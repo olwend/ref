@@ -5685,13 +5685,13 @@ html.js-noScroll {
 }
 
 .articlefeed--read-more-link a {
-  border: 5px solid #AAAAAA;
+  border: 5px solid #808080;
   padding: 10px 10px 5px 10px;
   font-size: 1.2rem;
 }
 
 .articlefeed--read-more-link a:hover {
-  background-color: #AAAAAA;
+  background-color: #808080;
   color: #FFFFFF;
   text-decoration: none;
 }
@@ -7496,13 +7496,13 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--read-more-link a {
   color: #565656;
-  border: 5px solid #AAAAAA;
+  border: 5px solid #808080;
   padding: 10px 10px 5px 10px;
   font-size: 1.2rem;
 }
 
 .discoverrelated .discover .discover-related--read-more-link a:hover {
-  background-color: #AAAAAA;
+  background-color: #808080;
   color: #FFFFFF;
   text-decoration: none;
 }

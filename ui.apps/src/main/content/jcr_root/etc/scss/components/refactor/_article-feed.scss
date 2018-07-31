@@ -95,12 +95,12 @@
 		margin-bottom : 0.5rem;
 
 		 a {
-			border: 5px solid color-palette(grey-color, base);
+			border: 5px solid color-palette(grey-color, mid-dark);
 			padding: 10px 10px 5px 10px;
 			font-size: 1.2rem;
 
 			&:hover {
-				background-color: color-palette(grey-color, base);
+				background-color: color-palette(grey-color, mid-dark);
 				color: $color--white;
 				text-decoration: none;
 			}
