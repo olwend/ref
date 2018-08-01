@@ -5685,19 +5685,21 @@ html.js-noScroll {
 }
 
 .articlefeed--read-more-link a {
-  border: 5px solid #808080;
+  color: #565656;
+  border: 5px solid #D5D5D5;
   padding: 10px 10px 5px 10px;
   font-size: 1.2rem;
 }
 
 .articlefeed--read-more-link a:hover {
-  background-color: #808080;
-  color: #FFFFFF;
+  background-color: #EEEEEE;
   text-decoration: none;
 }
 
 .articlefeed--read-more-link a:focus, .articlefeed--read-more-link a:active {
   border: 5px solid #565656;
+  background-color: #565656;
+  color: #FFFFFF;
 }
 
 .articlefeed__full-width {
