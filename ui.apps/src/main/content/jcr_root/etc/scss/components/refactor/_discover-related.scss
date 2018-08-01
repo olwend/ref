@@ -16,19 +16,20 @@
 
 				a {
 					color: color-palette(grey-color, dark);
-					border: 5px solid color-palette(grey-color, mid-dark);
+					border: 5px solid color-palette(grey-color, mid-light);
 					padding: 10px 10px 5px 10px;
 					font-size: 1.2rem;
 
 					&:hover {
-						background-color: color-palette(grey-color, mid-dark);
-						color: $color--white;
+						background-color: color-palette(grey-color, light);
 						text-decoration: none;
 					}
 
 					&:focus,
 					&:active {
 						border: 5px solid color-palette(grey-color, dark);
+						background-color: color-palette(grey-color, dark);
+						color: $color--white;
 					}
 				}
 			}

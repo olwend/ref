@@ -7496,19 +7496,20 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--read-more-link a {
   color: #565656;
-  border: 5px solid #808080;
+  border: 5px solid #D5D5D5;
   padding: 10px 10px 5px 10px;
   font-size: 1.2rem;
 }
 
 .discoverrelated .discover .discover-related--read-more-link a:hover {
-  background-color: #808080;
-  color: #FFFFFF;
+  background-color: #EEEEEE;
   text-decoration: none;
 }
 
 .discoverrelated .discover .discover-related--read-more-link a:focus, .discoverrelated .discover .discover-related--read-more-link a:active {
   border: 5px solid #565656;
+  background-color: #565656;
+  color: #FFFFFF;
 }
 
 .discoverrelated .discover .discover-element-wrapper {
