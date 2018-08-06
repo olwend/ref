@@ -21,15 +21,19 @@
 					font-size: 1.2rem;
 
 					&:hover {
+						color: color-palette(grey-color, dark);
 						background-color: color-palette(grey-color, light);
 						text-decoration: none;
 					}
 
-					&:focus,
 					&:active {
 						border: 5px solid color-palette(grey-color, dark);
 						background-color: color-palette(grey-color, dark);
 						color: $color--white;
+					}
+
+					&:focus {
+						border: 5px solid color-palette(grey-color, dark);
 					}
 				}
 			}
