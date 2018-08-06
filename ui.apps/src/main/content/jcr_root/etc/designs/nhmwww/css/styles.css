@@ -5692,7 +5692,6 @@ html.js-noScroll {
 }
 
 .articlefeed--read-more-link a:hover {
-  color: #565656;
   background-color: #D5D5D5;
   text-decoration: none;
 }
@@ -7509,8 +7508,7 @@ div#cookie-bar p {
 }
 
 .discoverrelated .discover .discover-related--read-more-link a:hover {
-  color: #565656;
-  background-color: #EEEEEE;
+  background-color: #D5D5D5;
   text-decoration: none;
 }
 
