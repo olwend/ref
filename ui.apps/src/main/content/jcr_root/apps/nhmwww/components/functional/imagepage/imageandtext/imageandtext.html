@@ -1,0 +1,62 @@
+<sly data-sly-use.imagetext="uk.ac.nhm.core.model.slingModels.imagePage.ImageText">
+	<sly data-sly-test="${!imagetext.isConfigured}">
+		<div class="row">
+			<h4>Image page - image and text</h4>
+			Required fields:
+			<ul>
+				<li>Image</li>
+			</ul>
+		</div>
+	</sly>
+
+	<sly data-sly-test="${imagetext.isConfigured}">
+		<sly data-sly-test="${properties.rowlayout=='herosection'}">
+			<div class="hero imagepage--hero">
+				<picture>
+					<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+					<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+					<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" media="(min-width: 769px) and (max-width: 1160px)" />
+					<source srcset="${imagetext.fileReference}" />
+					<img src="${imagetext.fileReference}" alt="${image.alt}" />
+				</picture>
+			</div>
+		</sly>
+
+		<sly data-sly-test="${properties.rowlayout=='babyherosection'}">
+			<div class="row imagepage--babyhero">
+				<div class="small-12 columns">
+					<picture>
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" media="(min-width: 769px) and (max-width: 1160px)" />
+						<source srcset="${imagetext.fileReference}" />
+						<img src="${imagetext.fileReference}" alt="${image.alt}" />
+					</picture>
+				</div>
+			</div>
+		</sly>
+
+		<sly data-sly-test="${properties.rowlayout=='rowfullwidth'}">
+			<div class="row imagepage--fullwidth">
+				<div class="small-12 columns">
+					<picture>
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+                		<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+						<source srcset="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" />
+						<img src="${imagetext.fileReference}/_jcr_content/renditions/cq5dam.web.1160.1160.jpeg" alt="${image.alt}" />
+					</picture>
+				</div>
+			</div>
+		</sly>
+
+		<div data-sly-test="${properties.caption || properties.text}" class="row">
+			<div class="imagepage--caption-container small-12 medium-12 large-3 columns">
+				<div class="imagepage--caption">${properties.caption @ context='html'}</div>
+				<div class="imagepage--credit">${properties.credit @ context='html'}</div>
+			</div>
+			<div class="imagepage--text-container small-12 medium-12 large-9 columns">
+				${properties.text @ context='html'}
+			</div>
+		</div>
+	</sly>
+</sly>

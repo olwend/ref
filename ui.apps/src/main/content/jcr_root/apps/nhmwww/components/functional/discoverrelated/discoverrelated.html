@@ -1,0 +1,59 @@
+<div data-sly-test="${!properties.posts}">
+	<div class="row">
+		<h4>Discover related</h4>
+		Required fields:
+		<ul>
+			<li>Related posts</li>
+		</ul>
+	</div>
+</div>
+
+<sly data-sly-test="${properties.posts}">
+	<div data-sly-use.discoverrelated="uk.ac.nhm.core.model.slingModels.DiscoverRelated" class="discover">
+		<h3 class="discover-related--title">${properties.title}</h3>
+		<ul class="related-posts--container small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-sly-list.list="${discoverrelated.pageList}">
+			<li class="discover-element">
+				<div class="discover-element-wrapper">
+					<a href="${list['path']}.html">
+						<div class="discover-element--image" data-sly-test="${list['imageType'] == 'image'}">
+							<picture>
+								<source media="(max-width: 480px)"
+										srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
+								<source media="(min-width: 481px) and (max-width: 1024px)"
+										srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.620.620.jpeg 1024w" />
+								<source media="(min-width: 1025px)"
+										srcset="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg 320w" />
+								<img src="${list['context']}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" />
+							</picture>
+						</div>
+						<div data-sly-test="${list['imageType'] == 'video'}">
+							<div class="discover-element--video-container">
+								<img class="discover-element--video-icon" src="/etc/designs/nhmwww/img/png-icons/youtube_icon_thumbnail.png" alt="Video">
+								<img class="discover-element--video-thumbnail" src="${list['imagePath']}">
+							</div>
+						</div>
+
+						<div class="discover-element-text">
+							<div class="element-tag" data-sly-test="${list['hubtag']}">${list['hubtag']}</div>
+
+							<div class="element-title">
+								${list['title'] @ context='html'}
+							</div>
+
+							<div class="element-date">
+								${list['datepublished']}
+							</div>
+
+							<div class="element-text">
+								${list['excerpt'] @ context='html'}
+							</div>
+						</div>
+					</a>
+				</div>
+			</li>
+		</ul>
+		<div class="discover-related--read-more-link" data-sly-test="${properties.showreadmore && discoverrelated.readmorelink}">
+			<a href="${discoverrelated.readmorelink}" aria-label="Read more: ${properties.title}">Read more</a>
+		</div>
+	</div>
+</sly>

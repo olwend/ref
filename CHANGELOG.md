@@ -1,8 +1,24 @@
 # Changelog
 
+## 2.1.4 - 30-Jul-2018
+WR-1358 - Add primary hub tag to datalayer 
+WR-1423 - Search terms update 
+WR-1425 - Add crop ratios to asset manager editor 
+WR-1428 - Discover Related refactor for thumbnail override 
+WR-1432 - Change the link to the blog in megamenu  
+WR-1433 - Remove H2 class from the Popular Search Terms title 
+WR-1435 - Image page - update to layout styling 
+WR-1436 - Image page components refactor
+
+## 2.1.3 - 23-Jul-2018
+WR-1345 - Accessibility: discover related repeated link
+WR-1359 - Create image page component
+WR-1377 - Allow editing of text on social signup component
+WR-1426 - Accessibility: Article Feed adjacent links same URL
+
 ## 2.1.2 - 09-Jul-2018
-WR-1414 – Merge AEM & Sass repos into gitflow
-WR-1420 – Bug fix for Dino Directory copyright text
+WR-1414 - Merge AEM & Sass repos into gitflow
+WR-1420 - Bug fix for Dino Directory copyright text
 
 ## 2.1.1 - 05-Jul-2018
 WR-1393 - Touch UI Author - make Discover Related and Featured Article components copy/pastable
@@ -18,7 +34,7 @@ WR-1419 - Science Profiles - errors in name formatting
 ## 2.0.21 - Yeatsian Yingshanosaurus - 21-Jun-2018
 - WR-1329 - Add copyright info to images in DD single
 - WR-1405 - Fix failing build tests
-- WR-1407 - Removing 'W' from Dino Directory navigation and changing Ankylosaurid to 'Armored Dinosaur’
+- WR-1407 - Removing 'W' from Dino Directory navigation and changing Ankylosaurid to 'Armored Dinosaurï¿½
 
 ## 2.0.20 - Xanthous Xenotarsosaurus - 14-Jun-2018
 - WR-1366 - Comment legacy code in Social Signup component 

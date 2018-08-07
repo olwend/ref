@@ -17,6 +17,7 @@
 		<ul>
 			<li>Article title</li>
 			<li>Introduction text</li>
+			<li>Snippet</li>
 			<li>Lead image or video</li>
 		</ul>
 	</div>

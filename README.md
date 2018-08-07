@@ -1,54 +1,39 @@
-# Sample AEM project template
+# nhm-aem-www (NHM AEM Git repo)
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+This is the Git repo for the NHM website, built on Adobe Experience Manager (AEM).
 
-## Modules
+## Instructions
 
-The main parts of the template are:
+The below instructions assume you already have the AEM JAR, Service Packs and other relevant packages installed.
 
-* core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
-* ui.content: contains sample content using the components from the ui.apps
-* ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
-* ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
+### To set up a local AEM development environment for the first time, follow these steps:
 
-## How to build
+1. Clone the repo:
+`` git clone git@git-repo-2.nhm.ac.uk:digital-development/nhm-aem-www.git ``
 
-To build all the modules run in the project root directory the following command with Maven 3:
+2.	Create a new BAT file to use for launching AEM on port 4502. Call the BAT file something like "AEM launch.bat" and put it somewhere useful e.g. on your Desktop. The BAT file should look like this:
+`` start "" /D "path/to/your/aem/instance" "path/to/your/git-bash-instance" -c "java -Xms1024m -Xmx4096m -jar <aem-jar-file-name>" ``
 
-    mvn clean install
+3.	Create a new BAT file to use for launching AEM Browsersync. Call the BAT file something like "AEM browsersync.bat" and put it somewhere useful e.g. on your Desktop. The BAT file should look like this:
+`` start "" /D "path/to/your/nhm-aem-codebase" "path/to/your/git-bash-instance" -c "aem-front" ``
 
-If you have a running AEM instance you can build and package the whole project and deploy into AEM with  
+4.	Install Node from https://nodejs.org/en/download (LTS is fine)
 
-    mvn clean install -PautoInstallPackage
-    
-Or to deploy it to a publish instance, run
+5.	Check Node and NPM have been installed correctly by running `` node –v `` and `` npm –v ``
 
-    mvn clean install -PautoInstallPackagePublish
-    
-Or to deploy only the bundle to the author, run
+6.	Navigate to `` /ui.apps/src/main/content/jcr_root/etc `` and run `` npm install ``
 
-    mvn clean install -PautoInstallBundle
+7.	If you don’t have Grunt installed, install the Grunt CLI with `` npm install –g grunt-cli ``
 
-## Testing
+8.	Check Grunt and Grunt CLI have been installed correctly by running `` grunt --version ``
+9.  Run `` npm install -g aem-front `` to install AEM Browsersync
 
-There are three levels of testing contained in the project:
+### To work on the nhm-aem-www codebase:
+1. Launch your local AEM instance using the BAT file.
 
-* unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
+2. Build your selected branch.
+3. Launch Browsersync using the BAT file
+4. Run `` grunt develop ``. This will (amongst other things) watch for any changes to the SCSS files, generate the CSS files in the `` /etc/clientlibs `` folder, and copy the CSS from `` /etc/clientlibs `` to `` /etc/designs ``. It will also watch for changes to the `` main.js `` file in `` /etc/clientlibs `` and copy it to `` /etc/designs ``. 
+5. When you make any changes to the SCSS files in `` /etc/scss ``, or the JS files in `` /etc/clientlibs ``, or a template file, AEM Browsersync will automatically run a build and refresh the browser (though you may need to manually hard-refresh as well).
 
-    mvn clean test
-
-* server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
-
-    mvn clean integration-test -PintegrationTests
-
-* client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test:
-
-    in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
-
-
-## Maven settings
-
-The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
-
-    http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
+Note you will need to manually build if you make any changes to the Core Java files.
