@@ -278,11 +278,9 @@ public class EventPagesUtils {
 			events.put("scienceSubject", event.getScienceSubject());
 			events.put("speakerDetails", event.getSpeakerDetails());
 
-			System.out.println("gethidefromSearch: " + event.getHideFromSearch());
 			if(event.getHideFromSearch() != null) {
 		   if(!Boolean.valueOf(event.getHideFromSearch()))
 		       {
-			   System.out.println("event added: " + event.getTitle());
 				eventsJSONArray.put(events);
 		       }
 			}
