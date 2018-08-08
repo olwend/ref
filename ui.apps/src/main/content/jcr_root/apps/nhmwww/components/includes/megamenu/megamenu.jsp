@@ -114,7 +114,7 @@
 		<div class="global-header--search-bar__overlay"></div>
 		<div class="global-header--search-bar__content">
 			<a href="#" id="global-header--search-bar__close"><i class="ico svg-ico ico-menu-close global-header--search-bar__close-icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png" id="svg-icon__menu_close-4"></i></a>
-				<form action="https://www.nhm.ac.uk/search.html" method="get" class="global-header--search-bar__form">
+				<form action="//www.nhm.ac.uk/search.html" method="get" class="global-header--search-bar__form">
 
 						<input type="text" name="q" class="text global-header--search-bar__input" placeholder="Search">
 						<button class="submit global-header--search-bar__submit-button">
