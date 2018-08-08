@@ -95,18 +95,23 @@
 		margin-bottom : 0.5rem;
 
 		 a {
-			border: 5px solid color-palette(grey-color, base);
+			color: color-palette(grey-color, dark);
+			border: 5px solid color-palette(grey-color, mid-light);
 			padding: 10px 10px 5px 10px;
 			font-size: 1.2rem;
 
 			&:hover {
-				background-color: color-palette(grey-color, base);
-				color: $color--white;
+				background-color: color-palette(grey-color, mid-light);
 				text-decoration: none;
 			}
 
-			&:focus,
 			&:active {
+				border: 5px solid color-palette(grey-color, dark);
+				background-color: color-palette(grey-color, dark);
+				color: $color--white;
+			}
+
+			&:focus {
 				border: 5px solid color-palette(grey-color, dark);
 			}
 		}

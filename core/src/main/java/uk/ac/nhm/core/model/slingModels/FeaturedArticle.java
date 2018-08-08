@@ -49,7 +49,7 @@ public class FeaturedArticle {
 		ValueMap properties = resource.adaptTo(ValueMap.class);
 
 		this.setTitle(properties.get("jcr:content/article/jcr:title", String.class));
-		this.setDescription(textUtils.stripHtmlTags(properties.get("jcr:content/article/snippet", String.class)));
+		this.setDescription(properties.get("jcr:content/article/snippet", String.class));
 
 		if(properties.containsKey("jcr:content/article/hubTag")) {
 			String tagPath = "/etc/tags/nhm/" + properties.get("jcr:content/article/hubTag", String.class).split(":")[1];

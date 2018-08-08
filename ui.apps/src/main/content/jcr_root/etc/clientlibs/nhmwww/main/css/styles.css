@@ -5685,18 +5685,24 @@ html.js-noScroll {
 }
 
 .articlefeed--read-more-link a {
-  border: 5px solid #AAAAAA;
+  color: #565656;
+  border: 5px solid #D5D5D5;
   padding: 10px 10px 5px 10px;
   font-size: 1.2rem;
 }
 
 .articlefeed--read-more-link a:hover {
-  background-color: #AAAAAA;
-  color: #FFFFFF;
+  background-color: #D5D5D5;
   text-decoration: none;
 }
 
-.articlefeed--read-more-link a:focus, .articlefeed--read-more-link a:active {
+.articlefeed--read-more-link a:active {
+  border: 5px solid #565656;
+  background-color: #565656;
+  color: #FFFFFF;
+}
+
+.articlefeed--read-more-link a:focus {
   border: 5px solid #565656;
 }
 
@@ -7496,18 +7502,23 @@ div#cookie-bar p {
 
 .discoverrelated .discover .discover-related--read-more-link a {
   color: #565656;
-  border: 5px solid #AAAAAA;
+  border: 5px solid #D5D5D5;
   padding: 10px 10px 5px 10px;
   font-size: 1.2rem;
 }
 
 .discoverrelated .discover .discover-related--read-more-link a:hover {
-  background-color: #AAAAAA;
-  color: #FFFFFF;
+  background-color: #D5D5D5;
   text-decoration: none;
 }
 
-.discoverrelated .discover .discover-related--read-more-link a:focus, .discoverrelated .discover .discover-related--read-more-link a:active {
+.discoverrelated .discover .discover-related--read-more-link a:active {
+  border: 5px solid #565656;
+  background-color: #565656;
+  color: #FFFFFF;
+}
+
+.discoverrelated .discover .discover-related--read-more-link a:focus {
   border: 5px solid #565656;
 }
 
