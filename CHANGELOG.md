@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.5 - 09-Aug-2018
+WR-1226 - Fix the parsing error when using the search component to search for text with apostrophes
+WR-1403 - Featured Article -fix italics display in snippet / description
+WR-1411 - Accessibility: Discover "read more" CTA hover and active states don't meet minimum contrast ratio
+
 ## 2.1.4 - 30-Jul-2018
 WR-1358 - Add primary hub tag to datalayer 
 WR-1423 - Search terms update 
