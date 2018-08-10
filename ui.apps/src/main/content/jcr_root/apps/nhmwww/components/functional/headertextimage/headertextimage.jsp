@@ -16,8 +16,8 @@
 	String svgBaseColor = "";
 	String svgStrokeWidth = "4"; 
 
-	if (helper.hasCTA()){
-		if (helper.hasCTAIcon()){
+	if(helper.hasCTA()) {
+		if(helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
 			SVGImage svg = ctahelper.getSVGImage(); 
 			svg.setStrokeWidth(svgStrokeWidth);
@@ -26,8 +26,18 @@
 		}
 	} 
 
-	if(helper.isActivated()) {
-%>
+	if(!helper.isActivated() && WCMMode.fromRequest(request) == WCMMode.EDIT) { %>
+        <div class="row">
+            <h4>Header, Text/Image</h4>
+            Required fields:
+            <ul>
+                <li>Heading</li>
+                <li>Text</li>
+            </ul>
+        </div>
+	<% } %>
+
+<% if(helper.isActivated()) { %>
 
 <div class="hti-wrapper 
 	<%if(helper.getAddPadding()) { %> hti-padding <%}%>"
@@ -101,7 +111,4 @@
 		</div>	
 	<%-- Text --%>
 </div>
-<% } else { %>
-	<p>Header, Text/Image component</p>
-	<p>Please configure this component in the dialog</p>
 <% } %>

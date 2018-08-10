@@ -1,0 +1,81 @@
+// Core breakpoints
+    $phone: 320px;
+    $widephone: 480px;
+    $tablet: 768px;
+    $desktop: 1024px;
+    $widedesktop: 1160px;
+
+// Assign a default size (for IE, or if the site is not responsive)
+    $default-viewport-size: $desktop;
+    $viewport-width: false !default;
+
+// HOME Colors by Usage
+    $link-color: #2a6cd9;
+    $bg-color: #f4f4f4;
+    $utility-color: #565656;
+
+// Font Colours by Usage
+    $white-color: #ffffff;
+    $grey-hover-color: #565656;
+    $lighter-grey-color: #808080;
+    $grey-color: #eeeeee;
+    $black-color: #000000;
+    $body-text-color: #565656;
+    $dark-grey-color: #565656;
+    $home-color: #565656;
+    $visit-color: #A1164E;
+    $discover-color: #107B5E;
+    $take-part-color: #BF491F;
+    $support-us-color: #7F206E;
+    $shop-color: #808080;
+    $schools-color: #0983BB;
+    $our-science-color: #357900;
+    $about-us-color: #0B5C7B;
+    // $news-press-color: #107B5E;
+    $news-press-color: #107E5E;
+    $working-with-us-color: #956624;
+    $business-services-color: #253480;
+    $contact-us-color: #808080;
+    $account-color: #00385D;
+    $account-color-hover: #00385D;
+
+//  hover Colours by Usage
+    $visit-color-hover: #F5E7ED;
+    $take-part-color-hover: #F8ECE8;
+    $support-us-color-hover: #F2E8F0;
+    $schools-color-hover: #E6F2F8;
+    $our-science-color-hover: #EAF2E6;
+    $about-us-color-hover: #E6EEF2;
+    $news-press-color-hover: #E7F2EF;
+    $working-with-us-color-hover: #F4EFE9;
+    $business-services-color-hover: #E9EAF2;
+    $contact-us-color-hover: #F2F2F2;
+    $shop-color-hover: #F2F2F2;
+    $discover-color-hover: #107B5E;
+
+// Link colours
+    $visit-link-color: #a1164e;
+    $our-science-link-color: #357900;
+    $take-part-link-color: #BF491F;
+	$about-us-link-color: #0B5C7B;
+	$schools-link-color: #0983BB;
+	$support-us-link-color: #7F206E;
+	$breadcrumb-link-color: #D5D5D5;
+	
+// Font Stacks
+    $arial: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    $fontthin: "Elysio-Thin", Helvetica, Arial, sans-serif;
+    $fontlight: "Elysio-Light", Helvetica, Arial, sans-serif;
+    $fontregular: "Elysio-Regular", Helvetica, Arial, sans-serif;
+    $fontmedium: "Elysio-Medium", Helvetica, Arial, sans-serif;
+
+ // Grey Text box Colors by Usage
+    $grey-box-bg-color: #eeeeee;
+
+// Black Text box Colors by Usage
+    $black-box-bg-color: #000;
+    $black-box-link-color: #aaaaaa;
+    $black-box-body-text: #f6f6f6;
+// Burgundy Text box Colors by Usage
+    $burgundy-box-bg-color: #A1164E;
+    $black-box-body-text: #FFF;

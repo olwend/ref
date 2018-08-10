@@ -1,0 +1,146 @@
+.membership-form-container {
+	background-color: $grey-box-bg-color;
+	color: $dark-grey-color;
+	font-family: $fontregular;
+
+	/*** padding on membership-form-container also set in reset partial to override legacy styles ***/
+	padding: 1em;
+
+	@media screen and (min-width: $tablet) {
+		padding: 2em;
+	}
+
+	.error--form-label {
+		color: #ae3c39;
+		font-family: $arial;
+		font-size: 1em;
+	}
+	
+	.error--form-element {
+		background-color: #f5e6e6;
+		border: 1px solid #ae3c39;
+		margin: 0 0 1em 0;
+		color: #ae3c39;
+	}
+
+	label {
+		color: $dark-grey-color;
+		font-size: 1em;
+
+		@media screen and (min-width: $tablet) {
+			font-size: 1.125em;
+		}
+	}
+
+	legend {
+		font-size: 1.5em;
+		line-height: 1.2em;
+		color: $dark-grey-color;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+	}
+
+	fieldset {
+		border: none;
+		margin: 0;
+		padding: 0;
+
+		legend {
+			background: none;
+		}
+	}
+
+	input {
+		font-family: $arial;
+	}
+
+	select {
+		background-image: url(../images/drop-down-arrow.png);
+		background-color: $white-color;
+		padding-left: 1.8em;
+		font-family: $arial;
+
+		option {
+			padding: 0.9em 1.8em;
+			background-color: $white-color;
+		}
+	}
+
+	.membership-number {
+		display: none;
+	}
+
+	.gift-provider {
+		display: none;
+	}
+
+	.adult2 {
+		display: none;
+	}
+
+	.child1 {
+		display: none;
+	}
+
+	.child2 {
+		display: none;
+	}
+
+	.child3 {
+		display: none;
+	}
+
+	.child4 {
+		display: none;
+	}
+
+	.welcome-pack-shipping {
+		display: none;
+	}
+
+	.option-with-refund {
+		display: none;
+	}
+
+	.billing-details {
+		display: none;
+	}
+
+	.billing-details-container {
+		padding-bottom: 0.5em;
+	}
+
+	.billing-details-label {
+		font-weight: normal;
+		font-size: 1.125em;
+	}
+
+	.accept-terms {
+		font-family: $fontregular;
+
+		input[type="checkbox"] {
+			float: left;
+			margin-bottom: 0;
+			margin-right: 0.5em;
+			margin-top: 0.2em;
+
+			@media screen and (min-width: $tablet) {
+				margin-top: 0.4em;
+				margin-right: 0.75em;
+			}
+			
+		}
+
+		.inline-label {
+			display: table;
+		}
+	}
+
+	.data-protection-statement {
+		font-family: $arial;
+	}
+
+	.mailing-list-options {
+		font-family: $fontregular;
+	}
+}

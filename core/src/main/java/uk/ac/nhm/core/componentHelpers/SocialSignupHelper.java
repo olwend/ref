@@ -9,17 +9,21 @@ public class SocialSignupHelper extends HelperBase {
 
 	/**
 	 * Provide a default data protection statement
+	 * If gdprText in the component is not empty that's used, otherwise dataProtection is used.
 	 */
-	private String dataProtection = "<p>Sign up for our emails and receive regular updates about upcoming events and exhibitions."
+	private final String GENERICDATAPROTECTION = "<p>Get email updates about our news, science, exhibitions, events, products, services and fundraising activities. You must be over the age of 13."
 			+ " <a href=\"http://www.nhm.ac.uk/about-us/privacy-policy.html\">Privacy notice</a>.</p>";
-
+	private String gdprText = null;
+	
 	private String title = "Don't miss a thing";
 	private String description = "Follow us on social media";
-	
+
 	/**
 	 * Set a default campaign in case it does not get set
 	 */
 	private String campaign = "eNewsletters";
+	
+	
 
 	public SocialSignupHelper(ValueMap properties, Resource resource) throws PersistenceException {
 
@@ -32,13 +36,13 @@ public class SocialSignupHelper extends HelperBase {
 		if (properties.get("campaign") != null) {
 			this.campaign = properties.get("campaign", String.class);
 		}
-		if (properties.get("dataProtection") != null) {
-			this.dataProtection = properties.get("dataProtection", String.class);
-		} else {
-			// Modify the resource in the content JCR tree
-			ModifiableValueMap map = resource.adaptTo(ModifiableValueMap.class);
-			map.put("dataProtection", dataProtection);
-			resource.getResourceResolver().commit();
+		if(properties.get("gdprText") !=null) {
+			this.gdprText = properties.get("gdprText",String.class);
+			if(this.gdprText.trim().isEmpty()) {
+				this.gdprText = GENERICDATAPROTECTION;
+			}
+		}else {
+			this.gdprText = GENERICDATAPROTECTION;
 		}
 	}
 
@@ -66,12 +70,14 @@ public class SocialSignupHelper extends HelperBase {
 		this.campaign = campaign;
 	}
 
-	public String getDataProtection() {
-		return dataProtection;
+	public String getGdprText() {
+		return gdprText;
 	}
 
-	public void setDataProtection(String dataProtection) {
-		this.dataProtection = dataProtection;
+	public void setGdprText(String gdprText) {
+		this.gdprText = gdprText;
 	}
+	
+	
 
 }

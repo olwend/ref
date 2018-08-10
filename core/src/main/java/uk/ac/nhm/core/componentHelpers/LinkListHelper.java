@@ -35,7 +35,6 @@ public class LinkListHelper extends ListHelper {
 	private String backgroundColor;
 	private boolean isFullWidth;
 
-
 	List<String> headersList;
 	List<String> headersLinksList;	
 	List<Boolean> headersLinksNewWindowsList;
@@ -44,12 +43,16 @@ public class LinkListHelper extends ListHelper {
 	
 	TextUtils textUtils = new TextUtils();
 	
+	private Boolean isInitialised;
+	
 	public LinkListHelper(ValueMap properties, PageManager pageManager, Page currentPage, HttpServletRequest request, ResourceResolver resourceResolver) {
 		super(properties, pageManager, currentPage, request, resourceResolver);
 	}
 	
 	@Override
 	protected void init() {
+		this.isInitialised = false;
+		
 		isFullWidth = false;
 		
 		numColumns = "";
@@ -85,7 +88,7 @@ public class LinkListHelper extends ListHelper {
 		// Links for the Three Columns
 		if(this.properties.get("firstLinkListItems", String.class) != null){
 			this.columnItemsList.set(0, this.properties.get("firstLinkListItems", String[].class));
-			
+			this.isInitialised = true;
 			if(this.properties.get("secondLinkListItems", String.class) != null){
 				this.columnItemsList.set(1, this.properties.get("secondLinkListItems", String[].class));
 				
@@ -255,13 +258,13 @@ public class LinkListHelper extends ListHelper {
 						ret.append(createListItem(linkTitle, linkURL, windowTarget));
 			    	}
 			    	else {
-			    		ret.append("<p>This component is not configured correctly</p>");
+			    		ret.append("<p>Please add at least one item to the first column</p>");
 			    		ret.append("</ul>");
 			    		return ret;
 			    	}
 		    	}
 		    	else {
-		    		ret.append("<p>This component is not configured correctly</p>");
+		    		ret.append("<p>Please add at least one item to the first column</p>");
 		    		ret.append("</ul>");
 		    		return ret;
 		    	}
@@ -310,5 +313,9 @@ public class LinkListHelper extends ListHelper {
 			if (url != null && !url.equals("")){ listItem.append("</a>"); }
 		listItem.append("</li>");
 		return listItem;
+	}
+	
+	public Boolean isInitialised() {
+		return this.isInitialised;
 	}
 }

@@ -1,0 +1,30 @@
+<sly data-sly-test="${!properties.articlepath}">
+	<div class="row">
+	<h4>Featured article</h4>
+	Required fields:
+	<ul>
+		<li>Article path</li>
+		<li>Image path</li>
+	</ul>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.articlepath}">
+	<sly data-sly-use.featuredarticle="uk.ac.nhm.core.model.slingModels.FeaturedArticle">
+		<a href="${featuredarticle.articlePath}">
+			<div class="featuredarticle--container">
+				<div class="featuredarticle--image-container" data-sly-resource="${'image' @ resourceType='nhmwww/components/functional/foundation5image', wcmmode='disabled'}">
+				</div>
+				<!-- <div class="row"><div class="featuredarticle--caption-container">${properties.imagecaption @ context='html'}</div></div> -->
+				<div class="row">
+					<div class="featuredarticle--text-container">
+						<p class="featuredarticle--tag" data-sly-test="${featuredarticle.tagName}">${featuredarticle.tagName}</p>
+						<h2 class="featuredarticle--title">${featuredarticle.title @ context='html'}</h2>
+						<p class="featuredarticle--date">${featuredarticle.date}</p>
+						<p class="featuredarticle--description">${featuredarticle.description @ context='html'}</p>
+					</div>
+				</div>
+			</div>
+		</a>
+	</sly>
+</sly>

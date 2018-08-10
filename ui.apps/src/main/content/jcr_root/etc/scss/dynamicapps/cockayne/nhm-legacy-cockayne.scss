@@ -1,0 +1,247 @@
+//Global ??
+#page-header {
+	padding-bottom: 0!important;
+}
+
+.nav-list.level-1 > .nav-list__item > a {
+	font-size: 22px;
+}
+
+.nav-list__item {
+	p {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	a {
+		font-size: 20px;
+	}
+}
+
+.dropdown-section p {
+	font-size: 14.4px;
+}
+
+.mega-thumb-caption {
+	p {
+		font-size: 24px;
+	}
+}
+
+.nav-list.level-2.share {
+	.nav-list__item {
+		h4 {
+			font-size: 18px;
+			color: #222;
+		}
+	}
+}
+
+.breadcrumb {
+	font-size: 14px;
+}
+
+.main-footer .footer-nav li, .main-footer .footer-utility p {
+	font-size: 17.6px;
+}
+
+body {
+	color: #000;
+}
+
+div#page-container {
+	width: 100%!important;
+}
+
+#page-body {
+	width: 940px;
+	margin: 0 auto;
+	min-height: 600px; /* added to fix the sticky nav being buggy */
+}
+
+.sticky-logo a {
+	top: -0.5em;
+}
+
+/* WR-1046: fix font size of copyright in footer */
+.copyright--span {
+  font-size: 16px;
+}
+
+/* WR-1041: fix for search UI CSS issues affecting dynamic apps */
+.megamenu--search-bar__heading {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background: none;
+  color: #565656;
+  font-family: "Elysio-Light",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 1.35em;
+}
+// End Global
+
+
+#page-header {
+	background-image: none;
+}
+
+#microsite-body {
+	h2 {
+		padding-bottom: 0;
+	}
+
+	a:hover {
+		color: #015b28;
+	}
+
+	h3 {
+		margin-left: 0;
+	}
+
+	h4 {
+		font-weight: bold;
+
+		a {
+			font-weight: bold;
+		}
+	}
+
+	p {
+		margin-left: 0;
+	}
+
+	#search {		
+		fieldset {
+			padding: 0;
+			margin-top: 0;
+		}
+
+		legend {
+			background: initial;
+			margin-left: 15px;
+		}
+
+		label {
+			font-size: 12.1667px;
+			padding-bottom: 0;
+			width: 39%;
+		}
+
+		input[type="text"] {
+			height: auto;
+			font-size: 12.1667px;
+			padding: 1px 3px;
+			box-shadow: none;
+			margin-bottom: 5px;
+			display: initial;
+			&:focus {
+				background: #fff;
+				border-color: #ccc;
+			}
+		}
+
+		select {
+			height: auto;
+			padding: 0;
+			background-color: #fff;
+			margin-bottom: 0;
+		}
+
+		.mainInputWidth {
+				width: 55%;
+			}
+
+		#countryID, #countyID {
+			margin-bottom: 5px;
+		}
+
+		label[for="countyID"], label[for="locality"] {
+			clear: both;
+		}
+
+		.multiInline {
+			label {
+				width: auto;
+			}
+
+			.main {
+				margin-left: 122px;
+			}
+		}
+
+		#options {
+			label, .smaller {
+				clear: both;
+				margin-bottom: 5px;
+			}
+		}
+
+		.buttons {
+			padding-top: 15px;
+			padding-bottom: 10px;
+		}
+	}
+	.tabPanel {
+		table {
+			border-collapse: initial;
+			border-spacing: 1px;
+		}
+	}
+
+	.tabs {
+		float: left;
+	}
+
+	#sexes {
+		p {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	.images {
+		img {
+			max-width: none;
+		}
+	}
+
+	.data {
+		float: none;
+
+		table {
+			border-collapse: initial;
+			border-spacing: 1px;
+		}
+
+		#specimens {
+			ul {
+				line-height: 1.2;
+			}
+		}
+	}
+}
+
+#microsite-nav-local-menu {
+	margin-bottom: 0;
+}
+
+#dbNavButtons_down, #dbNavButtons_up {
+	margin: 3px 2px 3px 1px;
+	td {
+		vertical-align: top;
+		padding-right: 2px;
+		a {
+			font-size: 12.1667px;
+			margin-bottom: 0;
+
+			&:hover {
+				border-bottom: 0;
+				color: #fff;
+			}
+		}
+	}
+}
+
+.footer  {
+	clear: both;
+}

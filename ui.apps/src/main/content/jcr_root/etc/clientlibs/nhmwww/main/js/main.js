@@ -284,16 +284,12 @@ jQuery(document).ready(function() {
         e.preventDefault();
         var player = jQuery('.js--bigsplash-video').data('player');
         player.pauseVideo();
-        jQuery('.js--bigsplash-video--controls-pause').css('display', 'none');
-        jQuery('.js--bigsplash-video--controls-play').css('display', 'inline');
     });
 
     jQuery('.js--bigsplash-video--controls-play').on('click', function(e){
         e.preventDefault();
         var player = jQuery('.js--bigsplash-video').data('player');
         player.playVideo();
-        jQuery('.js--bigsplash-video--controls-play').css('display', 'none');
-        jQuery('.js--bigsplash-video--controls-pause').css('display', 'inline');
     });
     /** End WR-1064 **/
 
@@ -547,7 +543,9 @@ jQuery(document).ready(function() {
 
     jQuery('.global-header--nav-list__item--subnav-link').on('click', function(e) {
         e.preventDefault();
-        jQuery('.global-header--menu__subnav-discover').toggle(function(){});
+        jQuery('.global-header--menu__subnav-discover').slideToggle(function(){});
+        jQuery('#subnav__discover--open').toggle();
+        jQuery('#subnav__discover--close').toggle();
     });
 
     // Mobile nav

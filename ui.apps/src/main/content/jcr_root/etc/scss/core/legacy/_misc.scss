@@ -1,0 +1,61 @@
+i.ico {
+	@include inline-block;
+	font-style: normal;
+	vertical-align: middle;
+
+	svg, img {
+		max-height: 100%;
+		max-width: 100%;
+	}
+
+	img {
+		display: block;
+	}
+}
+
+// back button
+.back-button {
+	width: 60%;
+	text-align: center;
+	float:left;
+	padding: 10px;
+	background-color: $visit-color;
+
+	a { color:$white-color; font-weight:bold;}
+	a:hover { color:$white-color;  }
+}
+
+
+// from legacy _components.scss
+// unclear where this is used
+.expandable {
+  margin: 1.25em 0;
+  padding: 1em 5%;
+  background-color: $utility-color;
+  background-color: rgba(0,0,0,0.7);
+  background-image: url('/etc/designs/nhmwww/img/icons/plus.png');
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  color: #fff;
+  font-size: 0.95em;
+
+  &:hover {
+      color: #fff;
+  }
+  &.open {
+      background-image: url('/etc/designs/nhmwww/img/icons/minus.png');
+  }
+}
+
+// from legacy _components.scss
+// unclear where this is used
+.thumbnail-scroll {
+	display: none;
+
+	@include respond-min($tablet){
+		display: block;
+		position: absolute;
+		bottom: 94px;
+		width: 100%;
+	}
+}

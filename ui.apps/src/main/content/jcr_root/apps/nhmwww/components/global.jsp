@@ -72,6 +72,7 @@
 	boolean isOnEditMode = (WCMMode.fromRequest(slingRequest) == WCMMode.EDIT);
 	boolean isOnPreviewMode = (WCMMode.fromRequest(slingRequest) == WCMMode.PREVIEW);
 	boolean isOnDesignMode = (WCMMode.fromRequest(slingRequest) == WCMMode.DESIGN);
+	boolean isOnEventCalendarPage = false;
 	if (isOnPreviewMode) {isOnEditMode = false;}
 	String cssClassSection = "";
 
@@ -86,16 +87,14 @@
 		templateType = "template--content-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/defaultpage") ){
 		templateType = "template--default-page";
-	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoverpublicationpage") ){
-		templateType = "template--discover-publication-page";
-	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/discoversectionpage") ){
-		templateType = "template--discover-section-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/dynamicapppage") ){
 		templateType = "template--dynamicapp-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/eventcalendarpage") ){
 		templateType = "template--eventcalendar-search-page";
+		isOnEventCalendarPage = true;
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/eventdetailpage") ){
 		templateType = "template--eventcalendar-detail-page";
+		isOnEventCalendarPage = true;
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/exhibitiondetailspage") ){
 		templateType = "template--exhibition-details-page";
 	} else if (currentPage != null && currentPage.getProperties().get("cq:template", "").equals("/apps/nhmwww/templates/homepage") ){

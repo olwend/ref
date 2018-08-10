@@ -5,12 +5,11 @@
 <%
 	TextHelper helper = new TextHelper(resource);
 
-	if (helper.isComponentInitialised()) {
+	if(helper.isComponentInitialised()) {
 %>
-		<%=helper.getText()%>
-<%	} else {
-%>
-		<p>Text</p>
-<%
-	}
-%>
+	<%=helper.getText()%>
+<% } else if (isOnEditMode || isOnDesignMode) { %>
+	<div class="row">
+		<h4>Text</h4>
+	</div>
+<% } %>

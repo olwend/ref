@@ -1,0 +1,30 @@
+/** temporarily specific for grand-summary to ensure that other CTA components across site are not affected. Needs to be merged and made more generic **/
+
+.grand-summary--wrapper {
+	.ctabutton {
+		padding: 1.1em 0.95em;
+		border: 3px solid color-palette(grey-color, dark);
+		background-color: $color--white;
+
+		&:hover {
+			h3 {
+				text-decoration: underline;
+			}
+		}
+
+		.svg-ico {
+			height: 40px;
+			top: 30%;
+			width: 100%;
+		}
+	}
+
+	.ctabutton--cta-text {
+		color: color-palette(grey-color, dark);
+		padding-bottom: 0;
+		margin-bottom: 0;
+		margin-left: 0.3em;
+		font-family: font-name(elysio, regular);
+		font-size: 2em;
+	}
+}

@@ -1,0 +1,156 @@
+// colour palette map
+$color-palette: (
+	about-us: (
+		base: $color--theme__about-us,
+		10pc: rgba($color--theme__about-us, 0.1),
+		25pc: rgba($color--theme__about-us, 0.25),
+		70pc: rgba($color--theme__about-us, 0.7),
+		75pc: rgba($color--theme__about-us, 0.75),
+		90pc: rgba($color--theme__about-us, 0.9)
+	),
+
+	account: (
+		base: $color--theme__account,
+		10pc: rgba($color--theme__account, 0.1),
+		25pc: rgba($color--theme__account, 0.25),
+		70pc: rgba($color--theme__account, 0.7),
+		75pc: rgba($color--theme__account, 0.75),
+		90pc: rgba($color--theme__account, 0.9)
+	),
+
+	business-services: (
+		base: $color--theme__business-services,
+		10pc: rgba($color--theme__business-services, 0.1),
+		25pc: rgba($color--theme__business-services, 0.25),
+		70pc: rgba($color--theme__business-services, 0.7),
+		75pc: rgba($color--theme__business-services, 0.75),
+		90pc: rgba($color--theme__business-services, 0.9)
+	),
+
+	contact-us: (
+		base: $color--theme__contact-us,
+		10pc: rgba($color--theme__contact-us, 0.1),
+		25pc: rgba($color--theme__contact-us, 0.25),
+		70pc: rgba($color--theme__contact-us, 0.7),
+		75pc: rgba($color--theme__contact-us, 0.75),
+		90pc: rgba($color--theme__contact-us, 0.9)
+	),
+
+	discover: (
+		base: $color--theme__discover,
+		10pc: rgba($color--theme__discover, 0.1),
+		25pc: rgba($color--theme__discover, 0.25),
+		70pc: rgba($color--theme__discover, 0.7),
+		75pc: rgba($color--theme__discover, 0.75),
+		90pc: rgba($color--theme__discover, 0.9)
+	),
+
+	home: (
+		base: $color--theme__home,
+		10pc: rgba($color--theme__home, 0.1),
+		25pc: rgba($color--theme__home, 0.25),
+		70pc: rgba($color--theme__home, 0.7),
+		75pc: rgba($color--theme__home, 0.75),
+		90pc: rgba($color--theme__home, 0.9)
+	),
+
+	our-science: (
+		base: $color--theme__our-science,
+		10pc: rgba($color--theme__our-science, 0.1),
+		25pc: rgba($color--theme__our-science, 0.25),
+		70pc: rgba($color--theme__our-science, 0.7),
+		75pc: rgba($color--theme__our-science, 0.75),
+		90pc: rgba($color--theme__our-science, 0.9)
+	),
+
+	press-office: (
+		base: $color--theme__press-office,
+		10pc: rgba($color--theme__press-office, 0.1),
+		25pc: rgba($color--theme__press-office, 0.25),
+		70pc: rgba($color--theme__press-office, 0.7),
+		75pc: rgba($color--theme__press-office, 0.75),
+		90pc: rgba($color--theme__press-office, 0.9)
+	),
+
+	schools: (
+		base: $color--theme__schools,
+		10pc: rgba($color--theme__schools, 0.1),
+		25pc: rgba($color--theme__schools, 0.25),
+		70pc: rgba($color--theme__schools, 0.7),
+		75pc: rgba($color--theme__schools, 0.75),
+		90pc: rgba($color--theme__schools, 0.9)
+	),
+
+	question: (
+		base: $color--theme__question,
+		10pc: rgba($color--theme__question, 0.1),
+		25pc: rgba($color--theme__question, 0.25),
+		70pc: rgba($color--theme__question, 0.7),
+		75pc: rgba($color--theme__question, 0.75),
+		90pc: rgba($color--theme__question, 0.9)
+	),
+
+	search: (
+		base: $color--theme__search,
+		10pc: rgba($color--theme__search, 0.1),
+		25pc: rgba($color--theme__search, 0.25),
+		70pc: rgba($color--theme__search, 0.7),
+		75pc: rgba($color--theme__search, 0.75),
+		90pc: rgba($color--theme__search, 0.9)
+	),
+
+	shop: (
+		base: $color--theme__shop,
+		10pc: rgba($color--theme__shop, 0.1),
+		25pc: rgba($color--theme__shop, 0.25),
+		70pc: rgba($color--theme__shop, 0.7),
+		75pc: rgba($color--theme__shop, 0.75),
+		90pc: rgba($color--theme__shop, 0.9)
+	),
+
+	support-us: (
+		base: $color--theme__support-us,
+		10pc: rgba($color--theme__support-us, 0.1),
+		25pc: rgba($color--theme__support-us, 0.25),
+		70pc: rgba($color--theme__support-us, 0.7),
+		75pc: rgba($color--theme__support-us, 0.75),
+		90pc: rgba($color--theme__support-us, 0.9)
+	),
+
+	take-part: (
+		base: $color--theme__take-part,
+		10pc: rgba($color--theme__take-part, 0.1),
+		25pc: rgba($color--theme__take-part, 0.25),
+		70pc: rgba($color--theme__take-part, 0.7),
+		75pc: rgba($color--theme__take-part, 0.75),
+		90pc: rgba($color--theme__take-part, 0.9)
+	),
+
+	visit: (
+		base: $color--theme__visit,
+		10pc: rgba($color--theme__visit, 0.1),
+		25pc: rgba($color--theme__visit, 0.25),
+		70pc: rgba($color--theme__visit, 0.7),
+		75pc: rgba($color--theme__visit, 0.75),
+		90pc: rgba($color--theme__visit, 0.9)
+	),
+
+	grey-color: (
+		base: $color--grey__base,
+		mid-light: $color--grey__mid-light,
+		light: $color--grey__light,
+		mid-dark: $color--grey__mid-dark,
+		dark: $color--grey__dark,
+	),
+);
+
+// font family map
+$font-name: (
+	arial: $font--arial,
+	elysio: (
+		thin: $font--elysio-thin,
+		light: $font--elysio-light,
+		regular: $font--elysio-regular,
+		medium: $font--elysio-medium,
+	),
+);

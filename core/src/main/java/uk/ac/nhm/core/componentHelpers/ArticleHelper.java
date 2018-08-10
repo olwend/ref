@@ -143,9 +143,11 @@ public class ArticleHelper {
 				if(hubTags.length > 0) {
 					Tag tag = tagMgr.resolve(hubTags[0]);
 					Map<String, String> tagMap = new HashMap<String, String>();
-					tagMap.put("title", tag.getTitle().toUpperCase());
-					tagMap.put("path", tag.getDescription());
-					this.hubTag = tagMap;
+					if(tag!=null) {
+						tagMap.put("title", tag.getTitle().toUpperCase());
+						tagMap.put("path", tag.getDescription());
+						this.hubTag = tagMap;
+					}
 				} 
 			} 
 			
@@ -158,9 +160,12 @@ public class ArticleHelper {
 					for(int i=0; i<otherTags.length; i++) {
 						Tag tag = tagMgr.resolve(otherTags[i]);
 						Map<String, String> tagMap = new HashMap<String, String>();
-						tagMap.put("title", tag.getTitle());
-						tagMap.put("path", tag.getDescription());
-						this.tagList.add(tagMap);
+						if(tag!=null) {
+							tagMap.put("title", tag.getTitle());
+							tagMap.put("path", tag.getDescription());
+							this.tagList.add(tagMap);	
+						}
+
 					}
 				}
 			}
@@ -192,14 +197,17 @@ public class ArticleHelper {
 	 * Helper Class Constructor.
 	 * @param resource {@link Resource Component Resource}.
 	 */
-	public ArticleHelper(Resource resource) {
+	public ArticleHelper(Resource resource, SlingHttpServletRequest slingRequest) {
 		setResource(resource);
 		setProperties(resource.adaptTo(ValueMap.class));
 
-		init();
+		init(slingRequest);
 	}
 
-	private void init() {
+	private void init(SlingHttpServletRequest slingRequest) {
+		ResourceResolver resourceResolver = slingRequest.getResourceResolver();
+		TagManager tagMgr = resourceResolver.adaptTo(TagManager.class);
+		
 		//Initialise variables from Facebook tab
 		//Set title
 		if(properties.get("article/ogtitle") != null) {
@@ -243,8 +251,20 @@ public class ArticleHelper {
 		if(getProperties().get("article/headType") != null) {
 			setSelectTab(selectTab = getProperties().get("article/headType", String.class));
 		}
-		
-		
+
+		//Set hub tag name
+		if(properties.get("article/" + HUB_TAG) != null) {
+			String[] hubTags = properties.get("article/" + HUB_TAG, String[].class);
+			if(hubTags.length > 0) {
+				Tag tag = tagMgr.resolve(hubTags[0]);
+				Map<String, String> tagMap = new HashMap<String, String>();
+				if(tag!=null) {
+					tagMap.put("title", tag.getTitle().toLowerCase());
+					tagMap.put("path", tag.getDescription());
+					setHubTag(tagMap);
+				}
+			} 
+		} 
 	}
 
 	public String getMonth(int month) {
@@ -264,12 +284,15 @@ public class ArticleHelper {
 	 * @return <code>true</code> if the component has configured at least Title, Introduction and Image or Video. <code>false</code> in otherwise.
 	 */
 	public boolean isConfigured() {
-		return this.properties !=null 
+		/*return true;*/
+		return this.properties !=null
 				&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
 				&& this.properties.get(INTRODUCTION_ATTRIBUTE_NAME, String.class) != null
-				&& (this.isImageHeadType() && this.imageConfigured
+				&& this.properties.get(SNIPPET_ATTRIBUTE_NAME, String.class) != null
+				&& (this.isImageHeadType() && this.imageConfigured 
 						|| this.isVideoHeadType() && this.getVideo() != null);
 	}
+
 
 	/**
 	 * Gets the Title component.

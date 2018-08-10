@@ -1,5 +1,5 @@
 package uk.ac.nhm.core.componentHelpers;
-//package uk.ac.nhm_www.core.componentHelpers;
+//package uk.ac.core.componentHelpers;
 //
 //import static org.junit.Assert.assertTrue;
 //import io.wcm.testing.mock.aem.junit.AemContext;

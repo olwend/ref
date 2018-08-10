@@ -12,28 +12,7 @@
         afteredit="REFRESH_PAGE"
         afterinsert="REFRESH_PAGE"
         aftermove="REFRESH_PAGE"/>
-    <cq:inplaceEditing
-        jcr:primaryType="cq:InplaceEditingConfig"
-        active="{Boolean}true"
-        editorType="hybrid">
-        <cq:childEditors jcr:primaryType="nt:unstructured">
-        	<dataProtection
-        		jcr:primaryType="cq:ChildEditorConfig"
-        		title="Data Protection Text"
-        		type="text" />
-        </cq:childEditors>
-        <config jcr:primaryType="nt:unstructured">
-        	<dataProtection
-        		jcr:primaryType="nt:unstructured"
-        		editElementQuery="div.dataProtection"
-        		name="./dataProtection"
-        		propertyName="./dataProtection">
-	        	<rtePlugins jcr:primaryType="nt:unstructured">
-	        		
-	        	</rtePlugins>
-	        </dataProtection>
-        </config>
-	</cq:inplaceEditing>
+    
     <cq:dropTargets jcr:primaryType="nt:unstructured">
         <image
             jcr:primaryType="cq:DropTargetConfig"

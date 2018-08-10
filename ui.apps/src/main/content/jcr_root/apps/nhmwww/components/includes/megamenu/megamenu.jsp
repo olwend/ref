@@ -12,7 +12,7 @@
 						<span class="ir">Menu</span>
 					</a>
 			</div>
-			<nav class="global-header--bar global-header--menu__nav row cf">
+			<nav class="global-header--bar global-header--menu__nav js-qahub-control row cf">
 					<ul class="global-header--nav-list cf">
 						<li class="global-header--nav-list__item link-visit">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/visit.html">Visit</a>
@@ -20,7 +20,8 @@
 						<li class="global-header--nav-list__item link-discover">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/discover.html">Discover</a>
 							<div class="global-header--nav-list__item--subnav-link">
-								<i class="ico svg-ico ico-menu-open" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_menu.svg" data-svg-title="icon__menu" data-alt="Open Menu" data-stroke-width="1" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png"></i>
+								<img id="subnav__discover--open" src="/etc/designs/nhmwww/img/png-icons/icon_l_chevron_down.png" alt="Open Disover secondary menu">
+								<img id="subnav__discover--close" src="/etc/designs/nhmwww/img/png-icons/icon_l_chevron_up.png" alt="Close Disover secondary menu" style="display: none;">
 							</div>
 						</li>
 								<li class="global-header--menu__subnav-discover">
@@ -30,13 +31,19 @@
 									<a href="/content/nhmwww/en/home/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
-									<a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a>
+									<a href="/content/nhmwww/en/home/discover/space.html" data-gtm="subnav-link">Space</a>
 								</li>
 								<li class="global-header--menu__subnav-discover">
-									<a href="/content/nhmwww/en/home/about-us/news.html" data-gtm="subnav-link">News</a>
+									<a href="/content/nhmwww/en/home/discover/dinosaurs.html" data-gtm="subnav-link">Dinosaurs</a>
+								</li>
+								<li class="global-header--menu__subnav-discover">
+									<a href="/content/nhmwww/en/home/discover/collections.html" data-gtm="subnav-link">Collections</a>
+								</li>
+								<li class="global-header--menu__subnav-discover">
+									<a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a>
 								</li>
 								<li class="global-header--menu__subnav-discover" data-gtm="subnav-link">
-									<a href="https://blog.nhm.ac.uk/">Blog</a>
+									<a href="https://naturalhistorymuseum.blog/">Blog</a>
 								</li>
 						<li class="global-header--nav-list__item link-take-part">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/take-part.html">Take part</a>
@@ -45,7 +52,7 @@
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/support-us.html">Join and support</a>
 						</li>
 						<li class="global-header--nav-list__item link-shop">
-							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
+							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk">Shop</a>
 						</li>
 						<li class="global-header--nav-list__item link-schools">
 							<a class="global-header--nav-list__link" href="/content/nhmwww/en/home/schools.html">Schools</a>
@@ -79,15 +86,18 @@
 			<ul>
 				<li><a href="/content/nhmwww/en/home/discover/oceans.html" data-gtm="subnav-link">Oceans</a></li>
 				<li><a href="/content/nhmwww/en/home/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a></li>
-				<li><a href="/content/nhmwww/en/home/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a></li>
-				<li><a href="/content/nhmwww/en/home/about-us/news.html" data-gtm="subnav-link">News</a></li>
-				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
+				<li><a href="/content/nhmwww/en/home/discover/space.html" data-gtm="subnav-link">Space</a></li>
+				<li><a href="/content/nhmwww/en/home/discover/dinosaurs.html" data-gtm="subnav-link">Dinosaurs</a></li>
+				<li><a href="/content/nhmwww/en/home/discover/collections.html" data-gtm="subnav-link">Collections</a></li>
+				<li><a href="/content/nhmwww/en/home/discover/news.html" data-gtm="subnav-link">News</a></li>
+				<li><a href="https://naturalhistorymuseum.blog" data-gtm="subnav-link">Blog</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="global-header--subnav subnav__deworm js-global-header--nav-list__hide">
 		<div class="row cf">
 			<ul>
+				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3.html" data-gtm="subnav-link-deworm">DeWorm3</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/about.html" data-gtm="subnav-link-deworm">About</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
 				<li><a href="/content/nhmwww/en/home/our-science/our-work/sustainability/deworm3/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
@@ -104,7 +114,7 @@
 		<div class="global-header--search-bar__overlay"></div>
 		<div class="global-header--search-bar__content">
 			<a href="#" id="global-header--search-bar__close"><i class="ico svg-ico ico-menu-close global-header--search-bar__close-icon" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="/etc/designs/nhmwww/img/mobile-menu.png" id="svg-icon__menu_close-4"></i></a>
-				<form action="https://www.nhm.ac.uk/search.html" method="get" class="global-header--search-bar__form">
+				<form action="//www.nhm.ac.uk/search.html" method="get" class="global-header--search-bar__form">
 
 						<input type="text" name="q" class="text global-header--search-bar__input" placeholder="Search">
 						<button class="submit global-header--search-bar__submit-button">
@@ -114,14 +124,14 @@
 				</form>
 
 			<div class="global-header--search-bar__popular-search-terms">
-				<h2 class="global-header--search-bar__heading">Popular search terms:</h2>
+				<h5 class="global-header--search-bar__heading">Popular search terms:</h5>
 				<ul>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions.html">Exhibitions</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html"> Wildlife Photographer of the Year</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/bluewhale">Hope the blue whale</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/oceans.html">Oceans</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/search.html?q=dinosaurs">Dinosaurs</a></li>
-				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a fossil</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/life-in-the-dark.html">Life in the Dark</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/sensational-butterflies.html">Sensational Butterflies</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/dinosaurs.html">Dinosaurs</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/space.html">Space</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/human-evolution.html">Human evolution</a></li>
+					<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/dippy-on-tour.html">Dippy on Tour</a></li>
 				</ul>
 			</div>
 		</div>

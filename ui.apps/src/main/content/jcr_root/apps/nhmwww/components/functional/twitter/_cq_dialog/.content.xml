@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Twitter Timeline"
+    jcr:title="Twitter timeline"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
@@ -14,7 +14,7 @@
                     <exhibitionsummary
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                        jcr:title="Twitter Timeline Options">
+                        jcr:title="Twitter timeline options">
                         <items jcr:primaryType="nt:unstructured">
 	                        <column
 				                jcr:primaryType="nt:unstructured"
@@ -22,7 +22,7 @@
 				                <items jcr:primaryType="nt:unstructured">
 				                	<widgetid
 					                    jcr:primaryType="nt:unstructured"
-					                    fieldLabel="Twitter Feed"
+					                    fieldLabel="Twitter feed"
 					                    name="./widgetid"
 										sling:resourceType="granite/ui/components/coral/foundation/form/select"
 										value="london">
@@ -33,11 +33,11 @@
 					                            value="homepage"/>
 					                        <o2
 					                            jcr:primaryType="nt:unstructured"
-					                            text="Visit Us"
+					                            text="Visit us"
 					                            value="visit-us"/>
 					                        <o3
 					                            jcr:primaryType="nt:unstructured"
-					                            text="Our Science"
+					                            text="Our science"
 					                            value="our-science"/>
 					                        <o4
 					                            jcr:primaryType="nt:unstructured"
@@ -147,7 +147,7 @@
 					                </widgetid>
 					                <height
 					                    jcr:primaryType="nt:unstructured"
-					                    fieldLabel="Widget Height"
+					                    fieldLabel="Widget height"
 					                    name="./height"
 					                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 				                </items>

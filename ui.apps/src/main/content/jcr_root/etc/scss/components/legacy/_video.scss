@@ -1,0 +1,35 @@
+.video-wrapper {
+	position: relative;
+	height: 100%;
+
+}
+
+.close-video {
+	display: none;
+
+	&.open {
+		display: block;
+		width: 100%;
+		padding: 0 5%;
+		height: 52px;
+		background: $color--black url('/etc/designs/nhmwww/img/x-large.png') no-repeat 95% 100%;
+		background-size: 30px auto;
+		text-indent: -9999px;
+
+		@media screen and($breakpoint--tablet__portrait) {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			width: 52px;
+			height: 52px;
+			background-color: transparent;
+			z-index: 100;
+
+			.ico {
+				display: block;
+				width: 52px;
+				height: 52px;
+			}
+		}
+	}
+}

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Discover Related"
+    jcr:title="Discover related"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
     mode="edit">
-    <content 
+    <content
     	jcr:primaryType="nt:unstructured"
     	sling:resourceType="granite/ui/components/foundation/container">
     			<layout
@@ -34,13 +34,26 @@
    									<posts
 									    jcr:primaryType="nt:unstructured"
 									    sling:resourceType="granite/ui/components/foundation/form/multifield"
-									    fieldLabel="Related Post Pages">
+									    fieldLabel="Related post pages">
 									    <field
 									        jcr:primaryType="nt:unstructured"
 									        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
     										rootPath="/content/nhmwww"
 									        name="./posts" />
 									</posts>
+									<showreadmore
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Show 'Read more' link"
+										name="./showreadmore"
+										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+										text="Show 'Read more' link"
+										value="{Boolean}true" />
+									<readmorelink
+					                   	jcr:primaryType="nt:unstructured"
+										fieldLabel="Read more link"
+										name="./readmorelink"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										rootPath="/content/nhmwww" />
     							</items>
     						</column>
     					</items>

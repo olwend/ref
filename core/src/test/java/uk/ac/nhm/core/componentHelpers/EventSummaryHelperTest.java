@@ -24,7 +24,7 @@ public class EventSummaryHelperTest {
 	public void testTextNull() {
 		properties = initialiseProperties(null, "times");
 		helper = new EventSummaryHelper(properties, "take-part");
-		assertEquals(helper.getText(), "This component is not configured correctly");
+		assertEquals(helper.getText(), null);
 	}
 	
 	@Test

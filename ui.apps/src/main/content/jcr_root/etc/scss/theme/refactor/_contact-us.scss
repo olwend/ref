@@ -1,0 +1,157 @@
+.contact-us {
+	.title-bar {
+		background-color: color-palette(contact-us, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(contact-us, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(contact-us, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(contact-us, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(contact-us, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(contact-us, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(contact-us, base);
+
+		&:hover {
+			background-color: color-palette(contact-us, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(contact-us, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(contact-us, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(contact-us, 10pc);
+
+				a {
+					color: color-palette(contact-us, base);
+
+					&:hover {
+						color: color-palette(contact-us, base);
+						background-color: color-palette(contact-us, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(contact-us, 25pc);
+						color: color-palette(contact-us, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(contact-us, 25pc);
+
+					a {
+						color: color-palette(contact-us, base);
+
+						&:hover {
+							color: color-palette(contact-us, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.contact-us {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(contact-us, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(contact-us, base);
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.contact-us {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-contact-us.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-contact-us.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.contact-us {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(contact-us, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(contact-us, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(contact-us, base);
+		}
+	}
+}

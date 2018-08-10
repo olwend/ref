@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Dinosaur filter"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+			type="nav" />
+        <items jcr:primaryType="nt:unstructured">
+            <main
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                jcr:title="Config">
+                <items jcr:primaryType="nt:unstructured">
+					<column
+		                jcr:primaryType="nt:unstructured"
+		                sling:resourceType="granite/ui/components/foundation/container">
+		                <items jcr:primaryType="nt:unstructured">
+		                    <filterOne
+		                        jcr:primaryType="nt:unstructured"
+		                        fieldLabel="Filter type"
+		                        name="./filterOne"
+		                        sling:resourceType="granite/ui/components/foundation/form/select"
+		                        class="cq-dialog-select-showhide"
+		                        show-hide-target="show-filter-select"
+		                        id="filterSelection" >
+		                        <items jcr:primaryType="nt:unstructured">
+		                        	<o1
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Body shape"
+                       					value="body-shapes" />
+			                        <o2
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Country"
+                       					value="countries" />
+                       				<o3
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Initial"
+                       					value="initials" />
+                       				<o4
+			                            jcr:primaryType="nt:unstructured"
+			                            text="Period"
+                       					value="periods" />
+			                    </items>
+							</filterOne>
+							<filterBodyShapeContainer
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container"
+								class="hidden showhide-target"
+				                id="select-body-shapes">
+								<items jcr:primaryType="nt:unstructured">
+									<filterBodyShape
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Body shape"
+				                        name="./filterBodyShape"
+				                        sling:resourceType="granite/ui/components/foundation/form/select" >
+				                        <datasource
+				                        	jcr:primaryType="nt:unstructured"
+				                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaurfilter/datasources/datasourcebodyshape" />
+									</filterBodyShape>
+								</items>
+							</filterBodyShapeContainer>
+							<filterCountryContainer
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container"
+								class="hidden showhide-target"
+				                id="select-countries">
+								<items jcr:primaryType="nt:unstructured">
+									<filterCountry
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Country"
+				                        name="./filterCountry"
+				                        sling:resourceType="granite/ui/components/foundation/form/select" >
+				                        <datasource
+				                        	jcr:primaryType="nt:unstructured"
+				                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaurfilter/datasources/datasourcecountry" />
+									</filterCountry>
+								</items>
+							</filterCountryContainer>
+							<filterInitialContainer
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container"
+								class="hidden showhide-target"
+				                id="select-initials">
+								<items jcr:primaryType="nt:unstructured">
+									<filterInitial
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Initial"
+				                        name="./filterInitial"
+				                        sling:resourceType="granite/ui/components/foundation/form/select" >
+				                       	<datasource
+				                        	jcr:primaryType="nt:unstructured"
+				                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaurfilter/datasources/datasourceinitial" />
+									</filterInitial>
+								</items>
+							</filterInitialContainer>
+							<filterPeriodContainer
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container"
+								class="hidden showhide-target"
+				                id="select-periods">
+								<items jcr:primaryType="nt:unstructured">
+									<filterPeriod
+				                        jcr:primaryType="nt:unstructured"
+				                        fieldLabel="Period"
+				                        name="./filterPeriod"
+				                        sling:resourceType="granite/ui/components/foundation/form/select" >
+				                        <datasource
+				                        	jcr:primaryType="nt:unstructured"
+				                        	sling:resourceType="/apps/nhmwww/components/functional/dinodirectory/dinosaurfilter/datasources/datasourceperiod" />
+									</filterPeriod>
+								</items>
+							</filterPeriodContainer>
+		            	</items>
+		            </column>
+                </items>
+            </main>
+        </items>
+    </content>
+</jcr:root>

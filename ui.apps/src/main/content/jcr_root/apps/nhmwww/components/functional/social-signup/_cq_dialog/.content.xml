@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Social Signup"
+    jcr:title="Social signup"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]">
     <content 
@@ -35,7 +35,7 @@
 		                    <campaign
 		                        jcr:primaryType="nt:unstructured"
 		                        value="eNewsletters"
-		                        fieldLabel="Marketing Campaign"
+		                        fieldLabel="Marketing campaign"
 		                        name="./campaign"
 		                        sling:resourceType="granite/ui/components/coral/foundation/form/select">
 		                        <items jcr:primaryType="nt:unstructured">
@@ -82,14 +82,31 @@
 		                            <eleven
 		                                jcr:primaryType="nt:unstructured"
 		                                text="Teachers"
-		                                value="Teachers"/>        
+		                                value="Teachers"/> 
+									<twelve
+		                                jcr:primaryType="nt:unstructured"
+		                                text="Latest NHM stories"
+		                                value="Latest NHM stories"/>
+		                             <thirteen
+		                                jcr:primaryType="nt:unstructured"
+		                                text="WPY"
+		                                value="remote WPY-website newsletter-si"/>
+		                            <fourteen
+		                                jcr:primaryType="nt:unstructured"
+		                                text="School newsletter"
+		                                value="remote website school-newsletter"/>       
 	                        	</items>
 	                    	</campaign>
-	                    	<dataprotection
+	                    	<description
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="Description"
+		                    	name="./description"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />      
+		                   <gdprtext
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-	                            name="./dataProtection"
-	                            fieldLabel="Data Protection Statement"
+	                            name="./gdprText"
+	                            fieldLabel="Data Protection"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
 	                                <paraformat
@@ -140,7 +157,7 @@
 										features="[modifylink,unlink]" />
 									<misctools
 					       				jcr:primaryType="nt:unstructured"
-					       				features="[specialchars]" >
+					       				features="*" >
 					       				<specialCharsConfig jcr:primaryType="nt:unstructured">
 	                                        <chars jcr:primaryType="nt:unstructured">
 	                                            <copyright
@@ -163,7 +180,7 @@
 	                                <cui jcr:primaryType="nt:unstructured">
 	                                    <inline
 	                                        jcr:primaryType="nt:unstructured"
-	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,#styles,#paraformat]">
+	                                        toolbar="[format#bold,format#italic,format#underline,#justify,#lists,subsuperscript#subscript,subsuperscript#superscript,links#modifylink,links#unlink,spellcheck#checktext,misctools#specialchars,misctools#sourceedit,#styles,#paraformat]">
 	                                        <popovers jcr:primaryType="nt:unstructured">
 	                                            <justify
 	                                                jcr:primaryType="nt:unstructured"
@@ -185,12 +202,7 @@
 	                                    </inline>
 	                                </cui>
 	                            </uiSettings>
-	                        </dataprotection>
-	                    	<description
-		                    	jcr:primaryType="nt:unstructured"
-		                    	fieldLabel="Description"
-		                    	name="./description"
-		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />      
+	                        </snippet>
 						</items>
 					</column>
 				</items>

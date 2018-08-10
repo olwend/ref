@@ -1,0 +1,112 @@
+// Tell respond-min and respond-max to output all media queries by default
+@mixin respond-min($width) {
+    @if $viewport-width {
+        @if $viewport-width >= $width {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: $width) {
+            @content;
+        }
+    }
+}
+@mixin respond-max($width) {
+    @if $viewport-width {
+        @if $viewport-width <= $width {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+@mixin inline-block($alignment: none) {
+    display: inline-block;
+    @if $alignment and $alignment != none {
+        vertical-align: $alignment;
+    }
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+}
+
+// from _sections.scss
+@mixin section-common-styles($sectionName, $sectionColor, $sectionHoverColor){
+    /** h1 commented out for WR-720 (merge legacy and refactored base partials) **/
+    a, a:hover {
+       color: $sectionColor;
+    }
+
+    &.thumb-caption,
+    .thumb-caption {
+        background-color: $sectionColor;
+        @include respond-min($tablet){
+            background-color: rgba($sectionColor, 0.95);
+        }
+    }
+
+    .nav-list__item.#{$sectionName} a {
+        color: $sectionColor;
+    }
+
+    .info-tout__action {
+        border: 5px solid $sectionColor !important;
+        h3, a {
+            color: $sectionColor;
+        }
+         p {
+            color: $sectionColor;
+        }
+
+        &:hover {
+            background-color: $sectionHoverColor;
+        }
+    }
+
+    .info-tout__share {
+        h3 {
+            color: $sectionColor;
+        }
+
+        a {
+            color: $sectionColor;
+            background-color: $bg-color;
+            border: 5px solid $sectionColor !important;
+        }
+
+        p {
+            color: $sectionColor;
+        }
+
+        a:hover {
+            background-color: $sectionColor;
+            h3, p {
+                color: $white-color;
+            }
+        }
+    }
+
+    .bottom-banner {
+        background-color: $sectionColor;
+    }
+
+    .GreyBox {
+        a {
+            color: $sectionColor;
+        }
+    }
+
+    .feature-box {
+        background-color: $sectionColor;
+        h2, h3, p, a {
+            color: $white-color;
+        }
+        &.our-science {
+            background-color: $grey-color;
+        }
+    }
+
+}

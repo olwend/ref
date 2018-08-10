@@ -72,13 +72,10 @@ body {
   color: #565656;
 }
 
-#page-body {
-  padding-left: 14px;
-  padding-top: 0;
-}
-
-#page-body {
+#page-body,
+#page-body p {
   padding: 0;
+  text-align: left;
 }
 
 #page-container {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Accordeon"
+    jcr:title="Accordion"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
     mode="edit">
@@ -31,13 +31,14 @@
     									fieldLabel="Open"
     									name="./isOpen"
     									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-    									text="Open accordeon by default"
+    									text="Open accordion by default"
     									value="{Boolean}true" />
     								<panelTitle
 				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Panel Title"
+				                        fieldLabel="Panel title"
 				                        name="./panelTitle"
-				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+				                        required="true" />
 			                        <headingStyle
 					                    jcr:primaryType="nt:unstructured"
 					                    fieldLabel="Heading"

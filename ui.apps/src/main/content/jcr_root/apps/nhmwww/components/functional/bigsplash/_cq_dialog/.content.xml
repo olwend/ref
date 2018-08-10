@@ -39,7 +39,7 @@
 			                    	fieldLabel="Image"
 			                    	name="./alternativeimage"
 			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
-			                    	rootPath="/content" 
+			                    	rootPath="/content/dam/nhmwww" 
 			                    	required="{Boolean}true"/>
 			                    <title
 			                    	jcr:primaryType="nt:unstructured"
@@ -84,8 +84,15 @@
 			                    	fieldLabel="CTA URL"
 			                    	name="./ctaurl"
 			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
-			                    	rootPath="/content" 
+			                    	rootPath="/content/nhmwww" 
 			                    	allowBlank="{Boolean}false"/>
+		                    	<applyLinkToTitle
+				                   	jcr:primaryType="nt:unstructured"
+									fieldDescription="Applies CTA URL to title across all screen sizes"
+									name="./applyLinkToTitle"
+									sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+									text="Apply to title"
+									value="{Boolean}true" />
     						</items>
    						</column>
    					</items>

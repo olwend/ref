@@ -1,0 +1,101 @@
+.membership-form-page {
+	.title-bar {
+		margin-bottom: 1.2em;
+	}
+
+	.rowfullwidth {
+		margin-bottom: 1.2em;
+	}
+
+	a {
+		text-decoration: none;
+		border-bottom: 1px dotted $black-color;
+		color: $black-color;
+
+		&:hover {
+			border-bottom-style: solid;
+			border-bottom-color: $dark-grey-color;
+			color: $dark-grey-color;
+		}
+	}
+
+	hr {
+		border-color: $dark-grey-color;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	.price-summary {
+		padding: 15px 0 18px 20px;
+		font-size: 1.3em;
+
+		@media screen and (min-width: $tablet) {
+			padding-left:30px;
+			font-size: 1.5em;
+		}
+
+		margin-bottom: 1em;
+		background-color: $contact-us-color;
+		font-family: $fontlight;
+		color: $white-color;
+	}
+
+	.details-summary {
+		color: #222222;
+	}
+
+	/** GreyBox--text-wrapper needs to be inside membership-form-page to override inheritance from legacy support-us styles **/
+	.GreyBox--text-wrapper {
+		padding: 1.5em 1.5em 0 1.5em;
+
+		@media screen and (min-width: $tablet) {
+			padding: 2em 2em 0 2em;
+		}
+
+		a {
+			color: $black-color;
+
+			&:hover {
+				color: $dark-grey-color;
+			}
+		}
+	}
+
+	dt {
+		font-family: $fontregular;
+		margin-top: 0.75em;
+		margin-bottom: 0;
+	}
+
+	dd {
+		margin-bottom: 0;
+	}
+}
+
+.confirmation-page-container {
+	margin-bottom: 1.2em;
+
+	&.panel-content {
+		padding-top: 0;
+		padding-left: 0.3em;
+
+		@media screen and (min-width: $widephone) {
+			padding-left: 0;
+		}
+
+		@media screen and (min-width: $tablet) {
+			padding-left: 0.3em;
+		}
+
+		@media screen and (min-width: $desktop + 1) {
+			padding-left: 1.5em;
+		}
+	}
+}
+
+.form-hint {
+	font-size: 1em;
+	font-family: $arial;
+	margin-bottom: 1.2em;
+	font-style: italic;
+}

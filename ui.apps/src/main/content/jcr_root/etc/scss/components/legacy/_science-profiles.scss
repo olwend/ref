@@ -1,0 +1,74 @@
+.main-section.science-profile {
+
+	h2 {
+		color: $black-color;
+	}
+
+	/*Form*/
+	.search_content{width:100% !important;}
+	.search_content p { margin-bottom: 5px;}
+
+	input#search {
+		width: 15em;
+		border: 2px solid #000;
+		text-align: left;
+		padding: 5px 0px 5px 20px;
+		background-color: #f4f4f4 !important;
+		margin-top: 1.5em;
+	}
+
+	.arrow {
+		background-image: url("/etc/designs/nhmwww/img/arrows/nav-arrow-black.png");
+		background-position: 95% center;
+		background-repeat: no-repeat;
+		background-size: auto;
+	}
+
+	select{
+		border:solid 2px #000;
+		width:100%;
+		color: #222 !important;
+	}
+
+	input[type="text"],
+	[type="button"] {
+		color:#222;
+		font-size: 1.125em;
+		border:solid 2px #000;
+		font-size: 1.125em;
+		width:100%;
+	}
+
+	/*Profiles*/
+
+	.odd{ background-color:#eeeeee !important; }
+	.even{ background-color:#ffffff !important; }
+
+	.profile-content { padding: 10px !important; }
+	.profiles_table {
+		color: #222 !important;
+		font-style: normal !important;
+		min-height: 2em !important;
+	}
+
+	.row.profiles_row {
+		margin-bottom: 10px;
+	}
+
+	.profile-box {
+		background-color: $grey-color;
+
+		h2 {
+			color: $dark-grey-color !important;
+		}
+	}
+
+	.profile-img {
+		padding: 40px;
+	}
+
+	.profile-info{
+		padding: 2em;
+	}
+
+}

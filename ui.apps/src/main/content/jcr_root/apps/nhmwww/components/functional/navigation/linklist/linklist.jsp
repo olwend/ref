@@ -5,6 +5,16 @@
 
 <% LinkListHelper helper = new LinkListHelper(properties, pageManager, currentPage, request, resourceResolver); %>
 
+<% if(!helper.isInitialised()) { %>
+	<div class="row">
+		<h4>Link list</h4>
+		Required fields:
+		<ul>
+			<li>At least one item in the first column</li>
+		</ul>
+	</div>
+<% } else { %>
+
 <%-- [Mandatory] Background Color --%>
 <div class="linklist--container linklist--container__<%=helper.getBackgroundColor() %> ">
 	<% helper.setIsFullWidth(resource); %>
@@ -18,4 +28,4 @@
 	<% StringBuffer strBuff= helper.displayColumns(); %>
 	<%= strBuff %>
 </div>
-<% %>
+<% } %>

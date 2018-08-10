@@ -11,6 +11,7 @@ import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -22,7 +23,7 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.foundation.Image;
 
 
-
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class HeroHelperTest {
 
@@ -37,10 +38,8 @@ public class HeroHelperTest {
 	Resource mockResource;
 	@Mock
 	Image mockImage;
-	
-	
+
 	public Image image;
-	
 	
 	@Before
 	public void setUp() throws Exception {

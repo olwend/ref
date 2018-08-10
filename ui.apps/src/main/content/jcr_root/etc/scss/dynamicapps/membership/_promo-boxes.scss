@@ -1,0 +1,48 @@
+.ddi-check {
+	legend {
+		color: $white-color;
+	}
+
+	label {
+		color: $white-color;
+	}
+}
+
+.creditcard-cta {
+	display: none;
+}
+
+.direct-debit-promo {
+	.bullet-list {
+		li {
+			font-size: 1em;
+		}
+	}
+}
+
+.giftaid-promo {
+	label {
+		color: $white-color;
+		margin-bottom: 1.2em;
+	}
+
+	input[type="checkbox"] {
+		float: left;
+		margin-bottom: 0;
+		margin-right: 1em;
+		margin-top: 0.2em;
+	}
+
+	.inline-label {
+		display: table;
+	}
+}
+
+.promo-logo {
+	margin-top: 6px;
+	margin-bottom: 10px;
+
+	@media screen and (min-width: $tablet) {
+		margin-top: 0;
+	}
+}

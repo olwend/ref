@@ -20,14 +20,21 @@
 <cq:includeClientLib categories="nhm-www.newslist"/>
 
 <%	DatedAndTaggedFeedListHelper helper = new  DatedAndTaggedFeedListHelper(properties, pageManager, currentPage, request, resourceResolver);
-	if (helper.hasTags()) {
+	if (!helper.hasTags()) {
+		%>	<div class="row">
+				<h4>News list feed</h4>
+				Required fields:
+				<ul>
+					<li>Heading</li>
+					<li>Text</li>
+				</ul>
+			</div><%
+		return;
+	}
+	else {
 		final FeedListPaginationService searchService = sling.getService(FeedListPaginationService.class);
 		final String[] tags = helper.getTags();
 		searchService.setCqTags(tags);
-	}
-	else {
-		%><p>This component is not configured correctly</p><%
-		return;
 	}
 
 	String path = "";

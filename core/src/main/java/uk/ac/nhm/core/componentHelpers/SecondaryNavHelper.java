@@ -18,7 +18,7 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 
-public class SecondaryNavHelper extends ListHelper{
+public class SecondaryNavHelper extends ListHelper {
 	Page navRootPage = null;
 	
 	protected static final Logger logger = LoggerFactory.getLogger(PressReleaseFeedListHelper.class);
@@ -31,9 +31,12 @@ public class SecondaryNavHelper extends ListHelper{
 	}
 	
 	protected void init() {
+		this.initialised = false;
+		
 		if (this.properties.get("rootPagePath", String.class) != null) {
 		    this.navRootPage = pageManager.getPage(this.properties.get("rootPagePath", String.class));
 		} 
+		
 		if(this.navRootPage == null) {
 			this.navRootPage = currentPage.getAbsoluteParent(4);
 		}
@@ -41,23 +44,23 @@ public class SecondaryNavHelper extends ListHelper{
 		if (this.properties.get("title", String.class) != null) {
 		    this.componentTitle = this.properties.get("title",String.class);
 		}
+		
 		if (this.properties.get("hyperlink", String.class) != null) {
 		    this.hyperLink = LinkUtils.getFormattedLink(this.properties.get("hyperlink",String.class));
 		}
-		
 
 		if(navRootPage != null) {
 			Iterator<Page> children = navRootPage.listChildren(new PageFilter(request));
 			processChildren(children);
 		}
+		
 		this.initialised = true;
 	}
 	
 	protected void processChildren(Iterator<Page> children) {
 		listElements = new ArrayList<Object>();
-		//List<ListElement> elements = new ArrayList<ListElement>();
-		while (children.hasNext()) {
 		
+		while (children.hasNext()) {
 			Page childPage = children.next();
 			listElements.add(new ListElementImpl(childPage));
 		}

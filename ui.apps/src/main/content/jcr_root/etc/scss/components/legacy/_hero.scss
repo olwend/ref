@@ -1,0 +1,138 @@
+/** these styles are designed to apply to a Hero component **/
+// from legacy _components.scss
+.hero {
+    position: relative;
+    padding-top: 0px;
+
+    &.exhibitions { background: $bg-color; }
+
+	.video-wrapper iframe {
+        display: none;
+    }
+
+
+	.video-wrapper {
+        position: relative;
+        height: 100%;
+
+        &.open {
+            position: relative;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+    	}
+    }
+
+    @include respond-min($tablet){
+        margin-bottom: 60px;
+    }
+
+    @include respond-min($desktop){
+        margin-bottom: 0;
+    }
+
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-summary {
+        position: relative;
+        width: 95%;
+        margin: 2em auto 1.875em;
+        padding-top: 60px;
+        background: $bg-color;
+        color: $utility-color;
+
+        p {
+            padding: 1.5em 5%;
+        }
+        @include respond-min($tablet){
+            position: absolute;
+            top: 43%;
+            left: 14%;
+            width: 35%;
+            height: 30%;
+            padding: 0;
+            background: none;
+            font-family: $fontregular;
+            text-align: center;
+
+            p {
+                padding: 0;
+                color: #000;
+                font-size: 18px;
+                line-height: 1.2;
+            }
+        }
+
+        @include respond-min($desktop){
+            p {
+                font-size: 25px;
+            }
+        }
+        @include respond-min($widedesktop){
+            top: 48%;
+        }
+    }
+
+    .promo-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1em 5%;
+
+        &.video{
+            padding: 1em 5% 1em 108px;
+            background-image: url('/etc/designs/nhmwww/img/icons/video-white.png');
+            background-repeat: no-repeat;
+            background-position: 5% 45%;
+
+            .ico {
+                position: absolute;
+                width: 38px;
+                height: 28px;
+                left: 5%;
+                top: 27%;
+            }
+        }
+        a {
+            position: relative;
+            display: block;
+            color: #fff;
+
+            &.play-video .ico {
+                position: absolute;
+                width: 47px;
+                height: 24px;
+                left: auto;
+                right: 0;
+                top: 0;
+            }
+        }
+        @include respond-min($tablet){
+            position: relative;
+            background: none;
+
+            &.video {
+                padding: 0;
+                background-image: none;
+            }
+            a {
+                color: $link-color;
+                font-size: 18px;
+                background-image: none;
+            }
+        }
+        @include respond-min($desktop){
+            a {
+                font-size: 25px;
+            }
+        }
+    }
+}

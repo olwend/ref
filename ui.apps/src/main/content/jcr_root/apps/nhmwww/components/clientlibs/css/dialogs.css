@@ -15,6 +15,11 @@
 }
 
 @media screen and (min-width: 1280px) {
+	.cq-dialog-content-page .coral-TabPanel-navigation {
+		position: fixed !important;
+		width: 44%;
+	}
+
 	.coral-TabPanel-navigation {
 		position: absolute !important;
 		width: 95%;
@@ -22,17 +27,48 @@
 		border-bottom: 1px solid rgb(208, 208, 208);
 	}
 
-	.coral-TabPanel-content {
+	.coral-TabPanel-pane {
 		margin-top: 50px !important;
 	}
 
 	.coral-ButtonGroup.rte-toolbar {
 		visibility: visible !important;
 	}
-	
-	.coral-ButtonGroup-item.coral-Button {
-		padding-left: 0rem;
-		padding-right: 0rem;
-		min-width: 2.8rem;
-	}
+}
+
+.coral-Form-field.coral-Multifield {
+	background: #FFFFFF;
+}
+
+.coral-Form-field .coral-Multifield-list li {
+	background: #F0F0F0;
+	border: solid #F0F0F0
+}
+
+.coral-Multifield {
+	border: none;
+}
+
+.coral-Multifield-add {
+	margin-top: 1.2rem;
+}
+
+.coral-ButtonGroup-item.coral-Button {
+	padding-left: 0rem;
+	padding-right: 0rem;
+	min-width: 2.75rem;
+}
+
+.cq-Dialog:not(.coral-Dialog--fullscreen) .richtext-container .coral-RichText {
+	height: 8rem;
+	width: 99%;
+}
+
+.cq-Overlay--component-name {
+	top: 0;
+	bottom: unset;
+}
+
+.dialog-hidden-field {
+	display:none;
 }

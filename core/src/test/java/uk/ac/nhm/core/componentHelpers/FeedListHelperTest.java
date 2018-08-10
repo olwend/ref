@@ -1,31 +1,23 @@
 package uk.ac.nhm.core.componentHelpers;
 
-import uk.ac.nhm.core.componentHelpers.PressReleaseFeedListHelper;
-import uk.ac.nhm.core.model.PressReleaseFeedListElementImpl;
-
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.api.wrappers.ValueMapDecorator;
-import org.apache.sling.jcr.resource.JcrResourceResolverFactory;
-
-import io.wcm.testing.mock.aem.junit.AemContext;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.jcr.Session;
 import javax.servlet.http.HttpServletRequest;
 
-import static org.junit.Assert.*;
-
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,15 +25,16 @@ import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.day.cq.workflow.WorkflowSession;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.foundation.Image;
 
+import io.wcm.testing.mock.aem.junit.AemContext;
+import uk.ac.nhm.core.model.PressReleaseFeedListElementImpl;
 
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class FeedListHelperTest {
 
@@ -51,20 +44,16 @@ public class FeedListHelperTest {
 	Page mockPage;
 	HttpServletRequest mockRequest;
 
-
 	private ValueMap properties;
 	private PressReleaseFeedListHelper helper;
 	public Image image;
 
-
 	@Rule
 	public final AemContext aemContext = new AemContext();
-
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-
 
 	@Before
 	public void setUp() throws Exception {
@@ -72,12 +61,11 @@ public class FeedListHelperTest {
 		properties.put("numberToDisplay", 6);
 		properties.put("title", "Test Title");
 		properties.put("feedRoot", "/content/nhmwww/en/home/press/press-releases/");
-
+		
 		this.mockResourceResolver = aemContext.resourceResolver();
 		this.mockRequest = aemContext.request();
 
 		aemContext.create().page("/content/nhmwww/en/home/testpage", "test1");
-
 
 		this.mockResource = aemContext.resourceResolver().getResource("/content/nhmwww/en/home/testpage");
 		this.mockPageManager = aemContext.pageManager();
@@ -86,12 +74,9 @@ public class FeedListHelperTest {
 		this.aemContext.load().json("/json-import/pr1.json", "/content/nhmwww/en/home/testpage/pr1");
 		this.aemContext.load().json("/json-import/pr2.json", "/content/nhmwww/en/home/testpage/pr2");
 
-
-
-		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest,mockResourceResolver);
+		this.helper = new PressReleaseFeedListHelper(properties, mockPageManager, mockPage, mockRequest, mockResourceResolver);
 
 		helper.setComponentTitle("alpha");
-
 	}
 
 	@After
@@ -105,12 +90,10 @@ public class FeedListHelperTest {
 		helper = null;
 	}
 
-
-
 	@Test
 	public void ComponentTitleTest() {
-		assertEquals(String.class, helper.getComponentTitle().getClass());
-		assertEquals(helper.getComponentTitle(), "alpha");
+		assertEquals(String.class, this.helper.getComponentTitle().getClass());
+		assertEquals(this.helper.getComponentTitle(), "alpha");
 	}
 
 	@Test

@@ -26,6 +26,8 @@ public class TwentyTwentyImageHelper {
 
 	private String altBefore;
 	private String altAfter;
+	
+	private Boolean isInitialised;
 
 	private ResourceResolver resourceResolver;
 	
@@ -46,6 +48,11 @@ public class TwentyTwentyImageHelper {
 		this.altBefore = properties.get("altBefore", "");
 		this.altAfter = properties.get("altAfter", "");
 		
+		if(fileReferenceBefore.equals("") || fileReferenceAfter.equals("")) {
+			this.isInitialised = false;
+		} else {
+			this.isInitialised = true;
+		}
 	}
 
 	public String getOriginalImagePathBefore() {
@@ -78,5 +85,9 @@ public class TwentyTwentyImageHelper {
 
 	public void setAltAfter(String altAfter) {
 		this.altAfter = altAfter;
+	}
+	
+	public Boolean isInitialised() {
+		return isInitialised;
 	}
 }

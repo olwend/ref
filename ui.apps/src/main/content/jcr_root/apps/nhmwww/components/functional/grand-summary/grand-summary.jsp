@@ -10,6 +10,17 @@
 <%	String svgColor = "#565656"; %>
 <%	String svgStrokeWidth = "4"; %>
 
+<% if(!helper.isInitialised()) { %>
+	<div class="row">
+		<h4>Le grand summary</h4>
+		Required fields:
+		<ul>
+			<li>Image path</li>
+			<li>Mobile image path</li>
+		</ul>
+	</div>
+<% } else { %>
+
 <% 	if(helper.isExhibition()){
 		if(helper.hasCTAIcon()){
 			CTAButtonHelper ctahelper = new CTAButtonHelper(properties, resource, request, xssAPI, cssClassSection.toLowerCase());
@@ -137,3 +148,5 @@
 		<%-- Exhibition --%>
 	</div>
 <%-- Grand Summary --%>
+
+<% } %>

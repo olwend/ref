@@ -2,6 +2,6 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="This component add a single row with three cells one of equal width"
     jcr:primaryType="cq:Component"
-    jcr:title="Row 3 Cells"
+    jcr:title="Row, 3 cells"
     allowedParents="[*/*parsys]"
-    componentGroup="NHM - Layout"/>
+    componentGroup="NHM - layout"/>

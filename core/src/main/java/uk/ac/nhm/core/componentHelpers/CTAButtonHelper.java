@@ -138,8 +138,7 @@ public class CTAButtonHelper extends HelperBase {
 		
 	}
 	
-	private void setCssOnGrandparentNode() throws AccessDeniedException, ItemNotFoundException, RepositoryException
-	{
+	private void setCssOnGrandparentNode() throws AccessDeniedException, ItemNotFoundException, RepositoryException {
 		Resource parentResource = this.resource.getParent();
 		Node ancestorNode = parentResource.getParent().adaptTo(Node.class);
 		JcrUtil.setProperty(ancestorNode, "additionalCss", "bottom-banner");

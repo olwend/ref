@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Twenty Twenty Image Slider"
+    jcr:title="Image slider"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
     mode="edit">
@@ -16,7 +16,7 @@
     			<items jcr:primaryType="nt:unstructured">
     				<imagebeforetab
     					jcr:primaryType="nt:unstructured"
-    					jcr:title="Image Before"
+    					jcr:title="Image before"
     					sling:resourceType="granite/ui/components/foundation/section">
     					<layout
     						jcr:primaryType="nt:unstructured"
@@ -27,9 +27,18 @@
     							jcr:primaryType="nt:unstructured"
     							sling:resourceType="granite/ui/components/foundation/container">
     							<items jcr:primaryType="nt:unstructured">
+    								<imageresourcetype
+					                   	jcr:primaryType="nt:unstructured"
+										name="./image/sling:resourceType"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										value="nhmwww/components/functional/foundation5image"
+										renderHidden="{Boolean}true"
+										wrapperClass="dialog-hide-field"
+										fieldDescription="Hidden field for image upload resource type" />
     								<file
 				                        jcr:primaryType="nt:unstructured"
 				                        autoStart="{Boolean}false"
+				                        allowUpload="{Boolean}false"
 				                        class="cq-droptarget"
 				                        fieldLabel="Image before"
 				                        fieldNameParameter="./fileNameBefore"
@@ -47,7 +56,7 @@
     				</imagebeforetab>
     				<imageaftertab
     					jcr:primaryType="nt:unstructured"
-    					jcr:title="Image After"
+    					jcr:title="Image after"
     					sling:resourceType="granite/ui/components/foundation/section">
     					<layout
     						jcr:primaryType="nt:unstructured"
@@ -58,8 +67,17 @@
     							jcr:primaryType="nt:unstructured"
     							sling:resourceType="granite/ui/components/foundation/container">
     							<items jcr:primaryType="nt:unstructured">
+    								<imageresourcetype
+					                   	jcr:primaryType="nt:unstructured"
+										name="./image/sling:resourceType"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										value="nhmwww/components/functional/foundation5image"
+										renderHidden="{Boolean}true"
+										wrapperClass="dialog-hide-field"
+										fieldDescription="Hidden field for image upload resource type" />
     								<file
 				                        jcr:primaryType="nt:unstructured"
+				                        allowUpload="{Boolean}false"
 				                        autoStart="{Boolean}false"
 				                        class="cq-droptarget"
 				                        fieldLabel="Image after"
@@ -96,7 +114,7 @@
 	   									sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
   									<altAfter
 				                        jcr:primaryType="nt:unstructured"
-				                        fieldLabel="Alt Text after"
+				                        fieldLabel="Alt text after"
 				                        name="./altAfter"
 				                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
 	    						</items>

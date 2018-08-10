@@ -48,8 +48,12 @@
 	<% if (!helper.getIsComponentInitialised()) {%>
 	<div class="row " data-equalizer >
 	<div class="large-12 columns">
-	<h2>Page not initialised</h2>
-	<em>Please add an image and enter a page summary in the Page properties.</em>
+		<h4>Press release page</h4>
+		Required fields (editable in page properties):
+		<ul>
+			<li>Publish date</li>
+			<li>Summary</li>
+		</ul>
 	</div>
 	</div>
 	<% } else {%>

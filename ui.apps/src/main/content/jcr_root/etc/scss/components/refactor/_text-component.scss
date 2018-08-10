@@ -1,0 +1,23 @@
+.text {
+	padding: 0 ($padding-RL / 2);
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding: 0 $padding-RL;
+	}
+
+	// from legacy typography partial - WR-721
+	ul {
+		padding-left: $padding-RL;
+
+		li {
+			font-size: 1em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				font-size: 1.125em;
+			}
+
+			list-style: disc outside;
+			margin-bottom: 0.5em;
+		}
+	}
+}

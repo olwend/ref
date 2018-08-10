@@ -25,14 +25,18 @@
                         defaultValue="fullwidth"
                         allowBlank="false">
                         <options jcr:primaryType="cq:WidgetCollection">
-                            <fullwidth
+                        	<fullwidth
                                 jcr:primaryType="nt:unstructured"
                                 text="Full width"
                                 value="fullwidth"/>
                             <twocolumn
                                 jcr:primaryType="nt:unstructured"
                                 text="Two column"
-                                value="twocolumn"/>
+                                value="twocolumn"/>                       	
+                        	<onecolumn
+                                jcr:primaryType="nt:unstructured"
+                                text="One column"
+                                value="onecolumn"/>
                         </options>
                     </rowsize>
                     <showreadmore

@@ -12,18 +12,4 @@
         afteredit="REFRESH_PAGE"
         afterinsert="REFRESH_PAGE"
         aftermove="REFRESH_PAGE"/>
-    <cq:dropTargets jcr:primaryType="nt:unstructured">
-        <image
-            jcr:primaryType="cq:DropTargetConfig"
-            accept="[image/.*]"
-            groups="[media]"
-            propertyName="./fileReference">
-            <parameters
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="apps/nhmwww/components/functional/headertextimage"
-                imageCrop=""
-                imageMap=""
-                imageRotate=""/>
-        </image>
-    </cq:dropTargets>
 </jcr:root>
