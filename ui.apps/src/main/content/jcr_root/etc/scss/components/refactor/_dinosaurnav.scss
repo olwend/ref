@@ -35,14 +35,11 @@
 				font-size: 20px;
 			}
 			@media screen and (min-width: $breakpoint--phone-wide__landscape +1) {
-				font-size: 12px;
-				padding-right: 5px;
-			}
-			@media screen and (min-width: $breakpoint--tablet__portrait) {
 				font-size: 15px;
+				padding-left: 5px;
+				padding-right: 0;
 			}
 			@media screen and (min-width: $breakpoint--tablet__standard) {
-			// @media screen and (min-width: $breakpoint--tablet__portrait +100) {
 				font-size:20px;
 			}
 
