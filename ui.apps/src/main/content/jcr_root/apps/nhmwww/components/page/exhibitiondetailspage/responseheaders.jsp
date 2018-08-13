@@ -1,5 +1,5 @@
 <%@include file="/libs/foundation/global.jsp" %>
 
-<%if(properties.get("hideFromSearch") != null) { %>
+<%if(properties.get("hideFromSearch") != null && properties.get("hideFromSearch").equals("true")) { %>
     <% response.setHeader("X-Robots-Tag", "noindex"); %>
 <%} %>
