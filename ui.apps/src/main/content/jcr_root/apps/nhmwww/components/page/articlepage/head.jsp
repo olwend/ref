@@ -5,7 +5,7 @@
 <%@ page import="uk.ac.nhm.core.utils.*" %>
 
 <%
-	ArticleHelper helper = new ArticleHelper(resource);
+	ArticleHelper helper = new ArticleHelper(resource, slingRequest);
 %>
 
 <%

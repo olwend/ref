@@ -13,7 +13,14 @@
 	<sly data-sly-test="${pulloutimage.isConfigured}">
 		<div class="row imagepage--pullout">
 			<div class="imagepage--pullout-image-text-container small-12 medium-12 large-3 columns">
-				<div class="imagepage--pullout-image" data-sly-resource="${'image' @ wcmmode='disabled'}"></div>
+				<div class="imagepage--pullout-image">
+					<picture>
+						<source srcset="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+                		<source srcset="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+						<source srcset="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" />
+						<img src="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" alt="${image.alt}" />
+					</picture>
+				</div>
 				<div class="imagepage--caption-container">
 					<div class="imagepage--caption">${properties.caption @ context='html'}</div>
 					<div class="imagepage--credit">${properties.credit @ context='html'}</div>
