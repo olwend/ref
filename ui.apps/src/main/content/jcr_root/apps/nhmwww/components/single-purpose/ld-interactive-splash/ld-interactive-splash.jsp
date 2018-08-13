@@ -9,7 +9,7 @@
     String secondaryTitle = properties.get("jcr:secondaryTitle", "Placeholder secondary title");   
      %>
 
-	<div id="LD-container" data-title="<%= title %>" data-secondaryTitle="<%= secondaryTitle %>">
+	<div id="LD-splash" data-title="<%= title %>" data-secondaryTitle="<%= secondaryTitle %>">
 	</div>
 
 <cq:includeClientLib categories="nhmwww.ld-interactive-splash"/>

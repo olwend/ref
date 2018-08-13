@@ -1,2 +1,2 @@
 #base=js
-dist-bundle.min.js
+dist-bundle-ES5.min.js
