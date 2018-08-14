@@ -6819,17 +6819,11 @@ div#cookie-bar p {
   }
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 641px) and (max-width: 868px) {
   .dinosaurnav--search-form input {
     font-size: 15px;
     padding-left: 5px;
     padding-right: 0;
-  }
-}
-
-@media screen and (min-width: 868px) {
-  .dinosaurnav--search-form input {
-    font-size: 20px;
   }
 }
 

@@ -34,13 +34,11 @@
 			@media screen and (max-width: $breakpoint--phone-wide__landscape) {
 				font-size: 20px;
 			}
-			@media screen and (min-width: $breakpoint--phone-wide__landscape +1) {
+			@media screen and (min-width: $breakpoint--phone-wide__landscape +1) and
+			(max-width: $breakpoint--tablet__standard){
 				font-size: 15px;
 				padding-left: 5px;
 				padding-right: 0;
-			}
-			@media screen and (min-width: $breakpoint--tablet__standard) {
-				font-size:20px;
 			}
 
 			&::placeholder,
