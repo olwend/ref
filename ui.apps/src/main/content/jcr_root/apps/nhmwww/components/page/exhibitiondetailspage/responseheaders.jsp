@@ -2,4 +2,5 @@
 
 <%if(properties.get("hideFromSearch") != null && properties.get("hideFromSearch").equals("true")) { %>
     <% response.setHeader("X-Robots-Tag", "noindex"); %>
+    <% response.setHeader("Dispatcher", "no-cache"); %>
 <%} %>
