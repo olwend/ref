@@ -4,4 +4,4 @@
     jcr:title="Content Model"
     sling:resourceSuperType="dam/cfm/components/contentfragment"
     allowedParents="[*/*parsys]"
-    componentGroup="nhmwww"/>
+    componentGroup="NHM - components"/>

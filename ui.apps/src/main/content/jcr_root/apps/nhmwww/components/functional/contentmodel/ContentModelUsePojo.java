@@ -25,22 +25,17 @@ public class ContentModelUsePojo extends WCMUsePojo {
 
     private static final Logger LOG = LoggerFactory.getLogger(ContentModelUsePojo.class);
 
-    private String testData;
+    private String title;
+    private String description;
+    private String imagePath;
+    private String link;
 
     @Override
     public void activate() {
         String cfReference = getProperties().get("fileReference", null);
-		Resource resource = getResourceResolver().getResource(cfReference);
-		ValueMap properties = resource.adaptTo(ValueMap.class);
-        this.testData = properties.get("jcr:content/data/master/test", String.class);
+		
+        Resource fragmentResource = resourceResolver.getResource(cfReference);
     }
 
-    public String getTestData() {
-        return testData;
-    }
-
-    public void setTestData(String testData) {
-        this.testData = testData;
-    }
 
 }
