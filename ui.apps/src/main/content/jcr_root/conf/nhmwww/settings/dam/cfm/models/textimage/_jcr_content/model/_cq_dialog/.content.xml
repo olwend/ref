@@ -4,6 +4,8 @@
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content 
     	jcr:primaryType="nt:unstructured"
+		jcr:lastModified="{Date}2018-08-16T10:33:31.407+01:00"
+		jcr:lastModifiedBy="admin"
     	sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
    			<items 
 			   jcr:primaryType="nt:unstructured"
