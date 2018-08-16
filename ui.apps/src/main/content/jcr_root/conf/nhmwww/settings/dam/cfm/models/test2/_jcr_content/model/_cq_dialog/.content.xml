@@ -8,30 +8,17 @@
    			<items 
 			   jcr:primaryType="nt:unstructured"
 			   maxGeneratedOrder="24">
-   				<title
+				<text
 					jcr:primaryType="nt:unstructured"
-					fieldLabel="Title"
-					listOrder="1"
-					maxlength="255"
-					metaType="text-single"
-					name="title"
-					renderReadOnly="false"
-					required="on"
-					showEmptyInReadOnly="true"
-					sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-					valueType="string" >
-				</title>
-				<description
-					jcr:primaryType="nt:unstructured"
-					cfm-element="Description"
+					cfm-element="Text"
 					listOrder="2"
 					metaType="text-multi"
-					name="description"
+					name="text"
 					renderReadOnly="false"
 					showEmptyInReadOnly="true"
 					sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
 					valueType="string" >
-				</description>
+				</text>
 				<imagepath
 					jcr:primaryType="nt:unstructured"
 					fieldLabel="Image path"

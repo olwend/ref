@@ -12,8 +12,7 @@ public class ContentModelUsePojo extends WCMUsePojo {
 
     private static final Logger LOG = LoggerFactory.getLogger(ContentModelUsePojo.class);
 	
-    private String title;
-    private String description;
+    private String text;
     private String imagePath;
     private String link;
 
@@ -27,27 +26,18 @@ public class ContentModelUsePojo extends WCMUsePojo {
         if(fragmentResource != null) {
         	ContentFragment fragment = fragmentResource.adaptTo(ContentFragment.class);
         	
-        	this.title = fragment.getElement("title").getContent();
-        	this.description = fragment.getElement("description").getContent();
+        	this.text = fragment.getElement("text").getContent();
         	this.imagePath = fragment.getElement("imagepath").getContent();
         	this.link = fragment.getElement("link").getContent();
         }
     }
 
-	public String getTitle() {
-		return title;
+	public String getText() {
+		return text;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	public String getImagePath() {
