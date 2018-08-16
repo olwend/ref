@@ -8,8 +8,8 @@
 		cq:lastModified="{Date}2018-08-15T14:59:43.209+01:00"
 		cq:lastModifiedBy="admin"
 		jcr:primaryType="cq:PageContent"
-		jcr:title="advert"
-		cq:scaffolding="/conf/nhmwww/settings/dam/cfm/models/test2/jcr:content/model"
+		jcr:title="Text image"
+		cq:scaffolding="/conf/nhmwww/settings/dam/cfm/models/textimage/jcr:content/model"
 		cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
 		sling:resourceType="dam/cfm/models/console/components/data/entity/default"
 		sling:resourceSuperType="dam/cfm/models/console/components/data/entity" >
