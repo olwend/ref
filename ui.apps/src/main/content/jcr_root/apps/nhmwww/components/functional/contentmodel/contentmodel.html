@@ -1,10 +1,15 @@
-      default text
+<div data-sly-test="${wcmmode.edit}">
+    Advert component
+</div>
+
 <div data-sly-use.fragment="uk.ac.nhm.core.componentHelpers.ContentModelUsePojo" data-emptytext="Content Fragment">
-    ${fragment.title}
-
-    ${fragment.description @ context='html'}
-
-    ${fragment.imagePath}
-
-    ${fragment.link}
+	<a href="${fragment.link}">
+        <div>
+            <h3><img src="${fragment.imagePath}"/></h3>
+        
+            ${fragment.title}
+        
+            <p>${fragment.description @ context='html'}</p>
+		</div>
+	</a>
 </div>
