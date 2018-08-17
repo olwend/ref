@@ -1,5 +1,9 @@
 package uk.ac.nhm.core.componentHelpers;
 
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
+import javax.jcr.ValueFormatException;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.slf4j.Logger;
@@ -11,27 +15,34 @@ import com.adobe.cq.sightly.WCMUsePojo;
 public class ContentModelUsePojo extends WCMUsePojo {
 
     private static final Logger LOG = LoggerFactory.getLogger(ContentModelUsePojo.class);
-	
+
     private String text;
     private String imagePath;
     private String link;
+    
+    private ContentFragment fragment;
 
     @Override
     public void activate() {
     	ResourceResolver resourceResolver = getResourceResolver();
         String cfReference = getProperties().get("fileReference", null);
-		
         Resource fragmentResource = resourceResolver.getResource(cfReference);
         
-        if(fragmentResource != null) {
-        	ContentFragment fragment = fragmentResource.adaptTo(ContentFragment.class);
-        	
-        	this.text = fragment.getElement("text").getContent();
-        	this.imagePath = fragment.getElement("imagepath").getContent();
-        	this.link = fragment.getElement("link").getContent();
-        }
+        if(fragmentResource != null) fragment = fragmentResource.adaptTo(ContentFragment.class);
+        
+        if(fragment.hasElement("text")) text = fragment.getElement("text").getContent();
+    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getContent();
+    	if(fragment.hasElement("link")) link = fragment.getElement("link").getContent();
     }
 
+	public boolean isConfigured() throws ValueFormatException, PathNotFoundException, RepositoryException {
+		if(getProperties().get("fileReference", null) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+    
 	public String getText() {
 		return text;
 	}
@@ -55,6 +66,5 @@ public class ContentModelUsePojo extends WCMUsePojo {
 	public void setLink(String link) {
 		this.link = link;
 	}
-
 
 }

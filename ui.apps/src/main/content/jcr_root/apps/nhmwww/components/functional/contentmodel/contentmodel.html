@@ -1,13 +1,20 @@
-<div data-sly-test="${wcmmode.edit}">
-    Text image fragment component
-</div>
-
 <div data-sly-use.fragment="uk.ac.nhm.core.componentHelpers.ContentModelUsePojo" class="cq-dd-fragment" data-emptytext="Content Fragment">
-	<a href="${fragment.link}">
-        <div>
-            <h3><img src="${fragment.imagePath}"/></h3>
-        
-            <p>${fragment.text @ context='html'}</p>
-		</div>
-	</a>
+    <div data-sly-test="${!fragment.isConfigured}">
+        <div class="row">
+            <h4>Text image fragment</h4>
+            Required fields:
+            <ul>
+                <li>Content fragment reference</li>
+            </ul>
+        </div>
+    </div>
+    <div data-sly-test="${fragment.isConfigured}">
+        <a href="${fragment.link}">
+            <div>
+                <h3><img src="${fragment.imagePath}"/></h3>
+            
+                <p>${fragment.text @ context='html'}</p>
+            </div>
+        </a>
+    </div>
 </div>
