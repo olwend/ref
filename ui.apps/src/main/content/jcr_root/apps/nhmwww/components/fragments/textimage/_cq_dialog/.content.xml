@@ -33,6 +33,16 @@
 								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
 								rootPath="/content/dam/nhmwww" 
 								required="{Boolean}true"/>
+							<variation
+								jcr:primaryType="nt:unstructured"
+								emptyText="Select"
+								fieldLabel="Variation"
+								name="./variation"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select">
+								<datasource
+									jcr:primaryType="nt:unstructured"
+									sling:resourceType="dam/cfm/components/datasources/variations"/>
+							</variation>
 						</items>
 					</column>
 				</items>

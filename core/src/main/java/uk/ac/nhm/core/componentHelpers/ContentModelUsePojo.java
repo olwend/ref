@@ -26,13 +26,23 @@ public class ContentModelUsePojo extends WCMUsePojo {
     public void activate() {
     	ResourceResolver resourceResolver = getResourceResolver();
         String cfReference = getProperties().get("fileReference", null);
+        String variation = getProperties().get("variation", null);
+        
         Resource fragmentResource = resourceResolver.getResource(cfReference);
         
         if(fragmentResource != null) fragment = fragmentResource.adaptTo(ContentFragment.class);
         
-        if(fragment.hasElement("text")) text = fragment.getElement("text").getContent();
-    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getContent();
-    	if(fragment.hasElement("link")) link = fragment.getElement("link").getContent();
+        if(fragment != null) {
+        	if(variation != null && !variation.equals("master")) {
+        		if(fragment.hasElement("text")) text = fragment.getElement("text").getVariation(variation).getContent();
+		    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getVariation(variation).getContent();
+		    	if(fragment.hasElement("link")) link = fragment.getElement("link").getVariation(variation).getContent();
+        	} else {
+		        if(fragment.hasElement("text")) text = fragment.getElement("text").getContent();
+		    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getContent();
+		    	if(fragment.hasElement("link")) link = fragment.getElement("link").getContent();
+        	}
+        }
     }
 
 	public boolean isConfigured() throws ValueFormatException, PathNotFoundException, RepositoryException {
