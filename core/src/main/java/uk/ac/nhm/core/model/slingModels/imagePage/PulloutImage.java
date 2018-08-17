@@ -28,10 +28,24 @@ public class PulloutImage {
 	
 	@Inject
 	SlingHttpServletRequest request;
+
+	private String fileReference = null;
+	
+	private Resource imageResource; 
 	
 	@PostConstruct
 	protected void init() throws JSONException, PathNotFoundException, RepositoryException {
-			
+		//Set global imageResource
+		String imagePath = request.getResource().getPath() + "/image";
+		imageResource = resourceResolver.getResource(imagePath);
+		
+		//Set model variables to export to view
+		if(imageResource != null) {
+			ValueMap map = imageResource.adaptTo(ValueMap.class);
+			if(map.containsKey("fileReference")) {
+				fileReference = map.get("fileReference", String.class);
+			}
+		}
 	}
 
 	public boolean isConfigured() throws RepositoryException {
@@ -45,6 +59,14 @@ public class PulloutImage {
 		} else {
 			return false;
 		}
+	}
+
+	public String getFileReference() {
+		return fileReference;
+	}
+
+	public void setFileReference(String fileReference) {
+		this.fileReference = fileReference;
 	}
 
 }

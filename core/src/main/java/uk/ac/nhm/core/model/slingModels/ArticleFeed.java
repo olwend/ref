@@ -1,17 +1,23 @@
 package uk.ac.nhm.core.model.slingModels;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Source;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.day.cq.search.result.Hit;
 
 import uk.ac.nhm.core.services.ArticleFeedService;
 
@@ -27,34 +33,26 @@ public class ArticleFeed {
 	ValueMap properties;
 
 	@Inject
+	ResourceResolver resourceResolver;
+	
+	@Inject
 	@Source("osgi-services")
 	ArticleFeedService service;
 
-	private List<Map<String, String>> pageList = null;
+	private List<Map<String, String>> pageList;
+	
 	private String mediumColumn = null;
 	private String largeColumn = null;
-	private String readmorelink = null;
 	private String cssClass = null;
+	
+	private String readmorelink;
 	
 	@PostConstruct
 	protected void init() {
-		String categoryParameter = request.getParameter("category");
-		String[] tags = null;
+		setPageList(properties);
+		setReadMoreLink(properties);
 
-		if(categoryParameter != null && !categoryParameter.equals("")) {
-			tags = new String[2];
-			tags[0] = "nhm:" + categoryParameter;
-			tags[1] = "nhm:discover/" + categoryParameter;
-		} else {
-			tags = properties.get("cq:tags", String[].class);
-		}
-
-		String rootPath = properties.get("rootpath", String.class);
-		String tagsOperator = properties.get("tagsoperator", String.class);
-		String order = properties.get("order", String.class);
-		String limit = properties.get("limit", String.class);
-		this.setPageList(service.getPageData(rootPath, tags, order, tagsOperator, limit));
-
+		//Set row size values
 		String rowSize = properties.get("rowsize", String.class);
 		
 		if(rowSize.equals("fullwidth")) {
@@ -73,32 +71,55 @@ public class ArticleFeed {
 			this.setMediumColumn("1");
 			this.setLargeColumn("1");
 			this.setCssClass("articlefeed__one-column");
-		}
+		}		
+	}
+	
+	public void setPageList(ValueMap properties) {
+		//Set page list
+		String[] tags = properties.get("cq:tags", String[].class);
+		String rootPath = properties.get("rootpath", String.class);
+		String tagsOperator = properties.get("tagsoperator", String.class);
+		String order = properties.get("order", String.class);
+		String limit = properties.get("limit", String.class);
 		
-		//this.showreadmore = properties.get("showreadmore",boolean.class);
-		this.readmorelink = properties.get("readmorelink",String.class);
-		if(this.readmorelink != null) {
-			if(!this.readmorelink.isEmpty()) {
-				if(!this.readmorelink.contains(".html")) {
-					this.readmorelink = this.readmorelink + ".html";
+		List<Hit> nodes = service.getArticleNodes(rootPath, tags, order, tagsOperator, limit, resourceResolver);
+		List<Map<String, String>> itemList = new ArrayList<Map<String, String>>();
+		
+	    //For each query hit, gather required fields and add them to a Map
+	    //Subsequently add Map to @nodeList that is returned to the view
+	    for(Hit hits : nodes) {
+			try {
+				Node node = hits.getNode();
+				itemList.add(service.getNodeMap(node));
+			} catch (RepositoryException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+
+		pageList = itemList;
+	}
+
+	public void setReadMoreLink(ValueMap properties) {
+		//Set read more link if present
+		readmorelink = properties.get("readmorelink",String.class);
+		if(readmorelink != null) {
+			if(!readmorelink.isEmpty()) {
+				if(!readmorelink.contains(".html")) {
+					readmorelink = readmorelink + ".html";
 				}
 			}
-
 		}
 	}
-
+	
 	public List<Map<String, String>> getPageList() {
 		return pageList;
-	}
-
-	public void setPageList(List<Map<String, String>> pageList) {
-		this.pageList = pageList;
 	}
 	
 	public String getReadmorelink() {
 		return readmorelink;
 	}
-
+	
 	public String getMediumColumn() {
 		return mediumColumn;
 	}
@@ -122,7 +143,4 @@ public class ArticleFeed {
 	public void setCssClass(String cssClass) {
 		this.cssClass = cssClass;
 	}
-
-	
-	
 }
