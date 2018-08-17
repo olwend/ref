@@ -1,5 +1,8 @@
 package uk.ac.nhm.core.componentHelpers;
 
+import java.util.Iterator;
+import java.util.Map;
+
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.ValueFormatException;
@@ -10,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
+import com.adobe.cq.dam.cfm.VariationDef;
 import com.adobe.cq.sightly.WCMUsePojo;
 
 public class ContentModelUsePojo extends WCMUsePojo {
@@ -24,6 +28,7 @@ public class ContentModelUsePojo extends WCMUsePojo {
 
     @Override
     public void activate() {
+    	//Get fragment resource
     	ResourceResolver resourceResolver = getResourceResolver();
         String cfReference = getProperties().get("fileReference", null);
         String variation = getProperties().get("variation", null);
@@ -32,8 +37,19 @@ public class ContentModelUsePojo extends WCMUsePojo {
         
         if(fragmentResource != null) fragment = fragmentResource.adaptTo(ContentFragment.class);
         
+        //Check if variation exists
+        boolean variationAvailable = false;
+        Iterator<VariationDef> fragmentVariations = fragment.listAllVariations();
+        
+        while(fragmentVariations.hasNext()) {
+        	VariationDef fragmentVariation = fragmentVariations.next();
+        	String variationName = fragmentVariation.getName();
+        	if(variationName.equals(variation)) variationAvailable = true;
+        }
+        
+        //Set values for view
         if(fragment != null) {
-        	if(variation != null && !variation.equals("master")) {
+        	if(variation != null && !variation.equals("master") && variationAvailable == true) {
         		if(fragment.hasElement("text")) text = fragment.getElement("text").getVariation(variation).getContent();
 		    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getVariation(variation).getContent();
 		    	if(fragment.hasElement("link")) link = fragment.getElement("link").getVariation(variation).getContent();
