@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Text image fragment"
     allowedParents="[*/*parsys]"
-    componentGroup="NHM - components"/>
+    componentGroup="NHM - fragments"/>
