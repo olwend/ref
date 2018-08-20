@@ -23,6 +23,9 @@ public class ContentModelUsePojo extends WCMUsePojo {
     private String text;
     private String imagePath;
     private String link;
+    private String showCta;
+    private String ctaText;
+    private String ctaIconPath;
     
     private ContentFragment fragment;
 
@@ -53,10 +56,16 @@ public class ContentModelUsePojo extends WCMUsePojo {
         		if(fragment.hasElement("text")) text = fragment.getElement("text").getVariation(variation).getContent();
 		    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getVariation(variation).getContent();
 		    	if(fragment.hasElement("link")) link = fragment.getElement("link").getVariation(variation).getContent();
+		    	if(fragment.hasElement("cta")) setShowCta(fragment.getElement("cta").getVariation(variation).getContent());
+		    	if(fragment.hasElement("ctatext")) ctaText = fragment.getElement("ctatext").getVariation(variation).getContent();
+		    	if(fragment.hasElement("ctaicon")) ctaIconPath = fragment.getElement("ctaicon").getVariation(variation).getContent();
         	} else {
 		        if(fragment.hasElement("text")) text = fragment.getElement("text").getContent();
 		    	if(fragment.hasElement("imagepath")) imagePath = fragment.getElement("imagepath").getContent();
 		    	if(fragment.hasElement("link")) link = fragment.getElement("link").getContent();
+		    	if(fragment.hasElement("cta")) setShowCta(fragment.getElement("cta").getContent());
+		    	if(fragment.hasElement("ctatext")) ctaText = fragment.getElement("ctatext").getContent();
+		    	if(fragment.hasElement("ctaicon")) ctaIconPath = fragment.getElement("ctaicon").getContent();
         	}
         }
     }
@@ -69,6 +78,15 @@ public class ContentModelUsePojo extends WCMUsePojo {
 		}
 	}
     
+	public boolean hasCta() {
+		if(getProperties().get("cta", null) != null
+			&& getProperties().get("cta", null).equals("true")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public String getText() {
 		return text;
 	}
@@ -86,11 +104,39 @@ public class ContentModelUsePojo extends WCMUsePojo {
 	}
 
 	public String getLink() {
-		return link;
+		if(link.contains(".html")) {
+			return link;
+		} else {
+			return link + ".html";
+		}
 	}
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	public String getShowCta() {
+		return showCta;
+	}
+
+	public void setShowCta(String showCta) {
+		this.showCta = showCta;
+	}
+
+	public String getCtaText() {
+		return ctaText;
+	}
+
+	public void setCtaText(String ctaText) {
+		this.ctaText = ctaText;
+	}
+
+	public String getCtaIconPath() {
+		return ctaIconPath;
+	}
+
+	public void setCtaIconPath(String ctaIconPath) {
+		this.ctaIconPath = ctaIconPath;
 	}
 
 }
