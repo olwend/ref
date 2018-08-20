@@ -10,12 +10,28 @@
         </div>
     </div>
 
-    <div data-sly-test="${fragment.isConfigured}">
+    <div data-sly-test="${fragment.isConfigured}" class="headertextimage parbase section">
+    	<div class="hti-wrapper hti-padding">
+            <div class="hti--image-wrapper columns small-12 medium-12 large-12">
+                <a href="${fragment.link}">
+                    <img src="${fragment.imagePath}"/>
+                </a>
+            </div>
+            <div class="hti-box end columns hti-box__light-grey small-12 medium-12 large-12">
+                <div class="small-12 medium-12 large-12 column hti-box--text-wrapper">
+                    <p>${fragment.text @ context='html'}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<!-- No styling -->
+	<!-- <div data-sly-test="${fragment.isConfigured}">
         <a href="${fragment.link}">
             <img src="${fragment.imagePath}"/>
         
             <p>${fragment.text @ context='html'}</p>
         </a>
-    </div>
+	</div> -->  
 
 </div>
