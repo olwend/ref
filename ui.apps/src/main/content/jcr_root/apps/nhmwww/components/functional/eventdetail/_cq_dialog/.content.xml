@@ -103,6 +103,12 @@
 		                        fieldLabel="Keywords"
 		                        name="./keywords"
 		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+                           <hideFromSearch
+	                   		jcr:primaryType="nt:unstructured"
+							text="Hide from event search"
+							name="./hideFromSearch"
+							sling:resourceType="granite/ui/components/foundation/form/checkbox" 
+							value="{Boolean}true" />
 		                    <fieldset
 		                        jcr:primaryType="nt:unstructured"
 		                        jcr:title="Dates"
