@@ -966,35 +966,35 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science a, .our-science a:hover {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science.thumb-caption,
 .our-science .thumb-caption {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 @media screen and (min-width: 768px) {
   .our-science.thumb-caption,
   .our-science .thumb-caption {
-    background-color: rgba(53, 121, 0, 0.95);
+    background-color: rgba(44, 97, 0, 0.95);
   }
 }
 
 .our-science .nav-list__item.our-science a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .info-tout__action {
-  border: 5px solid #357900 !important;
+  border: 5px solid #2C6100 !important;
 }
 
 .our-science .info-tout__action h3, .our-science .info-tout__action a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .info-tout__action p {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .info-tout__action:hover {
@@ -1002,21 +1002,21 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science .info-tout__share h3 {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .info-tout__share a {
-  color: #357900;
+  color: #2C6100;
   background-color: #f4f4f4;
-  border: 5px solid #357900 !important;
+  border: 5px solid #2C6100 !important;
 }
 
 .our-science .info-tout__share p {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .info-tout__share a:hover {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 .our-science .info-tout__share a:hover h3, .our-science .info-tout__share a:hover p {
@@ -1024,15 +1024,15 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science .bottom-banner {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 .our-science .GreyBox a {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science .feature-box {
-  background-color: #357900;
+  background-color: #2C6100;
 }
 
 .our-science .feature-box h2, .our-science .feature-box h3, .our-science .feature-box p, .our-science .feature-box a {
@@ -1044,7 +1044,7 @@ CSS files should not be edited directly, as those edits will be overridden next 
 }
 
 .our-science a:hover {
-  color: #357900;
+  color: #2C6100;
 }
 
 .our-science hr {
@@ -3185,7 +3185,7 @@ i.ico img {
 }
 
 .our-science .info-tout h3 {
-  color: #357900;
+  color: #2C6100;
 }
 
 .info-tout__share a {
