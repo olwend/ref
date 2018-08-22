@@ -64,7 +64,7 @@
 	width: 99%;
 }
 
-.cq-Dialog:not(.coral-Dialog--fullscreen) .coral-TabPanel-content .richtext-container .coral-RichText {
+.cq-Dialog:not(.coral-Dialog--fullscreen) .coral-TabPanel-pane:not(.foundation-layout-util-vmargin) .richtext-container .coral-RichText {
 	height: 8rem;
 }
 
