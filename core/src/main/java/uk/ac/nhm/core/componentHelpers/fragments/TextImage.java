@@ -1,4 +1,4 @@
-package uk.ac.nhm.core.componentHelpers;
+package uk.ac.nhm.core.componentHelpers.fragments;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -16,9 +16,9 @@ import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.VariationDef;
 import com.adobe.cq.sightly.WCMUsePojo;
 
-public class ContentModelUsePojo extends WCMUsePojo {
+public class TextImage extends WCMUsePojo {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ContentModelUsePojo.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TextImage.class);
 
     private String text;
     private String imagePath;
