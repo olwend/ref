@@ -1,17 +1,17 @@
 .coral-Dialog-wrapper {
-	width:45%;
+	width: 45%;
 }
 
 .cq-dialog-floating .cq-dialog-content {
-	width:100%;
+	width: 100%;
 }
 
 .granite-pickerdialog coral-dialog-content {
-	width:60vw;
+	width: 60vw;
 }
 
 .coral-FixedColumn-column {
-	width:85%;
+	width: 85%;
 }
 
 @media screen and (min-width: 1280px) {
@@ -42,7 +42,7 @@
 
 .coral-Form-field .coral-Multifield-list li {
 	background: #F0F0F0;
-	border: solid #F0F0F0
+	border: solid #F0F0F0;
 }
 
 .coral-Multifield {
@@ -60,8 +60,12 @@
 }
 
 .cq-Dialog:not(.coral-Dialog--fullscreen) .richtext-container .coral-RichText {
-	height: 8rem;
+	height: 23rem;
 	width: 99%;
+}
+
+.cq-Dialog:not(.coral-Dialog--fullscreen) .coral-TabPanel-content .richtext-container .coral-RichText {
+	height: 8rem;
 }
 
 .cq-Overlay--component-name {
@@ -70,5 +74,5 @@
 }
 
 .dialog-hidden-field {
-	display:none;
+	display: none;
 }
