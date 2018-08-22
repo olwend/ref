@@ -2,42 +2,40 @@
   width: 100%;
   height: 45vh;
   overflow: hidden;
-  overflow-x: hidden;
   background-color: #000;
-  overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
+  will-change: scroll-position;
 }
 
 #LD-container.animate {
   overflow: scroll;
-  /*-webkit-overflow-scrolling: touch;   momentum scroll - maybe need to limit to small screens?  EDIT - nice on IOS but it breaks alot of things on android */
+  -webkit-overflow-scrolling: touch;
+  /* momentum scroll - maybe need to limit to small screens?  EDIT - nice on IOS but it breaks alot of things on android */
 }
 
-#LD-container .bigsplash-text {
+.bigsplash-text {
   pointer-events: none;
   font-size: 1em;
   z-index: 10;
   margin: 0px;
+  color: white;
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
+  padding: 0 !important;
 }
 
-#LD-container .bigsplash-text .row {
+.bigsplash-text .row {
   width: 90%;
 }
 
-#LD-container .bigsplash-text h1 {
+.bigsplash-text h1 {
   font-size: 2em;
   margin: 0;
 }
 
-#LD-container::-webkit-scrollbar {
-  display: none;
-}
-
 #bigsplash-interactive {
-  background-size: cover;
-  background-position: center center;
   /*background: url(../img/LitD.jpg) no-repeat center center;*/
-  width: 100%;
   /* set to keep aspect ratio of scrollable image (i.e. 1920*1920 ) */
 }
 
@@ -45,21 +43,12 @@
   width: 100%;
   max-width: none !important;
   float: left;
-  transition: transform 1.4s linear;
 }
 
 #bigsplash-interactive #mainImg svg {
   -webkit-backface-visibility: hidden !important;
   /* prevents flickering - works on desktop but not mobile views - check real devices */
   will-change: auto;
-}
-
-#bigsplash-interactive #mainImg.zoom {
-  transform: scale(1.01) translateY(0.2vw);
-}
-
-#bigsplash-interactive #mainImg.mothZoom {
-  transform: scale(2) translateY(100vh);
 }
 
 #layer1, #layer2, #layer3 {
@@ -104,14 +93,28 @@
   display: none;
 }
 
-.bigsplash-text {
-  color: white;
-  margin: 0px 0 0 5px;
+.svgArrow {
+  height: 2rem;
+  width: 2.5rem;
   position: absolute;
-  bottom: 3%;
-  width: 100%;
-  pointer-events: none;
-  padding: 0 !important;
+  right: 5vw;
+  z-index: 100;
+  bottom: 1vh;
+  pointer-events: initial;
+}
+
+.svgArrow.up {
+  bottom: 3rem;
+}
+
+.svgArrow svg {
+  stroke: #fff;
+  fill: transparent;
+  stroke-width: 8px;
+}
+
+.svgArrow:active svg {
+  stroke-width: 12px;
 }
 
 /*
@@ -144,7 +147,7 @@
   }
   #LD-container .bigsplash-text {
     bottom: 0;
-    font-size: 0.8em;
+    font-size: 1em;
   }
   #LD-container #bigsplash-interactive #mainImg {
     width: 100%;
@@ -158,7 +161,7 @@
   }
   #LD-container .bigsplash-text {
     bottom: 10px;
-    font-size: 0.8em;
+    font-size: 1em;
   }
   #LD-container #bigsplash-interactive #mainImg {
     width: 100%;
@@ -170,10 +173,10 @@
   #LD-container {
     height: 45vh;
   }
-  #LD-container .bigsplash-text {
+  .bigsplash-text {
     font-size: 1em;
   }
-  #LD-container #bigsplash-interactive #mainImg {
+  #bigsplash-interactive #mainImg {
     width: 100%;
   }
 }
@@ -184,11 +187,11 @@
     height: 70vh;
     /* go taller */
   }
-  #LD-container .bigsplash-text {
+  .bigsplash-text {
     bottom: 10px;
     font-size: 1em;
   }
-  #LD-container #bigsplash-interactive #mainImg {
+  #bigsplash-interactive #mainImg {
     width: 100%;
   }
 }
@@ -198,11 +201,11 @@
   #LD-container {
     height: 45vh;
   }
-  #LD-container .bigsplash-text {
+  .bigsplash-text {
     bottom: 10px;
-    font-size: 1em;
+    font-size: 1.4em;
   }
-  #LD-container #bigsplash-interactive #mainImg {
+  #bigsplash-interactive #mainImg {
     width: 100%;
   }
 }
@@ -210,13 +213,13 @@
 /******** tablet ********/
 @media screen and (min-width: 1024px) and (orientation: landscape) {
   #LD-container {
-    height: 60vh;
+    height: 45vh;
   }
-  #LD-container .bigsplash-text {
+  .bigsplash-text {
     bottom: 10px;
-    font-size: 1em;
+    font-size: 1.4em;
   }
-  #LD-container #bigsplash-interactive #mainImg {
+  #bigsplash-interactive #mainImg {
     width: 100%;
   }
 }
@@ -227,13 +230,16 @@
 
 /******** tablet ++ ********/
 @media screen and (min-width: 1440px) {
+  #LD-container::-webkit-scrollbar {
+    display: none;
+  }
   #LD-container {
     height: 60vh;
   }
-  #LD-container #bigsplash-interactive #mainImg {
+  #bigsplash-interactive #mainImg {
     width: 100%;
   }
-  #LD-container .bigsplash-text {
+  .bigsplash-text {
     font-size: 1.5em;
   }
 }
@@ -257,6 +263,14 @@ $breakpoint--desktop-wide: 1440px;
   opacity: 0;
   width: max-content;
   visibility: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  /* apple makes its own CSS!! */
+}
+
+#bigsplash-interactive .animal :hover, #bigsplash-interactive .animal :focus {
+  background-color: transparent;
 }
 
 #LD-container.animate #bigsplash-interactive .visible .animal {
@@ -276,7 +290,7 @@ $breakpoint--desktop-wide: 1440px;
 
 .animal.glow:after, .animal.glow:before {
   opacity: 0;
-  animation: animGlow 20s infinite;
+  animation: animGlow 3s infinite;
 }
 
 #moth {
@@ -312,7 +326,7 @@ $breakpoint--desktop-wide: 1440px;
   position: absolute;
   background: #fff;
   background: radial-gradient(circle at top left, white, #fff);
-  box-shadow: 0 0 60px 15px white;
+  box-shadow: 0 0 60px 20px white;
   border: 1px solid #fff;
   border-radius: 50%;
   width: 0.5vw;
@@ -325,8 +339,8 @@ $breakpoint--desktop-wide: 1440px;
 @media screen and (max-width: 768px) {
   #moth:before {
     top: 102%;
-    width: 1vw;
-    height: 1vw;
+    width: 1.5vw;
+    height: 1.5vw;
   }
 }
 
@@ -361,7 +375,7 @@ $breakpoint--desktop-wide: 1440px;
   position: absolute;
   background: #FF390D;
   background: radial-gradient(circle at top left, #ff785a, #FF390D);
-  box-shadow: 0 0 60px 15px #ff4e27;
+  box-shadow: 0 0 60px 20px #ff4e27;
   border: 1px solid #FF390D;
   border-radius: 50%;
   width: 0.5vw;
@@ -374,8 +388,8 @@ $breakpoint--desktop-wide: 1440px;
 @media screen and (max-width: 768px) {
   #snake:before {
     top: 189%;
-    width: 1vw;
-    height: 1vw;
+    width: 1.5vw;
+    height: 1.5vw;
   }
 }
 
@@ -523,7 +537,7 @@ $breakpoint--desktop-wide: 1440px;
   position: absolute;
   background: #9effb7;
   background: radial-gradient(circle at top left, #ebfff0, #9effb7);
-  box-shadow: 0 0 60px 15px #b8ffca;
+  box-shadow: 0 0 60px 20px #b8ffca;
   border: 1px solid #9effb7;
   border-radius: 50%;
   width: 1vw;
@@ -538,8 +552,8 @@ $breakpoint--desktop-wide: 1440px;
 @media screen and (max-width: 768px) {
   #angler .glowball {
     top: 11%;
-    width: 2vw;
-    height: 2vw;
+    width: 2.5vw;
+    height: 2.5vw;
   }
 }
 
@@ -588,7 +602,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(1vw, 4vh, 0);
+    transform: translate3d(3vw, 4vh, 0);
     opacity: 1;
   }
 }
@@ -605,7 +619,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(1vw, 3vh, 0);
+    transform: translate3d(2vw, 4vh, 0);
     opacity: 1;
   }
 }
@@ -622,7 +636,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(3vw, 5vh, 0);
+    transform: translate3d(4vw, 1vh, 0);
     opacity: 1;
   }
 }
@@ -656,7 +670,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(2vw, 3vh, 0);
+    transform: translate3d(4vw, 3vh, 0);
     opacity: 1;
   }
 }
@@ -673,7 +687,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(4vw, 3vh, 0);
+    transform: translate3d(2vw, 2vh, 0);
     opacity: 1;
   }
 }
@@ -690,7 +704,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(3vw, 2vh, 0);
+    transform: translate3d(3vw, 5vh, 0);
     opacity: 1;
   }
 }
@@ -707,7 +721,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(4vw, 4vh, 0);
+    transform: translate3d(3vw, 4vh, 0);
     opacity: 1;
   }
 }
@@ -724,7 +738,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(5vw, 4vh, 0);
+    transform: translate3d(1vw, 4vh, 0);
     opacity: 1;
   }
 }
@@ -741,7 +755,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(4vw, 2vh, 0);
+    transform: translate3d(5vw, 1vh, 0);
     opacity: 1;
   }
 }
@@ -775,7 +789,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(3vw, 1vh, 0);
+    transform: translate3d(4vw, 3vh, 0);
     opacity: 1;
   }
 }
@@ -792,7 +806,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(4vw, 1vh, 0);
+    transform: translate3d(5vw, 2vh, 0);
     opacity: 1;
   }
 }
@@ -809,7 +823,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(5vw, 2vh, 0);
+    transform: translate3d(3vw, 5vh, 0);
     opacity: 1;
   }
 }
@@ -826,7 +840,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(5vw, 3vh, 0);
+    transform: translate3d(2vw, 2vh, 0);
     opacity: 1;
   }
 }
@@ -843,7 +857,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(5vw, 3vh, 0);
+    transform: translate3d(3vw, 3vh, 0);
     opacity: 1;
   }
 }
@@ -860,7 +874,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(1vw, 4vh, 0);
+    transform: translate3d(1vw, 3vh, 0);
     opacity: 1;
   }
 }
@@ -877,7 +891,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(3vw, 5vh, 0);
+    transform: translate3d(2vw, 2vh, 0);
     opacity: 1;
   }
 }
@@ -894,7 +908,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(5vw, 5vh, 0);
+    transform: translate3d(1vw, 2vh, 0);
     opacity: 1;
   }
 }
@@ -911,7 +925,7 @@ $breakpoint--desktop-wide: 1440px;
     opacity: 1;
   }
   100% {
-    transform: translate3d(5vw, 4vh, 0);
+    transform: translate3d(3vw, 5vh, 0);
     opacity: 1;
   }
 }
@@ -921,40 +935,13 @@ $breakpoint--desktop-wide: 1440px;
   0% {
     opacity: 0;
   }
-  10% {
+  20% {
     opacity: 1;
   }
-  30% {
+  90% {
     opacity: 1;
   }
-  31% {
-    opacity: 0;
-  }
-  32% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  51% {
-    opacity: 0;
-  }
-  52% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  71% {
-    opacity: 0;
-  }
-  72% {
-    opacity: 1;
-  }
-  96% {
-    opacity: 1;
-  }
-  99% {
+  100% {
     opacity: 0;
   }
 }
