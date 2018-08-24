@@ -40,12 +40,22 @@
     </div>
     
 	<!-- No styling -->
-	<!-- <div data-sly-test="${fragment.isConfigured}">
+	<!-- 
+	<div data-sly-test="${fragment.isConfigured}">
         <a href="${fragment.link}">
             <img src="${fragment.imagePath}"/>
-        
-            <p>${fragment.text @ context='html'}</p>
         </a>
-	</div> -->  
+        
+        <p>${fragment.text @ context='html'}</p>
+            
+        <div data-sly-test="${fragment.showCta}">
+            <a href="${fragment.link}">
+				${fragment.ctaText}
+                
+                <i class="ico svg-ico arrowl" data-svg-src="/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow"></i>
+            </a>
+        </div>
+	</div> 
+	-->  
 
 </div>
