@@ -1,5 +1,9 @@
 .content-fragment {
 	&--hti {
+		.row .row {
+			margin: 0;
+		}
+
 		&__text-container {
 			background-color: color-palette(grey-color, light);
 			color: color-palette(grey-color, dark);
@@ -12,8 +16,6 @@
 
 			h3 {
 				padding-left: 0;
-				padding-bottom: 0.3em;
-				color: color-palette(grey-color, dark);
 			}
 		}
 
@@ -26,6 +28,10 @@
 
 			@media screen and (min-width: $breakpoint--tablet__portrait) {
 				padding: $padding-TB $padding-RL;
+			}
+
+			h3 {
+				padding-bottom: 0.3em;
 			}
 
 			ul {
@@ -58,15 +64,14 @@
 		&__cta-text {
 			padding-bottom: 0;
 			margin-top: 0.4em;
-
-			@media screen and (min-width: $breakpoint--tablet__portrait) {
-				margin-top: 0.25em;
-			}
-
 			margin-bottom: 0;
 			margin-left: 0.3em;
 			font-family: font-name(elysio, regular);
 			color: color-palette(grey-color, dark);
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 0.25em;
+			}
 		}
 	}
 }
@@ -178,6 +183,7 @@
 		// margin-bottom: 1.2em;
 		// width: 100%;
 		// display: table;
+
 	}
 }
 
@@ -213,6 +219,7 @@
 .article {
 	.headertextimage {
 		// margin-top: 12px !important;
+
 	}
 }
 

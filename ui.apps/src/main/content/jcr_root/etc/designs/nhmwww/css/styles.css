@@ -6440,6 +6440,10 @@ html.js-noScroll {
   }
 }
 
+.content-fragment--hti .row .row {
+  margin: 0;
+}
+
 .content-fragment--hti__text-container {
   background-color: #EEEEEE;
   color: #565656;
@@ -6453,8 +6457,6 @@ html.js-noScroll {
 
 .content-fragment--hti__text-container h3 {
   padding-left: 0;
-  padding-bottom: 0.3em;
-  color: #565656;
 }
 
 .content-fragment--hti__image-wrapper {
@@ -6469,6 +6471,10 @@ html.js-noScroll {
   .content-fragment--hti__text-wrapper {
     padding: 1em 1.5em;
   }
+}
+
+.content-fragment--hti__text-wrapper h3 {
+  padding-bottom: 0.3em;
 }
 
 .content-fragment--hti__text-wrapper ul {
