@@ -6509,13 +6509,20 @@ html.js-noScroll {
   margin-bottom: 0;
   margin-left: 0.3em;
   font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
-  color: #565656;
 }
 
 @media screen and (min-width: 768px) {
   .content-fragment--hti__cta-text {
     margin-top: 0.25em;
   }
+}
+
+.discover .content-fragment--hti__cta-text {
+  color: #565656;
+}
+
+.visit .content-fragment--hti__cta-text {
+  color: #A1164E;
 }
 
 /** _REFACTOR-HEADERTEXTIMAGE.SCSS, FORMERLY _HTI-UPDATE.SCSS **/

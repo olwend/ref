@@ -67,7 +67,6 @@
 			margin-bottom: 0;
 			margin-left: 0.3em;
 			font-family: font-name(elysio, regular);
-			color: color-palette(grey-color, dark);
 
 			@media screen and (min-width: $breakpoint--tablet__portrait) {
 				margin-top: 0.25em;
@@ -75,6 +74,16 @@
 		}
 	}
 }
+
+// Theme colours for CTA text - probably best in theme partials
+.discover .content-fragment--hti__cta-text {
+	color: color-palette(discover, base);
+}
+
+.visit .content-fragment--hti__cta-text {
+	color: color-palette(visit, base);
+}
+
 
 /** _REFACTOR-HEADERTEXTIMAGE.SCSS, FORMERLY _HTI-UPDATE.SCSS **/
 
