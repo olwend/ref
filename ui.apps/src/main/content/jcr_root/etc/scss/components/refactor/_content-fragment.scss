@@ -1,8 +1,8 @@
 .content-fragment {
 	&--hti {
-		.row .row {
-			margin: 0;
-		}
+		// .row .row {
+		// 	margin: 0;
+		// }
 
 		&__text-container {
 			background-color: color-palette(grey-color, light);
@@ -73,6 +73,10 @@
 			}
 		}
 	}
+}
+
+.row .content-fragment--hti .row {
+	margin: 0;
 }
 
 // Theme colours for CTA text - probably best in theme partials

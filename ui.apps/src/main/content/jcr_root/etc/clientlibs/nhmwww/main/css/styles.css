@@ -6440,10 +6440,6 @@ html.js-noScroll {
   }
 }
 
-.content-fragment--hti .row .row {
-  margin: 0;
-}
-
 .content-fragment--hti__text-container {
   background-color: #EEEEEE;
   color: #565656;
@@ -6515,6 +6511,10 @@ html.js-noScroll {
   .content-fragment--hti__cta-text {
     margin-top: 0.25em;
   }
+}
+
+.row .content-fragment--hti .row {
+  margin: 0;
 }
 
 .discover .content-fragment--hti__cta-text {
