@@ -1,0 +1,223 @@
+.content-fragment {
+	&--hti {
+		&__text-container {
+			background-color: color-palette(grey-color, light);
+			color: color-palette(grey-color, dark);
+			padding-bottom: $padding-TB;
+
+			p {
+				font-size: 1.125em;
+				margin-bottom: 1.2em;
+			}
+
+			h3 {
+				padding-left: 0;
+				padding-bottom: 0.3em;
+				color: color-palette(grey-color, dark);
+			}
+		}
+
+		&__image-wrapper {
+			margin: 0;
+		}
+
+		&__text-wrapper {
+			padding: ($padding-TB / 2) ($padding-RL / 2);
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				padding: $padding-TB $padding-RL;
+			}
+
+			ul {
+				margin-left: 1em;
+
+				li {
+					list-style-type: disc;
+					list-style-position: outside;
+					font-size: 1.125em;
+				}
+			}
+		}
+
+		&__cta-button {
+			padding: 1.125em 0 1.125em 1.125em;
+			background-color: $color--white;
+			border: none !important;
+
+			&:hover h3 {
+				text-decoration: underline;
+			}
+
+			.svg-ico {
+				height: 40px;
+				top: 30%;
+				width: 100%;
+			}
+		}
+
+		&__cta-text {
+			padding-bottom: 0;
+			margin-top: 0.4em;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 0.25em;
+			}
+
+			margin-bottom: 0;
+			margin-left: 0.3em;
+			font-family: font-name(elysio, regular);
+			color: color-palette(grey-color, dark);
+		}
+	}
+}
+
+/** _REFACTOR-HEADERTEXTIMAGE.SCSS, FORMERLY _HTI-UPDATE.SCSS **/
+
+// .hti-box {
+// padding-bottom: $padding-TB;
+
+// p {
+// 	font-size: 1.125em;
+// 	margin-bottom: 1.2em;
+// }
+
+// h3 {
+// 	padding-left: 0;
+// 	padding-bottom: 0.3em;
+// 	color: color-palette(grey-color, dark);
+// }
+
+/** this can eventually apply to generic ctabutton only **/
+// .ctabutton--inside-hti:hover h3 {
+// 	text-decoration: underline;
+// }
+
+/** this can eventually apply to generic ctabutton only **/
+// .ctabutton--inside-hti--cta-text {
+// 	padding-bottom: 0;
+// 	margin-top: 0.4em;
+
+// 	@media screen and (min-width: $breakpoint--tablet__portrait) {
+// 		margin-top: 0.25em;
+// 	}
+
+// 	margin-bottom: 0;
+// 	margin-left: 0.3em;
+// 	font-family: font-name(elysio, regular);
+// 	color: color-palette(grey-color, dark);
+// }
+// }
+
+// .hti-box__light-grey {
+// 	background-color: color-palette(grey-color, light);
+// 	color: color-palette(grey-color, dark);
+// }
+
+// .hti-box__dark-grey {
+// 	background-color: color-palette(contact-us, base) !important;
+// 	color: $color--white;
+
+// 	h3 {
+// 		color: $color--white;
+// 	}
+
+// 	a {
+// 		color: color-palette(grey-color, mid-light);
+
+// 		&:hover {
+// 			color: color-palette(grey-color, mid-light);
+// 		}
+// 	}
+// }
+
+/** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
+// .hti-box__feature-box {
+// 	color: $color--white;
+
+// 	h3 {
+// 		color: $color--white;
+// 	}
+
+// 	a {
+// 		color: color-palette(grey-color, mid-light);
+
+// 		&:hover {
+// 			color: color-palette(grey-color, mid-light);
+// 		}
+// 	}
+// }
+
+// .hti-box--text-wrapper {
+// 	padding: ($padding-TB / 2) ($padding-RL / 2);
+
+// 	@media screen and (min-width: $breakpoint--tablet__portrait) {
+// 		padding: $padding-TB $padding-RL;
+// 	}
+
+// 	ul {
+// 		margin-left: 1em;
+
+// 		li {
+// 			list-style-type: disc;
+// 			list-style-position: outside;
+// 			font-size: 1.125em;
+// 		}
+// 	}
+// }
+
+/** this replaces info-tout__action **/
+// .ctabutton--inside-hti {
+// 	padding: 1.125em 0 1.125em 1.125em;
+// 	background-color: $color--white;
+// 	border: none !important;
+// }
+
+/**overrides headertextimage.scss **/
+.headertextimage {
+	.hti-padding {
+		// margin-bottom: 1.2em;
+		// width: 100%;
+		// display: table;
+	}
+}
+
+/**overrides headertextimage.scss **/
+.headertextimage .hti-wrapper .large-12 {
+	// margin-bottom: 1.2em;
+}
+
+.headertextimage .hti-wrapper .hti--image-wrapper {
+	// margin: 0;
+}
+
+.headertextimage .hti-wrapper .hti-box--text-wrapper {
+	// margin: 0;
+}
+
+// .hti-box .ctabutton--inside-hti .svg-ico {
+// 	height: 40px;
+// 	top: 30%;
+// 	width: 100%;
+// }
+
+/** overrides headertextimage.scss custom Foundation widths **/
+.row2cells21 .large-8.medium-8.columns,
+.row2cells12 .large-8.medium-8.columns {
+	// width: 100%;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		// width: 65.7%;
+	}
+}
+
+.article {
+	.headertextimage {
+		// margin-top: 12px !important;
+	}
+}
+
+/** Hotfix for Touch UI layout bug **/
+.headertextimage {
+	// display: table;
+	// width: 100%;
+}

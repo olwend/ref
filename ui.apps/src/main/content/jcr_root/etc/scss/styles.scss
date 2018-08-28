@@ -162,6 +162,8 @@ CSS files should not be edited directly, as those edits will be overridden next 
 /** REFACTOR-CTABUTTON PARTIAL **/
 @import 'components/refactor/ctabutton';
 
+@import 'components/refactor/content-fragment';
+
 /** WR-1079 REIMPLEMENT COOKIE-BAR **/
 @import 'components/refactor/cookie-bar';
 
