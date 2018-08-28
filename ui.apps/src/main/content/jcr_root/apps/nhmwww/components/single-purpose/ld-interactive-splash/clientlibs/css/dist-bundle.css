@@ -245,10 +245,11 @@ button:hover, button:active, button:focus {
   }
 }
 
-.small-12.large-text-left.columns {
-  display: none;
+/*
+.small-12.large-text-left.columns  {
+  display:none;
 }
-
+*/
 /******** tablet ++ ********/
 @media screen and (min-width: 1440px) {
   #LD-container::-webkit-scrollbar {
