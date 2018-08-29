@@ -93,7 +93,7 @@ public class EventSummaryHelper extends HelperBase {
 			case SUPPORTUS:  return "#7F206E";
 			case SHOP:  return "#808080";
 			case SCHOOLS:  return "#0983BB";
-			case OURSCIENCE:  return "#357900";
+			case OURSCIENCE:  return "#2C6100";
 			case ABOUTUS:  return "#0B5C7B";
 			case NEWSPRESS:  return "#107B5E";
 			case WORKINGWITHUS:  return "#956624";
