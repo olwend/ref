@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.7 - 30-Aug-2018
+WR-1424 - Accessibility: Our Science CTA colour contrast
+WR-1444 - Continuation for A-B functionality exhibition details page
+WR-1445 - Remove "ornithomimosaurs" from dino navigation
+WR-1446 - Enlarge text editor window in AEM article pages
+
 ## 2.1.6 - 16-Aug-2018
 WR-1408 Dino-nav fix for small breakpoint mobile view
 WR-1427 Fix for missing space mobile view
