@@ -26,7 +26,7 @@
 }
 
 .bigsplash-text .row {
-  width: 90%;
+  width: 92%;
 }
 
 .bigsplash-text h1 {
@@ -326,7 +326,7 @@ $breakpoint--desktop-wide: 1440px;
 
 .animal.glow:after, .animal.glow:before {
   opacity: 0;
-  animation: animGlow 3s infinite;
+  animation: animGlow 6s infinite;
 }
 
 .animal.hide {
@@ -335,8 +335,12 @@ $breakpoint--desktop-wide: 1440px;
 
 #aye {
   position: absolute;
+  /*
   top: 20%;
   right: 18%;
+  */
+  top: 19%;
+  right: 17%;
 }
 
 #aye svg {
@@ -360,7 +364,7 @@ $breakpoint--desktop-wide: 1440px;
 }
 
 #aye:before, #aye:after {
-  animation-delay: 0.5s;
+  animation-delay: 1s;
   content: '';
   position: absolute;
   /*background: $ayeColor;
@@ -392,23 +396,31 @@ $breakpoint--desktop-wide: 1440px;
 #moth {
   position: absolute;
   height: 20%;
-  top: 15%;
+  /*top: 15%;
   left: 22%;
-  transform: rotate(60deg);
+  transform:rotate(60deg);
+  */
+  top: 10%;
+  left: 24%;
+  transform: rotate(75deg);
 }
 
 #moth svg {
-  width: 10vw !important;
+  width: 8vw !important;
   transition: opacity 0.4s 0s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
   #moth {
-    top: 13%;
+    /*
+      top: 13%;
     left: 25%;
+   */
+    top: 11%;
+    left: 26%;
   }
   #moth svg {
-    width: 20vw !important;
+    width: 16vw !important;
   }
 }
 
@@ -421,20 +433,20 @@ $breakpoint--desktop-wide: 1440px;
   content: '';
   position: absolute;
   background: #fff;
-  /*background: radial-gradient(circle at top left, lighten($mothColor, 15%), $mothColor);*/
   box-shadow: 0 0 60px 20px white;
   border: 1px solid #fff;
   border-radius: 50%;
   width: 0.5vw;
   height: 0.5vw;
-  top: 52%;
+  top: 42%;
   left: 10%;
   z-index: 100;
 }
 
 @media screen and (max-width: 768px) {
   #moth:before {
-    top: 102%;
+    /*  top: 102%; */
+    top: 79%;
     width: 1.5vw;
     height: 1.5vw;
   }
@@ -471,28 +483,34 @@ $breakpoint--desktop-wide: 1440px;
   position: absolute;
   background: #FF390D;
   /* background: radial-gradient(circle at top left, lighten($snakeColor, 15%), $snakeColor); */
-  box-shadow: 0 0 60px 20px #ff4e27;
+  box-shadow: 0 0 50px 20px #ff4e27;
   border: 1px solid #FF390D;
   border-radius: 50%;
-  width: 0.5vw;
+  width: 0.2vw;
   height: 0.5vw;
-  top: 97%;
+  top: 92%;
   left: 86%;
   z-index: 100;
+  animation: none !important;
 }
 
 @media screen and (max-width: 768px) {
   #snake:before {
-    top: 189%;
-    width: 1.5vw;
+    top: 178%;
+    left: 85%;
+    width: 0.6vw;
     height: 1.5vw;
   }
+}
+
+#snake.glow:before {
+  opacity: 1;
 }
 
 #shrimp {
   position: absolute;
   height: 5%;
-  top: 68%;
+  top: 69%;
   left: 75%;
 }
 
@@ -519,16 +537,19 @@ $breakpoint--desktop-wide: 1440px;
   animation-delay: 1s;
   content: '';
   position: absolute;
-  background: #fff78c;
+  /* background: $shrimpColor; */
   /*background: radial-gradient(circle at top left, lighten($shrimpColor, 15%), $shrimpColor); */
-  box-shadow: 0 0 60px 20px #fff9a6;
-  border: 1px solid #fff78c;
+  box-shadow: 0 0 80px 15px #fff9a6;
+  /* border: 1px dashed $shrimpColor;*/
   border-radius: 50%;
-  width: 0.5vw;
-  height: 0.5vw;
-  top: 10%;
-  left: 70%;
+  width: 2.5vw;
+  /*height: 0.5vw;*/
+  top: 23%;
+  left: 45%;
   z-index: 100;
+  transform: rotate(-14deg);
+  z-index: 100;
+  animation: none !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -537,6 +558,10 @@ $breakpoint--desktop-wide: 1440px;
     width: 1.5vw;
     height: 1.5vw;
   }
+}
+
+#shrimp.glow:before {
+  opacity: 1;
 }
 
 #jellyfish {
@@ -658,6 +683,7 @@ $breakpoint--desktop-wide: 1440px;
   height: 7%;
   top: 75%;
   right: 10%;
+  -webkit-perspective: 5000px;
 }
 
 #angler .AnimationLayer {
@@ -750,16 +776,16 @@ $breakpoint--desktop-wide: 1440px;
 
 @keyframes anglerMove {
   0% {
-    transform: translate(0vw, 0vh) rotateY(0deg);
+    transform: translate(0vw, 0vh) rotate(0deg);
   }
   47% {
     transform: translate(-47vw, -3vh) rotateY(0deg);
   }
   50% {
-    transform: translate(-50vw, -2vh) rotateY(180deg);
+    transform: translate(-50vw, -2vh) rotateY(179.9deg);
   }
   97% {
-    transform: translate(-3vw, 0vh) rotateY(180deg);
+    transform: translate(-3vw, 0vh) rotateY(179.9deg);
   }
 }
 
