@@ -455,7 +455,7 @@ $breakpoint--desktop-wide: 1440px;
 #snake {
   position: absolute;
   height: 15%;
-  top: 40%;
+  top: 37%;
   left: 60%;
 }
 
@@ -470,7 +470,7 @@ $breakpoint--desktop-wide: 1440px;
 
 @media screen and (max-width: 768px) {
   #snake {
-    top: 20%;
+    top: 16%;
     left: 35%;
   }
   #snake svg {
@@ -489,7 +489,7 @@ $breakpoint--desktop-wide: 1440px;
   width: 0.2vw;
   height: 0.5vw;
   top: 92%;
-  left: 86%;
+  left: 83%;
   z-index: 100;
   animation: none !important;
 }
@@ -497,7 +497,7 @@ $breakpoint--desktop-wide: 1440px;
 @media screen and (max-width: 768px) {
   #snake:before {
     top: 178%;
-    left: 85%;
+    left: 83%;
     width: 0.6vw;
     height: 1.5vw;
   }
