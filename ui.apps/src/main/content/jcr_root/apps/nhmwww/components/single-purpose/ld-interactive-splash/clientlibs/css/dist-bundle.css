@@ -1,0 +1,877 @@
+#LD-container {
+  width: 100%;
+  height: 45vh;
+  overflow: hidden;
+  background-color: #000;
+  -ms-overflow-style: none;
+  will-change: scroll-position;
+}
+
+#LD-container.animate {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  /* momentum scroll - maybe need to limit to small screens?  EDIT - nice on IOS but it breaks alot of things on android */
+}
+
+.bigsplash-text {
+  pointer-events: none;
+  font-size: 1em;
+  z-index: 10;
+  margin: 0px;
+  color: white;
+  position: absolute;
+  bottom: 2%;
+  width: 100%;
+  padding: 0 !important;
+}
+
+.bigsplash-text .row {
+  width: 92%;
+}
+
+.bigsplash-text h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+#bigsplash-interactive {
+  /*background: url(../img/LitD.jpg) no-repeat center center;*/
+  /* set to keep aspect ratio of scrollable image (i.e. 1920*1920 ) */
+}
+
+#bigsplash-interactive #mainImg {
+  width: 100%;
+  max-width: none !important;
+  float: left;
+}
+
+#bigsplash-interactive #mainImg svg {
+  -webkit-backface-visibility: hidden !important;
+  /* prevents flickering - works on desktop but not mobile views - check real devices */
+  will-change: auto;
+}
+
+#layer1, #layer2, #layer3 {
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+  position: relative;
+}
+
+/*
+#layer3 {
+  height: 118vh;
+}
+*/
+#svgBubbles {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: none;
+}
+
+.visible #svgBubbles.glow {
+  display: block;
+  opacity: 0.4;
+}
+
+#bigsplash-interactive.showLayers #layer1 {
+  border-top: 1px dotted red;
+}
+
+#bigsplash-interactive.showLayers #layer2 {
+  border-top: 1px dotted yellow;
+}
+
+#bigsplash-interactive.showLayers #layer3 {
+  border-top: 1px dotted green;
+}
+
+.herosection::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  padding: unset;
+  background-color: unset;
+  border-color: unset;
+  transition: none;
+  margin: unset;
+}
+
+button:hover, button:active, button:focus {
+  background-color: unset;
+  border-color: unset;
+  outline-color: transparent;
+}
+
+.svgArrow {
+  width: 50px;
+  position: absolute;
+  right: 5vw;
+  z-index: 100;
+  bottom: 10px;
+  pointer-events: initial;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.svgArrow.up {
+  bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .svgArrow {
+    width: 30px;
+  }
+  .svgArrow.up {
+    bottom: 40px;
+  }
+}
+
+.svgArrow #up-chevron, .svgArrow #down-chevron {
+  stroke-width: 10px;
+}
+
+.svgArrow:active #up-chevron, .svgArrow:active #down-chevron {
+  stroke-width: 14px;
+}
+
+/*
+  .glow-text {
+   // pointer-events:auto;
+    }
+    */
+/*
+.bigsplash-text--title.glow {
+    color: #B6FF00;
+    -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+    animation: neon4 1.5s ease-in-out infinite alternate;
+ }
+ */
+/* glowing text
+@-webkit-keyframes neon4 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00;
+    }
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #B6FF00, 0 0 35px #B6FF00, 0 0 40px #B6FF00, 0 0 50px #B6FF00, 0 0 75px #B6FF00;
+    }
+}
+*/
+/******** small phone portrait ********/
+@media screen and (max-width: 320px) and (orientation: portrait) {
+  #LD-container {
+    height: 45vh;
+  }
+  #LD-container .bigsplash-text {
+    bottom: 0;
+    font-size: 1em;
+  }
+  #LD-container #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+}
+
+/******** small phone landscape ********/
+@media screen and (max-width: 568px) and (orientation: landscape) {
+  #LD-container {
+    height: 65vh;
+  }
+  #LD-container .bigsplash-text {
+    bottom: 10px;
+    font-size: 1em;
+  }
+  #LD-container #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+}
+
+/******** large phone portrait ********/
+@media screen and (min-width: 360px) and (orientation: portrait) {
+  #LD-container {
+    height: 45vh;
+  }
+  .bigsplash-text {
+    font-size: 1em;
+  }
+  #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+}
+
+/******** large phone landscape ********/
+@media screen and (min-width: 640px) and (orientation: landscape) {
+  #LD-container {
+    height: 70vh;
+    /* go taller */
+  }
+  .bigsplash-text {
+    bottom: 10px;
+    font-size: 1em;
+  }
+  #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+}
+
+/******** tablet portrait ********/
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  #LD-container {
+    height: 50vh;
+  }
+  .bigsplash-text {
+    bottom: 10px;
+    font-size: 1.4em;
+  }
+  #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+}
+
+/******** tablet ********/
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  #LD-container {
+    height: 50vh;
+  }
+  .bigsplash-text {
+    bottom: 10px;
+    font-size: 1.4em;
+  }
+  #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+}
+
+/*
+.small-12.large-text-left.columns  {
+  display:none;
+}
+*/
+/******** tablet ++ ********/
+@media screen and (min-width: 1440px) {
+  #LD-container::-webkit-scrollbar {
+    display: none;
+  }
+  #LD-container {
+    height: 60vh;
+  }
+  #bigsplash-interactive #mainImg {
+    width: 100%;
+  }
+  .bigsplash-text {
+    font-size: 1.5em;
+  }
+}
+
+/* NHM breakpoints
+$breakpoint--phone-small__portrait: 320px;
+$breakpoint--phone-small__landscape: 480px;
+$breakpoint--phone-wide__portrait: 360px;
+$breakpoint--phone-wide__landscape: 640px;
+$breakpoint--tablet__portrait: 768px;
+$breakpoint--tablet__landscape: 1024px;
+$breakpoint--desktop: 1025px;
+$breakpoint--desktop__max-width: 1160px;
+$breakpoint--desktop-wide: 1440px;
+*/
+
+/*# sourceMappingURL=main2.css.map */
+/* test */
+#bigsplash-interactive .animal {
+  pointer-events: initial;
+  opacity: 0;
+  width: max-content;
+  visibility: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  /* apple makes its own CSS!! */
+}
+
+#bigsplash-interactive .animal :hover, #bigsplash-interactive .animal :focus {
+  background-color: transparent;
+}
+
+#ayeayeImg {
+  position: absolute;
+  width: 30vw;
+  top: 14vh;
+  right: 19vw;
+}
+
+@media screen and (max-width: 768px) {
+  #ayeayeImg {
+    top: 6vh;
+    width: 40vw;
+  }
+}
+
+#LD-container.animate #bigsplash-interactive .visible .animal {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s ease-in-out, transform 1.4s ease-in-out;
+}
+
+.animal img, .animal svg {
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out, transform 1.4s ease-in-out;
+}
+
+.animal:after, .animal:before {
+  opacity: 0;
+}
+
+.animal.glow:after, .animal.glow:before {
+  opacity: 0;
+  animation: animGlow 6s infinite;
+}
+
+.animal.hide {
+  visibility: hidden !important;
+}
+
+#aye {
+  position: absolute;
+  /*
+  top: 20%;
+  right: 18%;
+  */
+  top: 19%;
+  right: 17%;
+}
+
+#aye svg {
+  width: 25vw !important;
+  transition: opacity 0.4s 0s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  #aye {
+    top: 16%;
+    right: 13%;
+  }
+  #aye svg {
+    width: 40vw !important;
+  }
+}
+
+#aye.active svg {
+  opacity: 1;
+  transition: opacity 0.7s 0.9s ease-in-out;
+}
+
+#aye:before, #aye:after {
+  animation-delay: 1s;
+  content: '';
+  position: absolute;
+  /*background: $ayeColor;
+    background: radial-gradient(circle at top left, lighten($ayeColor, 15%), $ayeColor);*/
+  box-shadow: 0 0 45px 15px #ffad42;
+  border: 3px solid #ffa228;
+  border-radius: 50%;
+  width: 0.5vw;
+  height: 0.5vw;
+  top: 11%;
+  left: 65%;
+  z-index: 100;
+}
+
+@media screen and (max-width: 768px) {
+  #aye:before, #aye:after {
+    border: 1px solid #ffa228;
+    width: 1vw;
+    height: 1vw;
+    left: 64%;
+    top: 10%;
+  }
+}
+
+#aye:after {
+  left: 73%;
+}
+
+#moth {
+  position: absolute;
+  height: 20%;
+  /*top: 15%;
+  left: 22%;
+  transform:rotate(60deg);
+  */
+  top: 10%;
+  left: 24%;
+  transform: rotate(75deg);
+}
+
+#moth svg {
+  width: 8vw !important;
+  transition: opacity 0.4s 0s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  #moth {
+    /*
+      top: 13%;
+    left: 25%;
+   */
+    top: 11%;
+    left: 26%;
+  }
+  #moth svg {
+    width: 16vw !important;
+  }
+}
+
+#moth.active svg {
+  opacity: 1;
+  transition: opacity 0.7s 0.9s ease-in-out;
+}
+
+#moth:before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 60px 20px white;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 0.5vw;
+  height: 0.5vw;
+  top: 42%;
+  left: 10%;
+  z-index: 100;
+}
+
+@media screen and (max-width: 768px) {
+  #moth:before {
+    /*  top: 102%; */
+    top: 79%;
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+}
+
+#snake {
+  position: absolute;
+  height: 15%;
+  top: 40%;
+  left: 60%;
+}
+
+#snake svg {
+  width: 15vw;
+}
+
+#snake.active svg {
+  opacity: 1;
+  transition: opacity 0.7s 0s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  #snake {
+    top: 20%;
+    left: 35%;
+  }
+  #snake svg {
+    width: 30vw !important;
+  }
+}
+
+#snake:before {
+  content: '';
+  position: absolute;
+  background: #FF390D;
+  /* background: radial-gradient(circle at top left, lighten($snakeColor, 15%), $snakeColor); */
+  box-shadow: 0 0 50px 20px #ff4e27;
+  border: 1px solid #FF390D;
+  border-radius: 50%;
+  width: 0.2vw;
+  height: 0.5vw;
+  top: 92%;
+  left: 86%;
+  z-index: 100;
+  animation: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  #snake:before {
+    top: 178%;
+    left: 85%;
+    width: 0.6vw;
+    height: 1.5vw;
+  }
+}
+
+#snake.glow:before {
+  opacity: 1;
+}
+
+#shrimp {
+  position: absolute;
+  height: 5%;
+  top: 69%;
+  left: 75%;
+}
+
+#shrimp svg {
+  width: 15vw;
+}
+
+#shrimp.active svg {
+  opacity: 1;
+  transition: opacity 0.7s 1s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  #shrimp {
+    top: 67%;
+    left: 65%;
+  }
+  #shrimp svg {
+    width: 30vw !important;
+  }
+}
+
+#shrimp:before {
+  animation-delay: 1s;
+  content: '';
+  position: absolute;
+  /* background: $shrimpColor; */
+  /*background: radial-gradient(circle at top left, lighten($shrimpColor, 15%), $shrimpColor); */
+  box-shadow: 0 0 80px 15px #fff9a6;
+  /* border: 1px dashed $shrimpColor;*/
+  border-radius: 50%;
+  width: 2.5vw;
+  /*height: 0.5vw;*/
+  top: 23%;
+  left: 45%;
+  z-index: 100;
+  transform: rotate(-14deg);
+  z-index: 100;
+  animation: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  #shrimp:before {
+    top: 10%;
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+}
+
+#shrimp.glow:before {
+  opacity: 1;
+}
+
+#jellyfish {
+  position: absolute;
+  height: 5%;
+  top: 40%;
+  left: 20%;
+}
+
+#jellyfish .AnimationLayer {
+  animation: jellyfishMove 30s ease-out infinite !important;
+}
+
+#jellyfish .AnimationLayer svg {
+  width: 10vw;
+}
+
+#jellyfish .AnimationLayer .glowballs {
+  position: absolute;
+  background: #FF6759;
+  /*  background: radial-gradient(circle at top left, lighten($jellyfishColor, 15%), $jellyfishColor); */
+  box-shadow: 0 0 60px 15px #ff7e73;
+  border: 1px solid #FF6759;
+  border-radius: 50%;
+  width: 0.4vw;
+  height: 0.4vw;
+  z-index: 100;
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #jellyfish .AnimationLayer .glowballs {
+    top: 11%;
+    width: 4%;
+    height: 4%;
+  }
+}
+
+#jellyfish .AnimationLayer #jellyGlow1 {
+  top: 17%;
+  left: 23%;
+  animation-delay: 0s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow2 {
+  top: 19%;
+  left: 28%;
+  animation-delay: 0.2s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow3 {
+  top: 20%;
+  left: 35%;
+  animation-delay: 0.4s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow4 {
+  top: 20%;
+  left: 41%;
+  animation-delay: 0.6s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow5 {
+  top: 20%;
+  left: 48%;
+  animation-delay: 0.8s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow6 {
+  top: 20%;
+  left: 54%;
+  animation-delay: 1s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow7 {
+  top: 20%;
+  left: 61%;
+  animation-delay: 1.2s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow8 {
+  top: 20%;
+  left: 67%;
+  animation-delay: 1.4s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow9 {
+  top: 19%;
+  left: 73%;
+  animation-delay: 1.6s;
+}
+
+#jellyfish .AnimationLayer #jellyGlow10 {
+  top: 18%;
+  left: 77%;
+  animation-delay: 1.8s;
+}
+
+#jellyfish.glow .glowballs {
+  animation: jellyGlow 0.7s infinite alternate;
+}
+
+#jellyfish.active .AnimationLayer svg {
+  opacity: 1;
+  transition: opacity 0.7s 0s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  #jellyfish {
+    top: 25%;
+  }
+  #jellyfish svg {
+    width: 16vw !important;
+  }
+}
+
+#angler {
+  position: absolute;
+  height: 7%;
+  top: 75%;
+  right: 10%;
+  -webkit-perspective: 5000px;
+}
+
+#angler .AnimationLayer {
+  animation: anglerMove 60s infinite linear !important;
+}
+
+#angler .AnimationLayer svg {
+  width: 20vw;
+}
+
+#angler.active .AnimationLayer svg {
+  opacity: 1;
+  transition: opacity 0.7s 0s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  #angler {
+    top: 55%;
+  }
+  #angler svg {
+    width: 40vw !important;
+  }
+}
+
+#angler .AnimationLayer:before {
+  content: '';
+  position: absolute;
+  background: #9effb7;
+  /* background: radial-gradient(circle at top left, lighten($anglerColor, 15%), $anglerColor); */
+  box-shadow: 0 0 60px 20px #b8ffca;
+  border: 1px solid #9effb7;
+  border-radius: 50%;
+  width: 1vw;
+  height: 1vw;
+  top: 12%;
+  left: 39%;
+  z-index: 100;
+  animation-delay: 5s;
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #angler .AnimationLayer:before {
+    top: 11%;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+}
+
+#angler.glow .AnimationLayer:before {
+  animation: anglerGlow 20s infinite !important;
+}
+
+/*# sourceMappingURL=animals.css.map */
+@keyframes animGlow {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes anglerGlow {
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes jellyGlow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes anglerMove {
+  0% {
+    transform: translate(0vw, 0vh) rotate(0deg);
+  }
+  47% {
+    transform: translate(-47vw, -3vh) rotateY(0deg);
+  }
+  50% {
+    transform: translate(-50vw, -2vh) rotateY(179.9deg);
+  }
+  97% {
+    transform: translate(-3vw, 0vh) rotateY(179.9deg);
+  }
+}
+
+@keyframes jellyfishMove {
+  0% {
+    transform: translate(0vw, 0vh);
+  }
+  20% {
+    transform: translate(2vw, -5vh);
+  }
+  40% {
+    transform: translate(3vw, -10vh);
+  }
+  50% {
+    transform: translate(2vw, -12vh);
+  }
+  100% {
+    transform: translate(0vw, 0vh);
+  }
+}
+
+/*** INLINE SVG ANIMATIONS **/
+@-webkit-keyframes imgevento {
+  0%,
+  100% {
+    transform: skew(-0.3deg, -0.3deg) translate3D(-10px, -5px, 0px);
+    fill: #31364b;
+  }
+  25% {
+    fill: #292E40;
+  }
+  50% {
+    transform: skew(0.3deg, 0.3deg) translate3D(10px, 5px, 0px);
+    fill: #31364b;
+  }
+  75% {
+    fill: #292E40;
+  }
+}
+
+/*** INLINE SVG ANIMATIONS **/
+/*
+@-webkit-keyframes waterTextureFill {
+  0%
+    {
+    stroke: rgba(255,255,255,0);
+   opacity: 1;
+    }
+
+  100% {
+    stroke: rgba(255,255,255,1);
+    opacity: 0;
+    }
+}
+*/
+/*** INLINE SVG ANIMATIONS **/
+@-webkit-keyframes waterMidtoneFill {
+  0% {
+    stroke: white;
+    stroke-width: 0px;
+    opacity: 0;
+  }
+  100% {
+    stroke: rgba(255, 255, 255, 0);
+    stroke-width: 5px;
+    opacity: 1;
+  }
+}
+
+/*
+g#Water_texture path {
+  opacity:1;
+  -webkit-animation: waterTextureFill 2s ease-in-out alternate infinite;
+ }
+ */
+#LD-container.notMobile svg g#water_midtone path {
+  opacity: 1;
+  -webkit-animation: waterMidtoneFill 3s ease-in-out alternate infinite;
+}
+
+/*
+#water_surface, .st6 {
+  z-index: 3;
+  transform-origin: center center;
+  -webkit-animation: imgevento 4s ease-in-out alternate infinite;
+}
+*/
+
+/*# sourceMappingURL=keyframes.css.map */
