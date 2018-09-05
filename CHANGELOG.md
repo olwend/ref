@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.8 - 06-Sep-2018
+
+WR-1349 - Accessibility: Home page has no h1 
+WR-1439 - LitD splash component 
+WR-1458 - Remove the Visitor App link from the footer 
+
 ## 2.1.7 - 30-Aug-2018
 WR-1424 - Accessibility: Our Science CTA colour contrast
 WR-1444 - Continuation for A-B functionality exhibition details page
