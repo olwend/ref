@@ -90,7 +90,7 @@ public class ArticleFeed {
 	    for(Hit hits : nodes) {
 			try {
 				Node node = hits.getNode();
-				itemList.add(service.getNodeMap(node));
+				itemList.add(service.getNodeMap(node, resourceResolver));
 			} catch (RepositoryException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
