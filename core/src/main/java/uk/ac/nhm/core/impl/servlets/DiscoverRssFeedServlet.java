@@ -159,6 +159,7 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
                 .asList(PropertiesUtil.toStringArray(properties.get(PROP_DAM_ASSETS_TYPES), new String[0]));
         this.excludeFromSiteMapProperty = PropertiesUtil.toString(properties.get(PROP_EXCLUDE_FROM_SITEMAP_PROPERTY),
                 NameConstants.PN_HIDE_IN_NAV);
+        this.textUtils = new TextUtils();
     }
 
     @Override
@@ -266,7 +267,7 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
     public String getDayOfWeek(int day) {
     	String dayOfWeek = DayOfWeek.of(day).toString();
     	dayOfWeek = dayOfWeek.substring(0,3);
-    	dayOfWeek = dayOfWeek.substring(0,1).toUpperCase() + dayOfWeek.substring(1);
+    	dayOfWeek = dayOfWeek.substring(0,1).toLowerCase() + dayOfWeek.substring(1);
     	return dayOfWeek;
     }
     
