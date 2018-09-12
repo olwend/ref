@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content 
+    	jcr:primaryType="nt:unstructured"
+		jcr:lastModified="{Date}2018-08-16T10:33:31.407+01:00"
+		jcr:lastModifiedBy="admin"
+    	sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+   			<items 
+			   jcr:primaryType="nt:unstructured"
+			   maxGeneratedOrder="24">
+				<text
+					jcr:primaryType="nt:unstructured"
+					cfm-element="Text"
+					listOrder="21"
+					metaType="text-multi"
+					name="text"
+					renderReadOnly="false"
+					showEmptyInReadOnly="true"
+					sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
+					valueType="string" >
+				</text>
+				<imagepath
+					jcr:primaryType="nt:unstructured"
+					fieldLabel="Image path"
+					filter="hierarchy"
+					listOrder="31"
+					metaType="reference"
+					name="imagepath"
+					nameSuffix="contentReference"
+					renderReadOnly="false"
+					required="on"
+					rootPath="/content/dam/nhmwww"
+					showEmptyInReadOnly="true"
+					sling:resourceType="dam/cfm/models/editor/components/contentreference"
+					valueType="string" >
+				</imagepath>
+				<link
+					jcr:primaryType="nt:unstructured"
+					fieldLabel="Link"
+					filter="hierarchy"
+					listOrder="41"
+					metaType="reference"
+					name="link"
+					nameSuffix="contentReference"
+					renderReadOnly="false"
+					required="on"
+					rootPath="/content/nhmwww/en/home"
+					showEmptyInReadOnly="true"
+					sling:resourceType="dam/cfm/models/editor/components/contentreference"
+					valueType="string" >
+				</link>
+				<cta
+					jcr:primaryType="nt:unstructured"
+					listOrder="51"
+					metaType="boolean"
+					name="cta"
+					renderReadOnly="false"
+					showEmptyInReadOnly="true"
+					sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+					text="Include CTA"
+					valueType="boolean" >
+				</cta>
+				<ctatext
+					jcr:primaryType="nt:unstructured"
+					fieldLabel="CTA text"
+					listOrder="61"
+					maxlength="255"
+					metaType="text-single"
+					name="ctatext"
+					renderReadOnly="false"
+					showEmptyInReadOnly="true"
+					sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+					valueType="string" >
+				</ctatext>
+				<ctaicon
+					jcr:primaryType="nt:unstructured"
+					emptyOption="{Boolean}true"
+					fieldLabel="CTA icon"
+					listOrder="71"
+					metaType="enumeration"
+					name="ctaicon"
+					options="None,Ticket"
+					renderReadOnly="false"
+					showEmptyInReadOnly="true"
+					sling:resourceType="granite/ui/components/coral/foundation/form/select"
+					valueType="string" >
+					<datasource
+						jcr:primaryType="nt:unstructured"
+						sling:resourceType="dam/cfm/admin/components/datasources/optionrenderer"
+						variant="default" />
+				</ctaicon>
+   			</items>
+    </content>
+</jcr:root>

@@ -7,6 +7,7 @@
 	<filter root="/apps/cq" /> 
 	<filter root="/apps/sling" />
 	<filter root="/apps/wcm/extensions/contentfinder"/>
+	<filter root="/conf/nhmwww"/>
 	<filter root="/etc/clientlibs/nhmwww"/>
 	<filter root="/etc/workflow/models/dam/update_asset"/>
     <filter root="/etc/designs/nhmwww"/>
