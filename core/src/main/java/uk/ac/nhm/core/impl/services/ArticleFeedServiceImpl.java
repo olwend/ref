@@ -180,11 +180,16 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 	    	//Get publish date
 	    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
 	    	
-	    	if(node.hasProperty("jcr:content/article/datepublished")) {
+	    	if(node.hasProperty("jcr:content/article/datelastupdated")) {
+	    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datelastupdated").getString());
+				MutableDateTime mdt = dt.toMutableDateTime();
+				String date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+	    		nodeMap.put("date", date);
+	    	} else if(node.hasProperty("jcr:content/article/datepublished")) {
 	    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
 				MutableDateTime mdt = dt.toMutableDateTime();
-				String datePublished = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-	    		nodeMap.put("datepublished", datePublished);
+				String date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+	    		nodeMap.put("date", date);
 	    	}
 	
 	    	//Get hub tag
