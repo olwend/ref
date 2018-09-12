@@ -1,7 +1,11 @@
 # Changelog
 
-## 2.1.8 - 06-Sep-2018
+## 2.1.9 - 13-Sep-2018
+WR-1449 - Create content fragment model and component for adverts 
+WR-1456 - Change article and image page dates on feeds to date last updated 
+WR-1465 - Discover Hub Tag display fix 
 
+## 2.1.8 - 06-Sep-2018
 WR-1349 - Accessibility: Home page has no h1 
 WR-1439 - LitD splash component 
 WR-1458 - Remove the Visitor App link from the footer 
