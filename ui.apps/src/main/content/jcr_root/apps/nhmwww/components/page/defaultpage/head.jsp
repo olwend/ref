@@ -34,7 +34,8 @@
         favIcon = null;
     }
    
-%><head>
+%>
+<head>
 	<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"<%=xs%>>
@@ -52,6 +53,8 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="<%= currentPage.getTitle() == null ? xssAPI.encodeForHTML(currentPage.getName()) : xssAPI.encodeForHTML(currentPage.getTitle()) %> | Natural History Museum">
 	<meta name="twitter:description" content="<%=PageUtils.EncodeMetaDescription(properties.get("jcr:description", ""))%>"<%=xs%>>
+	
+	<cq:include script="responseheaders.jsp"/>
 	
     <cq:include script="headlibs.jsp"/>
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>

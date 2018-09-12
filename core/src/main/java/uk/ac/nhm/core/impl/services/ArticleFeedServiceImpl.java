@@ -67,7 +67,6 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		
 		try {
 			final Session session = repository.loginService("searchService", null);
-			tagManager = resourceResolver.adaptTo(TagManager.class);
 			
 			Map<String, String> queryMap = new HashMap<String, String>();
 
@@ -125,11 +124,13 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 	}
 	
 	@Override
-	public Map<String, String> getNodeMap(Node node) {
+	public Map<String, String> getNodeMap(Node node, ResourceResolver resourceResolver) {
 		
 		Map<String, String> nodeMap = new HashMap<String, String>();
     	
     	try {
+			tagManager = resourceResolver.adaptTo(TagManager.class);
+    		
 			nodeMap.put("path", node.getPath());
     	
 	    	if(node.hasProperty("jcr:content/jcr:title")) {
@@ -179,11 +180,16 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 	    	//Get publish date
 	    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
 	    	
-	    	if(node.hasProperty("jcr:content/article/datepublished")) {
+	    	if(node.hasProperty("jcr:content/article/datelastupdated")) {
+	    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datelastupdated").getString());
+				MutableDateTime mdt = dt.toMutableDateTime();
+				String date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+	    		nodeMap.put("date", date);
+	    	} else if(node.hasProperty("jcr:content/article/datepublished")) {
 	    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
 				MutableDateTime mdt = dt.toMutableDateTime();
-				String datePublished = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-	    		nodeMap.put("datepublished", datePublished);
+				String date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+	    		nodeMap.put("date", date);
 	    	}
 	
 	    	//Get hub tag

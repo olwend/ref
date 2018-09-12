@@ -12,6 +12,7 @@ public class EventPageDetail {
 	String eventGroup = "";
 	String eventTileLink = "";
 	String keywords = "";
+	Boolean hideFromSearch = false;
 	String adultPrice  = "";
 	String concessionPrice = "";
 	String memberPrice = "";
@@ -93,6 +94,14 @@ public class EventPageDetail {
 	
 	public String getKeywords() {
 		return this.keywords;
+	}
+	
+	public void setHideFromSearch(Boolean hideFromSearch) {
+		this.hideFromSearch = hideFromSearch;
+	}
+	
+	public Boolean getHideFromSearch() {
+		return this.hideFromSearch;
 	}
 	
 	public void setAdultPrice(String adultPrice) {

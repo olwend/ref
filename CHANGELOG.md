@@ -1,13 +1,35 @@
 # Changelog
 
+## 2.1.8 - 06-Sep-2018
+
+WR-1349 - Accessibility: Home page has no h1 
+WR-1439 - LitD splash component 
+WR-1458 - Remove the Visitor App link from the footer 
+
+## 2.1.7 - 30-Aug-2018
+WR-1424 - Accessibility: Our Science CTA colour contrast
+WR-1444 - Continuation for A-B functionality exhibition details page
+WR-1445 - Remove "ornithomimosaurs" from dino navigation
+WR-1446 - Enlarge text editor window in AEM article pages
+
+## 2.1.6 - 16-Aug-2018
+WR-1408 Dino-nav fix for small breakpoint mobile view
+WR-1427 Fix for missing space mobile view
+WR-1421 Remove duplicate events for A-B pages
+
+## 2.1.5 - 09-Aug-2018
+WR-1226 - Fix the parsing error when using the search component to search for text with apostrophes
+WR-1403 - Featured Article -fix italics display in snippet / description
+WR-1411 - Accessibility: Discover "read more" CTA hover and active states don't meet minimum contrast ratio
+
 ## 2.1.4 - 30-Jul-2018
-WR-1358 - Add primary hub tag to datalayer 
-WR-1423 - Search terms update 
-WR-1425 - Add crop ratios to asset manager editor 
-WR-1428 - Discover Related refactor for thumbnail override 
-WR-1432 - Change the link to the blog in megamenu  
-WR-1433 - Remove H2 class from the Popular Search Terms title 
-WR-1435 - Image page - update to layout styling 
+WR-1358 - Add primary hub tag to datalayer
+WR-1423 - Search terms update
+WR-1425 - Add crop ratios to asset manager editor
+WR-1428 - Discover Related refactor for thumbnail override
+WR-1432 - Change the link to the blog in megamenu
+WR-1433 - Remove H2 class from the Popular Search Terms title
+WR-1435 - Image page - update to layout styling
 WR-1436 - Image page components refactor
 
 ## 2.1.3 - 23-Jul-2018
@@ -37,15 +59,15 @@ WR-1419 - Science Profiles - errors in name formatting
 - WR-1407 - Removing 'W' from Dino Directory navigation and changing Ankylosaurid to 'Armored Dinosaur�
 
 ## 2.0.20 - Xanthous Xenotarsosaurus - 14-Jun-2018
-- WR-1366 - Comment legacy code in Social Signup component 
-- WR-1374 - Investigate layout when using <dl><dt><dd> 
-- WR-1390 - Remove the addition of "dinosaurs" and add "s" 
-- WR-1391 - Accessibility: Social signup form container contrast is too low - suggest change to dark grey 
-- WR-1394 - Featured Article - fix display of italics in headings 
-- WR-1396 - Discover subnav – Add a link to Collections 
+- WR-1366 - Comment legacy code in Social Signup component
+- WR-1374 - Investigate layout when using <dl><dt><dd>
+- WR-1390 - Remove the addition of "dinosaurs" and add "s"
+- WR-1391 - Accessibility: Social signup form container contrast is too low - suggest change to dark grey
+- WR-1394 - Featured Article - fix display of italics in headings
+- WR-1396 - Discover subnav – Add a link to Collections
 - WR-1397 - Update .gitignore to prevent merge errors with SASS repo
-- WR-1398 - Update popular search terms 
-- WR-1401 - Change "Body shape" in dino nav to "Type of dinosaur" 
+- WR-1398 - Update popular search terms
+- WR-1401 - Change "Body shape" in dino nav to "Type of dinosaur"
 
 ## 2.0.19 - Winking Wuerhosaurus - 04-Jun-2018
 - WR-1360 - Ensure text box aligns when using featured article in full width row
@@ -55,21 +77,21 @@ WR-1419 - Science Profiles - errors in name formatting
 ## 2.0.18 - Valiant Valdosaurus - 24-May-2018
 - WR-1370 - GDPR text change to social / signup component
 - WR-1371 - GDPR text change to enews signup
-- WR-1373 - Dino reduce gap between content and taxonomic detail 
+- WR-1373 - Dino reduce gap between content and taxonomic detail
 
 ## 2.0.17 - Ubiquitous Utahraptor - 17-May-2018
 - WR-1361 - Fix dino nav autocomplete bug
 - WR-1364 - Hotfix Sass partial
-- WR-1363 - Dino nav buttons 
+- WR-1363 - Dino nav buttons
 - WR-1328 - Accessibility single dino page
-- WR-1369 - Align text on single dino to match design 
-- WR-1011 - Investigate separating JS 
-- WR-1354 - Twitter card to all templates 
-- WR-1353 - Add "all" option to a-z dino filter 
+- WR-1369 - Align text on single dino to match design
+- WR-1011 - Investigate separating JS
+- WR-1354 - Twitter card to all templates
+- WR-1353 - Add "all" option to a-z dino filter
 
 ## 2.0.16 - Tragic Triceratops - 14-May-2018
 - WR-1344 - Accessibility: Footer: Replace Empty heading
-- WR-1347 - Accessibility: Social sign up missing labels & alt text 
+- WR-1347 - Accessibility: Social sign up missing labels & alt text
 - WR-1365 - Replace country URL in single dino links
 - WR-1367 - Change title in USA page
 
@@ -187,8 +209,8 @@ WR-1419 - Science Profiles - errors in name formatting
 - WR-1188 - Event calendar jquery bug
 
 ## 1.3.4 - Bearded Baryonyx - 23-Nov-2017
-- WR-1129 - Clean up and standardise headlibs.jsp files 
-- WR-741 - Refactor Library and Archives Search component 
+- WR-1129 - Clean up and standardise headlibs.jsp files
+- WR-741 - Refactor Library and Archives Search component
 - WR-746 - Refactor Breadcrumb
 - WR-803 - Refactor Map component
 - WR-833 - Refactor Sponsor Block component
@@ -279,7 +301,7 @@ U WR-1089 - Add 'date published' and 'last updated' in Discover article byline (
 
 ## 1.2.1 - Overweight Oystercatcher - 6-Jul-2017
 - WR-1074 - Add code for Google Optimise sitewide (pages that use global header)
-- WR-1075 - Search UI: Make a few swaps to "popular search terms" 
+- WR-1075 - Search UI: Make a few swaps to "popular search terms"
 - WR-1077 - Clean up "Big Splash" component Sass and markup
 - WR-1078 - Clean up "immersive template" Sass and markup
 
@@ -325,7 +347,7 @@ B WR-960 - Events Calendar 'sold out': array initialisation bug fix
 
 B WR-1031 - Create smart app banner for visit page
 - WR-1041 - Search UI: CSS issues on app pages, Eg. Lichen ID
-- WR-1043 - Footer: change 'Current vacancies' URL to new careers site link 
+- WR-1043 - Footer: change 'Current vacancies' URL to new careers site link
 - WR-1046 - Dynamic apps: Fix font size of copyright in footer
 
 ## 1.1.46 - Fabulous Flamingo - 19-Apr-2017

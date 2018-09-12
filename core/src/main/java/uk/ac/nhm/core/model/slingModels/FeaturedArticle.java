@@ -60,14 +60,19 @@ public class FeaturedArticle {
 
 		DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
 
-		if(properties.containsKey("jcr:content/article/datepublished")) {
+		if(properties.containsKey("jcr:content/article/datelastupdated")) {
+			DateTime dt = dateFormatter.parseDateTime(properties.get("jcr:content/article/datelastupdated", String.class));
+			MutableDateTime mdt = dt.toMutableDateTime();
+			String date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			this.setDate(date);
+		} else if(properties.containsKey("jcr:content/article/datepublished")) {
 			DateTime dt = dateFormatter.parseDateTime(properties.get("jcr:content/article/datepublished", String.class));
 			MutableDateTime mdt = dt.toMutableDateTime();
-			String datePublished = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
-			this.setDate(datePublished);
+			String date = mdt.getDayOfMonth() + " " + getMonth(mdt.getMonthOfYear()) + " " + mdt.getYear();
+			this.setDate(date);
 		}
 	}
-
+	
 	public String getMonth(int month) {
 		return new DateFormatSymbols().getMonths()[month-1];
 	}
