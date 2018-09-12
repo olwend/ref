@@ -67,7 +67,6 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 		
 		try {
 			final Session session = repository.loginService("searchService", null);
-			tagManager = resourceResolver.adaptTo(TagManager.class);
 			
 			Map<String, String> queryMap = new HashMap<String, String>();
 
@@ -125,11 +124,13 @@ public class ArticleFeedServiceImpl implements ArticleFeedService {
 	}
 	
 	@Override
-	public Map<String, String> getNodeMap(Node node) {
+	public Map<String, String> getNodeMap(Node node, ResourceResolver resourceResolver) {
 		
 		Map<String, String> nodeMap = new HashMap<String, String>();
     	
     	try {
+			tagManager = resourceResolver.adaptTo(TagManager.class);
+    		
 			nodeMap.put("path", node.getPath());
     	
 	    	if(node.hasProperty("jcr:content/jcr:title")) {

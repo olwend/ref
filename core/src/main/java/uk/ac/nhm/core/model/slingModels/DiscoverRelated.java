@@ -65,7 +65,7 @@ public class DiscoverRelated {
 				Resource resource = resourceResolver.getResource(pagePath);
 				Node node = resource.adaptTo(Node.class);
 			
-				itemList.add(service.getNodeMap(node));
+				itemList.add(service.getNodeMap(node, resourceResolver));
 			}
 		} catch (Exception e) {
 			LOG.error("Error with exception: ", e);

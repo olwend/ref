@@ -13,5 +13,5 @@ public interface ArticleFeedService {
 
 	public List<Hit> getArticleNodes(String rootPath, String[] tags, String order, String tagsOperator, String limit, ResourceResolver resourceResolver);
 	
-	public Map<String, String> getNodeMap(Node node);
+	public Map<String, String> getNodeMap(Node node, ResourceResolver resourceResolver);
 }
