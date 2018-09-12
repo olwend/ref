@@ -6525,15 +6525,6 @@ html.js-noScroll {
   color: #A1164E;
 }
 
-/** _REFACTOR-HEADERTEXTIMAGE.SCSS, FORMERLY _HTI-UPDATE.SCSS **/
-/** this can eventually apply to generic ctabutton only **/
-/** this can eventually apply to generic ctabutton only **/
-/** these feature-box styles could possibly be removed after feature-box global styles are refactored **/
-/** this replaces info-tout__action **/
-/**overrides headertextimage.scss **/
-/**overrides headertextimage.scss **/
-/** overrides headertextimage.scss custom Foundation widths **/
-/** Hotfix for Touch UI layout bug **/
 /** WR-1079 REIMPLEMENT COOKIE-BAR **/
 div#cookie-bar {
   background-color: #000000;
