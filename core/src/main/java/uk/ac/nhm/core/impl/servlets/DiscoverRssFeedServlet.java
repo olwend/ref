@@ -280,17 +280,23 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
     		    	//Get tags
     		    	if(node.hasProperty("jcr:content/article/cq:tags")) {
     		    		javax.jcr.Property tagsProperty = node.getProperty("jcr:content/article/cq:tags");
-    		    		Value[] tags = tagsProperty.getValues();
-    		    		List<String> tagList = new ArrayList<>();
-    					if(tags.length > 0) {
-    						for(int i=0; i<tags.length; i++) {
-	    						Tag tag = tagManager.resolve(tags[i].getString());
-	    						if(!tagList.contains(tag.getTitle())) {
-		    						writeElement(stream, "category", tag.getTitle());
-		    						tagList.add(tag.getTitle());
+    		    		if(tagsProperty.isMultiple()) {
+	    		    		Value[] tags = tagsProperty.getValues();
+	    		    		List<String> tagList = new ArrayList<>();
+	    					if(tags.length > 0) {
+	    						for(int i=0; i<tags.length; i++) {
+		    						Tag tag = tagManager.resolve(tags[i].getString());
+		    						if(!tagList.contains(tag.getTitle())) {
+			    						writeElement(stream, "category", tag.getTitle());
+			    						tagList.add(tag.getTitle());
+		    						}
 	    						}
-    						}
-    					}
+	    					}
+    		    		} else if(!tagsProperty.isMultiple()) {
+    		    			Value tags = tagsProperty.getValue();
+    						Tag tag = tagManager.resolve(tags.getString());
+    						writeElement(stream, "category", tag.getTitle());
+    		    		}
     		    	}
     		    	
     				stream.writeEndElement();
