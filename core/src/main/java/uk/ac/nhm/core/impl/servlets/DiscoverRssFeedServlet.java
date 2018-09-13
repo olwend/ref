@@ -31,6 +31,7 @@ import java.util.Map;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.Value;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.xml.stream.XMLOutputFactory;
@@ -46,6 +47,8 @@ import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.jcr.api.SlingRepository;
@@ -62,6 +65,9 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.day.cq.tagging.JcrTagManagerFactory;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.NameConstants;
 
 import uk.ac.nhm.core.utils.TextUtils;
@@ -84,6 +90,9 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
 	
 	@Reference
 	private QueryBuilder builder;
+	
+	@Reference
+	private ResourceResolverFactory resourceResolverFactory;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -171,6 +180,11 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
 
         XMLOutputFactory outputFactory = XMLOutputFactory.newFactory();
         try {
+        	final Map<String, Object> param = new HashMap<String, Object>();
+			param.put(ResourceResolverFactory.SUBSERVICE, "searchService");
+			final ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
+			TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        	
         	//Get 20 most recently published Discover articles
         	final Session session = repository.loginService("searchService", null);
 
@@ -240,7 +254,45 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
     		    	if(node.hasProperty("jcr:content/article/author")) {
     		    		writeElement(stream, "dc:creator", node.getProperty("jcr:content/article/author").getString());
     		    	}
-    				
+    		    	
+    		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")
+    		    			|| node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/imagepage")) {
+    			    	if(node.hasProperty("jcr:content/article/headType")) {
+    			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
+    			    			if(node.hasProperty("jcr:content/article/altFileReference")) {
+    			    				String fileReference = node.getProperty("jcr:content/article/altFileReference").getString();
+    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
+    			    				writeElement(stream, "enclosure", fileReference);
+    			    			} else if(node.hasProperty("jcr:content/article/image/fileReference")) {
+    			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
+    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
+    			    				writeElement(stream, "enclosure", fileReference);
+    							}
+    			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
+    			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
+    			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/mqdefault.jpg";
+    			    				writeElement(stream, "enclosure", youtubeImagePath);
+    					    	}
+    			    		}
+    			    	}
+    		    	}
+    		    	
+    		    	//Get tags
+    		    	if(node.hasProperty("jcr:content/article/cq:tags")) {
+    		    		javax.jcr.Property tagsProperty = node.getProperty("jcr:content/article/cq:tags");
+    		    		Value[] tags = tagsProperty.getValues();
+    		    		List<String> tagList = new ArrayList<>();
+    					if(tags.length > 0) {
+    						for(int i=0; i<tags.length; i++) {
+	    						Tag tag = tagManager.resolve(tags[i].getString());
+	    						if(!tagList.contains(tag.getTitle())) {
+		    						writeElement(stream, "category", tag.getTitle());
+		    						tagList.add(tag.getTitle());
+	    						}
+    						}
+    					}
+    		    	}
+    		    	
     				stream.writeEndElement();
     			} catch (RepositoryException e) {
     				// TODO Auto-generated catch block
@@ -267,7 +319,7 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
     public String getDayOfWeek(int day) {
     	String dayOfWeek = DayOfWeek.of(day).toString();
     	dayOfWeek = dayOfWeek.substring(0,3);
-    	dayOfWeek = dayOfWeek.substring(0,1).toLowerCase() + dayOfWeek.substring(1);
+    	dayOfWeek = dayOfWeek.substring(0,1).toUpperCase() + dayOfWeek.substring(1).toLowerCase();
     	return dayOfWeek;
     }
     
