@@ -21,13 +21,13 @@
 		<div class="bigsplash-text">
 			<div class="row cf">
 				<div class="bigsplash-text--title-container">
-					<a href="${bigsplash.ctaUrl}" data-sly-unwrap="${bigsplash.applyLinkToTitle}">
+					<a href="${bigsplash.ctaUrl}" data-sly-unwrap="${!bigsplash.applyLinkToTitle}">
 						<h1 class="bigsplash-text--title">${bigsplash.title}</h1>
 					</a>
 				</div>
 
 				<div class="bigsplash-text--subtitle-container" data-sly-test="${bigsplash.subtitle}">
-					<a href="${bigsplash.ctaUrl}" data-sly-unwrap="${bigsplash.applyLinkToTitle}">
+					<a href="${bigsplash.ctaUrl}" data-sly-unwrap="${!bigsplash.applyLinkToTitle}">
 						<p class="bigsplash-text--subtitle">${bigsplash.subtitle}</p>
 					</a>
 				</div>
