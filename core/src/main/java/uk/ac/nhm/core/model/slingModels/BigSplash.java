@@ -2,6 +2,9 @@ package uk.ac.nhm.core.model.slingModels;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
+import javax.jcr.ValueFormatException;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -27,6 +30,16 @@ public class BigSplash {
 	@Inject
 	ResourceResolver resourceResolver;
 	
+	public static final String ALTERNATIVE_IMAGE_ATTRIBUTE_NAME 	= "alternativeimage";
+	public static final String APPLY_LINK_TO_TITLE_ATTRIBUTE_NAME	= "applyLinkToTitle";
+	public static final String CAPTION_ATTRIBUTE_NAME				= "caption";
+	public static final String CTA_TEXT_ATTRIBUTE_NAME				= "ctatext";
+	public static final String CTA_URL_ATTRIBUTE_NAME				= "ctaurl";
+	public static final String IMAGE_ALT_TEXT_ATTRIBUTE_NAME 		= "imagealttext";
+	public static final String SUBTITLE_ATTRIBUTE_NAME 				= "subtitle";
+	public static final String TITLE_ATTRIBUTE_NAME 				= "title";
+	public static final String YOUTUBE_ID_ATTRIBUTE_NAME 			= "youtube";
+	
 	private Boolean applyLinkToTitle = null;
 	private String caption = null;
 	private String ctaText = null;
@@ -42,18 +55,18 @@ public class BigSplash {
 		setVariables(properties);
 	}
 
-	private void setVariables(ValueMap properties) {
-		this.applyLinkToTitle = properties.get("applyLinkToTitle",false);
-		this.caption = properties.get("caption", String.class);
-		this.ctaText = properties.get("ctatext", String.class);
-		this.ctaUrl = properties.get("ctaurl", String.class);
-		this.imagePath = properties.get("alternativeimage", String.class);
-		this.subtitle = properties.get("subtitle", String.class);
-		this.title = properties.get("title", String.class);
-		this.videoId = properties.get("youtube", String.class);
+	protected void setVariables(ValueMap properties) {
+		this.applyLinkToTitle = properties.get(APPLY_LINK_TO_TITLE_ATTRIBUTE_NAME,false);
+		this.caption = properties.get(CAPTION_ATTRIBUTE_NAME, String.class);
+		this.ctaText = properties.get(CTA_TEXT_ATTRIBUTE_NAME, String.class);
+		this.ctaUrl = properties.get(CTA_URL_ATTRIBUTE_NAME, String.class);
+		this.imagePath = properties.get(ALTERNATIVE_IMAGE_ATTRIBUTE_NAME, String.class);
+		this.subtitle = properties.get(SUBTITLE_ATTRIBUTE_NAME, String.class);
+		this.title = properties.get(TITLE_ATTRIBUTE_NAME, String.class);
+		this.videoId = properties.get(YOUTUBE_ID_ATTRIBUTE_NAME, String.class);
 		
-		if(properties.containsKey("imagealttext")) {
-			this.imageAlt = properties.get("imagealttext", String.class);
+		if(properties.containsKey(IMAGE_ALT_TEXT_ATTRIBUTE_NAME)) {
+			this.imageAlt = properties.get(IMAGE_ALT_TEXT_ATTRIBUTE_NAME, String.class);
 		} else {
 			Resource resource = resourceResolver.getResource(this.imagePath);
 			this.imageAlt = getImageTitle(resource);
@@ -68,6 +81,18 @@ public class BigSplash {
 		} catch(NullPointerException e) {
 			LOG.error("Image not found in repository. Expected path=" + this.imagePath);
 			return null;
+		}
+	}
+	
+	public boolean isConfigured() throws ValueFormatException, PathNotFoundException, RepositoryException {
+		LOG.error(this.properties.get("title", String.class));
+		if(this.properties != null
+					&& this.properties.get(TITLE_ATTRIBUTE_NAME, String.class) != null
+					&& this.properties.get(ALTERNATIVE_IMAGE_ATTRIBUTE_NAME, String.class) != null
+					&& this.properties.get(YOUTUBE_ID_ATTRIBUTE_NAME, String.class) != null) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

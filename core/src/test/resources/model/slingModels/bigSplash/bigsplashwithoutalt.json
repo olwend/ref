@@ -1,0 +1,11 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "applyLinkToTitle": "true",
+  "alternativeimage": "/content/dam/nhmwww/images/image.jpg",
+  "caption": "Test caption",
+  "ctatext": "Test CTA text",
+  "ctaurl": "/content/nhmwww/en/home",
+  "title": "Test title",
+  "subtitle": "Test subtitle",
+  "youtube": "youtubeid" 
+}
