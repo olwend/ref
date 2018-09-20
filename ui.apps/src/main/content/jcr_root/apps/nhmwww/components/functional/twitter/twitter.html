@@ -1,0 +1,15 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta data-sly-call="${clientLib.all @ categories='nhmwww.twitter.widgets'}" data-sly-unwrap></meta>
+</sly>
+
+<sly data-sly-use.twitter="uk.ac.nhm.core.model.slingModels.Twitter">
+	<sly data-sly-test="${!twitter.isConfigured}">
+		<div class="row">
+			<h4>Twitter timeline</h4>
+		</div>
+	</sly>
+
+	<sly data-sly-test="${twitter.isConfigured}">
+		<a class="twitter-timeline" data-height="${twitter.height}" href="https://twitter.com/${twitter.feedId @ context='html'}?ref_src=twsrc%5Etfw">Tweets by ${twitter.feedId @ context='html'}</a>
+	</sly>
+</sly>
