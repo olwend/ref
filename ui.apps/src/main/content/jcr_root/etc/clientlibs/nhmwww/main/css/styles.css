@@ -4644,7 +4644,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6859,6 +6859,7 @@ div#cookie-bar p {
 .dinosaur--list dt {
   float: left;
   margin: 0 5px 0 0;
+  font-weight: bold;
 }
 
 /** DINOSAUR NAVIGATION **/
