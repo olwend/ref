@@ -185,10 +185,10 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
 			final ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
 			TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
         	
-        	//Get 20 most recently published Discover articles
+        	//Get recently published Discover articles
         	final Session session = repository.loginService("searchService", null);
 
-			LOG.error(session.getUserID());
+			LOG.error(session.getUserID() + " running query for Discover RSS feed");
 			
 			Map<String, String> queryMap = new HashMap<String, String>();
 
@@ -200,6 +200,7 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
 			Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
 		    
 		    query.setStart(0);
+		    //Set limit for number of articles, minimum=20 
 		    query.setHitsPerPage(20L);
 
 		    SearchResult result = query.getResult();
@@ -209,106 +210,107 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
         	//Write to XML stream
             XMLStreamWriter stream = outputFactory.createXMLStreamWriter(response.getWriter());
             stream.writeStartDocument("UTF-8", "1.0");
-            stream.writeStartElement("rss");
-            stream.writeAttribute("xmlns:dc", "http://purl.org/dc/elements/1.1/");
-            stream.writeAttribute("version", "2.0");
-            
-            stream.writeStartElement("channel");
-            
-            writeElement(stream, "title", "Discover | Natural History Museum");
-            writeElement(stream, "link", "http://www.nhm.ac.uk/discover.html");
-            writeElement(stream, "description", "Find answers to your big nature questions. Delve into stories about the Museum's collections, scientists and research. Uncover the history of life on Earth, from the smallest insects to the largest mammals.");
-            writeElement(stream, "language", "en-gb");
-            
-            for(Hit hits : nodes) {
-    			try {
-    				Node node = hits.getNode();
-    				stream.writeStartElement("item");
-    				
-    				if(node.hasProperty("jcr:content/jcr:title")) {
-    		    		writeElement(stream, "title", node.getProperty("jcr:content/jcr:title").getString());
-    		    	}
-    				
-    				writeElement(stream, "link", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
-    				
-    				if(node.hasProperty("jcr:content/article/snippet")) {
-    		    		writeElement(stream, "description", textUtils.stripHtmlTags(node.getProperty("jcr:content/article/snippet").getString()));
-    		    	}
-    				
-    				//Get publish date
-    		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
-    		    	
-    		    	if(node.hasProperty("jcr:content/article/datepublished")) {
-    		    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
-    					MutableDateTime mdt = dt.toMutableDateTime();
-    					String date = getDayOfWeek(mdt.getDayOfWeek()) 
-    							+ ", " + getDayOfMonth(mdt.getDayOfMonth()) 
-    							+ " " + getMonth(mdt.getMonthOfYear()) 
-    							+ " " + mdt.getYear()
-    							+ " 00:00:00 GMT";
-    					writeElement(stream, "pubDate", date);
-    		    	}
-    		    	
-    		    	writeElement(stream, "guid", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
-    		    	
-    		    	if(node.hasProperty("jcr:content/article/author")) {
-    		    		writeElement(stream, "dc:creator", node.getProperty("jcr:content/article/author").getString());
-    		    	}
-    		    	
-    		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")
-    		    			|| node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/imagepage")) {
-    			    	if(node.hasProperty("jcr:content/article/headType")) {
-    			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
-    			    			if(node.hasProperty("jcr:content/article/altFileReference")) {
-    			    				String fileReference = node.getProperty("jcr:content/article/altFileReference").getString();
-    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
-    			    				writeElement(stream, "enclosure", fileReference);
-    			    			} else if(node.hasProperty("jcr:content/article/image/fileReference")) {
-    			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
-    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
-    			    				writeElement(stream, "enclosure", fileReference);
-    							}
-    			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
-    			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
-    			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/mqdefault.jpg";
-    			    				writeElement(stream, "enclosure", youtubeImagePath);
-    					    	}
-    			    		}
-    			    	}
-    		    	}
-    		    	
-    		    	//Get tags
-    		    	if(node.hasProperty("jcr:content/article/cq:tags")) {
-    		    		javax.jcr.Property tagsProperty = node.getProperty("jcr:content/article/cq:tags");
-    		    		if(tagsProperty.isMultiple()) {
-	    		    		Value[] tags = tagsProperty.getValues();
-	    		    		List<String> tagList = new ArrayList<>();
-	    					if(tags.length > 0) {
-	    						for(int i=0; i<tags.length; i++) {
-		    						Tag tag = tagManager.resolve(tags[i].getString());
-		    						if(!tagList.contains(tag.getTitle())) {
+	            stream.writeStartElement("rss");
+		            stream.writeAttribute("xmlns:dc", "http://purl.org/dc/elements/1.1/");
+		            stream.writeAttribute("version", "2.0");
+		            
+		            stream.writeStartElement("channel");
+		            
+			            writeElement(stream, "title", "Discover | Natural History Museum");
+			            writeElement(stream, "link", "http://www.nhm.ac.uk/discover.html");
+			            writeElement(stream, "description", "Find answers to your big nature questions. Delve into stories about the Museum's collections, scientists and research. Uncover the history of life on Earth, from the smallest insects to the largest mammals.");
+			            writeElement(stream, "language", "en-gb");
+			            
+			            //Iterate through article nodes and create <item> element for each
+			            //Generate elements based on this spec: https://about.flipboard.com/rss-spec/
+			            for(Hit hits : nodes) {
+			    			try {
+			    				Node node = hits.getNode();
+			    				stream.writeStartElement("item");
+			    				
+			    				if(node.hasProperty("jcr:content/jcr:title")) {
+			    		    		writeElement(stream, "title", node.getProperty("jcr:content/jcr:title").getString());
+			    		    	}
+			    				
+			    				writeElement(stream, "link", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
+			    				
+			    				if(node.hasProperty("jcr:content/article/snippet")) {
+			    		    		writeElement(stream, "description", textUtils.stripHtmlTags(node.getProperty("jcr:content/article/snippet").getString()));
+			    		    	}
+			    				
+			    				//Get publish date
+			    		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
+			    		    	
+			    		    	if(node.hasProperty("jcr:content/article/datepublished")) {
+			    		    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
+			    					MutableDateTime mdt = dt.toMutableDateTime();
+			    					String date = getDayOfWeek(mdt.getDayOfWeek()) 
+			    							+ ", " + getDayOfMonth(mdt.getDayOfMonth()) 
+			    							+ " " + getMonth(mdt.getMonthOfYear()) 
+			    							+ " " + mdt.getYear()
+			    							+ " 00:00:00 GMT";
+			    					writeElement(stream, "pubDate", date);
+			    		    	}
+			    		    	
+			    		    	writeElement(stream, "guid", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
+			    		    	
+			    		    	if(node.hasProperty("jcr:content/article/author")) {
+			    		    		writeElement(stream, "dc:creator", node.getProperty("jcr:content/article/author").getString());
+			    		    	}
+			    		    	
+			    		    	//Get file reference for lead image/video
+			    		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")
+			    		    			|| node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/imagepage")) {
+			    			    	if(node.hasProperty("jcr:content/article/headType")) {
+			    			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
+			    			    			if(node.hasProperty("jcr:content/article/altFileReference")) {
+			    			    				String fileReference = node.getProperty("jcr:content/article/altFileReference").getString();
+			    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
+			    			    				writeElement(stream, "enclosure", fileReference);
+			    			    			} else if(node.hasProperty("jcr:content/article/image/fileReference")) {
+			    			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
+			    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
+			    			    				writeElement(stream, "enclosure", fileReference);
+			    							}
+			    			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
+			    			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
+			    			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/mqdefault.jpg";
+			    			    				writeElement(stream, "enclosure", youtubeImagePath);
+			    					    	}
+			    			    		}
+			    			    	}
+			    		    	}
+			    		    	
+			    		    	//Get tags
+			    		    	if(node.hasProperty("jcr:content/article/cq:tags")) {
+			    		    		javax.jcr.Property tagsProperty = node.getProperty("jcr:content/article/cq:tags");
+			    		    		if(tagsProperty.isMultiple()) {
+				    		    		Value[] tags = tagsProperty.getValues();
+				    		    		List<String> tagList = new ArrayList<>();
+				    					if(tags.length > 0) {
+				    						for(int i=0; i<tags.length; i++) {
+					    						Tag tag = tagManager.resolve(tags[i].getString());
+					    						if(!tagList.contains(tag.getTitle())) {
+						    						writeElement(stream, "category", tag.getTitle());
+						    						tagList.add(tag.getTitle());
+					    						}
+				    						}
+				    					}
+			    		    		} else if(!tagsProperty.isMultiple()) {
+			    		    			Value tags = tagsProperty.getValue();
+			    						Tag tag = tagManager.resolve(tags.getString());
 			    						writeElement(stream, "category", tag.getTitle());
-			    						tagList.add(tag.getTitle());
-		    						}
-	    						}
-	    					}
-    		    		} else if(!tagsProperty.isMultiple()) {
-    		    			Value tags = tagsProperty.getValue();
-    						Tag tag = tagManager.resolve(tags.getString());
-    						writeElement(stream, "category", tag.getTitle());
-    		    		}
-    		    	}
-    		    	
-    				stream.writeEndElement();
-    			} catch (RepositoryException e) {
-    				// TODO Auto-generated catch block
-    				e.printStackTrace();
-    			}
-    	    }
-            
-            stream.writeEndElement();
-            
-            stream.writeEndElement();
+			    		    		}
+			    		    	}
+			    		    	
+			    				stream.writeEndElement();
+			    			} catch (RepositoryException e) {
+			    				// TODO Auto-generated catch block
+			    				e.printStackTrace();
+			    			}
+			    	    }
+		            stream.writeEndElement(); //</channel>
+	            stream.writeEndElement(); //</rss>
             stream.writeEndDocument();
         } catch (Exception e) {
             throw new IOException(e);
