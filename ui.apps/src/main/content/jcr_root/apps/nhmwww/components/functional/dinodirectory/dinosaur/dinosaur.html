@@ -40,18 +40,23 @@
 
 		<div class="row">
 			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
-				<dl class="dinosaur--description" data-dino-length="${dinosaur.length}">
-					<dt data-sly-test="${dinosaur.description}" class="show-for-sr">Dinosaur description:</dt>
-					<sly data-sly-test="${dinosaur.description}"><dd>${dinosaur.description}</dd></sly>
-					<sly data-sly-test="${!dinosaur.description}"><dt>Body type:</dt></sly>
-					<dd><a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></dd>
-				</dl>
+
 				<div data-sly-test="${dinosaur.bodyShape && dinosaur.length}" class="dinosaur--comparison">
 					<div class="dinosaur--comparison-dino">
 						<img src="/etc/designs/nhmwww/img/svgs/dinodirectory/bodytype/${dinosaur.bodyShape['name']}.svg" alt="${dinosaur.bodyShape['name']} silhouette">
 					</div>
 					<div class="dinosaur--comparison-human"></div>
 				</div>
+				
+				<dl class="dinosaur--description dinosaur--list" >
+					<dt data-sly-test="${dinosaur.description}" class="show-for-sr">Dinosaur description:</dt>
+					<dt data-sly-test="{dinosaur.bodyShape['url']}">Type of dinosaur:</dt>
+					<dd><a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></dd>
+					<dt data-sly-test="${dinosaur.length}">Length:</dt>
+					<dd data-sly-test="${dinosaur.length}">${dinosaur.length} m-long</dd><br>
+					<dt data-sly-test="${dinosaur.weight}">Weight:</dt>
+					<dd data-sly-test="${dinosaur.weight}">${dinosaur.weight}</dd>
+				</dl>
 			</div>
 
 			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">

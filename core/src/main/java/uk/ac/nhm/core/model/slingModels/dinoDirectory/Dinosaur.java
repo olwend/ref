@@ -44,6 +44,7 @@ public class Dinosaur {
 	private String imageUrl;
 	private String imageCredit;
 	private double length;
+	private String weight;
 	private String mya;
 	private String nameHyphenated;
 	private String nameMeaning;
@@ -106,9 +107,11 @@ public class Dinosaur {
 		}
 
 		StringBuffer descriptionBuffer = new StringBuffer();
+		StringBuffer massBuffer = new StringBuffer();
 
 		if(mass > 0) {
 			descriptionBuffer.append(String.valueOf(mass) + "kg");
+			massBuffer.append(String.valueOf(mass) + "kg");
 		}
 		if(lengthValue > 0) {
 			if(mass > 0) {
@@ -117,7 +120,8 @@ public class Dinosaur {
 				descriptionBuffer.append(String.valueOf(lengthValue) + "m-long");
 			}
 		}
-
+		
+		this.setWeight(massBuffer.toString());
 		this.setDescription(descriptionBuffer.toString());
 		this.setLength(lengthValue);
 		
@@ -338,6 +342,14 @@ public class Dinosaur {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
 	}
 
 	public String getDiet() {
