@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Template"
+    allowedPaths="[/content/entities(/.*)?]"
+    ranking="{Long}100">
+	<jcr:content
+		cq:lastModified="{Date}2018-08-15T14:59:43.209+01:00"
+		cq:lastModifiedBy="admin"
+		jcr:primaryType="cq:PageContent"
+		jcr:title="Text image"
+		cq:scaffolding="/conf/nhmwww/settings/dam/cfm/models/textimage/jcr:content/model"
+		cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
+		sling:resourceType="dam/cfm/models/console/components/data/entity/default"
+		sling:resourceSuperType="dam/cfm/models/console/components/data/entity" >
+		<model
+			jcr:primaryType="cq:PageContent"
+			cq:targetPath="/content/entities"
+			dataTypesConfig="/mnt/overlay/settings/dam/cfm/models/formbuilderconfig/datatypes"
+			sling:resourceType="wcm/scaffolding/components/scaffolding"
+			maxGeneratedOrder="20">
+		</model>
+	</jcr:content>
+</jcr:root>

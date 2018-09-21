@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:EditConfig">
+    <cq:dropTargets
+        jcr:primaryType="nt:unstructured">
+        <fragment
+            jcr:primaryType="cq:DropTargetConfig"
+            accept="[text/html,text/html,text/x-markdown,application/vnd.adobe.contentfragment]"
+            groups="[media]"
+            propertyName="./fileReference">
+            <parameters
+                jcr:primaryType="nt:unstructured"
+                element=""
+                sling:resourceType="nhmwww/components/functional/contentmodel"
+                variation="">
+        </fragment>
+    </cq:dropTargets>
+</jcr:root>

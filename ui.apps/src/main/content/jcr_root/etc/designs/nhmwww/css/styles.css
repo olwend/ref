@@ -4644,7 +4644,7 @@ ul.primo-search-options li.selected a {
   /* IE10+ */
   background: linear-gradient(top, #000 0%, #000 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#000', GradientType=0);
   /* IE6-9 */
   color: #fff;
   font-size: 12px;
@@ -6438,6 +6438,91 @@ html.js-noScroll {
     top: 34%;
     right: 0;
   }
+}
+
+.content-fragment--hti__text-container {
+  background-color: #EEEEEE;
+  color: #565656;
+  padding-bottom: 1em;
+}
+
+.content-fragment--hti__text-container p {
+  font-size: 1.125em;
+  margin-bottom: 1.2em;
+}
+
+.content-fragment--hti__text-container h3 {
+  padding-left: 0;
+}
+
+.content-fragment--hti__image-wrapper {
+  margin: 0;
+}
+
+.content-fragment--hti__text-wrapper {
+  padding: 0.5em 0.75em;
+}
+
+@media screen and (min-width: 768px) {
+  .content-fragment--hti__text-wrapper {
+    padding: 1em 1.5em;
+  }
+}
+
+.content-fragment--hti__text-wrapper h3 {
+  padding-bottom: 0.3em;
+}
+
+.content-fragment--hti__text-wrapper ul {
+  margin-left: 1em;
+}
+
+.content-fragment--hti__text-wrapper ul li {
+  list-style-type: disc;
+  list-style-position: outside;
+  font-size: 1.125em;
+}
+
+.content-fragment--hti__cta-button {
+  padding: 1.125em 0 1.125em 1.125em;
+  background-color: #FFFFFF;
+  border: none !important;
+}
+
+.content-fragment--hti__cta-button:hover h3 {
+  text-decoration: underline;
+}
+
+.content-fragment--hti__cta-button .svg-ico {
+  height: 40px;
+  top: 30%;
+  width: 100%;
+}
+
+.content-fragment--hti__cta-text {
+  padding-bottom: 0;
+  margin-top: 0.4em;
+  margin-bottom: 0;
+  margin-left: 0.3em;
+  font-family: "Elysio-Regular", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  .content-fragment--hti__cta-text {
+    margin-top: 0.25em;
+  }
+}
+
+.row .content-fragment--hti .row {
+  margin: 0;
+}
+
+.discover .content-fragment--hti__cta-text {
+  color: #565656;
+}
+
+.visit .content-fragment--hti__cta-text {
+  color: #A1164E;
 }
 
 /** WR-1079 REIMPLEMENT COOKIE-BAR **/
