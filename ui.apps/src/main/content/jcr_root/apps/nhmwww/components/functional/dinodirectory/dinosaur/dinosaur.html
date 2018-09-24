@@ -39,7 +39,7 @@
 		</div>
 
 		<div class="row">
-			<div class="dinosaur--description-container small-12 medium-12 large-5 columns">
+			<div class="dinosaur--description-container small-12 medium-12 large-6 columns">
 
 				<div data-sly-test="${dinosaur.bodyShape && dinosaur.length}" class="dinosaur--comparison">
 					<div class="dinosaur--comparison-dino">
@@ -49,17 +49,17 @@
 				</div>
 				
 				<dl class="dinosaur--description dinosaur--list" >
-					<dt data-sly-test="${dinosaur.description}" class="show-for-sr">Dinosaur description:</dt>
+<!-- 					<dt data-sly-test="${dinosaur.description}" class="show-for-sr">Dinosaur description:</dt> -->
 					<dt data-sly-test="{dinosaur.bodyShape['url']}">Type of dinosaur:</dt>
 					<dd><a href="${dinosaur.bodyShape['url']}">${dinosaur.bodyShape['name']}</a></dd>
 					<dt data-sly-test="${dinosaur.length}">Length:</dt>
-					<dd data-sly-test="${dinosaur.length}">${dinosaur.length} m-long</dd><br>
+					<dd data-sly-test="${dinosaur.length}">${dinosaur.length} m-long</dd>
 					<dt data-sly-test="${dinosaur.weight}">Weight:</dt>
 					<dd data-sly-test="${dinosaur.weight}">${dinosaur.weight}</dd>
 				</dl>
 			</div>
 
-			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
+			<div class="dinosaur--info-container small-12 medium-12 large-6 columns">
 				<dl class="dinosaur--info dinosaur--list">
 					<dt data-sly-test="{dinosaur.diet}">Diet:</dt>
 					<dd data-sly-test="{dinosaur.diet}">${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="${dinosaur.diet} food icon"></dd>
