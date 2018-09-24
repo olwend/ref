@@ -82,6 +82,7 @@
         
         <!-- Change this to run selected tests only -->
         <tests.to.run>**/**Test.java</tests.to.run>
+        <junit.version>5.2.0</junit.version>
     </properties>
     
     <build>
@@ -369,8 +370,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+        	<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
