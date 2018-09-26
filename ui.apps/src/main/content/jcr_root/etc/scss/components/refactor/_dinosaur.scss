@@ -112,6 +112,7 @@
 	&--description-container {
 		font-family: font-name(elysio, light);
 		padding: 0 20px;
+		// font-size: 1.55rem;
 	}
 
 	&--description {
@@ -136,6 +137,7 @@
 
 	&--comparison-dino {
 		margin-right: 20px;
+		font-size: 1.55rem;
 
 		img {
 			width: 100%;
@@ -143,6 +145,7 @@
 	}
 
 	&--comparison-human {
+		font-size: 1.55rem;
 		img {
 			width: 100%;
 		}

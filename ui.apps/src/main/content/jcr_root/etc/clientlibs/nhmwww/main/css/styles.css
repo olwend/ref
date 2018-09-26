@@ -6807,10 +6807,15 @@ div#cookie-bar p {
 
 .dinosaur--comparison-dino {
   margin-right: 20px;
+  font-size: 1.55rem;
 }
 
 .dinosaur--comparison-dino img {
   width: 100%;
+}
+
+.dinosaur--comparison-human {
+  font-size: 1.55rem;
 }
 
 .dinosaur--comparison-human img {
