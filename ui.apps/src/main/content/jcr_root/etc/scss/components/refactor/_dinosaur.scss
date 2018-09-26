@@ -153,6 +153,9 @@
 	&--info-container {
 		font-family: font-name(elysio, light);
 		padding: 0 20px;
+			dt,dd {
+				font-size: 1.55rem;
+		}
 	}
 
 	&--content-container {
@@ -177,7 +180,7 @@
 	}
 
 	&--list {
-		font-size: 1.55rem;
+		// font-size: 1.55rem;
 		dt {
 			float: left;
 			margin: 0 5px 0 0;

@@ -6827,6 +6827,10 @@ div#cookie-bar p {
   padding: 0 20px;
 }
 
+.dinosaur--info-container dt, .dinosaur--info-container dd {
+  font-size: 1.55rem;
+}
+
 .dinosaur--content-container {
   padding: 10px 20px 0 20px;
 }
@@ -6846,10 +6850,6 @@ div#cookie-bar p {
 
 .dinosaur--taxonomy-title {
   margin-top: 20px;
-}
-
-.dinosaur--list {
-  font-size: 1.55rem;
 }
 
 .dinosaur--list dt {
