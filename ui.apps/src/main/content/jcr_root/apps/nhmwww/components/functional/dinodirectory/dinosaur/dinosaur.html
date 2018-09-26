@@ -60,24 +60,22 @@
 
 			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
 				<dl class="dinosaur--info dinosaur--list">
-
+					<dt data-sly-test="${dinosaur.diet}">Diet:</dt>
+					<dd data-sly-test="${dinosaur.diet}">${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="${dinosaur.diet} food icon"></dd>
+					<dt data-sly-test="${dinosaur.teeth}">Teeth:</dt>
+					<dd data-sly-test="${dinosaur.teeth}">${dinosaur.teeth}</dd>	
+					<dt data-sly-test="${dinosaur.food}">Food:</dt>
+					<dd data-sly-test="${dinosaur.food}">${dinosaur.food @ context='html'}</dd>
+					<dt data-sly-test="${dinosaur.howItMoved}">How it moved:</dt>
+					<dd data-sly-test="${dinosaur.howItMoved}">${dinosaur.howItMoved}</dd>
+					<dt data-sly-test="${dinosaur.period['name']}">When it lived:</dt>
+					<dd data-sly-test="${dinosaur.period['name']}"><a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a><sly data-sly-test="${dinosaur.mya}">, ${dinosaur.mya}</sly</dd>
 					<dt data-sly-test="${dinosaur.countryList}">Found in:</dt>
 					<dd data-sly-test="${dinosaur.countryList}">
 						<sly data-sly-list.country="${dinosaur.countryList}">
 							<a href="${country['url']}">${country['name']}</a><sly data-sly-test="${!countryList.last}">,</sly>
 						</sly>
-					</dd>
-					<dt data-sly-test="${dinosaur.period['name']}">When it lived:</dt>
-					<dd data-sly-test="${dinosaur.period['name']}"><a href="${dinosaur.period['url']}">${dinosaur.period['name']}</a><sly data-sly-test="${dinosaur.mya}">, ${dinosaur.mya}</sly</dd>
-					<dt data-sly-test="${dinosaur.teeth}">Teeth:</dt>
-					<dd data-sly-test="${dinosaur.teeth}">${dinosaur.teeth}</dd>
-					<dt data-sly-test="${dinosaur.diet}">Diet:</dt>
-					<dd data-sly-test="${dinosaur.diet}">${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="${dinosaur.diet} food icon"></dd>
-					<dt data-sly-test="${dinosaur.food}">Food:</dt>
-					<dd data-sly-test="${dinosaur.food}">${dinosaur.food @ context='html'}</dd>
-					<dt data-sly-test="${dinosaur.howItMoved}">How it moved:</dt>
-					<dd data-sly-test="${dinosaur.howItMoved}">${dinosaur.howItMoved}</dd>
-	
+					</dd>	
 				</dl>
 			</div>
 		</div>
