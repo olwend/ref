@@ -48,11 +48,11 @@
 					<div class="dinosaur--comparison-human"></div>
 				</div>
 				
-				<dl class="dinosaur--description dinosaur--list" >
+				<dl class="dinosaur--description dinosaur--list" data-dino-length="${dinosaur.length}" >
 					<dt data-sly-test="{dinosaur.bodyShape['url']}">Type of dinosaur:</dt>
 					<dd data-sly-test= "${dinosaur.bodyShape['url']}"><a href="${dinosaur.bodyShape['url']}"> ${dinosaur.bodyShape['name']}</a></dd>
 					<dt data-sly-test="${dinosaur.length}">Length:</dt>
-					<dd data-sly-test="${dinosaur.length}">${dinosaur.length}m long</dd>
+					<dd data-sly-test="${dinosaur.length}">${dinosaur.length}m</dd>
 					<dt data-sly-test="${dinosaur.weight}">Weight:</dt>
 					<dd data-sly-test="${dinosaur.weight}">${dinosaur.weight}</dd>
 				</dl>
