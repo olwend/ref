@@ -49,7 +49,7 @@
 				</div>
 				
 				<dl class="dinosaur--description dinosaur--list" data-dino-length="${dinosaur.length}" >
-					<dt data-sly-test="{dinosaur.bodyShape['url']}">Type of dinosaur:</dt>
+					<dt data-sly-test="${dinosaur.bodyShape['url']}">Type of dinosaur:</dt>
 					<dd data-sly-test= "${dinosaur.bodyShape['url']}"><a href="${dinosaur.bodyShape['url']}"> ${dinosaur.bodyShape['name']}</a></dd>
 					<dt data-sly-test="${dinosaur.length}">Length:</dt>
 					<dd data-sly-test="${dinosaur.length}">${dinosaur.length}m</dd>
