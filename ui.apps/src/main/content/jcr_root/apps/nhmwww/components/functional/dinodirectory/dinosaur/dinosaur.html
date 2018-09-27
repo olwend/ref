@@ -56,8 +56,8 @@
 
 			<div class="dinosaur--info-container small-12 medium-12 large-7 columns">
 				<dl class="dinosaur--info dinosaur--list">
-					<dt data-sly-test="{dinosaur.diet}">Diet:</dt>
-					<dd data-sly-test="{dinosaur.diet}">${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="${dinosaur.diet} food icon"></dd>
+					<dt data-sly-test="${dinosaur.diet != ('unknown')}">Diet:</dt> 
+				    <dd data-sly-test="${dinosaur.diet != ('unknown')}">${dinosaur.diet} <img src="/etc/designs/nhmwww/img/svgs/dinodirectory/diet/${dinosaur.diet}.svg" alt="${dinosaur.diet} food icon"></dd>
 					<dt data-sly-test="${dinosaur.countryList}">Country:</dt>
 					<dd data-sly-test="${dinosaur.countryList}">
 						<sly data-sly-list.country="${dinosaur.countryList}">
