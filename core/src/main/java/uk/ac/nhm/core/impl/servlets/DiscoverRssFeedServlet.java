@@ -223,9 +223,11 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
     					if(tags.length > 0) {
     						for(int i=0; i<tags.length; i++) {
 	    						Tag tag = tagManager.resolve(tags[i].getString());
-	    						if(!tagList.contains(tag.getTitle())) {
-		    						writeElement(stream, "category", tag.getTitle());
-		    						tagList.add(tag.getTitle());
+	    						if(tag != null) {
+		    						if(!tagList.contains(tag.getTitle())) {
+			    						writeElement(stream, "category", tag.getTitle());
+			    						tagList.add(tag.getTitle());
+		    						}
 	    						}
     						}
     					}
