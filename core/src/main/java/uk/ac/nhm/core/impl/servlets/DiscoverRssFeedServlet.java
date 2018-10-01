@@ -95,79 +95,17 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
 	private ResourceResolverFactory resourceResolverFactory;
 	
 	private static final long serialVersionUID = 1L;
-
-	private static final boolean DEFAULT_INCLUDE_LAST_MODIFIED = false;
-
-    private static final boolean DEFAULT_INCLUDE_INHERITANCE_VALUE = false;
-
-    private static final String DEFAULT_EXTERNALIZER_DOMAIN = "publish";
-
-    @Property(value = DEFAULT_EXTERNALIZER_DOMAIN, label = "Externalizer Domain", description = "Must correspond to a configuration of the Externalizer component.")
-    private static final String PROP_EXTERNALIZER_DOMAIN = "externalizer.domain";
-
-    @Property(boolValue = DEFAULT_INCLUDE_LAST_MODIFIED, label = "Include Last Modified", description = "If true, the last modified value will be included in the sitemap.")
-    private static final String PROP_INCLUDE_LAST_MODIFIED = "include.lastmod";
-
-    @Property(label = "Change Frequency Properties", unbounded = PropertyUnbounded.ARRAY, description = "The set of JCR property names which will contain the change frequency value.")
-    private static final String PROP_CHANGE_FREQUENCY_PROPERTIES = "changefreq.properties";
-
-    @Property(label = "Priority Properties", unbounded = PropertyUnbounded.ARRAY, description = "The set of JCR property names which will contain the priority value.")
-    private static final String PROP_PRIORITY_PROPERTIES = "priority.properties";
-
-    @Property(label = "DAM Folder Property", description = "The JCR property name which will contain DAM folders to include in the sitemap.")
-    private static final String PROP_DAM_ASSETS_PROPERTY = "damassets.property";
-
-    @Property(label = "DAM Asset MIME Types", unbounded = PropertyUnbounded.ARRAY, description = "MIME types allowed for DAM assets.")
-    private static final String PROP_DAM_ASSETS_TYPES = "damassets.types";
-
-    @Property(label = "Exclude from Sitemap Property", description = "The boolean [cq:Page]/jcr:content property name which indicates if the Page should be hidden from the Sitemap. Default value: hideInNav")
-    private static final String PROP_EXCLUDE_FROM_SITEMAP_PROPERTY = "exclude.property";
-
-    @Property(boolValue = DEFAULT_INCLUDE_INHERITANCE_VALUE, label = "Include Inherit Value", description = "If true searches for the frequency and priority attribute in the current page if null looks in the parent.")
-    private static final String PROP_INCLUDE_INHERITANCE_VALUE = "include.inherit";
-    
-    @Property(label = "Character Encoding", description = "If not set, the container's default is used (ISO-8859-1 for Jetty)")
-    private static final String PROP_CHARACTER_ENCODING_PROPERTY = "character.encoding";
-
-    private static final String NS = "http://www.sitemaps.org/schemas/sitemap/0.9";
-
-    @Reference
-    private Externalizer externalizer;
-
-    private String externalizerDomain;
-
-    private boolean includeInheritValue;
-
-    private boolean includeLastModified;
-
-    private String[] changefreqProperties;
-
-    private String[] priorityProperties;
-
-    private String damAssetProperty;
-
-    private List<String> damAssetTypes;
-
-    private String excludeFromSiteMapProperty;
+	
+	private static final String XML_CHARACTER_ENCODING = "UTF-8";
+	private static final String XML_CONTENT_TYPE       = "text/xml";
+	
+	//Limit for number of articles to be returned in query results, minimum=20 
+	private static final long QUERY_LIMIT = 20L;
     
     private TextUtils textUtils;
 
     @Activate
     protected void activate(Map<String, Object> properties) {
-        this.externalizerDomain = PropertiesUtil.toString(properties.get(PROP_EXTERNALIZER_DOMAIN),
-                DEFAULT_EXTERNALIZER_DOMAIN);
-        this.includeLastModified = PropertiesUtil.toBoolean(properties.get(PROP_INCLUDE_LAST_MODIFIED),
-                DEFAULT_INCLUDE_LAST_MODIFIED);
-        this.includeInheritValue = PropertiesUtil.toBoolean(properties.get(PROP_INCLUDE_INHERITANCE_VALUE),
-                DEFAULT_INCLUDE_INHERITANCE_VALUE);
-        this.changefreqProperties = PropertiesUtil.toStringArray(properties.get(PROP_CHANGE_FREQUENCY_PROPERTIES),
-                new String[0]);
-        this.priorityProperties = PropertiesUtil.toStringArray(properties.get(PROP_PRIORITY_PROPERTIES), new String[0]);
-        this.damAssetProperty = PropertiesUtil.toString(properties.get(PROP_DAM_ASSETS_PROPERTY), "");
-        this.damAssetTypes = Arrays
-                .asList(PropertiesUtil.toStringArray(properties.get(PROP_DAM_ASSETS_TYPES), new String[0]));
-        this.excludeFromSiteMapProperty = PropertiesUtil.toString(properties.get(PROP_EXCLUDE_FROM_SITEMAP_PROPERTY),
-                NameConstants.PN_HIDE_IN_NAV);
         this.textUtils = new TextUtils();
     }
 
@@ -175,8 +113,8 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
 
-    	response.setContentType("text/xml");
-        response.setCharacterEncoding("UTF-8");
+    	response.setContentType(XML_CONTENT_TYPE);
+        response.setCharacterEncoding(XML_CHARACTER_ENCODING);
 
         XMLOutputFactory outputFactory = XMLOutputFactory.newFactory();
         try {
@@ -188,28 +126,11 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
         	//Get recently published Discover articles
         	final Session session = repository.loginService("searchService", null);
 
-			LOG.error(session.getUserID() + " running query for Discover RSS feed");
-			
-			Map<String, String> queryMap = new HashMap<String, String>();
-
-			queryMap.put("path", "/content/nhmwww/en/home/discover");
-		    queryMap.put("type", "cq:Page");
-		    queryMap.put("orderby", "@jcr:content/article/datepublished");
-			queryMap.put("orderby.sort", "desc");
-			
-			Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
-		    
-		    query.setStart(0);
-		    //Set limit for number of articles, minimum=20 
-		    query.setHitsPerPage(20L);
-
-		    SearchResult result = query.getResult();
-		    LOG.info(result.getQueryStatement());
-		    List<Hit> nodes = result.getHits();
+		    List<Hit> nodes = getArticleNodes(session);
         	
         	//Write to XML stream
             XMLStreamWriter stream = outputFactory.createXMLStreamWriter(response.getWriter());
-            stream.writeStartDocument("UTF-8", "1.0");
+            stream.writeStartDocument(XML_CHARACTER_ENCODING, "1.0");
 	            stream.writeStartElement("rss");
 		            stream.writeAttribute("xmlns:dc", "http://purl.org/dc/elements/1.1/");
 		            stream.writeAttribute("version", "2.0");
@@ -221,94 +142,8 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
 			            writeElement(stream, "description", "Find answers to your big nature questions. Delve into stories about the Museum's collections, scientists and research. Uncover the history of life on Earth, from the smallest insects to the largest mammals.");
 			            writeElement(stream, "language", "en-gb");
 			            
-			            //Iterate through article nodes and create <item> element for each
-			            //Generate elements based on this spec: https://about.flipboard.com/rss-spec/
-			            for(Hit hits : nodes) {
-			    			try {
-			    				Node node = hits.getNode();
-			    				stream.writeStartElement("item");
-			    				
-			    				if(node.hasProperty("jcr:content/jcr:title")) {
-			    		    		writeElement(stream, "title", node.getProperty("jcr:content/jcr:title").getString());
-			    		    	}
-			    				
-			    				writeElement(stream, "link", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
-			    				
-			    				if(node.hasProperty("jcr:content/article/snippet")) {
-			    		    		writeElement(stream, "description", textUtils.stripHtmlTags(node.getProperty("jcr:content/article/snippet").getString()));
-			    		    	}
-			    				
-			    				//Get publish date
-			    		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
-			    		    	
-			    		    	if(node.hasProperty("jcr:content/article/datepublished")) {
-			    		    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
-			    					MutableDateTime mdt = dt.toMutableDateTime();
-			    					String date = getDayOfWeek(mdt.getDayOfWeek()) 
-			    							+ ", " + getDayOfMonth(mdt.getDayOfMonth()) 
-			    							+ " " + getMonth(mdt.getMonthOfYear()) 
-			    							+ " " + mdt.getYear()
-			    							+ " 00:00:00 GMT";
-			    					writeElement(stream, "pubDate", date);
-			    		    	}
-			    		    	
-			    		    	writeElement(stream, "guid", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
-			    		    	
-			    		    	if(node.hasProperty("jcr:content/article/author")) {
-			    		    		writeElement(stream, "dc:creator", node.getProperty("jcr:content/article/author").getString());
-			    		    	}
-			    		    	
-			    		    	//Get file reference for lead image/video
-			    		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")
-			    		    			|| node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/imagepage")) {
-			    			    	if(node.hasProperty("jcr:content/article/headType")) {
-			    			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
-			    			    			if(node.hasProperty("jcr:content/article/altFileReference")) {
-			    			    				String fileReference = node.getProperty("jcr:content/article/altFileReference").getString();
-			    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
-			    			    				writeElement(stream, "enclosure", fileReference);
-			    			    			} else if(node.hasProperty("jcr:content/article/image/fileReference")) {
-			    			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
-			    			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
-			    			    				writeElement(stream, "enclosure", fileReference);
-			    							}
-			    			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
-			    			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
-			    			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/mqdefault.jpg";
-			    			    				writeElement(stream, "enclosure", youtubeImagePath);
-			    					    	}
-			    			    		}
-			    			    	}
-			    		    	}
-			    		    	
-			    		    	//Get tags
-			    		    	if(node.hasProperty("jcr:content/article/cq:tags")) {
-			    		    		javax.jcr.Property tagsProperty = node.getProperty("jcr:content/article/cq:tags");
-			    		    		if(tagsProperty.isMultiple()) {
-				    		    		Value[] tags = tagsProperty.getValues();
-				    		    		List<String> tagList = new ArrayList<>();
-				    					if(tags.length > 0) {
-				    						for(int i=0; i<tags.length; i++) {
-					    						Tag tag = tagManager.resolve(tags[i].getString());
-					    						if(!tagList.contains(tag.getTitle())) {
-						    						writeElement(stream, "category", tag.getTitle());
-						    						tagList.add(tag.getTitle());
-					    						}
-				    						}
-				    					}
-			    		    		} else if(!tagsProperty.isMultiple()) {
-			    		    			Value tags = tagsProperty.getValue();
-			    						Tag tag = tagManager.resolve(tags.getString());
-			    						writeElement(stream, "category", tag.getTitle());
-			    		    		}
-			    		    	}
-			    		    	
-			    				stream.writeEndElement();
-			    			} catch (RepositoryException e) {
-			    				// TODO Auto-generated catch block
-			    				e.printStackTrace();
-			    			}
-			    	    }
+			            writeArticleElements(stream, nodes, tagManager);
+			            
 		            stream.writeEndElement(); //</channel>
 	            stream.writeEndElement(); //</rss>
             stream.writeEndDocument();
@@ -316,7 +151,121 @@ public final class DiscoverRssFeedServlet extends SlingSafeMethodsServlet {
             throw new IOException(e);
         }
     }
+    
+    protected void writeArticleElements(final XMLStreamWriter stream, List<Hit> nodes, TagManager tagManager) 
+    		throws XMLStreamException {
+    	//Iterate through article nodes and create <item> element for each
+        //Generate elements based on this spec: https://about.flipboard.com/rss-spec/
+        for(Hit hits : nodes) {
+			try {
+				Node node = hits.getNode();
+				stream.writeStartElement("item");
+				
+				if(node.hasProperty("jcr:content/jcr:title")) {
+		    		writeElement(stream, "title", node.getProperty("jcr:content/jcr:title").getString());
+		    	}
+				
+				writeElement(stream, "link", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
+				
+				if(node.hasProperty("jcr:content/article/snippet")) {
+		    		writeElement(stream, "description", textUtils.stripHtmlTags(node.getProperty("jcr:content/article/snippet").getString()));
+		    	}
+				
+				//Get publish date
+		    	DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yy/MM/dd");
+		    	
+		    	if(node.hasProperty("jcr:content/article/datepublished")) {
+		    		DateTime dt = dateFormatter.parseDateTime(node.getProperty("jcr:content/article/datepublished").getString());
+					MutableDateTime mdt = dt.toMutableDateTime();
+					String date = getDayOfWeek(mdt.getDayOfWeek()) 
+							+ ", " + getDayOfMonth(mdt.getDayOfMonth()) 
+							+ " " + getMonth(mdt.getMonthOfYear()) 
+							+ " " + mdt.getYear()
+							+ " 00:00:00 GMT";
+					writeElement(stream, "pubDate", date);
+		    	}
+		    	
+		    	writeElement(stream, "guid", "http://www.nhm.ac.uk" + node.getPath().replaceAll("/content/nhmwww/en/home", "") + ".html");
+		    	
+		    	if(node.hasProperty("jcr:content/article/author")) {
+		    		writeElement(stream, "dc:creator", node.getProperty("jcr:content/article/author").getString());
+		    	}
+		    	
+		    	//Get file reference for lead image/video
+		    	if(node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/articlepage")
+		    			|| node.getProperty("jcr:content/cq:template").getString().equals("/apps/nhmwww/templates/imagepage")) {
+			    	if(node.hasProperty("jcr:content/article/headType")) {
+			    		if(node.getProperty("jcr:content/article/headType").getString().equals("image")) {
+			    			if(node.hasProperty("jcr:content/article/altFileReference")) {
+			    				String fileReference = node.getProperty("jcr:content/article/altFileReference").getString();
+			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
+			    				writeElement(stream, "enclosure", fileReference);
+			    			} else if(node.hasProperty("jcr:content/article/image/fileReference")) {
+			    				String fileReference = node.getProperty("jcr:content/article/image/fileReference").getString();
+			    				fileReference = "http://www.nhm.ac.uk" + fileReference;
+			    				writeElement(stream, "enclosure", fileReference);
+							}
+			    		} else if(node.getProperty("jcr:content/article/headType").getString().equals("video")) {
+			    			if(node.hasProperty("jcr:content/article/video/youtube")) {
+			    				String youtubeImagePath = "http://img.youtube.com/vi/" + node.getProperty("jcr:content/article/video/youtube").getString() + "/mqdefault.jpg";
+			    				writeElement(stream, "enclosure", youtubeImagePath);
+					    	}
+			    		}
+			    	}
+		    	}
+		    	
+		    	//Get tags
+		    	if(node.hasProperty("jcr:content/article/cq:tags")) {
+		    		javax.jcr.Property tagsProperty = node.getProperty("jcr:content/article/cq:tags");
+		    		if(tagsProperty.isMultiple()) {
+    		    		Value[] tags = tagsProperty.getValues();
+    		    		List<String> tagList = new ArrayList<>();
+    					if(tags.length > 0) {
+    						for(int i=0; i<tags.length; i++) {
+	    						Tag tag = tagManager.resolve(tags[i].getString());
+	    						if(!tagList.contains(tag.getTitle())) {
+		    						writeElement(stream, "category", tag.getTitle());
+		    						tagList.add(tag.getTitle());
+	    						}
+    						}
+    					}
+		    		} else if(!tagsProperty.isMultiple()) {
+		    			Value tags = tagsProperty.getValue();
+						Tag tag = tagManager.resolve(tags.getString());
+						writeElement(stream, "category", tag.getTitle());
+		    		}
+		    	}
+		    	
+				stream.writeEndElement();
+			} catch (RepositoryException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+    }
+    
+    protected List<Hit> getArticleNodes(Session session) {
+    	LOG.error(session.getUserID() + " running query for Discover RSS feed");
+		
+		Map<String, String> queryMap = new HashMap<String, String>();
 
+		queryMap.put("path", "/content/nhmwww/en/home/discover");
+	    queryMap.put("type", "cq:Page");
+	    queryMap.put("orderby", "@jcr:content/article/datepublished");
+		queryMap.put("orderby.sort", "desc");
+		
+		Query query = builder.createQuery(PredicateGroup.create(queryMap), session);
+	    
+	    query.setStart(0);
+	    //Set limit for number of articles
+	    query.setHitsPerPage(QUERY_LIMIT);
+
+	    SearchResult result = query.getResult();
+	    LOG.info(result.getQueryStatement());
+	    
+	    return result.getHits();
+    }
+    
     private void writeElement(final XMLStreamWriter stream, final String elementName, final String text)
             throws XMLStreamException {
         stream.writeStartElement(elementName);
