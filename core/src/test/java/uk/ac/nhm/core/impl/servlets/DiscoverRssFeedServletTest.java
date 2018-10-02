@@ -2,6 +2,7 @@ package uk.ac.nhm.core.impl.servlets;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.sling.api.resource.ResourceResolver;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,6 +27,7 @@ public class DiscoverRssFeedServletTest {
 
 	@Before
 	public void setUp() throws Exception {
+		context.registerAdapter(ResourceResolver.class, QueryBuilder.class, queryBuilder);
 		servlet = new DiscoverRssFeedServlet();
 	}
 	
