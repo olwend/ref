@@ -35,7 +35,6 @@ public class Dinosaur {
 	
 	private Map<String, String> bodyShape;
 	private List<Map<String, String>> countryList;
-	private String description;
 	private String diet;
 	private List<Map<String, String>> dinosaurMediaCollection;
 	private String food;
@@ -44,6 +43,7 @@ public class Dinosaur {
 	private String imageUrl;
 	private String imageCredit;
 	private double length;
+	private int mass;
 	private String mya;
 	private String nameHyphenated;
 	private String nameMeaning;
@@ -54,7 +54,6 @@ public class Dinosaur {
 	private String teeth;
 	private List<Map<String, String>> textBlockCollection;
 	private String type;
-	private String weight;
 
 	private static final String BASE_IMAGE_URL = "http://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/";
 
@@ -91,13 +90,15 @@ public class Dinosaur {
 			this.setCountryList(countryList);
 		}
 
-		//Description
-		int mass = 0;
+		//Mass and length
+		int massValue = 0;
 		if(!dinosaur.isNull("massFrom")) {
-			mass = dinosaur.getInt("massFrom");
+			massValue = dinosaur.getInt("massFrom");
 		} else if(!dinosaur.isNull("massTo")) {
-			mass = dinosaur.getInt("massTo");
+			massValue = dinosaur.getInt("massTo");
 		}
+		
+		this.setMass(massValue);
 
 		double lengthValue = 0;
 		if(!dinosaur.isNull("lengthFrom")) {
@@ -106,13 +107,6 @@ public class Dinosaur {
 			lengthValue = dinosaur.getDouble("lengthTo");
 		}
 
-		StringBuffer massBuffer = new StringBuffer();
-
-		if(mass > 0) {
-			massBuffer.append(String.valueOf(mass));
-		}
-
-		this.setWeight(massBuffer.toString());
 		this.setLength(lengthValue);
 		
 		//Body shape
@@ -326,15 +320,6 @@ public class Dinosaur {
 		this.countryList = countryList;
 	}
 
-	
-	public String getWeight() {
-		return weight;
-	}
-
-	public void setWeight(String weight) {
-		this.weight = weight;
-	}
-
 	public String getDiet() {
 		return diet;
 	}
@@ -383,6 +368,14 @@ public class Dinosaur {
 		this.length = length;
 	}
 	
+	public int getMass() {
+		return mass;
+	}
+
+	public void setMass(int mass) {
+		this.mass = mass;
+	}
+
 	public String getMya() {
 		return mya;
 	}
