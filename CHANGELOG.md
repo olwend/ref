@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.11 - 04-Oct-2018
+WR-1452 - Change to display dino description in container and dino info container
+WR-1471 - Set image page headType default value
+WR-1473 - Dino Info lists - Diet shows "unknown" - change data-sly-test
+WR-1474 - Update links in footer 
+WR-1475 - Update popular search terms
+
 ## 2.1.10 - 25-Sep-2018
 WR-1081 - Add ALT text to image in "Big Splash" component
 WR-1451 - Bold Dino Info List - on single dino page
