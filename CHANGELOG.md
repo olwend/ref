@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.10 - 25-Sep-2018
+WR-1081 - Add ALT text to image in "Big Splash" component
+WR-1451 - Bold Dino Info List - on single dino page
+WR-1454 - RSS Feed creation
+WR-1468 - Twitter feeds have stopped displaying across entire NHM site
+
 ## 2.1.9 - 13-Sep-2018
 WR-1449 - Create content fragment model and component for adverts 
 WR-1456 - Change article and image page dates on feeds to date last updated 
