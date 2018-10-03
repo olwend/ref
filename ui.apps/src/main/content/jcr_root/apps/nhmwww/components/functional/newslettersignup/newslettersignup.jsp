@@ -104,6 +104,7 @@
         <p><a href="http://www.nhm.ac.uk/business-services/filming.html" class="main-footer--link">Film locations</a></p>
         <p><a href="http://www.nhmimages.com/" class="main-footer--link" target="_blank">NHM Images</a></p>
         <p><a href="http://www.nhm.ac.uk/business-services/venue-hire.html" class="main-footer--link">Venue hire</a></p>
+        <p><a href="http://www.nhm.ac.uk/business-services/licensing.html" class="main-footer--link">Licensing</a></p>
       </div>
       <div class="main-footer--section">
         <h4>Legal</h4>
