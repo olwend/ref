@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Panel"
+    itemId="Titlebar"
+    title="Titlebar Config">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <basic
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}false"
+            collapsible="{Boolean}false"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <hideTitleBar
+                        jcr:primaryType="cq:Widget"
+                        cls="dialog-checkbox"
+                        name="./hideTitleBar"
+                        fieldLabel="Hide titlebar"
+                        inputValue="true"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            afterlayout="function(component){initEventDateLayout(component);}"
+                            selectionchanged="function(field,value,isChecked) {eventRecurTypeSelected(field,value,isChecked); }"/>
+                </hideTitleBar>
+            </items>
+        </basic>
+    </items>
+</jcr:root>
