@@ -112,20 +112,14 @@
 	&--description-container {
 		font-family: font-name(elysio, light);
 		padding: 0 20px;
-		margin-bottom: 20px;
 	}
 
 	&--description {
-		display: -webkit-flex;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
 		font-size: 1.55rem;
-		margin-bottom: 0;
 
 		dt,
 		dd {
-			margin-right: 5px;
+			margin-right: 10px;
 			font-weight: normal;
 		}
 	}
@@ -137,10 +131,12 @@
 		align-items: flex-end;
 		justify-content: space-evenly;
 		max-width: 350px;
+		margin-bottom: 20px;
 	}
 
 	&--comparison-dino {
 		margin-right: 20px;
+		font-size: 1.55rem;
 
 		img {
 			width: 100%;
@@ -148,6 +144,7 @@
 	}
 
 	&--comparison-human {
+		font-size: 1.55rem;
 		img {
 			width: 100%;
 		}
@@ -156,13 +153,8 @@
 	&--info-container {
 		font-family: font-name(elysio, light);
 		padding: 0 20px;
-	}
-
-	&--info {
-		font-size: 1.55rem;
-
-		dt {
-			font-weight: normal;
+			dt,dd {
+				font-size: 1.55rem;
 		}
 	}
 
@@ -188,6 +180,7 @@
 	}
 
 	&--list {
+
 		dt {
 			float: left;
 			margin: 0 5px 0 0;

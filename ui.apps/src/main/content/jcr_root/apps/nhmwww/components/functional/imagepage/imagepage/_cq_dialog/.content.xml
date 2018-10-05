@@ -235,14 +235,6 @@
 	                                </cui>
 	                            </uiSettings>
 	                        </snippet>
-							<headtype
-			                   	jcr:primaryType="nt:unstructured"
-								name="./headType"
-								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-								value="image"
-								renderHidden="{Boolean}true"
-								wrapperClass="dialog-hide-field"
-								fieldDescription="Required for pages to be picked up in Article Feed" />
 						</items>
 					</column>
 				</items>
