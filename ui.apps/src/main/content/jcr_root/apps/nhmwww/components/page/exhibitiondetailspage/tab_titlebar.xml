@@ -12,16 +12,11 @@
             <items jcr:primaryType="cq:WidgetCollection">
                 <hideTitleBar
                         jcr:primaryType="cq:Widget"
-                        cls="dialog-checkbox"
                         name="./hideTitleBar"
                         fieldLabel="Hide titlebar"
                         inputValue="true"
                         type="checkbox"
                         xtype="selection">
-                        <listeners
-                            jcr:primaryType="nt:unstructured"
-                            afterlayout="function(component){initEventDateLayout(component);}"
-                            selectionchanged="function(field,value,isChecked) {eventRecurTypeSelected(field,value,isChecked); }"/>
                 </hideTitleBar>
             </items>
         </basic>

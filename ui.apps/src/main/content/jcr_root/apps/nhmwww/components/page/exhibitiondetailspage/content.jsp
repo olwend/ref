@@ -8,7 +8,7 @@
     }
 %>
 <div class="main-section">
-<%if(properties.get("hideTitleBar") = null && properties.get("hideTitleBar").equals("true")) { %> 
+<%if(properties.get("hideTitleBar") == null) { %> 
 	<div class="small-12 large-text-left columns">
 			<cq:include path="title" resourceType="nhmwww/components/functional/title"/>
 	</div>
