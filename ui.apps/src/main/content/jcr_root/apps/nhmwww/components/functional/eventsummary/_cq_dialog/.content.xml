@@ -89,6 +89,54 @@
 			                            value="tickets"/>
 			                    </items>
 			                </icon>
+			    	<colourSectionOverride
+					                    jcr:primaryType="nt:unstructured"
+					                    fieldLabel="Section theme"
+					                    name="./section-override"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select">
+					                    <items jcr:primaryType="nt:unstructured">
+					                        <inherit
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Inherit from section"
+						                        value=""/>
+						                    <aboutUs
+						                        jcr:primaryType="nt:unstructured"
+						                        text="About us"
+						                        value="about-us"/>
+						                    <businessServices
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Business services"
+						                        value="business-services"/>
+						                    <contactUs
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Contact us"
+						                        value="contact-us"/>
+						                    <discover
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Discover"
+						                        value="discover"/>
+						                    <ourScience
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Our science"
+						                        value="our-science"/>
+						                    <schools
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Schools"
+						                        value="schools"/>
+						                    <supportUs
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Support us"
+						                        value="support-us"/>
+						                    <takePart
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Take part"
+						                        value="take-part"/>
+						                    <visit
+						                        jcr:primaryType="nt:unstructured"
+						                        text="Visit"
+						                        value="visit"/>
+					                    </items>
+					                </colourSectionOverride>
 			                <text
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
