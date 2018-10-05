@@ -1,0 +1,34 @@
+@charset "UTF-8";
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+// Make sure the charset is set appropriately
+
+/** REFACTOR SETTINGS **/
+@import 'foundation/refactor/settings';
+
+@import 'foundation/refactor/settings-overrides';
+
+/** FOUNDATION GLOBAL PARTIAL, imported once here so not imported in every partial **/
+@import 'foundation/components/global';
+/** REFACTOR FOUNDATION - GRID PARTIAL **/
+@import "foundation/components/grid";
+/** REFACTOR FOUNDATION - ACCORDION PARTIAL **/
+@import "foundation/components/accordion";
+// /** REFACTOR FOUNDATION - BLOCK GRID PARTIAL **/
+@import "foundation/components/block-grid";
+// /** REFACTOR FOUNDATION - SIDE NAV PARTIAL **/
+@import "foundation/components/side-nav";
+// /** REFACTOR FOUNDATION - PAGINATION PARTIAL - NOT NEEDED? **/
+// // @import 'foundation/components/pagination';
+// /** REFACTOR FOUNDATION - TABS PARTIAL **/
+@import 'foundation/components/tabs';
+// /** REFACTOR FOUNDATION - VISIBILITY PARTIAL **/
+@import "foundation/components/visibility";
+// /** REFACTOR FOUNDATION - BUTTONS PARTIAL **/
+@import "foundation/components/buttons";
+// /** REFACTOR FOUNDATION - FORMS PARTIAL **/
+@import "foundation/components/forms";
+// /** REFACTOR FOUNDATION - TYPE PARTIAL **/
+@import "foundation/components/type";

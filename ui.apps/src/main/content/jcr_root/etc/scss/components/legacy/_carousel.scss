@@ -1,0 +1,23 @@
+// from legacy _components.scss - for videos in carousel?
+.promo {
+  padding: 0 10px 10px;
+
+  @include respond-min($tablet){
+      padding: 0px;
+  }
+
+  img {
+      width: 100%;
+  }
+}
+
+.promo-link {
+	background-color: $link-color;
+	color: $white-color;
+	font-size: 18px;
+	padding: 20px;
+
+	&:hover {
+		color: #fff;
+	}
+}

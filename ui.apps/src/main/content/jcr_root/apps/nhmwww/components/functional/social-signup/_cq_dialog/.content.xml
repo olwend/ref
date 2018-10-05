@@ -97,11 +97,16 @@
 		                                value="remote website school-newsletter"/>       
 	                        	</items>
 	                    	</campaign>
-	                    	<dataprotection
+	                    	<description
+		                    	jcr:primaryType="nt:unstructured"
+		                    	fieldLabel="Description"
+		                    	name="./description"
+		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />      
+		                   <gdprtext
 	                            jcr:primaryType="nt:unstructured"
 	                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-	                            name="./dataProtection"
-	                            fieldLabel="Data protection statement"
+	                            name="./gdprText"
+	                            fieldLabel="Data Protection"
 	                            useFixedInlineToolbar="{Boolean}true" >
 	                            <rtePlugins jcr:primaryType="nt:unstructured">
 	                                <paraformat
@@ -197,12 +202,7 @@
 	                                    </inline>
 	                                </cui>
 	                            </uiSettings>
-	                        </dataprotection>
-	                    	<description
-		                    	jcr:primaryType="nt:unstructured"
-		                    	fieldLabel="Description"
-		                    	name="./description"
-		                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />      
+	                        </snippet>
 						</items>
 					</column>
 				</items>

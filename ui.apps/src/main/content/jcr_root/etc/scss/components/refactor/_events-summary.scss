@@ -1,0 +1,53 @@
+.event-summary {
+	padding: 25px 0px 0px 2em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding-top: 0;
+	}
+
+	p {
+		margin-bottom: 0px;
+		line-height: 1.5;
+	}
+
+	li {
+		position: relative;
+		min-height: 40px;
+		margin-top: 5%;
+		padding: 0.625em 0.625em 0 20%;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.ico {
+			@include inline-block;
+
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 41px;
+			height: 40px;
+			content: "";
+		}
+
+		&.tickets {
+			.ico {
+				width: 44px;
+				height: 50px;
+			}
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding-left: 24%;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			padding-left: 18%;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop__max-width) {
+			padding-left: 16%;
+		}
+	}
+}

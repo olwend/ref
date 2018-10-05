@@ -1,0 +1,47 @@
+// Layout
+$padding-TB: 1em;
+$padding-RL: 1.5em;
+
+// Color palette
+$color--theme__about-us: #0B5C7B;
+$color--theme__account: #00385D;
+$color--theme__business-services: #253480;
+$color--theme__contact-us: #808080;
+$color--theme__discover: #565656;
+$color--theme__home: #A1164E;
+$color--theme__press-office: #107E5E;
+$color--theme__schools: #0983BB;
+$color--theme__question:  #0983BB;
+$color--theme__search: #808080;
+$color--theme__shop: #01395E;
+$color--theme__support-us: #7F206E;
+// contrast colour change
+$color--theme__our-science: #2C6100;
+$color--theme__take-part: #BF491F;
+$color--theme__visit: #A1164E;
+$color--grey__base: #AAAAAA;
+$color--grey__mid-light: #D5D5D5;
+$color--grey__light: #EEEEEE;
+$color--grey__mid-dark: #808080;
+$color--grey__dark: #565656;
+$color--black: #000000;
+$color--white: #FFFFFF;
+
+// Font family
+$font--arial: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$font--elysio-thin: "Elysio-Thin", Helvetica, Arial, sans-serif;
+$font--elysio-light: "Elysio-Light", Helvetica, Arial, sans-serif;
+$font--elysio-regular: "Elysio-Regular", Helvetica, Arial, sans-serif;
+$font--elysio-medium: "Elysio-Medium", Helvetica, Arial, sans-serif;
+
+// Breakpoints
+$breakpoint--phone-small__portrait: 320px;
+$breakpoint--phone-small__landscape: 480px;
+$breakpoint--phone-wide__portrait: 360px;
+$breakpoint--phone-wide__landscape: 640px;
+$breakpoint--tablet__portrait: 768px;
+$breakpoint--tablet__standard: 868px;
+$breakpoint--tablet__landscape: 1024px;
+$breakpoint--desktop: 1025px;
+$breakpoint--desktop__max-width: 1160px;
+$breakpoint--desktop-wide: 1440px;

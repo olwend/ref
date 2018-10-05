@@ -1,0 +1,32 @@
+// from legacy _components.scss
+// appears to be used in hero + megamenu
+
+.arrow {
+	position: relative;
+	background-position: 95% center;
+	background-repeat: no-repeat;
+	background-size: 18.9px 35px;
+
+
+	.ico {
+	width: 24px;
+	height: 35px;
+	position: absolute;
+	right: 23px;
+	top: 15px;
+	}
+}
+
+// from legacy _components.scss
+// unclear where used
+.link-arrow {
+  position: relative;
+
+  .ico {
+      position: absolute;
+      width: 8px;
+      height: 13px;
+      top: 0;
+      right: 0;
+  }
+}

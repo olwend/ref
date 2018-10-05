@@ -1,0 +1,64 @@
+// from legacy _components.scss
+// unclear where this is used
+.link-with-icon {
+	margin: 1em 0;
+	background-color: $link-color;
+
+	&.microscope {
+		position: relative;
+
+		.ico {
+			position: absolute;
+			width: 26px;
+			left: 28px;
+			bottom: 23px;
+			height: 39px;
+
+			@include respond-min($tablet) {
+				bottom: 21px;
+				left: 0;
+				width: 28px;
+				height: 42px;
+			}
+		}
+
+		.arrow {
+			.ico {
+				left: auto;
+				top: auto;
+				width: 24px;
+				height: 35px;
+
+				@include respond-min($tablet) {
+					position: absolute;
+					top: 32px;
+					right: 0;
+					width: 8px;
+					height: 13px;
+				}
+			}
+		}
+	}
+	a {
+		display: block;
+		padding: 30px 18%;
+		color: #fff;
+		font-size: 1.125em;
+	}
+	@include respond-min($tablet){
+		margin: 0;
+		background-color: $bg-color;
+
+		a {
+			padding-left: 10%;
+			color: $link-color;
+			font-family: $arial;
+			font-size: 1em;
+			@include inline-block;
+			padding-right: 1em;
+			background-image: url('/etc/designs/nhmwww/img/arrows/small-right-arrow.png');
+			background-size: auto;
+			background-position: right center;
+		}
+	}
+}

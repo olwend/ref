@@ -1,0 +1,311 @@
+.imagepage {
+	.row {
+		padding: 0 20px;
+		margin: 0;
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin: auto;
+		}
+
+		.row {
+			padding: 0;
+		}
+	}
+
+	.hero {
+		margin: 0;
+	}
+
+	&--header-text-container &--caption {
+		display: none;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			display: block;
+		}
+	}
+
+	&--header-text-container,
+	.imageandtext {
+		.imagepage--caption-container {
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: row;
+
+				.imagepage--credit {
+					min-width: 20%;
+					margin-left: 60px;
+				}
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				display: block;
+
+				.imagepage--credit {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
+	&--caption-container {
+		margin: 15px 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			margin: 20px 0 40px 0;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin: 30px 0 0 0;
+			padding-right: 40px;
+		}
+	}
+
+	&--caption {
+		margin-bottom: 5px;
+		padding: 0;
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin-bottom: 20px;
+		}
+
+		p {
+			font-family: font-name(elysio, regular);
+			font-size: 18px;
+			line-height: 1.5em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&--credit {
+		p {
+			font-family: font-name(arial);
+			font-size: 14px;
+			line-height: 1.5em;
+			margin: 0;
+		}
+	}
+
+	&--title {
+		font-family: font-name(elysio, thin);
+		padding: 0;
+	}
+
+	&--info {
+		font-family: font-name(elysio, light);
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin-top: 30px;
+		}
+	}
+
+	&--intro {
+		font-family: font-name(elysio, light);
+		font-size: 1.3rem;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&--metadata {
+		margin-bottom: 0;
+
+		dd {
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	&--social-share-header {
+		margin: 15px 0;
+
+		.social-share--container {
+			align-items: flex-end;
+			height: auto;
+			min-height: auto;
+			padding: 0;
+		}
+	}
+
+	&--text-container {
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin-top: 30px;
+		}
+	}
+
+	&--tags {
+		&-header {
+			font-size: 1.5rem;
+		}
+
+		&-footer {
+			display: inline;
+
+			li {
+				background-color: color-palette(grey-color, light);
+				float: left;
+				margin: 0 8px 20px 0;
+				padding: 3px 10px;
+				border-radius: 10px;
+				font-weight: bold;
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@media screen and (min-width: $breakpoint--tablet__portrait) {
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	.imageandtext {
+		.imagepage--hero,
+		.imagepage--babyhero,
+		.imagepage--fullwidth {
+			margin-top: 10px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 30px;
+			}
+		}
+
+		.imagepage--babyhero-breakout {
+			@media screen and (min-width: $breakpoint--desktop) {
+				// Take negative value of viewport width, remove width of parent to find gutter width, divide by 4 to find 50% of each gutter
+				margin: 0 calc((-100vw - -100%) / 4);
+			}
+		}
+	}
+
+	.twoimages {
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			.imagepage--twoimages:first-child {
+				padding-right: 10px;
+			}
+
+			.imagepage--twoimages:last-child {
+				padding-left: 10px;
+			}
+		}
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			.imagepage--twoimages-image-left {
+				// Take negative value of viewport width, remove twice width of parent (large-6)
+				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
+				margin-left: calc((-100vw - -200% - -20px) / 4);
+			}
+
+			.imagepage--twoimages-image-right {
+				// Take negative value of viewport width, remove twice width of parent (large-6)
+				// and add 20px for the middle gutter to find side gutter width, divide by 4 to find 50% of each gutter
+				margin-right: calc((-100vw - -200% - -20px) / 4);
+			}
+		}
+
+		.imagepage--twoimages {
+			margin-top: 10px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 30px;
+			}
+		}
+
+		.imagepage--caption-container {
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-right: 60px;
+			}
+		}
+	}
+
+	.pulloutimage {
+		.imagepage--pullout {
+			margin-top: 10px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				margin-top: 30px;
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				margin-top: 0;
+			}
+		}
+
+		.imagepage--pullout-image {
+			padding: 0 50px;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				padding: 0;
+			}
+		}
+
+		.imagepage--pullout-image-text-container {
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				display: flex;
+				flex-direction: row;
+				margin-bottom: 60px;
+
+				.imagepage--pullout-image,
+				.imagepage--caption-container {
+					width: 50vw;
+					margin: 0;
+
+					img,
+					p {
+						max-width: 35vw;
+					}
+				}
+
+				.imagepage--pullout-image {
+					text-align: right;
+					padding-right: 20px;
+				}
+			}
+
+			@media screen and (min-width: $breakpoint--desktop) {
+				display: block;
+				margin-bottom: 0;
+
+				.imagepage--pullout-image {
+					// Internet explorer doesn't support `unset`
+					width: calc(100% - -1 * ((100vw - 400%) / 4));
+				}
+
+				.imagepage--caption-container {
+					width: 100%;
+				}
+
+				.imagepage--pullout-image {
+					// Take negative value of viewport width, remove four times width of parent (large-3)
+					// to find side gutter width, divide by 4 to find 50% of each gutter
+					margin-left: calc((-100vw - -400%) / 4);
+				}
+
+				.imagepage--caption-container {
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+
+	.text {
+		margin-top: 10px;
+		padding: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			margin-top: 30px;
+		}
+
+		@media screen and (min-width: $breakpoint--desktop) {
+			margin-top: 15px;
+		}
+
+		+ .text { // Override top margin when text component directly follows text component
+			margin-top: 0;
+		}
+	}
+}

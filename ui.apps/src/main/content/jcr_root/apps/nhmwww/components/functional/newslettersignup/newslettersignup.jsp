@@ -36,7 +36,7 @@
         </ul>
       </p>
     </div>
-      
+
       <!-- Links section -->
     <div class="small-12 medium-6 large-3 columns main-footer--links-section__wrapper main-footer--links-section__first">
       <div class="main-footer--section">
@@ -45,7 +45,6 @@
         <p><a href="http://www.nhm.ac.uk/visit/exhibitions.html" class="main-footer--link">Exhibitions and attractions</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/galleries-and-museum-map.html" class="main-footer--link">Galleries and Museum map</a></p>
         <p><a href="http://www.nhm.ac.uk/visit/facilities-and-access.html" class="main-footer--link">Access</a></p>
-        <p><a href="http://www.nhm.ac.uk/visit/visitor-app.html" class="main-footer--link">Download our free visitor app</a></p>
       </div>
       <div class="main-footer--section">
         <h4><a href="http://www.nhm.ac.uk/schools.html" class="main-footer--link">For schools</a></h4>
@@ -105,6 +104,7 @@
         <p><a href="http://www.nhm.ac.uk/business-services/filming.html" class="main-footer--link">Film locations</a></p>
         <p><a href="http://www.nhmimages.com/" class="main-footer--link" target="_blank">NHM Images</a></p>
         <p><a href="http://www.nhm.ac.uk/business-services/venue-hire.html" class="main-footer--link">Venue hire</a></p>
+        <p><a href="http://www.nhm.ac.uk/business-services/licensing.html" class="main-footer--link">Licensing</a></p>
       </div>
       <div class="main-footer--section">
         <h4>Legal</h4>
@@ -118,14 +118,14 @@
       <span class="copyright--span">&copy; The Trustees of The Natural History Museum, London</span>
     </div>
   </div>
-  
+
  </footer>
 <!-- END OF FOOTER -->
 
 <div id="cookie-bar" data-module="cookie-bar">
 	<div class="small-12 medium-9 large-10 columns text-center">
 		<p>
-			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookies.html">Cookie Policy</a> to find out more.
+			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookies.html">Cookie Policy</a> and our new <a href="http://www.nhm.ac.uk/about-us/privacy-notice.html">Privacy notice</a>.
 		</p>
 	</div>
 	<div class="small-12 medium-3 large-2 columns text-right">

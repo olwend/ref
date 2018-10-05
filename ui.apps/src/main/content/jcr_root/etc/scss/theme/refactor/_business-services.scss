@@ -1,0 +1,157 @@
+.business-services {
+	.title-bar {
+		background-color: color-palette(business-services, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(business-services, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(business-services, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(business-services, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(business-services, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(business-services, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(business-services, base);
+
+		&:hover {
+			background-color: color-palette(business-services, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(business-services, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(business-services, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(business-services, 10pc);
+
+				a {
+					color: color-palette(business-services, base);
+
+					&:hover {
+						color: color-palette(business-services, base);
+						background-color: color-palette(business-services, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(business-services, 25pc);
+						color: color-palette(business-services, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(business-services, 25pc);
+
+					a {
+						color: color-palette(business-services, base);
+
+						&:hover {
+							color: color-palette(business-services, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.business-services {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(business-services, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(business-services, base);
+	}
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.business-services {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-business.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-business.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.business-services {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(business-services, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(business-services, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(business-services, base);
+		}
+	}
+}

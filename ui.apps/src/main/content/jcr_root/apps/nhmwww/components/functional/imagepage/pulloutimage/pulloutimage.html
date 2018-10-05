@@ -1,0 +1,34 @@
+<sly data-sly-use.pulloutimage="uk.ac.nhm.core.model.slingModels.imagePage.PulloutImage">
+	<sly data-sly-test="${!pulloutimage.isConfigured}">
+		<div class="row">
+			<h4>Image page - pullout image</h4>
+			Required fields:
+			<ul>
+				<li>Image</li>
+				<li>Text</li>
+			</ul>
+		</div>
+	</sly>
+
+	<sly data-sly-test="${pulloutimage.isConfigured}">
+		<div class="row imagepage--pullout">
+			<div class="imagepage--pullout-image-text-container small-12 medium-12 large-3 columns">
+				<div class="imagepage--pullout-image">
+					<picture>
+						<source srcset="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" media="(max-width: 480px)" />
+                		<source srcset="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" media="(min-width: 481px) and (max-width: 768px)" />
+						<source srcset="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.480.480.jpeg" />
+						<img src="${pulloutimage.fileReference}/_jcr_content/renditions/cq5dam.web.768.768.jpeg" alt="${image.alt}" />
+					</picture>
+				</div>
+				<div class="imagepage--caption-container">
+					<div class="imagepage--caption">${properties.caption @ context='html'}</div>
+					<div class="imagepage--credit">${properties.credit @ context='html'}</div>
+				</div>
+			</div>
+			<div class="small-12 medium-12 large-9 columns">
+				${properties.text @ context='html'}
+			</div>
+		</div>
+	</sly>
+</sly>

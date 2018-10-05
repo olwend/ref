@@ -1,0 +1,190 @@
+.dinosaur {
+	a {
+		color: color-palette(grey-color, dark);
+		text-decoration: underline;
+
+		&:hover {
+			color: $color--black;
+		}
+	}
+
+	dd {
+		text-rendering: optimizeLegibility;
+	}
+
+	&--container {
+		position: relative;
+		font-size: 1.2em;
+	}
+
+	&--title-container {
+		padding: 20px 20px 0 20px;
+		font-family: font-name(elysio, light);
+	}
+
+	&--name {
+		font-size: 2.1em;
+		font-style: italic;
+		margin: 0;
+		line-height: 1.2;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			font-family: font-name(elysio, light);
+			font-size: 2.375em;
+		}
+	}
+
+	&--name-hyphenated {
+		display: none;
+	}
+
+	&--name-description {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: column;
+		font-size: 1.6rem;
+		margin: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+
+	&--pronunciation {
+		margin: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			margin-right: 20px;
+		}
+	}
+
+	&--meaning {
+		margin: 0;
+	}
+
+	&--social-share-header {
+		padding: 20px;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			padding: 25px 10px 20px 20px;
+		}
+
+		.social-share--container {
+			height: auto;
+			min-height: auto;
+			padding: 0;
+
+			@media screen and (min-width: $breakpoint--phone-wide__landscape + 1) {
+				align-items: flex-end;
+			}
+		}
+	}
+
+	&--image-container {
+		margin-bottom: 20px;
+		padding: 0;
+
+		@media screen and (min-width: $breakpoint--phone-wide__landscape + 1) {
+			padding: 0 20px;
+		}
+	}
+
+	&--image {
+		width: 100%;
+
+		@media screen and (min-width: $breakpoint--phone-wide__landscape + 1) {
+			width: auto;
+		}
+	}
+
+	&--copyright {
+		margin: 0 20px;
+		font-size: 0.75rem;
+		text-align: left;
+
+		@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+			margin: 0;
+		}
+	}
+
+
+	&--description-container {
+		font-family: font-name(elysio, light);
+		padding: 0 20px;
+	}
+
+	&--description {
+		font-size: 1.55rem;
+
+		dt,
+		dd {
+			margin-right: 10px;
+			font-weight: normal;
+		}
+	}
+
+	&--comparison {
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+		justify-content: space-evenly;
+		max-width: 350px;
+		margin-bottom: 20px;
+	}
+
+	&--comparison-dino {
+		margin-right: 20px;
+		font-size: 1.55rem;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&--comparison-human {
+		font-size: 1.55rem;
+		img {
+			width: 100%;
+		}
+	}
+
+	&--info-container {
+		font-family: font-name(elysio, light);
+		padding: 0 20px;
+			dt,dd {
+				font-size: 1.55rem;
+		}
+	}
+
+	&--content-container {
+		padding: 10px 20px 0 20px;
+	}
+
+	&--content-title {
+		margin-top: 40px;
+	}
+
+	&--taxonomy-container {
+		margin-bottom: 40px;
+		padding: 10px 20px 20px 20px;
+	}
+
+	&--taxonomy {
+		font-size: 1.3rem;
+	}
+
+	&--taxonomy-title {
+		margin-top: 20px;
+	}
+
+	&--list {
+
+		dt {
+			float: left;
+			margin: 0 5px 0 0;
+			font-weight: bold;
+		}
+	}
+}

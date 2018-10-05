@@ -1,0 +1,18 @@
+{
+  "jcr:primaryType": "dam:Asset",
+  "jcr:content": {
+    "jcr:primaryType": "dam:AssetContent",
+    "cq:name": "image.jpg",
+    "cq:parentPath": "/content/dam/nhmwww/images",
+    "dam:assetState": "processed",
+    "dam:relativePath": "nhmwww/images/image.jpg",
+    "metadata": {
+      "jcr:primaryType": "nt:unstructured",
+      "dam:Fileformat": "JPEG",
+      "dam:MIMEtype": "image/jpeg",
+      "dc:title": "Image Title",
+      "jcr:title": "Image Title",
+      "dc:format": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+.about-us {
+	.title-bar {
+		background-color: color-palette(about-us, base);
+	}
+
+	.GreyBox {
+		@extend %placeholder_greyBox;
+	}
+
+	h1 {
+		color: color-palette(about-us, base);
+	}
+
+	/** Moved from legacy mixin for WR-721 (merge legacy and refactored typography partials) **/
+	.intro-text {
+		color: color-palette(about-us, base);
+	}
+
+	.linklist--container--header {
+		a {
+			color: color-palette(about-us, base);
+		}
+	}
+
+	.linklist--link-items {
+		li {
+			a {
+				&:hover {
+					border-bottom-color: color-palette(about-us, base);
+				}
+			}
+		}
+	}
+
+	.linklist--column--header {
+		a {
+			color: color-palette(about-us, base);
+		}
+	}
+
+	/** enews signup form styles **/
+	.button__enews-signup {
+		background-color: color-palette(about-us, base);
+
+		&:hover {
+			background-color: color-palette(about-us, 75pc);
+		}
+
+		&:focus {
+			background-color: color-palette(about-us, 75pc);
+		}
+	}
+
+	.carousel {
+		.caption {
+			background-color: color-palette(about-us, 90pc);
+		}
+	}
+
+	.secondary-nav-wrapper {
+		.side-nav {
+			li {
+				background-color: color-palette(about-us, 10pc);
+
+				a {
+					color: color-palette(about-us, base);
+
+					&:hover {
+						color: color-palette(about-us, base);
+						background-color: color-palette(about-us, 25pc);
+					}
+
+					&:focus {
+						background-color: color-palette(about-us, 25pc);
+						color: color-palette(about-us, base);
+					}
+				}
+
+				&.selected {
+					background-color: color-palette(about-us, 25pc);
+
+					a {
+						color: color-palette(about-us, base);
+
+						&:hover {
+							color: color-palette(about-us, base);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Poss need to take info-tout and info-tout__action styles from fixes.scss. info-tout to be phased out in HTI */
+.about-us {
+	.ctabutton--inside-hti--cta-text {
+		color: color-palette(about-us, base);
+	}
+
+	.hti-box__feature-box {
+		background-color: color-palette(about-us, base);
+	}
+}
+
+// from legacy _components.scss
+.about-us a.promo-link {
+	color: $color--white;
+}
+
+/** WR-737 Moved from legacy mixin for Accordion component refactor **/
+.about-us {
+	.accordion .accordion-navigation,
+	.accordion dd {
+		& > a {
+			background-image: url("/etc/designs/nhmwww/img/png-icons/plus-about-us.png");
+
+			&:hover {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/plus-discover.png");
+			}
+		}
+
+		&.active {
+			& > a {
+				background-image: url("/etc/designs/nhmwww/img/png-icons/minus-about-us.png");
+
+				&:hover {
+					background-image: url("/etc/designs/nhmwww/img/png-icons/minus-discover.png");
+				}
+			}
+		}
+	}
+}
+
+/** WR-752 moved from legacy mixin for carousel component refactor **/
+.about-us {
+	.lSAction {
+		a:hover {
+			background-color: color-palette(about-us, 70pc);
+		}
+	}
+
+	.lSSlideOuter {
+		.lSPager {
+			&.lSpg > li {
+				&.active {
+					a {
+						border: 2px solid color-palette(about-us, base);
+					}
+				}
+			}
+		}
+	}
+
+	.event-slide-content {
+		background-color: $bg-color;
+
+		a {
+			color: color-palette(about-us, base);
+		}
+	}
+}

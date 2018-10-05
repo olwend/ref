@@ -1,0 +1,117 @@
+/** _REFACTOR-DIRECTORY-SEARCH-RESULTS-GRID, FORMERLY _SCIENCE-PROFILES-SEARCH-RESULTS.SCSS **/
+
+.directory-search-results--sort-results-up::after {
+	background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-up.png");
+	background-position: right center;
+	background-repeat: no-repeat;
+	content: " ";
+	display: inline-block;
+	height: 9px;
+	width: 15px;
+}
+
+.directory-search-results--sort-results-down::after {
+	background-image: url("/etc/designs/nhmwww/img/icons/directory-search-sort-arrow-down.png");
+	background-position: right center;
+	background-repeat: no-repeat;
+	content: " ";
+	display: inline-block;
+	height: 9px;
+	width: 15px;
+}
+
+.directory-search-results--table {
+	color: $color--black;
+	margin-bottom: 2em;
+
+	.row {
+		margin-bottom: 0;
+
+		@media screen and (min-width: $breakpoint--tablet__portrait) {
+			width: 98%;
+		}
+
+		@media screen and (min-width: $breakpoint--tablet__landscape) {
+			width: 100%;
+		}
+
+		.row {
+			margin: 0;
+
+			@media screen and (min-width: $breakpoint--tablet__portrait) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.directory-search-results--row {
+	padding: $padding-TB $padding-RL $padding-TB $padding-TB;
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		padding: 2.2em;
+	}
+
+	background-color: color-palette(grey-color, light);
+	border-bottom: 1px solid $color--white;
+	font-size: 1em;
+}
+
+.directory-search-results--row-header {
+	cursor: pointer;
+	font-family: font-name(elysio, regular);
+	font-size: 0.9em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1em;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		font-size: 1.2em;
+	}
+}
+
+.directory-search-results--row-content {
+	padding-right: 0.9em;
+	color: color-palette(grey-color, dark);
+	font-size: 0.95em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 0.9em;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__landscape) {
+		font-size: 1em;
+	}
+}
+
+.directory-search-results--row-content--name {
+	font-size: 1.2em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-size: 1em;
+	}
+}
+
+.directory-search-results--row-content--job-title {
+	font-family: font-name(elysio, regular);
+	font-size: 1.25em;
+	line-height: 1.2em;
+	margin-bottom: 0.5em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-family: font-name(arial);
+		font-size: 1em;
+	}
+}
+
+.directory-search-results--row-content--label {
+	font-weight: bold;
+	float: left;
+	margin-right: 0.25em;
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		font-weight: normal;
+		float: none;
+	}
+}

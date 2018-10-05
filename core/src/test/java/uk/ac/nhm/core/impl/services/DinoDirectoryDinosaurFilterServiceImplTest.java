@@ -4,8 +4,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertEquals;
 
+import org.hamcrest.text.MatchesPattern;
+
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.sling.testing.mock.osgi.junit.OsgiContext;
 import org.junit.Before;
@@ -54,10 +57,10 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		//Body shape
 		title = service.getTitle("body-shapes", "large-theropod");
-		assertEquals(title, "Large Theropod dinosaurs");
+		assertEquals(title, "Large Theropods");
 
 		title = service.getTitle("body-shapes", "sauropod");
-		assertEquals(title, "Sauropod dinosaurs");
+		assertEquals(title, "Sauropods");
 
 		//Country
 		title = service.getTitle("countries", "North%20Africa");
@@ -65,7 +68,7 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		title = service.getTitle("countries", "England");
 		assertEquals(title, "Dinosaurs in England");
-		
+
 		title = service.getTitle("countries", "usa");
 		assertEquals(title, "Dinosaurs in USA");
 
@@ -84,25 +87,30 @@ public class DinoDirectoryDinosaurFilterServiceImplTest {
 
 		//Body shape
 		description = service.getDescription("body-shapes", "large-theropod", BASE_URL);
-		assertEquals(description, "Large carnivores that walked on 2 legs.");
+		assertEquals(description, "Large carnivores that walked on two legs.");
 
 		//Country
-		description = service.getDescription("countries", "North%20Africa", BASE_URL);
-		assertEquals(description, "1 dinosaur found in North Africa");
-
+		Pattern countryPatternMultiple = Pattern.compile("^\\d+ dinosaurs found in England");
 		description = service.getDescription("countries", "England", BASE_URL);
-		assertEquals(description, "22 dinosaurs found in England");
+		assertThat(description, MatchesPattern.matchesPattern(countryPatternMultiple));
 
+		Pattern countryPatternSingle = Pattern.compile("^\\d+ dinosaur found in North Africa");
+		description = service.getDescription("countries", "North%20Africa", BASE_URL);
+		assertThat(description, MatchesPattern.matchesPattern(countryPatternSingle));
+		
 		//Initial
+		Pattern initialPatternMultiple = Pattern.compile("^\\d+ dinosaurs beginning with A");
 		description = service.getDescription("initials", "a", BASE_URL);
-		assertEquals(description, "40 dinosaurs beginning with A");
+		assertThat(description, MatchesPattern.matchesPattern(initialPatternMultiple));
 
+		Pattern initialPatternSingle = Pattern.compile("^\\d+ dinosaur beginning with Q");
 		description = service.getDescription("initials", "q", BASE_URL);
-		assertEquals(description, "1 dinosaur beginning with Q");
+		assertThat(description, MatchesPattern.matchesPattern(initialPatternSingle));
 
 		//Period
+		Pattern periodPattern = Pattern.compile("^\\(\\d+ to \\d+ million years ago\\)<br>\\d+ dinosaurs from the Late Jurassic");
 		description = service.getDescription("periods", "late-jurassic", BASE_URL);
-		assertEquals(description, "(159 to 144 million years ago)<br>46 dinosaurs from the Late Jurassic");
+		assertThat(description, MatchesPattern.matchesPattern(periodPattern));
 	}
 
 }

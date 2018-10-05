@@ -41,6 +41,11 @@
 			                    	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" 
 			                    	rootPath="/content/dam/nhmwww" 
 			                    	required="{Boolean}true"/>
+			                    <imagealttext
+			                    	jcr:primaryType="nt:unstructured"
+			                    	fieldLabel="Image alt text"
+			                    	name="./imagealttext"
+			                    	sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
 			                    <title
 			                    	jcr:primaryType="nt:unstructured"
 			                    	fieldLabel="Title"

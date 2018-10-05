@@ -16,11 +16,13 @@
 </sly>
 
 <div class="dinosaurnav--categories-container">
-	<img class="dinosaurnav--categories-container-icon dinosaurnav--icon-expand js-dinosaurnav--categories-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
-	 alt="Expand the dinosaur category options" />
-	<img class="dinosaurnav--categories-container-icon dinosaurnav--icon-contract js-dinosaurnav--categories-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
-	 alt="Close the dinosaur category options" />
-	<p class="dinosaurnav--description">Explore dinosaurs by:</p>
+	<div class="dinosaurnav--description-container js-dinosaurnav--description-container">
+		<img class="dinosaurnav--categories-container-icon dinosaurnav--icon-expand js-dinosaurnav--categories-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
+		alt="Expand the dinosaur category options" />
+		<img class="dinosaurnav--categories-container-icon dinosaurnav--icon-contract js-dinosaurnav--categories-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
+		alt="Close the dinosaur category options" />
+		<button class="dinosaurnav--description dinosaurnav--button" aria-label="Toggle dinosaur categories on mobile">Explore dinosaurs by:</button>
+	</div>
 
 	<div class="dinosaurnav--categories">
 		<div class="dinosaurnav--category-title-container js-dinosaurnav--category-control">
@@ -28,7 +30,7 @@
 			 alt="Expand the dinosaur A-Z category" />
 			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
 			 alt="Close the dinosaur A-Z category" />
-			<p class="dinosaurnav--category-title">Name (A-Z)</p>
+			<button class="dinosaurnav--category-title dinosaurnav--button" aria-label="Toggle dinosaur by name category">Name (A-Z)</button>
 		</div>
 		<div class="dinosaurnav--category dinosaurnav--category-az js-dinosaurnav--category">
 			<div class="dinosaurnav--category-list">
@@ -54,7 +56,6 @@
 				<a href="/content/nhmwww/en/home/discover/dino-directory/name/t/gallery.html"><div class="dinosaurnav--category-list-link">T</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/name/u/gallery.html"><div class="dinosaurnav--category-list-link">U</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/name/v/gallery.html"><div class="dinosaurnav--category-list-link">V</div></a>
-				<a href="/content/nhmwww/en/home/discover/dino-directory/name/w/gallery.html"><div class="dinosaurnav--category-list-link">W</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/name/y/gallery.html"><div class="dinosaurnav--category-list-link">Y</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/name/z/gallery.html"><div class="dinosaurnav--category-list-link">Z</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/name/name-az-all.html"><div class="dinosaurnav--category-list-link">All</div></a>
@@ -66,7 +67,7 @@
 			 alt="Expand the dinosaur time period category" />
 			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
 			 alt="Close the dinosaur time period category" />
-			<p class="dinosaurnav--category-title">When they lived</p>
+			<button class="dinosaurnav--category-title dinosaurnav--button" aria-label="Toggle dinosaur by time period category">When they lived</button>
 		</div>
 		<div class="dinosaurnav--category dinosaurnav--category-timeperiod js-dinosaurnav--category">
 			<div class="dinosaurnav--category-list">
@@ -84,7 +85,7 @@
 			 alt="Expand the dinosaur country category" />
 			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
 			 alt="Close the dinosaur country category" />
-			<p class="dinosaurnav--category-title">Country</p>
+			<button class="dinosaurnav--category-title dinosaurnav--button" aria-label="Toggle dinosaur by country category">Country</button>
 		</div>
 		<div class="dinosaurnav--category dinosaurnav--category-country js-dinosaurnav--category">
 			<div class="dinosaurnav--category-list">
@@ -132,17 +133,16 @@
 
 		<div class="dinosaurnav--category-title-container js-dinosaurnav--category-control">
 			<img class="dinosaurnav--category-icon dinosaurnav--icon-expand js-dinosaurnav--category-expand" src="/etc/designs/nhmwww/img/png-icons/dinonav-open.png"
-			 alt="Expand the dinosaur bodytype category" />
+			 alt="Expand the type of dinosaur category" />
 			<img class="dinosaurnav--category-icon dinosaurnav--icon-contract js-dinosaurnav--category-contract" src="/etc/designs/nhmwww/img/png-icons/dinonav-close.png"
-			 alt="Close the dinosaur bodytype category" />
-			<p class="dinosaurnav--category-title">Body shape</p>
+			 alt="Close the type of dinosaur category" />
+			<button class="dinosaurnav--category-title dinosaurnav--button" aria-label="Toggle dinosaur by body shape category">Type of dinosaur</button>
 		</div>
 		<div class="dinosaurnav--category dinosaurnav--category-bodytype js-dinosaurnav--category">
 			<div class="dinosaurnav--category-list">
-				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ankylosaurid/gallery.html"><div class="dinosaurnav--category-list-link">Ankylosaurid</div></a>
-				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ceratopian/gallery.html"><div class="dinosaurnav--category-list-link">Ceratopian</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/armoured-dinosaur/gallery.html"><div class="dinosaurnav--category-list-link">Armoured dinosaurs</div></a>
+				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ceratopsian/gallery.html"><div class="dinosaurnav--category-list-link">Ceratopsian</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/euornithopod/gallery.html"><div class="dinosaurnav--category-list-link">Euornithopod</div></a>
-				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/ornithomimosaur/gallery.html"><div class="dinosaurnav--category-list-link">Ornithomimosaur</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/sauropod/gallery.html"><div class="dinosaurnav--category-list-link">Sauropod</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/large-theropod/gallery.html"><div class="dinosaurnav--category-list-link">Large theropod</div></a>
 				<a href="/content/nhmwww/en/home/discover/dino-directory/body-shape/small-theropod/gallery.html"><div class="dinosaurnav--category-list-link">Small theropod</div></a>

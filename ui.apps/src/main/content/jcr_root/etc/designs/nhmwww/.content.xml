@@ -11,19 +11,19 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]" />
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]" />
         </nhmpage>
         <nhmpagenotitlebar jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]" />
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]" />
         </nhmpagenotitlebar>
         <immersivepage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
             </par>
         </immersivepage>
         <articlepage jcr:primaryType="nt:unstructured">
@@ -36,23 +36,46 @@
            		<par
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="foundation/components/parsys" 
-           			components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]"/>
+           			components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]"/>
                 <socialsharefooter
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/socialshare" />
            		<ctapar
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="foundation/components/parsys"
-           			components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]" />
+           			components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]" />
            		<socialsignup
            			jcr:primaryType="nt:unstructured"
            			sling:resourceType="nhmwww/components/functional/social-signup" />
            		<relatedpar
 	                jcr:primaryType="nt:unstructured"
 	                sling:resourceType="foundation/components/parsys"
-	                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]" />  
+	                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]" />  
            	</article>
         </articlepage>
+        <imagepage jcr:primaryType="nt:unstructured">
+           	<imagepage
+           		jcr:primaryType="nt:unstructured"
+           		sling:resourceType="nhmwww/components/functional/imagepage/imagepage"> 
+           		<socialshareheader
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<par
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="foundation/components/parsys" 
+           			components="[group:NHM - image page]"/>
+                <socialsharefooter
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/socialshare" />
+           		<socialsignup
+           			jcr:primaryType="nt:unstructured"
+           			sling:resourceType="nhmwww/components/functional/social-signup" />
+           		<relatedpar
+	                jcr:primaryType="nt:unstructured"
+	                sling:resourceType="foundation/components/parsys"
+	                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]" />  
+           	</imagepage>
+        </imagepage>
         <page-home jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
@@ -99,7 +122,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                 <row2cells21
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/row2cells21"/>
@@ -116,14 +139,14 @@
             <content-panel
             	jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
             </content-panel>
         </dynamicapppage>
         <landingpage jcr:primaryType="nt:unstructured">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                 <herosection
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/herosection">
@@ -151,7 +174,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                 <rowfullwidth
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/rowfullwidth">
@@ -178,7 +201,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                 <herosection
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/layout/herosection">
@@ -213,7 +236,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                 <hero
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="nhmwww/components/functional/hero"/>
@@ -223,7 +246,7 @@
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                        components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par>
                 </row2cells12>
@@ -240,7 +263,7 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[/apps/nhmwww/components/functional/eventcalendar,group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[/apps/nhmwww/components/functional/eventcalendar,group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                 <eventcalendar jcr:primaryType="nt:unstructured"
                            sling:resourceType="nhmwww/components/functional/eventcalendar"/>
                 <rowfullwidth
@@ -249,7 +272,7 @@
                     <par2
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[/apps/nhmwww/components/functional/nhm-carousel,group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                        components="[/apps/nhmwww/components/functional/nhm-carousel,group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                         <nhm_carousel
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="nhmwww/components/functional/nhm-carousel"/>
@@ -259,26 +282,26 @@
             <par-below 
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
             </par-below>
         </eventcalendarpage>
         <eventdetailpage jcr:primaryType="nt:unstructured">
             <parentpar
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"
-                components="[group:General,group:Columns,group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                components="[group:General,group:Columns,group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                  <section jcr:primaryType="nt:unstructured"/>
                  <row2cells21 jcr:primaryType="nt:unstructured">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[group:General,group:Columns,group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                        components="[group:General,group:Columns,group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par>
                     <par2
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="foundation/components/parsys"
-                        components="[group:General,group:Columns,group:NHM - layout,group:NHM - components,group:NHM - dino directory]">
+                        components="[group:General,group:Columns,group:NHM - layout,group:NHM - components,group:NHM - dino directory,group:NHM - fragments,]">
                         <section jcr:primaryType="nt:unstructured"/>
                     </par2>
                 </row2cells21>

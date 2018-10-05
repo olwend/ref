@@ -1,0 +1,70 @@
+/** this makes the title bar flush with screen edge, keeps gutter for content. **/
+.title {
+	.row.title-bar {
+		width: 100%;
+	}
+}
+
+.row.title-bar.title-bar__margin-bottom {
+	margin-bottom: 1.2em;
+}
+
+.template--content-page {
+	.title-bar {
+		margin-bottom: 1.2em;
+	}
+}
+
+.template--science-profiles-detail-page {
+	.title-bar {
+		margin-bottom: 1.2em;
+	}
+}
+
+.template--eventcalendar-detail-page {
+	.title-bar {
+		margin-bottom: 1.2em;
+	}
+}
+
+.title .social-share--container {
+	@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+		align-items: flex-end;
+	}
+}
+
+.title .social-share--container .social-share--title {
+	display: none;
+
+	@media screen and (min-width: $breakpoint--phone-wide__landscape) {
+		display: block;
+		margin-top: 8px;
+	}
+}
+
+.title-bar {
+	padding: ($padding-TB / 2) ($padding-RL / 2);
+	margin-top: 0;
+	margin-bottom: 0;
+
+	//TODO: remove dependency on h1 and h2 element (rename to class)
+	h1 {
+		padding: 0;
+		color: $color--white !important;
+	}
+
+	p {
+		color: $color--white;
+		font-family: font-name(elysio, light);
+		margin: 0;
+		padding: 0;
+	}
+
+	@media screen and (min-width: $breakpoint--tablet__portrait) {
+		padding: $padding-TB $padding-RL;
+
+		p {
+			font-size: 1.25em;
+		}
+	}
+}

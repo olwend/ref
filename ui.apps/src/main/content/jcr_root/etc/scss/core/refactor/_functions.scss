@@ -1,0 +1,34 @@
+// function to check values set using Sass Maps
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+
+		@if type-of($map) == "null" {
+			@return $map;
+		}
+	}
+
+	@return $map;
+}
+
+// function for setting colour palette variables
+@function color-palette($keys...) {
+	$color: map-deep-get($color-palette, $keys...);
+
+	@if not $color {
+		@warn "Could not find color: #{$keys}";
+	}
+
+	@return $color;
+}
+
+// function for setting font variables
+@function font-name($keys...) {
+	$font: map-deep-get($font-name, $keys...);
+
+	@if not $font {
+		@warn "Could not find font: #{$keys}";
+	}
+
+	@return $font;
+}

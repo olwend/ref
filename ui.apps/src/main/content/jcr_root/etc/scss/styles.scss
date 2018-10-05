@@ -1,0 +1,320 @@
+/*
+STYLESHEET COMPILED USING SASS
+CSS files should not be edited directly, as those edits will be overridden next time SASS is compiled.
+*/
+@import 'foundation/refactor/settings-overrides';
+@import 'core/refactor/functions';
+@import 'core/legacy/variables';
+@import 'core/refactor/variables';
+@import 'core/refactor/maps';
+
+@import 'core/legacy/mixins';
+@import 'core/refactor/mixins';
+
+@import 'theme/legacy/home';
+@import 'theme/legacy/visit';
+@import 'theme/legacy/take-part';
+@import 'theme/legacy/about-us';
+@import 'theme/legacy/schools';
+@import 'theme/legacy/our-science';
+@import 'theme/legacy/support-us';
+@import 'theme/legacy/discover';
+@import 'theme/legacy/press-office';
+@import 'theme/legacy/working';
+@import 'theme/legacy/business-services';
+@import 'theme/legacy/contact-us';
+@import 'theme/legacy/shop';
+@import 'theme/legacy/account';
+
+/** LEGACY LAYOUT PARTIAL **/
+@import 'layout/legacy/layout';
+
+/** LEGACY UTILITIES PARTIAL **/
+@import 'core/legacy/utilities';
+
+/** LEGACY MISC PARTIAL **/
+@import 'core/legacy/misc';
+
+/** LEGACY ARROW PARTIAL **/
+@import 'components/legacy/arrow';
+
+/** LEGACY BOTTOM-BANNER PARTIAL **/
+@import 'components/legacy/bottom-banner';
+
+/** LEGACY CAROUSEL PARTIAL **/
+@import 'components/legacy/carousel';
+
+/** LEGACY IMAGE-INFO PARTIAL **/
+@import 'components/legacy/image-info';
+
+/** LEGACY LINK-WITH-ICON PARTIAL **/
+@import 'components/legacy/link-with-icon';
+
+/** LEGACY SECTION-LINK PARTIAL **/
+@import 'components/legacy/section-link';
+
+/** LEGACY HERO PARTIAL **/
+@import 'components/legacy/hero';
+
+/** LEGACY 3-CTA-GROUP PARTIAL **/
+@import 'components/legacy/3-cta-group';
+
+/** LEGACY CTABUTTON PARTIAL **/
+@import 'components/legacy/ctabutton';
+
+/** LEGACY QUOTE SLIDER PARTIAL **/
+@import 'components/legacy/quote-slider';
+
+/** LEGACY FEATURE-COMPONENT PARTIAL **/
+@import 'components/legacy/feature-component';
+
+/** LEGACY FEED-ENTRY PARTIAL **/
+@import 'components/legacy/feed-entry';
+
+/** LEGACY SHOP-ENTRY PARTIAL **/
+@import 'components/legacy/shop-entry';
+
+/** LEGACY HEADERTEXTIMAGE PARTIAL **/
+@import 'components/legacy/headertextimage';
+
+/** LEGACY ASIDEBOX PARTIAL **/
+@import 'components/legacy/asidebox';
+
+/** LEGACY IFRAME PARTIAL **/
+@import 'components/legacy/iframe';
+
+/** LEGACY IMAGE COMPONENT PARTIAL (WR-792) **/
+@import 'components/legacy/image-component';
+
+/** LEGACY TITLE-BAR PARTIAL **/
+@import 'components/legacy/title-bar';
+
+/** LEGACY DISCOVER-PUBLICATION **/
+@import 'components/legacy/discover-publication';
+
+/** JQUERY DATEPICKER (VENDOR) PARTIAL NHMEC-5**/
+@import 'components/vendor/jquery-datepicker';
+
+/** LEGACY LIGHTSLIDER (VENDOR) PARTIAL **/
+@import 'components/vendor/lightslider';
+
+/** LEGACY LIGHTSLIDER (CUSTOM) PARTIAL **/
+@import 'components/legacy/lightslider';
+
+/** LEGACY SEARCH RESULTS PARTIAL (RENAMED FROM _SEARCH-RESULTS.SCSS) **/
+@import 'components/legacy/google-search-results';
+
+/** LEGACY ARCHIVESSEARCH PARTIAL (MOVED IN FROM AEM) **/
+@import 'components/legacy/aem-includes/archivessearch';
+
+/** LEGACY PROFILES PARTIAL **/
+@import 'components/legacy/science-profiles';
+
+/** LEGACY VIDEO PARTIAL **/
+@import 'components/legacy/video';
+
+/** REFACTOR-BASE PARTIAL **/
+@import 'base/refactor/base';
+
+/** REFACTOR BREADCRUMB PARTIAL **/
+@import 'components/refactor/breadcrumb';
+
+/** REFACTOR-TYPOGRAPHY PARTIAL **/
+@import 'base/refactor/typography';
+
+/** REFACTOR UTILITIES PARTIAL **/
+@import 'core/refactor/utilities';
+
+/** REFACTOR-PLACEHOLDERS PARTIAL **/
+@import 'core/refactor/placeholders';
+
+/** REFACTOR-LAYOUT PARTIAL **/
+@import 'layout/refactor/layout';
+
+/** ARTICLE TEMPLATE PARTIAL **/
+@import 'layout/refactor/article';
+
+/** REFACTOR-HERO PARTIAL **/
+@import 'layout/refactor/herosection';
+
+/** IMMERSIVE HEADER PARTIAL **/
+@import 'layout/refactor/immersiveheader';
+
+/** IMMERSIVE FOOTER PARTIAL **/
+@import 'layout/refactor/immersivefooter';
+
+/** REFACTOR-ACCORDION PARTIAL **/
+@import 'components/refactor/accordion';
+
+@import 'components/refactor/article-feed';
+
+@import 'components/refactor/featuredarticle';
+
+/** BIG SPLASH PARTIAL **/
+@import 'components/refactor/big-splash';
+
+/** REFACTOR-BOTTOM-BANNER PARTIAL **/
+@import 'components/refactor/bottom-banner';
+
+/** REFACTOR-CAROUSEL PARTIAL **/
+@import 'components/refactor/nhm-carousel';
+
+/** REFACTOR-CTABUTTON PARTIAL **/
+@import 'components/refactor/ctabutton';
+
+@import 'components/refactor/content-fragment';
+
+/** WR-1079 REIMPLEMENT COOKIE-BAR **/
+@import 'components/refactor/cookie-bar';
+
+/** DINOSAUR FILTER PAGE **/
+@import 'components/refactor/dinosaurfilter';
+
+/** WR-1213 SINGLE DINO PAGE **/
+@import 'components/refactor/dinosaur';
+
+/** DINOSAUR NAVIGATION **/
+@import 'components/refactor/dinosaurnav';
+
+/** DINOSAUR SEARCH RESULTS **/
+@import 'components/refactor/dinosaursearchresults';
+
+/** SCIENCE PROFILES DIRECTORY SEARCH PARTIAL **/
+@import 'components/refactor/directory-search';
+
+/** SCIENCE PROFILES SEARCH RESULTS PARTIAL **/
+@import 'components/refactor/directory-search-results-grid';
+
+/** REFACTOR-DISCOVER-ELEMENT PARTIAL **/
+@import 'components/refactor/discover-element';
+
+/** REFACTOR-DISCOVER-RELATED PARTIAL **/
+@import 'components/refactor/discover-related';
+
+/** REFACTOR-DISCOVER-PUBLICATION PARTIAL **/
+@import 'components/refactor/discover-publication';
+
+/** EVENT CALENDAR COMPONENT PARTIAL NHMEC-5**/
+@import 'components/refactor/event-calendar-component';
+
+/** EVENT INFORMATION COMPONENT PARTIAL NHMEC-7**/
+@import 'components/refactor/event-information-component';
+
+/** NHMEC-52: EVENT SCHEDULE PARTIAL **/
+@import 'components/refactor/event-schedule';
+
+/** REFACTOR-EVENT-SLIDER PARTIAL **/
+@import 'components/refactor/event-slider';
+
+/** NHMEC-6: EVENTS CALENDAR SEARCH RESULTS PARTIAL **/
+@import 'components/refactor/events-calendar-search-results';
+
+/** REFACTOR-EVENTS-SUMMARY **/
+@import 'components/refactor/events-summary';
+
+/** REFACTOR-HTI-FEATUREBOX PARTIAL **/
+@import 'components/refactor/hti-featurebox';
+
+/** IMAGE AND CTA PARTIAL NHMEC-8 **/
+@import 'components/refactor/image-and-cta';
+
+/** IMAGE-PAGE**/
+@import 'components/refactor/imagepage';
+
+/** REFACTOR MAP **/
+@import 'components/refactor/map';
+
+/** REFACTOR-MEGAMENU PARTIAL **/
+@import 'components/refactor/megamenu';
+
+/** REFACTOR-FOOTER PARTIAL **/
+@import 'components/refactor/footer';
+
+@import 'components/refactor/feed-component';
+
+/** GRAND SUMMARY PARTIAL **/
+@import 'components/refactor/grand-summary';
+
+/** GRAND SUMMARY CTABUTTON PARTIAL **/
+@import 'components/refactor/grandsummary-ctabutton';
+
+/** HEADERTEXTIMAGE (ORIGINAL AEM INCLUDE) PARTIAL **/
+@import 'components/legacy/aem-includes/headertextimage';
+
+/** HEADERTEXTIMAGE PARTIAL (FORMERLY HTI-UPDATE) **/
+@import 'components/refactor/headertextimage';
+
+/** LINK LIST PARTIAL **/
+@import 'components/refactor/link-list';
+
+@import 'components/refactor/more-results';
+
+/** SECONDARY NAV PARTIAL **/
+@import 'components/refactor/secondary-nav';
+
+/** SCIENCE PROFILES DETAIL PAGE PARTIAL **/
+@import 'components/refactor/science-profiles-detail-page';
+
+/** REFACTOR-SPONSORS-GRID PARTIAL **/
+@import 'components/refactor/sponsors-grid';
+
+/** REFACTOR-TITLE-BAR PARTIAL **/
+@import 'components/refactor/title-bar';
+
+/** REFACTOR-TEXT-COMPONENT PARTIAL **/
+@import 'components/refactor/text-component';
+
+/** WR-638 enews signup component **/
+@import 'components/refactor/enews-signup';
+
+/** WR-1087 social share component **/
+@import 'components/refactor/social-share';
+
+/** WR-1023 social signup component **/
+@import 'components/refactor/social-signup';
+
+/** WR-707 - fix positioning of events calendar search button **/
+@import 'components/refactor/events-calendar-search';
+
+@import 'components/refactor/q-and-a-hub';
+
+@import 'components/refactor/q-and-a-single';
+
+/** ABOUT-US THEME PARTIAL **/
+@import 'theme/refactor/about-us';
+
+/** ACCOUNT THEME PARTIAL **/
+@import 'theme/refactor/account';
+
+/** BUSINESS-SERVICES THEME PARTIAL **/
+@import 'theme/refactor/business-services';
+
+/** CONTACT-US THEME PARTIAL **/
+@import 'theme/refactor/contact-us';
+
+/** DISCOVER THEME PARTIAL **/
+@import 'theme/refactor/discover';
+
+/** HOME THEME PARTIAL **/
+@import 'theme/refactor/home';
+
+/** OUR-SCIENCE THEME PARTIAL **/
+@import 'theme/refactor/our-science';
+
+/** PRESS OFFICE THEME PARTIAL **/
+@import 'theme/refactor/press-office';
+
+/** SCHOOLS THEME PARTIAL **/
+@import 'theme/refactor/schools';
+
+/** SEARCH THEME PARTIAL **/
+@import 'theme/refactor/search';
+
+/** SUPPORT-US THEME PARTIAL **/
+@import 'theme/refactor/support-us';
+
+/** TAKE-PART THEME PARTIAL **/
+@import 'theme/refactor/take-part';
+
+/** VISIT THEME PARTIAL **/
+@import 'theme/refactor/visit';

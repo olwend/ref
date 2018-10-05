@@ -1,0 +1,78 @@
+// from legacy _components.scss
+// unclear if this is used
+.quote-slider-bar {
+	display: none;
+	color: $link-color;
+	text-align: center;
+
+	.quote-slider-wrap {
+		margin: auto;
+		padding: 70px 0 60px;
+		max-width: 1000px;
+		overflow: hidden;
+		position: relative;
+
+		ul {
+			margin-bottom: 0;
+		}
+		li {
+			position: relative;
+		}
+		blockquote {
+			position: relative;
+			width: 88%;
+			border: 0;
+			margin: 0 auto;
+			padding: 0 6%;
+
+			.ico {
+				position: absolute;
+				display: block;
+				content: "";
+				width: 54px;
+				height: 41px;
+			}
+			.ico-before {
+				top: -50px;
+				left: -3%;
+        @include respond-min($tablet){
+        	top: 8px;
+        	left: 0;
+        }
+      }
+      .ico-after {
+      	bottom: -41px;
+      	right: -3%;
+        @include respond-min($tablet){
+        	top: 8px;
+        	bottom: auto;
+        	right: 0;
+        }
+      }
+      p {
+      	color: $link-color;
+      	font-family: $fontthin;
+      	font-size: 50px;
+      	line-height: 1.2;
+      	margin-bottom: 0.2em;
+      }
+      cite {
+      	color: $link-color;
+      	font-family: $fontregular;
+      	font-size: 18px;
+      	font-style: normal;
+      	&:before {
+      		content: "";
+      	}
+      }
+      @include respond-min($desktop){
+      	width: 100%;
+      	margin: 0;
+      	padding: 0;
+      }
+    }
+  }
+  @include respond-min($tablet){
+  	display: block;
+  }
+}

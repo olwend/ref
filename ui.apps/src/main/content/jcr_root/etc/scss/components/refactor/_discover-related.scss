@@ -1,0 +1,62 @@
+.discoverrelated {
+	background-color: $color--white;
+	margin: 0 20px;
+
+	.discover {
+		.discover-related {
+
+			&--title {
+				padding: 0 20px;
+				}
+
+			&--read-more-link {
+				text-align: center;
+				margin-bottom: 0.5rem;
+				font-family: font-name(elysio, light);
+
+				a {
+					color: color-palette(grey-color, dark);
+					border: 5px solid color-palette(grey-color, mid-light);
+					padding: 10px 10px 5px 10px;
+					font-size: 1.2rem;
+
+					&:hover {
+						background-color: color-palette(grey-color, mid-light);
+						text-decoration: none;
+					}
+
+					&:active {
+						border: 5px solid color-palette(grey-color, dark);
+						background-color: color-palette(grey-color, dark);
+						color: $color--white;
+					}
+
+					&:focus {
+						border: 5px solid color-palette(grey-color, dark);
+					}
+				}
+			}
+		}
+
+
+		.discover-element-wrapper {
+			position: relative;
+		}
+
+		.discover-element {
+			margin-bottom: 0;
+		}
+
+		.discover-element-text {
+			padding: $padding-TB 20px;
+
+		.element-title {
+				font-weight: bold;
+		}
+
+			p {
+				font-size: 1em;
+			}
+		}
+	}
+}

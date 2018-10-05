@@ -103,6 +103,12 @@
 		                        fieldLabel="Keywords"
 		                        name="./keywords"
 		                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield" />
+                           <hideFromSearch
+	                   		jcr:primaryType="nt:unstructured"
+							text="Hide from event search"
+							name="./hideFromSearch"
+							sling:resourceType="granite/ui/components/foundation/form/checkbox" 
+							value="{Boolean}true" />
 		                    <fieldset
 		                        jcr:primaryType="nt:unstructured"
 		                        jcr:title="Dates"
@@ -393,6 +399,7 @@
 								fieldDescription="Hidden field for image upload resource type" />
 		                    <image
 		                       jcr:primaryType="nt:unstructured"
+		                       allowUpload="{Boolean}false"
 		                       autoStart="{Boolean}false"
 		                       class="cq-droptarget"
 		                       fieldLabel="Image asset"
