@@ -29,6 +29,11 @@
                     jcr:primaryType="cq:Widget"
                     path="/apps/nhmwww/components/page/eventdetailpage/tab_science.infinity.json"
                     xtype="cqinclude"/>
+                <titlebar	
+          	        jcr:primaryType="cq:Widget"
+                    path="/apps/nhmwww/components/page/exhibitiondetailspage/tab_titlebar.infinity.json"
+                    xtype="cqinclude"/>
+                	
             </items>
         </tabs>
     </items>

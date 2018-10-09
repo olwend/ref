@@ -7,10 +7,12 @@
        %> <cq:includeClientLib categories="nhmwww.eventdetailpageconfig"/><%
     }
 %>
-<div class="main-section"> 
+<div class="main-section">
+<%if(properties.get("hideTitleBar") == null) { %> 
 	<div class="small-12 large-text-left columns">
 			<cq:include path="title" resourceType="nhmwww/components/functional/title"/>
 	</div>
+<%} %>
 	<%-- <cq:include path="title" resourceType="nhmwww/components/functional/title" />--%>
 	<cq:include path="par" resourceType="foundation/components/parsys" />
 </div>
